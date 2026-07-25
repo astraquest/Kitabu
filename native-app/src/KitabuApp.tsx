@@ -698,6 +698,7 @@ function renderScreen(
           mascotKey={state.activeMascotKey}
           progress={state.quizGenerationProgress}
           error={state.quizGenerationError}
+          subjectOptions={state.quizMeSubjectOptions}
           strandsBySubject={state.quizMeStrandsBySubject}
           subStrandsByStrand={state.quizMeSubStrandsByStrand}
           onBack={actions.goHome}

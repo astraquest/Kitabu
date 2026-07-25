@@ -1027,6 +1027,8 @@ const ONBOARDING_SUBJECT_ID_ALIASES: Record<string, string> = {
   Environmental: 'environmental',
   CRE: 'cre',
   IRE: 'ire',
+  HRE: 'hre',
+  'Indigenous Languages': 'indigenous_languages',
   'Hygiene and Nutrition': 'hygiene_nutrition',
   'Creative Activities': 'creative_activities',
 };

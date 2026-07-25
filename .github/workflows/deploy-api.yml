@@ -116,6 +116,13 @@ jobs:
           docker compose run --rm -T api node scripts/apply-migrations.mjs </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs --dry-run </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 1 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 1 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 2 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 2 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 3 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 3 </dev/null
+          echo LOWER_PRIMARY_REPAIR_COMPLETE
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-4 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-5 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-6 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-7 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-8 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-9 </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-10 </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-11 </dev/null

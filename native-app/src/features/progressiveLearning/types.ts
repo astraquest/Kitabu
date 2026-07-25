@@ -205,7 +205,11 @@ export type LearningPathNode = {
   objective: string;
   estimatedMinutes: number;
   position: number;
+  strandId?: string;
+  strandNumber?: string;
   strandTitle?: string;
+  subStrandId?: string;
+  subStrandNumber?: string;
   status: 'completed' | 'current' | 'locked' | 'needs_practice';
   bestScore: number | null;
   attemptCount: number;
@@ -215,6 +219,7 @@ export type LearningPathNode = {
 export type SubjectLearningPath = {
   subjectId: string;
   subjectName: string;
+  subjectOfficialName?: string;
   grade: string;
   title: string;
   description: string;

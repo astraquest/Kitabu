@@ -666,12 +666,16 @@ export async function extractCurriculumFromPdfData(
     subStrands: Array<{
       number?: string;
       title: string;
+      topics?: Array<{ code?: string; title: string; description?: string }>;
       outcomes?: Array<{ id?: string; text: string } | string>;
       inquiryQuestions?: Array<{ id?: string; text: string } | string>;
     }>;
   }> | null
 > {
-  const prompt = `Analyze the attached curriculum PDF and extract strands and sub-strands.
+  const prompt = `Analyze the attached curriculum PDF and extract strands, sub-strands, and explicitly listed child topics.
+
+Keep strand and sub-strand titles canonical and concise. Do not append outcomes,
+activities, content bullets, or child topics to a title. Preserve the source language.
 
 Return JSON with this shape:
 [
@@ -682,6 +686,7 @@ Return JSON with this shape:
       {
         "number": "1.1",
         "title": "Sub-strand",
+        "topics": [{ "code": "1.1.1", "title": "Child topic" }],
         "outcomes": ["Outcome"],
         "inquiryQuestions": ["Question"]
       }

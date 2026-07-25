@@ -39,6 +39,14 @@ const SUBJECT_ICONS: Record<
   social: Globe,
   agriculture: Sprout,
   creative_arts: Palette,
+  creative_activities: Palette,
+  environmental: Sprout,
+  mathematics: Calculator,
+  cre: BookOpen,
+  ire: BookOpen,
+  hre: BookOpen,
+  indigenous_languages: Languages,
+  hygiene_nutrition: Sprout,
   ai_education: Bot,
 };
 

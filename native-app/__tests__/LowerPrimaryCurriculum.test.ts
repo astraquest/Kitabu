@@ -10,7 +10,7 @@ describe('Lower Primary curriculum availability', () => {
     expect(SUPPORTED_GRADES.slice(0, 4)).toEqual(['Grade 1', 'Grade 2', 'Grade 3', 'Grade 4']);
   });
 
-  it('exposes only the requested Lower Primary subjects', () => {
+  it('exposes the complete canonical Lower Primary subject set', () => {
     expect(LOWER_PRIMARY_SUBJECTS).toEqual([
       'English',
       'Kiswahili',
@@ -18,6 +18,8 @@ describe('Lower Primary curriculum availability', () => {
       'Environmental',
       'CRE',
       'IRE',
+      'HRE',
+      'Indigenous Languages',
       'Hygiene and Nutrition',
       'Creative Activities',
     ]);

@@ -11,6 +11,7 @@ interface SubjectPageHeaderProps {
   grade: string;
   onBack: () => void;
   subjectName: string;
+  subjectOfficialName?: string;
 }
 
 export function SubjectPageHeader({
@@ -18,6 +19,7 @@ export function SubjectPageHeader({
   grade,
   onBack,
   subjectName,
+  subjectOfficialName,
 }: SubjectPageHeaderProps) {
   return (
     <View
@@ -35,6 +37,9 @@ export function SubjectPageHeader({
       <View style={styles.headerText}>
         <Text style={styles.eyebrow}>{grade.toUpperCase()}</Text>
         <Text style={styles.subjectTitle}>{subjectName}</Text>
+        {subjectOfficialName && subjectOfficialName !== subjectName ? (
+          <Text numberOfLines={1} style={styles.officialSubjectName}>{subjectOfficialName}</Text>
+        ) : null}
       </View>
       <LinearGradient
         colors={['#EEF5FF', '#FFFFFF']}
@@ -124,6 +129,13 @@ const styles = StyleSheet.create({
     color: '#0B1F4D',
     fontSize: 21,
     fontWeight: '900',
+    textAlign: 'center',
+  },
+  officialSubjectName: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '700',
+    marginTop: 1,
     textAlign: 'center',
   },
 });

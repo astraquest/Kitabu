@@ -111,3 +111,45 @@ test('builds progressive compatibility nodes without a legacy delivery branch', 
     ['needs_practice', 'current']
   );
 });
+
+test('preserves canonical curriculum identity and numbering on lower-primary paths', () => {
+  const path = buildCurriculumCompatibilityPath({
+    subjectId: 'source-subject-uuid',
+    subjectCode: 'mathematics',
+    subjectName: 'Mathematical Activities',
+    subjectOfficialName: 'Mathematical Activities',
+    subjectDisplayName: 'Mathematics',
+    strands: [{
+      id: 'numbers-strand',
+      number: '1.0',
+      title: 'Numbers',
+      subStrands: [{
+        id: 'whole-numbers-sub-strand',
+        number: '1.2',
+        title: 'Whole Numbers',
+        description: 'Read and write whole numbers.',
+        isCompleted: false,
+        needsRemediation: false,
+        masteryScore: null
+      }]
+    }]
+  }, [], 'Grade 3', [{
+    lessonKey: 'math-grade-3-whole-numbers',
+    lessonVersion: 2,
+    strand: 'Numbers',
+    subStrand: 'Whole Numbers',
+    objective: 'Build fluency with whole numbers.',
+    estimatedMinutes: 10
+  }]);
+
+  assert.equal(path.subjectId, 'mathematics');
+  assert.equal(path.subjectName, 'Mathematics');
+  assert.equal(path.subjectOfficialName, 'Mathematical Activities');
+  assert.equal(path.nodes[0]?.id, 'whole-numbers-sub-strand');
+  assert.equal(path.nodes[0]?.strandId, 'numbers-strand');
+  assert.equal(path.nodes[0]?.strandNumber, '1.0');
+  assert.equal(path.nodes[0]?.strandTitle, 'Numbers');
+  assert.equal(path.nodes[0]?.subStrandNumber, '1.2');
+  assert.equal(path.nodes[0]?.lessonKey, 'math-grade-3-whole-numbers');
+  assert.equal(path.nodes[0]?.lessonVersion, 2);
+});

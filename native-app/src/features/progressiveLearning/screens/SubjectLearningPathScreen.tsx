@@ -169,6 +169,7 @@ export function SubjectLearningPathScreen({
         grade={grade}
         onBack={onBack}
         subjectName={subject.name}
+        subjectOfficialName={resolvedPath.subjectOfficialName}
       />
 
       <ScrollView
@@ -187,11 +188,13 @@ export function SubjectLearningPathScreen({
           {currentNode ? (
             <AdventureBanner
               animatedProgressOffset={progressRingOffset}
-              chapterNumber={currentNode.position + 1}
               chapterTitle={currentNode.title}
               mascotKey={mascotKey}
               needsPractice={currentNode.status === 'needs_practice'}
               percentage={displayedProgressPercent}
+              topicLabel={currentNode.subStrandNumber
+                ? `TOPIC ${currentNode.subStrandNumber}`
+                : `CHAPTER ${currentNode.position + 1}`}
             />
           ) : null}
 
@@ -215,7 +218,7 @@ export function SubjectLearningPathScreen({
           ) : null}
 
           <View
-            accessibilityLabel="Chapter learning path"
+            accessibilityLabel="Curriculum learning path"
             accessibilityRole="list"
             style={styles.pathList}
           >
@@ -235,7 +238,12 @@ export function SubjectLearningPathScreen({
                   (index === 0 ||
                     visibleNodes[index - 1]?.strandTitle !==
                       node.strandTitle) ? (
-                    <Text style={styles.strandTitle}>{node.strandTitle}</Text>
+                    <Text style={styles.strandTitle}>
+                      {node.strandNumber ? (
+                        <Text>{node.strandNumber}  </Text>
+                      ) : null}
+                      <Text>{node.strandTitle}</Text>
+                    </Text>
                   ) : null}
                   <PathNode
                     index={index}
@@ -304,22 +312,25 @@ function ProgressRing({
 
 function AdventureBanner({
   animatedProgressOffset,
-  chapterNumber,
   chapterTitle,
   mascotKey,
   needsPractice,
   percentage,
+  topicLabel,
 }: {
   animatedProgressOffset: Animated.AnimatedInterpolation<number>;
-  chapterNumber: number;
   chapterTitle: string;
   mascotKey: OnboardingMascotKey;
   needsPractice: boolean;
   percentage: number;
+  topicLabel: string;
 }) {
+  const spokenTopicLabel = topicLabel
+    .replace(/^CHAPTER\b/, 'Chapter')
+    .replace(/^TOPIC\b/, 'Topic');
   const accessibilityMessage = needsPractice
     ? `Kitabu learning companion says: Let us practise ${chapterTitle} together.`
-    : `Kitabu learning companion says: Chapter ${chapterNumber}, ${chapterTitle}, is ready.`;
+    : `Kitabu learning companion says: ${spokenTopicLabel}, ${chapterTitle}, is ready.`;
   return (
     <LinearGradient
       accessibilityLabel={accessibilityMessage}
@@ -331,7 +342,7 @@ function AdventureBanner({
       <MascotBannerArt mascotKey={mascotKey} />
       <View style={styles.adventureTextWrap}>
         <Text style={styles.adventureKicker}>
-          {needsPractice ? 'REPAIR STOP' : `CHAPTER ${chapterNumber}`}
+          {needsPractice ? 'REPAIR STOP' : topicLabel}
         </Text>
         <Text numberOfLines={2} style={styles.adventureText}>
           {needsPractice ? 'Let us practise ' : 'Ready for '}
@@ -506,7 +517,10 @@ function PathNode({
                 numberOfLines={2}
                 style={[styles.nodeTitle, isLocked && styles.nodeTextLocked]}
               >
-                {node.title}
+                {node.subStrandNumber ? (
+                  <Text>{node.subStrandNumber}  </Text>
+                ) : null}
+                <Text>{node.title}</Text>
               </Text>
               {node.status === 'needs_practice' ? (
                 <Text style={styles.practicePill}>PRACTISE</Text>

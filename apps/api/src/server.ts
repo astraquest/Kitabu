@@ -244,6 +244,7 @@ import {
   getProgressiveLessonPrivateDefinition,
   gradeProgressiveLessonDefinitionStep,
   hasProgressiveLearningPath,
+  listProgressiveLessonDefinitions,
   normalizeProgressiveSubjectId,
   shouldScoreAllProgressiveLessonSteps,
   toProgressiveLessonPublic
@@ -312,15 +313,24 @@ async function resolveLearningPath(
 ) {
   const canonicalSubjectId = normalizeProgressiveSubjectId(requestedSubjectId, grade);
   const progress = await listProgressiveLessonProgress(userId, grade, canonicalSubjectId);
+  const subjects = await listCurriculumForGrade(grade, userId, scope);
+  const subject = subjects.find(candidate =>
+    candidate.subjectId === requestedSubjectId ||
+    candidate.subjectCode === requestedSubjectId ||
+    normalizeProgressiveSubjectId(candidate.subjectId, grade) === canonicalSubjectId
+  );
+  if (['Grade 1', 'Grade 2', 'Grade 3'].includes(grade) && subject) {
+    return buildCurriculumCompatibilityPath(
+      subject,
+      progress,
+      grade,
+      listProgressiveLessonDefinitions({ subjectId: subject.subjectId, grade })
+    );
+  }
   if (isKenyaCbcScope(scope) && hasProgressiveLearningPath(canonicalSubjectId, grade)) {
     return buildProgressiveLearningPath(canonicalSubjectId, progress, grade);
   }
 
-  const subjects = await listCurriculumForGrade(grade, userId, scope);
-  const subject = subjects.find(candidate =>
-    candidate.subjectId === requestedSubjectId ||
-    normalizeProgressiveSubjectId(candidate.subjectId, grade) === canonicalSubjectId
-  );
   return subject ? buildCurriculumCompatibilityPath(subject, progress, grade) : null;
 }
 
@@ -1504,7 +1514,12 @@ const curriculumSubStrandSchema = z.object({
   description: z.string().optional(),
   pages: z.array(contentPageSchema).default([]),
   outcomes: z.array(curriculumItemSchema).default([]),
-  inquiryQuestions: z.array(curriculumItemSchema).default([])
+  inquiryQuestions: z.array(curriculumItemSchema).default([]),
+  topics: z.array(z.object({
+    code: z.string().trim().max(40).optional(),
+    title: z.string().trim().min(1).max(160),
+    description: z.string().trim().max(1000).optional()
+  })).default([])
 });
 
 const curriculumStrandSchema = z.object({
@@ -1586,7 +1601,12 @@ const importedCurriculumItemSchema = z.union([
 const importedCurriculumSubStrandSchema = z
   .object({
     number: z.string().optional(),
-    title: z.string().min(1),
+    title: z.string().trim().min(1).max(160),
+    topics: z.array(z.object({
+      code: z.string().trim().max(40).optional(),
+      title: z.string().trim().min(1).max(160),
+      description: z.string().trim().max(1000).optional()
+    })).default([]),
     outcomes: z.array(importedCurriculumItemSchema).default([]),
     inquiryQuestions: z.array(importedCurriculumItemSchema).default([])
   })
@@ -2455,6 +2475,7 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
         title: string;
         outcomes?: Array<{ id?: string; text: string } | string>;
         inquiryQuestions?: Array<{ id?: string; text: string } | string>;
+        topics?: Array<{ code?: string; title: string; description?: string }>;
       }>;
     }>
   ): CurriculumStrandInput[] {
@@ -2469,6 +2490,11 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
             title: subStrand.title.trim(),
             type: 'knowledge' as const,
             pages: [],
+            topics: (subStrand.topics ?? []).map(topic => ({
+              code: topic.code?.trim() || undefined,
+              title: topic.title.trim(),
+              description: topic.description?.trim() || undefined
+            })),
             outcomes: (subStrand.outcomes || [])
               .map((item, itemIndex) => ({
                 id:
@@ -4930,7 +4956,11 @@ Requirements:
 
     const body = curriculumImportSchema.parse(request.body);
     const scope = await resolveRequestCurriculumScope(request, body);
-    const prompt = `Analyze the attached curriculum PDF and extract strands and sub-strands.
+    const prompt = `Analyze the attached curriculum PDF and extract strands, sub-strands, and any explicitly listed child topics.
+
+Keep every strand and sub-strand title canonical and concise. Never append learning outcomes,
+content bullets, activities, or child topics to a title. Put child topics in the topics array.
+Preserve the language and spelling used by the source document.
 
 Return valid JSON with this shape:
 {
@@ -4942,6 +4972,7 @@ Return valid JSON with this shape:
         {
           "number": "1.1",
           "title": "Sub-strand",
+          "topics": [{ "code": "1.1.1", "title": "Child topic" }],
           "outcomes": [{ "text": "Outcome" }],
           "inquiryQuestions": [{ "text": "Question" }]
         }

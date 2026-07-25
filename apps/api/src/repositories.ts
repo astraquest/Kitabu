@@ -169,6 +169,7 @@ export interface CurriculumStrandInput {
     pages?: Array<{ title: string; content: string }>;
     outcomes?: Array<{ id?: string; text: string }>;
     inquiryQuestions?: Array<{ id?: string; text: string }>;
+    topics?: Array<{ code?: string; title: string; description?: string }>;
   }>;
 }
 
@@ -179,6 +180,11 @@ export interface CurriculumStrandRecord {
   grade_level: string;
   subject_id: string;
   subject_name: string;
+  canonical_subject_code: string;
+  subject_official_name: string;
+  subject_display_name: string;
+  subject_source_names: string[];
+  subject_aliases: string[];
   number: string | null;
   title: string;
   sub_title: string;
@@ -197,11 +203,23 @@ export interface CurriculumSubStrandRecord {
   inquiry_questions: Array<{ id?: string; text: string }>;
   pages: Array<{ title: string; content: string }>;
   lesson_generated_at: Date | null;
+  topics: Array<{
+    id: string;
+    code: string | null;
+    title: string;
+    description: string | null;
+    position: number;
+  }>;
 }
 
 export interface CurriculumSubjectBundle {
   subjectId: string;
   subjectName: string;
+  subjectCode: string;
+  subjectOfficialName: string;
+  subjectDisplayName: string;
+  subjectSourceNames: string[];
+  subjectAliases: string[];
   strands: Array<{
     id: string;
     title: string;
@@ -221,6 +239,13 @@ export interface CurriculumSubjectBundle {
       number?: string;
       outcomes: Array<{ id: string; text: string }>;
       inquiryQuestions: Array<{ id: string; text: string }>;
+      topics: Array<{
+        id: string;
+        code?: string;
+        title: string;
+        description?: string;
+        position: number;
+      }>;
     }>;
   }>;
 }
@@ -3741,10 +3766,15 @@ function buildCurriculumSubjectBundles(args: {
   const subjectBundles = new Map<string, CurriculumSubjectBundle>();
 
   for (const strand of args.strands) {
-    const subjectKey = `${strand.grade_level}:${strand.subject_id}`;
+    const subjectKey = `${strand.grade_level}:${strand.canonical_subject_code}`;
     const existingSubject = subjectBundles.get(subjectKey) ?? {
-      subjectId: strand.subject_id,
-      subjectName: strand.subject_name,
+      subjectId: strand.canonical_subject_code,
+      subjectName: strand.subject_display_name,
+      subjectCode: strand.canonical_subject_code,
+      subjectOfficialName: strand.subject_official_name,
+      subjectDisplayName: strand.subject_display_name,
+      subjectSourceNames: strand.subject_source_names,
+      subjectAliases: strand.subject_aliases,
       strands: []
     };
 
@@ -3779,7 +3809,14 @@ function buildCurriculumSubjectBundles(args: {
           inquiryQuestions: normalizeCurriculumItems(
             subStrand.inquiry_questions,
             `${subStrand.id}-question`
-          )
+          ),
+          topics: (subStrand.topics ?? []).map(topic => ({
+            id: topic.id,
+            code: topic.code ?? undefined,
+            title: topic.title,
+            description: topic.description ?? undefined,
+            position: topic.position
+          }))
         };
       });
 
@@ -3818,9 +3855,48 @@ export async function replaceCurriculumSubject(
 ) {
   await q(
     client,
-    `DELETE FROM curriculum_strands
+    `INSERT INTO curriculum_record_revisions (
+       entity_type, entity_id, country_code, curriculum_code, grade_level,
+       subject_id, reason, source_reference, snapshot
+     )
+     SELECT 'strand', cs.id, cs.country_code, cs.curriculum_code, cs.grade_level,
+            cs.subject_id, 'curriculum-subject-replacement', '{}'::jsonb,
+            jsonb_build_object(
+              'strand', to_jsonb(cs),
+              'subStrands', COALESCE((
+                SELECT jsonb_agg(
+                  jsonb_build_object(
+                    'subStrand', to_jsonb(css),
+                    'topics', COALESCE((
+                      SELECT jsonb_agg(to_jsonb(ct) ORDER BY ct.position)
+                      FROM curriculum_topics ct
+                      WHERE ct.sub_strand_id = css.id
+                    ), '[]'::jsonb)
+                  ) ORDER BY css.position
+                )
+                FROM curriculum_sub_strands css
+                WHERE css.strand_id = cs.id
+              ), '[]'::jsonb)
+            )
+     FROM curriculum_strands cs
+     WHERE cs.country_code = $1 AND cs.curriculum_code = $2
+       AND cs.grade_level = $3 AND cs.subject_id = $4 AND cs.is_active = TRUE`,
+    [input.countryCode, input.curriculumCode, input.grade, input.subjectId]
+  );
+
+  await q(
+    client,
+    `WITH offset_value AS (
+       SELECT COALESCE(MAX(position), 0) + 10000 AS amount
+       FROM curriculum_strands
+       WHERE country_code = $1 AND curriculum_code = $2
+         AND grade_level = $3 AND subject_id = $4
+     )
+     UPDATE curriculum_strands
+     SET position = position + offset_value.amount, is_active = FALSE, updated_at = NOW()
+     FROM offset_value
      WHERE country_code = $1 AND curriculum_code = $2
-       AND grade_level = $3 AND subject_id = $4`,
+       AND grade_level = $3 AND subject_id = $4 AND is_active = TRUE`,
     [input.countryCode, input.curriculumCode, input.grade, input.subjectId]
   );
 
@@ -3829,8 +3905,8 @@ export async function replaceCurriculumSubject(
       client,
       `INSERT INTO curriculum_strands (
         country_code, curriculum_code, grade_level, subject_id, subject_name,
-        number, title, sub_title, position, created_by_user_id, updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
+        number, title, sub_title, position, created_by_user_id, is_active, updated_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, TRUE, NOW())
       RETURNING id`,
       [
         input.countryCode,
@@ -3848,11 +3924,12 @@ export async function replaceCurriculumSubject(
 
     const strandId = strandResult.rows[0].id;
     for (const [subIndex, subStrand] of strand.subStrands.entries()) {
-      await q(
+      const subStrandResult = await q<{ id: string }>(
         client,
         `INSERT INTO curriculum_sub_strands (
           strand_id, number, title, type, description, position, outcomes, inquiry_questions, pages, lesson_generated_at, updated_at
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb, $8::jsonb, $9::jsonb, $10, NOW())`,
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb, $8::jsonb, $9::jsonb, $10, NOW())
+        RETURNING id`,
         [
           strandId,
           subStrand.number ?? null,
@@ -3866,6 +3943,16 @@ export async function replaceCurriculumSubject(
           subStrand.pages && subStrand.pages.length > 0 ? new Date() : null
         ]
       );
+      const subStrandId = subStrandResult.rows[0].id;
+      for (const [topicIndex, topic] of (subStrand.topics ?? []).entries()) {
+        await q(
+          client,
+          `INSERT INTO curriculum_topics (
+             sub_strand_id, code, title, description, position, source_kind, source_reference, updated_at
+           ) VALUES ($1, $2, $3, $4, $5, 'curriculum_import', '{}'::jsonb, NOW())`,
+          [subStrandId, topic.code ?? null, topic.title, topic.description ?? null, topicIndex]
+        );
+      }
     }
   }
 }
@@ -3886,7 +3973,7 @@ export async function createEmptyCurriculumSubject(
     `SELECT EXISTS (
        SELECT 1 FROM curriculum_strands
        WHERE country_code = $1 AND curriculum_code = $2
-         AND grade_level = $3 AND subject_id = $4
+         AND grade_level = $3 AND subject_id = $4 AND is_active = TRUE
      )`,
     [input.countryCode, input.curriculumCode, input.grade, input.subjectId]
   );
@@ -3921,11 +4008,32 @@ export async function listCurriculumForGrade(
   scope: CurriculumScope
 ): Promise<CurriculumSubjectBundle[]> {
   const strandsResult = await db.query<CurriculumStrandRecord>(
-    `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
-            number, title, sub_title, position
-     FROM curriculum_strands
-     WHERE country_code = $1 AND curriculum_code = $2 AND grade_level = $3
-     ORDER BY subject_name ASC, position ASC`,
+    `SELECT cs.id, cs.country_code, cs.curriculum_code, cs.grade_level, cs.subject_id, cs.subject_name,
+            COALESCE(csubject.subject_code, cs.subject_id) AS canonical_subject_code,
+            COALESCE(csubject.official_name, cs.subject_name) AS subject_official_name,
+            COALESCE(csubject.display_name, cs.subject_name) AS subject_display_name,
+            COALESCE(csubject.source_names, jsonb_build_array(cs.subject_name)) AS subject_source_names,
+            COALESCE((
+              SELECT jsonb_agg(csa_all.alias_name ORDER BY csa_all.alias_name)
+              FROM curriculum_subject_aliases csa_all
+              WHERE csa_all.country_code = cs.country_code
+                AND csa_all.curriculum_code = cs.curriculum_code
+                AND csa_all.subject_code = csubject.subject_code
+            ), '[]'::jsonb) AS subject_aliases,
+            cs.number, cs.title, cs.sub_title, cs.position
+     FROM curriculum_strands cs
+     LEFT JOIN curriculum_subject_aliases csa
+       ON cs.grade_level IN ('Grade 1', 'Grade 2', 'Grade 3')
+      AND csa.country_code = cs.country_code
+      AND csa.curriculum_code = cs.curriculum_code
+      AND csa.alias_key = normalize_curriculum_subject_alias(cs.subject_id)
+     LEFT JOIN curriculum_subjects csubject
+       ON csubject.country_code = cs.country_code
+      AND csubject.curriculum_code = cs.curriculum_code
+      AND csubject.subject_code = csa.subject_code
+     WHERE cs.country_code = $1 AND cs.curriculum_code = $2 AND cs.grade_level = $3
+       AND cs.is_active = TRUE
+     ORDER BY subject_display_name ASC, cs.position ASC`,
     [scope.countryCode, scope.curriculumCode, grade]
   );
 
@@ -3935,10 +4043,22 @@ export async function listCurriculumForGrade(
 
   const strandIds = strandsResult.rows.map(strand => strand.id);
   const subStrandsResult = await db.query<CurriculumSubStrandRecord>(
-    `SELECT id, strand_id, number, title, type, description, position, outcomes, inquiry_questions, pages, lesson_generated_at
-     FROM curriculum_sub_strands
-     WHERE strand_id = ANY($1::uuid[])
-     ORDER BY position ASC`,
+    `SELECT css.id, css.strand_id, css.number, css.title, css.type, css.description,
+            css.position, css.outcomes, css.inquiry_questions, css.pages, css.lesson_generated_at,
+            COALESCE(
+              jsonb_agg(
+                jsonb_build_object(
+                  'id', ct.id, 'code', ct.code, 'title', ct.title,
+                  'description', ct.description, 'position', ct.position
+                ) ORDER BY ct.position
+              ) FILTER (WHERE ct.id IS NOT NULL),
+              '[]'::jsonb
+            ) AS topics
+     FROM curriculum_sub_strands css
+     LEFT JOIN curriculum_topics ct ON ct.sub_strand_id = css.id
+     WHERE css.strand_id = ANY($1::uuid[]) AND css.is_active = TRUE
+     GROUP BY css.id
+     ORDER BY css.position ASC`,
     [strandIds]
   );
 

@@ -7,6 +7,8 @@ export const LOWER_PRIMARY_SUBJECTS = [
   'Environmental',
   'CRE',
   'IRE',
+  'HRE',
+  'Indigenous Languages',
   'Hygiene and Nutrition',
   'Creative Activities',
 ] as const;

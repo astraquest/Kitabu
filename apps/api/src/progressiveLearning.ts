@@ -209,6 +209,11 @@ export type ProgressivePathNode = {
   objective: string;
   estimatedMinutes: number;
   position: number;
+  strandId?: string;
+  strandNumber?: string;
+  strandTitle?: string;
+  subStrandId?: string;
+  subStrandNumber?: string;
   status: 'completed' | 'current' | 'locked' | 'needs_practice';
   bestScore: number | null;
   attemptCount: number;
@@ -739,6 +744,7 @@ const allLessons = [
   ...grade11LessonSeeds.map(createProgressiveLesson),
   ...lessons
 ];
+
 const lessonByKey = new Map(allLessons.map(lesson => [lesson.lessonKey, lesson]));
 
 export function listProgressiveLessonDefinitions(filters?: { grade?: string; subjectId?: string }) {
@@ -860,6 +866,7 @@ export function buildProgressiveLearningPath(
       objective: lesson.objective,
       estimatedMinutes: lesson.estimatedMinutes,
       position: index,
+      strandTitle: lesson.strand,
       status,
       bestScore: lessonProgress?.best_score ?? null,
       attemptCount: lessonProgress?.attempt_count ?? 0

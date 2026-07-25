@@ -146,6 +146,7 @@ import {
   Book,
   ChatMessage,
   CurriculumSubjectBundle,
+  CurriculumSelectorOption,
   Flashcard,
   LearningStrand,
   Podcast,
@@ -220,6 +221,47 @@ const SUBJECT_FALLBACK_COLORS: Array<[string, string]> = [
   ['#DC2626', '#BE123C'],
   ['#F97316', '#15803D'],
 ];
+
+const LOWER_PRIMARY_SUBJECT_ID_ALIASES: Record<string, string> = {
+  math: 'mathematics',
+  mathematics: 'mathematics',
+  science: 'environmental',
+  environmental: 'environmental',
+  creative_arts: 'creative_activities',
+  creative_activities: 'creative_activities',
+};
+
+const CURRICULUM_SUBJECT_COLORS: Record<string, [string, string]> = {
+  mathematics: ['#EA7A0A', '#3F8B45'],
+  english: ['#3569E8', '#5846D8'],
+  kiswahili: ['#E47A0B', '#D75B2B'],
+  environmental: ['#239B7C', '#138075'],
+  creative_activities: ['#B54BE2', '#E66A79'],
+  cre: ['#2F8B57', '#1E6C47'],
+  ire: ['#178A83', '#136A66'],
+  hre: ['#7A56C9', '#5F3EB0'],
+  indigenous_languages: ['#C25135', '#9C3A2A'],
+  hygiene_nutrition: ['#E34B62', '#C82F52'],
+};
+
+function normalizeDashboardSubjectIdForGrade(subjectId: string, grade: string) {
+  return ['Grade 1', 'Grade 2', 'Grade 3'].includes(grade)
+    ? LOWER_PRIMARY_SUBJECT_ID_ALIASES[subjectId] ?? subjectId
+    : subjectId;
+}
+
+function subjectFromCurriculumBundle(bundle: CurriculumSubjectBundle, index: number): Subject {
+  const known = SUBJECTS.find(subject => subject.id === bundle.subjectCode);
+  if (known) return { ...known, name: bundle.subjectDisplayName };
+  const colors = CURRICULUM_SUBJECT_COLORS[bundle.subjectCode]
+    ?? SUBJECT_FALLBACK_COLORS[index % SUBJECT_FALLBACK_COLORS.length];
+  return {
+    id: bundle.subjectCode,
+    name: bundle.subjectDisplayName,
+    colorFrom: colors[0],
+    colorTo: colors[1],
+  };
+}
 
 function subjectFromRecommendation(item: SubjectRecommendationItem, index: number): Subject {
   const knownSubject = SUBJECTS.find(subject => subject.id === item.subjectId);
@@ -638,6 +680,9 @@ export function useKitabuApp() {
   const [curriculumData, setCurriculumData] = useState<
     Record<string, LearningStrand[]>
   >(INITIAL_CURRICULUM_DATA);
+  const [curriculumSubjectBundlesByGrade, setCurriculumSubjectBundlesByGrade] = useState<
+    Record<string, CurriculumSubjectBundle[]>
+  >({});
   const [loadedCurriculumGrades, setLoadedCurriculumGrades] = useState<Record<string, boolean>>({});
   const [schoolsList, setSchoolsList] =
     useState<SchoolData[]>(INITIAL_SCHOOLS);
@@ -1237,6 +1282,28 @@ export function useKitabuApp() {
     [assignments],
   );
   const dashboardSubjects = useMemo(() => {
+    const curriculumSubjects = (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
+      .filter(bundle => bundle.strands.length > 0)
+      .map(subjectFromCurriculumBundle);
+    if (curriculumSubjects.length > 0) {
+      const byId = new Map(curriculumSubjects.map(subject => [subject.id, subject]));
+      const preferredIds = subjectRecommendations?.dashboard.length
+        ? subjectRecommendations.dashboard.map(item => item.subjectId)
+        : dashboardSubjectIds;
+      const selected: Subject[] = [];
+      preferredIds.forEach(subjectId => {
+        const canonicalId = normalizeDashboardSubjectIdForGrade(subjectId, currentGrade);
+        const subject = byId.get(canonicalId);
+        if (subject && !selected.some(item => item.id === subject.id)) selected.push(subject);
+      });
+      curriculumSubjects.forEach(subject => {
+        if (selected.length < MAX_DASHBOARD_SUBJECTS && !selected.some(item => item.id === subject.id)) {
+          selected.push(subject);
+        }
+      });
+      return selected.slice(0, MAX_DASHBOARD_SUBJECTS);
+    }
+
     if (subjectRecommendations?.dashboard.length) {
       return subjectRecommendations.dashboard.map(subjectFromRecommendation);
     }
@@ -1244,7 +1311,7 @@ export function useKitabuApp() {
     return dashboardSubjectIds
       .map(subjectId => SUBJECTS.find(subject => subject.id === subjectId))
       .filter((subject): subject is Subject => Boolean(subject));
-  }, [dashboardSubjectIds, subjectRecommendations]);
+  }, [curriculumSubjectBundlesByGrade, currentGrade, dashboardSubjectIds, subjectRecommendations]);
   const chatSuggestedSubjects = useMemo(
     () => subjectRecommendations?.chat.length
       ? subjectRecommendations.chat.map(subjectFromRecommendation)
@@ -1252,10 +1319,14 @@ export function useKitabuApp() {
     [dashboardSubjects, subjectRecommendations],
   );
   const availableSubjects = useMemo(() => {
+    const curriculumSubjects = (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
+      .filter(bundle => bundle.strands.length > 0)
+      .map(subjectFromCurriculumBundle);
+    if (curriculumSubjects.length > 0) return curriculumSubjects;
     const byId = new Map(SUBJECTS.map(subject => [subject.id, subject]));
     [...dashboardSubjects, ...chatSuggestedSubjects].forEach(subject => byId.set(subject.id, subject));
     return [...byId.values()];
-  }, [chatSuggestedSubjects, dashboardSubjects]);
+  }, [chatSuggestedSubjects, curriculumSubjectBundlesByGrade, currentGrade, dashboardSubjects]);
 
   useEffect(() => {
     if (!subjectRecommendations || currentView !== 'dashboard') return;
@@ -1308,27 +1379,46 @@ export function useKitabuApp() {
       ),
     [selectedSubjectStrands],
   );
+  const quizMeSubjectOptions = useMemo<CurriculumSelectorOption[]>(() => {
+    return (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
+      .filter(subject => subject.strands.length > 0)
+      .map(subject => ({
+        id: subject.subjectCode,
+        title: subject.subjectDisplayName,
+        detail: subject.subjectOfficialName !== subject.subjectDisplayName
+          ? subject.subjectOfficialName
+          : undefined,
+      }));
+  }, [curriculumSubjectBundlesByGrade, currentGrade]);
   const quizMeStrandsBySubject = useMemo(() => {
-    const bySubject: Record<string, string[]> = {};
+    const bySubject: Record<string, CurriculumSelectorOption[]> = {};
 
-    SUBJECTS.forEach(subject => {
-      const strands = curriculumData[`${currentGrade}-${subject.id}`] || [];
-      bySubject[subject.name] = strands.map(strand => strand.title);
+    (curriculumSubjectBundlesByGrade[currentGrade] ?? []).forEach(subject => {
+      bySubject[subject.subjectCode] = subject.strands.map(strand => ({
+        id: strand.id,
+        title: strand.title,
+        number: strand.number,
+      }));
     });
 
     return bySubject;
-  }, [curriculumData, currentGrade]);
+  }, [curriculumSubjectBundlesByGrade, currentGrade]);
   const quizMeSubStrandsByStrand = useMemo(() => {
-    const byStrand: Record<string, string[]> = {};
+    const byStrand: Record<string, CurriculumSelectorOption[]> = {};
 
-    Object.values(curriculumData).forEach(strands => {
-      strands.forEach(strand => {
-        byStrand[strand.title] = strand.subStrands.map(subStrand => subStrand.title);
+    (curriculumSubjectBundlesByGrade[currentGrade] ?? []).forEach(subject => {
+      subject.strands.forEach(strand => {
+        byStrand[strand.id] = strand.subStrands.map(subStrand => ({
+          id: subStrand.id,
+          title: subStrand.title,
+          number: subStrand.number,
+          detail: `${subStrand.outcomes?.length ?? 0} learning outcomes`,
+        }));
       });
     });
 
     return byStrand;
-  }, [curriculumData]);
+  }, [curriculumSubjectBundlesByGrade, currentGrade]);
   const roles = authSession?.user.roles || [];
   const isKnownAdminAccount = isKnownAdminEmail(authSession?.user.email);
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
@@ -2148,6 +2238,10 @@ export function useKitabuApp() {
 
     const payload = await getCurriculumForGrade(grade);
     setCurriculumData(prev => mergeCurriculumBundles(prev, grade, payload.subjects));
+    setCurriculumSubjectBundlesByGrade(prev => ({
+      ...prev,
+      [grade]: payload.subjects,
+    }));
     setLoadedCurriculumGrades(prev => ({
       ...prev,
       [grade]: true,
@@ -2164,6 +2258,16 @@ export function useKitabuApp() {
       const next = { ...prev };
       next[`${grade}-${subjectId}`] = payload.subjects[0]?.strands ?? [];
       return next;
+    });
+    setCurriculumSubjectBundlesByGrade(prev => {
+      const existing = prev[grade] ?? [];
+      const refreshed = payload.subjects[0];
+      return {
+        ...prev,
+        [grade]: refreshed
+          ? [...existing.filter(subject => subject.subjectId !== refreshed.subjectId), refreshed]
+          : existing,
+      };
     });
     setLoadedCurriculumGrades(prev => ({
       ...prev,
@@ -2404,13 +2508,15 @@ export function useKitabuApp() {
   }
 
   function toggleDashboardSubject(subjectId: string) {
-    const nextSubjectIds = dashboardSubjectIds.includes(subjectId)
+    const canonicalSubjectId = normalizeDashboardSubjectIdForGrade(subjectId, currentGrade);
+    const canonicalCurrentIds = dashboardSubjectIds.map(id => normalizeDashboardSubjectIdForGrade(id, currentGrade));
+    const nextSubjectIds = canonicalCurrentIds.includes(canonicalSubjectId)
       ? dashboardSubjectIds.length > 1
-        ? dashboardSubjectIds.filter(id => id !== subjectId)
+        ? canonicalCurrentIds.filter(id => id !== canonicalSubjectId)
         : dashboardSubjectIds
       : dashboardSubjectIds.length >= MAX_DASHBOARD_SUBJECTS
         ? dashboardSubjectIds
-        : [...dashboardSubjectIds, subjectId];
+        : [...canonicalCurrentIds, canonicalSubjectId];
 
     if (nextSubjectIds === dashboardSubjectIds) return;
     setDashboardSubjectIds(nextSubjectIds);
@@ -2420,6 +2526,7 @@ export function useKitabuApp() {
 
   function saveDashboardSubjects(subjectIds: string[]) {
     const nextSubjectIds = subjectIds
+      .map(subjectId => normalizeDashboardSubjectIdForGrade(subjectId, currentGrade))
       .filter((subjectId, index, items) => Boolean(subjectId) && items.indexOf(subjectId) === index)
       .slice(0, MAX_DASHBOARD_SUBJECTS);
 
@@ -3711,6 +3818,7 @@ export function useKitabuApp() {
   useEffect(() => {
     if (!authSession) {
       setCurriculumData(INITIAL_CURRICULUM_DATA);
+      setCurriculumSubjectBundlesByGrade({});
       setLoadedCurriculumGrades({});
       return;
     }
@@ -4040,6 +4148,7 @@ export function useKitabuApp() {
       canGoBack,
       canGoForward,
       subjects: availableSubjects,
+      quizMeSubjectOptions,
       quizMeStrandsBySubject,
       quizMeSubStrandsByStrand,
     },

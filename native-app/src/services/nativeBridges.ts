@@ -469,6 +469,13 @@ function normalizeImportedCurriculum(
       id: `${seed}-sub-${strandIndex + 1}-${subIndex + 1}`,
       number: sub.number || `${strandIndex + 1}.${subIndex + 1}`,
       title: sub.title,
+      topics: (sub.topics || []).map((topic, topicIndex) => ({
+        id: `${seed}-topic-${strandIndex + 1}-${subIndex + 1}-${topicIndex + 1}`,
+        code: topic.code,
+        title: topic.title,
+        description: topic.description,
+        position: topicIndex,
+      })),
       type: 'knowledge' as const,
       isLocked: subIndex > 0,
       isCompleted: false,

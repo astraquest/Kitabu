@@ -23,10 +23,16 @@ export type CurriculumSubStrandContext = {
 type CurriculumPathSubject = {
   subjectId: string;
   subjectName: string;
+  subjectCode?: string;
+  subjectOfficialName?: string;
+  subjectDisplayName?: string;
   strands: Array<{
+    id?: string;
+    number?: string;
     title: string;
     subStrands: Array<{
       id: string;
+      number?: string;
       title: string;
       description?: string | null;
       outcomes?: Array<{ text: string }>;
@@ -36,6 +42,11 @@ type CurriculumPathSubject = {
     }>;
   }>;
 };
+
+type AuthoredCurriculumLesson = Pick<
+  ProgressiveLessonPrivate,
+  'lessonKey' | 'lessonVersion' | 'strand' | 'subStrand' | 'objective' | 'estimatedMinutes'
+>;
 
 function compactText(value: string | null | undefined, fallback: string) {
   const text = value?.replace(/[#*_`>]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -125,15 +136,30 @@ export function buildCurriculumCompatibilityLesson(
 export function buildCurriculumCompatibilityPath(
   subject: CurriculumPathSubject,
   progress: ProgressiveLessonProgressRecord[],
-  grade: string
+  grade: string,
+  authoredLessons: AuthoredCurriculumLesson[] = []
 ) {
+  const normalizeLabel = (value: string) => value
+    .trim()
+    .toLocaleLowerCase('en-KE')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  const authoredByLocation = new Map(
+    authoredLessons.map(lesson => [
+      `${normalizeLabel(lesson.strand)}:${normalizeLabel(lesson.subStrand)}`,
+      lesson,
+    ])
+  );
   const progressByLesson = new Map(progress.map(item => [item.lesson_key, item]));
   const ordered = subject.strands.flatMap(strand =>
     strand.subStrands.map(subStrand => ({ strand, subStrand }))
   );
   let previousAttempted = true;
   const nodes: ProgressivePathNode[] = ordered.map(({ strand, subStrand }, position) => {
-    const lessonKey = `curriculum-${subStrand.id}`;
+    const authoredLesson = authoredByLocation.get(
+      `${normalizeLabel(strand.title)}:${normalizeLabel(subStrand.title)}`
+    );
+    const lessonKey = authoredLesson?.lessonKey ?? `curriculum-${subStrand.id}`;
     const lessonProgress = progressByLesson.get(lessonKey);
     const completed = lessonProgress?.status === 'completed' || subStrand.isCompleted;
     const needsPractice = lessonProgress?.status === 'needs_practice' || subStrand.needsRemediation;
@@ -155,11 +181,16 @@ export function buildCurriculumCompatibilityPath(
     return {
       id: subStrand.id,
       lessonKey,
-      lessonVersion: 1,
+      lessonVersion: authoredLesson?.lessonVersion ?? 1,
       title: subStrand.title,
-      objective: subStrand.description ?? subStrand.outcomes?.[0]?.text ?? 'Build confidence through guided learning.',
-      estimatedMinutes: 8,
+      objective: authoredLesson?.objective ?? subStrand.description ?? subStrand.outcomes?.[0]?.text ?? 'Build confidence through guided learning.',
+      estimatedMinutes: authoredLesson?.estimatedMinutes ?? 8,
       position,
+      strandId: strand.id,
+      strandNumber: strand.number,
+      strandTitle: strand.title,
+      subStrandId: subStrand.id,
+      subStrandNumber: subStrand.number,
       status,
       bestScore: lessonProgress?.best_score ?? subStrand.masteryScore ?? null,
       attemptCount: lessonProgress?.attempt_count ?? 0
@@ -167,8 +198,9 @@ export function buildCurriculumCompatibilityPath(
   });
   const completedCount = nodes.filter(node => node.status === 'completed').length;
   return {
-    subjectId: normalizeProgressiveSubjectId(subject.subjectId),
-    subjectName: subject.subjectName,
+    subjectId: subject.subjectCode ?? normalizeProgressiveSubjectId(subject.subjectId, grade),
+    subjectName: subject.subjectDisplayName ?? subject.subjectName,
+    subjectOfficialName: subject.subjectOfficialName ?? subject.subjectName,
     grade,
     title: `${subject.subjectName} Adventures`,
     description: 'Explore each curriculum topic through the new guided lesson experience.',

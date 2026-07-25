@@ -18,7 +18,7 @@ import {
   Sparkles,
 } from 'lucide-react-native';
 
-import { OnboardingMascotKey, QuizConfig, QuizGenerationProgress } from '../types/app';
+import { CurriculumSelectorOption, OnboardingMascotKey, QuizConfig, QuizGenerationProgress } from '../types/app';
 
 const QUIZ_MASCOT_SOURCES = {
   rabbit: require('../assets/mascot/sungura-rabbit-quiz.png'),
@@ -31,8 +31,9 @@ interface QuizMeScreenProps {
   mascotKey: OnboardingMascotKey;
   progress: QuizGenerationProgress;
   error?: string | null;
-  strandsBySubject: Record<string, string[]>;
-  subStrandsByStrand: Record<string, string[]>;
+  subjectOptions?: CurriculumSelectorOption[];
+  strandsBySubject: Record<string, CurriculumSelectorOption[]>;
+  subStrandsByStrand: Record<string, CurriculumSelectorOption[]>;
   onBack: () => void;
   onGenerate: (config: QuizConfig) => void;
 }
@@ -40,11 +41,17 @@ interface QuizMeScreenProps {
 const defaultSubjects = ['Science', 'English', 'Math', 'Kiswahili', 'Social Studies'];
 const questionCounts = [5, 10, 15, 20];
 
+function selectorLabel(option?: CurriculumSelectorOption) {
+  if (!option) return '';
+  return option.number ? `${option.number}  ${option.title}` : option.title;
+}
+
 export function QuizMeScreen({
   isLoading,
   mascotKey,
   progress,
   error,
+  subjectOptions: loadedSubjectOptions = [],
   strandsBySubject,
   subStrandsByStrand,
   onBack,
@@ -61,20 +68,18 @@ export function QuizMeScreen({
   });
 
   const isValidStep1 = !!(config.subject && config.strand && config.subStrand);
-  const subjectOptions = useMemo(() => {
-    const loadedSubjects = Object.entries(strandsBySubject)
-      .filter(([, strands]) => strands.length > 0)
-      .map(([subject]) => subject);
-
-    return loadedSubjects.length > 0 ? loadedSubjects : defaultSubjects;
-  }, [strandsBySubject]);
+  const subjectOptions = useMemo<CurriculumSelectorOption[]>(() => {
+    return loadedSubjectOptions.length > 0
+      ? loadedSubjectOptions
+      : defaultSubjects.map(subject => ({ id: subject, title: subject }));
+  }, [loadedSubjectOptions]);
   const strands = useMemo(
-    () => strandsBySubject[config.subject] || [],
-    [config.subject, strandsBySubject],
+    () => (config.subjectId ? strandsBySubject[config.subjectId] || [] : []),
+    [config.subjectId, strandsBySubject],
   );
   const subStrands = useMemo(
-    () => subStrandsByStrand[config.strand] || [],
-    [config.strand, subStrandsByStrand],
+    () => (config.strandId ? subStrandsByStrand[config.strandId] || [] : []),
+    [config.strandId, subStrandsByStrand],
   );
 
   if (isLoading) {
@@ -146,17 +151,20 @@ export function QuizMeScreen({
               <Field
                 fieldKey="subject"
                 label="Subject"
-                value={config.subject || 'Select a subject'}
+                value={selectorLabel(subjectOptions.find(option => option.id === config.subjectId)) || 'Select a subject'}
                 options={subjectOptions}
                 onSelect={subject =>
                   setConfig(current => ({
                     ...current,
-                    subject,
+                    subject: subject.title,
+                    subjectId: subject.id,
                     strand: '',
+                    strandId: undefined,
                     subStrand: '',
+                    subStrandId: undefined,
                   }))
                 }
-                activeValue={config.subject}
+                activeId={config.subjectId}
                 isOpen={openField === 'subject'}
                 onToggle={fieldKey =>
                   setOpenField(current => (current === fieldKey ? null : fieldKey))
@@ -166,16 +174,18 @@ export function QuizMeScreen({
               <Field
                 fieldKey="strand"
                 label="Strand"
-                value={config.strand || 'Select a strand'}
+                value={selectorLabel(strands.find(option => option.id === config.strandId)) || 'Select a strand'}
                 options={strands}
                 onSelect={strand =>
                   setConfig(current => ({
                     ...current,
-                    strand,
+                    strand: strand.title,
+                    strandId: strand.id,
                     subStrand: '',
+                    subStrandId: undefined,
                   }))
                 }
-                activeValue={config.strand}
+                activeId={config.strandId}
                 disabled={!config.subject}
                 isOpen={openField === 'strand'}
                 onToggle={fieldKey =>
@@ -186,16 +196,17 @@ export function QuizMeScreen({
               <Field
                 fieldKey="sub-strand"
                 label="Sub-strand"
-                value={config.subStrand || 'Select a sub-strand'}
+                value={selectorLabel(subStrands.find(option => option.id === config.subStrandId)) || 'Select a sub-strand'}
                 options={subStrands}
                 onSelect={subStrand =>
                   setConfig(current => ({
                     ...current,
-                    subStrand,
+                    subStrand: subStrand.title,
+                    subStrandId: subStrand.id,
                   }))
                 }
-                activeValue={config.subStrand}
-                disabled={!config.strand}
+                activeId={config.subStrandId}
+                disabled={!config.strandId}
                 isOpen={openField === 'sub-strand'}
                 onToggle={fieldKey =>
                   setOpenField(current => (current === fieldKey ? null : fieldKey))
@@ -206,14 +217,14 @@ export function QuizMeScreen({
                 fieldKey="question-count"
                 label="Number of Questions"
                 value={`${config.questionCount} Questions`}
-                options={questionCounts.map(count => `${count}`)}
+                options={questionCounts.map(count => ({ id: `${count}`, title: `${count}` }))}
                 onSelect={count =>
                   setConfig(current => ({
                     ...current,
-                    questionCount: Number(count),
+                    questionCount: Number(count.id),
                   }))
                 }
-                activeValue={`${config.questionCount}`}
+                activeId={`${config.questionCount}`}
                 isOpen={openField === 'question-count'}
                 onToggle={fieldKey =>
                   setOpenField(current => (current === fieldKey ? null : fieldKey))
@@ -316,7 +327,7 @@ function Field({
   label,
   value,
   options,
-  activeValue,
+  activeId,
   disabled = false,
   isOpen = false,
   onSelect,
@@ -325,11 +336,11 @@ function Field({
   fieldKey: string;
   label: string;
   value: string;
-  options: string[];
-  activeValue?: string;
+  options: CurriculumSelectorOption[];
+  activeId?: string;
   disabled?: boolean;
   isOpen?: boolean;
-  onSelect: (value: string) => void;
+  onSelect: (value: CurriculumSelectorOption) => void;
   onToggle: (fieldKey: string) => void;
 }) {
   const hasOptions = options.length > 0;
@@ -346,7 +357,10 @@ function Field({
           disabled && styles.selectBoxDisabled,
           !disabled && hasOptions && isOpen && styles.selectBoxOpen,
         ]}>
-        <Text style={[styles.selectValue, disabled && styles.selectValueDisabled]}>
+        <Text
+          numberOfLines={2}
+          ellipsizeMode="tail"
+          style={[styles.selectValue, disabled && styles.selectValueDisabled]}>
           {value}
         </Text>
         <ChevronDown
@@ -359,11 +373,12 @@ function Field({
 
       {isOpen && !disabled && hasOptions ? (
         <View style={styles.dropdownMenu}>
+          <ScrollView nestedScrollEnabled style={styles.dropdownScroll}>
           {options.map(option => {
-            const active = activeValue === option;
+            const active = activeId === option.id;
             return (
               <Pressable
-                key={option}
+                key={option.id}
                 onPress={() => {
                   onSelect(option);
                   onToggle(fieldKey);
@@ -372,17 +387,22 @@ function Field({
                   styles.dropdownOption,
                   active && styles.dropdownOptionActive,
                 ]}>
-                <Text
-                  style={[
-                    styles.dropdownOptionText,
-                    active && styles.dropdownOptionTextActive,
-                  ]}>
-                  {label === 'Number of Questions' ? `${option} Questions` : option}
-                </Text>
+                <View style={styles.dropdownOptionCopy}>
+                  <Text
+                    numberOfLines={2}
+                    style={[
+                      styles.dropdownOptionText,
+                      active && styles.dropdownOptionTextActive,
+                    ]}>
+                    {label === 'Number of Questions' ? `${option.title} Questions` : selectorLabel(option)}
+                  </Text>
+                  {option.detail ? <Text style={styles.dropdownOptionDetail}>{option.detail}</Text> : null}
+                </View>
                 {active ? <Check size={16} color="#F97316" strokeWidth={2.4} /> : null}
               </Pressable>
             );
           })}
+          </ScrollView>
         </View>
       ) : null}
     </View>
@@ -640,6 +660,8 @@ const styles = StyleSheet.create({
     borderColor: '#F97316',
   },
   selectValue: {
+    flex: 1,
+    marginRight: 12,
     color: '#111827',
     fontSize: 15,
     fontWeight: '700',
@@ -657,6 +679,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     overflow: 'hidden',
   },
+  dropdownScroll: {
+    maxHeight: 280,
+  },
   dropdownOption: {
     minHeight: 50,
     paddingHorizontal: 16,
@@ -673,6 +698,16 @@ const styles = StyleSheet.create({
     color: '#374151',
     fontSize: 14,
     fontWeight: '700',
+  },
+  dropdownOptionCopy: {
+    flex: 1,
+    paddingVertical: 10,
+  },
+  dropdownOptionDetail: {
+    color: '#94A3B8',
+    fontSize: 12,
+    fontWeight: '600',
+    marginTop: 3,
   },
   dropdownOptionTextActive: {
     color: '#F97316',

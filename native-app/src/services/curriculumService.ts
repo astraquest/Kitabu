@@ -57,6 +57,11 @@ export async function saveCurriculumSubject(input: {
             pages: subStrand.pages,
             outcomes: subStrand.outcomes ?? [],
             inquiryQuestions: subStrand.inquiryQuestions ?? [],
+            topics: (subStrand.topics ?? []).map(topic => ({
+              code: topic.code,
+              title: topic.title,
+              description: topic.description,
+            })),
           })),
         })),
       }),

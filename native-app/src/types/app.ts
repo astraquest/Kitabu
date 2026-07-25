@@ -303,6 +303,22 @@ export interface SubStrand {
   number?: string;
   outcomes?: CurriculumItem[];
   inquiryQuestions?: CurriculumItem[];
+  topics?: CurriculumTopic[];
+}
+
+export interface CurriculumTopic {
+  id: string;
+  code?: string;
+  title: string;
+  description?: string;
+  position: number;
+}
+
+export interface CurriculumSelectorOption {
+  id: string;
+  title: string;
+  number?: string;
+  detail?: string;
 }
 
 export interface LearningStrand {
@@ -316,6 +332,11 @@ export interface LearningStrand {
 export interface CurriculumSubjectBundle {
   subjectId: string;
   subjectName: string;
+  subjectCode: string;
+  subjectOfficialName: string;
+  subjectDisplayName: string;
+  subjectSourceNames: string[];
+  subjectAliases: string[];
   strands: LearningStrand[];
 }
 
@@ -327,8 +348,11 @@ export interface Flashcard {
 
 export interface QuizConfig {
   subject: string;
+  subjectId?: string;
   strand: string;
+  strandId?: string;
   subStrand: string;
+  subStrandId?: string;
   questionCount: number;
   format: 'flashcards' | 'quiz' | 'audio';
 }

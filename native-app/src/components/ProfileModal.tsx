@@ -84,13 +84,21 @@ const SUBJECT_CARD_TONES = [
 ] as const;
 
 const SUBJECT_ORDER = [
+  'mathematics',
+  'english',
+  'kiswahili',
+  'environmental',
+  'creative_activities',
+  'cre',
+  'ire',
+  'hre',
+  'indigenous_languages',
+  'hygiene_nutrition',
   'science',
   'agriculture',
-  'english',
   'creative_arts',
   'math',
   'ai_education',
-  'kiswahili',
   'social',
 ];
 

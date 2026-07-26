@@ -7,8 +7,11 @@ const { Pool } = pg;
 const apiDir = path.resolve(import.meta.dirname, '..', '..');
 loadEnv({ path: path.join(apiDir, '.env') });
 
-const sourcePath = process.argv[2];
-const targetGrade = Number(process.argv[3] ?? 1);
+const argumentsList = process.argv.slice(2);
+const dryRun = argumentsList.includes('--dry-run');
+const positionalArguments = argumentsList.filter(value => value !== '--dry-run');
+const sourcePath = positionalArguments[0];
+const targetGrade = Number(positionalArguments[1] ?? 1);
 const gradeLabel = `Grade ${targetGrade}`;
 if (!sourcePath) {
   throw new Error('Usage: node repair-lower-primary-from-preserved-source.mjs <normalized-curriculum.json> [grade]');
@@ -241,8 +244,9 @@ try {
     }
   }
 
-  await client.query('COMMIT');
-  console.log(JSON.stringify({ grade: gradeLabel, strands: strandCount, subStrands: subStrandCount }));
+  if (dryRun) await client.query('ROLLBACK');
+  else await client.query('COMMIT');
+  console.log(JSON.stringify({ grade: gradeLabel, strands: strandCount, subStrands: subStrandCount, dryRun }));
 } catch (error) {
   await client.query('ROLLBACK');
   throw error;

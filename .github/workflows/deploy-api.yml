@@ -44,8 +44,8 @@ jobs:
     timeout-minutes: 30
     environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'production' }}
     concurrency:
-      group: deploy-api-${{ github.ref }}
-      cancel-in-progress: true
+      group: kitabu-api-production
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - name: Configure SSH
@@ -77,7 +77,7 @@ jobs:
             exit 1
           fi
           REMOTE
-      - name: Sync code to production host
+      - name: Sync immutable release to production staging
         run: |
           set -euo pipefail
           rsync -az --delete \
@@ -94,51 +94,84 @@ jobs:
             --exclude '*.pem' \
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
-            ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/opt/kitabu-ai/"
-      - name: Mark production Git revision
-        run: |
-          set -euo pipefail
-          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
-          set -euo pipefail
-          cd /opt/kitabu-ai
-          git fetch origin '${{ github.ref_name }}'
-          git reset --mixed '${{ github.sha }}'
-          REMOTE
+            ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/tmp/kitabu-release-${{ github.sha }}/"
       - name: Deploy on Hetzner
         run: |
           set -euo pipefail
-          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
+          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" \
+            'flock -w 1800 /tmp/kitabu-api-production.lock bash -se' <<'REMOTE'
           set -euo pipefail
+          release_stage='/tmp/kitabu-release-${{ github.sha }}'
+          case "$release_stage" in
+            /tmp/kitabu-release-[0-9a-f][0-9a-f]*) ;;
+            *) echo "::error::Invalid immutable release staging path."; exit 1 ;;
+          esac
+          if [ ! -d "$release_stage" ]; then
+            echo "::error::Immutable release staging directory is missing."
+            exit 1
+          fi
+          cleanup_release_stage() {
+            rm -rf -- "$release_stage"
+          }
+          trap cleanup_release_stage EXIT
+
           cd /opt/kitabu-ai
+          status="$(
+            git status --porcelain --untracked-files=all |
+              grep -Ev '^(\?\? | M |M  |A  | D |D  )(\.env|\.env\..*|apps/api/\.env|apps/api/\.env\..*)$' || true
+          )"
+          if [ -n "$status" ]; then
+            echo "::error::Production tree changed after preflight. Refusing staged activation."
+            printf '%s\n' "$status" | sed -n '1,120p'
+            exit 1
+          fi
+          rsync -a --delete \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --include '.env.example' \
+            --include 'apps/api/.env.example' \
+            --exclude '.env' \
+            --exclude '.env.*' \
+            --exclude 'apps/api/.env' \
+            --exclude 'apps/api/.env.*' \
+            --exclude 'apps/api/data/books/' \
+            --exclude '*.pem' \
+            --exclude '.secrets' \
+            --exclude 'smoke-email.txt' \
+            "$release_stage/" /opt/kitabu-ai/
+          git fetch origin '${{ github.ref_name }}'
+          git reset --mixed '${{ github.sha }}'
           docker compose config --quiet
           docker compose up -d postgres redis
           docker compose build api worker
+
+          data_plan="$(
+            docker compose run --rm -T \
+              -e KITABU_RELEASE_SHA='${{ github.sha }}' \
+              api node scripts/deployment/run-data-operations.mjs --plan </dev/null
+          )"
+          printf '%s\n' "$data_plan"
+          data_mutates=false
+          if printf '%s\n' "$data_plan" | grep -q '"mutatesData":true'; then
+            data_mutates=true
+            data_apply_guard=''
+            pre_backup="$(
+              KITABU_BACKUP_DIR=/var/backups/kitabu \
+              KITABU_COMPOSE_DIR=/opt/kitabu-ai \
+              ./infra/backup.sh
+            )"
+            echo "KITABU_PRE_DEPLOY_BACKUP:$pre_backup"
+          else
+            data_apply_guard='--require-no-mutations'
+            echo 'KITABU_DATA_BACKUP_SKIPPED:no-pending-data-mutations'
+          fi
+
           docker compose run --rm -T api node scripts/apply-migrations.mjs </dev/null
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs --dry-run </dev/null
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 1 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 1 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 2 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 2 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-from-preserved-source.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 3 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-lower-primary-language-hierarchy.mjs data/curriculum/KEN/CBC/kicd-2024-grade-1-3/normalized-curriculum.json 3 </dev/null
-          echo LOWER_PRIMARY_REPAIR_COMPLETE
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-4 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-5 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-6 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-7 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-8 --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-9 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-10 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-11 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2026-grade-12 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-4 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-5 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-6 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-7 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-8 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-9 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-10 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-11 </dev/null
-          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2026-grade-12 </dev/null
-          echo UPPER_GRADE_CANONICAL_REPAIR_COMPLETE
-          docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs </dev/null
-          docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs </dev/null
+          docker compose run --rm -T \
+            -e KITABU_RELEASE_SHA='${{ github.sha }}' \
+            -e KITABU_DATA_OPERATION_MEMORY_BUDGET_MIB=900 \
+            -e NODE_OPTIONS=--max-old-space-size=768 \
+            api node scripts/deployment/run-data-operations.mjs --apply $data_apply_guard </dev/null
           docker compose run --rm -T api node scripts/verify-production-readiness.mjs </dev/null
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
@@ -210,6 +243,15 @@ jobs:
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           curl --fail --silent 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'
+          if [ "$data_mutates" = true ]; then
+            post_backup="$(
+              KITABU_BACKUP_DIR=/var/backups/kitabu \
+              KITABU_COMPOSE_DIR=/opt/kitabu-ai \
+              ./infra/backup.sh
+            )"
+            echo "KITABU_POST_DEPLOY_BACKUP:$post_backup"
+          fi
+          echo 'KITABU_DEPLOYMENT_COMPLETE:${{ github.sha }}'
           REMOTE
       - name: Remove deploy SSH key from runner
         if: always()

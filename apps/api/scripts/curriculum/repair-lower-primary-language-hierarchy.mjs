@@ -7,10 +7,13 @@ const { Pool } = pg;
 const apiDir = path.resolve(import.meta.dirname, '..', '..');
 loadEnv({ path: path.join(apiDir, '.env') });
 
+const argumentsList = process.argv.slice(2);
+const dryRun = argumentsList.includes('--dry-run');
+const positionalArguments = argumentsList.filter(value => value !== '--dry-run');
 const sourcePath = path.resolve(
-  process.argv[2] ?? path.join(apiDir, 'data', 'curriculum', 'KEN', 'CBC', 'kicd-2024-grade-1-3', 'normalized-curriculum.json'),
+  positionalArguments[0] ?? path.join(apiDir, 'data', 'curriculum', 'KEN', 'CBC', 'kicd-2024-grade-1-3', 'normalized-curriculum.json'),
 );
-const targetGrade = Number(process.argv[3] ?? 1);
+const targetGrade = Number(positionalArguments[1] ?? 1);
 const gradeLabel = `Grade ${targetGrade}`;
 if (![1, 2, 3].includes(targetGrade)) throw new Error('Grade must be 1, 2, or 3.');
 if (!process.env.KITABU_DATABASE_URL) {
@@ -328,8 +331,9 @@ try {
     if (!subject) throw new Error(`Missing ${gradeLabel} source subject: ${definition.sourceName}`);
     results.push(await repairSubject(client, subject, definition, sourcePath));
   }
-  await client.query('COMMIT');
-  console.log(JSON.stringify({ grade: gradeLabel, results }));
+  if (dryRun) await client.query('ROLLBACK');
+  else await client.query('COMMIT');
+  console.log(JSON.stringify({ grade: gradeLabel, results, dryRun }));
 } catch (error) {
   await client.query('ROLLBACK');
   throw error;

@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 
 const memoryStore = new Map<string, string>();
 // Expo SecureStore keys may only contain letters, numbers, ".", "-", and "_".
@@ -25,6 +26,14 @@ async function withTimeout<T>(operation: Promise<T>, timeoutMs: number): Promise
 }
 
 async function getSecureItem(key: string) {
+  if (Platform.OS === 'web') {
+    try {
+      return await AsyncStorage.getItem(`${securePrefix}${key}`);
+    } catch {
+      return memoryStore.get(`${securePrefix}${key}`) ?? null;
+    }
+  }
+
   try {
     const value = await withTimeout(
       SecureStore.getItemAsync(`${securePrefix}${key}`),
@@ -38,6 +47,15 @@ async function getSecureItem(key: string) {
 
 async function setSecureItem(key: string, value: string) {
   memoryStore.set(`${securePrefix}${key}`, value);
+
+  if (Platform.OS === 'web') {
+    try {
+      await AsyncStorage.setItem(`${securePrefix}${key}`, value);
+    } catch {
+      // Keep the in-memory copy when browser persistence is unavailable.
+    }
+    return;
+  }
 
   try {
     await withTimeout(

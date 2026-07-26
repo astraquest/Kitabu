@@ -118,6 +118,7 @@ import {
 } from '../services/weeklyExamService';
 import { focusModeBridge } from '../services/nativeBridges';
 import { loadJson, saveJson } from '../services/storage';
+import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
 import {
   getSubjectRecommendations,
@@ -573,6 +574,7 @@ function mergeCurriculumBundles(
 
   bundles.forEach(bundle => {
     next[`${grade}-${bundle.subjectId}`] = bundle.strands;
+    next[`${grade}-${bundle.subjectCode}`] = bundle.strands;
   });
 
   return next;
@@ -918,6 +920,29 @@ export function useKitabuApp() {
       setCurrentView('dashboard');
     }
   }, [authSession, isStudentPreview, replaceWith]);
+
+  useEffect(() => {
+    return subscribeToAuthSessionUpdates(session => {
+      if (session) {
+        setAuthSession(session);
+        return;
+      }
+
+      setAuthSession(null);
+      setAuthEntryScreen('auth');
+      setAuthMode('login');
+      setAuthError('Your session expired. Sign in again to continue.');
+      setProfileOpen(false);
+      setNotificationsOpen(false);
+      setChatOpen(false);
+      setSubjectLearningPath(null);
+      setSubjectLearningPathError(null);
+      setSelectedSubject(null);
+      setCurrentView('dashboard');
+      setNavigationHistory([]);
+      setNavigationIndex(-1);
+    });
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -1369,8 +1394,17 @@ export function useKitabuApp() {
       return [];
     }
 
-    return curriculumData[`${currentGrade}-${selectedSubject.id}`] || [];
-  }, [curriculumData, currentGrade, selectedSubject]);
+    const bundle = (curriculumSubjectBundlesByGrade[currentGrade] ?? []).find(
+      subject =>
+        subject.subjectCode === selectedSubject.id ||
+        subject.subjectId === selectedSubject.id,
+    );
+    return (
+      curriculumData[`${currentGrade}-${selectedSubject.id}`] ||
+      bundle?.strands ||
+      []
+    );
+  }, [curriculumData, curriculumSubjectBundlesByGrade, currentGrade, selectedSubject]);
 
   const hasStudied = useMemo(
     () =>
@@ -2481,7 +2515,13 @@ export function useKitabuApp() {
   }
 
   async function openLearningPathNode(node: LearningPathNode, bypassSubscription = false) {
-    if (node.status === 'locked') {
+    if (
+      node.status === 'locked' ||
+      node.status === 'content_pending' ||
+      node.availability === 'content_pending' ||
+      !node.lessonKey ||
+      !node.lessonVersion
+    ) {
       return;
     }
 
@@ -2509,7 +2549,9 @@ export function useKitabuApp() {
 
   function toggleDashboardSubject(subjectId: string) {
     const canonicalSubjectId = normalizeDashboardSubjectIdForGrade(subjectId, currentGrade);
-    const canonicalCurrentIds = dashboardSubjectIds.map(id => normalizeDashboardSubjectIdForGrade(id, currentGrade));
+    const canonicalCurrentIds = dashboardSubjects.map(subject =>
+      normalizeDashboardSubjectIdForGrade(subject.id, currentGrade),
+    );
     const nextSubjectIds = canonicalCurrentIds.includes(canonicalSubjectId)
       ? dashboardSubjectIds.length > 1
         ? canonicalCurrentIds.filter(id => id !== canonicalSubjectId)
@@ -2519,6 +2561,34 @@ export function useKitabuApp() {
         : [...canonicalCurrentIds, canonicalSubjectId];
 
     if (nextSubjectIds === dashboardSubjectIds) return;
+    setDashboardSubjectIds(nextSubjectIds);
+    setSubjectRecommendations(null);
+    saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
+  }
+
+  function swapDashboardSubject(replacedSubjectId: string, addedSubjectId: string) {
+    const replacedCanonicalId = normalizeDashboardSubjectIdForGrade(
+      replacedSubjectId,
+      currentGrade,
+    );
+    const addedCanonicalId = normalizeDashboardSubjectIdForGrade(
+      addedSubjectId,
+      currentGrade,
+    );
+    const currentSubjectIds = dashboardSubjects.map(subject =>
+      normalizeDashboardSubjectIdForGrade(subject.id, currentGrade),
+    );
+    if (
+      replacedCanonicalId === addedCanonicalId ||
+      !currentSubjectIds.includes(replacedCanonicalId) ||
+      currentSubjectIds.includes(addedCanonicalId)
+    ) {
+      return;
+    }
+
+    const nextSubjectIds = currentSubjectIds.map(subjectId =>
+      subjectId === replacedCanonicalId ? addedCanonicalId : subjectId,
+    );
     setDashboardSubjectIds(nextSubjectIds);
     setSubjectRecommendations(null);
     saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
@@ -2710,6 +2780,7 @@ export function useKitabuApp() {
           estimatedMinutes: 0,
           position: 0,
           status: 'current',
+          availability: 'published',
           bestScore: null,
           attemptCount: 0,
           delivery: 'progressive',
@@ -4104,7 +4175,7 @@ export function useKitabuApp() {
       teacherAssignments,
       submissionsByAssignment,
       pendingAssignments,
-      dashboardSubjectIds,
+      dashboardSubjectIds: dashboardSubjects.map(subject => subject.id),
       dashboardSubjects,
       chatSuggestedSubjects,
       books,
@@ -4263,6 +4334,7 @@ export function useKitabuApp() {
       addPoints,
       playGame,
       toggleDashboardSubject,
+      swapDashboardSubject,
       saveDashboardSubjects,
       publishTeacherAssignment,
     },

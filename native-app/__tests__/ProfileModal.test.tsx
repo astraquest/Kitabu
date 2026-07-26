@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { ProfileModal } from '../src/components/ProfileModal';
-import { BillingStatus, UserProfile } from '../src/types/app';
+import { BillingStatus, Subject, UserProfile } from '../src/types/app';
 
 const user: UserProfile = {
   name: 'Amina Student',
@@ -50,7 +50,22 @@ const defaultProps = {
   allSubjects: [],
   selectedSubjectIds: [],
   onToggleSubject: jest.fn(),
+  onSwapSubject: jest.fn(),
 };
+
+const subjects: Subject[] = [
+  { id: 'mathematics', name: 'Mathematics', colorFrom: '#2563EB', colorTo: '#1D4ED8' },
+  { id: 'english', name: 'English', colorFrom: '#16A34A', colorTo: '#15803D' },
+  { id: 'kiswahili', name: 'Kiswahili', colorFrom: '#DB2777', colorTo: '#BE185D' },
+  { id: 'cre', name: 'CRE', colorFrom: '#7C3AED', colorTo: '#6D28D9' },
+  { id: 'ire', name: 'IRE', colorFrom: '#059669', colorTo: '#047857' },
+  {
+    id: 'science_and_technology',
+    name: 'Science & Technology',
+    colorFrom: '#F59E0B',
+    colorTo: '#D97706',
+  },
+];
 
 const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
 
@@ -142,4 +157,59 @@ test('requires typed confirmation before requesting account deletion', async () 
   });
 
   expect(onDeleteAccount).toHaveBeenCalledTimes(1);
+});
+
+test('shows a checkmark for every selected dashboard subject', () => {
+  const selectedSubjects = subjects.slice(0, 5);
+  const root = renderProfileModal({
+    allSubjects: subjects,
+    selectedSubjectIds: selectedSubjects.map(subject => subject.id),
+  });
+
+  selectedSubjects.forEach(subject => {
+    expect(
+      root.findByProps({ accessibilityLabel: `${subject.name} selected` }),
+    ).toBeTruthy();
+  });
+});
+
+test('pins the atomic subject swap action above Sign Out', () => {
+  const onSwapSubject = jest.fn();
+  const root = renderProfileModal({
+    allSubjects: subjects,
+    selectedSubjectIds: subjects.slice(0, 5).map(subject => subject.id),
+    onSwapSubject,
+  });
+
+  ReactTestRenderer.act(() =>
+    pressableWithText(root, 'Science & Technology').props.onPress(),
+  );
+
+  expect(hasText(root, 'Swap Science & Technology with which subject?')).toBe(true);
+  const footer = root.findByProps({ testID: 'profile-footer' });
+  const footerChildren = React.Children.toArray(footer.props.children) as Array<
+    React.ReactElement<{ testID?: string }>
+  >;
+  const swapIndex = footerChildren.findIndex(
+    child => child.props.testID === 'profile-subject-swap-slot',
+  );
+  const signOutIndex = footerChildren.findIndex(
+    child => child.props.testID === 'profile-sign-out-button',
+  );
+  expect(swapIndex).toBeGreaterThanOrEqual(0);
+  expect(signOutIndex).toBeGreaterThanOrEqual(0);
+  expect(swapIndex).toBeLessThan(signOutIndex);
+
+  ReactTestRenderer.act(() =>
+    root
+      .findByProps({
+        accessibilityLabel: 'Replace Mathematics with Science & Technology',
+      })
+      .props.onPress(),
+  );
+  expect(onSwapSubject).toHaveBeenCalledTimes(1);
+  expect(onSwapSubject).toHaveBeenCalledWith(
+    'mathematics',
+    'science_and_technology',
+  );
 });

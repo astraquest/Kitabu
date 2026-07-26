@@ -199,8 +199,8 @@ export type ProgressiveLesson = {
 
 export type LearningPathNode = {
   id: string;
-  lessonKey: string;
-  lessonVersion: number;
+  lessonKey: string | null;
+  lessonVersion: number | null;
   title: string;
   objective: string;
   estimatedMinutes: number;
@@ -210,7 +210,10 @@ export type LearningPathNode = {
   strandTitle?: string;
   subStrandId?: string;
   subStrandNumber?: string;
-  status: 'completed' | 'current' | 'locked' | 'needs_practice';
+  curriculumTopicId?: string;
+  curriculumTopicKey?: string;
+  status: 'completed' | 'current' | 'locked' | 'needs_practice' | 'content_pending';
+  availability?: 'published' | 'content_pending';
   bestScore: number | null;
   attemptCount: number;
   delivery?: 'progressive';

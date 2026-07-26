@@ -60,6 +60,7 @@ interface ProfileModalProps {
   allSubjects: Subject[];
   selectedSubjectIds: string[];
   onToggleSubject: (subjectId: string) => void;
+  onSwapSubject: (replacedSubjectId: string, addedSubjectId: string) => void;
   subscriptionCheckoutOverlay?: React.ReactNode;
 }
 
@@ -434,6 +435,7 @@ export function ProfileModal({
   allSubjects,
   selectedSubjectIds,
   onToggleSubject,
+  onSwapSubject,
   subscriptionCheckoutOverlay,
 }: ProfileModalProps) {
   const [editCardVisible, setEditCardVisible] = useState(false);
@@ -443,6 +445,7 @@ export function ProfileModal({
   const [regionPickerOpen, setRegionPickerOpen] = useState(false);
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [schoolQuery, setSchoolQuery] = useState('');
+  const [swapCandidate, setSwapCandidate] = useState<Subject | null>(null);
   const [formData, setFormData] = useState<UserProfile>(user);
   const editCardProgress = useRef(new Animated.Value(0)).current;
   const lockModalProgress = useRef(new Animated.Value(0)).current;
@@ -463,6 +466,20 @@ export function ProfileModal({
     [allSubjects],
   );
   const selectedSubjectCount = selectedSubjectIds.length;
+  const selectedSubjects = useMemo(
+    () => orderedSubjects.filter(subject => selectedSubjectIds.includes(subject.id)),
+    [orderedSubjects, selectedSubjectIds],
+  );
+
+  useEffect(() => {
+    if (
+      !isOpen ||
+      selectedSubjectCount < MAX_PROFILE_SUBJECTS ||
+      (swapCandidate && selectedSubjectIds.includes(swapCandidate.id))
+    ) {
+      setSwapCandidate(null);
+    }
+  }, [isOpen, selectedSubjectCount, selectedSubjectIds, swapCandidate]);
   const selectedCountry = useMemo(
     () => getProfileCountry(formData.country),
     [formData.country],
@@ -557,6 +574,15 @@ export function ProfileModal({
   function saveEditCard() {
     onSave(formData);
     closeEditCard({ reset: false });
+  }
+
+  function handleSwapSubject(replacedSubjectId: string) {
+    if (!swapCandidate) {
+      return;
+    }
+
+    onSwapSubject(replacedSubjectId, swapCandidate.id);
+    setSwapCandidate(null);
   }
 
   function openLockModal() {
@@ -954,6 +980,7 @@ export function ProfileModal({
               selectedSubjectIds={selectedSubjectIds}
               selectedCount={selectedSubjectCount}
               onToggleSubject={onToggleSubject}
+              onRequestSwap={setSwapCandidate}
             />
 
             <View
@@ -961,12 +988,27 @@ export function ProfileModal({
                 styles.footerSpacer,
                 styles.subjectsFooterSpacer,
                 accountToolsOpen && styles.subjectsFooterSpacerExpanded,
+                swapCandidate && styles.subjectsFooterSpacerSwap,
+                accountToolsOpen &&
+                  swapCandidate &&
+                  styles.subjectsFooterSpacerSwapExpanded,
               ]}
             />
           </ScrollView>
 
-          <View style={styles.footer}>
+          <View style={styles.footer} testID="profile-footer">
+            {swapCandidate ? (
+              <View testID="profile-subject-swap-slot">
+                <SubjectSwapPanel
+                  candidate={swapCandidate}
+                  onCancel={() => setSwapCandidate(null)}
+                  onSwap={handleSwapSubject}
+                  selectedSubjects={selectedSubjects}
+                />
+              </View>
+            ) : null}
             <Pressable
+              testID="profile-sign-out-button"
               onPress={onSignOut}
               style={({ pressed }) => [
                 styles.secondaryFooterButton,
@@ -1577,26 +1619,15 @@ function ProfileSubjectTab({
   selectedSubjectIds,
   selectedCount,
   onToggleSubject,
+  onRequestSwap,
 }: {
   subjects: Subject[];
   selectedSubjectIds: string[];
   selectedCount: number;
   onToggleSubject: (subjectId: string) => void;
+  onRequestSwap: (subject: Subject) => void;
 }) {
   const hasReachedLimit = selectedCount >= MAX_PROFILE_SUBJECTS;
-  const [swapCandidate, setSwapCandidate] = useState<Subject | null>(null);
-  const selectedSubjects = subjects.filter(subject =>
-    selectedSubjectIds.includes(subject.id),
-  );
-
-  useEffect(() => {
-    if (
-      !hasReachedLimit ||
-      (swapCandidate && selectedSubjectIds.includes(swapCandidate.id))
-    ) {
-      setSwapCandidate(null);
-    }
-  }, [hasReachedLimit, selectedSubjectIds, swapCandidate]);
 
   function handleSubjectPress(subject: Subject, selected: boolean) {
     if (selected || !hasReachedLimit) {
@@ -1604,17 +1635,7 @@ function ProfileSubjectTab({
       return;
     }
 
-    setSwapCandidate(subject);
-  }
-
-  function handleSwapSubject(replacedSubjectId: string) {
-    if (!swapCandidate) {
-      return;
-    }
-
-    onToggleSubject(replacedSubjectId);
-    onToggleSubject(swapCandidate.id);
-    setSwapCandidate(null);
+    onRequestSwap(subject);
   }
 
   return (
@@ -1645,6 +1666,9 @@ function ProfileSubjectTab({
           return (
             <Pressable
               key={subject.id}
+              accessibilityLabel={`${subject.name}, ${selected ? 'selected' : 'not selected'}`}
+              accessibilityRole="checkbox"
+              accessibilityState={{ checked: selected }}
               onPress={() => handleSubjectPress(subject, selected)}
               style={({ pressed }) => [
                 styles.profileSubjectCard,
@@ -1661,7 +1685,10 @@ function ProfileSubjectTab({
                 {subject.name}
               </Text>
               {selected ? (
-                <View style={styles.profileSubjectCheck}>
+                <View
+                  accessibilityLabel={`${subject.name} selected`}
+                  style={styles.profileSubjectCheck}
+                >
                   <Check color="#16A34A" size={13} strokeWidth={3} />
                 </View>
               ) : null}
@@ -1669,39 +1696,6 @@ function ProfileSubjectTab({
           );
         })}
       </View>
-
-      {swapCandidate ? (
-        <View style={styles.subjectSwapPanel}>
-          <View style={styles.subjectSwapHeader}>
-            <Text style={styles.subjectSwapTitle}>
-              Swap {swapCandidate.name} with which subject?
-            </Text>
-            <Pressable
-              onPress={() => setSwapCandidate(null)}
-              style={({ pressed }) => [
-                styles.subjectSwapCancel,
-                pressed && styles.optionChipPressed,
-              ]}
-            >
-              <Text style={styles.subjectSwapCancelText}>Cancel</Text>
-            </Pressable>
-          </View>
-          <View style={styles.subjectSwapOptions}>
-            {selectedSubjects.map(subject => (
-              <Pressable
-                key={subject.id}
-                onPress={() => handleSwapSubject(subject.id)}
-                style={({ pressed }) => [
-                  styles.subjectSwapOption,
-                  pressed && styles.optionChipPressed,
-                ]}
-              >
-                <Text style={styles.subjectSwapOptionText}>{subject.name}</Text>
-              </Pressable>
-            ))}
-          </View>
-        </View>
-      ) : null}
 
       <View style={styles.subjectConfirmation}>
         <Text style={styles.subjectConfirmationText}>
@@ -1711,6 +1705,57 @@ function ProfileSubjectTab({
                 MAX_PROFILE_SUBJECTS - selectedCount === 1 ? '' : 's'
               }.`}
         </Text>
+      </View>
+    </View>
+  );
+}
+
+function SubjectSwapPanel({
+  candidate,
+  onCancel,
+  onSwap,
+  selectedSubjects,
+}: {
+  candidate: Subject;
+  onCancel: () => void;
+  onSwap: (replacedSubjectId: string) => void;
+  selectedSubjects: Subject[];
+}) {
+  return (
+    <View
+      accessibilityLabel={`Choose a subject to replace with ${candidate.name}`}
+      style={[styles.subjectSwapPanel, styles.subjectSwapPanelFooter]}
+      testID="profile-subject-swap-panel"
+    >
+      <View style={styles.subjectSwapHeader}>
+        <Text style={styles.subjectSwapTitle}>
+          Swap {candidate.name} with which subject?
+        </Text>
+        <Pressable
+          accessibilityLabel="Cancel subject swap"
+          onPress={onCancel}
+          style={({ pressed }) => [
+            styles.subjectSwapCancel,
+            pressed && styles.optionChipPressed,
+          ]}
+        >
+          <Text style={styles.subjectSwapCancelText}>Cancel</Text>
+        </Pressable>
+      </View>
+      <View style={styles.subjectSwapOptions}>
+        {selectedSubjects.map(subject => (
+          <Pressable
+            accessibilityLabel={`Replace ${subject.name} with ${candidate.name}`}
+            key={subject.id}
+            onPress={() => onSwap(subject.id)}
+            style={({ pressed }) => [
+              styles.subjectSwapOption,
+              pressed && styles.optionChipPressed,
+            ]}
+          >
+            <Text style={styles.subjectSwapOptionText}>{subject.name}</Text>
+          </Pressable>
+        ))}
       </View>
     </View>
   );
@@ -2552,6 +2597,9 @@ const styles = StyleSheet.create({
     gap: 10,
     padding: 12,
   },
+  subjectSwapPanelFooter: {
+    marginBottom: 10,
+  },
   subjectSwapHeader: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -2889,6 +2937,12 @@ const styles = StyleSheet.create({
   },
   subjectsFooterSpacer: {
     height: 122,
+  },
+  subjectsFooterSpacerSwap: {
+    height: 256,
+  },
+  subjectsFooterSpacerSwapExpanded: {
+    height: 322,
   },
   subjectsFooterSpacerExpanded: {
     height: 188,

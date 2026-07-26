@@ -10,7 +10,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Asset } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, {
   Circle as SvgCircle,
@@ -18,6 +17,7 @@ import Svg, {
 } from 'react-native-svg';
 import {
   Calculator,
+  CalendarClock,
   Check,
   Clock3,
   LockKeyhole,
@@ -43,6 +43,11 @@ import type { LearningPathNode, SubjectLearningPath } from '../types';
 const AnimatedCircle = Animated.createAnimatedComponent(SvgCircle);
 const PROGRESS_RING_CIRCUMFERENCE = 188.5;
 const VISIBLE_TOPIC_COUNT = 5;
+const PENDING_MASCOT_SOURCES = {
+  rabbit: require('../../../assets/mascot/sungura-rabbit-quiz.png'),
+  lion: require('../../../assets/mascot/simba-lion-quiz.png'),
+  elephant: require('../../../assets/mascot/ndovu-elephant-quiz.png'),
+};
 
 interface SubjectLearningPathScreenProps {
   subject: Subject;
@@ -69,10 +74,15 @@ export function SubjectLearningPathScreen({
   onRetry,
   onOpenNode,
 }: SubjectLearningPathScreenProps) {
-  const resolvedPath = useMemo(
-    () => path ?? buildFallbackLearningPath(subject, strands, grade),
-    [grade, path, strands, subject],
+  const fallbackPath = useMemo(
+    () => buildFallbackLearningPath(subject, strands, grade),
+    [grade, strands, subject],
   );
+  const resolvedPath = useMemo<SubjectLearningPath>(
+    () => path ?? fallbackPath,
+    [fallbackPath, path],
+  );
+  const hasCurriculumFallback = !path && fallbackPath.nodes.length > 0;
   const displayedProgressPercent = useMemo(() => {
     const practisedCount = resolvedPath.nodes.filter(
       node =>
@@ -91,6 +101,7 @@ export function SubjectLearningPathScreen({
   const progress = useRef(new Animated.Value(0)).current;
   const entrance = useRef(new Animated.Value(0)).current;
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [pendingNode, setPendingNode] = useState<LearningPathNode | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -145,7 +156,8 @@ export function SubjectLearningPathScreen({
   });
   const currentNode =
     resolvedPath.nodes.find(node => node.status === 'current') ??
-    resolvedPath.nodes.find(node => node.status === 'needs_practice');
+    resolvedPath.nodes.find(node => node.status === 'needs_practice') ??
+    resolvedPath.nodes.find(node => node.status === 'content_pending');
   const currentNodeIndex = currentNode
     ? resolvedPath.nodes.findIndex(node => node.id === currentNode.id)
     : -1;
@@ -162,6 +174,19 @@ export function SubjectLearningPathScreen({
     visibleStartIndex,
     visibleEndIndex,
   );
+
+  if (pendingNode) {
+    return (
+      <ContentPendingPage
+        grade={grade}
+        mascotKey={mascotKey}
+        node={pendingNode}
+        onBack={() => setPendingNode(null)}
+        subjectName={subject.name}
+      />
+    );
+  }
+
   return (
     <View style={styles.screen}>
       <SubjectPageHeader
@@ -179,10 +204,12 @@ export function SubjectLearningPathScreen({
         <Animated.View
           style={[
             styles.contentStack,
-            {
-              opacity: entrance,
-              transform: [{ translateY: contentTranslateY }],
-            },
+            Platform.OS === 'web'
+              ? styles.contentStackWeb
+              : {
+                  opacity: entrance,
+                  transform: [{ translateY: contentTranslateY }],
+                },
           ]}
         >
           {currentNode ? (
@@ -198,9 +225,9 @@ export function SubjectLearningPathScreen({
             />
           ) : null}
 
-          {isLoading && !path ? <PathSkeleton /> : null}
+          {isLoading && !path && !hasCurriculumFallback ? <PathSkeleton /> : null}
 
-          {error ? (
+          {error && !hasCurriculumFallback ? (
             <View style={styles.noticeCard}>
               <Text style={styles.noticeTitle}>
                 Using your saved curriculum
@@ -249,7 +276,13 @@ export function SubjectLearningPathScreen({
                     index={index}
                     isLast={index === visibleNodes.length - 1}
                     node={node}
-                    onOpen={() => onOpenNode(node)}
+                    onOpen={() => {
+                      if (node.status === 'content_pending') {
+                        setPendingNode(node);
+                        return;
+                      }
+                      onOpenNode(node);
+                    }}
                     reduceMotion={reduceMotion}
                   />
                 </React.Fragment>
@@ -257,6 +290,88 @@ export function SubjectLearningPathScreen({
             )}
           </View>
         </Animated.View>
+      </ScrollView>
+    </View>
+  );
+}
+
+function ContentPendingPage({
+  grade,
+  mascotKey,
+  node,
+  onBack,
+  subjectName,
+}: {
+  grade: string;
+  mascotKey: OnboardingMascotKey;
+  node: LearningPathNode;
+  onBack: () => void;
+  subjectName: string;
+}) {
+  const mascotSource = PENDING_MASCOT_SOURCES[mascotKey];
+  const mascotName = mascotKey === 'lion'
+    ? 'Simba'
+    : mascotKey === 'elephant'
+      ? 'Ndovu'
+      : 'Sungura';
+
+  return (
+    <View style={styles.pendingScreen}>
+      <SubjectPageHeader
+        backAccessibilityLabel="Back to learning path"
+        grade={grade}
+        onBack={onBack}
+        subjectName={subjectName}
+      />
+      <ScrollView
+        contentContainerStyle={styles.pendingContent}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.pendingCard}>
+          <View style={styles.pendingKickerRow}>
+            <CalendarClock color="#F97316" size={18} strokeWidth={2.5} />
+            <Text style={styles.pendingKicker}>MORE LEARNING IS ON THE WAY</Text>
+          </View>
+          <View style={styles.pendingMascotHalo}>
+            <Image
+              accessibilityLabel={`${mascotName}, your selected learning mascot`}
+              resizeMode="contain"
+              source={mascotSource}
+              style={styles.pendingMascot}
+            />
+          </View>
+          <Text style={styles.pendingTitle}>Come back tomorrow!</Text>
+          <Text style={styles.pendingMessage}>
+            {mascotName} is helping our teachers prepare a rich, playful lesson for
+            {' '}<Text style={styles.pendingTopic}>{node.title}</Text>.
+          </Text>
+          <View style={styles.pendingTopicCard}>
+            <Text style={styles.pendingTopicLabel}>
+              {node.subStrandNumber ? `TOPIC ${node.subStrandNumber}` : 'NEXT TOPIC'}
+            </Text>
+            <Text style={styles.pendingTopicTitle}>{node.title}</Text>
+            <Text style={styles.pendingStrand}>{node.strandTitle}</Text>
+          </View>
+          <Text style={styles.pendingPromise}>
+            We only publish lessons after they are carefully authored and checked.
+            Your place in the curriculum is safe.
+          </Text>
+          <SquishPressable
+            accessibilityLabel="Back to learning path"
+            accessibilityRole="button"
+            onPress={onBack}
+            containerStyle={styles.pendingButtonWrap}
+          >
+            <LinearGradient
+              colors={['#3284F5', '#1268E8']}
+              end={{ x: 1, y: 0 }}
+              start={{ x: 0, y: 0 }}
+              style={styles.pendingButton}
+            >
+              <Text style={styles.pendingButtonText}>Back to learning path</Text>
+            </LinearGradient>
+          </SquishPressable>
+        </View>
       </ScrollView>
     </View>
   );
@@ -379,24 +494,6 @@ function AdventureChallengeTrail() {
 
 function MascotBannerArt({ mascotKey }: { mascotKey: OnboardingMascotKey }) {
   const source = LEARNING_MASCOT_SOURCES[mascotKey];
-  if (Platform.OS === 'web') {
-    const uri = Asset.fromModule(source as number).uri;
-    return React.createElement('img', {
-      alt: '',
-      draggable: false,
-      src: uri,
-      style: {
-        bottom: -8,
-        height: 92,
-        left: 5,
-        objectFit: 'contain',
-        pointerEvents: 'none',
-        position: 'absolute',
-        width: 76,
-        zIndex: 2,
-      },
-    });
-  }
   return (
     <Image
       resizeMode="contain"
@@ -422,10 +519,16 @@ function PathNode({
   const isLocked = node.status === 'locked';
   const isCurrent =
     node.status === 'current' || node.status === 'needs_practice';
+  const isContentPending = node.status === 'content_pending';
+  const isUnpublished = node.availability === 'content_pending';
   const isComplete = node.status === 'completed';
   const nodeEntrance = useRef(new Animated.Value(reduceMotion ? 1 : 0)).current;
   const actionLabel =
-    node.status === 'needs_practice' ? 'Practise again' : 'Start lesson';
+    node.status === 'needs_practice'
+      ? 'Practise again'
+      : isContentPending
+        ? 'See update'
+        : 'Start lesson';
 
   useEffect(() => {
     nodeEntrance.stopAnimation();
@@ -465,6 +568,7 @@ function PathNode({
             styles.nodeDot,
             isComplete && styles.nodeDotComplete,
             isCurrent && styles.nodeDotCurrent,
+            isContentPending && styles.nodeDotPending,
             isLocked && styles.nodeDotLocked,
             { transform: [{ scale: dotScale }] },
           ]}
@@ -480,6 +584,7 @@ function PathNode({
             )
           ) : null}
           {isLocked ? <LockKeyhole color="#94A3B8" size={16} /> : null}
+          {isContentPending ? <CalendarClock color="#FFFFFF" size={17} /> : null}
         </Animated.View>
         {!isLast ? (
           <View
@@ -497,6 +602,7 @@ function PathNode({
           styles.nodeCard,
           isComplete && styles.nodeCardComplete,
           isCurrent && styles.nodeCardCurrent,
+          isContentPending && styles.nodeCardPending,
           isLocked && styles.nodeCardLocked,
         ]}
       >
@@ -509,6 +615,7 @@ function PathNode({
             isComplete={isComplete}
             isCurrent={isCurrent}
             isLocked={isLocked}
+            isContentPending={isContentPending}
             position={node.position}
           />
           <View style={styles.nodeTitleWrap}>
@@ -528,6 +635,9 @@ function PathNode({
               {isCurrent && node.status !== 'needs_practice' ? (
                 <Text style={styles.currentPill}>CURRENT</Text>
               ) : null}
+              {isContentPending ? (
+                <Text style={styles.pendingPill}>SOON</Text>
+              ) : null}
               {isComplete ? (
                 <Text style={styles.completePill}>DONE</Text>
               ) : null}
@@ -537,7 +647,11 @@ function PathNode({
               <Text
                 style={[styles.nodeMeta, isLocked && styles.nodeTextLocked]}
               >
-                {node.estimatedMinutes} min
+                {isContentPending
+                  ? 'Come back tomorrow'
+                  : isUnpublished
+                    ? 'Content coming soon'
+                    : `${node.estimatedMinutes} min`}
               </Text>
               {node.bestScore !== null ? (
                 <View style={styles.scoreWrap}>
@@ -550,7 +664,7 @@ function PathNode({
           </View>
         </View>
 
-        {isCurrent ? (
+        {isCurrent || isContentPending ? (
           <SquishPressable
             accessibilityLabel={`${actionLabel}: ${node.title}`}
             accessibilityRole="button"
@@ -583,13 +697,17 @@ function NodeTopicIcon({
   isComplete,
   isCurrent,
   isLocked,
+  isContentPending,
 }: {
   position: number;
   isComplete: boolean;
   isCurrent: boolean;
   isLocked: boolean;
+  isContentPending: boolean;
 }) {
-  const color = isLocked
+  const color = isContentPending
+    ? '#F97316'
+    : isLocked
     ? '#94A3B8'
     : isComplete
     ? '#0EA56B'
@@ -603,6 +721,7 @@ function NodeTopicIcon({
         styles.topicIcon,
         isComplete && styles.topicIconComplete,
         isCurrent && styles.topicIconCurrent,
+        isContentPending && styles.topicIconPending,
         isLocked && styles.topicIconLocked,
       ]}
     >
@@ -714,6 +833,7 @@ const styles = StyleSheet.create({
   },
   content: { paddingBottom: 16, paddingHorizontal: 16, paddingTop: 8 },
   contentStack: { gap: 8 },
+  contentStackWeb: { opacity: 1 },
   currentPill: {
     backgroundColor: '#E7F0FF',
     borderRadius: 999,
@@ -763,6 +883,13 @@ const styles = StyleSheet.create({
     borderColor: '#E5EAF2',
     paddingVertical: 9,
   },
+  nodeCardPending: {
+    backgroundColor: '#FFF9F2',
+    borderColor: '#FDBA74',
+    borderWidth: 2,
+    shadowColor: '#F97316',
+    shadowOpacity: 0.1,
+  },
   nodeContentRow: { alignItems: 'flex-start', flexDirection: 'row', gap: 10 },
   nodeDot: {
     alignItems: 'center',
@@ -784,6 +911,7 @@ const styles = StyleSheet.create({
     borderColor: '#D5DDE8',
     borderWidth: 1,
   },
+  nodeDotPending: { backgroundColor: '#F97316' },
   nodeMeta: { color: '#64748B', fontSize: 11, fontWeight: '700' },
   nodeMetaRow: {
     alignItems: 'center',
@@ -812,6 +940,109 @@ const styles = StyleSheet.create({
   noticeText: { color: '#475569', fontSize: 11, lineHeight: 17, marginTop: 3 },
   noticeTitle: { color: '#0F766E', fontSize: 13, fontWeight: '900' },
   pathList: { marginTop: 1 },
+  pendingButton: {
+    alignItems: 'center',
+    borderRadius: 16,
+    justifyContent: 'center',
+    minHeight: 54,
+    paddingHorizontal: 20,
+  },
+  pendingButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  pendingButtonWrap: { marginTop: 20, width: '100%' },
+  pendingCard: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FED7AA',
+    borderRadius: 28,
+    borderWidth: 1,
+    paddingBottom: 24,
+    paddingHorizontal: 22,
+    paddingTop: 22,
+    shadowColor: '#C2410C',
+    shadowOffset: { height: 10, width: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 22,
+  },
+  pendingContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingBottom: 28,
+    paddingHorizontal: 18,
+    paddingTop: 18,
+  },
+  pendingKicker: {
+    color: '#C2410C',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 0.8,
+  },
+  pendingKickerRow: {
+    alignItems: 'center',
+    backgroundColor: '#FFF1E7',
+    borderRadius: 999,
+    flexDirection: 'row',
+    gap: 7,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  pendingMascot: { borderRadius: 71, height: 142, width: 142 },
+  pendingMascotHalo: {
+    alignItems: 'center',
+    backgroundColor: '#FFF7ED',
+    borderColor: '#FFEDD5',
+    borderRadius: 88,
+    borderWidth: 8,
+    height: 176,
+    justifyContent: 'center',
+    marginTop: 18,
+    width: 176,
+  },
+  pendingMessage: {
+    color: '#5B6474',
+    fontSize: 14,
+    lineHeight: 21,
+    marginTop: 9,
+    textAlign: 'center',
+  },
+  pendingPill: {
+    backgroundColor: '#FFEDD5',
+    borderRadius: 999,
+    color: '#C2410C',
+    fontSize: 9,
+    fontWeight: '900',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  pendingPromise: {
+    color: '#64748B',
+    fontSize: 12,
+    lineHeight: 18,
+    marginTop: 14,
+    textAlign: 'center',
+  },
+  pendingScreen: { backgroundColor: '#FFF9F3', flex: 1 },
+  pendingStrand: { color: '#64748B', fontSize: 11, fontWeight: '700', marginTop: 4 },
+  pendingTitle: {
+    color: '#0B1F4D',
+    fontSize: 28,
+    fontWeight: '900',
+    letterSpacing: -0.8,
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  pendingTopic: { color: '#C2410C', fontWeight: '900' },
+  pendingTopicCard: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E2E8F0',
+    borderRadius: 17,
+    borderWidth: 1,
+    marginTop: 18,
+    paddingHorizontal: 16,
+    paddingVertical: 13,
+    width: '100%',
+  },
+  pendingTopicLabel: { color: '#F97316', fontSize: 9, fontWeight: '900', letterSpacing: 0.8 },
+  pendingTopicTitle: { color: '#0B1F4D', fontSize: 16, fontWeight: '900', lineHeight: 21, marginTop: 4 },
   practicePill: {
     backgroundColor: '#FFF0E6',
     borderRadius: 999,
@@ -899,4 +1130,5 @@ const styles = StyleSheet.create({
   topicIconComplete: { backgroundColor: '#E7FAEF' },
   topicIconCurrent: { backgroundColor: '#E7F0FF' },
   topicIconLocked: { backgroundColor: '#EEF1F5' },
+  topicIconPending: { backgroundColor: '#FFEDD5' },
 });

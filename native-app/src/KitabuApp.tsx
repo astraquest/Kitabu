@@ -406,6 +406,7 @@ export function KitabuApp() {
           allSubjects={state.subjects}
           selectedSubjectIds={state.dashboardSubjectIds}
           onToggleSubject={actions.toggleDashboardSubject}
+          onSwapSubject={actions.swapDashboardSubject}
         />
 
         <NotificationsModal

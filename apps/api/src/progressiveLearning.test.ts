@@ -62,7 +62,7 @@ test('scores every displayed question for lower-primary lessons only', () => {
   assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 7'), false);
 });
 
-test('unlocks the next lesson after the current lesson is attempted', () => {
+test('unlocks the next lesson only after the current lesson is completed', () => {
   const initial = buildMathematicsLearningPath([], 'Grade 7');
   assert.equal(initial.grade, 'Grade 7');
   assert.equal(initial.nodes[0].status, 'current');
@@ -70,7 +70,7 @@ test('unlocks the next lesson after the current lesson is attempted', () => {
 
   const next = buildMathematicsLearningPath([
     {
-      lesson_key: initial.nodes[0].lessonKey,
+      lesson_key: initial.nodes[0].lessonKey!,
       best_score: 100,
       status: 'completed',
       attempt_count: 1
@@ -82,15 +82,14 @@ test('unlocks the next lesson after the current lesson is attempted', () => {
 
   const afterPractice = buildMathematicsLearningPath([
     {
-      lesson_key: initial.nodes[0].lessonKey,
+      lesson_key: initial.nodes[0].lessonKey!,
       best_score: 67,
       status: 'needs_practice',
       attempt_count: 1
     }
   ], 'Grade 7');
   assert.equal(afterPractice.nodes[0].status, 'needs_practice');
-  assert.equal(afterPractice.nodes[1].status, 'current');
-  assert.ok(afterPractice.nodes.slice(2).every(node => node.status === 'locked'));
+  assert.ok(afterPractice.nodes.slice(1).every(node => node.status === 'locked'));
 });
 
 test('uses varied visual objects instead of relying on abstract cubes', () => {

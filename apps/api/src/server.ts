@@ -240,18 +240,15 @@ import {
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
 import {
-  buildProgressiveLearningPath,
   getProgressiveLessonPrivateDefinition,
   gradeProgressiveLessonDefinitionStep,
-  hasProgressiveLearningPath,
   listProgressiveLessonDefinitions,
   normalizeProgressiveSubjectId,
   shouldScoreAllProgressiveLessonSteps,
   toProgressiveLessonPublic
 } from './progressiveLearning.js';
 import {
-  buildCurriculumCompatibilityLesson,
-  buildCurriculumCompatibilityPath
+  buildCurriculumAuthoredPath
 } from './curriculumCompatibilityLesson.js';
 import {
   type CurriculumScope,
@@ -293,16 +290,9 @@ async function resolveRequestCurriculumScope(
 }
 
 async function resolveProgressiveLesson(lessonKey: string, scope: CurriculumScope) {
-  const authoredLesson = isKenyaCbcScope(scope)
+  return isKenyaCbcScope(scope)
     ? getProgressiveLessonPrivateDefinition(lessonKey)
     : null;
-  if (authoredLesson) return authoredLesson;
-  if (!lessonKey.startsWith('curriculum-')) return null;
-
-  const subStrandId = lessonKey.slice('curriculum-'.length);
-  if (!subStrandId) return null;
-  const context = await findCurriculumSubStrandContext(subStrandId, scope);
-  return context ? buildCurriculumCompatibilityLesson(context) : null;
 }
 
 async function resolveLearningPath(
@@ -319,19 +309,14 @@ async function resolveLearningPath(
     candidate.subjectCode === requestedSubjectId ||
     normalizeProgressiveSubjectId(candidate.subjectId, grade) === canonicalSubjectId
   );
-  if (['Grade 1', 'Grade 2', 'Grade 3'].includes(grade) && subject) {
-    return buildCurriculumCompatibilityPath(
-      subject,
-      progress,
-      grade,
-      listProgressiveLessonDefinitions({ subjectId: subject.subjectId, grade })
-    );
-  }
-  if (isKenyaCbcScope(scope) && hasProgressiveLearningPath(canonicalSubjectId, grade)) {
-    return buildProgressiveLearningPath(canonicalSubjectId, progress, grade);
-  }
-
-  return subject ? buildCurriculumCompatibilityPath(subject, progress, grade) : null;
+  return subject ? buildCurriculumAuthoredPath(
+    subject,
+    progress,
+    grade,
+    isKenyaCbcScope(scope)
+      ? listProgressiveLessonDefinitions({ subjectId: canonicalSubjectId, grade })
+      : []
+  ) : null;
 }
 
 const LEGAL_PAGE_DIR = process.env.KITABU_LEGAL_PAGE_DIR?.trim() || join(process.cwd(), 'legal');
@@ -4585,6 +4570,10 @@ Requirements:
     if (node.status === 'locked') {
       return reply.forbidden('Complete the previous lesson before starting this one.');
     }
+    if (node.availability !== 'published' || !node.curriculumTopicId) {
+      return reply.conflict('Richly authored content is not published for this curriculum topic yet.');
+    }
+    const curriculumTopicId = node.curriculumTopicId;
 
     const attempt = await withTransaction(client =>
       startProgressiveLessonAttempt(client, {
@@ -4593,7 +4582,8 @@ Requirements:
         gradeLevel: body.grade,
         subjectId: lesson.subjectId,
         lessonKey: lesson.lessonKey,
-        lessonVersion: lesson.lessonVersion
+        lessonVersion: lesson.lessonVersion,
+        curriculumTopicId
       })
     );
     if (!attempt) {
@@ -4732,7 +4722,11 @@ Requirements:
       attempt.subject_id,
       scope
     );
-    const nextNode = path?.nodes.find(node => node.status === 'current') ?? null;
+    const nextNode = path?.nodes.find(node =>
+      node.status === 'current' ||
+      node.status === 'needs_practice' ||
+      node.status === 'content_pending'
+    ) ?? null;
 
     return {
       score: completion.result.score,

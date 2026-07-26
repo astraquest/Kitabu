@@ -4252,6 +4252,7 @@ export async function markCurriculumSubStrandCompleted(
 
 export interface ProgressiveLessonProgressRecord {
   lesson_key: string;
+  curriculum_topic_id: string | null;
   best_score: number;
   status: 'in_progress' | 'completed' | 'needs_practice';
   attempt_count: number;
@@ -4265,6 +4266,7 @@ export interface ProgressiveLessonAttemptRecord {
   subject_id: string;
   lesson_key: string;
   lesson_version: number;
+  curriculum_topic_id: string | null;
   status: 'in_progress' | 'completed' | 'needs_practice' | 'abandoned';
   current_step_id: string | null;
   checkpoint_score: string | null;
@@ -4277,11 +4279,12 @@ export async function listProgressiveLessonProgress(
 ) {
   const result = await db.query<{
     lesson_key: string;
+    curriculum_topic_id: string | null;
     best_score: string;
     status: ProgressiveLessonProgressRecord['status'];
     attempt_count: number;
   }>(
-    `SELECT lesson_key, best_score::text AS best_score, status, attempt_count
+    `SELECT lesson_key, curriculum_topic_id, best_score::text AS best_score, status, attempt_count
      FROM progressive_lesson_progress
      WHERE user_id = $1 AND grade_level = $2 AND subject_id = $3`,
     [userId, gradeLevel, subjectId]
@@ -4289,6 +4292,7 @@ export async function listProgressiveLessonProgress(
 
   return result.rows.map(row => ({
     lesson_key: row.lesson_key,
+    curriculum_topic_id: row.curriculum_topic_id,
     best_score: Number(row.best_score),
     status: row.status,
     attempt_count: row.attempt_count
@@ -4304,24 +4308,28 @@ export async function startProgressiveLessonAttempt(
     subjectId: string;
     lessonKey: string;
     lessonVersion: number;
+    curriculumTopicId: string;
   }
 ) {
   const result = await q<ProgressiveLessonAttemptRecord>(
     client,
     `INSERT INTO progressive_lesson_attempts (
-       client_attempt_id, user_id, grade_level, subject_id, lesson_key, lesson_version
-     ) VALUES ($1, $2, $3, $4, $5, $6)
+       client_attempt_id, user_id, grade_level, subject_id, lesson_key, lesson_version,
+       curriculum_topic_id
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7)
      ON CONFLICT (client_attempt_id)
      DO UPDATE SET last_activity_at = NOW()
      RETURNING id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
-       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score`,
+       lesson_version, curriculum_topic_id, status, current_step_id,
+       checkpoint_score::text AS checkpoint_score`,
     [
       input.clientAttemptId,
       input.userId,
       input.gradeLevel,
       input.subjectId,
       input.lessonKey,
-      input.lessonVersion
+      input.lessonVersion,
+      input.curriculumTopicId
     ]
   );
 
@@ -4335,7 +4343,7 @@ export async function startProgressiveLessonAttempt(
 export async function findProgressiveLessonAttemptForUser(attemptId: string, userId: string) {
   const result = await db.query<ProgressiveLessonAttemptRecord>(
     `SELECT id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
-       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score
+       lesson_version, curriculum_topic_id, status, current_step_id, checkpoint_score::text AS checkpoint_score
      FROM progressive_lesson_attempts
      WHERE id = $1 AND user_id = $2`,
     [attemptId, userId]
@@ -4451,7 +4459,7 @@ export async function completeProgressiveLessonAttempt(
   const attemptResult = await q<ProgressiveLessonAttemptRecord>(
     client,
     `SELECT id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
-       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score
+       lesson_version, curriculum_topic_id, status, current_step_id, checkpoint_score::text AS checkpoint_score
      FROM progressive_lesson_attempts
      WHERE id = $1 AND user_id = $2
      FOR UPDATE`,
@@ -4510,19 +4518,51 @@ export async function completeProgressiveLessonAttempt(
          last_activity_at = NOW()
      WHERE id = $1
      RETURNING id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
-       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score`,
+       lesson_version, curriculum_topic_id, status, current_step_id,
+       checkpoint_score::text AS checkpoint_score`,
     [input.attemptId, status, score]
   );
 
   await q(
     client,
-    `INSERT INTO progressive_lesson_progress (
-       user_id, grade_level, subject_id, lesson_key, best_score, status,
+    `WITH topic_progress AS (
+       UPDATE progressive_lesson_progress
+       SET lesson_key = $4,
+           best_score = GREATEST(progressive_lesson_progress.best_score, $6),
+           status = CASE
+             WHEN progressive_lesson_progress.status = 'completed' OR $7 = 'completed' THEN 'completed'
+             ELSE 'needs_practice'
+           END,
+           attempt_count = progressive_lesson_progress.attempt_count + 1,
+           last_attempt_at = NOW(),
+           completed_at = CASE
+             WHEN progressive_lesson_progress.status = 'completed' THEN progressive_lesson_progress.completed_at
+             WHEN $7 = 'completed' THEN NOW()
+             ELSE NULL
+           END,
+           updated_at = NOW()
+       WHERE user_id = $1
+         AND grade_level = $2
+         AND subject_id = $3
+         AND curriculum_topic_id = $5
+       RETURNING 1
+     )
+     INSERT INTO progressive_lesson_progress (
+       user_id, grade_level, subject_id, lesson_key, curriculum_topic_id, best_score, status,
        attempt_count, last_attempt_at, completed_at, updated_at
-     ) VALUES ($1, $2, $3, $4, $5, $6, 1, NOW(), CASE WHEN $6 = 'completed' THEN NOW() ELSE NULL END, NOW())
+     )
+     SELECT $1, $2, $3, $4, $5, $6, $7, 1, NOW(),
+       CASE WHEN $7 = 'completed' THEN NOW() ELSE NULL END, NOW()
+     WHERE NOT EXISTS (SELECT 1 FROM topic_progress)
      ON CONFLICT (user_id, lesson_key)
      DO UPDATE SET
        best_score = GREATEST(progressive_lesson_progress.best_score, EXCLUDED.best_score),
+       curriculum_topic_id = COALESCE(
+         progressive_lesson_progress.curriculum_topic_id,
+         EXCLUDED.curriculum_topic_id
+       ),
+       grade_level = EXCLUDED.grade_level,
+       subject_id = EXCLUDED.subject_id,
        status = CASE
          WHEN progressive_lesson_progress.status = 'completed' OR EXCLUDED.status = 'completed' THEN 'completed'
          ELSE 'needs_practice'
@@ -4535,7 +4575,7 @@ export async function completeProgressiveLessonAttempt(
          ELSE NULL
        END,
        updated_at = NOW()`,
-    [attempt.user_id, attempt.grade_level, attempt.subject_id, attempt.lesson_key, score, status]
+    [attempt.user_id, attempt.grade_level, attempt.subject_id, attempt.lesson_key, attempt.curriculum_topic_id, score, status]
   );
 
   return {

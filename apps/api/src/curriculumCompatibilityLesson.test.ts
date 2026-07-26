@@ -1,155 +1,125 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import {
-  buildCurriculumCompatibilityLesson,
-  buildCurriculumCompatibilityPath,
-  type CurriculumSubStrandContext
-} from './curriculumCompatibilityLesson.js';
-import {
-  gradeProgressiveLessonDefinitionStep,
-  toProgressiveLessonPublic
-} from './progressiveLearning.js';
+import { buildCurriculumAuthoredPath } from './curriculumCompatibilityLesson.js';
 
-const context: CurriculumSubStrandContext = {
-  sub_strand_id: 'topic-1',
-  sub_strand_title: 'Weather Instruments',
-  sub_strand_description: 'Connect each weather instrument to the quantity it measures.',
-  outcomes: [{ text: 'Identify instruments used to measure weather conditions.' }],
-  inquiry_questions: [{ text: 'How do weather measurements support daily decisions?' }],
-  pages: [
-    { title: 'Observe', content: 'A rain gauge measures rainfall collected over a known period.' },
-    { title: 'Compare', content: 'A thermometer measures temperature while a wind vane shows direction.' },
-    { title: 'Connect', content: 'Reliable records help people compare conditions over time.' }
-  ],
-  strand_title: 'Weather',
-  grade_level: 'Grade 9',
-  subject_id: 'general_science',
-  subject_name: 'General Science'
-};
-
-test('converts stored curriculum pages into the progressive lesson contract', () => {
-  const privateLesson = buildCurriculumCompatibilityLesson(context);
-  const lesson = toProgressiveLessonPublic(privateLesson);
-
-  assert.equal(lesson.lessonKey, 'curriculum-topic-1');
-  assert.equal(lesson.subjectId, 'science');
-  assert.equal(lesson.steps.length, 3);
-  assert.equal(lesson.steps[0].phase, 'guided');
-  assert.equal(lesson.steps[2].phase, 'checkpoint');
-  assert.doesNotMatch(JSON.stringify(lesson), /"answer"\s*:/);
-  assert.equal(
-    gradeProgressiveLessonDefinitionStep(privateLesson, lesson.steps[2].id, 'Finish lesson')?.isCorrect,
-    true
-  );
-});
-
-test('builds progressive compatibility nodes without a legacy delivery branch', () => {
-  const path = buildCurriculumCompatibilityPath({
-    subjectId: 'general_science',
-    subjectName: 'General Science',
-    strands: [{
-      title: 'Weather',
-      subStrands: [
-        {
-          id: 'topic-1',
-          title: 'Weather Instruments',
-          description: context.sub_strand_description,
-          outcomes: context.outcomes,
-          isCompleted: false,
-          needsRemediation: false,
-          masteryScore: null
-        },
-        {
-          id: 'topic-2',
-          title: 'Weather Records',
-          description: 'Record and compare weather data.',
-          outcomes: [],
-          isCompleted: false,
-          needsRemediation: false,
-          masteryScore: null
-        }
-      ]
-    }]
-  }, [], 'Grade 9');
-
-  assert.equal(path.subjectId, 'science');
-  assert.deepEqual(path.nodes.map(node => node.lessonKey), ['curriculum-topic-1', 'curriculum-topic-2']);
-  assert.deepEqual(path.nodes.map(node => node.status), ['current', 'locked']);
-  assert.doesNotMatch(JSON.stringify(path), /legacy/i);
-
-  const practisedPath = buildCurriculumCompatibilityPath({
-    subjectId: 'general_science',
-    subjectName: 'General Science',
-    strands: [{
-      title: 'Weather',
-      subStrands: [
-        {
-          id: 'topic-1',
-          title: 'Weather Instruments',
-          isCompleted: false,
-          needsRemediation: false,
-          masteryScore: null
-        },
-        {
-          id: 'topic-2',
-          title: 'Weather Records',
-          isCompleted: false,
-          needsRemediation: false,
-          masteryScore: null
-        }
-      ]
-    }]
-  }, [{
-    lesson_key: 'curriculum-topic-1',
-    best_score: 67,
-    status: 'needs_practice',
-    attempt_count: 1
-  }], 'Grade 9');
-  assert.deepEqual(
-    practisedPath.nodes.map(node => node.status),
-    ['needs_practice', 'current']
-  );
-});
-
-test('preserves canonical curriculum identity and numbering on lower-primary paths', () => {
-  const path = buildCurriculumCompatibilityPath({
-    subjectId: 'source-subject-uuid',
-    subjectCode: 'mathematics',
-    subjectName: 'Mathematical Activities',
-    subjectOfficialName: 'Mathematical Activities',
-    subjectDisplayName: 'Mathematics',
-    strands: [{
-      id: 'numbers-strand',
-      number: '1.0',
-      title: 'Numbers',
-      subStrands: [{
-        id: 'whole-numbers-sub-strand',
-        number: '1.2',
-        title: 'Whole Numbers',
-        description: 'Read and write whole numbers.',
+const subject = {
+  subjectId: 'source-subject-uuid',
+  subjectCode: 'mathematics',
+  subjectName: 'Mathematical Activities',
+  subjectOfficialName: 'Mathematical Activities',
+  subjectDisplayName: 'Mathematics',
+  strands: [{
+    id: 'numbers-strand',
+    number: '1.0',
+    title: 'Numbers',
+    subStrands: [
+      {
+        id: 'number-concept-source',
+        number: '1.1',
+        title: 'Number Concept',
+        topics: [{ id: 'number-concept-topic', canonicalKey: 'numbers:number-concept', code: '1.1', title: 'Number Concept' }],
         isCompleted: false,
         needsRemediation: false,
-        masteryScore: null
-      }]
-    }]
-  }, [], 'Grade 3', [{
-    lessonKey: 'math-grade-3-whole-numbers',
-    lessonVersion: 2,
-    strand: 'Numbers',
-    subStrand: 'Whole Numbers',
-    objective: 'Build fluency with whole numbers.',
-    estimatedMinutes: 10
-  }]);
+        masteryScore: null,
+      },
+      {
+        id: 'whole-numbers-source',
+        number: '1.2',
+        title: 'Whole Numbers',
+        topics: [{ id: 'whole-numbers-topic', canonicalKey: 'numbers:whole-numbers', code: '1.2', title: 'Whole Numbers' }],
+        isCompleted: false,
+        needsRemediation: false,
+        masteryScore: null,
+      },
+    ],
+  }],
+};
+
+const authoredLessons = [{
+  lessonKey: 'math-grade-3-number-concept',
+  lessonVersion: 2,
+  strand: 'Numbers',
+  subStrand: 'Number Concept',
+  objective: 'Build fluency with number concepts.',
+  estimatedMinutes: 10,
+}];
+
+test('shows only verified authored content and blocks the first unpublished topic', () => {
+  const path = buildCurriculumAuthoredPath(subject, [], 'Grade 3', authoredLessons);
 
   assert.equal(path.subjectId, 'mathematics');
   assert.equal(path.subjectName, 'Mathematics');
-  assert.equal(path.subjectOfficialName, 'Mathematical Activities');
-  assert.equal(path.nodes[0]?.id, 'whole-numbers-sub-strand');
-  assert.equal(path.nodes[0]?.strandId, 'numbers-strand');
-  assert.equal(path.nodes[0]?.strandNumber, '1.0');
-  assert.equal(path.nodes[0]?.strandTitle, 'Numbers');
-  assert.equal(path.nodes[0]?.subStrandNumber, '1.2');
-  assert.equal(path.nodes[0]?.lessonKey, 'math-grade-3-whole-numbers');
-  assert.equal(path.nodes[0]?.lessonVersion, 2);
+  assert.equal(path.nodes[0]?.lessonKey, 'math-grade-3-number-concept');
+  assert.equal(path.nodes[0]?.availability, 'published');
+  assert.equal(path.nodes[0]?.status, 'current');
+  assert.equal(path.nodes[1]?.lessonKey, null);
+  assert.equal(path.nodes[1]?.availability, 'content_pending');
+  assert.equal(path.nodes[1]?.status, 'locked');
+});
+
+test('uses the canonical topic identity and unlocks strictly after completion', () => {
+  const path = buildCurriculumAuthoredPath(subject, [{
+    lesson_key: 'math-grade-3-number-concept',
+    curriculum_topic_id: 'number-concept-topic',
+    best_score: 100,
+    status: 'completed',
+    attempt_count: 1,
+  }], 'Grade 3', authoredLessons);
+
+  assert.equal(path.nodes[0]?.id, 'number-concept-topic');
+  assert.equal(path.nodes[0]?.curriculumTopicId, 'number-concept-topic');
+  assert.equal(path.nodes[0]?.curriculumTopicKey, 'numbers:number-concept');
+  assert.equal(path.nodes[0]?.status, 'completed');
+  assert.equal(path.nodes[1]?.status, 'content_pending');
+  assert.equal(path.nodes[1]?.strandNumber, '1.0');
+  assert.equal(path.nodes[1]?.subStrandNumber, '1.2');
+});
+
+test('does not unlock authored progression from a different curriculum activity', () => {
+  const subjectWithLegacyCompletion = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: subject.strands[0].subStrands.map(subStrand => ({
+        ...subStrand,
+        isCompleted: true,
+        masteryScore: 100,
+      })),
+    }],
+  };
+  const path = buildCurriculumAuthoredPath(
+    subjectWithLegacyCompletion,
+    [],
+    'Grade 3',
+    authoredLessons,
+  );
+
+  assert.equal(path.nodes[0]?.status, 'current');
+  assert.equal(path.nodes[0]?.bestScore, null);
+  assert.equal(path.nodes[1]?.status, 'locked');
+});
+
+test('does not auto-bind a repeated topic title without an explicit curriculum code', () => {
+  const repeated = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: [
+        { ...subject.strands[0].subStrands[0], id: 'word-1', number: '1.3.1', title: 'Word Classes', topics: [{ id: 'topic-1', code: '1.3.1', title: 'Word Classes' }] },
+        { ...subject.strands[0].subStrands[0], id: 'word-2', number: '2.3.1', title: 'Word Classes', topics: [{ id: 'topic-2', code: '2.3.1', title: 'Word Classes' }] },
+      ],
+    }],
+  };
+  const lesson = [{ ...authoredLessons[0], lessonKey: 'words', subStrand: 'Word Classes' }];
+  const ambiguous = buildCurriculumAuthoredPath(repeated, [], 'Grade 3', lesson);
+  assert.ok(ambiguous.nodes.every(node => node.availability === 'content_pending'));
+
+  const explicit = buildCurriculumAuthoredPath(repeated, [], 'Grade 3', [{
+    ...lesson[0],
+    strand: 'Legacy Language Strand Name',
+    curriculumTopicCode: '2.3.1',
+  }]);
+  assert.equal(explicit.nodes[0]?.availability, 'content_pending');
+  assert.equal(explicit.nodes[1]?.lessonKey, 'words');
 });

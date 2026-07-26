@@ -175,6 +175,7 @@ export type ProgressiveLessonPublic = {
   grade: string;
   strand: string;
   subStrand: string;
+  curriculumTopicCode?: string;
   title: string;
   shortTitle: string;
   objective: string;
@@ -196,6 +197,7 @@ export type ProgressiveLessonPrivate = ProgressiveLessonPublic & {
 
 export type ProgressiveLessonProgressRecord = {
   lesson_key: string;
+  curriculum_topic_id?: string | null;
   best_score: number;
   status: 'in_progress' | 'completed' | 'needs_practice';
   attempt_count: number;
@@ -203,8 +205,8 @@ export type ProgressiveLessonProgressRecord = {
 
 export type ProgressivePathNode = {
   id: string;
-  lessonKey: string;
-  lessonVersion: number;
+  lessonKey: string | null;
+  lessonVersion: number | null;
   title: string;
   objective: string;
   estimatedMinutes: number;
@@ -214,7 +216,10 @@ export type ProgressivePathNode = {
   strandTitle?: string;
   subStrandId?: string;
   subStrandNumber?: string;
-  status: 'completed' | 'current' | 'locked' | 'needs_practice';
+  curriculumTopicId?: string;
+  curriculumTopicKey?: string;
+  status: 'completed' | 'current' | 'locked' | 'needs_practice' | 'content_pending';
+  availability: 'published' | 'content_pending';
   bestScore: number | null;
   attemptCount: number;
 };
@@ -234,6 +239,7 @@ export type ProgressiveLessonSeed = {
   grade?: string;
   strand?: string;
   subStrand?: string;
+  curriculumTopicCode?: string;
   title: string;
   shortTitle: string;
   objective: string;
@@ -284,6 +290,7 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
     grade: input.grade ?? 'Grade 7',
     strand: input.strand ?? 'Algebra',
     subStrand: input.subStrand ?? 'Linear Equations',
+    curriculumTopicCode: input.curriculumTopicCode,
     title: input.title,
     shortTitle: input.shortTitle,
     objective: input.objective,
@@ -837,27 +844,21 @@ export function buildProgressiveLearningPath(
     lesson => lesson.subjectId === canonicalSubjectId && lesson.grade === grade
   );
   const progressByLesson = new Map(progress.map(item => [item.lesson_key, item]));
-  let previousAttempted = true;
+  let previousCompleted = true;
 
   const nodes: ProgressivePathNode[] = pathLessons.map((lesson, index) => {
     const lessonProgress = progressByLesson.get(lesson.lessonKey);
     const completed = lessonProgress?.status === 'completed';
     const needsPractice = lessonProgress?.status === 'needs_practice';
-    const attempted = Boolean(
-      completed ||
-      needsPractice ||
-      (lessonProgress?.attempt_count ?? 0) > 0 ||
-      typeof lessonProgress?.best_score === 'number',
-    );
-    const status: ProgressivePathNode['status'] = completed
-      ? 'completed'
-      : needsPractice
-        ? 'needs_practice'
-        : previousAttempted
-          ? 'current'
-          : 'locked';
+    const status: ProgressivePathNode['status'] = !previousCompleted
+      ? 'locked'
+      : completed
+        ? 'completed'
+        : needsPractice
+          ? 'needs_practice'
+          : 'current';
 
-    previousAttempted = previousAttempted && attempted;
+    previousCompleted = previousCompleted && completed;
     return {
       id: lesson.lessonKey,
       lessonKey: lesson.lessonKey,
@@ -867,6 +868,7 @@ export function buildProgressiveLearningPath(
       estimatedMinutes: lesson.estimatedMinutes,
       position: index,
       strandTitle: lesson.strand,
+      availability: 'published',
       status,
       bestScore: lessonProgress?.best_score ?? null,
       attemptCount: lessonProgress?.attempt_count ?? 0

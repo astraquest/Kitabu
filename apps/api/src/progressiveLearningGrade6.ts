@@ -134,6 +134,7 @@ const chapters: CurriculumChapterSource[] = [
   {
     key: 'english-g6-listening-details', subjectId: 'english', subjectName: 'English', grade: 'Grade 6',
     strand: 'Listening and Speaking', subStrand: 'Listening for Meaning and Key Details',
+    curriculumTopicCode: '13.1.1',
     title: 'The Listening Detective', shortTitle: 'Key Details',
     objective: 'Listen for a main message and supporting details, distinguish relevant evidence, and respond accurately to short oral narratives.', minutes: 10,
     sourceRef: source('english', 'f67332a19f648ebae149196a76bb80583ed6350f251508e439d52c5020d8221c'),
@@ -149,6 +150,7 @@ const chapters: CurriculumChapterSource[] = [
   {
     key: 'english-g6-word-classes', subjectId: 'english', subjectName: 'English', grade: 'Grade 6',
     strand: 'Grammar in Use', subStrand: 'Word Classes',
+    curriculumTopicCode: '1.3.1',
     title: 'Words at Work', shortTitle: 'Word Classes',
     objective: 'Use determiners and prepositions accurately, explain the job each word performs, and revise ambiguous sentences for clarity.', minutes: 9,
     sourceRef: source('english', 'f67332a19f648ebae149196a76bb80583ed6350f251508e439d52c5020d8221c'),
@@ -164,6 +166,7 @@ const chapters: CurriculumChapterSource[] = [
   {
     key: 'english-g6-fill-forms', subjectId: 'english', subjectName: 'English', grade: 'Grade 6',
     strand: 'Writing', subStrand: 'Filling Forms',
+    curriculumTopicCode: '4.4.1',
     title: 'Form-Filling Mission', shortTitle: 'Accurate Forms',
     objective: 'Read form labels, enter accurate information in the correct fields, protect private details, and review a completed form before submission.', minutes: 10,
     sourceRef: source('english', 'f67332a19f648ebae149196a76bb80583ed6350f251508e439d52c5020d8221c'),

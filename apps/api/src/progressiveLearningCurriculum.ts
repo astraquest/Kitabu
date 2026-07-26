@@ -23,6 +23,7 @@ export type CurriculumChapterSource = {
   grade: `Grade ${1 | 2 | 3 | 5 | 6 | 7 | 8 | 10 | 11}`;
   strand: string;
   subStrand: string;
+  curriculumTopicCode?: string;
   title: string;
   shortTitle: string;
   objective: string;
@@ -302,6 +303,7 @@ export function defineCurriculumChapters(chapters: CurriculumChapterSource[]): P
       grade: chapter.grade,
       strand: chapter.strand,
       subStrand: chapter.subStrand,
+      curriculumTopicCode: chapter.curriculumTopicCode,
       title: chapter.title,
       shortTitle: chapter.shortTitle,
       objective: chapter.objective,

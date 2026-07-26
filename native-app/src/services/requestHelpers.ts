@@ -1,11 +1,31 @@
 import { fetchKitabuApi } from './runtimeConfig';
 import { loadSecureJson, saveSecureJson } from './storage';
+import type { AuthSession } from '../types/app';
 
 const AUTH_SESSION_STORAGE_KEY = 'auth_session';
 const DEVICE_ID_STORAGE_KEY = 'kitabu_device_id';
 
-interface StoredSession {
-  accessToken?: string;
+type StoredSession = Partial<AuthSession>;
+
+type AuthSessionListener = (session: AuthSession | null) => void;
+
+type RefreshOutcome =
+  | { status: 'refreshed'; session: AuthSession }
+  | { status: 'invalid' }
+  | { status: 'unavailable' };
+
+const authSessionListeners = new Set<AuthSessionListener>();
+let authRefreshPromise: Promise<RefreshOutcome> | null = null;
+
+export function subscribeToAuthSessionUpdates(listener: AuthSessionListener) {
+  authSessionListeners.add(listener);
+  return () => {
+    authSessionListeners.delete(listener);
+  };
+}
+
+function publishAuthSessionUpdate(session: AuthSession | null) {
+  authSessionListeners.forEach(listener => listener(session));
 }
 
 function bytesToHex(bytes: Uint8Array) {
@@ -73,6 +93,71 @@ export async function buildKitabuRequestHeaders(
       : {}),
     ...normalizeHeaders(headers),
   };
+}
+
+function isPublicAuthRequest(path: string) {
+  return path.startsWith('/auth/');
+}
+
+async function invalidateStoredAuthSession() {
+  await saveSecureJson(AUTH_SESSION_STORAGE_KEY, null);
+  publishAuthSessionUpdate(null);
+}
+
+async function refreshStoredAuthSession(): Promise<RefreshOutcome> {
+  if (authRefreshPromise) {
+    return authRefreshPromise;
+  }
+
+  authRefreshPromise = (async () => {
+    const storedSession = await loadSecureJson<StoredSession | null>(
+      AUTH_SESSION_STORAGE_KEY,
+      null,
+    );
+    if (!storedSession?.refreshToken) {
+      return { status: 'invalid' };
+    }
+
+    let response: Response;
+    try {
+      response = await fetchKitabuApi('/auth/refresh', {
+        method: 'POST',
+        body: JSON.stringify({ refreshToken: storedSession.refreshToken }),
+        headers: await buildKitabuRequestHeaders(undefined, false, true),
+      });
+    } catch {
+      return { status: 'unavailable' };
+    }
+
+    const payload = await readJsonResponse<Partial<AuthSession>>(
+      response,
+      'Unable to refresh your session',
+    ).catch(() => ({} as Partial<AuthSession>));
+    if (!response.ok) {
+      return response.status === 401 || response.status === 403
+        ? { status: 'invalid' }
+        : { status: 'unavailable' };
+    }
+
+    if (!payload.accessToken || !payload.refreshToken || !payload.user) {
+      return { status: 'unavailable' };
+    }
+
+    const session: AuthSession = {
+      accessToken: payload.accessToken,
+      refreshToken: payload.refreshToken,
+      user: payload.user,
+    };
+    await saveSecureJson(AUTH_SESSION_STORAGE_KEY, session);
+    publishAuthSessionUpdate(session);
+    return { status: 'refreshed', session };
+  })();
+
+  try {
+    return await authRefreshPromise;
+  } finally {
+    authRefreshPromise = null;
+  }
 }
 
 type ApiErrorPayload = {
@@ -219,15 +304,40 @@ export async function readJsonResponse<T>(
 }
 
 export async function apiJsonRequest<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const response = await fetchKitabuApi(path, {
+  const includeAuth = !isPublicAuthRequest(path);
+  const sendRequest = async () => fetchKitabuApi(path, {
     ...options,
-    headers: await buildKitabuRequestHeaders(options.headers, true, Boolean(options.body)),
+    headers: await buildKitabuRequestHeaders(
+      options.headers,
+      includeAuth,
+      Boolean(options.body),
+    ),
   });
+
+  let response = await sendRequest();
+  let authInvalidationHandled = false;
+  let preserveSession = false;
+  if (includeAuth && response.status === 401) {
+    const refresh = await refreshStoredAuthSession();
+    if (refresh.status === 'refreshed') {
+      response = await sendRequest();
+    } else if (refresh.status === 'invalid') {
+      await invalidateStoredAuthSession();
+      authInvalidationHandled = true;
+    } else {
+      preserveSession = true;
+    }
+  }
 
   const payload = await readJsonResponse<T>(response);
   if (!response.ok) {
-    if (response.status === 401) {
-      await saveSecureJson(AUTH_SESSION_STORAGE_KEY, null);
+    if (
+      includeAuth &&
+      response.status === 401 &&
+      !authInvalidationHandled &&
+      !preserveSession
+    ) {
+      await invalidateStoredAuthSession();
     }
     throw new Error(getUserFacingApiError(payload));
   }

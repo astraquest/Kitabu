@@ -150,20 +150,21 @@ test('uses one shared standard presentation for every Grade 4 to 12 learner', ()
   }
 });
 
-test('fallback path converts existing curriculum into a unified lesson path', () => {
+test('fallback path never fabricates a lesson for unauthored curriculum', () => {
   const fallback = buildFallbackLearningPath(subject, strands, 'Grade 7');
   expect(fallback.nodes).toHaveLength(1);
   expect(fallback.nodes[0]).toEqual(
     expect.objectContaining({
       title: 'Linear Equations',
-      status: 'current',
+      status: 'content_pending',
+      availability: 'content_pending',
       delivery: 'progressive',
-      lessonKey: 'curriculum-sub-1',
+      lessonKey: null,
     }),
   );
 });
 
-test('fallback path exposes one current lesson across multiple strands', () => {
+test('fallback path blocks progression at the first unauthored topic', () => {
   const baseSubStrand = strands[0].subStrands[0];
   const sequentialStrands: LearningStrand[] = [
     {
@@ -190,39 +191,44 @@ test('fallback path exposes one current lesson across multiple strands', () => {
     'Grade 7',
   );
   expect(initial.nodes.map(node => node.status)).toEqual([
-    'current',
+    'content_pending',
     'locked',
     'locked',
     'locked',
   ]);
 
-  sequentialStrands[0].subStrands[0].isCompleted = true;
-  const progressed = buildFallbackLearningPath(
-    subject,
-    sequentialStrands,
-    'Grade 7',
-  );
-  expect(progressed.nodes.map(node => node.status)).toEqual([
-    'completed',
-    'current',
-    'locked',
-    'locked',
-  ]);
+  expect(initial.nodes.every(node => node.lessonKey === null)).toBe(true);
+});
 
-  sequentialStrands[0].subStrands[0].isCompleted = false;
-  sequentialStrands[0].subStrands[0].needsRemediation = true;
-  sequentialStrands[0].subStrands[0].masteryScore = 67;
-  const practised = buildFallbackLearningPath(
-    subject,
-    sequentialStrands,
-    'Grade 7',
-  );
-  expect(practised.nodes.map(node => node.status)).toEqual([
-    'needs_practice',
-    'current',
-    'locked',
-    'locked',
-  ]);
+test('subject page keeps the curriculum path visible when a live refresh fails', async () => {
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <SubjectLearningPathScreen
+        subject={subject}
+        strands={strands}
+        grade="Grade 7"
+        path={null}
+        mascotKey="rabbit"
+        isLoading={false}
+        error="Please sign in again to continue."
+        onBack={jest.fn()}
+        onRetry={jest.fn()}
+        onOpenNode={jest.fn()}
+      />,
+    );
+  });
+
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'See update: Linear Equations' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ children: 'This path is being prepared' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Please sign in again to continue.' }),
+  ).toHaveLength(0);
+  renderer.unmount();
 });
 
 test('subject page renders one learning path without the retired feature menu', async () => {
@@ -280,6 +286,80 @@ test('subject page renders one learning path without the retired feature menu', 
   expect(renderer.root.findAllByProps({ children: 'Take Quiz' })).toHaveLength(
     0,
   );
+  renderer.unmount();
+});
+
+test('unpublished current topic opens the selected-mascot content notice', async () => {
+  const pendingPath: SubjectLearningPath = {
+    ...path,
+    totalCount: 2,
+    nodes: [
+      {
+        id: 'curriculum-topic-1',
+        curriculumTopicId: 'curriculum-topic-1',
+        curriculumTopicKey: 'KE-CBC:G7:MATHEMATICS:1.1.1',
+        lessonKey: null,
+        lessonVersion: null,
+        title: 'Integers',
+        strandTitle: 'Numbers',
+        subStrandNumber: '1.1.1',
+        objective: '',
+        estimatedMinutes: 0,
+        position: 0,
+        status: 'content_pending',
+        availability: 'content_pending',
+        bestScore: null,
+        attemptCount: 0,
+      },
+      {
+        ...path.nodes[1],
+        id: 'curriculum-topic-2',
+        lessonKey: null,
+        lessonVersion: null,
+        status: 'locked',
+        availability: 'content_pending',
+      },
+    ],
+  };
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <SubjectLearningPathScreen
+        subject={subject}
+        strands={strands}
+        grade="Grade 7"
+        path={pendingPath}
+        mascotKey="elephant"
+        isLoading={false}
+        error={null}
+        onBack={jest.fn()}
+        onRetry={jest.fn()}
+        onOpenNode={jest.fn()}
+      />,
+    );
+  });
+
+  await act(() => {
+    expect(
+      renderer.root.findAllByProps({ children: 'Content coming soon' }).length,
+    ).toBeGreaterThan(0);
+    renderer.root
+      .findByProps({ accessibilityLabel: 'See update: Integers' })
+      .props.onPress();
+  });
+
+  expect(
+    renderer.root.findAllByProps({ children: 'Come back tomorrow!' }).length,
+  ).toBeGreaterThan(0);
+  expect(
+    renderer.root.findByProps({
+      accessibilityLabel: 'Ndovu, your selected learning mascot',
+    }),
+  ).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'TOPIC 1.1.1' })).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ children: 'Your place in the curriculum is safe.' }),
+  ).toHaveLength(0);
   renderer.unmount();
 });
 

@@ -205,6 +205,7 @@ export interface CurriculumSubStrandRecord {
   lesson_generated_at: Date | null;
   topics: Array<{
     id: string;
+    canonicalKey: string | null;
     code: string | null;
     title: string;
     description: string | null;
@@ -241,6 +242,7 @@ export interface CurriculumSubjectBundle {
       inquiryQuestions: Array<{ id: string; text: string }>;
       topics: Array<{
         id: string;
+        canonicalKey?: string;
         code?: string;
         title: string;
         description?: string;
@@ -3812,6 +3814,7 @@ function buildCurriculumSubjectBundles(args: {
           ),
           topics: (subStrand.topics ?? []).map(topic => ({
             id: topic.id,
+            canonicalKey: topic.canonicalKey ?? undefined,
             code: topic.code ?? undefined,
             title: topic.title,
             description: topic.description ?? undefined,
@@ -4007,7 +4010,38 @@ export async function listCurriculumForGrade(
   userId: string | null | undefined,
   scope: CurriculumScope
 ): Promise<CurriculumSubjectBundle[]> {
-  const strandsResult = await db.query<CurriculumStrandRecord>(
+  const canonicalStrandsResult = await db.query<CurriculumStrandRecord>(
+    `SELECT ccs.id, ccs.country_code, ccs.curriculum_code, ccs.grade_level,
+            ccs.subject_code AS subject_id,
+            cgsi.display_name AS subject_name,
+            ccs.subject_code AS canonical_subject_code,
+            cgsi.official_name AS subject_official_name,
+            cgsi.display_name AS subject_display_name,
+            cgsi.source_names AS subject_source_names,
+            COALESCE((
+              SELECT jsonb_agg(csa.alias_name ORDER BY csa.alias_name)
+              FROM curriculum_subject_aliases csa
+              WHERE csa.country_code = ccs.country_code
+                AND csa.curriculum_code = ccs.curriculum_code
+                AND csa.subject_code = ccs.subject_code
+            ), '[]'::jsonb) AS subject_aliases,
+            ccs.code AS number, ccs.title, ''::text AS sub_title, ccs.position
+     FROM curriculum_canonical_strands ccs
+     JOIN curriculum_grade_subject_identities cgsi
+       ON cgsi.country_code = ccs.country_code
+      AND cgsi.curriculum_code = ccs.curriculum_code
+      AND cgsi.grade_level = ccs.grade_level
+      AND cgsi.subject_code = ccs.subject_code
+      AND cgsi.active_source_release_id = ccs.active_source_release_id
+     WHERE ccs.country_code = $1 AND ccs.curriculum_code = $2 AND ccs.grade_level = $3
+       AND ccs.is_active = TRUE
+     ORDER BY subject_display_name ASC, ccs.position ASC`,
+    [scope.countryCode, scope.curriculumCode, grade]
+  );
+
+  const strandsResult = canonicalStrandsResult.rows.length > 0
+    ? canonicalStrandsResult
+    : await db.query<CurriculumStrandRecord>(
     `SELECT cs.id, cs.country_code, cs.curriculum_code, cs.grade_level, cs.subject_id, cs.subject_name,
             COALESCE(csubject.subject_code, cs.subject_id) AS canonical_subject_code,
             COALESCE(csubject.official_name, cs.subject_name) AS subject_official_name,
@@ -4023,8 +4057,7 @@ export async function listCurriculumForGrade(
             cs.number, cs.title, cs.sub_title, cs.position
      FROM curriculum_strands cs
      LEFT JOIN curriculum_subject_aliases csa
-       ON cs.grade_level IN ('Grade 1', 'Grade 2', 'Grade 3')
-      AND csa.country_code = cs.country_code
+       ON csa.country_code = cs.country_code
       AND csa.curriculum_code = cs.curriculum_code
       AND csa.alias_key = normalize_curriculum_subject_alias(cs.subject_id)
      LEFT JOIN curriculum_subjects csubject
@@ -4042,13 +4075,30 @@ export async function listCurriculumForGrade(
   }
 
   const strandIds = strandsResult.rows.map(strand => strand.id);
-  const subStrandsResult = await db.query<CurriculumSubStrandRecord>(
+  const subStrandsResult = canonicalStrandsResult.rows.length > 0
+    ? await db.query<CurriculumSubStrandRecord>(
+      `SELECT css.id, ct.canonical_strand_id AS strand_id, css.number, css.title,
+              css.type, css.description, ct.display_order AS position,
+              css.outcomes, css.inquiry_questions, css.pages, css.lesson_generated_at,
+              jsonb_build_array(jsonb_build_object(
+                'id', ct.id, 'canonicalKey', ct.canonical_key,
+                'code', ct.code, 'title', ct.title,
+                'description', ct.description, 'position', ct.display_order
+              )) AS topics
+       FROM curriculum_topics ct
+       JOIN curriculum_sub_strands css ON css.id = ct.sub_strand_id
+       WHERE ct.canonical_strand_id = ANY($1::uuid[]) AND ct.is_active = TRUE
+       ORDER BY ct.display_order ASC`,
+      [strandIds]
+    )
+    : await db.query<CurriculumSubStrandRecord>(
     `SELECT css.id, css.strand_id, css.number, css.title, css.type, css.description,
             css.position, css.outcomes, css.inquiry_questions, css.pages, css.lesson_generated_at,
             COALESCE(
               jsonb_agg(
                 jsonb_build_object(
-                  'id', ct.id, 'code', ct.code, 'title', ct.title,
+                  'id', ct.id, 'canonicalKey', ct.canonical_key,
+                  'code', ct.code, 'title', ct.title,
                   'description', ct.description, 'position', ct.position
                 ) ORDER BY ct.position
               ) FILTER (WHERE ct.id IS NOT NULL),
@@ -4124,17 +4174,36 @@ export async function findCurriculumSubStrandContext(
        css.inquiry_questions,
        css.pages,
        css.lesson_generated_at,
-       cs.id AS strand_id,
-       cs.title AS strand_title,
-       cs.number AS strand_number,
+       COALESCE(ccs.id, cs.id) AS strand_id,
+       COALESCE(ccs.title, cs.title) AS strand_title,
+       COALESCE(ccs.code, cs.number) AS strand_number,
        cs.grade_level,
-       cs.subject_id,
-       cs.subject_name,
+       COALESCE(ccs.subject_code, csubject.subject_code, cs.subject_id) AS subject_id,
+       COALESCE(cgsi.display_name, csubject.display_name, cs.subject_name) AS subject_name,
        cs.country_code,
        cs.curriculum_code
      FROM curriculum_sub_strands css
      JOIN curriculum_strands cs ON cs.id = css.strand_id
-     WHERE css.id = $1 AND cs.country_code = $2 AND cs.curriculum_code = $3`,
+     LEFT JOIN curriculum_topics ct
+       ON ct.sub_strand_id = css.id AND ct.is_active = TRUE AND ct.canonical_strand_id IS NOT NULL
+     LEFT JOIN curriculum_canonical_strands ccs
+       ON ccs.id = ct.canonical_strand_id AND ccs.is_active = TRUE
+     LEFT JOIN curriculum_grade_subject_identities cgsi
+       ON cgsi.country_code = ccs.country_code
+      AND cgsi.curriculum_code = ccs.curriculum_code
+      AND cgsi.grade_level = ccs.grade_level
+      AND cgsi.subject_code = ccs.subject_code
+      AND cgsi.active_source_release_id = ccs.active_source_release_id
+     LEFT JOIN curriculum_subject_aliases csa
+       ON csa.country_code = cs.country_code
+      AND csa.curriculum_code = cs.curriculum_code
+      AND csa.alias_key = normalize_curriculum_subject_alias(cs.subject_id)
+     LEFT JOIN curriculum_subjects csubject
+       ON csubject.country_code = cs.country_code
+      AND csubject.curriculum_code = cs.curriculum_code
+      AND csubject.subject_code = csa.subject_code
+     WHERE css.id = $1 AND cs.country_code = $2 AND cs.curriculum_code = $3
+     LIMIT 1`,
     [subStrandId, scope.countryCode, scope.curriculumCode]
   );
 

@@ -127,6 +127,16 @@ jobs:
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-10 </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-11 </dev/null
           docker compose run --rm -T api node scripts/curriculum/import-kicd-corpus.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2026-grade-12 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-4 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-5 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-6 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-7 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-8 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2024-grade-9 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-10 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2025-grade-11 </dev/null
+          docker compose run --rm -T api node scripts/curriculum/repair-upper-grade-curriculum.mjs --grade-dir data/curriculum/KEN/CBC/kicd-2026-grade-12 </dev/null
+          echo UPPER_GRADE_CANONICAL_REPAIR_COMPLETE
           docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs </dev/null
           docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs </dev/null
           docker compose run --rm -T api node scripts/verify-production-readiness.mjs </dev/null

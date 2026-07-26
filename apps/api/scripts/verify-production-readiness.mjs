@@ -20,6 +20,7 @@ const requiredEnv = [
 const warnings = [];
 const failures = [];
 const supportedGrades = ['Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Form 3', 'Form 4'];
+const canonicalGrades = ['Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
 
 function isLocalDatabaseUrl(databaseUrl) {
   try {
@@ -175,14 +176,31 @@ if (hasValue('KITABU_DATABASE_URL')) {
         (SELECT COUNT(*)::int FROM curriculum_sub_strands css
          JOIN curriculum_strands cs ON cs.id = css.strand_id
          WHERE cs.grade_level = ANY($1)) AS curriculum_sub_strands,
+        (SELECT COUNT(*)::int FROM curriculum_grade_subject_identities
+         WHERE grade_level = ANY($2)) AS canonical_subjects,
+        (SELECT COUNT(*)::int FROM curriculum_canonical_strands
+         WHERE grade_level = ANY($2) AND is_active = TRUE) AS canonical_strands,
+        (SELECT COUNT(*)::int FROM curriculum_topics
+         WHERE grade_level = ANY($2) AND is_active = TRUE) AS canonical_topics,
+        (SELECT COUNT(*)::int FROM (
+           SELECT grade_level, subject_code, canonical_key
+           FROM curriculum_topics
+           WHERE grade_level = ANY($2) AND is_active = TRUE
+           GROUP BY grade_level, subject_code, canonical_key
+           HAVING COUNT(*) > 1
+         ) duplicates) AS duplicate_canonical_topics,
         (SELECT COUNT(*)::int FROM quiz_bank_questions) AS quiz_bank_questions
-    `, [supportedGrades]);
+    `, [supportedGrades, canonicalGrades]);
     const row = result.rows[0];
     const expectedExact = {
       seeded_students: 0,
       rostered_seeded_students: 0,
       demo_schools: 0,
-      demo_assignments: 0
+      demo_assignments: 0,
+      canonical_subjects: 209,
+      canonical_strands: 833,
+      canonical_topics: 4341,
+      duplicate_canonical_topics: 0
     };
     const expectedMinimum = {
       curriculum_strands: 162,

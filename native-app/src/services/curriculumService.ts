@@ -58,6 +58,7 @@ export async function saveCurriculumSubject(input: {
             outcomes: subStrand.outcomes ?? [],
             inquiryQuestions: subStrand.inquiryQuestions ?? [],
             topics: (subStrand.topics ?? []).map(topic => ({
+              canonicalKey: topic.canonicalKey,
               code: topic.code,
               title: topic.title,
               description: topic.description,

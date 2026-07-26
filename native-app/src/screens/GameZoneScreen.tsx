@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, ImageSourcePropType, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ChevronLeft, Crown, Flame, Trophy } from 'lucide-react-native';
+
+import { getChessOpponents } from '../services/chessService';
 
 interface GameZoneScreenProps {
   totalPoints: number;
   rank?: number;
-  playersOnline?: number;
   onBack: () => void;
   onPlayGame: (gameId: 'crazy-balloon' | 'quiz-battle' | 'storypot' | 'chess-master' | 'manyanga') => void;
 }
@@ -24,6 +25,9 @@ const GAMES = [
     gradientTop: '#15803D',
     gradientBottom: '#4F46E5',
     badge: 'PvP',
+    comingSoon: false,
+    multiplayer: true,
+    supportsOnlineInvites: false,
     icon: quizBattleIcon as ImageSourcePropType,
   },
   {
@@ -33,6 +37,9 @@ const GAMES = [
     gradientTop: '#22C55E',
     gradientBottom: '#166534',
     badge: 'Creative',
+    comingSoon: false,
+    multiplayer: false,
+    supportsOnlineInvites: false,
     icon: storyPotIcon as ImageSourcePropType,
   },
   {
@@ -42,6 +49,9 @@ const GAMES = [
     gradientTop: '#38BDF8',
     gradientBottom: '#0F766E',
     badge: '2 Player',
+    comingSoon: false,
+    multiplayer: true,
+    supportsOnlineInvites: true,
     icon: chessMasterIcon as ImageSourcePropType,
   },
   {
@@ -51,6 +61,9 @@ const GAMES = [
     gradientTop: '#FB923C',
     gradientBottom: '#B91C1C',
     badge: 'Racing',
+    comingSoon: false,
+    multiplayer: false,
+    supportsOnlineInvites: false,
     icon: manyangaIcon as ImageSourcePropType,
   },
   {
@@ -60,6 +73,9 @@ const GAMES = [
     gradientTop: '#F97316',
     gradientBottom: '#E11D48',
     badge: 'Rescue Arcade',
+    comingSoon: false,
+    multiplayer: false,
+    supportsOnlineInvites: false,
     icon: crazyBalloonIcon as ImageSourcePropType,
   },
 ];
@@ -67,10 +83,34 @@ const GAMES = [
 export function GameZoneScreen({
   totalPoints,
   rank = 1,
-  playersOnline = 1,
   onBack,
   onPlayGame,
 }: GameZoneScreenProps) {
+  const [inviteablePlayers, setInviteablePlayers] = useState(0);
+
+  useEffect(() => {
+    let active = true;
+
+    async function refreshInviteablePlayers() {
+      try {
+        const opponents = await getChessOpponents();
+        if (active) setInviteablePlayers(opponents.length);
+      } catch {
+        if (active) setInviteablePlayers(0);
+      }
+    }
+
+    refreshInviteablePlayers().catch(() => undefined);
+    const timer = setInterval(() => {
+      refreshInviteablePlayers().catch(() => undefined);
+    }, 8000);
+
+    return () => {
+      active = false;
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
@@ -84,9 +124,9 @@ export function GameZoneScreen({
             <Text style={styles.title}>Game Zone</Text>
           </View>
           <View style={styles.onlineRow}>
-            <View style={styles.onlineDot} />
+            <View style={[styles.onlineDot, inviteablePlayers === 0 && styles.offlineDot]} />
             <Text style={styles.onlineText}>
-              {playersOnline} {playersOnline === 1 ? 'player' : 'players'} online
+              {inviteablePlayers} {inviteablePlayers === 1 ? 'player' : 'players'} available
             </Text>
           </View>
         </View>
@@ -111,7 +151,10 @@ export function GameZoneScreen({
         <Text style={styles.sectionTitle}>Available Games ({GAMES.length})</Text>
 
         <View style={styles.list}>
-          {GAMES.map(game => (
+          {GAMES.map(game => {
+            const hasMultiplayerOpponent = game.supportsOnlineInvites && inviteablePlayers > 0;
+            const isAvailable = !game.comingSoon && (!game.multiplayer || hasMultiplayerOpponent);
+            return (
             <Pressable
               key={game.id}
               onPress={() => onPlayGame(game.id)}
@@ -121,19 +164,23 @@ export function GameZoneScreen({
               ]}>
               <View style={[styles.decorCircleLarge, { backgroundColor: `${game.gradientTop}3D` }]} />
               <View style={[styles.decorCircleSmall, { backgroundColor: `${game.gradientTop}66` }]} />
-              <View style={styles.onlineGameDot} />
+              <View
+                accessibilityLabel={isAvailable ? 'Game available' : 'Game unavailable'}
+                style={[styles.onlineGameDot, !isAvailable && styles.unavailableGameDot]}
+              />
               <View style={styles.gameBody}>
                 <View style={styles.gameIconFrame}>
                   <Image source={game.icon} style={styles.gameIcon} resizeMode="cover" />
                 </View>
                 <View style={styles.gameCopy}>
                   <Text style={styles.gameTitle}>{game.title}</Text>
-                  <Text style={styles.gameDescription}>{game.description}</Text>
+                  <Text numberOfLines={2} style={styles.gameDescription}>{game.description}</Text>
                   <Text style={styles.badge}>{game.badge}</Text>
                 </View>
               </View>
             </Pressable>
-          ))}
+            );
+          })}
         </View>
       </ScrollView>
     </View>
@@ -151,55 +198,59 @@ const styles = StyleSheet.create({
     borderBottomColor: '#FFEDD5',
     borderBottomWidth: 1,
     flexDirection: 'row',
-    gap: 12,
-    padding: 18,
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
   backButton: {
     alignItems: 'center',
     borderRadius: 999,
-    height: 40,
+    height: 34,
     justifyContent: 'center',
-    width: 40,
+    width: 34,
   },
   headerCenter: {
     alignItems: 'center',
     flex: 1,
-    gap: 6,
+    gap: 2,
   },
   titleRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 8,
+    gap: 5,
   },
   title: {
     color: '#C65A26',
-    fontSize: 26,
+    fontSize: 21,
     fontWeight: '900',
   },
   onlineRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 6,
+    gap: 4,
   },
   onlineDot: {
     backgroundColor: '#86EFAC',
     borderRadius: 6,
-    height: 12,
-    width: 12,
+    height: 9,
+    width: 9,
   },
   onlineText: {
     color: '#7C2D12',
-    fontSize: 17,
+    fontSize: 13,
     fontWeight: '800',
+  },
+  offlineDot: {
+    backgroundColor: '#94A3B8',
   },
   statsCard: {
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
     borderColor: '#FED7AA',
-    borderRadius: 24,
+    borderRadius: 18,
     borderWidth: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
     shadowColor: '#9A3412',
     shadowOpacity: 0.08,
     shadowRadius: 12,
@@ -208,49 +259,51 @@ const styles = StyleSheet.create({
   statsRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 8,
+    gap: 5,
   },
   statItem: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 4,
+    gap: 3,
   },
   statValue: {
     color: '#9A3412',
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '900',
   },
   statDivider: {
     backgroundColor: '#FDBA74',
-    height: 20,
+    height: 15,
     width: 1,
   },
   statsLabel: {
     color: '#9A3412',
-    fontSize: 13,
+    fontSize: 10,
     fontWeight: '700',
     marginTop: 2,
   },
   content: {
-    gap: 18,
-    padding: 22,
-    paddingBottom: 36,
+    gap: 9,
+    paddingHorizontal: 14,
+    paddingTop: 10,
+    paddingBottom: 12,
   },
   sectionTitle: {
     color: '#0F172A',
-    fontSize: 28,
+    fontSize: 21,
     fontWeight: '900',
   },
   list: {
-    gap: 18,
+    gap: 8,
   },
   gameCard: {
-    borderRadius: 28,
+    borderRadius: 20,
     borderWidth: 1,
     justifyContent: 'center',
-    minHeight: 150,
+    minHeight: 92,
     overflow: 'hidden',
-    padding: 18,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 12 },
     shadowOpacity: 0.12,
@@ -258,41 +311,44 @@ const styles = StyleSheet.create({
   },
   decorCircleLarge: {
     borderRadius: 70,
-    height: 140,
+    height: 104,
     position: 'absolute',
     right: -20,
     top: -30,
-    width: 140,
+    width: 104,
   },
   decorCircleSmall: {
     borderRadius: 40,
     bottom: -10,
-    height: 80,
+    height: 58,
     left: -10,
     position: 'absolute',
-    width: 80,
+    width: 58,
   },
   onlineGameDot: {
     backgroundColor: '#86EFAC',
     borderRadius: 7,
-    height: 14,
+    height: 10,
     position: 'absolute',
-    right: 26,
-    top: 24,
-    width: 14,
+    right: 18,
+    top: 14,
+    width: 10,
+  },
+  unavailableGameDot: {
+    backgroundColor: '#94A3B8',
   },
   gameBody: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 18,
+    gap: 12,
   },
   gameIconFrame: {
-    borderRadius: 22,
+    borderRadius: 16,
     borderColor: 'rgba(255,255,255,0.34)',
     borderWidth: 1,
-    height: 78,
+    height: 56,
     overflow: 'hidden',
-    width: 78,
+    width: 56,
   },
   gameIcon: {
     height: '100%',
@@ -300,24 +356,24 @@ const styles = StyleSheet.create({
   },
   gameCopy: {
     flex: 1,
-    gap: 5,
+    gap: 2,
   },
   badge: {
     color: '#FFFFFF',
-    fontSize: 12,
+    fontSize: 9,
     fontWeight: '800',
     opacity: 0.85,
     textTransform: 'uppercase',
   },
   gameTitle: {
     color: '#FFFFFF',
-    fontSize: 25,
+    fontSize: 19,
     fontWeight: '900',
   },
   gameDescription: {
     color: '#F8FAFC',
-    fontSize: 15,
+    fontSize: 11,
     fontWeight: '700',
-    lineHeight: 21,
+    lineHeight: 14,
   },
 });

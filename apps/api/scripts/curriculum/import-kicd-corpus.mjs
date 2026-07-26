@@ -736,7 +736,11 @@ function verifiedImportPolicy(policy, validationReportText, validationReport) {
     throw new Error('Completed grade import policy SHA-256 is invalid.');
   }
   const binding = policy.validationBinding ?? {};
-  if (binding.reportSha256 !== sha256(validationReportText)) {
+  const reportByteDigests = new Set([
+    sha256(validationReportText),
+    sha256(validationReportText.replace(/\r\n/gu, '\n')),
+  ]);
+  if (!reportByteDigests.has(binding.reportSha256)) {
     throw new Error('Completed grade validation report bytes do not match the import policy binding.');
   }
   const reportLogicalDigest = validationReport.logicalDigest ?? validationReport.logicalDigestSha256;

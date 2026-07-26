@@ -308,6 +308,7 @@ export interface SubStrand {
 
 export interface CurriculumTopic {
   id: string;
+  canonicalKey?: string;
   code?: string;
   title: string;
   description?: string;

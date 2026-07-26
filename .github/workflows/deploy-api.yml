@@ -152,7 +152,7 @@ jobs:
           )"
           printf '%s\n' "$data_plan"
           data_mutates=false
-          if printf '%s\n' "$data_plan" | grep -q '"mutatesData":true'; then
+          if grep -q '"mutatesData":true' <<<"$data_plan"; then
             data_mutates=true
             data_apply_guard=''
             pre_backup="$(
@@ -203,16 +203,28 @@ jobs:
             exit 1
           fi
 
+          assert_url_contains() {
+            local source_url="$1"
+            local expected="$2"
+            local body
+            shift 2
+            body="$(curl "$@" "$source_url")"
+            if ! grep -Fq -- "$expected" <<<"$body"; then
+              echo "::error::$source_url did not contain the expected deployment marker."
+              return 1
+            fi
+          }
+
           curl --fail --silent https://app.kitabu.ai/health >/dev/null
-          curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
-          curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q '/auth/password/reset'
-          curl --fail --silent --location 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
-          curl --silent --show-error 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
-          curl --silent --show-error --location 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
+          assert_url_contains 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' 'Reset your password' --fail --silent --show-error
+          assert_url_contains 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' '/auth/password/reset' --fail --silent --show-error
+          assert_url_contains 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' 'Reset your password' --fail --silent --show-error --location
+          assert_url_contains 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' 'Verification failed' --silent --show-error
+          assert_url_contains 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' 'Verification failed' --silent --show-error --location
           assetlinks="$(curl --fail --silent https://app.kitabu.ai/.well-known/assetlinks.json)"
-          printf '%s' "$assetlinks" | grep -q '"package_name":"ai.kitabu2.twa"'
-          printf '%s' "$assetlinks" | grep -q 'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26'
-          printf '%s' "$assetlinks" | grep -q 'delegate_permission/common.get_login_creds'
+          grep -Fq '"package_name":"ai.kitabu2.twa"' <<<"$assetlinks"
+          grep -Fq 'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26' <<<"$assetlinks"
+          grep -Fq 'delegate_permission/common.get_login_creds' <<<"$assetlinks"
           assert_redirect() {
             source_url="$1"
             destination_url="$2"
@@ -228,21 +240,21 @@ jobs:
           assert_redirect https://kitabu.ai/Terms https://app.kitabu.ai/terms
           assert_redirect https://kitabu.ai/TERMS https://app.kitabu.ai/terms
           assert_redirect https://kitabu.ai/deletion https://app.kitabu.ai/deletion
-          curl --fail --silent --location https://kitabu.ai/privacy | grep -q 'Privacy & Cookie Policy'
-          curl --fail --silent --location https://kitabu.ai/policy | grep -q 'Privacy & Cookie Policy'
-          curl --fail --silent --location https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
-          curl --fail --silent --location https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
-          curl --fail --silent 'https://app.kitabu.ai/policy?deploy=${{ github.sha }}' | grep -q 'https://app.kitabu.ai/deletion'
+          assert_url_contains https://kitabu.ai/privacy 'Privacy & Cookie Policy' --fail --silent --show-error --location
+          assert_url_contains https://kitabu.ai/policy 'Privacy & Cookie Policy' --fail --silent --show-error --location
+          assert_url_contains https://kitabu.ai/terms 'General Terms and Conditions of Use' --fail --silent --show-error --location
+          assert_url_contains https://kitabu.ai/deletion 'Account Deletion Request' --fail --silent --show-error --location
+          assert_url_contains 'https://app.kitabu.ai/policy?deploy=${{ github.sha }}' 'https://app.kitabu.ai/deletion' --fail --silent --show-error
           curl --fail --silent 'https://app.kitabu.ai/legal.css?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-icon-bold-192.png?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-favicon-bold.ico?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/bricolage-grotesque-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/plus-jakarta-sans-latin.woff2?deploy=${{ github.sha }}' >/dev/null
-          curl --fail --silent 'https://kitabu.ai/?deploy=${{ github.sha }}' | grep -q 'https://kitabu.ai/favicon.svg'
-          curl --fail --silent 'https://kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'
-          curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
-          curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
-          curl --fail --silent 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'
+          assert_url_contains 'https://kitabu.ai/?deploy=${{ github.sha }}' 'https://kitabu.ai/favicon.svg' --fail --silent --show-error
+          assert_url_contains 'https://kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '#ffb11b' --fail --silent --show-error
+          assert_url_contains https://admin.kitabu.ai/app.js '/curriculum/import/pdf' --fail --silent --show-error
+          assert_url_contains https://admin.kitabu.ai/app.js '/ai/generate-text' --fail --silent --show-error
+          assert_url_contains 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '#ffb11b' --fail --silent --show-error
           if [ "$data_mutates" = true ]; then
             post_backup="$(
               KITABU_BACKUP_DIR=/var/backups/kitabu \

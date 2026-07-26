@@ -20,4 +20,9 @@ test('Compose one-off commands used by the SSH deployment cannot consume its scr
   assert.match(workflow, /NODE_OPTIONS=--max-old-space-size=640/);
   assert.match(workflow, /verify-production-readiness\.mjs <\/dev\/null/);
   assert.match(workflow, /docker compose exec -T caddy caddy reload[^\n]+<\/dev\/null/);
+  assert.doesNotMatch(
+    workflow,
+    /(?:curl|printf)[^\n]*\|\s*grep\s+-q/,
+    'deployment smoke checks must not let grep -q close a producer pipe under pipefail',
+  );
 });

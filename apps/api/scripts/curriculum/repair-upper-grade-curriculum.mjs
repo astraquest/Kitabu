@@ -268,12 +268,15 @@ export async function main(argv = process.argv.slice(2)) {
 const options = parseArgs(argv);
 if (!process.env.KITABU_DATABASE_URL) throw new Error('KITABU_DATABASE_URL is not set.');
 
+const {
+  grade: completedGrade,
+  plan: { releaseId: completedReleaseId },
+} = await loadCompletedGradePlan(options.gradeDirectory);
 const dataset = await readDataset(options.gradeDirectory);
 const validationReport = await readJson(path.join(options.gradeDirectory, 'validation-report.json'));
 const importPolicy = await readJson(path.join(options.gradeDirectory, 'import-policy.json'));
 const grade = validateArtifacts(dataset, validationReport, importPolicy);
-const completedPlan = await loadCompletedGradePlan(options.gradeDirectory);
-if (completedPlan.grade !== grade) throw new Error(`${grade} completed import plan has a different grade scope.`);
+if (completedGrade !== grade) throw new Error(`${grade} completed import plan has a different grade scope.`);
 const pool = new Pool({ connectionString: process.env.KITABU_DATABASE_URL });
 const client = await pool.connect();
 
@@ -284,10 +287,10 @@ try {
   const releaseResult = await client.query(
     `SELECT id FROM curriculum_releases
      WHERE id = $1 AND metadata->'gradeScope' @> $2::jsonb`,
-    [completedPlan.plan.releaseId, JSON.stringify([grade])],
+    [completedReleaseId, JSON.stringify([grade])],
   );
   if (releaseResult.rows.length !== 1) {
-    throw new Error(`${grade} imported source release ${completedPlan.plan.releaseId} is missing.`);
+    throw new Error(`${grade} imported source release ${completedReleaseId} is missing.`);
   }
   const releaseId = releaseResult.rows[0].id;
 

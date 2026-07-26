@@ -187,7 +187,7 @@ jobs:
           docker exec kitabu-api test -s /app/legal/assets/kitabu-favicon-bold.ico
           docker exec kitabu-api test -s /app/legal/assets/fonts/bricolage-grotesque-latin.woff2
           docker exec kitabu-api test -s /app/legal/assets/fonts/plus-jakarta-sans-latin.woff2
-          docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
+          docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile </dev/null
           healthy=0
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:4000/health >/dev/null; then

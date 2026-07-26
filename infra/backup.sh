@@ -20,7 +20,7 @@ if [ -n "${KITABU_DATABASE_URL:-}" ] && command -v pg_dump >/dev/null 2>&1; then
   pg_dump "$KITABU_DATABASE_URL" | gzip > "$tmp_output"
 else
   cd "$compose_dir"
-  docker compose exec -T postgres pg_dump -U "$postgres_user" "$postgres_db" | gzip > "$tmp_output"
+  docker compose exec -T postgres pg_dump -U "$postgres_user" "$postgres_db" </dev/null | gzip > "$tmp_output"
 fi
 
 gzip -t "$tmp_output"

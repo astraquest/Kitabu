@@ -17,6 +17,7 @@ test('Compose one-off commands used by the SSH deployment cannot consume its scr
   assert.match(workflow, /run-data-operations\.mjs --plan <\/dev\/null/);
   assert.match(workflow, /apply-migrations\.mjs <\/dev\/null/);
   assert.match(workflow, /run-data-operations\.mjs --apply \$data_apply_guard <\/dev\/null/);
+  assert.match(workflow, /NODE_OPTIONS=--max-old-space-size=640/);
   assert.match(workflow, /verify-production-readiness\.mjs <\/dev\/null/);
   assert.match(workflow, /docker compose exec -T caddy caddy reload[^\n]+<\/dev\/null/);
 });

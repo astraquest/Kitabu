@@ -1084,8 +1084,11 @@ export async function runCurriculumImport(options) {
     began = true;
     await client.query('SELECT pg_advisory_xact_lock(hashtextextended($1, 0))', [`kitabu:curriculum:${plan.config.scope.countryCode}:${plan.config.scope.curriculumCode}:${plan.config.scope.grades.join(',')}`]);
     await prepare(client, plan, { write: !dryRun });
-    const before = await read(client, plan);
-    const diff = summarizeDiff(plan, before);
+    // Keep the database snapshot inside a short-lived helper scope. Senior-secondary
+    // plans contain tens of thousands of rich rows; retaining both the pre-write and
+    // post-write snapshots can nearly double peak RSS during an otherwise idempotent
+    // import.
+    const diff = await readCurrentDiff(client, plan, read);
     if (dryRun) {
       await client.query('ROLLBACK');
       began = false;
@@ -1107,6 +1110,11 @@ export async function runCurriculumImport(options) {
     if (began) await client.query('ROLLBACK').catch(() => {});
     throw error;
   }
+}
+
+async function readCurrentDiff(client, plan, read) {
+  const currentRows = await read(client, plan);
+  return summarizeDiff(plan, currentRows);
 }
 
 export async function runGradeImportBatch(options) {

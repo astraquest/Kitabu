@@ -2,22 +2,28 @@ FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY apps/api/package.json apps/api/package.json
+COPY packages/runtime-contracts/package.json packages/runtime-contracts/package.json
 RUN npm ci
 
 FROM deps AS build
 COPY apps/api apps/api
-RUN npm run build -w apps/api
+COPY packages/runtime-contracts packages/runtime-contracts
+RUN npm run build:runtime && npm run build -w apps/api
 
 FROM node:22-alpine AS prod-deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY apps/api/package.json apps/api/package.json
+COPY packages/runtime-contracts/package.json packages/runtime-contracts/package.json
 RUN npm ci --omit=dev && npm cache clean --force
 
 FROM node:22-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=prod-deps /app/node_modules /app/node_modules
+COPY --from=build /app/packages/runtime-contracts/package.json /app/packages/runtime-contracts/package.json
+COPY --from=build /app/packages/runtime-contracts/dist /app/packages/runtime-contracts/dist
+COPY --from=build /app/packages/runtime-contracts/schemas /app/packages/runtime-contracts/schemas
 COPY --from=build /app/apps/api/dist /app/dist
 COPY --from=build /app/apps/api/scripts /app/scripts
 COPY --from=build /app/apps/api/sql /app/sql

@@ -539,10 +539,10 @@ const VOICE_OPTIONS: readonly VoiceOption[] = [
     sw: require('../assets/Samora-Sekou-Kisw.mp3'),
   },
   {
-    name: 'Jabali',
+    name: 'Barake',
     description: 'Calm and clear',
-    en: require('../assets/jabali-Dexter-Eng.mp3'),
-    sw: require('../assets/Jabali-Dexter-Kisw.mp3'),
+    en: require('../assets/Barake-Dexter-Eng.mp3'),
+    sw: require('../assets/Barake-Dexter-Kisw.mp3'),
   },
   {
     name: 'Bella',

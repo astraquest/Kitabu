@@ -530,7 +530,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Chagua sauti');
   expect(renderedText(renderer!.root)).toContain('Gusa sauti ili kuisikiza kwanza');
   expect(renderedText(renderer!.root)).toContain('Samora');
-  expect(renderedText(renderer!.root)).toContain('Jabali');
+  expect(renderedText(renderer!.root)).toContain('Barake');
   expect(renderedText(renderer!.root)).toContain('Bella');
   expect(renderedText(renderer!.root)).toContain('Judith');
   expect(renderedText(renderer!.root)).toContain('🎙️');
@@ -564,12 +564,12 @@ test('onboarding full intro captures profile details before account setup', asyn
   );
 
   await act(async () => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Jabali voice' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Barake voice' }).props.onPress();
     await Promise.resolve();
   });
   expect(createAudioPlayer).toHaveBeenCalledWith(expect.anything(), { downloadFirst: false });
   expect(
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Jabali voice' }).props.accessibilityState,
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Barake voice' }).props.accessibilityState,
   ).toEqual({ checked: true });
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -583,8 +583,8 @@ test('onboarding full intro captures profile details before account setup', asyn
       shadowRadius: 16,
     }),
   );
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Jabali');
-  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Jabali' }).props.style).toEqual(
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Barake');
+  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Barake' }).props.style).toEqual(
     expect.arrayContaining([expect.objectContaining({ backgroundColor: '#E07B00' })]),
   );
 

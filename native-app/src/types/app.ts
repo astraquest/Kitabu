@@ -36,7 +36,7 @@ export type PublicSignupRole = 'student' | 'teacher' | 'parent' | 'other';
 export type GenderOption = 'male' | 'female' | 'not_specified';
 export type OnboardingLanguageCode = 'en' | 'sw';
 export type OnboardingMascotKey = 'lion' | 'rabbit' | 'elephant';
-export type OnboardingVoiceName = 'Samora' | 'Jabali' | 'Bella' | 'Judith';
+export type OnboardingVoiceName = 'Samora' | 'Barake' | 'Bella' | 'Judith';
 export type OnboardingNeedKey =
   | 'exam'
   | 'grades'

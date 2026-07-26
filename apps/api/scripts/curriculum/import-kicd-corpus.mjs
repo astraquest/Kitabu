@@ -1027,13 +1027,71 @@ const READ_SPECS = {
 export async function readPlanRows(client, plan) {
   const result = {};
   for (const name of LOGICAL_TABLE_ORDER) {
-    const ids = plan.rows[name].map(row => row.id);
+    const ids = (plan.rows[name] ?? []).map(row => row.id);
     if (ids.length === 0) { result[name] = []; continue; }
     const [table, columns] = READ_SPECS[name];
     const query = await client.query(`SELECT ${columns} FROM ${table} WHERE id = ANY($1::uuid[]) ORDER BY id`, [ids]);
     result[name] = query.rows.map(row => ({ type: plan.rows[name][0]?.type, ...row }));
   }
   return result;
+}
+
+async function readPlanTableRows(client, plan, name) {
+  const desiredRows = plan.rows[name] ?? [];
+  const ids = desiredRows.map(row => row.id);
+  if (ids.length === 0) return [];
+  const [table, columns] = READ_SPECS[name];
+  const query = await client.query(`SELECT ${columns} FROM ${table} WHERE id = ANY($1::uuid[]) ORDER BY id`, [ids]);
+  return query.rows.map(row => ({ type: desiredRows[0]?.type, ...row }));
+}
+
+function updateLogicalDigest(hash, name, rows, index) {
+  if (index > 0) hash.update(',');
+  hash.update(`${JSON.stringify(name)}:${canonicalJson(rows)}`);
+}
+
+export async function computeDatabaseLogicalDigest(client, plan) {
+  const hash = createHash('sha256');
+  hash.update('{');
+  const names = [...DIGEST_TABLES].sort();
+  for (const [index, name] of names.entries()) {
+    const rows = await readPlanTableRows(client, plan, name);
+    updateLogicalDigest(hash, name, rows, index);
+  }
+  hash.update('}');
+  return hash.digest('hex');
+}
+
+export async function summarizeDatabaseDiff(client, plan) {
+  let inserts = 0;
+  let updates = 0;
+  let unchanged = 0;
+  let stalePreserved = 0;
+  const hash = createHash('sha256');
+  hash.update('{');
+  const names = [...DIGEST_TABLES].sort();
+  for (const [index, name] of names.entries()) {
+    const currentRows = await readPlanTableRows(client, plan, name);
+    updateLogicalDigest(hash, name, currentRows, index);
+    const current = new Map(currentRows.map(row => [row.id, canonicalJson(row)]));
+    const desiredRows = plan.rows[name] ?? [];
+    const desiredIds = new Set(desiredRows.map(row => row.id));
+    for (const row of desiredRows) {
+      if (!current.has(row.id)) inserts += 1;
+      else if (current.get(row.id) === canonicalJson(row)) unchanged += 1;
+      else updates += 1;
+    }
+    stalePreserved += currentRows.filter(row => !desiredIds.has(row.id)).length;
+  }
+  hash.update('}');
+  return {
+    inserts,
+    updates,
+    unchanged,
+    stalePreserved,
+    desiredDigest: plan.logicalDigest,
+    currentDigest: hash.digest('hex')
+  };
 }
 
 export function createDefaultReleaseHooks() {
@@ -1076,7 +1134,7 @@ export async function runCurriculumImport(options) {
   const { client, plan, dryRun = false, logger = console } = options;
   const releaseHooks = options.releaseHooks ?? createDefaultReleaseHooks();
   const write = options.writePlan ?? writePlan;
-  const read = options.readPlanRows ?? readPlanRows;
+  const read = options.readPlanRows;
   const prepare = options.preparePlan ?? prepareDimensions;
   let began = false;
   try {
@@ -1088,7 +1146,9 @@ export async function runCurriculumImport(options) {
     // plans contain tens of thousands of rich rows; retaining both the pre-write and
     // post-write snapshots can nearly double peak RSS during an otherwise idempotent
     // import.
-    const diff = await readCurrentDiff(client, plan, read);
+    const diff = read
+      ? summarizeDiff(plan, await read(client, plan))
+      : await summarizeDatabaseDiff(client, plan);
     if (dryRun) {
       await client.query('ROLLBACK');
       began = false;
@@ -1097,8 +1157,9 @@ export async function runCurriculumImport(options) {
     }
     const release = await releaseHooks.stage(client, plan);
     await write(client, plan);
-    const imported = await read(client, plan);
-    const actualDigest = computeLogicalDigest(imported);
+    const actualDigest = read
+      ? computeLogicalDigest(await read(client, plan))
+      : await computeDatabaseLogicalDigest(client, plan);
     if (actualDigest !== plan.logicalDigest) {
       throw new Error(`Post-import logical digest mismatch: expected ${plan.logicalDigest}, got ${actualDigest}.`);
     }
@@ -1110,11 +1171,6 @@ export async function runCurriculumImport(options) {
     if (began) await client.query('ROLLBACK').catch(() => {});
     throw error;
   }
-}
-
-async function readCurrentDiff(client, plan, read) {
-  const currentRows = await read(client, plan);
-  return summarizeDiff(plan, currentRows);
 }
 
 export async function runGradeImportBatch(options) {

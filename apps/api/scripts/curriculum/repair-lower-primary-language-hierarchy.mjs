@@ -158,13 +158,13 @@ async function repairSubject(client, subject, definition, sourceFile) {
   }
 
   await archiveActiveStrands(client, definition.subjectId, sourceFile);
-  const activeRows = await client.query(
+  const subjectRows = await client.query(
     `SELECT id FROM curriculum_strands
      WHERE country_code = 'KEN' AND curriculum_code = 'CBC'
-       AND grade_level = $2 AND subject_id = $1 AND is_active = TRUE`,
+       AND grade_level = $2 AND subject_id = $1`,
     [definition.subjectId, gradeLabel],
   );
-  const retiredStrandIds = activeRows.rows.map(row => row.id);
+  const retiredStrandIds = subjectRows.rows.map(row => row.id);
 
   if (retiredStrandIds.length > 0) {
     await client.query(
@@ -178,7 +178,7 @@ async function repairSubject(client, subject, definition, sourceFile) {
        SET position = position + offset_value.amount, is_active = FALSE, updated_at = NOW()
        FROM offset_value
        WHERE country_code = 'KEN' AND curriculum_code = 'CBC'
-         AND grade_level = $2 AND subject_id = $1 AND is_active = TRUE`,
+         AND grade_level = $2 AND subject_id = $1`,
       [definition.subjectId, gradeLabel],
     );
     await client.query(
@@ -189,7 +189,7 @@ async function repairSubject(client, subject, definition, sourceFile) {
        UPDATE curriculum_sub_strands
        SET position = position + offset_value.amount, is_active = FALSE, updated_at = NOW()
        FROM offset_value
-       WHERE strand_id = ANY($1::uuid[]) AND is_active = TRUE`,
+       WHERE strand_id = ANY($1::uuid[])`,
       [retiredStrandIds],
     );
   }

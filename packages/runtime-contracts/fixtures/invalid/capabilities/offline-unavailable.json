@@ -1,0 +1,22 @@
+{
+  "description": "An offline runtime must reject candidates whose assets or renderer require a connection.",
+  "profile": {
+    "installedRenderers": ["native"],
+    "availableInputs": ["touch"],
+    "deviceTier": "baseline",
+    "reducedMotion": false,
+    "online": false
+  },
+  "request": {
+    "preferred": {
+      "id": "online-only-native",
+      "renderer": "native",
+      "minimumDeviceTier": "baseline",
+      "input": "touch",
+      "supportsReducedMotion": true,
+      "availableOffline": false
+    },
+    "fallbacks": []
+  },
+  "expectedRejectionReasons": ["offline-not-supported"]
+}

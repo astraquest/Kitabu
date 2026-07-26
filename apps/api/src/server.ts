@@ -251,6 +251,14 @@ import {
   buildCurriculumAuthoredPath
 } from './curriculumCompatibilityLesson.js';
 import {
+  approveInteractiveBundle,
+  createInteractiveBundleDraft,
+  getInteractiveRelease,
+  moveInteractiveReleasePointer,
+  validatePublishableBundle,
+  type PublishableBundle
+} from './interactiveLearning/publishing.js';
+import {
   type CurriculumScope,
   isKenyaCbcScope,
   resolveCurriculumScope
@@ -259,6 +267,24 @@ import {
 const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu2.twa';
 const KITABU_PLAY_SHA256_CERT_FINGERPRINT =
   'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26';
+
+const interactiveChannelSchema = z.enum(['development', 'preview', 'staging', 'production']);
+const interactiveBundleBodySchema = z.object({
+  manifest: z.record(z.string(), z.unknown()),
+  scenes: z.array(z.unknown()),
+  assetManifest: z.record(z.string(), z.unknown())
+});
+const interactivePointerBodySchema = z.object({
+  channel: interactiveChannelSchema,
+  bundleId: z.string().trim().min(1).max(160),
+  revision: z.string().trim().min(1).max(160)
+});
+
+function interactiveBundleChannel(bundle: PublishableBundle) {
+  return interactiveChannelSchema.safeParse(
+    (bundle.manifest as unknown as { release?: { channel?: unknown } }).release?.channel
+  );
+}
 
 async function resolveUserCurriculumScope(userId: string): Promise<CurriculumScope> {
   const user = await findUserById(userId);
@@ -8008,6 +8034,52 @@ Return valid JSON with this shape:
 
     return result.audio;
   };
+
+  app.post('/admin/interactive-learning/bundles/validate', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const parsed = interactiveBundleBodySchema.safeParse(request.body);
+    if (!parsed.success) return reply.badRequest('Invalid interactive learning bundle payload');
+    const bundle = parsed.data as unknown as PublishableBundle;
+    const channel = interactiveBundleChannel(bundle);
+    if (!channel.success) return { valid: false, issues: [{ code: 'manifest.invalid', path: 'manifest.release.channel', message: 'valid release channel is required' }] };
+    return validatePublishableBundle(bundle, channel.data);
+  });
+
+  app.post('/admin/interactive-learning/bundles', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const parsed = interactiveBundleBodySchema.safeParse(request.body);
+    if (!parsed.success) return reply.badRequest('Invalid interactive learning bundle payload');
+    const result = await createInteractiveBundleDraft(parsed.data as unknown as PublishableBundle, request.user!.id);
+    return result.created ? reply.status(201).send(result) : reply.status(result.issues.length ? 422 : 409).send(result);
+  });
+
+  app.post('/admin/interactive-learning/bundles/:bundleId/:revision/approve', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = z.object({ bundleId: z.string().min(1).max(160), revision: z.string().min(1).max(160) }).safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid bundle identity');
+    const approved = await approveInteractiveBundle(params.data.bundleId, params.data.revision, request.user!.id);
+    return approved ? approved : reply.notFound('Draft bundle not found');
+  });
+
+  const moveInteractivePointer = (action: 'publish' | 'rollback') => async (request: FastifyRequest, reply: FastifyReply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const parsed = interactivePointerBodySchema.safeParse(request.body);
+    if (!parsed.success) return reply.badRequest('Invalid release pointer request');
+    return moveInteractiveReleasePointer({ ...parsed.data, actorUserId: request.user!.id, action });
+  };
+  app.post('/admin/interactive-learning/releases/publish', moveInteractivePointer('publish'));
+  app.post('/admin/interactive-learning/releases/rollback', moveInteractivePointer('rollback'));
+
+  app.get('/interactive-learning/releases/:channel', async (request, reply) => {
+    const params = z.object({ channel: interactiveChannelSchema }).safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid release channel');
+    const release = await getInteractiveRelease(params.data.channel);
+    return release ? release : reply.notFound('No interactive learning release is published for this channel');
+  });
 
   const aiGenerationRateLimit = {
     config: {

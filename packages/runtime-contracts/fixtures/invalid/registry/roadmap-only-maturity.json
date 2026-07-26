@@ -1,0 +1,24 @@
+{
+  "identity": {
+    "componentId": "future-simulation",
+    "componentVersion": "1.0.0",
+    "specVersion": "1.0.1"
+  },
+  "displayName": "Future simulation",
+  "kind": "engine",
+  "maturity": "roadmap",
+  "owner": "kitabu",
+  "rendererBindings": [
+    {
+      "renderer": "webgl",
+      "bindingId": "future-simulation/webgl"
+    }
+  ],
+  "capabilityTiers": ["immersive"],
+  "propsSchemaBindingId": "future-simulation/props/1.0.0",
+  "stateSchemaVersion": "1.0.0",
+  "supportedTutorActions": ["focusCamera"],
+  "emittedEvents": ["READY", "INTERACTION"],
+  "evidenceTypes": [],
+  "privacyClasses": ["ordinary-learning-event"]
+}

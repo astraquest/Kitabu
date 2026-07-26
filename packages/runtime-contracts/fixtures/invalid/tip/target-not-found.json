@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "A tutor cannot address a semantic target absent from the live component.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "tip-target-missing-1",
+    "action": "highlight",
+    "targetId": "term-denominator",
+    "parameters": { "color": "accent" }
+  },
+  "context": {
+    "componentState": "ready.active",
+    "availableTargetIds": ["term-numerator"],
+    "scenePermittedActions": ["highlight"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "target-not-found"
+  }
+}

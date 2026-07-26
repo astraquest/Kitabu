@@ -1,0 +1,32 @@
+{
+  "entrySceneId": "g6-fallback-unknown-version-primary",
+  "scenes": [
+    {
+      "identity": { "sceneId": "g6-fallback-unknown-version-primary", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Round 48,631 to the nearest thousand." },
+      "props": { "answerType": "number" },
+      "evidenceClaims": [
+        { "claimId": "rounding", "description": { "default": "Rounds to the nearest thousand." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-primary", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-unknown-version-target", "preservesClaimIds": ["rounding"] }
+    },
+    {
+      "identity": { "sceneId": "g6-fallback-unknown-version-target", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "99.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Type the rounded number." },
+      "props": { "answerType": "number" },
+      "evidenceClaims": [
+        { "claimId": "rounding", "description": { "default": "Rounds to the nearest thousand." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-fallback", "assets": [] }
+    }
+  ]
+}

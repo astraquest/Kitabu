@@ -1,0 +1,106 @@
+{
+  "identity": {
+    "sceneId": "ken-cbc-g6-math-whole-numbers-rank-001",
+    "schemaVersion": "1.0.1"
+  },
+  "component": {
+    "componentId": "classify-sort-match-rank",
+    "componentVersion": "1.0.0"
+  },
+  "purpose": "practice",
+  "prompt": {
+    "default": "Arrange the number cards from smallest to largest."
+  },
+  "props": {
+    "mode": "ranked-list",
+    "items": [
+      {
+        "id": "number-51090",
+        "label": "51,090",
+        "value": 51090,
+        "accessibleDescription": "fifty-one thousand and ninety"
+      },
+      {
+        "id": "number-7420",
+        "label": "7,420",
+        "value": 7420,
+        "accessibleDescription": "seven thousand four hundred and twenty"
+      },
+      {
+        "id": "number-99999",
+        "label": "99,999",
+        "value": 99999,
+        "accessibleDescription": "ninety-nine thousand nine hundred and ninety-nine"
+      },
+      {
+        "id": "number-18305",
+        "label": "18,305",
+        "value": 18305,
+        "accessibleDescription": "eighteen thousand three hundred and five"
+      }
+    ],
+    "orderingRules": {
+      "direction": "ascending"
+    },
+    "allowMultiplePlacements": false,
+    "unplacedPolicy": "all-items-required",
+    "layout": {
+      "orientation": "vertical",
+      "showPositionNumbers": true
+    },
+    "shuffleSeed": "g6-whole-numbers-rank-001",
+    "explanationPolicy": {
+      "required": false
+    },
+    "keyboardMoveModel": "pick-move-drop"
+  },
+  "evidenceClaims": [
+    {
+      "claimId": "ken-cbc-g6-math-1.1-d",
+      "description": {
+        "default": "order numbers up to 100,000 in real-life situations"
+      },
+      "evidenceTypes": [
+        "answer"
+      ],
+      "masteryRuleId": "exact-ascending-order"
+    }
+  ],
+  "grader": {
+    "graderId": "ordered-item-ids",
+    "graderVersion": "1.0.0",
+    "mode": "exact"
+  },
+  "completion": {
+    "completionRuleId": "whole-numbers-rank-complete",
+    "kind": "evidence-claims-met",
+    "requiredClaimIds": [
+      "ken-cbc-g6-math-1.1-d"
+    ]
+  },
+  "tutorPermissions": [
+    {
+      "action": "highlight",
+      "targetIds": [
+        "number-7420",
+        "number-18305",
+        "number-51090",
+        "number-99999"
+      ],
+      "allowedStates": [
+        "attempting"
+      ],
+      "learnerCanUndo": true
+    }
+  ],
+  "assets": {
+    "manifestId": "ken-cbc-g6-math-whole-numbers-rank-001-assets",
+    "assets": []
+  },
+  "deterministicSeed": "g6-whole-numbers-rank-001",
+  "attemptPolicy": {
+    "maxAttempts": 3,
+    "feedbackTiming": "on-submit",
+    "revealAnswer": "after-completion"
+  }
+}

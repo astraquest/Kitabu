@@ -1,0 +1,35 @@
+{
+  "description": "Duplicate profile values and duplicate candidate identifiers are ambiguous and must fail validation before negotiation.",
+  "profile": {
+    "installedRenderers": ["native", "native"],
+    "availableInputs": ["touch", "touch"],
+    "deviceTier": "baseline",
+    "reducedMotion": false,
+    "online": true
+  },
+  "request": {
+    "preferred": {
+      "id": "duplicate-candidate",
+      "renderer": "native",
+      "minimumDeviceTier": "baseline",
+      "input": "touch",
+      "supportsReducedMotion": true,
+      "availableOffline": true
+    },
+    "fallbacks": [
+      {
+        "id": "duplicate-candidate",
+        "renderer": "dom",
+        "minimumDeviceTier": "baseline",
+        "input": "touch",
+        "supportsReducedMotion": true,
+        "availableOffline": true
+      }
+    ]
+  },
+  "expectedValidationErrors": [
+    "installedRenderers values must be unique",
+    "availableInputs values must be unique",
+    "candidate ids must be unique"
+  ]
+}

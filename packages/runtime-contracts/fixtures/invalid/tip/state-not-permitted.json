@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "A declared action is rejected outside its component-owned states.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "tip-state-1",
+    "action": "highlight",
+    "targetId": "term-numerator",
+    "parameters": { "color": "accent" }
+  },
+  "context": {
+    "componentState": "completed",
+    "availableTargetIds": ["term-numerator"],
+    "scenePermittedActions": ["highlight"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "state-not-permitted"
+  }
+}

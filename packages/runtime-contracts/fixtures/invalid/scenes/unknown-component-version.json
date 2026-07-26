@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "sceneId": "grade-6-unknown-version",
+  "componentId": "structured-response",
+  "componentVersion": "9.9.9",
+  "capabilityTier": "interactive",
+  "props": { "answerType": "number" },
+  "evidenceClaims": [
+    { "claimId": "answer-claim", "evidenceTypes": ["answer"] }
+  ],
+  "tutorPermissions": [{ "action": "highlight" }],
+  "assets": [],
+  "fallback": {
+    "componentId": "structured-response",
+    "capabilityTier": "lite",
+    "preservesClaimIds": ["answer-claim"],
+    "props": { "answerType": "number" }
+  }
+}

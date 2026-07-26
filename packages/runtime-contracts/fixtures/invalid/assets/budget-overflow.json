@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "assets": [
+    {
+      "id": "oversized-video",
+      "kind": "video",
+      "uri": "https://cdn.kitabu.ai/grade-6/oversized.mp4",
+      "mimeType": "video/mp4",
+      "byteSize": 9007199254740991,
+      "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "licence": { "id": "CC-BY-4.0" },
+      "provenance": { "source": "kitabu-authored" }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "identity": {
+    "componentId": "structured-response",
+    "componentVersion": "1.0.0",
+    "specVersion": "1.0.1"
+  },
+  "displayName": "Structured response",
+  "kind": "primitive",
+  "maturity": "build-now",
+  "owner": "kitabu",
+  "rendererBindings": [
+    {
+      "renderer": "canvas2d",
+      "bindingId": "structured-response/canvas2d"
+    }
+  ],
+  "capabilityTiers": ["lite"],
+  "propsSchemaBindingId": "structured-response/props/1.0.0",
+  "stateSchemaVersion": "1.0.0",
+  "supportedTutorActions": ["highlight"],
+  "emittedEvents": ["READY", "SUBMITTED", "EVIDENCE"],
+  "evidenceTypes": ["answer"],
+  "privacyClasses": ["ordinary-learning-event"]
+}

@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "Action parameters must pass the component-owned validator.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "tip-params-1",
+    "action": "highlight",
+    "targetId": "term-numerator",
+    "parameters": { "color": 42 }
+  },
+  "context": {
+    "componentState": "ready.active",
+    "availableTargetIds": ["term-numerator"],
+    "scenePermittedActions": ["highlight"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "invalid-parameters"
+  }
+}

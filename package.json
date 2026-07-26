@@ -3,12 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "workspaces": [
-    "apps/api"
+    "apps/api",
+    "packages/runtime-contracts"
   ],
   "scripts": {
     "dev:api": "npm run dev -w apps/api",
     "build": "npm run build -w apps/api",
+    "build:runtime": "npm run build -w packages/runtime-contracts",
     "check": "npm run typecheck -w apps/api && node scripts/check-admin-icons.mjs",
+    "typecheck:runtime": "npm run typecheck -w packages/runtime-contracts",
+    "test:runtime": "npm run test -w packages/runtime-contracts --if-present",
+    "validate:runtime": "npm run validate -w packages/runtime-contracts --if-present",
     "test:api": "npm test -w apps/api",
     "test:native": "npm --prefix native-app test -- --runInBand",
     "lint:native": "npm --prefix native-app run lint -- --max-warnings=0",

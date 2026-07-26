@@ -1,0 +1,41 @@
+{
+  "name": "@kitabu/runtime-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "fixtures",
+    "schemas"
+  ],
+  "bin": {
+    "kitabu-check-fixture-integrity": "./dist/cli/check-fixture-integrity.js",
+    "kitabu-validate-content": "./dist/cli/validate-content.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "pretest": "npm run build",
+    "test": "tsx --test \"tests/**/*.test.ts\" \"tests/*.test.mjs\"",
+    "test:schema-fixtures": "tsx --test tests/schemas/props-schemas.test.ts tests/schemas/schema-fixtures.test.ts",
+    "validate:content": "tsx src/cli/validate-content.ts fixtures/grade-6/whole-numbers-structured-response.scene.json fixtures/grade-6/whole-numbers-rank.scene.json",
+    "validate:integrity": "tsx src/cli/check-fixture-integrity.ts --repository-root ../.. fixtures/grade-6",
+    "validate:scope": "tsx src/cli/check-wave0-scope.ts",
+    "validate": "npm run typecheck && npm run test:schema-fixtures && npm run validate:content && npm run validate:integrity && npm run validate:scope"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "ajv": "^8.18.0",
+    "ajv-formats": "^3.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.2"
+  }
+}

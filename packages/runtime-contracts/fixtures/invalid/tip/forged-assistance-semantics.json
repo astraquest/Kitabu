@@ -1,0 +1,24 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "scene-permission",
+  "description": "Authored scene permissions cannot forge component-owned assistance or evidence semantics.",
+  "permission": {
+    "action": "highlight",
+    "targetIds": ["term-numerator"],
+    "allowedStates": ["ready.active"],
+    "learnerCanUndo": false,
+    "assistanceEffect": {
+      "kind": "attention",
+      "changesAssessableState": false,
+      "learnerMayUndo": true,
+      "evidenceConsequences": [],
+      "accessibilityEquivalent": "",
+      "attribution": "learner",
+      "independentEvidenceEligible": true
+    }
+  },
+  "expected": {
+    "schemaValid": false,
+    "reason": "assistanceEffect is component-owned and is not allowed on a scene tutor permission"
+  }
+}

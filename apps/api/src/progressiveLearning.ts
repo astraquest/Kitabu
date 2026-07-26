@@ -156,6 +156,8 @@ export type LearningInteraction =
       items: LearningInteractionItem[];
     };
 
+export type ProgressiveComponentScene = Record<string, unknown>;
+
 export type ProgressiveLessonStep = {
   id: string;
   phase: 'guided' | 'checkpoint';
@@ -163,6 +165,7 @@ export type ProgressiveLessonStep = {
   supportText?: string;
   options: string[];
   interaction?: LearningInteraction;
+  componentScene?: ProgressiveComponentScene;
   visual: LearningVisualSpec;
   hint: string;
 };
@@ -790,8 +793,16 @@ export function gradeProgressiveLessonDefinitionStep(
     return null;
   }
 
-  const normalizedResponse = response.trim().replace(/\s+/g, ' ').toLocaleLowerCase('en-KE');
-  const normalizedAnswer = answer.answer.trim().replace(/\s+/g, ' ').toLocaleLowerCase('en-KE');
+  const isNumericStructuredResponse =
+    (step.componentScene as { component?: { componentId?: unknown }; props?: { mode?: unknown } } | undefined)
+      ?.component?.componentId === 'structured-response' &&
+    (step.componentScene as { props?: { mode?: unknown } } | undefined)?.props?.mode === 'numeric';
+  const normalize = (value: string) => {
+    const text = value.trim().replace(/\s+/g, ' ').toLocaleLowerCase('en-KE');
+    return isNumericStructuredResponse ? text.replace(/,/g, '') : text;
+  };
+  const normalizedResponse = normalize(response);
+  const normalizedAnswer = normalize(answer.answer);
   const isCorrect = normalizedResponse === normalizedAnswer;
 
   return {

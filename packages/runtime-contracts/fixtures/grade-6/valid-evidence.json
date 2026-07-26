@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.1",
+  "evidenceId": "evidence-grade6-whole-numbers-response-0001",
+  "sourceEventIds": [
+    "evt-grade6-whole-numbers-response-0001"
+  ],
+  "claim": {
+    "claimId": "g6-math-whole-numbers-total-value",
+    "evidenceType": "answer",
+    "polarity": "supports",
+    "strength": 1,
+    "confidence": 1,
+    "data": {
+      "correct": true
+    }
+  },
+  "scorer": {
+    "scorerId": "kitabu.deterministic-evidence-scorer",
+    "scorerVersion": "1.0.0",
+    "kind": "deterministic",
+    "graderId": "kitabu.sealed-numeric-answer",
+    "graderVersion": "1.0.0"
+  },
+  "assistance": {
+    "level": 0,
+    "attribution": "none",
+    "independentEvidenceEligible": true,
+    "tutorActionIds": []
+  },
+  "privacy": {
+    "privacyClass": "ordinary-learning-event",
+    "retention": {
+      "policyId": "kitabu.learning-evidence-standard",
+      "policyVersion": "1.0.0"
+    }
+  },
+  "pins": {
+    "bundleId": "ken-cbc-grade-6-mathematics-whole-numbers",
+    "bundleVersion": "1.0.0",
+    "sceneId": "ken.cbc.g6.math.whole-numbers.total-value.diagnostic-1",
+    "sceneVersion": "1.0.0",
+    "componentId": "structured-response",
+    "componentVersion": "1.0.0",
+    "sessionId": "session-g6-whole-numbers-001",
+    "attemptId": "attempt-g6-whole-numbers-total-value-001"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "description": "A learner requesting reduced motion must not receive a renderer that cannot provide it.",
+  "profile": {
+    "installedRenderers": ["dom"],
+    "availableInputs": ["keyboard"],
+    "deviceTier": "standard",
+    "reducedMotion": true,
+    "online": true
+  },
+  "request": {
+    "preferred": {
+      "id": "animated-dom",
+      "renderer": "dom",
+      "minimumDeviceTier": "baseline",
+      "input": "keyboard",
+      "supportsReducedMotion": false,
+      "availableOffline": true
+    },
+    "fallbacks": []
+  },
+  "expectedRejectionReasons": ["reduced-motion-not-supported"]
+}

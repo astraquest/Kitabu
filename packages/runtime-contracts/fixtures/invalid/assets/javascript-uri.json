@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "assets": [
+    {
+      "id": "unsafe-script",
+      "kind": "image",
+      "uri": "javascript:alert(1)",
+      "mimeType": "image/svg+xml",
+      "byteSize": 128,
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "licence": { "id": "CC-BY-4.0" },
+      "provenance": { "source": "kitabu-authored" }
+    }
+  ]
+}

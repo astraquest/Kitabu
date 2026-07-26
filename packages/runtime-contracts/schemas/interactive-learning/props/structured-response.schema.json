@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/props/structured-response/1.0.0",
+  "title": "Structured Response Props",
+  "description": "Learner-safe props for the first Grade 6 numeric and short-text scenes. Correct answers and grading rules are resolved from the scene-level grader reference and must never be included in this payload.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mode", "accessibility"],
+  "properties": {
+    "mode": {
+      "enum": ["numeric", "short-text"]
+    },
+    "normalization": {
+      "$ref": "#/$defs/normalization"
+    },
+    "input": {
+      "$ref": "#/$defs/input"
+    },
+    "accessibility": {
+      "$ref": "#/$defs/accessibility"
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default"],
+      "properties": {
+        "default": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "number" }
+            ]
+          }
+        }
+      }
+    },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowSurroundingWhitespace": {
+          "type": "boolean"
+        },
+        "caseSensitive": {
+          "type": "boolean"
+        },
+        "collapseInternalWhitespace": {
+          "type": "boolean"
+        },
+        "allowThousandsSeparators": {
+          "type": "boolean"
+        },
+        "locale": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 35,
+          "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "placeholder": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500
+        },
+        "allowMultiline": {
+          "type": "boolean"
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inputLabel"],
+      "properties": {
+        "inputLabel": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "spokenPrompt": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "responseFormatHint": {
+          "$ref": "#/$defs/localizedText"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "mode": { "const": "numeric" }
+        },
+        "required": ["mode"]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "allOf": [
+              { "$ref": "#/$defs/input" },
+              {
+                "type": "object",
+                "properties": {
+                  "allowMultiline": { "const": false }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

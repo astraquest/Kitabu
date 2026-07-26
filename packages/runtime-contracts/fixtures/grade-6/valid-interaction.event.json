@@ -1,0 +1,35 @@
+{
+  "eventId": "evt-grade6-whole-numbers-response-0001",
+  "idempotencyKey": "attempt-g6-whole-numbers-total-value-001:1:interaction",
+  "type": "INTERACTION",
+  "protocolVersion": "1.0.1",
+  "sessionId": "session-g6-whole-numbers-001",
+  "sceneId": "ken.cbc.g6.math.whole-numbers.total-value.diagnostic-1",
+  "attemptId": "attempt-g6-whole-numbers-total-value-001",
+  "componentId": "structured-response",
+  "sequence": 1,
+  "clientTimestamp": "2026-07-26T16:00:01.000Z",
+  "versions": {
+    "bundleId": "ken-cbc-grade-6-mathematics-whole-numbers",
+    "bundleVersion": "1.0.0",
+    "sceneVersion": "1.0.0",
+    "componentVersion": "1.0.0",
+    "graderId": "kitabu.sealed-numeric-answer",
+    "graderVersion": "1.0.0"
+  },
+  "privacy": {
+    "privacyClass": "ordinary-learning-event",
+    "retentionPolicyId": "learner-interaction-events",
+    "retentionPolicyVersion": "1.0.0"
+  },
+  "payload": {
+    "verb": "response-field-focused",
+    "targetIds": [
+      "numeric-response"
+    ],
+    "modality": "touch",
+    "activeElapsedMs": 1250,
+    "actor": "learner",
+    "privacyClass": "ordinary-learning-event"
+  }
+}

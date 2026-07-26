@@ -91,6 +91,7 @@ test('enforces the five-step Brilliant-level interaction and visual contract', (
   const interactionAnswerPositions = [0, 0, 0, 0];
   const checkpointAnswerPositions = [0, 0, 0, 0];
   const interactionKinds = new Map<string, number>();
+  let legacyOpeningCount = 0;
   assert.equal(lessons.length, 114);
   assert.equal(new Set(lessons.map(lesson => lesson.lessonKey)).size, lessons.length);
 
@@ -104,6 +105,16 @@ test('enforces the five-step Brilliant-level interaction and visual contract', (
 
     const opening = lesson.steps[0];
     assert.equal(opening.options.length, 0);
+    if (opening.componentScene) {
+      assert.equal(lesson.lessonKey, 'math-g6-whole-numbers');
+      assert.equal(
+        (opening.componentScene as { component?: { componentId?: string } }).component?.componentId,
+        'structured-response'
+      );
+      assert.equal(gradeProgressiveLessonStep(lesson.lessonKey, opening.id, '700000')?.isCorrect, true);
+      assert.equal(gradeProgressiveLessonStep(lesson.lessonKey, opening.id, '700,000')?.isCorrect, true);
+    } else {
+    legacyOpeningCount += 1;
     assert.equal(opening.interaction?.items.length, 4);
 
     const interaction = opening.interaction;
@@ -127,9 +138,22 @@ test('enforces the five-step Brilliant-level interaction and visual contract', (
       : serializeProgressiveChoiceAnswer(acceptedItems[0].id);
     assert.ok((gradeProgressiveLessonStep(lesson.lessonKey, opening.id, openingResponse)?.message.length ?? 0) >= 30);
     interactionAnswerPositions[interaction.items.indexOf(acceptedItems[0])] += 1;
+    }
 
     for (const step of lesson.steps.slice(1)) {
       assert.equal(step.interaction, undefined);
+      if (step.componentScene) {
+        assert.equal(lesson.lessonKey, 'math-g6-whole-numbers');
+        assert.equal(
+          gradeProgressiveLessonStep(
+            lesson.lessonKey,
+            step.id,
+            'sequence:number-7420>number-18305>number-51090>number-99999'
+          )?.isCorrect,
+          true
+        );
+        continue;
+      }
       assert.equal(step.options.length, 4);
       assert.equal(new Set(step.options).size, 4);
       const acceptedOptions = step.options.filter(option =>
@@ -144,7 +168,7 @@ test('enforces the five-step Brilliant-level interaction and visual contract', (
   }
 
   assert.ok(
-    interactionAnswerPositions.every(count => count >= lessons.length * 0.15),
+    interactionAnswerPositions.every(count => count >= legacyOpeningCount * 0.15),
     `opening answers must be distributed across positions: ${interactionAnswerPositions.join(', ')}`
   );
   assert.ok((interactionKinds.get('bucket_sort') ?? 0) >= lessons.length * 0.3);

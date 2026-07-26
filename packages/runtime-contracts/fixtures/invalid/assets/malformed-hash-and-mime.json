@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "assets": [
+    {
+      "id": "malformed-metadata",
+      "kind": "image",
+      "uri": "https://cdn.kitabu.ai/grade-6/image.svg",
+      "mimeType": "not a mime type",
+      "byteSize": 128,
+      "sha256": "SHA256:not-a-valid-digest",
+      "licence": { "id": "CC-BY-4.0" },
+      "provenance": { "source": "kitabu-authored" }
+    }
+  ]
+}

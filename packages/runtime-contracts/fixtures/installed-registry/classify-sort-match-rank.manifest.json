@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "componentId": "classify-sort-match-rank",
+    "componentVersion": "1.0.0",
+    "specVersion": "1.0.1"
+  },
+  "displayName": "Classify, sort, match, and rank",
+  "kind": "pattern",
+  "maturity": "build-now",
+  "owner": "kitabu.learning-runtime",
+  "rendererBindings": [
+    {
+      "renderer": "native",
+      "bindingId": "classify-sort-match-rank/native"
+    }
+  ],
+  "capabilityTiers": [
+    "lite"
+  ],
+  "propsSchemaBindingId": "classify-sort-match-rank/props/1.0.0",
+  "stateSchemaVersion": "1.0.0",
+  "supportedTutorActions": [
+    "highlight"
+  ],
+  "emittedEvents": [
+    "READY",
+    "SUBMITTED",
+    "EVIDENCE"
+  ],
+  "evidenceTypes": [
+    "answer"
+  ],
+  "privacyClasses": [
+    "ordinary-learning-event"
+  ]
+}

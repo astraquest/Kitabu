@@ -1,0 +1,25 @@
+{
+  "idempotencyKey": "submit-missing-event-id",
+  "type": "SUBMITTED",
+  "protocolVersion": "1.0.1",
+  "sessionId": "session-grade-6-1",
+  "sceneId": "whole-numbers-structured-response",
+  "attemptId": "attempt-1",
+  "componentId": "structured-response",
+  "sequence": 1,
+  "clientTimestamp": "2026-07-26T16:00:00.000Z",
+  "versions": {
+    "bundleId": "grade-6-math-whole-numbers",
+    "bundleVersion": "1.0.0",
+    "sceneVersion": "1.0.0",
+    "componentVersion": "1.0.0",
+    "graderId": "kitabu.sealed-numeric-answer",
+    "graderVersion": "1.0.0"
+  },
+  "privacy": {
+    "privacyClass": "ordinary-learning-event",
+    "retentionPolicyId": "learner-records",
+    "retentionPolicyVersion": "1.0.0"
+  },
+  "payload": { "answer": "12" }
+}

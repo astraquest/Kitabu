@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "sceneId": "grade-6-unsafe-asset",
+  "componentId": "structured-response",
+  "componentVersion": "1.0.0",
+  "capabilityTier": "interactive",
+  "props": { "answerType": "number" },
+  "evidenceClaims": [
+    { "claimId": "answer-claim", "evidenceTypes": ["answer"] }
+  ],
+  "tutorPermissions": [{ "action": "highlight" }],
+  "assets": [
+    { "assetId": "unsafe-diagram", "uri": "javascript:alert(1)" }
+  ],
+  "fallback": {
+    "componentId": "structured-response",
+    "capabilityTier": "lite",
+    "preservesClaimIds": ["answer-claim"],
+    "props": { "answerType": "number" }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/evidence-envelope/1.0.1",
+  "title": "Kitabu Interactive Learning Evidence Envelope",
+  "description": "Strict, version-pinned evidence emitted from traceable runtime events. Evidence records interpretations; mastery decisions remain outside this contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evidenceId",
+    "sourceEventIds",
+    "claim",
+    "scorer",
+    "assistance",
+    "privacy",
+    "pins"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.1" },
+    "evidenceId": { "$ref": "#/$defs/id" },
+    "sourceEventIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "claim": { "$ref": "#/$defs/claim" },
+    "scorer": { "$ref": "#/$defs/scorer" },
+    "assistance": { "$ref": "#/$defs/assistance" },
+    "privacy": { "$ref": "#/$defs/privacy" },
+    "pins": { "$ref": "#/$defs/pins" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^\\S(?:.*\\S)?$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "jsonObject": {
+      "type": "object"
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claimId", "evidenceType", "polarity", "strength"],
+      "properties": {
+        "claimId": { "$ref": "#/$defs/id" },
+        "evidenceType": {
+          "enum": [
+            "answer",
+            "construction",
+            "process",
+            "explanation",
+            "observation",
+            "creation",
+            "collaboration"
+          ]
+        },
+        "polarity": {
+          "enum": ["supports", "contradicts", "inconclusive"]
+        },
+        "strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "data": { "$ref": "#/$defs/jsonObject" }
+      }
+    },
+    "scorer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scorerId", "scorerVersion", "kind", "graderId", "graderVersion"],
+      "properties": {
+        "scorerId": { "$ref": "#/$defs/id" },
+        "scorerVersion": { "$ref": "#/$defs/semver" },
+        "kind": {
+          "enum": ["deterministic", "model", "rubric", "human"]
+        },
+        "graderId": { "$ref": "#/$defs/id" },
+        "graderVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "attribution", "independentEvidenceEligible", "tutorActionIds"],
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "attribution": {
+          "enum": ["none", "tutor", "teacher", "peer", "system"]
+        },
+        "independentEvidenceEligible": { "type": "boolean" },
+        "tutorActionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["privacyClass", "retention"],
+      "properties": {
+        "privacyClass": {
+          "enum": [
+            "ordinary-learning-event",
+            "learner-authored-content",
+            "sensitive-inference",
+            "raw-audio",
+            "raw-image-video",
+            "precise-location",
+            "biometric-or-pose"
+          ]
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["policyId", "policyVersion"],
+          "properties": {
+            "policyId": { "$ref": "#/$defs/id" },
+            "policyVersion": { "$ref": "#/$defs/semver" }
+          }
+        }
+      }
+    },
+    "pins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bundleId",
+        "bundleVersion",
+        "sceneId",
+        "sceneVersion",
+        "componentId",
+        "componentVersion",
+        "sessionId",
+        "attemptId"
+      ],
+      "properties": {
+        "bundleId": { "$ref": "#/$defs/id" },
+        "bundleVersion": { "$ref": "#/$defs/semver" },
+        "sceneId": { "$ref": "#/$defs/id" },
+        "sceneVersion": { "$ref": "#/$defs/semver" },
+        "componentId": { "$ref": "#/$defs/id" },
+        "componentVersion": { "$ref": "#/$defs/semver" },
+        "sessionId": { "$ref": "#/$defs/id" },
+        "attemptId": { "$ref": "#/$defs/id" }
+      }
+    }
+  }
+}

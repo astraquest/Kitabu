@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "A tutor request must carry a non-empty correlation id.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "",
+    "action": "highlight",
+    "targetId": "term-numerator",
+    "parameters": { "color": "accent" }
+  },
+  "context": {
+    "componentState": "ready.active",
+    "availableTargetIds": ["term-numerator"],
+    "scenePermittedActions": ["highlight"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "invalid-request"
+  }
+}

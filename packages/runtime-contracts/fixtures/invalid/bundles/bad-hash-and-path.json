@@ -1,0 +1,28 @@
+{
+  "manifestVersion": 1,
+  "bundleId": "invalid-bad-hash-and-path",
+  "revision": "1",
+  "sha256": "not-a-sha256-digest",
+  "protocolVersion": "1.0.1",
+  "sceneSchemaVersion": "1.0.1",
+  "minimumAppBuild": 1,
+  "components": [
+    { "componentId": "structured-response", "componentVersion": "1.0.0" }
+  ],
+  "graders": [
+    { "graderId": "kitabu.sealed-numeric-answer", "graderVersion": "1.0.0" }
+  ],
+  "assetManifest": {
+    "path": "../whole-numbers.assets.json",
+    "sha256": "not-a-sha256-digest"
+  },
+  "scenes": [
+    {
+      "sceneId": "invalid.bad-path",
+      "sceneVersion": "1.0.0",
+      "path": "fixtures\\grade-6\\whole-numbers-structured-response.scene.json",
+      "sha256": "not-a-sha256-digest"
+    }
+  ],
+  "release": { "channel": "development", "releaseId": "invalid-bad-hash-and-path-1" }
+}

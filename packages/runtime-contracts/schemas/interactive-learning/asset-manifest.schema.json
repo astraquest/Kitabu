@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/asset-manifest/1.0.0",
+  "title": "Kitabu Interactive Learning Asset Manifest",
+  "description": "Data-only declarations for assets referenced by an interactive learning bundle. Host policy remains responsible for trusted origins, MIME allowlists, download budgets and digest verification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "assets"],
+  "properties": {
+    "manifestVersion": { "const": 1 },
+    "assets": {
+      "type": "array",
+      "maxItems": 2048,
+      "items": { "$ref": "#/$defs/asset" }
+    }
+  },
+  "$defs": {
+    "assetId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z0-9](?:[a-z0-9._-]{0,126}[a-z0-9])?$"
+    },
+    "safeText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+    },
+    "safeUri": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "format": "uri",
+      "pattern": "^(?:https|asset|kitabu):"
+    },
+    "mimeType": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 127,
+      "pattern": "^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+$"
+    },
+    "licence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9.+_-]*(?:-[A-Za-z0-9.+_-]+)*$"
+        },
+        "attribution": { "$ref": "#/$defs/safeText" },
+        "termsUri": { "$ref": "#/$defs/safeUri" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source"],
+      "properties": {
+        "source": { "$ref": "#/$defs/safeText" },
+        "creator": { "$ref": "#/$defs/safeText" },
+        "reviewedBy": { "$ref": "#/$defs/safeText" },
+        "reviewedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "uri",
+        "mimeType",
+        "byteSize",
+        "sha256",
+        "licence",
+        "provenance"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/assetId" },
+        "kind": {
+          "enum": ["image", "audio", "video", "model-3d", "document", "font", "data"]
+        },
+        "uri": { "$ref": "#/$defs/safeUri" },
+        "mimeType": { "$ref": "#/$defs/mimeType" },
+        "byteSize": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "licence": { "$ref": "#/$defs/licence" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    }
+  }
+}

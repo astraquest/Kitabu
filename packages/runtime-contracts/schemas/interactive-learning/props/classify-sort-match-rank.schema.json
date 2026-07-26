@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/props/classify-sort-match-rank/1.0.0",
+  "title": "Classify, Sort, Match, Rank — Ranked List Props",
+  "description": "Strict learner-facing props for the first Grade 6 whole-number ranking slice. Answer keys are intentionally excluded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "items",
+    "orderingRules",
+    "allowMultiplePlacements",
+    "unplacedPolicy",
+    "layout",
+    "shuffleSeed",
+    "explanationPolicy",
+    "keyboardMoveModel"
+  ],
+  "properties": {
+    "mode": { "const": "ranked-list" },
+    "items": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 12,
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "orderingRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["direction"],
+      "properties": {
+        "direction": { "enum": ["ascending", "descending"] }
+      }
+    },
+    "allowMultiplePlacements": { "const": false },
+    "unplacedPolicy": { "const": "all-items-required" },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["orientation", "showPositionNumbers"],
+      "properties": {
+        "orientation": { "enum": ["vertical", "horizontal"] },
+        "showPositionNumbers": { "type": "boolean" }
+      }
+    },
+    "shuffleSeed": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "explanationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required"],
+      "properties": {
+        "required": { "type": "boolean" }
+      }
+    },
+    "keyboardMoveModel": {
+      "description": "Required non-drag interaction path for keyboard, switch-control and motor-access learners.",
+      "enum": ["pick-move-drop", "move-buttons"]
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "value", "accessibleDescription"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "accessibleDescription": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/message-envelope/1.0.1",
+  "title": "Kitabu Interactive Learning Message Envelope",
+  "description": "Strict, replay-safe transport envelope for Interactive Learning Runtime protocol v1.0.1. Sequence numbers are scoped to the sessionId, sceneId, attemptId and componentId tuple.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventId",
+    "idempotencyKey",
+    "type",
+    "protocolVersion",
+    "sessionId",
+    "sceneId",
+    "attemptId",
+    "componentId",
+    "sequence",
+    "clientTimestamp",
+    "versions",
+    "privacy",
+    "payload"
+  ],
+  "properties": {
+    "eventId": { "$ref": "#/$defs/nonEmptyId" },
+    "idempotencyKey": { "$ref": "#/$defs/nonEmptyId" },
+    "type": {
+      "type": "string",
+      "enum": [
+        "LOAD",
+        "PAUSE",
+        "RESUME",
+        "RESTORE_STATE",
+        "SET_LANGUAGE",
+        "SET_ACCESSIBILITY",
+        "REQUEST_SUBMISSION",
+        "APPLY_TUTOR_ACTION",
+        "READY",
+        "INTERACTION",
+        "EVIDENCE",
+        "ANSWER_CHANGED",
+        "HINT_REQUESTED",
+        "SUBMITTED",
+        "COMPLETED",
+        "STATE_SNAPSHOT",
+        "CAPABILITY_WARNING",
+        "TUTOR_ACTION_RESULT",
+        "ERROR"
+      ]
+    },
+    "protocolVersion": { "const": "1.0.1" },
+    "sessionId": { "$ref": "#/$defs/nonEmptyId" },
+    "sceneId": { "$ref": "#/$defs/nonEmptyId" },
+    "attemptId": { "$ref": "#/$defs/nonEmptyId" },
+    "componentId": { "$ref": "#/$defs/nonEmptyId" },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "clientTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "versions": { "$ref": "#/$defs/versionPins" },
+    "privacy": { "$ref": "#/$defs/privacyReference" },
+    "payload": { "$ref": "#/$defs/jsonValue" }
+  },
+  "$defs": {
+    "nonEmptyId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^\\S(?:.*\\S)?$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "versionPins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bundleId",
+        "bundleVersion",
+        "sceneVersion",
+        "componentVersion",
+        "graderId",
+        "graderVersion"
+      ],
+      "properties": {
+        "bundleId": { "$ref": "#/$defs/nonEmptyId" },
+        "bundleVersion": { "$ref": "#/$defs/semver" },
+        "sceneVersion": { "$ref": "#/$defs/semver" },
+        "componentVersion": { "$ref": "#/$defs/semver" },
+        "graderId": { "$ref": "#/$defs/nonEmptyId" },
+        "graderVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "privacyReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["privacyClass", "retentionPolicyId", "retentionPolicyVersion"],
+      "properties": {
+        "privacyClass": {
+          "type": "string",
+          "enum": [
+            "ordinary-learning-event",
+            "learner-authored-content",
+            "sensitive-inference",
+            "raw-audio",
+            "raw-image-video",
+            "precise-location",
+            "biometric-or-pose"
+          ]
+        },
+        "retentionPolicyId": { "$ref": "#/$defs/nonEmptyId" },
+        "retentionPolicyVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "jsonValue": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jsonValue" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/jsonValue" }
+        }
+      ]
+    }
+  }
+}

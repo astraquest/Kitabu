@@ -1,0 +1,65 @@
+{
+  "identity": {
+    "sceneId": "ken.cbc.g6.math.whole-numbers.total-value.diagnostic-1",
+    "schemaVersion": "1.0.1"
+  },
+  "component": {
+    "componentId": "structured-response",
+    "componentVersion": "1.0.0"
+  },
+  "purpose": "assessment",
+  "prompt": {
+    "default": "A county library records 3,742,815 books. What is the total value of the digit 7? Enter the number only.",
+    "key": "curriculum.KEN.CBC.G6.math.whole-numbers.outcome-a.total-value"
+  },
+  "props": {
+    "mode": "numeric",
+    "normalization": {
+      "allowThousandsSeparators": true,
+      "allowSurroundingWhitespace": true,
+      "locale": "en-KE"
+    },
+    "accessibility": {
+      "inputLabel": {
+        "default": "Total value of the digit 7 in 3,742,815",
+        "key": "curriculum.KEN.CBC.G6.math.whole-numbers.total-value.input-label"
+      }
+    }
+  },
+  "evidenceClaims": [
+    {
+      "claimId": "g6-math-whole-numbers-total-value",
+      "description": {
+        "default": "The learner uses place value and total value of digits up to millions in real life.",
+        "key": "curriculum.KEN.CBC.G6.math.whole-numbers.outcome-a"
+      },
+      "evidenceTypes": [
+        "answer"
+      ],
+      "masteryRuleId": "g6-math-whole-numbers-total-value-v1"
+    }
+  ],
+  "grader": {
+    "graderId": "kitabu.sealed-numeric-answer",
+    "graderVersion": "1.0.0",
+    "mode": "exact"
+  },
+  "completion": {
+    "completionRuleId": "submit-once",
+    "kind": "submitted",
+    "requiredClaimIds": [
+      "g6-math-whole-numbers-total-value"
+    ]
+  },
+  "tutorPermissions": [],
+  "assets": {
+    "manifestId": "g6-math-whole-numbers-total-value-assets-v1",
+    "assets": []
+  },
+  "deterministicSeed": "g6-math-whole-numbers-total-value-diagnostic-1",
+  "attemptPolicy": {
+    "maxAttempts": 1,
+    "feedbackTiming": "after-attempts",
+    "revealAnswer": "never"
+  }
+}

@@ -7,6 +7,7 @@ import type {
   ProgressiveStepResult,
   SubjectLearningPath,
 } from '../types';
+import { cacheLessonStart, enqueueCheck, loadCachedLessonStart, loadQueuedChecks, replaceQueuedChecks } from './offlineLearningStore';
 
 export function createProgressiveClientId() {
   return Crypto.randomUUID();
@@ -33,15 +34,40 @@ export async function startProgressiveLesson(input: {
   lessonVersion: number;
   grade: string;
 }) {
-  return apiJsonRequest<{
+  type StartResult = {
     attemptId: string;
     status: string;
     currentStepId: string | null;
     lesson: ProgressiveLesson;
-  }>('/learning/lesson-attempts', {
-    method: 'POST',
-    body: JSON.stringify(input),
-  });
+  };
+  const cacheKey = `${input.lessonKey}:${input.lessonVersion}`;
+  try {
+    const result = await apiJsonRequest<StartResult>('/learning/lesson-attempts', {
+      method: 'POST',
+      body: JSON.stringify(input),
+    });
+    await cacheLessonStart(cacheKey, result).catch(() => undefined);
+    flushQueuedProgressiveChecks().catch(() => undefined);
+    return result;
+  } catch (error) {
+    const cached = await loadCachedLessonStart<StartResult>(cacheKey);
+    if (cached) return cached;
+    throw error;
+  }
+}
+
+export async function flushQueuedProgressiveChecks() {
+  const queue = await loadQueuedChecks();
+  if (queue.length === 0) return;
+  const remaining = [] as typeof queue;
+  for (const item of queue) {
+    try {
+      await apiJsonRequest(item.endpoint, { method: 'POST', body: item.body });
+    } catch {
+      remaining.push(item);
+    }
+  }
+  await replaceQueuedChecks(remaining);
 }
 
 export async function checkProgressiveLessonStep(input: {
@@ -50,17 +76,22 @@ export async function checkProgressiveLessonStep(input: {
   response: string;
   responseLatencyMs: number;
 }) {
-  return apiJsonRequest<ProgressiveStepResult>(
-    `/learning/lesson-attempts/${encodeURIComponent(input.attemptId)}/steps/${encodeURIComponent(input.stepId)}/check`,
-    {
+  const clientEventId = createProgressiveClientId();
+  const endpoint = `/learning/lesson-attempts/${encodeURIComponent(input.attemptId)}/steps/${encodeURIComponent(input.stepId)}/check`;
+  const body = JSON.stringify({
+    clientEventId,
+    response: input.response,
+    responseLatencyMs: input.responseLatencyMs,
+  });
+  try {
+    return await apiJsonRequest<ProgressiveStepResult>(endpoint, {
       method: 'POST',
-      body: JSON.stringify({
-        clientEventId: createProgressiveClientId(),
-        response: input.response,
-        responseLatencyMs: input.responseLatencyMs,
-      }),
-    },
-  );
+      body,
+    });
+  } catch (error) {
+    await enqueueCheck({ endpoint, body, clientEventId }).catch(() => undefined);
+    throw error;
+  }
 }
 
 export async function completeProgressiveLesson(attemptId: string) {

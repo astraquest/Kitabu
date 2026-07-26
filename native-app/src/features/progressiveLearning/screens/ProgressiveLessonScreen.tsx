@@ -22,6 +22,8 @@ import {
 
 import { triggerHaptic } from '../../../services/haptics';
 import type { OnboardingMascotKey } from '../../../types/app';
+import { InteractiveSceneHost } from '../../interactiveLearning/InteractiveSceneHost';
+import { adaptComponentScene } from '../../interactiveLearning/sceneAdapter';
 import {
   checkProgressiveLessonStep,
   completeProgressiveLesson,
@@ -162,6 +164,12 @@ export function ProgressiveLessonScreen({
   }, [clientAttemptId, grade, lessonKey, lessonVersion]);
 
   const step = lesson?.steps[currentIndex] ?? null;
+  const componentSceneResult = step?.componentScene
+    ? adaptComponentScene(step.componentScene)
+    : null;
+  const componentScene = componentSceneResult?.ok
+    ? componentSceneResult.input
+    : null;
   useEffect(() => {
     sceneEntrance.stopAnimation();
     if (reduceMotion) {
@@ -220,8 +228,10 @@ export function ProgressiveLessonScreen({
         ? []
         : step.options.map(option => ({ label: option, value: option }))
     : [];
-  const usesStandardAnswerGrid = standardAnswerChoices.length > 0;
-  const usesArithmeticChallenge = step?.visual.kind === 'arithmetic';
+  const usesStandardAnswerGrid =
+    !componentScene && standardAnswerChoices.length > 0;
+  const usesArithmeticChallenge =
+    !componentScene && step?.visual.kind === 'arithmetic';
   const lowerPrimaryChoices = step
     ? step.options.length > 0
       ? step.options.map(option => ({ label: option, value: option }))
@@ -597,7 +607,18 @@ export function ProgressiveLessonScreen({
               },
             ]}
           >
-          {usesPictureChoiceChallenge && step.visual.kind === 'picture_choice' ? (
+          {componentScene ? (
+            <InteractiveSceneHost
+              disabled={Boolean(feedback) || isChecking}
+              key={`${step.id}-${interactionRevision}`}
+              onResponseChange={value => {
+                setSelectedAnswer(value);
+                setFeedback(null);
+              }}
+              scene={componentScene}
+              snapshotKey={attemptId ? `${attemptId}:${step.id}` : undefined}
+            />
+          ) : usesPictureChoiceChallenge && step.visual.kind === 'picture_choice' ? (
             <PictureChoiceChallengeScene
               choices={lowerPrimaryChoices}
               disabled={Boolean(feedback?.isCorrect) || isChecking}
@@ -750,7 +771,9 @@ export function ProgressiveLessonScreen({
         ) : null}
 
         <Animated.View style={{ transform: [{ translateX: shake }] }}>
-          {usesStandardAnswerGrid || usesAutoGradedChallenge ? null : step.interaction ? (
+          {usesStandardAnswerGrid ||
+          usesAutoGradedChallenge ||
+          componentScene ? null : step.interaction ? (
             <LearningInteractionView
               disabled={Boolean(feedback) || isChecking}
               interaction={step.interaction}

@@ -1,0 +1,9 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatcher-construction",
+  "description": "A component cannot register two descriptors for the same tutor action.",
+  "descriptors": ["highlight-valid", "highlight-valid"],
+  "expected": {
+    "throws": "Duplicate tutor action descriptor: highlight"
+  }
+}

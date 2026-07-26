@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "A live target still has to satisfy the component-owned target policy.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "tip-target-policy-1",
+    "action": "highlight",
+    "targetId": "button-submit",
+    "parameters": { "color": "accent" }
+  },
+  "context": {
+    "componentState": "ready.active",
+    "availableTargetIds": ["button-submit"],
+    "scenePermittedActions": ["highlight"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "target-not-permitted"
+  }
+}

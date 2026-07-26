@@ -1,0 +1,33 @@
+{
+  "entrySceneId": "g6-fallback-cycle-a",
+  "scenes": [
+    {
+      "identity": { "sceneId": "g6-fallback-cycle-a", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Write the value of 6 in 564,210." },
+      "props": { "answerType": "number" },
+      "evidenceClaims": [
+        { "claimId": "place-value", "description": { "default": "Finds the total value of a digit." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-a", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-cycle-b", "preservesClaimIds": ["place-value"] }
+    },
+    {
+      "identity": { "sceneId": "g6-fallback-cycle-b", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Type the total value of 6." },
+      "props": { "answerType": "number" },
+      "evidenceClaims": [
+        { "claimId": "place-value", "description": { "default": "Finds the total value of a digit." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-b", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-cycle-a", "preservesClaimIds": ["place-value"] }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "entrySceneId": "g6-fallback-bad-props-primary",
+  "scenes": [
+    {
+      "identity": { "sceneId": "g6-fallback-bad-props-primary", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "What is the value of 7 in 472,105?" },
+      "props": { "answerType": "number" },
+      "evidenceClaims": [
+        { "claimId": "place-value", "description": { "default": "Finds the total value of a digit." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-primary", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-bad-props-target", "preservesClaimIds": ["place-value"] }
+    },
+    {
+      "identity": { "sceneId": "g6-fallback-bad-props-target", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Type the total value of 7." },
+      "props": { "answerType": "unsupported-answer-type" },
+      "evidenceClaims": [
+        { "claimId": "place-value", "description": { "default": "Finds the total value of a digit." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-fallback", "assets": [] }
+    }
+  ]
+}

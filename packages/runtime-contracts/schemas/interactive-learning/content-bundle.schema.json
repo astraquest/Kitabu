@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/content-bundle/1.0.0",
+  "title": "Kitabu Interactive Learning Content Bundle Manifest",
+  "description": "Immutable, data-only publication manifest. Every executable dependency and referenced payload is pinned to an exact version or SHA-256 digest; ranges and unverified references are forbidden.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "bundleId",
+    "revision",
+    "sha256",
+    "protocolVersion",
+    "sceneSchemaVersion",
+    "minimumAppBuild",
+    "components",
+    "graders",
+    "assetManifest",
+    "scenes",
+    "release"
+  ],
+  "properties": {
+    "manifestVersion": { "const": 1 },
+    "bundleId": { "$ref": "#/$defs/id" },
+    "revision": { "$ref": "#/$defs/revision" },
+    "sha256": { "$ref": "#/$defs/sha256" },
+    "protocolVersion": { "$ref": "#/$defs/semver" },
+    "sceneSchemaVersion": { "$ref": "#/$defs/semver" },
+    "minimumAppBuild": { "$ref": "#/$defs/appBuild" },
+    "maximumAppBuild": { "$ref": "#/$defs/appBuild" },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/componentLock" }
+    },
+    "graders": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/graderLock" }
+    },
+    "assetManifest": { "$ref": "#/$defs/payloadReference" },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4096,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/sceneReference" }
+    },
+    "release": { "$ref": "#/$defs/releaseIdentity" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "appBuild": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "bundlePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "componentLock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["componentId", "componentVersion"],
+      "properties": {
+        "componentId": { "$ref": "#/$defs/id" },
+        "componentVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "graderLock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["graderId", "graderVersion"],
+      "properties": {
+        "graderId": { "$ref": "#/$defs/id" },
+        "graderVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "payloadReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/bundlePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "sceneReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sceneId", "sceneVersion", "path", "sha256"],
+      "properties": {
+        "sceneId": { "$ref": "#/$defs/id" },
+        "sceneVersion": { "$ref": "#/$defs/semver" },
+        "path": { "$ref": "#/$defs/bundlePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "releaseIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "releaseId"],
+      "properties": {
+        "channel": {
+          "enum": ["development", "preview", "staging", "production"]
+        },
+        "releaseId": { "$ref": "#/$defs/id" }
+      }
+    }
+  }
+}

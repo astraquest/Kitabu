@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/scene-definition/1.0.1",
+  "title": "Kitabu Interactive Learning Scene Definition",
+  "description": "Author-controlled scene content. Runtime context, accessibility preferences and restore state are intentionally excluded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "identity",
+    "component",
+    "purpose",
+    "prompt",
+    "props",
+    "evidenceClaims",
+    "completion",
+    "tutorPermissions",
+    "assets"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sceneId", "schemaVersion"],
+      "properties": {
+        "sceneId": { "$ref": "#/$defs/id" },
+        "schemaVersion": { "const": "1.0.1" }
+      }
+    },
+    "component": { "$ref": "#/$defs/componentReference" },
+    "purpose": {
+      "enum": ["instruction", "practice", "assessment"]
+    },
+    "prompt": { "$ref": "#/$defs/localizedText" },
+    "props": { "$ref": "#/$defs/jsonObject" },
+    "initialState": true,
+    "evidenceClaims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceClaim" }
+    },
+    "grader": { "$ref": "#/$defs/graderReference" },
+    "completion": { "$ref": "#/$defs/completionDefinition" },
+    "tutorPermissions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tutorPermission" }
+    },
+    "assets": { "$ref": "#/$defs/assetManifest" },
+    "fallback": { "$ref": "#/$defs/fallbackReference" },
+    "deterministicSeed": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "attemptPolicy": { "$ref": "#/$defs/attemptPolicy" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "purpose": {
+            "enum": ["practice", "assessment"]
+          }
+        },
+        "required": ["purpose"]
+      },
+      "then": {
+        "required": ["grader", "attemptPolicy"],
+        "properties": {
+          "grader": { "$ref": "#/$defs/graderReference" },
+          "attemptPolicy": { "$ref": "#/$defs/attemptPolicy" }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "jsonObject": {
+      "type": "object"
+    },
+    "componentReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["componentId", "componentVersion"],
+      "properties": {
+        "componentId": { "$ref": "#/$defs/id" },
+        "componentVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default"],
+      "properties": {
+        "default": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key": { "$ref": "#/$defs/id" },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["string", "number"]
+          }
+        }
+      }
+    },
+    "evidenceType": {
+      "enum": [
+        "answer",
+        "construction",
+        "process",
+        "explanation",
+        "observation",
+        "creation",
+        "collaboration"
+      ]
+    },
+    "evidenceClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claimId", "description", "evidenceTypes"],
+      "properties": {
+        "claimId": { "$ref": "#/$defs/id" },
+        "description": { "$ref": "#/$defs/localizedText" },
+        "evidenceTypes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/evidenceType" }
+        },
+        "masteryRuleId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "graderReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["graderId", "graderVersion", "mode"],
+      "properties": {
+        "graderId": { "$ref": "#/$defs/id" },
+        "graderVersion": { "$ref": "#/$defs/semver" },
+        "mode": {
+          "enum": [
+            "exact",
+            "numeric-tolerance",
+            "semantic-state",
+            "rubric",
+            "bounded-model",
+            "human"
+          ]
+        }
+      }
+    },
+    "completionDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completionRuleId", "kind"],
+      "properties": {
+        "completionRuleId": { "$ref": "#/$defs/id" },
+        "kind": {
+          "enum": ["submitted", "evidence-claims-met", "component-defined"]
+        },
+        "requiredClaimIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "tutorActionType": {
+      "enum": [
+        "highlight",
+        "annotate",
+        "freeze",
+        "unfreeze",
+        "rewind",
+        "replay",
+        "setParameter",
+        "reveal",
+        "hide",
+        "switchRepresentation",
+        "spawnCounterexample",
+        "insertMicroTask",
+        "modelPartialAction",
+        "requestPrediction",
+        "requestExplanation",
+        "fadeScaffold",
+        "focusCamera"
+      ]
+    },
+    "tutorPermission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "learnerCanUndo"],
+      "properties": {
+        "action": { "$ref": "#/$defs/tutorActionType" },
+        "targetIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "parameterSchemaRef": {
+          "type": "string",
+          "format": "uri-reference",
+          "minLength": 1
+        },
+        "allowedStates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "learnerCanUndo": { "type": "boolean" }
+      }
+    },
+    "assetReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetId", "uri", "mimeType", "licenseId", "provenance"],
+      "properties": {
+        "assetId": { "$ref": "#/$defs/id" },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(?:https:|asset:|kitabu:)"
+        },
+        "mimeType": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sizeBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "licenseId": { "$ref": "#/$defs/id" },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "optional": { "type": "boolean" }
+      }
+    },
+    "assetManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifestId", "assets"],
+      "properties": {
+        "manifestId": { "$ref": "#/$defs/id" },
+        "assets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/assetReference" }
+        }
+      }
+    },
+    "fallbackReference": {
+      "description": "References a complete alternate authored scene in the same immutable content bundle.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sceneId", "preservesClaimIds"],
+      "properties": {
+        "sceneId": { "$ref": "#/$defs/id" },
+        "preservesClaimIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "attemptPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxAttempts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "feedbackTiming": {
+          "enum": ["immediate", "on-submit", "after-attempts", "manual"]
+        },
+        "revealAnswer": {
+          "enum": ["never", "after-completion", "teacher-only"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "description": "An interactive candidate cannot run when none of its declared input paths are available.",
+  "profile": {
+    "installedRenderers": ["native"],
+    "availableInputs": [],
+    "deviceTier": "baseline",
+    "reducedMotion": false,
+    "online": true
+  },
+  "request": {
+    "preferred": {
+      "id": "interactive-native",
+      "renderer": "native",
+      "minimumDeviceTier": "baseline",
+      "input": "touch-or-keyboard",
+      "supportsReducedMotion": true,
+      "availableOffline": true
+    },
+    "fallbacks": []
+  },
+  "expectedRejectionReasons": ["input-not-available"]
+}

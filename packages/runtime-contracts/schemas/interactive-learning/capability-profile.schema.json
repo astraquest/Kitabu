@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kitabu.ai/schemas/interactive-learning/capability-profile/1.0.1",
+  "title": "Kitabu Runtime Capability Profile",
+  "description": "The small set of local capabilities used to select an installed scene renderer or authored fallback.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "installedRenderers",
+    "availableInputs",
+    "deviceTier",
+    "reducedMotion",
+    "online"
+  ],
+  "properties": {
+    "installedRenderers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["native", "dom", "webgl", "adapter"]
+      }
+    },
+    "availableInputs": {
+      "type": "array",
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["touch", "keyboard"]
+      }
+    },
+    "deviceTier": {
+      "description": "A coarse rendering budget. Baseline remains sufficient for core learning.",
+      "enum": ["baseline", "standard", "high"]
+    },
+    "reducedMotion": {
+      "type": "boolean"
+    },
+    "online": {
+      "description": "False when the runtime must select a candidate that is available offline.",
+      "type": "boolean"
+    }
+  }
+}

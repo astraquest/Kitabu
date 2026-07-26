@@ -1,0 +1,32 @@
+{
+  "entrySceneId": "g6-fallback-dangling-claim-primary",
+  "scenes": [
+    {
+      "identity": { "sceneId": "g6-fallback-dangling-claim-primary", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Write 82,406 in words." },
+      "props": { "answerType": "text" },
+      "evidenceClaims": [
+        { "claimId": "number-words", "description": { "default": "Writes a number in words." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-primary", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-dangling-claim-target", "preservesClaimIds": ["claim-that-does-not-exist"] }
+    },
+    {
+      "identity": { "sceneId": "g6-fallback-dangling-claim-target", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Type the number in words." },
+      "props": { "answerType": "text" },
+      "evidenceClaims": [
+        { "claimId": "number-words", "description": { "default": "Writes a number in words." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets-fallback", "assets": [] }
+    }
+  ]
+}

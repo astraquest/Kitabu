@@ -1,0 +1,26 @@
+{
+  "manifestVersion": 1,
+  "bundleId": "invalid-missing-grader-lock",
+  "revision": "1",
+  "sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+  "protocolVersion": "1.0.1",
+  "sceneSchemaVersion": "1.0.1",
+  "minimumAppBuild": 1,
+  "components": [
+    { "componentId": "structured-response", "componentVersion": "1.0.0" }
+  ],
+  "graders": [],
+  "assetManifest": {
+    "path": "grade-6/whole-numbers.assets.json",
+    "sha256": "4aeae8cb2a5c991df1150b382c16bcaf30eba124f73d84b721e6d46849a61224"
+  },
+  "scenes": [
+    {
+      "sceneId": "ken.cbc.g6.math.whole-numbers.total-value.diagnostic-1",
+      "sceneVersion": "1.0.0",
+      "path": "fixtures/grade-6/whole-numbers-structured-response.scene.json",
+      "sha256": "fd68c145bed0ae47ccb1e7b153250bfd45040797e981cbf61d161d1c463f788d"
+    }
+  ],
+  "release": { "channel": "development", "releaseId": "invalid-missing-grader-lock-1" }
+}

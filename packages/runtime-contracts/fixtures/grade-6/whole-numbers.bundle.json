@@ -1,0 +1,51 @@
+{
+  "manifestVersion": 1,
+  "bundleId": "ken-cbc-grade-6-mathematics-whole-numbers",
+  "revision": "2026-07-26.1",
+  "sha256": "8c4ea0578b5ef865c87f9638c952b70d324aa891d24a870249c1ea62a9372394",
+  "protocolVersion": "1.0.1",
+  "sceneSchemaVersion": "1.0.1",
+  "minimumAppBuild": 1,
+  "components": [
+    {
+      "componentId": "structured-response",
+      "componentVersion": "1.0.0"
+    },
+    {
+      "componentId": "classify-sort-match-rank",
+      "componentVersion": "1.0.0"
+    }
+  ],
+  "graders": [
+    {
+      "graderId": "kitabu.sealed-numeric-answer",
+      "graderVersion": "1.0.0"
+    },
+    {
+      "graderId": "ordered-item-ids",
+      "graderVersion": "1.0.0"
+    }
+  ],
+  "assetManifest": {
+    "path": "grade-6/whole-numbers.assets.json",
+    "sha256": "4aeae8cb2a5c991df1150b382c16bcaf30eba124f73d84b721e6d46849a61224"
+  },
+  "scenes": [
+    {
+      "sceneId": "ken.cbc.g6.math.whole-numbers.total-value.diagnostic-1",
+      "sceneVersion": "1.0.0",
+      "path": "fixtures/grade-6/whole-numbers-structured-response.scene.json",
+      "sha256": "29fd94e7588719d4bbd9f52b2b2d13055059ef1efc611dae144f4828f36aecae"
+    },
+    {
+      "sceneId": "ken-cbc-g6-math-whole-numbers-rank-001",
+      "sceneVersion": "1.0.0",
+      "path": "fixtures/grade-6/whole-numbers-rank.scene.json",
+      "sha256": "de7565773c41d2db9fc9e73ff3638ed39cd690db55710ae7f6df2e4a4962975a"
+    }
+  ],
+  "release": {
+    "channel": "development",
+    "releaseId": "grade-6-whole-numbers-fixture-2026-07-26-1"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "fixtureVersion": "1.0.0",
+  "kind": "dispatch",
+  "description": "A scene cannot grant an action that the component does not declare.",
+  "descriptors": ["highlight-valid"],
+  "request": {
+    "actionId": "tip-undeclared-1",
+    "action": "reveal",
+    "targetId": "term-numerator"
+  },
+  "context": {
+    "componentState": "ready.active",
+    "availableTargetIds": ["term-numerator"],
+    "scenePermittedActions": ["highlight", "reveal"]
+  },
+  "expected": {
+    "status": "rejected",
+    "code": "action-not-declared"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "assets": [
+    {
+      "id": "untrusted-image",
+      "kind": "image",
+      "uri": "https://untrusted.example/grade-6/image.svg",
+      "mimeType": "image/svg+xml",
+      "byteSize": 128,
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "licence": { "id": "CC-BY-4.0" },
+      "provenance": { "source": "https://untrusted.example/catalogue/image" }
+    }
+  ]
+}

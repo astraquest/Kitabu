@@ -1,0 +1,22 @@
+{
+  "description": "A baseline device cannot select a candidate that requires the high device tier.",
+  "profile": {
+    "installedRenderers": ["webgl"],
+    "availableInputs": ["touch"],
+    "deviceTier": "baseline",
+    "reducedMotion": false,
+    "online": true
+  },
+  "request": {
+    "preferred": {
+      "id": "high-tier-webgl",
+      "renderer": "webgl",
+      "minimumDeviceTier": "high",
+      "input": "touch",
+      "supportsReducedMotion": true,
+      "availableOffline": true
+    },
+    "fallbacks": []
+  },
+  "expectedRejectionReasons": ["device-tier-too-low"]
+}

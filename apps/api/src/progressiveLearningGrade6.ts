@@ -2,6 +2,8 @@ import {
   defineCurriculumChapters,
   type CurriculumChapterSource
 } from './progressiveLearningCurriculum.js';
+import { GRADE_6_WHOLE_NUMBERS_SCENE } from './interactiveLearning/grade6WholeNumbersScene.js';
+import { GRADE_6_WHOLE_NUMBERS_RANK_SCENE } from './interactiveLearning/grade6WholeNumbersRankScene.js';
 
 type Question = CurriculumChapterSource['questions'][number];
 
@@ -416,4 +418,30 @@ const chapters: CurriculumChapterSource[] = [
   }
 ];
 
-export const grade6LessonSeeds = defineCurriculumChapters(chapters);
+export const grade6LessonSeeds = defineCurriculumChapters(chapters).map(lesson => {
+  if (lesson.key !== 'math-g6-whole-numbers') return lesson;
+
+  const [opening, second, third, ordering, fifth] = lesson.steps;
+  return {
+    ...lesson,
+    steps: [
+      {
+        ...opening,
+        options: [],
+        interaction: undefined,
+        componentScene: GRADE_6_WHOLE_NUMBERS_SCENE,
+        answer: '700,000'
+      },
+      second,
+      third,
+      {
+        ...ordering,
+        options: [],
+        interaction: undefined,
+        componentScene: GRADE_6_WHOLE_NUMBERS_RANK_SCENE,
+        answer: 'sequence:number-7420>number-18305>number-51090>number-99999'
+      },
+      fifth
+    ]
+  };
+});

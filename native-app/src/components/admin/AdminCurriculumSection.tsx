@@ -4,6 +4,7 @@ import { BookOpen, Paperclip, Plus, Trash2, Upload } from 'lucide-react-native';
 
 import { SUPPORTED_GRADES } from '../../constants/grades';
 import { LearningStrand } from '../../types/app';
+import { InteractiveLearningPublisherPanel } from './InteractiveLearningPublisherPanel';
 
 interface AdminCurriculumSectionProps {
   styles: Record<string, any>;
@@ -76,6 +77,8 @@ export function AdminCurriculumSection({
         <Text style={styles.panelTitle}>PDF Import</Text>
         <Text style={styles.panelText}>Import bridge status: {pdfImportStatus}</Text>
       </View>
+
+      <InteractiveLearningPublisherPanel styles={styles} />
 
       <View style={styles.list}>
         {currentSubjects.map(subject => {

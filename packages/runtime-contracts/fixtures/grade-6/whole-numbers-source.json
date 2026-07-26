@@ -1,0 +1,91 @@
+{
+  "schema": "kitabu.interactive-learning.curriculum-source-fixture",
+  "schemaVersion": 1,
+  "fixtureId": "ken-cbc-g6-mathematics-1.1-whole-numbers-a-e",
+  "curriculum": {
+    "countryCode": "KEN",
+    "frameworkCode": "CBC",
+    "grade": 6,
+    "subjectCode": "mathematics",
+    "strand": {
+      "code": "1.0",
+      "title": "Numbers"
+    },
+    "subStrand": {
+      "code": "1.1",
+      "title": "Whole Numbers",
+      "suggestedLessonCount": 20
+    }
+  },
+  "outcomes": [
+    {
+      "label": "a",
+      "position": 1,
+      "statement": "use place value and total value of digits up to millions in real life"
+    },
+    {
+      "label": "b",
+      "position": 2,
+      "statement": "use numbers up to millions in symbols in real life"
+    },
+    {
+      "label": "c",
+      "position": 3,
+      "statement": "read and write numbers up to 100,000 in words in real life"
+    },
+    {
+      "label": "d",
+      "position": 4,
+      "statement": "order numbers up to 100,000 in real-life situations"
+    },
+    {
+      "label": "e",
+      "position": 5,
+      "statement": "round off numbers up to 100,000 to the nearest thousand in different situations"
+    }
+  ],
+  "source": {
+    "publisher": "Kenya Institute of Curriculum Development",
+    "documentId": "1ki1N1YnslIpZomG-0IoYogkzek7CKx0j",
+    "documentTitle": "Grade 6 Mathematics - Revised.pdf",
+    "officialListingUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-six-designs/",
+    "sourceUrl": "https://drive.google.com/file/d/1ki1N1YnslIpZomG-0IoYogkzek7CKx0j/view",
+    "sourceSpanId": "296c456585af9398f7df606c37fe285f17d6d7634b40d6afcc595d0aa035483f",
+    "sourceSpanSha256": "bb1b2497382676bd8c184a3ebb17d6ace38f8e748410dd2e4f778ea150b86b22",
+    "physicalPages": [
+      13,
+      14,
+      15
+    ],
+    "pageDigests": [
+      {
+        "pageNumber": 13,
+        "textSha256": "996439d935e75bbc71393c7041cded12db30403cbd1de9098721f326f63bab83"
+      },
+      {
+        "pageNumber": 14,
+        "textSha256": "e49c190b6163c50974c2138fa7187c2bda4008092cc2e3963ef85bd164c5095a"
+      },
+      {
+        "pageNumber": 15,
+        "textSha256": "41a79b228bba191eaa7cc91f7f03c54355fc3067301ecb3de08a89e76e598210"
+      }
+    ],
+    "captureSha256": "800dd1d84ad53ee5b8b146d0e186afce17158af39e972adcbbb0931b429c7256"
+  },
+  "repositoryReferences": {
+    "catalogVersion": "2026-07-22.2",
+    "normalizedCurriculum": {
+      "path": "apps/api/data/curriculum/KEN/CBC/kicd-2024-grade-6/normalized-curriculum.json",
+      "sha256": "37d0fcb01122c59fb6f555bd4542f3e656703190c84c969919e0dbc596085355"
+    },
+    "sourceCatalog": {
+      "path": "apps/api/data/curriculum/KEN/CBC/kicd-2024-grade-6/source-catalog.json",
+      "sha256": "ea0d6d6b3cd9be160e1d9bd679c17747516405bf84620891e69ece4fd5216a43"
+    },
+    "sourcePages": {
+      "path": "apps/api/data/curriculum/KEN/CBC/kicd-2024-grade-6/source-pages.json",
+      "sha256": "b27b79422450c6d14925cee5de8f82119e97a00bd4dd2f273e15c2dc8da97b2b"
+    }
+  }
+}

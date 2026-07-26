@@ -179,6 +179,7 @@ export type ProgressiveLessonStep = {
   supportText?: string;
   options: string[];
   interaction?: LearningInteraction;
+  componentScene?: Record<string, unknown>;
   visual: LearningVisualSpec;
   hint: string;
 };

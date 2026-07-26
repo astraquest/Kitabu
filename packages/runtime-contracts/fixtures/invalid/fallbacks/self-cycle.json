@@ -1,0 +1,19 @@
+{
+  "entrySceneId": "g6-fallback-self-cycle",
+  "scenes": [
+    {
+      "identity": { "sceneId": "g6-fallback-self-cycle", "sceneVersion": "1.0.0", "schemaVersion": "1.0.1" },
+      "component": { "componentId": "structured-response", "componentVersion": "1.0.0" },
+      "purpose": "practice",
+      "prompt": { "default": "Order 9,105 and 9,150 from smallest to largest." },
+      "props": { "answerType": "text" },
+      "evidenceClaims": [
+        { "claimId": "number-order", "description": { "default": "Orders whole numbers." }, "evidenceTypes": ["answer"] }
+      ],
+      "completion": { "completionRuleId": "submitted", "kind": "submitted" },
+      "tutorPermissions": [],
+      "assets": { "manifestId": "no-assets", "assets": [] },
+      "fallback": { "sceneId": "g6-fallback-self-cycle", "preservesClaimIds": ["number-order"] }
+    }
+  ]
+}

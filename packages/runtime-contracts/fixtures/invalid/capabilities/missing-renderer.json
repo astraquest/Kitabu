@@ -1,0 +1,22 @@
+{
+  "description": "The requested renderer is not installed and no fallback is authored.",
+  "profile": {
+    "installedRenderers": ["native"],
+    "availableInputs": ["touch"],
+    "deviceTier": "standard",
+    "reducedMotion": false,
+    "online": true
+  },
+  "request": {
+    "preferred": {
+      "id": "webgl-primary",
+      "renderer": "webgl",
+      "minimumDeviceTier": "standard",
+      "input": "touch",
+      "supportsReducedMotion": true,
+      "availableOffline": true
+    },
+    "fallbacks": []
+  },
+  "expectedRejectionReasons": ["renderer-not-installed"]
+}

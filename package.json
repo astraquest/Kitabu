@@ -10,7 +10,7 @@
     "dev:api": "npm run dev -w apps/api",
     "build": "npm run build -w apps/api",
     "build:runtime": "npm run build -w packages/runtime-contracts",
-    "check": "npm run typecheck -w apps/api && node scripts/check-admin-icons.mjs",
+    "check": "npm run build:runtime && npm run typecheck -w apps/api && node scripts/check-admin-icons.mjs",
     "typecheck:runtime": "npm run typecheck -w packages/runtime-contracts",
     "test:runtime": "npm run test -w packages/runtime-contracts --if-present",
     "validate:runtime": "npm run validate -w packages/runtime-contracts --if-present",

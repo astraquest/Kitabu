@@ -1,0 +1,178 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "read and write numbers 1 to 50 in symbols",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "read and write numbers 1 to 50 in symbols",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Count the 6 bottle tops. Tap the number symbol for six.",
+        "objects": [
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top"
+        ],
+        "choices": [
+          "5",
+          "6",
+          "9"
+        ],
+        "answer": "6",
+        "feedback": "Yes! The number symbol for six is 6.",
+        "retryHint": "Touch each bottle top once. Then find that number."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "One group of 10 and 4 ones make fourteen. Tap its number symbol.",
+        "model": {
+          "tens": 1,
+          "ones": 4
+        },
+        "choices": [
+          "14",
+          "41",
+          "4"
+        ],
+        "answer": "14",
+        "feedback": "Great! Fourteen is written as 14.",
+        "retryHint": "The 1 shows one ten. The 4 shows four ones."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "prompt": "Write twenty-three in symbols. Tap 2, then tap 3.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "digit-2",
+            "label": "2",
+            "accessibleDescription": "number two"
+          },
+          {
+            "id": "digit-3",
+            "label": "3",
+            "accessibleDescription": "number three"
+          },
+          {
+            "id": "digit-5",
+            "label": "5",
+            "accessibleDescription": "number five"
+          }
+        ],
+        "tapAlternative": "Tap the digits in order to build the number.",
+        "answer": [
+          "digit-2",
+          "digit-3"
+        ],
+        "feedback": "Well done! Twenty-three is written as 23.",
+        "retryHint": "Start with 2 tens. Then add 3 ones."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Tap the number symbol for thirty-seven.",
+        "choices": [
+          "73",
+          "37",
+          "27",
+          "35"
+        ],
+        "answer": "37",
+        "feedback": "Correct! Thirty-seven is written as 37.",
+        "retryHint": "Find 3 tens first. Then find 7 ones."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "prompt": "A market basket card says forty-six mangoes. Write 46 on the card.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "digit-4",
+            "label": "4",
+            "accessibleDescription": "number four"
+          },
+          {
+            "id": "digit-6",
+            "label": "6",
+            "accessibleDescription": "number six"
+          },
+          {
+            "id": "digit-9",
+            "label": "9",
+            "accessibleDescription": "number nine"
+          }
+        ],
+        "tapAlternative": "Tap 4, then tap 6 to write the number.",
+        "answer": [
+          "digit-4",
+          "digit-6"
+        ],
+        "feedback": "You got it! Forty-six is written as 46.",
+        "retryHint": "Forty-six has 4 tens and 6 ones."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "prompt": "Show what you know. Write fifty in symbols.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "digit-5",
+            "label": "5",
+            "accessibleDescription": "number five"
+          },
+          {
+            "id": "digit-0",
+            "label": "0",
+            "accessibleDescription": "number zero"
+          },
+          {
+            "id": "digit-2",
+            "label": "2",
+            "accessibleDescription": "number two"
+          }
+        ],
+        "tapAlternative": "Tap 5, then tap 0 to write the number.",
+        "answer": [
+          "digit-5",
+          "digit-0"
+        ],
+        "feedback": "Excellent! Fifty is written as 50.",
+        "retryHint": "Fifty has 5 tens and no ones, so it ends in 0."
+      }
+    ]
+  }
+}

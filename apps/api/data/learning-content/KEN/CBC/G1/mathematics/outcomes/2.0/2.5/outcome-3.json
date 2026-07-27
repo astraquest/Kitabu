@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.5-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.5 Money",
+    "subStrandId": "1255097f-959c-4ef3-aaaa-bd10eb5f9f83",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "count Kenyan currency coins one at a time",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "sourceTextSha256": "8c16ba40124ede3e497f161e59cb6a4aadb1f73f386b06229f780bd248e18ac1"
+  },
+  "mission": {
+    "title": "count Kenyan currency coins one at a time",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Touch each sh.1 coin once. How many coins are there?",
+        "objects": [
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin"
+        ],
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "feedback": "Yes! You counted 3 coins, one at a time.",
+        "retryHint": "Point to one coin, say 1, then point to the next coin."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "tap-count",
+        "prompt": "Help the lion count the sh.5 coins. Tap every coin once, from left to right.",
+        "objects": [
+          "kes-5-coin",
+          "kes-5-coin",
+          "kes-5-coin",
+          "kes-5-coin"
+        ],
+        "targetCount": 4,
+        "tapAlternative": "Tap each coin once instead of dragging a counter to it.",
+        "answer": [
+          "coin-1",
+          "coin-2",
+          "coin-3",
+          "coin-4"
+        ],
+        "feedback": "Good counting! There are 4 sh.5 coins.",
+        "retryHint": "Start with the first coin. Give each coin just one tap as you count."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Count the sh.10 coins one at a time. Which number tells how many coins?",
+        "objects": [
+          "kes-10-coin",
+          "kes-10-coin",
+          "kes-10-coin",
+          "kes-10-coin",
+          "kes-10-coin"
+        ],
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Well done! You counted 5 sh.10 coins.",
+        "retryHint": "Keep your finger on a coin after you count it, so you do not count it twice."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "tap-count",
+        "prompt": "Count the sh.20 coins in the tray. Tap each coin once, then choose how many you counted.",
+        "objects": [
+          "kes-20-coin",
+          "kes-20-coin",
+          "kes-20-coin",
+          "kes-20-coin",
+          "kes-20-coin",
+          "kes-20-coin"
+        ],
+        "targetCount": 6,
+        "choices": [
+          "5",
+          "6",
+          "7"
+        ],
+        "tapAlternative": "Tap each coin once; then tap the number you counted.",
+        "answer": "6",
+        "feedback": "Correct! There are 6 sh.20 coins.",
+        "retryHint": "Move across the tray in one direction. Count every coin once."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "At the classroom shop, tap only the sh.40 coins. How many did you tap?",
+        "objects": [
+          "kes-40-coin",
+          "kes-5-coin",
+          "kes-40-coin",
+          "kes-10-coin",
+          "kes-40-coin",
+          "kes-40-coin"
+        ],
+        "targetObject": "kes-40-coin",
+        "targetCount": 4,
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "tapAlternative": "Tap each sh.40 coin once, then tap the number.",
+        "answer": "4",
+        "feedback": "Great work! You found and counted 4 sh.40 coins.",
+        "retryHint": "Look for coins that match the sh.40 coin. Count only those coins."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "tap-count",
+        "prompt": "Show what you know. Count these sh.1 coins one at a time. How many are there?",
+        "objects": [
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin",
+          "kes-1-coin"
+        ],
+        "targetCount": 8,
+        "choices": [
+          "7",
+          "8",
+          "9"
+        ],
+        "tapAlternative": "Tap every coin once, then choose the number.",
+        "answer": "8",
+        "feedback": "Excellent! You counted 8 Kenyan coins one at a time.",
+        "retryHint": "Start at one end. Touch and count each coin only once."
+      }
+    ]
+  }
+}

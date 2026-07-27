@@ -1,0 +1,244 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.1-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.1 Pre-number activities",
+    "subStrandId": "894525aa-7d31-4533-8d49-196c7a3f1148",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "appreciate the use of sorting and grouping items in day-to-day activities.",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ],
+    "sourceTextSha256": "eddb615b1a4c1f2f35fe42ddafa7bc55e3d81fcf2cb7065de5099b7ea5a5347e"
+  },
+  "mission": {
+    "title": "appreciate the use of sorting and grouping items in day-to-day activities.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Asha is tidying her bag. Which group can go together?",
+        "choices": [
+          "two pencils",
+          "a pencil and a banana",
+          "a shoe and a book"
+        ],
+        "answer": "two pencils",
+        "feedback": "Yes! Pencils can be kept together.",
+        "retryHint": "Look for things that are alike."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Watch how we tidy the snack table. Put fruit in the fruit basket and cups on the tray.",
+        "items": [
+          {
+            "id": "banana",
+            "label": "banana",
+            "group": "fruit"
+          },
+          {
+            "id": "mango",
+            "label": "mango",
+            "group": "fruit"
+          },
+          {
+            "id": "cup",
+            "label": "cup",
+            "group": "cups"
+          }
+        ],
+        "groups": [
+          {
+            "id": "fruit",
+            "label": "Fruit basket"
+          },
+          {
+            "id": "cups",
+            "label": "Cup tray"
+          }
+        ],
+        "answer": {
+          "banana": "fruit",
+          "mango": "fruit",
+          "cup": "cups"
+        },
+        "tapAlternative": "Tap an item, then tap the basket or tray where it belongs.",
+        "feedback": "Great watching! Grouping makes the snack table easy to use.",
+        "retryHint": "Fruit is food we can eat. Cups are for drinking."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Help put school things away. Group the books and the pencils.",
+        "items": [
+          {
+            "id": "book-1",
+            "label": "book",
+            "group": "books"
+          },
+          {
+            "id": "pencil-1",
+            "label": "pencil",
+            "group": "pencils"
+          },
+          {
+            "id": "book-2",
+            "label": "book",
+            "group": "books"
+          },
+          {
+            "id": "pencil-2",
+            "label": "pencil",
+            "group": "pencils"
+          }
+        ],
+        "groups": [
+          {
+            "id": "books",
+            "label": "Book shelf"
+          },
+          {
+            "id": "pencils",
+            "label": "Pencil cup"
+          }
+        ],
+        "answer": {
+          "book-1": "books",
+          "book-2": "books",
+          "pencil-1": "pencils",
+          "pencil-2": "pencils"
+        },
+        "tapAlternative": "Tap each school thing, then tap where it belongs.",
+        "feedback": "Well done! Now everyone can find books and pencils quickly.",
+        "retryHint": "Books have pages. Pencils are for writing."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Tidy the washing basket. Group the socks and the T-shirts.",
+        "items": [
+          {
+            "id": "sock-1",
+            "label": "sock",
+            "group": "socks"
+          },
+          {
+            "id": "tshirt-1",
+            "label": "T-shirt",
+            "group": "tshirts"
+          },
+          {
+            "id": "sock-2",
+            "label": "sock",
+            "group": "socks"
+          },
+          {
+            "id": "tshirt-2",
+            "label": "T-shirt",
+            "group": "tshirts"
+          }
+        ],
+        "groups": [
+          {
+            "id": "socks",
+            "label": "Sock pile"
+          },
+          {
+            "id": "tshirts",
+            "label": "T-shirt pile"
+          }
+        ],
+        "answer": {
+          "sock-1": "socks",
+          "sock-2": "socks",
+          "tshirt-1": "tshirts",
+          "tshirt-2": "tshirts"
+        },
+        "tapAlternative": "Tap a clothing item, then tap its pile.",
+        "feedback": "You sorted the washing basket beautifully!",
+        "retryHint": "Socks go on feet. T-shirts go on the top of the body."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "At the market, group the vegetables and the fruits so shoppers can find them.",
+        "items": [
+          {
+            "id": "tomato",
+            "label": "tomato",
+            "group": "vegetables"
+          },
+          {
+            "id": "mango",
+            "label": "mango",
+            "group": "fruits"
+          },
+          {
+            "id": "carrot",
+            "label": "carrot",
+            "group": "vegetables"
+          },
+          {
+            "id": "banana",
+            "label": "banana",
+            "group": "fruits"
+          }
+        ],
+        "groups": [
+          {
+            "id": "vegetables",
+            "label": "Vegetable basket"
+          },
+          {
+            "id": "fruits",
+            "label": "Fruit basket"
+          }
+        ],
+        "answer": {
+          "tomato": "vegetables",
+          "carrot": "vegetables",
+          "mango": "fruits",
+          "banana": "fruits"
+        },
+        "tapAlternative": "Tap a food item, then tap the correct market basket.",
+        "feedback": "Excellent! Grouping helps market shoppers find what they need.",
+        "retryHint": "Think about which foods belong in the vegetable basket and which are sweet fruits."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Why do we sort and group things at home, school, or the market?",
+        "choices": [
+          "It helps us find and use things easily.",
+          "It makes every thing disappear.",
+          "It changes books into pencils."
+        ],
+        "answer": "It helps us find and use things easily.",
+        "feedback": "You know it! Sorting and grouping help people every day.",
+        "retryHint": "Think about how you find your things after they are put in groups."
+      }
+    ]
+  }
+}

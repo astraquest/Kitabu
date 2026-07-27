@@ -1,0 +1,169 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-6",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-6",
+    "outcomePosition": 6,
+    "outcomeText": "play games involving subtraction using digital devices and other resources",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "play games involving subtraction using digital devices and other resources",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Game start! A lion has 5 stars. One star zooms away. Tap how many stars stay.",
+        "objects": [
+          "star",
+          "star",
+          "star",
+          "star",
+          "star"
+        ],
+        "takeAway": 1,
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Great start! 5 - 1 = 4. You earned a trail star!",
+        "retryHint": "Cover one star, then count the stars still on the screen."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Watch the game move: 7 counters, take away 2 counters, leaves 5. Tap the score.",
+        "model": {
+          "start": 7,
+          "takeAway": 2,
+          "remaining": 5
+        },
+        "choices": [
+          "4",
+          "5",
+          "7"
+        ],
+        "answer": "5",
+        "feedback": "Nice watching! 7 - 2 = 5. The score is 5.",
+        "retryHint": "Start with 7. Count back two: 6, then 5."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Help the monkey game! Move 3 bananas to the basket. How many of 8 bananas stay on the tree?",
+        "objects": [
+          "banana",
+          "banana",
+          "banana",
+          "banana",
+          "banana",
+          "banana",
+          "banana",
+          "banana"
+        ],
+        "takeAway": 3,
+        "tapAlternative": "Tap any three bananas to move them, then tap the number left.",
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "You did it! 8 - 3 = 5. The monkey keeps 5 bananas.",
+        "retryHint": "Move three bananas. Count only the bananas still on the tree."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Quick game round: 9 - 4 = ? Tap the winning score.",
+        "choices": [
+          "4",
+          "5",
+          "6",
+          "13"
+        ],
+        "answer": "5",
+        "feedback": "Winner! 9 - 4 = 5.",
+        "retryHint": "Count backward four times from 9: 8, 7, 6, 5."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "number-line-take-away",
+        "prompt": "Number-line race! Start at 12 and jump back 3 spaces. Where do you land?",
+        "numberLine": {
+          "start": 0,
+          "end": 15,
+          "from": 12,
+          "backwardJumps": 3
+        },
+        "tapAlternative": "Tap 12, then tap three spaces back on the number line.",
+        "choices": [
+          "8",
+          "9",
+          "10"
+        ],
+        "answer": "9",
+        "feedback": "Fast work! 12 - 3 = 9. You reached the finish marker.",
+        "retryHint": "From 12, hop back: 11, 10, 9."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Final game badge! At the market game, 14 oranges are on a stall. 4 are bought. How many remain?",
+        "objects": [
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange",
+          "orange"
+        ],
+        "takeAway": 4,
+        "choices": [
+          "9",
+          "10",
+          "11"
+        ],
+        "answer": "10",
+        "feedback": "Badge earned! 14 - 4 = 10. You are a subtraction game champion!",
+        "retryHint": "Take away four, then count the oranges that remain."
+      }
+    ]
+  }
+}

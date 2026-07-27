@@ -1,0 +1,185 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "subtract a 1-digit number from a 2-digit number without regrouping",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "subtract a 1-digit number from a 2-digit number without regrouping",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "There are 12 mangoes. Amina gives away 2 mangoes. How many mangoes are left?",
+        "groups": [
+          {
+            "object": "mango",
+            "count": 12
+          }
+        ],
+        "takeAway": 2,
+        "choices": [
+          "9",
+          "10",
+          "11"
+        ],
+        "answer": "10",
+        "feedback": "Yes! 12 take away 2 leaves 10 mangoes.",
+        "retryHint": "Start at 12 and count back two steps: 11, 10."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away-place-value",
+        "prompt": "Show 23 counters: 2 tens and 3 ones. Take away 2 ones. Tap the number left.",
+        "tens": 2,
+        "ones": 3,
+        "takeAwayOnes": 2,
+        "tapAlternative": "Tap two ones to move them away, then tap the number left.",
+        "choices": [
+          "20",
+          "21",
+          "22"
+        ],
+        "answer": "21",
+        "feedback": "Great! The 2 tens stay. 3 ones take away 2 ones leaves 1 one: 21.",
+        "retryHint": "Do not touch the tens. Count the ones left after taking away two."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Build the sentence for 34 take away 3.",
+        "targets": [
+          {
+            "id": "thirty-four",
+            "label": "34",
+            "accessibleDescription": "thirty-four"
+          },
+          {
+            "id": "minus",
+            "label": "−",
+            "accessibleDescription": "minus"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "thirty-one",
+            "label": "31",
+            "accessibleDescription": "thirty-one"
+          },
+          {
+            "id": "thirty-two",
+            "label": "32",
+            "accessibleDescription": "thirty-two"
+          }
+        ],
+        "tapAlternative": "Tap the cards in the order of the subtraction sentence.",
+        "answer": [
+          "thirty-four",
+          "minus",
+          "three",
+          "equals",
+          "thirty-one"
+        ],
+        "feedback": "Well done! 34 − 3 = 31. The 3 tens did not change.",
+        "retryHint": "Take 3 from the 4 ones. There is 1 one left."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A shop has 46 oranges. It sells 4 oranges. How many oranges are left?",
+        "groups": [
+          {
+            "object": "orange",
+            "count": 46
+          }
+        ],
+        "takeAway": 4,
+        "choices": [
+          "40",
+          "42",
+          "43",
+          "44"
+        ],
+        "answer": "42",
+        "feedback": "Correct! 46 − 4 = 42.",
+        "retryHint": "Keep the 4 tens. Take 4 from the 6 ones."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away-place-value",
+        "prompt": "At the library, 38 books are on a shelf. 5 books are borrowed. Move away 5 ones, then choose the number left.",
+        "tens": 3,
+        "ones": 8,
+        "takeAwayOnes": 5,
+        "tapAlternative": "Tap five one-counters to move them away, then tap the answer.",
+        "choices": [
+          "31",
+          "32",
+          "33",
+          "34"
+        ],
+        "answer": "33",
+        "feedback": "Excellent! 38 − 5 = 33. The 3 tens stay the same.",
+        "retryHint": "Eight ones take away five ones leaves three ones."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. 27 seedlings are ready to plant. 6 are planted. How many seedlings are left?",
+        "groups": [
+          {
+            "object": "seedling",
+            "count": 27
+          }
+        ],
+        "takeAway": 6,
+        "choices": [
+          "20",
+          "21",
+          "22",
+          "23"
+        ],
+        "answer": "21",
+        "feedback": "You did it! 27 − 6 = 21.",
+        "retryHint": "Keep 2 tens. Take 6 from 7 ones, leaving 1 one."
+      }
+    ]
+  }
+}

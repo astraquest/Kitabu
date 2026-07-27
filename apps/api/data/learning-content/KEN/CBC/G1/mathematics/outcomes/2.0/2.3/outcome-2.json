@@ -1,0 +1,193 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.3-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.3 Capacity",
+    "subStrandId": "1813a447-c7a9-45fa-9f6b-73856f1863bb",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "compare the capacity of two containers using more than, less than, and same as",
+    "sourcePages": [
+      28,
+      29,
+      30
+    ],
+    "sourceTextSha256": "9519163d0ade16fee55e487ce1cfcef3462bf3e8c634d8b03d13cb66a4ab2329"
+  },
+  "mission": {
+    "title": "compare the capacity of two containers using more than, less than, and same as",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Two cups are filled to the top. Which cup holds more water?",
+        "objects": [
+          {
+            "id": "small-cup",
+            "label": "small cup",
+            "capacityUnits": 1,
+            "fillLevel": "full"
+          },
+          {
+            "id": "large-cup",
+            "label": "large cup",
+            "capacityUnits": 3,
+            "fillLevel": "full"
+          }
+        ],
+        "choices": [
+          "small-cup",
+          "large-cup"
+        ],
+        "answer": "large-cup",
+        "feedback": "Yes! The large cup holds more water.",
+        "retryHint": "Imagine filling both cups to the top. Which one has more space inside?"
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Watch the fill marks. The jug takes 4 small cups. The bowl takes 2 small cups. Which holds less?",
+        "model": {
+          "comparison": "The jug needs 4 equal small cups. The bowl needs 2 equal small cups.",
+          "containers": [
+            {
+              "id": "jug",
+              "label": "jug",
+              "capacityUnits": 4
+            },
+            {
+              "id": "bowl",
+              "label": "bowl",
+              "capacityUnits": 2
+            }
+          ]
+        },
+        "choices": [
+          "jug",
+          "bowl"
+        ],
+        "answer": "bowl",
+        "feedback": "Correct! The bowl holds less because it takes fewer small cups.",
+        "retryHint": "Look for the container with the smaller number of equal cups."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pair-match",
+        "prompt": "Match the words to the containers. The bucket holds more than the cup.",
+        "pairs": [
+          {
+            "left": "bucket",
+            "right": "more than"
+          },
+          {
+            "left": "cup",
+            "right": "less than"
+          }
+        ],
+        "tapAlternative": "Tap a container, then tap its matching words.",
+        "answer": [
+          [
+            "bucket",
+            "more than"
+          ],
+          [
+            "cup",
+            "less than"
+          ]
+        ],
+        "feedback": "Great matching! The bucket holds more and the cup holds less.",
+        "retryHint": "Start with the bigger container. It has more space inside."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A tea flask and a water bottle each take 3 equal cups to fill. They hold...",
+        "objects": [
+          {
+            "id": "tea-flask",
+            "label": "tea flask",
+            "capacityUnits": 3
+          },
+          {
+            "id": "water-bottle",
+            "label": "water bottle",
+            "capacityUnits": 3
+          }
+        ],
+        "choices": [
+          "more than",
+          "less than",
+          "same as"
+        ],
+        "answer": "same as",
+        "feedback": "Well done! Both containers hold the same as each other.",
+        "retryHint": "Both containers take the same number of equal cups."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pair-match",
+        "prompt": "At the school garden, match each container to the right comparison with the watering can. The watering can takes 5 equal cups.",
+        "pairs": [
+          {
+            "left": "small-bottle-2-cups",
+            "right": "less than the watering can"
+          },
+          {
+            "left": "large-bucket-7-cups",
+            "right": "more than the watering can"
+          },
+          {
+            "left": "paint-tin-5-cups",
+            "right": "same as the watering can"
+          }
+        ],
+        "tapAlternative": "Tap a container, then tap the comparison that fits it.",
+        "answer": [
+          [
+            "small-bottle-2-cups",
+            "less than the watering can"
+          ],
+          [
+            "large-bucket-7-cups",
+            "more than the watering can"
+          ],
+          [
+            "paint-tin-5-cups",
+            "same as the watering can"
+          ]
+        ],
+        "feedback": "Excellent! You compared each container with the watering can.",
+        "retryHint": "Compare each number with 5: smaller means less, bigger means more, and 5 means the same."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. Which statement is true? A basin takes 6 equal cups. A jug takes 4 equal cups.",
+        "choices": [
+          "The basin holds more than the jug.",
+          "The basin holds less than the jug.",
+          "The basin holds the same as the jug."
+        ],
+        "answer": "The basin holds more than the jug.",
+        "feedback": "Well done! Six cups is more than four cups, so the basin holds more.",
+        "retryHint": "Compare 6 and 4. The container needing more equal cups holds more."
+      }
+    ]
+  }
+}

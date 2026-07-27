@@ -11,13 +11,20 @@ import type { AuthSession } from '../src/types/app';
 import { fetchKitabuApi } from '../src/services/runtimeConfig';
 import { loadSecureJson, saveSecureJson } from '../src/services/storage';
 import {
+  ApiRequestError,
   apiJsonRequest,
   subscribeToAuthSessionUpdates,
 } from '../src/services/requestHelpers';
 
-const fetchKitabuApiMock = fetchKitabuApi as jest.MockedFunction<typeof fetchKitabuApi>;
-const loadSecureJsonMock = loadSecureJson as jest.MockedFunction<typeof loadSecureJson>;
-const saveSecureJsonMock = saveSecureJson as jest.MockedFunction<typeof saveSecureJson>;
+const fetchKitabuApiMock = fetchKitabuApi as jest.MockedFunction<
+  typeof fetchKitabuApi
+>;
+const loadSecureJsonMock = loadSecureJson as jest.MockedFunction<
+  typeof loadSecureJson
+>;
+const saveSecureJsonMock = saveSecureJson as jest.MockedFunction<
+  typeof saveSecureJson
+>;
 
 const user: AuthSession['user'] = {
   id: 'student-1',
@@ -79,9 +86,13 @@ test('refreshes an expired access token and retries the protected request once',
       : jsonResponse({ path: 'ready' });
   });
   const sessionUpdates: Array<AuthSession | null> = [];
-  const unsubscribe = subscribeToAuthSessionUpdates(session => sessionUpdates.push(session));
+  const unsubscribe = subscribeToAuthSessionUpdates(session =>
+    sessionUpdates.push(session),
+  );
 
-  await expect(apiJsonRequest<{ path: string }>('/learning-paths/french')).resolves.toEqual({
+  await expect(
+    apiJsonRequest<{ path: string }>('/learning-paths/french'),
+  ).resolves.toEqual({
     path: 'ready',
   });
 
@@ -94,7 +105,8 @@ test('refreshes an expired access token and retries the protected request once',
   expect(getStoredSession()).toEqual(newSession);
   expect(sessionUpdates).toEqual([newSession]);
   expect(
-    (fetchKitabuApiMock.mock.calls[2][1]?.headers as Record<string, string>).Authorization,
+    (fetchKitabuApiMock.mock.calls[2][1]?.headers as Record<string, string>)
+      .Authorization,
   ).toBe('Bearer fresh-access');
 });
 
@@ -110,7 +122,9 @@ test('preserves persistent login when the refresh service is temporarily unavail
     return jsonResponse({ message: 'Authentication required' }, 401);
   });
   const sessionUpdates: Array<AuthSession | null> = [];
-  const unsubscribe = subscribeToAuthSessionUpdates(next => sessionUpdates.push(next));
+  const unsubscribe = subscribeToAuthSessionUpdates(next =>
+    sessionUpdates.push(next),
+  );
 
   await expect(apiJsonRequest('/learning-paths/french')).rejects.toThrow(
     'Please sign in again to continue.',
@@ -134,7 +148,9 @@ test('invalidates the session only when the refresh token is rejected', async ()
       : jsonResponse({ message: 'Authentication required' }, 401),
   );
   const sessionUpdates: Array<AuthSession | null> = [];
-  const unsubscribe = subscribeToAuthSessionUpdates(next => sessionUpdates.push(next));
+  const unsubscribe = subscribeToAuthSessionUpdates(next =>
+    sessionUpdates.push(next),
+  );
 
   await expect(apiJsonRequest('/learning-paths/french')).rejects.toThrow(
     'Please sign in again to continue.',
@@ -143,4 +159,46 @@ test('invalidates the session only when the refresh token is rejected', async ()
   unsubscribe();
   expect(getStoredSession()).toBeNull();
   expect(sessionUpdates).toEqual([null]);
+});
+
+test('preserves structured API error status and code for feature-specific recovery', async () => {
+  installStoredSession({
+    accessToken: 'valid-access',
+    refreshToken: 'valid-refresh',
+    user,
+  });
+  fetchKitabuApiMock.mockResolvedValue(
+    jsonResponse(
+      {
+        code: 'LESSON_VERSION_STALE',
+        message: 'A newer lesson version is available',
+      },
+      409,
+    ),
+  );
+
+  await expect(
+    apiJsonRequest('/learning/lesson-attempts'),
+  ).rejects.toMatchObject({
+    name: 'ApiRequestError',
+    code: 'LESSON_VERSION_STALE',
+    status: 409,
+  } satisfies Partial<ApiRequestError>);
+});
+
+test('normalizes transport failures without exposing runtime fetch errors', async () => {
+  installStoredSession({
+    accessToken: 'valid-access',
+    refreshToken: 'valid-refresh',
+    user,
+  });
+  fetchKitabuApiMock.mockRejectedValue(new TypeError('Failed to fetch'));
+
+  await expect(
+    apiJsonRequest('/learning/lesson-attempts'),
+  ).rejects.toMatchObject({
+    name: 'ApiRequestError',
+    code: 'NETWORK_UNAVAILABLE',
+    status: null,
+  } satisfies Partial<ApiRequestError>);
 });

@@ -4525,35 +4525,13 @@ export async function completeProgressiveLessonAttempt(
 
   await q(
     client,
-    `WITH topic_progress AS (
-       UPDATE progressive_lesson_progress
-       SET lesson_key = $4,
-           best_score = GREATEST(progressive_lesson_progress.best_score, $6),
-           status = CASE
-             WHEN progressive_lesson_progress.status = 'completed' OR $7 = 'completed' THEN 'completed'
-             ELSE 'needs_practice'
-           END,
-           attempt_count = progressive_lesson_progress.attempt_count + 1,
-           last_attempt_at = NOW(),
-           completed_at = CASE
-             WHEN progressive_lesson_progress.status = 'completed' THEN progressive_lesson_progress.completed_at
-             WHEN $7 = 'completed' THEN NOW()
-             ELSE NULL
-           END,
-           updated_at = NOW()
-       WHERE user_id = $1
-         AND grade_level = $2
-         AND subject_id = $3
-         AND curriculum_topic_id = $5
-       RETURNING 1
-     )
-     INSERT INTO progressive_lesson_progress (
+    `INSERT INTO progressive_lesson_progress (
        user_id, grade_level, subject_id, lesson_key, curriculum_topic_id, best_score, status,
        attempt_count, last_attempt_at, completed_at, updated_at
-     )
-     SELECT $1, $2, $3, $4, $5, $6, $7, 1, NOW(),
+     ) VALUES (
+       $1, $2, $3, $4, $5, $6, $7, 1, NOW(),
        CASE WHEN $7 = 'completed' THEN NOW() ELSE NULL END, NOW()
-     WHERE NOT EXISTS (SELECT 1 FROM topic_progress)
+     )
      ON CONFLICT (user_id, lesson_key)
      DO UPDATE SET
        best_score = GREATEST(progressive_lesson_progress.best_score, EXCLUDED.best_score),

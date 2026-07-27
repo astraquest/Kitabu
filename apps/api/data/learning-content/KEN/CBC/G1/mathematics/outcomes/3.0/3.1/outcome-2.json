@@ -1,0 +1,155 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.1 Lines",
+    "subStrandId": "ad7968e3-394c-4407-bdaa-4f353cdcb571",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "draw straight lines on different surfaces",
+    "sourcePages": [
+      36,
+      37,
+      38
+    ],
+    "sourceTextSha256": "3b4ea5c2d8b248e5ce76b79c073061ba9bbc9b97691b07d19c30e6bf3d2e105e"
+  },
+  "mission": {
+    "title": "draw straight lines on different surfaces",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Draw a straight line on the sand from the shell to the leaf.",
+        "surface": "sand",
+        "path": {
+          "from": "shell",
+          "to": "leaf",
+          "direction": "left-to-right"
+        },
+        "tapAlternative": "Tap the shell, then tap the leaf to make the straight line.",
+        "answer": [
+          "shell",
+          "leaf"
+        ],
+        "feedback": "Great! Your line goes straight across the sand.",
+        "retryHint": "Start at the shell and move straight to the leaf. Do not turn."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Watch the guide make one straight chalk line. Now draw a straight line from A to B.",
+        "surface": "chalkboard",
+        "modelPath": {
+          "from": "guide-start",
+          "to": "guide-end",
+          "direction": "left-to-right"
+        },
+        "path": {
+          "from": "A",
+          "to": "B",
+          "direction": "left-to-right"
+        },
+        "tapAlternative": "Tap A, then tap B to make the straight chalk line.",
+        "answer": [
+          "A",
+          "B"
+        ],
+        "feedback": "Well done! A straight line joins A and B.",
+        "retryHint": "Begin at A. Keep going in one direction until B."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Draw a straight line down the page from the sun to the flower.",
+        "surface": "paper",
+        "path": {
+          "from": "sun",
+          "to": "flower",
+          "direction": "top-to-bottom"
+        },
+        "tapAlternative": "Tap the sun, then tap the flower to draw the straight line.",
+        "answer": [
+          "sun",
+          "flower"
+        ],
+        "feedback": "Yes! Your straight line goes down the paper.",
+        "retryHint": "Go straight down from the sun to the flower."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Make a straight fence rail from post 1 to post 2.",
+        "surface": "wooden fence",
+        "path": {
+          "from": "post-1",
+          "to": "post-2",
+          "direction": "left-to-right"
+        },
+        "tapAlternative": "Tap post 1, then tap post 2 to make the straight rail.",
+        "answer": [
+          "post-1",
+          "post-2"
+        ],
+        "feedback": "Correct! The fence rail is a straight line.",
+        "retryHint": "Keep your line level as it goes from post 1 to post 2."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "On the classroom floor, draw a straight tape line from the door to the mat.",
+        "surface": "classroom floor",
+        "path": {
+          "from": "door",
+          "to": "mat",
+          "direction": "diagonal"
+        },
+        "tapAlternative": "Tap the door, then tap the mat to place the straight tape line.",
+        "answer": [
+          "door",
+          "mat"
+        ],
+        "feedback": "Excellent! The tape goes straight from the door to the mat.",
+        "retryHint": "Aim straight for the mat. A straight line does not bend."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Show what you know. Draw a straight road line from the bus to the school.",
+        "surface": "road map",
+        "path": {
+          "from": "bus",
+          "to": "school",
+          "direction": "diagonal"
+        },
+        "tapAlternative": "Tap the bus, then tap the school to draw the straight road line.",
+        "answer": [
+          "bus",
+          "school"
+        ],
+        "feedback": "You did it! You drew a straight line on a new surface.",
+        "retryHint": "Start at the bus and travel straight to the school."
+      }
+    ]
+  }
+}

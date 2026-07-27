@@ -1,0 +1,261 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.3-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.3 Addition",
+    "subStrandId": "5366fd9b-7934-44da-8dbc-39aa3ff14013",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "use ' +' and ' =' signs in writing addition statements",
+    "sourcePages": [
+      18,
+      19,
+      20
+    ],
+    "sourceTextSha256": "30a2530d8e48a6d58bb2562eae6c1d0d1b1577b6e2c741abf82985cc61b1a07b"
+  },
+  "mission": {
+    "title": "use ' +' and ' =' signs in writing addition statements",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Two groups are joining. Tap the sign that means add.",
+        "choices": [
+          "+",
+          "=",
+          "-"
+        ],
+        "answer": "+",
+        "feedback": "Yes! The + sign tells us to add the groups.",
+        "retryHint": "Look for the sign shaped like a small cross."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "In 1 + 2 = 3, tap the sign that comes before the total.",
+        "statement": [
+          "1",
+          "+",
+          "2",
+          "=",
+          "3"
+        ],
+        "choices": [
+          "=",
+          "+",
+          "-"
+        ],
+        "answer": "=",
+        "feedback": "Great! The = sign shows that both sides have the same value.",
+        "retryHint": "The total 3 comes just after this sign."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "One mango joins 2 mangoes. Build the addition statement.",
+        "groups": [
+          {
+            "object": "mango",
+            "count": 1
+          },
+          {
+            "object": "mango",
+            "count": 2
+          }
+        ],
+        "targets": [
+          {
+            "id": "one",
+            "label": "1",
+            "accessibleDescription": "one"
+          },
+          {
+            "id": "plus",
+            "label": "+",
+            "accessibleDescription": "plus"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "accessibleDescription": "two"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          }
+        ],
+        "tapAlternative": "Tap the cards in order to write the addition statement.",
+        "answer": [
+          "one",
+          "plus",
+          "two",
+          "equals",
+          "three"
+        ],
+        "feedback": "Well done! 1 + 2 = 3.",
+        "retryHint": "Write the first group, +, the second group, =, then the total."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "There are 2 bottle tops and 3 more bottle tops. Tap the correct addition statement.",
+        "groups": [
+          {
+            "object": "bottle-top",
+            "count": 2
+          },
+          {
+            "object": "bottle-top",
+            "count": 3
+          }
+        ],
+        "choices": [
+          "2 + 3 = 5",
+          "2 = 3 + 5",
+          "2 + 3 = 4"
+        ],
+        "answer": "2 + 3 = 5",
+        "feedback": "Correct! 2 + 3 = 5 uses + and = in the right places.",
+        "retryHint": "Put + between the two groups. Put = before the total."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "A market basket has 4 oranges. Add 3 oranges. Write the addition statement.",
+        "groups": [
+          {
+            "object": "orange",
+            "count": 4
+          },
+          {
+            "object": "orange",
+            "count": 3
+          }
+        ],
+        "targets": [
+          {
+            "id": "four",
+            "label": "4",
+            "accessibleDescription": "four"
+          },
+          {
+            "id": "plus",
+            "label": "+",
+            "accessibleDescription": "plus"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "seven",
+            "label": "7",
+            "accessibleDescription": "seven"
+          },
+          {
+            "id": "six",
+            "label": "6",
+            "accessibleDescription": "six"
+          }
+        ],
+        "tapAlternative": "Tap 4, +, 3, =, then the total.",
+        "answer": [
+          "four",
+          "plus",
+          "three",
+          "equals",
+          "seven"
+        ],
+        "feedback": "You got it! 4 + 3 = 7.",
+        "retryHint": "The + joins 4 and 3. The = comes before 7."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Show what you know. Five pencils join 4 pencils. Write the addition statement.",
+        "groups": [
+          {
+            "object": "pencil",
+            "count": 5
+          },
+          {
+            "object": "pencil",
+            "count": 4
+          }
+        ],
+        "targets": [
+          {
+            "id": "five",
+            "label": "5",
+            "accessibleDescription": "five"
+          },
+          {
+            "id": "plus",
+            "label": "+",
+            "accessibleDescription": "plus"
+          },
+          {
+            "id": "four",
+            "label": "4",
+            "accessibleDescription": "four"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "nine",
+            "label": "9",
+            "accessibleDescription": "nine"
+          },
+          {
+            "id": "eight",
+            "label": "8",
+            "accessibleDescription": "eight"
+          }
+        ],
+        "tapAlternative": "Tap the cards in order to write the full statement.",
+        "answer": [
+          "five",
+          "plus",
+          "four",
+          "equals",
+          "nine"
+        ],
+        "feedback": "Excellent! 5 + 4 = 9 is a complete addition statement.",
+        "retryHint": "Use + between 5 and 4. Use = before the total."
+      }
+    ]
+  }
+}

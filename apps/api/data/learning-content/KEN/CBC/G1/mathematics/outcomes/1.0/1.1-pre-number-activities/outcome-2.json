@@ -1,0 +1,197 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.1 Pre-number activities",
+    "subStrandId": "894525aa-7d31-4533-8d49-196c7a3f1148",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "match objects with similar attributes in the environment",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ],
+    "sourceTextSha256": "eddb615b1a4c1f2f35fe42ddafa7bc55e3d81fcf2cb7065de5099b7ea5a5347e"
+  },
+  "mission": {
+    "title": "match objects with similar attributes in the environment",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "This red ball needs a friend. Tap the object with the same colour.",
+        "model": {
+          "target": "red-ball"
+        },
+        "choices": [
+          "red-kitenge-bag",
+          "yellow-banana",
+          "blue-cup"
+        ],
+        "answer": "red-kitenge-bag",
+        "feedback": "Yes! Both objects are red.",
+        "retryHint": "Look at the colour of the ball. Find another red object."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "Match each cup to the cup with the same shape. Tap one, then tap its friend.",
+        "pairs": [
+          [
+            "round-cup",
+            "round-bowl"
+          ],
+          [
+            "tall-cup",
+            "tall-bottle"
+          ]
+        ],
+        "tapAlternative": "Tap an object and then tap the object that has the same shape.",
+        "answer": [
+          [
+            "round-cup",
+            "round-bowl"
+          ],
+          [
+            "tall-cup",
+            "tall-bottle"
+          ]
+        ],
+        "feedback": "Great matching! Round goes with round, and tall goes with tall.",
+        "retryHint": "Look at the outline. Which two objects have the same shape?"
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "Help Amani match each shoe to a shoe of the same size.",
+        "pairs": [
+          [
+            "small-sandal",
+            "small-shoe"
+          ],
+          [
+            "large-sandal",
+            "large-shoe"
+          ]
+        ],
+        "tapAlternative": "Tap a sandal, then tap the shoe that is the same size.",
+        "answer": [
+          [
+            "small-sandal",
+            "small-shoe"
+          ],
+          [
+            "large-sandal",
+            "large-shoe"
+          ]
+        ],
+        "feedback": "Well done! You matched small with small and large with large.",
+        "retryHint": "Compare how big each shoe looks before you match it."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "At the market, match each fruit to the fruit with the same texture.",
+        "pairs": [
+          [
+            "smooth-mango",
+            "smooth-tomato"
+          ],
+          [
+            "rough-pineapple",
+            "rough-coconut"
+          ]
+        ],
+        "tapAlternative": "Tap one fruit, then tap the fruit that feels the same.",
+        "answer": [
+          [
+            "smooth-mango",
+            "smooth-tomato"
+          ],
+          [
+            "rough-pineapple",
+            "rough-coconut"
+          ]
+        ],
+        "feedback": "Correct! Smooth matches smooth, and rough matches rough.",
+        "retryHint": "Think: is the skin smooth or bumpy?"
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "In the classroom, match each object to another object used for the same job.",
+        "pairs": [
+          [
+            "pencil",
+            "crayon"
+          ],
+          [
+            "book",
+            "worksheet"
+          ]
+        ],
+        "tapAlternative": "Tap an object and then tap its matching classroom friend.",
+        "answer": [
+          [
+            "pencil",
+            "crayon"
+          ],
+          [
+            "book",
+            "worksheet"
+          ]
+        ],
+        "feedback": "Excellent! You matched objects that are used in the same way.",
+        "retryHint": "Ask yourself: what job does each object do?"
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "Show what you know. Match the objects that have the same colour, shape, and size.",
+        "pairs": [
+          [
+            "small-green-leaf",
+            "small-green-cup"
+          ],
+          [
+            "large-yellow-circle",
+            "large-yellow-plate"
+          ]
+        ],
+        "tapAlternative": "Tap an object, then tap the one that matches all its attributes.",
+        "answer": [
+          [
+            "small-green-leaf",
+            "small-green-cup"
+          ],
+          [
+            "large-yellow-circle",
+            "large-yellow-plate"
+          ]
+        ],
+        "feedback": "Well done! You matched objects by their similar attributes.",
+        "retryHint": "Check colour, shape, and size before making each pair."
+      }
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.1-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.1 Pre-number activities",
+    "subStrandId": "894525aa-7d31-4533-8d49-196c7a3f1148",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "order objects according to given criteria in different situations",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  "mission": {
+    "title": "order objects according to given criteria in different situations",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which mango is the smallest? Tap it.",
+        "objects": [
+          {
+            "id": "mango-small",
+            "kind": "mango",
+            "size": "small"
+          },
+          {
+            "id": "mango-medium",
+            "kind": "mango",
+            "size": "medium"
+          },
+          {
+            "id": "mango-large",
+            "kind": "mango",
+            "size": "large"
+          }
+        ],
+        "choices": [
+          "mango-medium",
+          "mango-small",
+          "mango-large"
+        ],
+        "answer": "mango-small",
+        "feedback": "Yes! This mango is the smallest.",
+        "retryHint": "Look for the mango that takes up the least space."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordering",
+        "prompt": "Watch the lion put the sticks from shortest to longest. Now put these in that order.",
+        "items": [
+          {
+            "id": "stick-long",
+            "label": "long stick",
+            "lengthRank": 3
+          },
+          {
+            "id": "stick-short",
+            "label": "short stick",
+            "lengthRank": 1
+          },
+          {
+            "id": "stick-medium",
+            "label": "medium stick",
+            "lengthRank": 2
+          }
+        ],
+        "criterion": "shortest to longest",
+        "tapAlternative": "Tap each stick in order: shortest, then medium, then longest.",
+        "answer": [
+          "stick-short",
+          "stick-medium",
+          "stick-long"
+        ],
+        "feedback": "Great ordering! Short, medium, long.",
+        "retryHint": "Start with the stick that reaches the least far."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordering",
+        "prompt": "Put the three cups from least full to most full.",
+        "items": [
+          {
+            "id": "cup-full",
+            "label": "full cup",
+            "fillRank": 3
+          },
+          {
+            "id": "cup-little",
+            "label": "cup with a little water",
+            "fillRank": 1
+          },
+          {
+            "id": "cup-half",
+            "label": "half-full cup",
+            "fillRank": 2
+          }
+        ],
+        "criterion": "least full to most full",
+        "tapAlternative": "Tap the cups in order: little water, half full, then full.",
+        "answer": [
+          "cup-little",
+          "cup-half",
+          "cup-full"
+        ],
+        "feedback": "Well done! You put the cups in order by how full they are.",
+        "retryHint": "Find the cup with the least water first."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordering",
+        "prompt": "At the market, arrange the baskets from biggest to smallest.",
+        "items": [
+          {
+            "id": "basket-small",
+            "label": "small basket",
+            "sizeRank": 1
+          },
+          {
+            "id": "basket-large",
+            "label": "large basket",
+            "sizeRank": 3
+          },
+          {
+            "id": "basket-medium",
+            "label": "medium basket",
+            "sizeRank": 2
+          }
+        ],
+        "criterion": "biggest to smallest",
+        "tapAlternative": "Tap the baskets in order: large, medium, then small.",
+        "answer": [
+          "basket-large",
+          "basket-medium",
+          "basket-small"
+        ],
+        "feedback": "Correct! Large, medium, small is biggest to smallest.",
+        "retryHint": "Choose the basket that holds the most first."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordering",
+        "prompt": "Help put school bags on the shelf from lightest to heaviest.",
+        "items": [
+          {
+            "id": "bag-heavy",
+            "label": "heavy school bag",
+            "massRank": 3
+          },
+          {
+            "id": "bag-light",
+            "label": "light school bag",
+            "massRank": 1
+          },
+          {
+            "id": "bag-medium",
+            "label": "medium school bag",
+            "massRank": 2
+          }
+        ],
+        "criterion": "lightest to heaviest",
+        "tapAlternative": "Tap the bags in order: light, medium, then heavy.",
+        "answer": [
+          "bag-light",
+          "bag-medium",
+          "bag-heavy"
+        ],
+        "feedback": "Super work! The bags are ordered from lightest to heaviest.",
+        "retryHint": "Start with the bag that feels easiest to lift."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordering",
+        "prompt": "Show what you know. Put the pencils from shortest to longest.",
+        "items": [
+          {
+            "id": "pencil-medium",
+            "label": "medium pencil",
+            "lengthRank": 2
+          },
+          {
+            "id": "pencil-long",
+            "label": "long pencil",
+            "lengthRank": 3
+          },
+          {
+            "id": "pencil-short",
+            "label": "short pencil",
+            "lengthRank": 1
+          }
+        ],
+        "criterion": "shortest to longest",
+        "tapAlternative": "Tap the pencils in order: short, medium, then long.",
+        "answer": [
+          "pencil-short",
+          "pencil-medium",
+          "pencil-long"
+        ],
+        "feedback": "Excellent! You can order objects using a rule.",
+        "retryHint": "Begin with the pencil that is the shortest."
+      }
+    ]
+  }
+}

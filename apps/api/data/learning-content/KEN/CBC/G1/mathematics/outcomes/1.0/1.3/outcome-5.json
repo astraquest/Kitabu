@@ -1,0 +1,146 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.3-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.3 Addition",
+    "subStrandId": "5366fd9b-7934-44da-8dbc-39aa3ff14013",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "add a 2-digit number to a 1-digit number without regrouping with sum not exceeding 50",
+    "sourcePages": [
+      18,
+      19,
+      20
+    ],
+    "sourceTextSha256": "30a2530d8e48a6d58bb2562eae6c1d0d1b1577b6e2c741abf82985cc61b1a07b"
+  },
+  "mission": {
+    "title": "add a 2-digit number to a 1-digit number without regrouping with sum not exceeding 50",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-place-value",
+        "prompt": "Mina has 12 beads. She gets 3 more. Tap the total.",
+        "placeValue": {
+          "tens": 1,
+          "ones": 2,
+          "addOnes": 3
+        },
+        "equation": "12 + 3 = ?",
+        "choices": [
+          14,
+          15,
+          16
+        ],
+        "answer": 15,
+        "feedback": "Yes! 2 ones and 3 ones make 5 ones. The ten stays the same: 15.",
+        "retryHint": "Keep the 1 ten. Count on three ones: 13, 14, 15."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-place-value",
+        "prompt": "Look: 24 counters and 5 more counters. Choose the total.",
+        "placeValue": {
+          "tens": 2,
+          "ones": 4,
+          "addOnes": 5
+        },
+        "equation": "24 + 5 = ?",
+        "choices": [
+          28,
+          29,
+          30
+        ],
+        "answer": 29,
+        "feedback": "Great watching! 4 ones plus 5 ones is 9 ones, so 24 + 5 = 29.",
+        "retryHint": "The 2 tens do not change. Add only the ones: 4, 5, 6, 7, 8, 9."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "number-line-jump",
+        "prompt": "Start at 31. Make 6 small jumps forward. Where do you land?",
+        "equation": "31 + 6 = ?",
+        "numberLine": {
+          "start": 31,
+          "jumps": 6,
+          "end": 37,
+          "min": 30,
+          "max": 40
+        },
+        "tapAlternative": "Tap 32, 33, 34, 35, 36, then 37 in order.",
+        "answer": 37,
+        "feedback": "Well done! Six jumps after 31 land on 37.",
+        "retryHint": "Say each next number as you jump: 32, 33, 34, 35, 36, 37."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A shop has 42 oranges. It receives 4 more. What is 42 + 4?",
+        "objects": [
+          "orange-basket"
+        ],
+        "equation": "42 + 4 = ?",
+        "choices": [
+          45,
+          46,
+          47,
+          48
+        ],
+        "answer": 46,
+        "feedback": "Correct! 2 ones plus 4 ones is 6 ones. 42 + 4 = 46.",
+        "retryHint": "Keep the 4 tens. Count four after 42: 43, 44, 45, 46."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "compose-equation",
+        "prompt": "A class has 33 books. The teacher brings 6 more. Build the answer.",
+        "equation": "33 + 6 = ?",
+        "placeValue": {
+          "tens": 3,
+          "ones": 3,
+          "addOnes": 6
+        },
+        "answerTiles": [
+          38,
+          39,
+          40
+        ],
+        "answer": 39,
+        "feedback": "Fantastic! 3 ones and 6 ones make 9 ones. There are 39 books.",
+        "retryHint": "Use the 3 tens, then add the ones: 3 + 6 = 9."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know: 44 + 5 = ?",
+        "equation": "44 + 5 = ?",
+        "choices": [
+          48,
+          49,
+          50
+        ],
+        "answer": 49,
+        "feedback": "You did it! 4 ones plus 5 ones make 9 ones. 44 + 5 = 49.",
+        "retryHint": "Do not change the 4 tens. Add the ones: 4 + 5 = 9."
+      }
+    ]
+  }
+}

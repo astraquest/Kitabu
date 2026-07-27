@@ -1,0 +1,161 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.2-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.2 Mass",
+    "subStrandId": "498c26ea-fcf8-4c44-a480-ecc703ed9595",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "measure mass using arbitrary units",
+    "sourcePages": [
+      26,
+      27,
+      28
+    ],
+    "sourceTextSha256": "fc3715e4970954f138cea21ba958c3a08d6d13b9e7b387d8b06ac75e0e80d59d"
+  },
+  "mission": {
+    "title": "measure mass using arbitrary units",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "number-manipulatives",
+        "activityMode": "count-units",
+        "prompt": "A mango balances with 3 bean bags. Count the bean bags. The mango has the same mass as how many bean bags?",
+        "objects": [
+          "mango",
+          "bean-bag",
+          "bean-bag",
+          "bean-bag"
+        ],
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "feedback": "Yes! The mango balances with 3 bean bags.",
+        "retryHint": "Count each bean bag once."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "balance-units",
+        "prompt": "Help the lion balance a small book. Put 4 equal cubes on the empty side of the balance.",
+        "unit": "cube",
+        "measurementTarget": "small book",
+        "targetUnits": 4,
+        "tapAlternative": "Tap the four cube spaces one at a time.",
+        "answer": [
+          "cube-slot-1",
+          "cube-slot-2",
+          "cube-slot-3",
+          "cube-slot-4"
+        ],
+        "feedback": "Good balancing! The book has the same mass as 4 cubes.",
+        "retryHint": "Use equal cubes and fill every space on the balance."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "count-units",
+        "prompt": "A toy car balances with 5 bottle tops. Tap how many bottle tops measure the toy car's mass.",
+        "objects": [
+          "toy-car",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top"
+        ],
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Well done! The toy car has the same mass as 5 bottle tops.",
+        "retryHint": "Count all the bottle tops on the other side of the level balance."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "balance-units",
+        "prompt": "Measure a packet of maize flour. Place 6 equal counters on the other side until the balance is level.",
+        "unit": "counter",
+        "measurementTarget": "packet of maize flour",
+        "targetUnits": 6,
+        "tapAlternative": "Tap the six counter spaces from left to right.",
+        "answer": [
+          "counter-slot-1",
+          "counter-slot-2",
+          "counter-slot-3",
+          "counter-slot-4",
+          "counter-slot-5",
+          "counter-slot-6"
+        ],
+        "feedback": "Correct! The packet has the same mass as 6 counters.",
+        "retryHint": "Keep adding equal counters until the balance is level."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "At home, Amina finds that a banana balances with 4 spoons. Which label tells its mass using her units?",
+        "objects": [
+          "banana",
+          "spoon",
+          "spoon",
+          "spoon",
+          "spoon"
+        ],
+        "choices": [
+          "4 spoons",
+          "4 days",
+          "4 metres"
+        ],
+        "answer": "4 spoons",
+        "feedback": "Great thinking! Amina used 4 spoons as her equal mass units.",
+        "retryHint": "Choose the object Amina put on the balance."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "count-units",
+        "prompt": "Show what you know. A stone balances with 7 equal blocks. Tap 7.",
+        "objects": [
+          "stone",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block"
+        ],
+        "choices": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "answer": "7",
+        "feedback": "Excellent! The stone has the same mass as 7 blocks.",
+        "retryHint": "Count the equal blocks that make the balance level."
+      }
+    ]
+  }
+}

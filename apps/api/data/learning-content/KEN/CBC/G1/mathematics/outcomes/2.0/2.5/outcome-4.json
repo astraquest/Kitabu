@@ -1,0 +1,201 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.5-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.5 Money",
+    "subStrandId": "1255097f-959c-4ef3-aaaa-bd10eb5f9f83",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "use money to buy up to 2 items without balance",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "sourceTextSha256": "8c16ba40124ede3e497f161e59cb6a4aadb1f73f386b06229f780bd248e18ac1"
+  },
+  "mission": {
+    "title": "use money to buy up to 2 items without balance",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "A banana costs sh.5. Which coin pays for it exactly?",
+        "objects": [
+          "banana",
+          "kes-1-coin",
+          "kes-5-coin",
+          "kes-10-coin"
+        ],
+        "choices": [
+          "sh.1",
+          "sh.5",
+          "sh.10"
+        ],
+        "answer": "sh.5",
+        "feedback": "Yes! A sh.5 coin pays for a sh.5 banana. There is no balance.",
+        "retryHint": "Look for the coin with the same number as the price: 5."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "pay-exactly",
+        "prompt": "Milk costs sh.10. Put the sh.10 coin in the pay tray.",
+        "item": {
+          "object": "milk",
+          "price": 10
+        },
+        "paymentOptions": [
+          1,
+          5,
+          10
+        ],
+        "targetTotal": 10,
+        "maxItems": 1,
+        "noBalance": true,
+        "tapAlternative": "Tap the sh.10 coin, then tap the pay tray.",
+        "answer": [
+          10
+        ],
+        "feedback": "Great! sh.10 pays exactly for milk. No money comes back.",
+        "retryHint": "The price says 10. Choose the coin that says 10."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "pay-exactly",
+        "prompt": "Bread costs sh.10. Choose coins that make sh.10 exactly.",
+        "item": {
+          "object": "bread",
+          "price": 10
+        },
+        "paymentOptions": [
+          5,
+          5,
+          10,
+          20
+        ],
+        "targetTotal": 10,
+        "maxItems": 1,
+        "noBalance": true,
+        "tapAlternative": "Tap two sh.5 coins, or tap one sh.10 coin. Then tap Check.",
+        "answer": [
+          5,
+          5
+        ],
+        "acceptableAnswers": [
+          [
+            10
+          ]
+        ],
+        "feedback": "Well done! sh.5 and sh.5 make sh.10, so there is no balance.",
+        "retryHint": "Count 5, then one more 5: that makes 10."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A mango costs sh.20. Which payment has no balance?",
+        "objects": [
+          "mango",
+          "kes-10-coin",
+          "kes-20-coin",
+          "kes-40-coin"
+        ],
+        "choices": [
+          "One sh.10 coin",
+          "One sh.20 coin",
+          "One sh.40 coin"
+        ],
+        "answer": "One sh.20 coin",
+        "feedback": "Correct! sh.20 is the same as the mango price, so there is no balance.",
+        "retryHint": "Find the payment with the same amount as the price, 20."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "pay-exactly",
+        "prompt": "At the classroom shop, buy a sh.5 pencil and a sh.10 eraser. Pay sh.15 exactly.",
+        "items": [
+          {
+            "object": "pencil",
+            "price": 5
+          },
+          {
+            "object": "eraser",
+            "price": 10
+          }
+        ],
+        "paymentOptions": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "targetTotal": 15,
+        "maxItems": 2,
+        "noBalance": true,
+        "tapAlternative": "Tap the sh.5 coin and the sh.10 coin, then tap Check.",
+        "answer": [
+          5,
+          10
+        ],
+        "feedback": "Excellent! sh.5 plus sh.10 is sh.15. You bought two items with no balance.",
+        "retryHint": "Pay for the pencil first: 5. Add the eraser: 10. 5 and 10 make 15."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "pay-exactly",
+        "prompt": "Show what you know. Buy a sh.20 ball and a sh.20 book. Choose money that pays sh.40 exactly.",
+        "items": [
+          {
+            "object": "ball",
+            "price": 20
+          },
+          {
+            "object": "book",
+            "price": 20
+          }
+        ],
+        "paymentOptions": [
+          10,
+          20,
+          20,
+          40,
+          50
+        ],
+        "targetTotal": 40,
+        "maxItems": 2,
+        "noBalance": true,
+        "tapAlternative": "Tap the sh.40 coin, then tap Check.",
+        "answer": [
+          40
+        ],
+        "acceptableAnswers": [
+          [
+            20,
+            20
+          ]
+        ],
+        "feedback": "Well done! sh.40 pays for both items exactly. There is no balance.",
+        "retryHint": "The two prices are 20 and 20. Put them together to make 40."
+      }
+    ]
+  }
+}

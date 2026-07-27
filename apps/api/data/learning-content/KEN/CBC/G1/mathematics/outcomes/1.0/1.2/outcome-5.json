@@ -1,0 +1,197 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "read and write numbers 1 to 10 in words",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "read and write numbers 1 to 10 in words",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Count 3 mangoes. Tap the word for 3.",
+        "objects": [
+          "mango",
+          "mango",
+          "mango"
+        ],
+        "choices": [
+          "one",
+          "three",
+          "five"
+        ],
+        "answer": "three",
+        "feedback": "Yes! We write 3 as three.",
+        "retryHint": "Touch each mango once. Then find the word three."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "The number 5 is written as five. Tap five.",
+        "number": 5,
+        "choices": [
+          "four",
+          "five",
+          "six"
+        ],
+        "answer": "five",
+        "feedback": "Great! The word for 5 is five.",
+        "retryHint": "Look for the word that starts with f and ends with e."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "prompt": "Write the word for 2. Tap the letters in order.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "letter-t",
+            "label": "t",
+            "accessibleDescription": "letter t"
+          },
+          {
+            "id": "letter-w",
+            "label": "w",
+            "accessibleDescription": "letter w"
+          },
+          {
+            "id": "letter-o",
+            "label": "o",
+            "accessibleDescription": "letter o"
+          },
+          {
+            "id": "letter-n",
+            "label": "n",
+            "accessibleDescription": "letter n"
+          }
+        ],
+        "tapAlternative": "Tap t, then w, then o to build the word.",
+        "answer": [
+          "letter-t",
+          "letter-w",
+          "letter-o"
+        ],
+        "feedback": "Well done! We write 2 as two.",
+        "retryHint": "Say two slowly: t, w, o."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Tap the word for 7.",
+        "number": 7,
+        "choices": [
+          "six",
+          "seven",
+          "eight",
+          "ten"
+        ],
+        "answer": "seven",
+        "feedback": "Correct! We write 7 as seven.",
+        "retryHint": "Seven starts with s and ends with n."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "prompt": "A basket has 9 oranges. Write nine on its card.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "letter-n",
+            "label": "n",
+            "accessibleDescription": "letter n"
+          },
+          {
+            "id": "letter-i",
+            "label": "i",
+            "accessibleDescription": "letter i"
+          },
+          {
+            "id": "letter-n-2",
+            "label": "n",
+            "accessibleDescription": "second letter n"
+          },
+          {
+            "id": "letter-e",
+            "label": "e",
+            "accessibleDescription": "letter e"
+          },
+          {
+            "id": "letter-v",
+            "label": "v",
+            "accessibleDescription": "letter v"
+          }
+        ],
+        "tapAlternative": "Tap n, i, n, e to build the word.",
+        "answer": [
+          "letter-n",
+          "letter-i",
+          "letter-n-2",
+          "letter-e"
+        ],
+        "feedback": "You got it! We write 9 as nine.",
+        "retryHint": "Say nine slowly: n, i, n, e."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "prompt": "Show what you know. Write the word for 10.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "letter-t",
+            "label": "t",
+            "accessibleDescription": "letter t"
+          },
+          {
+            "id": "letter-e",
+            "label": "e",
+            "accessibleDescription": "letter e"
+          },
+          {
+            "id": "letter-n",
+            "label": "n",
+            "accessibleDescription": "letter n"
+          },
+          {
+            "id": "letter-o",
+            "label": "o",
+            "accessibleDescription": "letter o"
+          }
+        ],
+        "tapAlternative": "Tap t, then e, then n to build the word.",
+        "answer": [
+          "letter-t",
+          "letter-e",
+          "letter-n"
+        ],
+        "feedback": "Excellent! We write 10 as ten.",
+        "retryHint": "Ten has three letters: t, e, n."
+      }
+    ]
+  }
+}

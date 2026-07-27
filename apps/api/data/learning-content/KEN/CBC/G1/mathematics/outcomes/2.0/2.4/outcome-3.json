@@ -1,0 +1,160 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.4-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.4 Time",
+    "subStrandId": "4c7bd0ea-3bc3-44b5-97a1-217866474cdc",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "identify months of the year",
+    "sourcePages": [
+      30,
+      31,
+      32
+    ],
+    "sourceTextSha256": "d5000a3b4dc689882df98443d853295a7eeb694738d7adf1c119f0d3d8d28fe7"
+  },
+  "mission": {
+    "title": "identify months of the year",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "January is a month. Tap another month.",
+        "choices": [
+          "Monday",
+          "March",
+          "Morning"
+        ],
+        "answer": "March",
+        "feedback": "Yes! March is a month of the year.",
+        "retryHint": "Months include January, February and March."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Months follow one another. Put February after January.",
+        "activityMode": "ranked-list",
+        "items": [
+          {
+            "id": "january",
+            "label": "January"
+          },
+          {
+            "id": "february",
+            "label": "February"
+          },
+          {
+            "id": "march",
+            "label": "March"
+          }
+        ],
+        "tapAlternative": "Tap January, then February, then March.",
+        "answer": [
+          "january",
+          "february",
+          "march"
+        ],
+        "feedback": "Great! January, February, March is the start of the year.",
+        "retryHint": "Say the first three months slowly: January, February, March."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Which month comes after April?",
+        "choices": [
+          "May",
+          "March",
+          "Monday"
+        ],
+        "answer": "May",
+        "feedback": "Correct! May comes after April.",
+        "retryHint": "Say: March, April, then ___."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Put these three months in order.",
+        "activityMode": "ranked-list",
+        "items": [
+          {
+            "id": "june",
+            "label": "June"
+          },
+          {
+            "id": "july",
+            "label": "July"
+          },
+          {
+            "id": "august",
+            "label": "August"
+          }
+        ],
+        "tapAlternative": "Tap June, then July, then August.",
+        "answer": [
+          "june",
+          "july",
+          "august"
+        ],
+        "feedback": "Well done! June, July, August are in order.",
+        "retryHint": "Think of the middle month: July is between June and August."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Asha says, “My birthday is in December.” Which card shows Asha's birth month?",
+        "choices": [
+          "November",
+          "December",
+          "Tuesday",
+          "October"
+        ],
+        "answer": "December",
+        "feedback": "Yes! December is a month of the year.",
+        "retryHint": "Listen for the month Asha said: December."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Show what you know. Put the last three months of the year in order.",
+        "activityMode": "ranked-list",
+        "items": [
+          {
+            "id": "october",
+            "label": "October"
+          },
+          {
+            "id": "november",
+            "label": "November"
+          },
+          {
+            "id": "december",
+            "label": "December"
+          }
+        ],
+        "tapAlternative": "Tap October, then November, then December.",
+        "answer": [
+          "october",
+          "november",
+          "december"
+        ],
+        "feedback": "Excellent! October, November, December finish the year.",
+        "retryHint": "The year ends with October, November, December."
+      }
+    ]
+  }
+}

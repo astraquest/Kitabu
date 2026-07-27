@@ -1,0 +1,271 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "use the '-' and '=' signs in writing subtraction sentences",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "use the '-' and '=' signs in writing subtraction sentences",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Three mangoes are on a mat. One mango goes away. Which sign means take away?",
+        "objects": [
+          "mango",
+          "mango",
+          "mango"
+        ],
+        "choices": [
+          "+",
+          "-",
+          "="
+        ],
+        "answer": "-",
+        "feedback": "Yes! The minus sign means take away.",
+        "retryHint": "Look for the little line that tells us something goes away."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Watch the sentence: 5 bananas take away 2 bananas leaves 3. Tap the cards to build it.",
+        "targets": [
+          {
+            "id": "five",
+            "label": "5",
+            "accessibleDescription": "five"
+          },
+          {
+            "id": "minus",
+            "label": "-",
+            "accessibleDescription": "minus, take away"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "accessibleDescription": "two"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "four",
+            "label": "4",
+            "accessibleDescription": "four"
+          }
+        ],
+        "tapAlternative": "Tap the number and sign cards in the order of the subtraction sentence.",
+        "answer": [
+          "five",
+          "minus",
+          "two",
+          "equals",
+          "three"
+        ],
+        "feedback": "Great! 5 - 2 = 3 tells the take-away story.",
+        "retryHint": "Put the starting number first. The minus sign comes before the number that goes away."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Four bottle tops are on the table. One is put in a box. Build the subtraction sentence.",
+        "targets": [
+          {
+            "id": "four",
+            "label": "4",
+            "accessibleDescription": "four"
+          },
+          {
+            "id": "minus",
+            "label": "-",
+            "accessibleDescription": "minus, take away"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "accessibleDescription": "one"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "plus",
+            "label": "+",
+            "accessibleDescription": "plus"
+          }
+        ],
+        "tapAlternative": "Tap 4, then minus, 1, equals, and 3.",
+        "answer": [
+          "four",
+          "minus",
+          "one",
+          "equals",
+          "three"
+        ],
+        "feedback": "Well done! 4 - 1 = 3.",
+        "retryHint": "One bottle top goes away, so use minus. The number left comes after equals."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Six beads are on a string. Two beads come off. Which sentence matches the picture?",
+        "objects": [
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead"
+        ],
+        "takenAway": 2,
+        "choices": [
+          "6 + 2 = 8",
+          "6 - 2 = 4",
+          "6 = 2 - 4",
+          "4 - 2 = 6"
+        ],
+        "answer": "6 - 2 = 4",
+        "feedback": "Correct! 6 - 2 = 4 shows two beads coming off.",
+        "retryHint": "Start with 6. Use minus for the 2 beads that come off. Put 4 after equals."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "At the fruit stall, 8 oranges are in a basket. 3 oranges are sold. Build the number sentence.",
+        "targets": [
+          {
+            "id": "eight",
+            "label": "8",
+            "accessibleDescription": "eight"
+          },
+          {
+            "id": "minus",
+            "label": "-",
+            "accessibleDescription": "minus, take away"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "five",
+            "label": "5",
+            "accessibleDescription": "five"
+          },
+          {
+            "id": "six",
+            "label": "6",
+            "accessibleDescription": "six"
+          }
+        ],
+        "tapAlternative": "Tap 8, minus, 3, equals, and 5 in order.",
+        "answer": [
+          "eight",
+          "minus",
+          "three",
+          "equals",
+          "five"
+        ],
+        "feedback": "You did it! 8 - 3 = 5 oranges are left.",
+        "retryHint": "The oranges sold go after the minus sign. The oranges left go after equals."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Show what you know. Seven toy cars are ready. Four drive away. Build the subtraction sentence.",
+        "targets": [
+          {
+            "id": "seven",
+            "label": "7",
+            "accessibleDescription": "seven"
+          },
+          {
+            "id": "minus",
+            "label": "-",
+            "accessibleDescription": "minus, take away"
+          },
+          {
+            "id": "four",
+            "label": "4",
+            "accessibleDescription": "four"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "accessibleDescription": "two"
+          }
+        ],
+        "tapAlternative": "Tap the cards in order: 7, minus, 4, equals, 3.",
+        "answer": [
+          "seven",
+          "minus",
+          "four",
+          "equals",
+          "three"
+        ],
+        "feedback": "Excellent! 7 - 4 = 3.",
+        "retryHint": "Start with all 7 cars. Four drive away, so 3 are left after the equals sign."
+      }
+    ]
+  }
+}

@@ -50,6 +50,7 @@ import {
   verifyTotpToken
 } from './auth.js';
 import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
+import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
   type CurriculumStrandInput,
@@ -244,6 +245,8 @@ import {
   gradeProgressiveLessonDefinitionStep,
   listProgressiveLessonDefinitions,
   normalizeProgressiveSubjectId,
+  PROGRESSIVE_LESSON_KEY_MAX_LENGTH,
+  PROGRESSIVE_RUNTIME_ID_PATTERN,
   shouldScoreAllProgressiveLessonSteps,
   toProgressiveLessonPublic
 } from './progressiveLearning.js';
@@ -1659,7 +1662,7 @@ const progressivePathQuerySchema = z.object({
 });
 
 const progressiveLessonParamsSchema = z.object({
-  lessonKey: z.string().trim().regex(/^[a-z0-9-]+$/).max(120)
+  lessonKey: z.string().trim().regex(PROGRESSIVE_RUNTIME_ID_PATTERN).max(PROGRESSIVE_LESSON_KEY_MAX_LENGTH)
 });
 
 const progressiveAttemptParamsSchema = z.object({
@@ -1668,12 +1671,12 @@ const progressiveAttemptParamsSchema = z.object({
 
 const progressiveStepParamsSchema = z.object({
   attemptId: z.string().uuid(),
-  stepId: z.string().trim().regex(/^[a-z0-9-]+$/).max(180)
+  stepId: z.string().trim().regex(PROGRESSIVE_RUNTIME_ID_PATTERN).max(180)
 });
 
 const progressiveAttemptStartSchema = z.object({
   clientAttemptId: z.string().uuid(),
-  lessonKey: z.string().trim().regex(/^[a-z0-9-]+$/).max(120),
+  lessonKey: z.string().trim().regex(PROGRESSIVE_RUNTIME_ID_PATTERN).max(PROGRESSIVE_LESSON_KEY_MAX_LENGTH),
   lessonVersion: z.number().int().positive(),
   grade: z.string().trim().min(1).max(40)
 });
@@ -4563,7 +4566,10 @@ Requirements:
     const scope = await resolveUserCurriculumScope(request.user!.id);
     const privateLesson = await resolveProgressiveLesson(params.lessonKey, scope);
     if (!privateLesson) {
-      return reply.notFound('Progressive lesson not found');
+      return reply.code(404).send({
+        code: 'LESSON_NOT_FOUND',
+        message: 'Progressive lesson not found',
+      });
     }
     const lesson = toProgressiveLessonPublic(privateLesson);
 
@@ -4581,8 +4587,17 @@ Requirements:
     const body = progressiveAttemptStartSchema.parse(request.body);
     const scope = await resolveUserCurriculumScope(request.user!.id);
     const privateLesson = await resolveProgressiveLesson(body.lessonKey, scope);
-    if (!privateLesson || privateLesson.lessonVersion !== body.lessonVersion || privateLesson.grade !== body.grade) {
-      return reply.conflict('The lesson version is no longer available. Refresh the learning path.');
+    if (!privateLesson) {
+      return reply.code(404).send({
+        code: 'LESSON_NOT_FOUND',
+        message: 'Progressive lesson not found',
+      });
+    }
+    if (privateLesson.lessonVersion !== body.lessonVersion || privateLesson.grade !== body.grade) {
+      return reply.code(409).send({
+        code: 'LESSON_VERSION_STALE',
+        message: 'The lesson version is no longer available. Refresh the learning path.',
+      });
     }
     const lesson = toProgressiveLessonPublic(privateLesson);
 
@@ -4591,13 +4606,22 @@ Requirements:
       candidate => candidate.lessonKey === body.lessonKey
     );
     if (!node) {
-      return reply.notFound('Lesson not found in this learning path');
+      return reply.code(404).send({
+        code: 'LESSON_NOT_IN_PATH',
+        message: 'Lesson not found in this learning path',
+      });
     }
     if (node.status === 'locked') {
-      return reply.forbidden('Complete the previous lesson before starting this one.');
+      return reply.code(403).send({
+        code: 'PREREQUISITE_LOCKED',
+        message: 'Complete the previous lesson before starting this one.',
+      });
     }
     if (node.availability !== 'published' || !node.curriculumTopicId) {
-      return reply.conflict('Richly authored content is not published for this curriculum topic yet.');
+      return reply.code(409).send({
+        code: 'MISSION_NOT_PUBLISHED',
+        message: 'Richly authored content is not published for this curriculum outcome yet.',
+      });
     }
     const curriculumTopicId = node.curriculumTopicId;
 
@@ -7990,6 +8014,38 @@ Return valid JSON with this shape:
 
     if (result.error || !result.text) {
       return result.error;
+    }
+
+    // Generated variants are supplementary only. Gate them here so a malformed
+    // model response never reaches the lower-primary runtime.
+    if (body.feature === 'lower_primary_practice_generation') {
+      const context = body.context ?? {};
+      const outcomeId = typeof context.outcomeId === 'string' ? context.outcomeId : '';
+      const maxValue = typeof context.maxValue === 'number' ? context.maxValue : undefined;
+      const allowedModes = Array.isArray(context.allowedModes)
+        ? context.allowedModes.filter((mode): mode is string => typeof mode === 'string')
+        : undefined;
+      const recentAnswers = Array.isArray(context.recentAnswers)
+        ? context.recentAnswers.filter((answer): answer is string => typeof answer === 'string')
+        : undefined;
+
+      if (!outcomeId) {
+        return reply.badRequest('Grade 1 practice generation requires an outcomeId');
+      }
+
+      try {
+        const practice = parseLowerPrimaryPracticeVariant(result.text, {
+          outcomeId,
+          maxValue,
+          allowedModes,
+          recentAnswers
+        });
+        return { text: JSON.stringify(practice), practice, generation: result.generation };
+      } catch {
+        return reply.status(422).send({
+          message: 'Extra practice could not be safely prepared. Continue with the lesson activity.'
+        });
+      }
     }
 
     return { text: result.text, generation: result.generation };

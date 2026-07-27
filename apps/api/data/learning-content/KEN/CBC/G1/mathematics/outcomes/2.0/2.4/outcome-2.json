@@ -1,0 +1,189 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.4-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.4 Time",
+    "subStrandId": "4c7bd0ea-3bc3-44b5-97a1-217866474cdc",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "relate days of the week to various activities",
+    "sourcePages": [
+      30,
+      31,
+      32
+    ],
+    "sourceTextSha256": "d5000a3b4dc689882df98443d853295a7eeb694738d7adf1c119f0d3d8d28fe7"
+  },
+  "mission": {
+    "title": "relate days of the week to various activities",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "The class raises the flag on Monday. Tap Monday.",
+        "choices": [
+          "Monday",
+          "Wednesday",
+          "Saturday"
+        ],
+        "answer": "Monday",
+        "feedback": "Yes! The school flag is raised on Monday.",
+        "retryHint": "Look for the day named in the sentence."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "See the match: Monday goes with raising the flag. Now tap the day for the Friday flag parade.",
+        "model": {
+          "Monday": "raise the flag"
+        },
+        "targets": [
+          {
+            "id": "friday",
+            "label": "Friday",
+            "accessibleDescription": "Friday"
+          },
+          {
+            "id": "tuesday",
+            "label": "Tuesday",
+            "accessibleDescription": "Tuesday"
+          },
+          {
+            "id": "sunday",
+            "label": "Sunday",
+            "accessibleDescription": "Sunday"
+          }
+        ],
+        "tapAlternative": "Tap the day that matches the activity.",
+        "answer": "friday",
+        "feedback": "Great matching! The flag parade is on Friday.",
+        "retryHint": "Find the card that says Friday."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "Match each activity to its day: school begins on Monday and family worship is on Sunday.",
+        "pairs": [
+          {
+            "left": "School begins",
+            "right": "Monday"
+          },
+          {
+            "left": "Family worship",
+            "right": "Sunday"
+          }
+        ],
+        "choices": [
+          "Monday",
+          "Sunday",
+          "Thursday"
+        ],
+        "tapAlternative": "Tap an activity, then tap its day.",
+        "answer": [
+          "School begins:Monday",
+          "Family worship:Sunday"
+        ],
+        "feedback": "Well done! You matched two activities to their days.",
+        "retryHint": "Think about the first school day and the worship day."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Amina goes to football practice on Saturday. Which day should she choose?",
+        "choices": [
+          "Saturday",
+          "Monday",
+          "Friday",
+          "Sunday"
+        ],
+        "answer": "Saturday",
+        "feedback": "Correct! Football practice is on Saturday.",
+        "retryHint": "Say the activity sentence again. Which day did you hear?"
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "Plan the class week. Match the activity cards to their days.",
+        "pairs": [
+          {
+            "left": "Library visit",
+            "right": "Wednesday"
+          },
+          {
+            "left": "Clean-up day",
+            "right": "Friday"
+          },
+          {
+            "left": "Church or mosque visit",
+            "right": "Sunday"
+          }
+        ],
+        "choices": [
+          "Wednesday",
+          "Friday",
+          "Sunday",
+          "Tuesday"
+        ],
+        "tapAlternative": "Tap an activity card, then tap the matching day card.",
+        "answer": [
+          "Library visit:Wednesday",
+          "Clean-up day:Friday",
+          "Church or mosque visit:Sunday"
+        ],
+        "feedback": "Excellent planning! Different activities can happen on different days.",
+        "retryHint": "Match one activity at a time. Use the day words on the cards."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "Show what you know. Match each activity to the correct day.",
+        "pairs": [
+          {
+            "left": "Raise the school flag",
+            "right": "Monday"
+          },
+          {
+            "left": "Football practice",
+            "right": "Saturday"
+          },
+          {
+            "left": "Family worship",
+            "right": "Sunday"
+          }
+        ],
+        "choices": [
+          "Monday",
+          "Saturday",
+          "Sunday",
+          "Thursday"
+        ],
+        "tapAlternative": "Tap an activity, then tap its day. You can change a match before checking.",
+        "answer": [
+          "Raise the school flag:Monday",
+          "Football practice:Saturday",
+          "Family worship:Sunday"
+        ],
+        "feedback": "You did it! You can relate activities to days of the week.",
+        "retryHint": "Start with the school flag. Then match the weekend activities."
+      }
+    ]
+  }
+}

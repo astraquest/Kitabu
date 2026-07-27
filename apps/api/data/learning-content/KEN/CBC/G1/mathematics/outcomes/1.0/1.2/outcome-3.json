@@ -1,0 +1,167 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "represent numbers 1 to 30 using concrete objects",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "represent numbers 1 to 30 using concrete objects",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which group shows 4 mangoes?",
+        "choices": [
+          {
+            "id": "group-3",
+            "objects": [
+              "mango",
+              "mango",
+              "mango"
+            ]
+          },
+          {
+            "id": "group-4",
+            "objects": [
+              "mango",
+              "mango",
+              "mango",
+              "mango"
+            ]
+          },
+          {
+            "id": "group-5",
+            "objects": [
+              "mango",
+              "mango",
+              "mango",
+              "mango",
+              "mango"
+            ]
+          }
+        ],
+        "answer": "group-4",
+        "feedback": "Yes! Four mangoes show the number 4.",
+        "retryHint": "Touch each mango once as you count: 1, 2, 3, 4."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "prompt": "Let us show 8. Put 8 bottle tops on the mat.",
+        "activityMode": "build-set",
+        "object": "bottle-top",
+        "availableCount": 10,
+        "targetCount": 8,
+        "tapAlternative": "Tap a bottle top to move it onto the mat.",
+        "answer": {
+          "count": 8
+        },
+        "feedback": "Great! Eight bottle tops represent the number 8.",
+        "retryHint": "Move one bottle top at a time and count up to 8."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "One bundle has 10 sticks. Which group shows 12 sticks?",
+        "choices": [
+          {
+            "id": "one-bundle-one",
+            "bundlesOfTen": 1,
+            "singleObjects": 1,
+            "object": "stick"
+          },
+          {
+            "id": "one-bundle-two",
+            "bundlesOfTen": 1,
+            "singleObjects": 2,
+            "object": "stick"
+          },
+          {
+            "id": "two-bundles-one",
+            "bundlesOfTen": 2,
+            "singleObjects": 1,
+            "object": "stick"
+          }
+        ],
+        "answer": "one-bundle-two",
+        "feedback": "Well done! One bundle of 10 and 2 single sticks make 12.",
+        "retryHint": "Start with the bundle of 10. Count 2 more: 11, 12."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "prompt": "Use bundles and single sticks to show 17.",
+        "activityMode": "build-tens-and-ones",
+        "object": "stick",
+        "availableBundlesOfTen": 2,
+        "availableSingleObjects": 10,
+        "targetCount": 17,
+        "tapAlternative": "Tap bundles and single sticks to move them onto the mat.",
+        "answer": {
+          "bundlesOfTen": 1,
+          "singleObjects": 7
+        },
+        "feedback": "Correct! One bundle of 10 and 7 single sticks show 17.",
+        "retryHint": "Use 1 bundle for 10. Then count 7 single sticks."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "prompt": "A shopkeeper needs 23 bottle tops for a game. Show 23 using groups of 10 and single bottle tops.",
+        "activityMode": "build-tens-and-ones",
+        "object": "bottle-top",
+        "availableBundlesOfTen": 3,
+        "availableSingleObjects": 10,
+        "targetCount": 23,
+        "tapAlternative": "Tap groups of 10 and single bottle tops to move them onto the mat.",
+        "answer": {
+          "bundlesOfTen": 2,
+          "singleObjects": 3
+        },
+        "feedback": "You got it! Two groups of 10 and 3 single bottle tops show 23.",
+        "retryHint": "Two groups make 20. Count 3 more: 21, 22, 23."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "prompt": "Show what you know. Use bundles of sticks to show 30.",
+        "activityMode": "build-tens-and-ones",
+        "object": "stick",
+        "availableBundlesOfTen": 3,
+        "availableSingleObjects": 9,
+        "targetCount": 30,
+        "tapAlternative": "Tap each bundle of 10 to move it onto the mat.",
+        "answer": {
+          "bundlesOfTen": 3,
+          "singleObjects": 0
+        },
+        "feedback": "Excellent! Three bundles of 10 represent the number 30.",
+        "retryHint": "Count the bundles by tens: 10, 20, 30."
+      }
+    ]
+  }
+}

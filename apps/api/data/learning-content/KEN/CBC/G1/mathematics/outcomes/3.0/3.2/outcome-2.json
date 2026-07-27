@@ -1,0 +1,187 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.2-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.2 Shapes",
+    "subStrandId": "77e1b45d-6336-40fd-967d-e5a7ff409fb0",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "make patterns involving rectangles, triangles, circles, and ovals",
+    "sourcePages": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "sourceTextSha256": "d559ee913eb976d22b99e62c7b1d53a68368338737c34a440ec333e2d737dfef"
+  },
+  "mission": {
+    "title": "make patterns involving rectangles, triangles, circles, and ovals",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look: circle, triangle, circle. What shape comes next?",
+        "sequence": [
+          "circle",
+          "triangle",
+          "circle"
+        ],
+        "choices": [
+          "triangle",
+          "rectangle",
+          "oval"
+        ],
+        "answer": "triangle",
+        "feedback": "Yes! Circle, triangle repeats.",
+        "retryHint": "Say the two shapes: circle, triangle. Start the pair again."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "trace-construct",
+        "prompt": "Help the lion make a pattern: rectangle, oval, rectangle, ___. Tap the next shape.",
+        "activityMode": "pattern-complete",
+        "targets": [
+          {
+            "id": "oval",
+            "label": "oval",
+            "accessibleDescription": "an oval shape"
+          },
+          {
+            "id": "triangle",
+            "label": "triangle",
+            "accessibleDescription": "a triangle shape"
+          },
+          {
+            "id": "circle",
+            "label": "circle",
+            "accessibleDescription": "a circle shape"
+          }
+        ],
+        "tapAlternative": "Tap the shape that completes the pattern.",
+        "answer": [
+          "oval"
+        ],
+        "feedback": "Great! Rectangle, oval repeats.",
+        "retryHint": "Find the shape that came after the first rectangle."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "prompt": "Make the next two shapes: triangle, circle, oval, triangle, circle, __, __. Tap them in order.",
+        "activityMode": "pattern-extend",
+        "targets": [
+          {
+            "id": "oval",
+            "label": "oval",
+            "accessibleDescription": "an oval shape"
+          },
+          {
+            "id": "triangle",
+            "label": "triangle",
+            "accessibleDescription": "a triangle shape"
+          },
+          {
+            "id": "rectangle",
+            "label": "rectangle",
+            "accessibleDescription": "a rectangle shape"
+          }
+        ],
+        "tapAlternative": "Tap each next shape in order instead of dragging.",
+        "answer": [
+          "oval",
+          "triangle"
+        ],
+        "feedback": "Well done! The pattern is triangle, circle, oval.",
+        "retryHint": "Read the first three shapes, then start that group again."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which strip is a repeating shape pattern?",
+        "choices": [
+          "rectangle, circle, rectangle, circle",
+          "triangle, oval, circle, rectangle",
+          "circle, circle, triangle, oval"
+        ],
+        "answer": "rectangle, circle, rectangle, circle",
+        "feedback": "Correct! Rectangle, circle repeats again and again.",
+        "retryHint": "Look for the same small group repeating."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "prompt": "Finish the kitenge border: oval, oval, rectangle, oval, oval, ___. Tap the missing shape.",
+        "activityMode": "pattern-complete",
+        "targets": [
+          {
+            "id": "rectangle",
+            "label": "rectangle",
+            "accessibleDescription": "a rectangle shape"
+          },
+          {
+            "id": "triangle",
+            "label": "triangle",
+            "accessibleDescription": "a triangle shape"
+          },
+          {
+            "id": "circle",
+            "label": "circle",
+            "accessibleDescription": "a circle shape"
+          }
+        ],
+        "tapAlternative": "Tap the missing shape in the kitenge border.",
+        "answer": [
+          "rectangle"
+        ],
+        "feedback": "Nice work! Two ovals, then one rectangle repeats.",
+        "retryHint": "Look at the first three shapes and copy that group."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "prompt": "Show what you know. Make this pattern continue: circle, rectangle, triangle, circle, rectangle, ___. Tap the next shape.",
+        "activityMode": "pattern-complete",
+        "targets": [
+          {
+            "id": "triangle",
+            "label": "triangle",
+            "accessibleDescription": "a triangle shape"
+          },
+          {
+            "id": "oval",
+            "label": "oval",
+            "accessibleDescription": "an oval shape"
+          },
+          {
+            "id": "circle",
+            "label": "circle",
+            "accessibleDescription": "a circle shape"
+          }
+        ],
+        "tapAlternative": "Tap the next shape in the pattern.",
+        "answer": [
+          "triangle"
+        ],
+        "feedback": "Excellent! Circle, rectangle, triangle repeats.",
+        "retryHint": "Say the first three shapes, then find the one that comes third."
+      }
+    ]
+  }
+}

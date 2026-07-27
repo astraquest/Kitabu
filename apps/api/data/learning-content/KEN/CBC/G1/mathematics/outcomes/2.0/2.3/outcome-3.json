@@ -1,0 +1,176 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.3-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.3 Capacity",
+    "subStrandId": "1813a447-c7a9-45fa-9f6b-73856f1863bb",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "measure capacity using arbitrary units",
+    "sourcePages": [
+      28,
+      29,
+      30
+    ],
+    "sourceTextSha256": "9519163d0ade16fee55e487ce1cfcef3462bf3e8c634d8b03d13cb66a4ab2329"
+  },
+  "mission": {
+    "title": "measure capacity using arbitrary units",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "A small cup is our measuring cup. Which picture shows one full cup?",
+        "objects": [
+          "empty-cup",
+          "half-full-cup",
+          "full-cup"
+        ],
+        "choices": [
+          "empty-cup",
+          "half-full-cup",
+          "full-cup"
+        ],
+        "answer": "full-cup",
+        "feedback": "Yes! Use the same full cup each time.",
+        "retryHint": "Look for the cup filled right to its top line."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "capacity-measure",
+        "prompt": "Watch Amani fill a jug with the same small cup. Four full cups fill the jug. Tap 4.",
+        "model": {
+          "container": "water-jug",
+          "unit": "small-cup",
+          "fullUnits": 4
+        },
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Great measuring! The jug holds 4 small cups.",
+        "retryHint": "Count only the full small cups: 1, 2, 3, 4."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "capacity-measure",
+        "prompt": "Help Zuri measure the bottle. Tap a cup each time it is poured in, then choose how many cups fill it.",
+        "container": "juice-bottle",
+        "unit": "small-cup",
+        "unitSlots": [
+          "cup-1",
+          "cup-2",
+          "cup-3"
+        ],
+        "tapAlternative": "Tap each cup in order, then tap the number of cups.",
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": {
+          "unitSequence": [
+            "cup-1",
+            "cup-2",
+            "cup-3"
+          ],
+          "total": "3"
+        },
+        "feedback": "Well done! The bottle holds 3 small cups.",
+        "retryHint": "Use the same full cup. Count each pour: 1, 2, 3."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "capacity-measure",
+        "prompt": "Measure the cooking pot with the same tin. It takes 5 full tins. Tap the number that tells its capacity.",
+        "model": {
+          "container": "cooking-pot",
+          "unit": "tin",
+          "fullUnits": 5
+        },
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Correct! The pot holds 5 tins.",
+        "retryHint": "Count the full tins, not the container itself."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "capacity-measure",
+        "prompt": "At the school garden, a watering can fills with 6 yoghurt cups. Build the measurement by tapping six cups, then tap 6.",
+        "container": "watering-can",
+        "unit": "yoghurt-cup",
+        "unitSlots": [
+          "cup-1",
+          "cup-2",
+          "cup-3",
+          "cup-4",
+          "cup-5",
+          "cup-6"
+        ],
+        "tapAlternative": "Tap the cups one at a time, then choose the matching number.",
+        "choices": [
+          "5",
+          "6",
+          "7"
+        ],
+        "answer": {
+          "unitSequence": [
+            "cup-1",
+            "cup-2",
+            "cup-3",
+            "cup-4",
+            "cup-5",
+            "cup-6"
+          ],
+          "total": "6"
+        },
+        "feedback": "Wonderful! The watering can holds 6 yoghurt cups.",
+        "retryHint": "Keep using one kind of cup and count every full cup."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "capacity-measure",
+        "prompt": "Show what you know. A bucket fills with 8 scoops of sand. Tap the measurement.",
+        "model": {
+          "container": "bucket",
+          "unit": "scoop",
+          "fullUnits": 8
+        },
+        "choices": [
+          "6 scoops",
+          "7 scoops",
+          "8 scoops",
+          "9 scoops"
+        ],
+        "answer": "8 scoops",
+        "feedback": "Excellent! The bucket holds 8 scoops of sand.",
+        "retryHint": "Count the same-sized scoops from 1 up to 8."
+      }
+    ]
+  }
+}

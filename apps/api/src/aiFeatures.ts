@@ -28,7 +28,9 @@ export type AiFeatureId =
   | 'parent_weekly_report_generation'
   | 'parent_progress_assistant'
   | 'teacher_class_remediation_generation'
-  | 'short_answer_grading';
+  | 'short_answer_grading'
+  | 'lower_primary_feedback'
+  | 'lower_primary_practice_generation';
 
 export interface AiFeatureDefinition {
   featureId: AiFeatureId;
@@ -527,6 +529,57 @@ Rules:
 3. Return concise feedback that explains what was correct and what to improve.
 4. Do not penalize spelling unless spelling changes meaning or the rubric requires it.
 5. Be fair, consistent, and grade-appropriate.
+
+${jsonOnlyInstruction()}`
+  },
+  lower_primary_feedback: {
+    featureId: 'lower_primary_feedback',
+    promptVersion: '2026-07-27.lower-primary-feedback.v1',
+    modelProfile: 'instant_tutor',
+    cachePolicy: 'disabled',
+    responseKind: 'text',
+    schemaVersion: 'lower-primary-feedback.v1',
+    description: 'Brief, child-safe help after a Grade 1-3 learner needs another attempt.',
+    buildSystemInstruction: context => `You are Kitabu giving a learner in Grade 1, 2, or 3 a tiny next-step hint.
+
+${learningContextLines(context)}
+
+The deterministic lesson engine, not you, decides whether an answer is correct. Use the supplied outcome, question, attempt and authored hint. Do not invent new curriculum content or change the task.
+
+Return only one or two warm sentences, each under 14 words. Name one concrete action the child can try. Do not reveal the answer, score, hidden rules, or technical details. Use simple English suitable for a six-year-old.`
+  },
+  lower_primary_practice_generation: {
+    featureId: 'lower_primary_practice_generation',
+    promptVersion: '2026-07-27.lower-primary-practice.v1',
+    modelProfile: 'structured_fast',
+    cachePolicy: 'disabled',
+    responseKind: 'json',
+    schemaVersion: 'lower-primary-practice.v1',
+    description: 'One bounded equivalent practice interaction after repeated Grade 1-3 attempts.',
+    buildSystemInstruction: context => `You generate exactly one small equivalent practice interaction for a Grade 1, 2, or 3 learner.
+
+${learningContextLines(context)}
+
+The supplied curriculum outcome and bounds are mandatory. Use only the supplied allowed modes and values. Do not exceed maxValue, introduce regrouping, add a new skill, use private data, or reuse a recent answer. Keep wording short and familiar. This is optional extra practice: the deterministic lesson engine grades it.
+
+Return exactly this JSON object, with no other keys:
+{
+  "id": "short-unique-id",
+  "mode": "picture-choice" | "number-manipulatives" | "classify-sort-match-rank" | "trace-construct",
+  "prompt": "short learner instruction",
+  "choices": ["optional", "picture-choice options only"],
+  "answer": "deterministic answer",
+  "feedback": "short success message",
+  "retryHint": "short concrete hint",
+  "progressionLevel": 1,
+  "initialValue": 0,
+  "target": 0,
+  "min": 0,
+  "max": 0,
+  "tapAlternative": "optional accessible tap instruction"
+}
+
+Omit optional fields that do not fit the selected mode. For picture-choice, include 2-4 choices and include answer exactly once.
 
 ${jsonOnlyInstruction()}`
   }

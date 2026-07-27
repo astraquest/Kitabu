@@ -3,13 +3,16 @@ import test from 'node:test';
 import {
   buildProgressiveLearningPath,
   buildMathematicsLearningPath,
+  createProgressiveLesson,
   getProgressiveLessonDefinition,
+  gradeProgressiveLessonDefinitionStep,
   gradeProgressiveLessonStep,
   hasProgressiveLearningPath,
   listProgressiveLessonDefinitions,
   serializeProgressiveClassifyAnswer,
   serializeProgressiveSequenceAnswer,
-  shouldScoreAllProgressiveLessonSteps
+  shouldScoreAllProgressiveLessonSteps,
+  toProgressiveLessonPublic
 } from './progressiveLearning.js';
 
 test('keeps the six complete Mathematics pilot lessons without answer keys', () => {
@@ -52,6 +55,45 @@ test('grades normalized answers on the server and returns authored remediation',
   const incorrect = gradeProgressiveLessonStep(lesson.lessonKey, firstStep.id, '2 zebras');
   assert.equal(incorrect?.isCorrect, false);
   assert.equal(incorrect?.misconceptionCode, 'EQUALITY_VISUAL_COUNT');
+});
+
+test('grades authored lower-primary classify responses without exposing their answer map', () => {
+  const lesson = createProgressiveLesson({
+    key: 'grade-1-test-classify',
+    grade: 'Grade 1',
+    subjectId: 'math',
+    title: 'Sort objects',
+    shortTitle: 'Sort',
+    objective: 'Sort objects by an attribute.',
+    minutes: 3,
+    steps: [{
+      phase: 'guided',
+      prompt: 'Put each object in its group.',
+      options: [],
+      visual: { kind: 'classify', buckets: [{ id: 'round', label: 'Round' }, { id: 'not-round', label: 'Not round' }], items: [] , caption: 'Sort the objects.' },
+      hint: 'Look carefully at each shape.',
+      answer: 'private-answer-not-used',
+      misconception: 'GROUPING_ATTRIBUTE',
+      incorrectMessage: 'Try sorting by shape.',
+      successMessage: 'Well sorted.',
+      lowerPrimaryInteraction: {
+        mode: 'classify',
+        expected: { ball: 'round', book: 'not-round' },
+        feedback: 'Well sorted.',
+        retryHint: 'Look at each object and its shape.',
+      },
+    }],
+  });
+  const step = lesson.steps[0];
+  assert.doesNotMatch(JSON.stringify(toProgressiveLessonPublic(lesson)), /"expected"/);
+  assert.deepEqual(
+    gradeProgressiveLessonDefinitionStep(lesson, step.id, JSON.stringify({ ball: 'round', book: 'not-round' })),
+    { isCorrect: true, phase: 'guided', misconceptionCode: null, message: 'Well sorted.', hint: 'Look carefully at each shape.' },
+  );
+  const incomplete = gradeProgressiveLessonDefinitionStep(lesson, step.id, JSON.stringify({ ball: 'round' }));
+  assert.equal(incomplete?.isCorrect, false);
+  assert.equal(incomplete?.message, 'Look at each object and its shape.');
+  assert.equal(incomplete?.misconceptionCode, 'GROUPING_ATTRIBUTE');
 });
 
 test('scores every displayed question for lower-primary lessons only', () => {

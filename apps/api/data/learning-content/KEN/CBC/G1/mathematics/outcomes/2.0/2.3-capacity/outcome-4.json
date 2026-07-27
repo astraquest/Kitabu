@@ -1,0 +1,168 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.3-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.3 Capacity",
+    "subStrandId": "1813a447-c7a9-45fa-9f6b-73856f1863bb",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "re-use empty containers of different capacities to keep items.",
+    "sourcePages": [
+      28,
+      29,
+      30
+    ],
+    "sourceTextSha256": "9519163d0ade16fee55e487ce1cfcef3462bf3e8c634d8b03d13cb66a4ab2329"
+  },
+  "mission": {
+    "title": "re-use empty containers of different capacities to keep items.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "A clean empty yoghurt cup can be useful again. What can it hold?",
+        "choices": [
+          "Pencils",
+          "A burning match",
+          "Nothing ever"
+        ],
+        "answer": "Pencils",
+        "feedback": "Yes! A clean empty cup can keep pencils together.",
+        "retryHint": "Choose the safe school item that fits in a small cup."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Watch: a large clean tin keeps many bottle tops. Which container is best for many bottle tops?",
+        "model": {
+          "containers": [
+            {
+              "id": "small-cup",
+              "label": "small cup",
+              "capacity": "small"
+            },
+            {
+              "id": "large-tin",
+              "label": "large clean tin",
+              "capacity": "large"
+            }
+          ],
+          "reason": "Many small things need a larger container."
+        },
+        "choices": [
+          "Large clean tin",
+          "Small cup"
+        ],
+        "answer": "Large clean tin",
+        "feedback": "Good thinking! The larger tin has room for many bottle tops.",
+        "retryHint": "Think: which container has more room?"
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Match each clean empty container to what it can keep. Tap a container, then tap its item.",
+        "activityMode": "match-pairs",
+        "pairs": [
+          {
+            "container": "small-cup",
+            "containerLabel": "small cup",
+            "item": "crayons",
+            "itemLabel": "3 crayons"
+          },
+          {
+            "container": "large-box",
+            "containerLabel": "large box",
+            "item": "building blocks",
+            "itemLabel": "many blocks"
+          }
+        ],
+        "tapAlternative": "Tap a container and then tap the item it can keep.",
+        "answer": [
+          [
+            "small-cup",
+            "crayons"
+          ],
+          [
+            "large-box",
+            "building-blocks"
+          ]
+        ],
+        "feedback": "Great matches! Small and large containers can both be reused usefully.",
+        "retryHint": "Match the few crayons to the small cup. Match many blocks to the large box."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Nia has a clean empty plastic bottle. What is a safe way to reuse it at home?",
+        "choices": [
+          "Keep dried beans",
+          "Throw it into a river",
+          "Use it for hot cooking oil"
+        ],
+        "answer": "Keep dried beans",
+        "feedback": "Correct! A clean bottle can keep dried beans safely with an adult's help.",
+        "retryHint": "Choose the safe way to keep a dry item at home."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Help tidy the class. Put the items in the best reused container. Tap the item, then its container.",
+        "activityMode": "match-pairs",
+        "pairs": [
+          {
+            "item": "seeds",
+            "itemLabel": "a few seeds",
+            "container": "small-jar",
+            "containerLabel": "small clean jar"
+          },
+          {
+            "item": "paper-scraps",
+            "itemLabel": "many paper scraps",
+            "container": "large-box",
+            "containerLabel": "large clean box"
+          }
+        ],
+        "tapAlternative": "Tap an item and then tap the reused container with enough room.",
+        "answer": [
+          [
+            "seeds",
+            "small-jar"
+          ],
+          [
+            "paper-scraps",
+            "large-box"
+          ]
+        ],
+        "feedback": "Well done! Reusing containers helps keep our class neat.",
+        "retryHint": "A few small seeds fit in the jar. Many paper scraps need the box."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Why do we reuse clean empty containers?",
+        "choices": [
+          "They help us keep things safely and reduce waste.",
+          "They make litter everywhere.",
+          "They can never hold anything."
+        ],
+        "answer": "They help us keep things safely and reduce waste.",
+        "feedback": "Excellent! Reusing safe clean containers keeps items tidy and cares for our environment.",
+        "retryHint": "Think about keeping things tidy and making less waste."
+      }
+    ]
+  }
+}

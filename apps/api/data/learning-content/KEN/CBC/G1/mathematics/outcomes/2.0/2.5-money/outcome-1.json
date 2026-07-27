@@ -1,0 +1,197 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.5-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.5 Money",
+    "subStrandId": "1255097f-959c-4ef3-aaaa-bd10eb5f9f83",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "identify Kenyan currency coins",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "sourceTextSha256": "8c16ba40124ede3e497f161e59cb6a4aadb1f73f386b06229f780bd248e18ac1"
+  },
+  "mission": {
+    "title": "identify Kenyan currency coins",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the Kenyan coin that says Sh 1.",
+        "objects": [
+          "kenyan-coin-1",
+          "kenyan-coin-5",
+          "kenyan-coin-10"
+        ],
+        "choices": [
+          "kenyan-coin-1",
+          "kenyan-coin-5",
+          "kenyan-coin-10"
+        ],
+        "answer": "kenyan-coin-1",
+        "feedback": "Yes! This Kenyan coin is worth one shilling.",
+        "retryHint": "Look for the big number 1 and the letters Sh."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "The lion found a Sh 5 coin. Which coin should he keep?",
+        "objects": [
+          "kenyan-coin-1",
+          "kenyan-coin-5",
+          "kenyan-coin-20"
+        ],
+        "choices": [
+          "kenyan-coin-1",
+          "kenyan-coin-5",
+          "kenyan-coin-20"
+        ],
+        "answer": "kenyan-coin-5",
+        "feedback": "Great looking! The number 5 tells us it is five shillings.",
+        "retryHint": "Find the coin with the number 5 on it."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match",
+        "prompt": "Match each Kenyan coin to its value.",
+        "pairs": [
+          [
+            "kenyan-coin-1",
+            "Sh 1"
+          ],
+          [
+            "kenyan-coin-10",
+            "Sh 10"
+          ],
+          [
+            "kenyan-coin-20",
+            "Sh 20"
+          ]
+        ],
+        "tapAlternative": "Tap a coin, then tap its value.",
+        "answer": [
+          [
+            "kenyan-coin-1",
+            "Sh 1"
+          ],
+          [
+            "kenyan-coin-10",
+            "Sh 10"
+          ],
+          [
+            "kenyan-coin-20",
+            "Sh 20"
+          ]
+        ],
+        "feedback": "Well done! You matched every coin to its value.",
+        "retryHint": "Read the number on each coin, then find the same Sh value."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which Kenyan coin is worth Sh 40?",
+        "objects": [
+          "kenyan-coin-20",
+          "kenyan-coin-40",
+          "kenyan-coin-10"
+        ],
+        "choices": [
+          "kenyan-coin-20",
+          "kenyan-coin-40",
+          "kenyan-coin-10"
+        ],
+        "answer": "kenyan-coin-40",
+        "feedback": "Correct! You found the Sh 40 Kenyan coin.",
+        "retryHint": "Find the coin with 40 written on it."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "At the classroom shop, put only Kenyan coins in the coin tray.",
+        "availableObjects": [
+          "kenyan-coin-1",
+          "kenyan-coin-5",
+          "kenyan-coin-10",
+          "kenyan-note-50",
+          "leaf"
+        ],
+        "categories": [
+          "Kenyan coins",
+          "Not a coin"
+        ],
+        "tapAlternative": "Tap an object, then tap the tray where it belongs.",
+        "answer": {
+          "Kenyan coins": [
+            "kenyan-coin-1",
+            "kenyan-coin-5",
+            "kenyan-coin-10"
+          ],
+          "Not a coin": [
+            "kenyan-note-50",
+            "leaf"
+          ]
+        },
+        "feedback": "Excellent sorting! Coins are different from a note and other things.",
+        "retryHint": "A coin is round and has a Sh value. A note is paper."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match",
+        "prompt": "Show what you know. Match the Kenyan coins to their values.",
+        "pairs": [
+          [
+            "kenyan-coin-5",
+            "Sh 5"
+          ],
+          [
+            "kenyan-coin-20",
+            "Sh 20"
+          ],
+          [
+            "kenyan-coin-40",
+            "Sh 40"
+          ]
+        ],
+        "tapAlternative": "Tap a coin, then tap its value.",
+        "answer": [
+          [
+            "kenyan-coin-5",
+            "Sh 5"
+          ],
+          [
+            "kenyan-coin-20",
+            "Sh 20"
+          ],
+          [
+            "kenyan-coin-40",
+            "Sh 40"
+          ]
+        ],
+        "feedback": "You are a Kenyan coin expert!",
+        "retryHint": "Use the number printed on each coin to find its value."
+      }
+    ]
+  }
+}

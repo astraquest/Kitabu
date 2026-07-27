@@ -1,0 +1,199 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.3-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.3 Addition",
+    "subStrandId": "5366fd9b-7934-44da-8dbc-39aa3ff14013",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "model addition as putting objects together",
+    "sourcePages": [
+      18,
+      19,
+      20
+    ],
+    "sourceTextSha256": "30a2530d8e48a6d58bb2562eae6c1d0d1b1577b6e2c741abf82985cc61b1a07b"
+  },
+  "mission": {
+    "title": "model addition as putting objects together",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which picture shows 1 mango and 1 mango put together?",
+        "objects": [
+          "mango",
+          "mango",
+          "basket"
+        ],
+        "choices": [
+          "Both mangoes in one basket",
+          "The mangoes in two baskets",
+          "One mango in a basket"
+        ],
+        "answer": "Both mangoes in one basket",
+        "feedback": "Yes! Addition puts the two mangoes together in one group.",
+        "retryHint": "Look for the picture with both mangoes in the same basket."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Put 1 bottle top with 2 bottle tops. Then count the whole group.",
+        "groups": [
+          {
+            "id": "group-a",
+            "label": "1 bottle top",
+            "object": "bottle-top",
+            "count": 1
+          },
+          {
+            "id": "group-b",
+            "label": "2 bottle tops",
+            "object": "bottle-top",
+            "count": 2
+          }
+        ],
+        "tapAlternative": "Tap each group to move it into the middle, then tap the total.",
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "feedback": "Great! Putting 1 and 2 together makes one group of 3.",
+        "retryHint": "Move both groups together. Now touch each bottle top once as you count."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Put 2 pencils with 2 more pencils. How many are in the new group?",
+        "groups": [
+          {
+            "id": "group-a",
+            "label": "2 pencils",
+            "object": "pencil",
+            "count": 2
+          },
+          {
+            "id": "group-b",
+            "label": "2 more pencils",
+            "object": "pencil",
+            "count": 2
+          }
+        ],
+        "tapAlternative": "Tap both pencil groups to join them, then choose the total.",
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Well done! The two groups become one group of 4 pencils.",
+        "retryHint": "Count every pencil after the groups join: 1, 2, 3, 4."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Join 3 oranges and 2 oranges in one basket. Choose the total.",
+        "groups": [
+          {
+            "id": "group-a",
+            "label": "3 oranges",
+            "object": "orange",
+            "count": 3
+          },
+          {
+            "id": "group-b",
+            "label": "2 oranges",
+            "object": "orange",
+            "count": 2
+          }
+        ],
+        "tapAlternative": "Tap each orange group to place it in the basket, then choose the total.",
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Correct! Putting 3 oranges and 2 oranges together makes 5.",
+        "retryHint": "Count all the oranges in the basket after both groups go in."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "At the market, Amina puts 4 mangoes with 3 mangoes. How many mangoes are together?",
+        "groups": [
+          {
+            "id": "group-a",
+            "label": "4 mangoes",
+            "object": "mango",
+            "count": 4
+          },
+          {
+            "id": "group-b",
+            "label": "3 mangoes",
+            "object": "mango",
+            "count": 3
+          }
+        ],
+        "tapAlternative": "Tap the two groups to put all the mangoes together, then choose the total.",
+        "choices": [
+          "6",
+          "7",
+          "8"
+        ],
+        "answer": "7",
+        "feedback": "You got it! The two groups make one group of 7 mangoes.",
+        "retryHint": "After joining the groups, touch and count every mango once."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Show what you know. Put 5 bottle tops and 4 bottle tops together. Choose the total.",
+        "groups": [
+          {
+            "id": "group-a",
+            "label": "5 bottle tops",
+            "object": "bottle-top",
+            "count": 5
+          },
+          {
+            "id": "group-b",
+            "label": "4 bottle tops",
+            "object": "bottle-top",
+            "count": 4
+          }
+        ],
+        "tapAlternative": "Tap both groups to join them, then count and choose the total.",
+        "choices": [
+          "8",
+          "9",
+          "10"
+        ],
+        "answer": "9",
+        "feedback": "Excellent! Addition puts the groups together to make 9 bottle tops.",
+        "retryHint": "Make one group first. Then count all the bottle tops from 1 to 9."
+      }
+    ]
+  }
+}

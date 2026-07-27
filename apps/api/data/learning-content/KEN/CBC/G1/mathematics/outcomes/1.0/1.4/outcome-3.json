@@ -1,0 +1,164 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "subtract single digit numbers",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "subtract single digit numbers",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "There are 5 mangoes. Take away 1 mango. How many are left?",
+        "objects": [
+          "mango",
+          "mango",
+          "mango",
+          "mango",
+          "mango"
+        ],
+        "takeAway": 1,
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Yes! Five take away one leaves four.",
+        "retryHint": "Hide one mango. Count the mangoes still showing."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Watch: 6 bottle tops take away 2 bottle tops leaves 4. Now tap the answer.",
+        "model": {
+          "start": 6,
+          "takeAway": 2,
+          "remaining": 4
+        },
+        "initialValue": 6,
+        "target": 4,
+        "min": 0,
+        "max": 6,
+        "choices": [
+          "3",
+          "4",
+          "6"
+        ],
+        "answer": "4",
+        "feedback": "Good watching! 6 - 2 = 4.",
+        "retryHint": "Start at 6. Count back two steps: 5, then 4."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Move 3 of the 8 beads to the basket. How many beads stay on the mat?",
+        "objects": [
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead",
+          "bead"
+        ],
+        "takeAway": 3,
+        "initialValue": 8,
+        "target": 5,
+        "min": 0,
+        "max": 8,
+        "tapAlternative": "Tap three beads to move them to the basket, then choose how many stay.",
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Well done! 8 - 3 = 5.",
+        "retryHint": "Count the beads that did not go into the basket."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Solve it: 9 - 4 = ?",
+        "choices": [
+          "4",
+          "5",
+          "6",
+          "13"
+        ],
+        "answer": "5",
+        "feedback": "Correct! Nine take away four is five.",
+        "retryHint": "Count back four from 9: 8, 7, 6, 5."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "number-line",
+        "prompt": "Asha has 7 crayons. She gives 5 crayons to friends. Use the number line. How many crayons does Asha have now?",
+        "numberLine": {
+          "start": 0,
+          "end": 9,
+          "from": 7,
+          "backwardJumps": 5
+        },
+        "initialValue": 7,
+        "target": 2,
+        "min": 0,
+        "max": 9,
+        "tapAlternative": "Tap 7, then tap five steps back on the number line.",
+        "choices": [
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": "2",
+        "feedback": "Great! 7 - 5 = 2. Asha has 2 crayons.",
+        "retryHint": "From 7, hop back: 6, 5, 4, 3, 2."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know: 8 - 6 = ?",
+        "choices": [
+          "2",
+          "3",
+          "14"
+        ],
+        "answer": "2",
+        "feedback": "Excellent! Eight take away six is two.",
+        "retryHint": "Count back six from 8, or keep two counters after taking six away."
+      }
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "count numbers forward up to 50",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "count numbers forward up to 50",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Count with the lion: 1, 2, 3, __. What comes next?",
+        "choices": [
+          "2",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Yes! After 3 comes 4.",
+        "retryHint": "Say the numbers slowly: 1, 2, 3, then the next number."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "prompt": "Follow the number path. Start at 6 and count forward to 10.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 1,
+          "end": 10,
+          "highlightStart": 6
+        },
+        "tapAlternative": "Tap 7, then 8, then 9, then 10.",
+        "answer": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "feedback": "Great counting! 6, 7, 8, 9, 10.",
+        "retryHint": "Move one number forward each time."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "prompt": "Help Amani count the oranges. Start at 11 and tap the next numbers up to 16.",
+        "activityMode": "number-line-path",
+        "context": {
+          "setting": "market stall",
+          "object": "orange"
+        },
+        "numberLine": {
+          "start": 10,
+          "end": 20,
+          "highlightStart": 11
+        },
+        "tapAlternative": "Tap each next number in order.",
+        "answer": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "feedback": "Well done! You counted forward from 11 to 16.",
+        "retryHint": "Begin after 11. Each new number is one more."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "prompt": "Count forward from 24. Tap the next five numbers.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 20,
+          "end": 30,
+          "highlightStart": 24
+        },
+        "tapAlternative": "Tap the numbers one at a time in order.",
+        "answer": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "feedback": "Correct! 25, 26, 27, 28, 29 come after 24.",
+        "retryHint": "Count one more each time: 24, then __."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Put these bus tickets in counting order, starting at 37.",
+        "activityMode": "ordered-sequence",
+        "items": [
+          {
+            "id": "ticket-40",
+            "label": "40"
+          },
+          {
+            "id": "ticket-38",
+            "label": "38"
+          },
+          {
+            "id": "ticket-37",
+            "label": "37"
+          },
+          {
+            "id": "ticket-39",
+            "label": "39"
+          }
+        ],
+        "tapAlternative": "Tap the tickets in counting order.",
+        "answer": [
+          "ticket-37",
+          "ticket-38",
+          "ticket-39",
+          "ticket-40"
+        ],
+        "feedback": "Excellent! You counted forward from 37 to 40.",
+        "retryHint": "Find 37 first. The next ticket is one more."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "prompt": "Show what you know. Start at 46 and count forward to 50.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 40,
+          "end": 50,
+          "highlightStart": 46
+        },
+        "tapAlternative": "Tap 47, 48, 49, then 50.",
+        "answer": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "feedback": "Fantastic! You counted all the way to 50.",
+        "retryHint": "Count one more after 46 until you reach 50."
+      }
+    ]
+  }
+}

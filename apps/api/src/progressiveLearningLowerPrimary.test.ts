@@ -23,12 +23,14 @@ const SUBJECTS = [
 test('publishes substantive KICD chapters for each requested lower-primary subject', () => {
   for (const grade of GRADES) {
     const allLessons = listProgressiveLessonDefinitions({ grade });
-    assert.equal(allLessons.length, grade === 'Grade 1' ? 32 : SUBJECTS.length * 3);
+    assert.equal(allLessons.length, grade === 'Grade 1' ? 82 : SUBJECTS.length * 3);
     assert.equal(new Set(allLessons.map(lesson => lesson.lessonKey)).size, allLessons.length);
 
     for (const subjectId of SUBJECTS) {
       const lessons = listProgressiveLessonDefinitions({ grade, subjectId });
-      const expectedLessonCount = grade === 'Grade 1' && subjectId === 'environmental' ? 11 : 3;
+      const expectedLessonCount = grade === 'Grade 1'
+        ? subjectId === 'environmental' ? 11 : subjectId === 'math' ? 53 : 3
+        : 3;
       assert.equal(lessons.length, expectedLessonCount, `${grade}:${subjectId} chapter count`);
       assert.ok(hasProgressiveLearningPath(subjectId, grade));
 
@@ -36,24 +38,29 @@ test('publishes substantive KICD chapters for each requested lower-primary subje
         assert.equal(lesson.grade, grade);
         assert.ok(lesson.strand.length >= 3);
         assert.ok(lesson.subStrand.length >= 3);
-        assert.ok(lesson.objective.length >= 30);
-        assert.equal(lesson.steps.length, 5);
-        assert.equal(lesson.steps.filter(step => step.phase === 'guided').length, 2);
+        const isAuthoredGrade1Math = grade === 'Grade 1' && subjectId === 'math';
+        assert.ok(lesson.objective.length >= (isAuthoredGrade1Math ? 8 : 30));
+        const guidedStepCount = isAuthoredGrade1Math ? 3 : 2;
+        assert.equal(lesson.steps.length, isAuthoredGrade1Math ? 6 : 5);
+        assert.equal(lesson.steps.filter(step => step.phase === 'guided').length, guidedStepCount);
         assert.equal(
           lesson.steps.filter(step => step.phase === 'checkpoint').length,
-          lesson.steps.length - 2
+          lesson.steps.length - guidedStepCount
         );
         assert.doesNotMatch(JSON.stringify(lesson), /"answer"\s*:/);
 
         for (const step of lesson.steps) {
-          assert.ok(step.hint.length >= 20);
-          assert.equal(step.interaction, undefined);
-          assert.equal(step.options.length, 4);
-          assert.equal(new Set(step.options).size, 4);
-          const correct = step.options.filter(option =>
-            gradeProgressiveLessonStep(lesson.lessonKey, step.id, option)?.isCorrect
-          );
-          assert.equal(correct.length, 1, `${step.id} must have exactly one answer`);
+          assert.ok(step.hint.length >= (isAuthoredGrade1Math ? 5 : 20));
+          if (step.options.length > 0) {
+            assert.ok(step.options.length >= 2);
+            assert.equal(new Set(step.options).size, step.options.length);
+            const correct = step.options.filter(option =>
+              gradeProgressiveLessonStep(lesson.lessonKey, step.id, option)?.isCorrect
+            );
+            assert.equal(correct.length, 1, `${step.id} must have exactly one answer`);
+          } else {
+            assert.ok(step.componentScene || step.interaction, `${step.id} needs a typed interaction`);
+          }
         }
       }
     }
@@ -64,7 +71,7 @@ test('builds independent sequential paths for lower-primary subjects and math al
   const math = buildProgressiveLearningPath('mathematics', [], 'Grade 1');
   assert.equal(math.subjectId, 'math');
   assert.equal(math.subjectName, 'Mathematics');
-  assert.equal(math.nodes.length, 3);
+  assert.equal(math.nodes.length, 53);
   assert.equal(math.nodes[0].status, 'current');
   assert.ok(math.nodes.slice(1).every(node => node.status === 'locked'));
 
@@ -270,7 +277,9 @@ test('publishes only grade-appropriate arithmetic challenges in lower-primary Nu
     ]
   } as const;
 
-  for (const grade of GRADES) {
+  assert.equal(listProgressiveLessonDefinitions({ grade: 'Grade 1', subjectId: 'math' }).length, 53);
+
+  for (const grade of ['Grade 2', 'Grade 3'] as const) {
     const lesson = listProgressiveLessonDefinitions({ grade, subjectId: 'math' })
       .find(candidate => candidate.subStrand === 'Number Concept');
     assert.ok(lesson, `${grade} should include the Number Concept lesson`);

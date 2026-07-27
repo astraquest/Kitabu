@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kitabu Grade 1 Mathematics outcome mission",
+  "type": "object",
+  "required": ["curriculum", "mission"],
+  "properties": {
+    "curriculum": {"type": "object", "required": ["country", "curriculum", "grade", "subject", "strand", "subStrand", "outcomeText"]},
+    "mission": {"type": "object", "required": ["title", "interactions"], "properties": {"title": {"type": "string"}, "interactions": {"type": "array", "minItems": 6, "maxItems": 6}}}
+  }
+}

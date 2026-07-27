@@ -1,0 +1,169 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.1-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.1 Pre-number activities",
+    "subStrandId": "894525aa-7d31-4533-8d49-196c7a3f1148",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "create patterns of different sizes and shapes using real objects",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ],
+    "sourceTextSha256": "eddb615b1a4c1f2f35fe42ddafa7bc55e3d81fcf2cb7065de5099b7ea5a5347e"
+  },
+  "mission": {
+    "title": "create patterns of different sizes and shapes using real objects",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look: small bottle top, big bottle top, small bottle top. What comes next?",
+        "objects": [
+          "small-bottle-top",
+          "big-bottle-top",
+          "small-bottle-top"
+        ],
+        "choices": [
+          "big-bottle-top",
+          "small-bottle-top",
+          "spoon"
+        ],
+        "answer": "big-bottle-top",
+        "feedback": "Yes! The small and big bottle tops take turns.",
+        "retryHint": "Say the pattern: small, big, small. Which one is missing?"
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Help the lion make this spoon pattern: small spoon, big spoon, small spoon, big spoon.",
+        "sequence": [
+          "small-spoon",
+          "big-spoon",
+          "small-spoon"
+        ],
+        "availableObjects": [
+          "big-spoon",
+          "small-spoon",
+          "cup"
+        ],
+        "tapAlternative": "Tap the object that comes next instead of dragging it.",
+        "answer": [
+          "big-spoon"
+        ],
+        "feedback": "Good pattern making! Small, big, small, big.",
+        "retryHint": "The spoons are taking turns. After small comes big."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Put the next two bottle tops in the row: round, square, round, square, __, __.",
+        "sequence": [
+          "round-bottle-top",
+          "square-bottle-top",
+          "round-bottle-top",
+          "square-bottle-top"
+        ],
+        "availableObjects": [
+          "round-bottle-top",
+          "square-bottle-top",
+          "triangle-card"
+        ],
+        "targetSlots": 2,
+        "tapAlternative": "Tap round, then square to fill the two spaces.",
+        "answer": [
+          "round-bottle-top",
+          "square-bottle-top"
+        ],
+        "feedback": "Well done! Round, square repeats again.",
+        "retryHint": "Find the two shapes that repeat: round then square."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Make a size pattern with beans: small, small, big, small, small, big.",
+        "availableObjects": [
+          "small-bean",
+          "big-bean",
+          "medium-bean"
+        ],
+        "targetSlots": 6,
+        "tapAlternative": "Tap each bean in order to build the row.",
+        "answer": [
+          "small-bean",
+          "small-bean",
+          "big-bean",
+          "small-bean",
+          "small-bean",
+          "big-bean"
+        ],
+        "feedback": "Excellent! You repeated small, small, big.",
+        "retryHint": "Build one group first: two small beans and one big bean. Then repeat it."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "At a picnic, make a mat border: circle leaf, triangle leaf, triangle leaf. Repeat it once.",
+        "availableObjects": [
+          "circle-leaf",
+          "triangle-leaf",
+          "square-leaf"
+        ],
+        "targetSlots": 6,
+        "tapAlternative": "Tap the leaves in order to make the border.",
+        "answer": [
+          "circle-leaf",
+          "triangle-leaf",
+          "triangle-leaf",
+          "circle-leaf",
+          "triangle-leaf",
+          "triangle-leaf"
+        ],
+        "feedback": "Lovely! Your circle, triangle, triangle border repeats.",
+        "retryHint": "Make the first group: one circle leaf and two triangle leaves. Then make it again."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Show what you know. Make this pattern twice: small round stone, big square stone.",
+        "availableObjects": [
+          "small-round-stone",
+          "big-square-stone",
+          "big-round-stone",
+          "small-square-stone"
+        ],
+        "targetSlots": 4,
+        "tapAlternative": "Tap the stones in order to make the pattern.",
+        "answer": [
+          "small-round-stone",
+          "big-square-stone",
+          "small-round-stone",
+          "big-square-stone"
+        ],
+        "feedback": "You did it! You repeated a pattern with both size and shape.",
+        "retryHint": "Use the same pair again: small round stone, then big square stone."
+      }
+    ]
+  }
+}

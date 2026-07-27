@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.3-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.3 Capacity",
+    "subStrandId": "1813a447-c7a9-45fa-9f6b-73856f1863bb",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "collect containers of different capacities from the immediate environment",
+    "sourcePages": [
+      28,
+      29,
+      30
+    ]
+  },
+  "mission": {
+    "title": "collect containers of different capacities from the immediate environment",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the thing that can hold water.",
+        "objects": [
+          "cup",
+          "ball",
+          "pencil"
+        ],
+        "choices": [
+          "cup",
+          "ball",
+          "pencil"
+        ],
+        "answer": "cup",
+        "feedback": "Yes! A cup is a container. It can hold water.",
+        "retryHint": "Look for something with space inside it."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Watch Amani collect containers: a cup, a bottle, and a bucket. Tap the bucket.",
+        "objects": [
+          "cup",
+          "bottle",
+          "bucket"
+        ],
+        "choices": [
+          "cup",
+          "bottle",
+          "bucket"
+        ],
+        "answer": "bucket",
+        "feedback": "Great! A bucket is a container too.",
+        "retryHint": "Find the container with a handle and lots of space inside."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "Help Zuri collect only the containers. Tap each container, then tap Done.",
+        "items": [
+          "cup",
+          "stone",
+          "tin",
+          "leaf"
+        ],
+        "answer": [
+          "cup",
+          "tin"
+        ],
+        "tapAlternative": "Tap the cup and tin. Do not tap the stone or leaf.",
+        "feedback": "Well done! The cup and tin can hold things.",
+        "retryHint": "A container has an inside where something can go."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "At home, which one could hold porridge? Tap it.",
+        "objects": [
+          "bowl",
+          "shoe",
+          "book"
+        ],
+        "choices": [
+          "bowl",
+          "shoe",
+          "book"
+        ],
+        "answer": "bowl",
+        "feedback": "Correct! A bowl can hold porridge.",
+        "retryHint": "Choose the object with an open space inside."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "At the school garden, collect the containers that could carry water.",
+        "items": [
+          "watering-can",
+          "bucket",
+          "stick",
+          "flower"
+        ],
+        "answer": [
+          "watering-can",
+          "bucket"
+        ],
+        "tapAlternative": "Tap the watering can and bucket. They both have room inside.",
+        "feedback": "Wonderful! Both the watering can and bucket can carry water.",
+        "retryHint": "Pick things that can hold water without it falling out."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "Show what you know. Collect all the containers for a picnic.",
+        "items": [
+          "cup",
+          "plate",
+          "juice-bottle",
+          "ball",
+          "food-tin"
+        ],
+        "answer": [
+          "cup",
+          "juice-bottle",
+          "food-tin"
+        ],
+        "tapAlternative": "Tap the cup, juice bottle, and food tin. Each can hold something.",
+        "feedback": "Excellent! You collected three containers from your environment.",
+        "retryHint": "Containers have space inside for food, drink, or other things."
+      }
+    ]
+  }
+}

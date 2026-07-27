@@ -31,6 +31,7 @@ COPY --from=build /app/apps/api/certs /app/certs
 COPY --from=build /app/apps/api/media /app/media
 COPY --from=build /app/apps/api/data/quiz-bank /app/data/quiz-bank
 COPY --from=build /app/apps/api/data/curriculum /app/data/curriculum
+COPY --from=build /app/apps/api/data/learning-content /app/data/learning-content
 COPY apps/web/privacy /app/legal/privacy
 COPY apps/web/policy /app/legal/policy
 COPY apps/web/terms /app/legal/terms

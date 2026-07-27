@@ -1,0 +1,191 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-7",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-7",
+    "outcomePosition": 7,
+    "outcomeText": "appreciate number patterns by creating",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "appreciate number patterns by creating",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at 1, 2, 1, 2. Which number comes next?",
+        "pattern": [
+          1,
+          2,
+          1,
+          2,
+          null
+        ],
+        "choices": [
+          1,
+          2,
+          3
+        ],
+        "answer": 1,
+        "feedback": "Yes! The numbers 1 and 2 take turns.",
+        "retryHint": "Say the pattern aloud: 1, 2, 1, 2. Start it again."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Let us make a counting pattern: 3, 4, 5, 6.",
+        "sequence": [
+          3,
+          4
+        ],
+        "availableObjects": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "targetSlots": 2,
+        "tapAlternative": "Tap 5, then 6 to finish the pattern.",
+        "answer": [
+          5,
+          6
+        ],
+        "feedback": "Great! Each number is one more: 3, 4, 5, 6.",
+        "retryHint": "Count on from 4: 5, then 6."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Make a pattern that adds 2: 2, 4, 6, 8.",
+        "sequence": [
+          2,
+          4
+        ],
+        "availableObjects": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "targetSlots": 2,
+        "tapAlternative": "Tap 6, then 8 to finish the pattern.",
+        "answer": [
+          6,
+          8
+        ],
+        "feedback": "Well done! You added 2 each time.",
+        "retryHint": "Count two more than 4 to get 6, then two more to get 8."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordered-sequence",
+        "prompt": "Create a counting pattern from 7 to 11.",
+        "items": [
+          {
+            "id": "number-10",
+            "label": "10"
+          },
+          {
+            "id": "number-8",
+            "label": "8"
+          },
+          {
+            "id": "number-11",
+            "label": "11"
+          },
+          {
+            "id": "number-7",
+            "label": "7"
+          },
+          {
+            "id": "number-9",
+            "label": "9"
+          }
+        ],
+        "tapAlternative": "Tap the number cards in counting order.",
+        "answer": [
+          "number-7",
+          "number-8",
+          "number-9",
+          "number-10",
+          "number-11"
+        ],
+        "feedback": "Correct! You created 7, 8, 9, 10, 11.",
+        "retryHint": "Start with 7. Choose one more each time."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "A bead string uses number cards. Make this pattern twice: 5, 10.",
+        "availableObjects": [
+          5,
+          10,
+          15
+        ],
+        "targetSlots": 4,
+        "tapAlternative": "Tap 5, 10, 5, then 10.",
+        "answer": [
+          5,
+          10,
+          5,
+          10
+        ],
+        "feedback": "Lovely! You repeated the number pattern 5, 10.",
+        "retryHint": "Use the same pair again: 5, then 10."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pattern",
+        "prompt": "Show what you know. Create the pattern 12, 14, 16, 18, 20.",
+        "sequence": [
+          12,
+          14
+        ],
+        "availableObjects": [
+          15,
+          16,
+          17,
+          18,
+          20
+        ],
+        "targetSlots": 3,
+        "tapAlternative": "Tap 16, 18, then 20 to finish the pattern.",
+        "answer": [
+          16,
+          18,
+          20
+        ],
+        "feedback": "Excellent! You created a pattern by adding 2 each time.",
+        "retryHint": "Start at 14 and count two more each time."
+      }
+    ]
+  }
+}

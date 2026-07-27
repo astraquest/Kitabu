@@ -1,0 +1,179 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.1-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.1 Lines",
+    "subStrandId": "ad7968e3-394c-4407-bdaa-4f353cdcb571",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "identify curved lines in different situations",
+    "sourcePages": [
+      36,
+      37,
+      38
+    ],
+    "sourceTextSha256": "3b4ea5c2d8b248e5ce76b79c073061ba9bbc9b97691b07d19c30e6bf3d2e105e"
+  },
+  "mission": {
+    "title": "identify curved lines in different situations",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at the two lines. Tap the curvy line.",
+        "choices": [
+          {
+            "id": "straight-line",
+            "label": "A straight line",
+            "accessibleDescription": "a line that goes straight across"
+          },
+          {
+            "id": "curved-line",
+            "label": "A curvy line",
+            "accessibleDescription": "a line that bends smoothly"
+          }
+        ],
+        "answer": "curved-line",
+        "feedback": "Yes! A curved line bends smoothly.",
+        "retryHint": "Find the line that bends instead of going straight."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "A rainbow makes a curvy line in the sky. Tap the rainbow.",
+        "choices": [
+          {
+            "id": "rainbow",
+            "label": "Rainbow",
+            "accessibleDescription": "a rainbow curved like an arch"
+          },
+          {
+            "id": "ruler",
+            "label": "Ruler",
+            "accessibleDescription": "a ruler with straight edges"
+          },
+          {
+            "id": "stick",
+            "label": "Stick",
+            "accessibleDescription": "a straight stick"
+          }
+        ],
+        "answer": "rainbow",
+        "feedback": "Great looking! The rainbow has a curved line.",
+        "retryHint": "Think of the line that bends like an arch."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "prompt": "Help the lion follow the curvy river. Trace the bending path.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "curvy-river",
+            "label": "Curvy river path",
+            "accessibleDescription": "a path that bends gently from left to right"
+          },
+          {
+            "id": "straight-road",
+            "label": "Straight road",
+            "accessibleDescription": "a road that goes straight"
+          }
+        ],
+        "tapAlternative": "Tap the curvy river path to choose it.",
+        "answer": [
+          "curvy-river"
+        ],
+        "feedback": "Well done! The river path is curved because it bends.",
+        "retryHint": "Choose the path that turns and bends."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which object has a curved line? Tap it.",
+        "choices": [
+          {
+            "id": "banana",
+            "label": "Banana",
+            "accessibleDescription": "a banana that bends in a curve"
+          },
+          {
+            "id": "pencil",
+            "label": "Pencil",
+            "accessibleDescription": "a pencil with a straight side"
+          },
+          {
+            "id": "book-edge",
+            "label": "Book edge",
+            "accessibleDescription": "a straight edge of a book"
+          }
+        ],
+        "answer": "banana",
+        "feedback": "Correct! The banana bends in a curved line.",
+        "retryHint": "Look for the object that is not straight."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "At the playground, which part is curved? Tap it.",
+        "choices": [
+          {
+            "id": "slide",
+            "label": "Bending slide",
+            "accessibleDescription": "a slide that curves down"
+          },
+          {
+            "id": "bench",
+            "label": "Bench edge",
+            "accessibleDescription": "a straight bench edge"
+          },
+          {
+            "id": "fence",
+            "label": "Fence rail",
+            "accessibleDescription": "a straight fence rail"
+          }
+        ],
+        "answer": "slide",
+        "feedback": "You found it! The bending slide has a curved line.",
+        "retryHint": "Choose the playground part that bends."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "prompt": "Show what you know. Trace the curved line around the bowl.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "bowl-curve",
+            "label": "Curved bowl edge",
+            "accessibleDescription": "the round edge of a bowl"
+          },
+          {
+            "id": "table-edge",
+            "label": "Straight table edge",
+            "accessibleDescription": "a straight edge of a table"
+          }
+        ],
+        "tapAlternative": "Tap the round edge of the bowl to choose it.",
+        "answer": [
+          "bowl-curve"
+        ],
+        "feedback": "Excellent! The round edge of the bowl is a curved line.",
+        "retryHint": "Pick the edge that bends around the bowl."
+      }
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.3-outcome-6",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.3 Addition",
+    "subStrandId": "5366fd9b-7934-44da-8dbc-39aa3ff14013",
+    "outcomeId": "outcome-6",
+    "outcomePosition": 6,
+    "outcomeText": "work out missing numbers in patterns involving addition up to 50",
+    "sourcePages": [
+      18,
+      19,
+      20
+    ],
+    "sourceTextSha256": "d198c95f9e2e426b4a8380d9614fbb42f132b9cd567117f9501723230d1184e5"
+  },
+  "mission": {
+    "title": "work out missing numbers in patterns involving addition up to 50",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "The numbers grow by 1: 3, 4, __, 6. Tap the missing number.",
+        "pattern": {
+          "values": [
+            3,
+            4,
+            null,
+            6
+          ],
+          "rule": "+1",
+          "max": 50
+        },
+        "choices": [
+          2,
+          5,
+          7
+        ],
+        "answer": 5,
+        "feedback": "Yes! After 4 comes 5.",
+        "retryHint": "Count one more after 4."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "number-line-jump",
+        "prompt": "Watch the pattern: 5, 7, 9, __. It jumps 2 each time. Choose the next number.",
+        "pattern": {
+          "values": [
+            5,
+            7,
+            9,
+            null
+          ],
+          "rule": "+2",
+          "max": 50
+        },
+        "numberLine": {
+          "start": 5,
+          "jumps": 3,
+          "jumpSize": 2,
+          "end": 11,
+          "min": 0,
+          "max": 15
+        },
+        "choices": [
+          10,
+          11,
+          12
+        ],
+        "answer": 11,
+        "feedback": "Great! Add 2 after 9 to make 11.",
+        "retryHint": "Make two tiny jumps from 9: 10, then 11."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "complete-pattern",
+        "prompt": "Help the lion fill the path: 10, 13, __, 19. Tap the missing stepping stone.",
+        "pattern": {
+          "values": [
+            10,
+            13,
+            null,
+            19
+          ],
+          "rule": "+3",
+          "max": 50
+        },
+        "answerTiles": [
+          14,
+          16,
+          17
+        ],
+        "tapAlternative": "Tap a number tile instead of moving it.",
+        "answer": 16,
+        "feedback": "Well done! 10, 13, 16, 19 adds 3 each time.",
+        "retryHint": "Count three after 13: 14, 15, 16."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A fruit seller puts 4 more oranges in each basket: 8, 12, __, 20. What number is missing?",
+        "objects": [
+          "orange-basket",
+          "orange-basket",
+          "orange-basket",
+          "orange-basket"
+        ],
+        "pattern": {
+          "values": [
+            8,
+            12,
+            null,
+            20
+          ],
+          "rule": "+4",
+          "max": 50
+        },
+        "choices": [
+          14,
+          16,
+          18,
+          24
+        ],
+        "answer": 16,
+        "feedback": "Correct! 12 plus 4 is 16, then 16 plus 4 is 20.",
+        "retryHint": "Add four after 12: 13, 14, 15, 16."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ordered-pattern",
+        "prompt": "Put the number cards in order to make an adding-5 pattern that starts at 15.",
+        "pattern": {
+          "start": 15,
+          "rule": "+5",
+          "max": 50
+        },
+        "cards": [
+          25,
+          15,
+          20,
+          30
+        ],
+        "tapAlternative": "Tap the cards in the order 15, then 20, then 25, then 30.",
+        "answer": [
+          15,
+          20,
+          25,
+          30
+        ],
+        "feedback": "Wonderful! Each card is 5 more: 15, 20, 25, 30.",
+        "retryHint": "Start at 15. Count five more for each next card."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "complete-pattern",
+        "prompt": "Show what you know: 26, __, 34, 38. What number makes this adding-4 pattern?",
+        "pattern": {
+          "values": [
+            26,
+            null,
+            34,
+            38
+          ],
+          "rule": "+4",
+          "max": 50
+        },
+        "answerTiles": [
+          28,
+          30,
+          32,
+          36
+        ],
+        "tapAlternative": "Tap the number that fills the empty space.",
+        "answer": 30,
+        "feedback": "Excellent! 26, 30, 34, 38 adds 4 each time.",
+        "retryHint": "Add four after 26: 27, 28, 29, 30."
+      }
+    ]
+  }
+}

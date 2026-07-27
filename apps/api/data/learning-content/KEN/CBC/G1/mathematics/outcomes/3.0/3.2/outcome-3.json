@@ -1,0 +1,183 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.2-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.2 Shapes",
+    "subStrandId": "77e1b45d-6336-40fd-967d-e5a7ff409fb0",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "appreciate the beauty of patterns in different fabrics.",
+    "sourcePages": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "sourceTextSha256": "d559ee913eb976d22b99e62c7b1d53a68368338737c34a440ec333e2d737dfef"
+  },
+  "mission": {
+    "title": "appreciate the beauty of patterns in different fabrics.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at the kitenge cloth. Which shape repeats?",
+        "objects": [
+          "triangle",
+          "circle",
+          "triangle",
+          "circle"
+        ],
+        "choices": [
+          "triangle",
+          "rectangle",
+          "oval"
+        ],
+        "answer": "triangle",
+        "feedback": "Yes! Triangles repeat to make this cloth pattern beautiful.",
+        "retryHint": "Look for the shape that comes again and again."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Watch the pattern: circle, rectangle, circle, rectangle. What comes next?",
+        "objects": [
+          "circle",
+          "rectangle",
+          "circle",
+          "rectangle"
+        ],
+        "choices": [
+          "circle",
+          "triangle",
+          "oval"
+        ],
+        "answer": "circle",
+        "feedback": "Great looking! The circle starts the pattern again.",
+        "retryHint": "Say the repeating part: circle, rectangle."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Make a fabric border. Tap the shapes in this order: triangle, triangle, circle.",
+        "activityMode": "ordered-pattern",
+        "targets": [
+          {
+            "id": "triangle-one",
+            "label": "triangle",
+            "accessibleDescription": "first triangle"
+          },
+          {
+            "id": "triangle-two",
+            "label": "triangle",
+            "accessibleDescription": "second triangle"
+          },
+          {
+            "id": "circle",
+            "label": "circle",
+            "accessibleDescription": "circle"
+          },
+          {
+            "id": "rectangle",
+            "label": "rectangle",
+            "accessibleDescription": "rectangle"
+          }
+        ],
+        "tapAlternative": "Tap the shapes in the order shown; dragging is not needed.",
+        "answer": [
+          "triangle-one",
+          "triangle-two",
+          "circle"
+        ],
+        "feedback": "Lovely! Your triangle, triangle, circle border has a repeating part.",
+        "retryHint": "Start with two triangles. Then add one circle."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "A Maasai shuka pattern goes oval, oval, rectangle, oval, oval, rectangle. What comes next?",
+        "objects": [
+          "oval",
+          "oval",
+          "rectangle",
+          "oval",
+          "oval",
+          "rectangle"
+        ],
+        "choices": [
+          "oval",
+          "circle",
+          "triangle",
+          "rectangle"
+        ],
+        "answer": "oval",
+        "feedback": "Correct! The pattern begins again with an oval.",
+        "retryHint": "Find the small group that repeats: oval, oval, rectangle."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Finish this cloth strip. Tap the next two shapes after circle, triangle, rectangle, circle.",
+        "activityMode": "ordered-pattern",
+        "targets": [
+          {
+            "id": "triangle",
+            "label": "triangle",
+            "accessibleDescription": "triangle"
+          },
+          {
+            "id": "rectangle",
+            "label": "rectangle",
+            "accessibleDescription": "rectangle"
+          },
+          {
+            "id": "circle",
+            "label": "circle",
+            "accessibleDescription": "circle"
+          },
+          {
+            "id": "oval",
+            "label": "oval",
+            "accessibleDescription": "oval"
+          }
+        ],
+        "tapAlternative": "Tap triangle, then rectangle to finish the strip.",
+        "answer": [
+          "triangle",
+          "rectangle"
+        ],
+        "feedback": "Beautiful work! You continued the cloth pattern correctly.",
+        "retryHint": "Repeat the group: circle, triangle, rectangle."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Which fabric strip has a repeating pattern?",
+        "choices": [
+          "circle, triangle, circle, triangle",
+          "circle, triangle, rectangle, oval",
+          "triangle, circle, oval, rectangle"
+        ],
+        "answer": "circle, triangle, circle, triangle",
+        "feedback": "Excellent! Repeating shapes can make fabric look beautiful.",
+        "retryHint": "Choose the strip with the same small shape group repeated."
+      }
+    ]
+  }
+}

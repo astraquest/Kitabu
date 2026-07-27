@@ -1,0 +1,240 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.1-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.1 Length",
+    "subStrandId": "d9d4e676-02df-470b-8f24-622c33124a2e",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "collect objects of different lengths from the immediate environment",
+    "sourcePages": [
+      24,
+      25,
+      26
+    ],
+    "sourceTextSha256": "fd3fcb01d8f64176c4b328be6c4737c765bd4115bb01d6576f13ef0b422b98cd"
+  },
+  "mission": {
+    "title": "collect objects of different lengths from the immediate environment",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "We can find things that are long and things that are short. Tap the long pencil.",
+        "objects": [
+          {
+            "id": "short-pencil",
+            "label": "short pencil",
+            "length": "short"
+          },
+          {
+            "id": "long-pencil",
+            "label": "long pencil",
+            "length": "long"
+          },
+          {
+            "id": "book",
+            "label": "book",
+            "length": "medium"
+          }
+        ],
+        "choices": [
+          "short-pencil",
+          "long-pencil",
+          "book"
+        ],
+        "answer": "long-pencil",
+        "feedback": "Yes! You found a long pencil.",
+        "retryHint": "Look for the pencil that reaches the farthest."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "collect",
+        "prompt": "Lion is collecting things of different lengths. Tap the short crayon and the long ruler.",
+        "objects": [
+          {
+            "id": "short-crayon",
+            "label": "short crayon",
+            "length": "short"
+          },
+          {
+            "id": "long-ruler",
+            "label": "long ruler",
+            "length": "long"
+          },
+          {
+            "id": "cup",
+            "label": "cup",
+            "length": "not shown"
+          }
+        ],
+        "tapAlternative": "Tap each item to put it in Lion's collection.",
+        "answer": [
+          "short-crayon",
+          "long-ruler"
+        ],
+        "feedback": "Great collecting! Your two things have different lengths.",
+        "retryHint": "Choose one short thing and one long thing."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "collect",
+        "prompt": "Help Lion pack three sticks: a short stick, a medium stick, and a long stick.",
+        "objects": [
+          {
+            "id": "short-stick",
+            "label": "short stick",
+            "length": "short"
+          },
+          {
+            "id": "medium-stick",
+            "label": "medium stick",
+            "length": "medium"
+          },
+          {
+            "id": "long-stick",
+            "label": "long stick",
+            "length": "long"
+          },
+          {
+            "id": "ball",
+            "label": "ball",
+            "length": "not shown"
+          }
+        ],
+        "tapAlternative": "Tap the three sticks to collect them.",
+        "answer": [
+          "short-stick",
+          "medium-stick",
+          "long-stick"
+        ],
+        "feedback": "Well done! You collected sticks of three different lengths.",
+        "retryHint": "Pick every stick. Leave the ball."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "collect",
+        "prompt": "At home, collect the spoon, the book, and the broom. They are different lengths.",
+        "objects": [
+          {
+            "id": "spoon",
+            "label": "spoon",
+            "length": "short"
+          },
+          {
+            "id": "book",
+            "label": "book",
+            "length": "medium"
+          },
+          {
+            "id": "broom",
+            "label": "broom",
+            "length": "long"
+          },
+          {
+            "id": "plate",
+            "label": "plate",
+            "length": "not shown"
+          }
+        ],
+        "tapAlternative": "Tap the three things to add them to your collection.",
+        "answer": [
+          "spoon",
+          "book",
+          "broom"
+        ],
+        "feedback": "Correct! You found objects with different lengths at home.",
+        "retryHint": "Choose the spoon, book, and broom. Leave the plate."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "collect",
+        "prompt": "On the playground, collect a short leaf, a medium skipping rope, and a long pole.",
+        "objects": [
+          {
+            "id": "leaf",
+            "label": "short leaf",
+            "length": "short"
+          },
+          {
+            "id": "rope",
+            "label": "medium skipping rope",
+            "length": "medium"
+          },
+          {
+            "id": "pole",
+            "label": "long pole",
+            "length": "long"
+          },
+          {
+            "id": "stone",
+            "label": "stone",
+            "length": "not shown"
+          }
+        ],
+        "tapAlternative": "Tap the leaf, rope, and pole to collect them.",
+        "answer": [
+          "leaf",
+          "rope",
+          "pole"
+        ],
+        "feedback": "Nice work! You found different lengths outside too.",
+        "retryHint": "Look for the leaf, the rope, and the pole."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "collect",
+        "prompt": "Show what you know. Collect the three classroom things with different lengths.",
+        "objects": [
+          {
+            "id": "eraser",
+            "label": "short eraser",
+            "length": "short"
+          },
+          {
+            "id": "pencil",
+            "label": "medium pencil",
+            "length": "medium"
+          },
+          {
+            "id": "metre-stick",
+            "label": "long metre stick",
+            "length": "long"
+          },
+          {
+            "id": "cube",
+            "label": "cube",
+            "length": "not shown"
+          }
+        ],
+        "tapAlternative": "Tap the eraser, pencil, and metre stick to collect them.",
+        "answer": [
+          "eraser",
+          "pencil",
+          "metre-stick"
+        ],
+        "feedback": "Excellent! You can collect objects of different lengths.",
+        "retryHint": "Choose the eraser, pencil, and metre stick."
+      }
+    ]
+  }
+}

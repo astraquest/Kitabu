@@ -20,6 +20,8 @@ type PictureChoiceChallengeSceneProps = {
   selectedAnswer: string | null;
   spec: PictureChoiceSpec;
   status: 'idle' | 'checking' | 'correct' | 'incorrect';
+  feedbackMessage?: string;
+  retryHint?: string;
 };
 
 /** Reusable picture-led assessment for early learners. */
@@ -33,12 +35,14 @@ export function PictureChoiceChallengeScene({
   selectedAnswer,
   spec,
   status,
+  feedbackMessage,
+  retryHint,
 }: PictureChoiceChallengeSceneProps) {
   const feedbackText =
     status === 'correct'
-      ? 'Well done!'
+      ? feedbackMessage ?? 'Well done!'
       : status === 'incorrect'
-        ? 'Look again and try another answer.'
+        ? retryHint ?? 'Look again and try another answer.'
         : status === 'checking'
           ? 'Checking...'
           : null;

@@ -1,0 +1,204 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.1 Length",
+    "subStrandId": "d9d4e676-02df-470b-8f24-622c33124a2e",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "compare the length of objects using longer than, shorter than, and same as",
+    "sourcePages": [
+      24,
+      25,
+      26
+    ],
+    "sourceTextSha256": "fd3fcb01d8f64176c4b328be6c4737c765bd4115bb01d6576f13ef0b422b98cd"
+  },
+  "mission": {
+    "title": "compare the length of objects using longer than, shorter than, and same as",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at the two pencils. Which pencil is longer?",
+        "model": {
+          "objects": [
+            {
+              "id": "red-pencil",
+              "label": "red pencil",
+              "lengthUnits": 5
+            },
+            {
+              "id": "blue-pencil",
+              "label": "blue pencil",
+              "lengthUnits": 3
+            }
+          ],
+          "alignment": "start together"
+        },
+        "choices": [
+          "red pencil",
+          "blue pencil"
+        ],
+        "answer": "red pencil",
+        "feedback": "Yes! The red pencil is longer.",
+        "retryHint": "Put your finger at the start of both pencils. Which one reaches farther?"
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Start both ribbons at the same line. The yellow ribbon reaches farther. It is ___.",
+        "model": {
+          "objects": [
+            {
+              "id": "yellow-ribbon",
+              "label": "yellow ribbon",
+              "lengthUnits": 6
+            },
+            {
+              "id": "green-ribbon",
+              "label": "green ribbon",
+              "lengthUnits": 4
+            }
+          ],
+          "alignment": "start together"
+        },
+        "choices": [
+          "longer",
+          "shorter",
+          "the same length"
+        ],
+        "answer": "longer",
+        "feedback": "Right! The yellow ribbon is longer.",
+        "retryHint": "The ribbon that reaches farther is longer."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Two drinking straws start together. The orange straw stops first. It is ___.",
+        "model": {
+          "objects": [
+            {
+              "id": "orange-straw",
+              "label": "orange straw",
+              "lengthUnits": 2
+            },
+            {
+              "id": "purple-straw",
+              "label": "purple straw",
+              "lengthUnits": 5
+            }
+          ],
+          "alignment": "start together"
+        },
+        "choices": [
+          "longer",
+          "shorter",
+          "the same length"
+        ],
+        "answer": "shorter",
+        "feedback": "Good job! The orange straw is shorter.",
+        "retryHint": "Which straw stops first? That one is shorter."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "The two sticks begin and end together. How are they?",
+        "model": {
+          "objects": [
+            {
+              "id": "stick-one",
+              "label": "first stick",
+              "lengthUnits": 4
+            },
+            {
+              "id": "stick-two",
+              "label": "second stick",
+              "lengthUnits": 4
+            }
+          ],
+          "alignment": "start together"
+        },
+        "choices": [
+          "one is longer",
+          "one is shorter",
+          "the same length"
+        ],
+        "answer": "the same length",
+        "feedback": "Correct! The sticks are the same length.",
+        "retryHint": "Check both ends. Do they begin and finish together?"
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "At home, Amina places two spoons side by side. The wooden spoon reaches farther than the metal spoon. Which sentence is true?",
+        "model": {
+          "objects": [
+            {
+              "id": "wooden-spoon",
+              "label": "wooden spoon",
+              "lengthUnits": 6
+            },
+            {
+              "id": "metal-spoon",
+              "label": "metal spoon",
+              "lengthUnits": 4
+            }
+          ],
+          "alignment": "start together"
+        },
+        "choices": [
+          "The wooden spoon is longer.",
+          "The wooden spoon is shorter.",
+          "The spoons are the same length."
+        ],
+        "answer": "The wooden spoon is longer.",
+        "feedback": "Great thinking! The wooden spoon is longer.",
+        "retryHint": "Look for the spoon that reaches farther from the starting line."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. A red crayon is 3 blocks long. A blue crayon is 5 blocks long. Which crayon is shorter?",
+        "model": {
+          "objects": [
+            {
+              "id": "red-crayon",
+              "label": "red crayon",
+              "lengthUnits": 3
+            },
+            {
+              "id": "blue-crayon",
+              "label": "blue crayon",
+              "lengthUnits": 5
+            }
+          ],
+          "alignment": "start together",
+          "unit": "blocks"
+        },
+        "choices": [
+          "red crayon",
+          "blue crayon",
+          "They are the same length"
+        ],
+        "answer": "red crayon",
+        "feedback": "Excellent! The red crayon is shorter.",
+        "retryHint": "Three blocks is less than five blocks, so that crayon is shorter."
+      }
+    ]
+  }
+}

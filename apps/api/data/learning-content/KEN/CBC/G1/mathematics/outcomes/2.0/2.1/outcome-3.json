@@ -1,0 +1,188 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.1-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.1 Length",
+    "subStrandId": "d9d4e676-02df-470b-8f24-622c33124a2e",
+    "outcomeId": "outcome-3",
+    "outcomePosition": 3,
+    "outcomeText": "measure length using arbitrary units",
+    "sourcePages": [
+      24,
+      25,
+      26
+    ],
+    "sourceTextSha256": "fd3fcb01d8f64176c4b328be6c4737c765bd4115bb01d6576f13ef0b422b98cd"
+  },
+  "mission": {
+    "title": "measure length using arbitrary units",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "A leaf is as long as 3 buttons. Count the buttons. How many buttons long is the leaf?",
+        "objects": [
+          "leaf",
+          "button",
+          "button",
+          "button"
+        ],
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "feedback": "Yes! The leaf is 3 buttons long.",
+        "retryHint": "Touch each button once as you count."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "sort",
+        "prompt": "Help the lion measure a pencil with cubes. Start the first cube at the pencil's end. Put 4 cubes in one straight line.",
+        "availableObjects": [
+          "cube-1",
+          "cube-2",
+          "cube-3",
+          "cube-4"
+        ],
+        "targetSlots": [
+          "cube-slot-1",
+          "cube-slot-2",
+          "cube-slot-3",
+          "cube-slot-4"
+        ],
+        "sequence": [
+          "cube-1",
+          "cube-2",
+          "cube-3",
+          "cube-4"
+        ],
+        "tapAlternative": "Tap the four cube spaces from left to right.",
+        "answer": [
+          "cube-1",
+          "cube-2",
+          "cube-3",
+          "cube-4"
+        ],
+        "feedback": "Good measuring! The pencil is 4 cubes long.",
+        "retryHint": "Put the cubes edge to edge. Do not leave a gap."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "These 5 bottle tops measure the book. Tap the number of bottle tops.",
+        "objects": [
+          "book",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top"
+        ],
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "5",
+        "feedback": "Well done! The book is 5 bottle tops long.",
+        "retryHint": "Count every bottle top that touches the book's length."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "sort",
+        "prompt": "Measure the crayon using paper clips. Place 6 paper clips from one end to the other.",
+        "availableObjects": [
+          "clip-1",
+          "clip-2",
+          "clip-3",
+          "clip-4",
+          "clip-5",
+          "clip-6"
+        ],
+        "targetSlots": [
+          "clip-slot-1",
+          "clip-slot-2",
+          "clip-slot-3",
+          "clip-slot-4",
+          "clip-slot-5",
+          "clip-slot-6"
+        ],
+        "sequence": [
+          "clip-1",
+          "clip-2",
+          "clip-3",
+          "clip-4",
+          "clip-5",
+          "clip-6"
+        ],
+        "tapAlternative": "Tap the six paper-clip spaces in order.",
+        "answer": [
+          "clip-1",
+          "clip-2",
+          "clip-3",
+          "clip-4",
+          "clip-5",
+          "clip-6"
+        ],
+        "feedback": "Correct! The crayon is 6 paper clips long.",
+        "retryHint": "Begin at the crayon's end and keep the clips touching."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "At home, Amina measures a mat with 7 hand spans. Which label is right?",
+        "choices": [
+          "7 hand spans",
+          "7 metres",
+          "7 hours"
+        ],
+        "answer": "7 hand spans",
+        "feedback": "Great thinking! Hand spans can measure a mat.",
+        "retryHint": "Choose the same kind of unit Amina used."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. A table edge is 8 blocks long. Tap 8.",
+        "objects": [
+          "table-edge",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block",
+          "block"
+        ],
+        "choices": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "answer": "8",
+        "feedback": "Excellent! The table edge is 8 blocks long.",
+        "retryHint": "Count the blocks from the first end to the last end."
+      }
+    ]
+  }
+}

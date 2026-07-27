@@ -1,0 +1,169 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "count numbers backward from 30",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "count numbers backward from 30",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "The lion says: 5, 4, 3, __. What comes next?",
+        "choices": [
+          "2",
+          "4",
+          "6"
+        ],
+        "answer": "2",
+        "feedback": "Yes! When we count backward, 2 comes after 3.",
+        "retryHint": "Count down one each time: 5, 4, 3, then __."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "prompt": "Follow the number path. Start at 10 and count backward to 6.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 1,
+          "end": 10,
+          "highlightStart": 10
+        },
+        "tapAlternative": "Tap 9, then 8, then 7, then 6.",
+        "answer": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "feedback": "Great! You counted back: 10, 9, 8, 7, 6.",
+        "retryHint": "Move one number down each time. Start just before 10."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "prompt": "Amani has 16 oranges. Count backward to 11 as she gives one away at a time.",
+        "activityMode": "number-line-path",
+        "context": {
+          "setting": "market stall",
+          "object": "orange"
+        },
+        "numberLine": {
+          "start": 10,
+          "end": 20,
+          "highlightStart": 16
+        },
+        "tapAlternative": "Tap each smaller number in order.",
+        "answer": [
+          15,
+          14,
+          13,
+          12,
+          11
+        ],
+        "feedback": "Well done! You counted backward from 16 to 11.",
+        "retryHint": "Each orange given away means one less. Begin with 15."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "prompt": "Start at 23. Tap the next five numbers when counting backward.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 15,
+          "end": 25,
+          "highlightStart": 23
+        },
+        "tapAlternative": "Tap the numbers one at a time, from bigger to smaller.",
+        "answer": [
+          22,
+          21,
+          20,
+          19,
+          18
+        ],
+        "feedback": "Correct! 22, 21, 20, 19, 18 come before 23.",
+        "retryHint": "Take one away each time: 23, then __."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "prompt": "Put these bus tickets in backward counting order, starting at 29.",
+        "activityMode": "ordered-sequence",
+        "items": [
+          {
+            "id": "ticket-27",
+            "label": "27"
+          },
+          {
+            "id": "ticket-29",
+            "label": "29"
+          },
+          {
+            "id": "ticket-26",
+            "label": "26"
+          },
+          {
+            "id": "ticket-28",
+            "label": "28"
+          }
+        ],
+        "tapAlternative": "Tap the tickets from the biggest number to the smallest.",
+        "answer": [
+          "ticket-29",
+          "ticket-28",
+          "ticket-27",
+          "ticket-26"
+        ],
+        "feedback": "Excellent! You counted backward from 29 to 26.",
+        "retryHint": "Find 29 first. Each next ticket is one less."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "prompt": "Show what you know. Start at 30 and count backward to 25.",
+        "activityMode": "number-line-path",
+        "numberLine": {
+          "start": 20,
+          "end": 30,
+          "highlightStart": 30
+        },
+        "tapAlternative": "Tap 29, 28, 27, 26, then 25.",
+        "answer": [
+          29,
+          28,
+          27,
+          26,
+          25
+        ],
+        "feedback": "Fantastic! You counted backward from 30 to 25.",
+        "retryHint": "Start just before 30 and move down one number each time."
+      }
+    ]
+  }
+}

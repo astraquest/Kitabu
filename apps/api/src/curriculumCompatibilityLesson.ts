@@ -25,6 +25,7 @@ type CurriculumPathSubject = {
         code?: string;
         title: string;
       }>;
+      outcomes?: Array<{ id?: string; text: string }>;
       isCompleted: boolean;
       needsRemediation: boolean;
       masteryScore?: number | null;
@@ -34,8 +35,9 @@ type CurriculumPathSubject = {
 
 type AuthoredCurriculumLesson = Pick<
   ProgressiveLessonPrivate,
-  'lessonKey' | 'lessonVersion' | 'strand' | 'subStrand' | 'curriculumTopicCode' | 'objective' | 'estimatedMinutes'
->;
+  'lessonKey' | 'lessonVersion' | 'strand' | 'subStrand' | 'curriculumTopicCode' |
+  'curriculumOutcomeId' | 'curriculumLocationKey' | 'objective' | 'estimatedMinutes'
+> & { title?: string };
 
 const normalizeLabel = (value: string) => value
   .normalize('NFKD')
@@ -44,6 +46,60 @@ const normalizeLabel = (value: string) => value
   .toLocaleLowerCase('en-KE')
   .replace(/[^a-z0-9]+/g, ' ')
   .trim();
+
+type CurriculumOutcomeLocation = {
+  strand: string;
+  subStrand: string;
+  outcomeId: string;
+};
+
+/**
+ * Returns the portable identity shared by an authored mission and its official
+ * curriculum outcome. Outcome identifiers are only unique within their
+ * strand/sub-strand location, so they must never be indexed on their own.
+ */
+export function curriculumOutcomeLocationKey(location: CurriculumOutcomeLocation) {
+  return JSON.stringify([
+    normalizeLabel(location.strand),
+    normalizeLabel(location.subStrand),
+    normalizeLabel(location.outcomeId),
+  ]);
+}
+
+function curriculumOutcomeNodeId(input: {
+  strandId?: string;
+  strandTitle: string;
+  subStrandId: string;
+  outcomeId?: string;
+  outcomePosition: number;
+}) {
+  return [
+    'curriculum-outcome',
+    input.strandId ?? normalizeLabel(input.strandTitle),
+    input.subStrandId,
+    input.outcomeId ?? `position-${input.outcomePosition + 1}`,
+  ].map(part => encodeURIComponent(part)).join(':');
+}
+
+function uniqueLocationMap(lessons: AuthoredCurriculumLesson[]) {
+  const result = new Map<string, AuthoredCurriculumLesson>();
+  const ambiguous = new Set<string>();
+  for (const lesson of lessons) {
+    if (!lesson.curriculumOutcomeId) continue;
+    const key = curriculumOutcomeLocationKey({
+      strand: lesson.strand,
+      subStrand: lesson.subStrand,
+      outcomeId: lesson.curriculumOutcomeId,
+    });
+    if (result.has(key)) {
+      result.delete(key);
+      ambiguous.add(key);
+    } else if (!ambiguous.has(key)) {
+      result.set(key, lesson);
+    }
+  }
+  return result;
+}
 
 export function buildCurriculumAuthoredPath(
   subject: CurriculumPathSubject,
@@ -60,6 +116,93 @@ export function buildCurriculumAuthoredPath(
   const ordered = subject.strands.flatMap(strand =>
     strand.subStrands.map(subStrand => ({ strand, subStrand })),
   );
+  const usesOutcomeMissions = authoredLessons.some(lesson => Boolean(lesson.curriculumOutcomeId));
+  if (usesOutcomeMissions) {
+    const missions = ordered.flatMap(({ strand, subStrand }) => {
+      const topic = subStrand.topics?.[0];
+      return (subStrand.outcomes ?? []).map((outcome, outcomePosition) => ({
+        strand,
+        subStrand,
+        topic,
+        outcome,
+        outcomePosition,
+      }));
+    });
+    const authoredByOutcomeLocation = uniqueLocationMap(authoredLessons);
+    let priorCompleted = true;
+    const nodes: ProgressivePathNode[] = missions.map((mission, position) => {
+      // A source outcome ID such as `outcome-1` is commonly reused by every
+      // sub-strand. Resolve only through its complete curriculum location.
+      // Objective text is display content and deliberately is not an identity
+      // fallback: copy edits must not silently bind a lesson to another node.
+      const matchedLesson = mission.outcome.id
+        ? authoredByOutcomeLocation.get(curriculumOutcomeLocationKey({
+            strand: mission.strand.title,
+            subStrand: mission.subStrand.title,
+            outcomeId: mission.outcome.id,
+          }))
+        : undefined;
+      const lessonProgress = matchedLesson
+        ? progressByLesson.get(matchedLesson.lessonKey)
+        : undefined;
+      const completed = priorCompleted && lessonProgress?.status === 'completed';
+      const needsPractice = priorCompleted && lessonProgress?.status === 'needs_practice';
+      const availability: ProgressivePathNode['availability'] = matchedLesson
+        ? 'published'
+        : 'content_pending';
+      const status: ProgressivePathNode['status'] = completed
+        ? 'completed'
+        : !priorCompleted
+          ? 'locked'
+          : needsPractice
+            ? 'needs_practice'
+            : matchedLesson
+              ? 'current'
+              : 'content_pending';
+      priorCompleted = priorCompleted && completed;
+      return {
+        id: curriculumOutcomeNodeId({
+          strandId: mission.strand.id,
+          strandTitle: mission.strand.title,
+          subStrandId: mission.subStrand.id,
+          outcomeId: mission.outcome.id,
+          outcomePosition: mission.outcomePosition,
+        }),
+        lessonKey: matchedLesson?.lessonKey ?? null,
+        lessonVersion: matchedLesson?.lessonVersion ?? null,
+        title: matchedLesson?.title ?? mission.subStrand.title,
+        objective: matchedLesson?.objective ?? mission.outcome.text,
+        estimatedMinutes: matchedLesson?.estimatedMinutes ?? 0,
+        position,
+        strandId: mission.strand.id,
+        strandNumber: mission.strand.number,
+        strandTitle: mission.strand.title,
+        subStrandId: mission.subStrand.id,
+        subStrandNumber: mission.subStrand.number,
+        curriculumTopicId: mission.topic?.id,
+        curriculumTopicKey: mission.topic?.canonicalKey,
+        curriculumOutcomeId: mission.outcome.id,
+        curriculumLocationKey: matchedLesson?.curriculumLocationKey,
+        availability,
+        status,
+        bestScore: lessonProgress?.best_score ?? null,
+        attemptCount: lessonProgress?.attempt_count ?? 0,
+      };
+    });
+    const completedCount = nodes.filter(node => node.status === 'completed').length;
+    return {
+      subjectId: subject.subjectCode ?? normalizeProgressiveSubjectId(subject.subjectId, grade),
+      subjectName: subject.subjectDisplayName ?? subject.subjectName,
+      subjectOfficialName: subject.subjectOfficialName ?? subject.subjectName,
+      grade,
+      title: `${subject.subjectName} Adventures`,
+      description: 'Move through richly authored official learning outcomes in order.',
+      completedCount,
+      totalCount: nodes.length,
+      progressPercent: nodes.length > 0 ? Math.round((completedCount / nodes.length) * 100) : 0,
+      nodes,
+    };
+  }
   const claimedLessonKeys = new Set<string>();
   const authoredByTopicId = new Map<string, AuthoredCurriculumLesson>();
 

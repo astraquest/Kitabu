@@ -1,0 +1,138 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.5-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.5 Money",
+    "subStrandId": "1255097f-959c-4ef3-aaaa-bd10eb5f9f83",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "appreciate the use of money in buying items from shops.",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "sourceTextSha256": "8c16ba40124ede3e497f161e59cb6a4aadb1f73f386b06229f780bd248e18ac1"
+  },
+  "mission": {
+    "title": "appreciate the use of money in buying items from shops.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Mum takes money to the shop. What can money help Mum do?",
+        "choices": [
+          "Buy bread",
+          "Grow a tree",
+          "Wash a cup"
+        ],
+        "answer": "Buy bread",
+        "feedback": "Yes! Money helps us buy bread at a shop.",
+        "retryHint": "Think about what a shop sells."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "match-item-to-purpose",
+        "prompt": "Help the lion match the coin to the shop basket. Tap the coin, then tap the basket.",
+        "objects": [
+          "Kenyan-coin",
+          "shop-basket",
+          "mango"
+        ],
+        "tapAlternative": "Tap the Kenyan coin, then tap the shop basket.",
+        "answer": [
+          "Kenyan-coin",
+          "shop-basket"
+        ],
+        "feedback": "Good! We use money when we buy things from a shop.",
+        "retryHint": "Choose the thing used to pay and the place where we buy."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Amina wants milk from the kiosk. What should she take to pay?",
+        "choices": [
+          "Money",
+          "A leaf",
+          "A crayon"
+        ],
+        "answer": "Money",
+        "feedback": "Correct! Amina can use money to buy milk.",
+        "retryHint": "Pick the thing people use to pay in a shop."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Tap the things that a shop can sell. Money helps us buy these things.",
+        "objects": [
+          "bread",
+          "soap",
+          "ball",
+          "cloud"
+        ],
+        "choices": [
+          "bread",
+          "soap",
+          "ball",
+          "cloud"
+        ],
+        "answer": [
+          "bread",
+          "soap",
+          "ball"
+        ],
+        "feedback": "Well done! Money can help us buy useful things from shops.",
+        "retryHint": "Choose things you may see on a shop shelf."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "At a market, Otieno gives money and gets oranges. Why did he give money?",
+        "choices": [
+          "To buy oranges",
+          "To colour oranges",
+          "To count clouds"
+        ],
+        "answer": "To buy oranges",
+        "feedback": "Great thinking! He used money to buy oranges.",
+        "retryHint": "Money is used when we want to get an item from a seller."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "match-item-to-purpose",
+        "prompt": "Show what you know. Match money to the item you can buy at the shop.",
+        "objects": [
+          "Kenyan-coin",
+          "bread",
+          "stone"
+        ],
+        "tapAlternative": "Tap the Kenyan coin, then tap the bread.",
+        "answer": [
+          "Kenyan-coin",
+          "bread"
+        ],
+        "feedback": "Excellent! We appreciate money because it helps us buy items from shops.",
+        "retryHint": "Choose money first, then choose a shop item."
+      }
+    ]
+  }
+}

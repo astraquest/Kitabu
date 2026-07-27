@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.2-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.2 Mass",
+    "subStrandId": "498c26ea-fcf8-4c44-a480-ecc703ed9595",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "appreciate measuring mass using arbitrary units in the environment.",
+    "sourcePages": [
+      26,
+      27,
+      28
+    ],
+    "sourceTextSha256": "fc3715e4970954f138cea21ba958c3a08d6d13b9e7b387d8b06ac75e0e80d59d"
+  },
+  "mission": {
+    "title": "appreciate measuring mass using arbitrary units in the environment.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "A mango balances with 3 bottle tops. Tap how many bottle tops measure the mango.",
+        "model": {
+          "object": "mango",
+          "arbitraryUnit": "bottle-top",
+          "unitCount": 3
+        },
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "feedback": "Yes! Three bottle tops balance the mango.",
+        "retryHint": "Count the bottle tops on the other side of the balance."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "balance-measure",
+        "prompt": "Help the lion measure a book. Put 4 stones on the empty side until the balance is level.",
+        "object": "book",
+        "arbitraryUnit": "stone",
+        "targetUnitCount": 4,
+        "availableObjects": [
+          "stone",
+          "stone",
+          "stone",
+          "stone",
+          "stone"
+        ],
+        "tapAlternative": "Tap four stones one at a time to place them on the balance.",
+        "answer": [
+          "stone",
+          "stone",
+          "stone",
+          "stone"
+        ],
+        "feedback": "The book balances with 4 stones. Stones are useful units for measuring mass.",
+        "retryHint": "Add one stone at a time. Stop when both sides are level."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "A cup balances with 5 beans. Which sentence tells the measurement?",
+        "model": {
+          "object": "cup",
+          "arbitraryUnit": "bean",
+          "unitCount": 5
+        },
+        "choices": [
+          "The cup is 5 beans.",
+          "The cup is 2 beans.",
+          "The cup is 8 beans."
+        ],
+        "answer": "The cup is 5 beans.",
+        "feedback": "Great! We can say the cup is 5 beans in mass.",
+        "retryHint": "Use the number of beans that makes the balance level."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "balance-measure",
+        "prompt": "Measure the small ball with bottle tops. Make the balance level using 2 bottle tops.",
+        "object": "small-ball",
+        "arbitraryUnit": "bottle-top",
+        "targetUnitCount": 2,
+        "availableObjects": [
+          "bottle-top",
+          "bottle-top",
+          "bottle-top",
+          "bottle-top"
+        ],
+        "tapAlternative": "Tap two bottle tops one at a time to place them on the balance.",
+        "answer": [
+          "bottle-top",
+          "bottle-top"
+        ],
+        "feedback": "Correct! The small ball balances with 2 bottle tops.",
+        "retryHint": "Try adding bottle tops slowly. Watch for the level balance."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match",
+        "prompt": "At home, match each object to the units that balance it.",
+        "pairs": [
+          {
+            "object": "spoon",
+            "measurement": "1 bean"
+          },
+          {
+            "object": "orange",
+            "measurement": "4 beans"
+          },
+          {
+            "object": "water-bottle",
+            "measurement": "7 beans"
+          }
+        ],
+        "tapAlternative": "Tap an object, then tap its matching number of beans.",
+        "answer": {
+          "spoon": "1 bean",
+          "orange": "4 beans",
+          "water-bottle": "7 beans"
+        },
+        "feedback": "Wonderful measuring! Different objects can balance with different numbers of the same units.",
+        "retryHint": "Read each balance carefully. Match the object to the number of beans opposite it."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. A lunch box balances with 6 stones. Tap the best way to describe it.",
+        "model": {
+          "object": "lunch-box",
+          "arbitraryUnit": "stone",
+          "unitCount": 6
+        },
+        "choices": [
+          "The lunch box is 6 stones.",
+          "The lunch box is 6 cups.",
+          "The lunch box is 3 stones."
+        ],
+        "answer": "The lunch box is 6 stones.",
+        "feedback": "Excellent! You used stones as arbitrary units to measure mass.",
+        "retryHint": "Name the units you used and count how many made the balance level."
+      }
+    ]
+  }
+}

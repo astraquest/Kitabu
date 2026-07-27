@@ -1,0 +1,241 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.3-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.3 Addition",
+    "subStrandId": "5366fd9b-7934-44da-8dbc-39aa3ff14013",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "add 3 single-digit numbers in different contexts",
+    "sourcePages": [
+      18,
+      19,
+      20
+    ],
+    "sourceTextSha256": "30a2530d8e48a6d58bb2562eae6c1d0d1b1577b6e2c741abf82985cc61b1a07b"
+  },
+  "mission": {
+    "title": "add 3 single-digit numbers in different contexts",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Amani has 1 mango, Zuri has 2 mangoes, and Kip has 1 mango. How many mangoes are there altogether?",
+        "groups": [
+          {
+            "label": "Amani",
+            "object": "mango",
+            "count": 1
+          },
+          {
+            "label": "Zuri",
+            "object": "mango",
+            "count": 2
+          },
+          {
+            "label": "Kip",
+            "object": "mango",
+            "count": 1
+          }
+        ],
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "feedback": "Yes! 1 and 2 and 1 make 4 mangoes.",
+        "retryHint": "Count all three little groups: 1, then 2 more, then 1 more."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Put together 2 red counters, 3 yellow counters, and 1 blue counter. Tap the total.",
+        "groups": [
+          {
+            "color": "red",
+            "count": 2
+          },
+          {
+            "color": "yellow",
+            "count": 3
+          },
+          {
+            "color": "blue",
+            "count": 1
+          }
+        ],
+        "tapAlternative": "Tap each group to count it into the total box.",
+        "choices": [
+          "5",
+          "6",
+          "7"
+        ],
+        "answer": "6",
+        "feedback": "Great combining! 2 + 3 + 1 = 6.",
+        "retryHint": "Start at 2. Count on 3 more, then 1 more."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "build-number-sentence",
+        "prompt": "Three birds sit on one tree, 2 on the next tree, and 2 on the last tree. Build the addition sentence.",
+        "targets": [
+          {
+            "id": "three",
+            "label": "3",
+            "accessibleDescription": "three"
+          },
+          {
+            "id": "plus-one",
+            "label": "+",
+            "accessibleDescription": "plus"
+          },
+          {
+            "id": "two-a",
+            "label": "2",
+            "accessibleDescription": "two"
+          },
+          {
+            "id": "plus-two",
+            "label": "+",
+            "accessibleDescription": "plus"
+          },
+          {
+            "id": "two-b",
+            "label": "2",
+            "accessibleDescription": "two"
+          },
+          {
+            "id": "equals",
+            "label": "=",
+            "accessibleDescription": "equals"
+          },
+          {
+            "id": "seven",
+            "label": "7",
+            "accessibleDescription": "seven"
+          },
+          {
+            "id": "six",
+            "label": "6",
+            "accessibleDescription": "six"
+          }
+        ],
+        "tapAlternative": "Tap the cards in the order of the number sentence.",
+        "answer": [
+          "three",
+          "plus-one",
+          "two-a",
+          "plus-two",
+          "two-b",
+          "equals",
+          "seven"
+        ],
+        "feedback": "Wonderful! 3 + 2 + 2 = 7 birds.",
+        "retryHint": "Put the three group numbers first. Then show the total after the equals sign."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "At the shop, there are 4 oranges in one basket, 1 in another, and 3 in a tray. How many oranges altogether?",
+        "groups": [
+          {
+            "object": "orange",
+            "count": 4
+          },
+          {
+            "object": "orange",
+            "count": 1
+          },
+          {
+            "object": "orange",
+            "count": 3
+          }
+        ],
+        "choices": [
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "answer": "8",
+        "feedback": "Correct! 4 + 1 + 3 = 8 oranges.",
+        "retryHint": "Count 4, then 1 more, then 3 more."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "combine-groups",
+        "prompt": "Make the total for a class game: 5 beanbags, then 2 beanbags, then 4 beanbags. How many beanbags are ready?",
+        "groups": [
+          {
+            "object": "beanbag",
+            "count": 5
+          },
+          {
+            "object": "beanbag",
+            "count": 2
+          },
+          {
+            "object": "beanbag",
+            "count": 4
+          }
+        ],
+        "tapAlternative": "Tap every beanbag group once and count on.",
+        "choices": [
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "answer": "11",
+        "feedback": "You solved it! 5 + 2 + 4 = 11.",
+        "retryHint": "Five and two make seven. Count four more from seven."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. 3 children bring 3 pencils, 3 pencils, and 2 pencils. How many pencils are there altogether?",
+        "groups": [
+          {
+            "object": "pencil",
+            "count": 3
+          },
+          {
+            "object": "pencil",
+            "count": 3
+          },
+          {
+            "object": "pencil",
+            "count": 2
+          }
+        ],
+        "choices": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "answer": "8",
+        "feedback": "Excellent! 3 + 3 + 2 = 8 pencils.",
+        "retryHint": "First put 3 and 3 together. Then count 2 more."
+      }
+    ]
+  }
+}

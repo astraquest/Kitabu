@@ -1,0 +1,140 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.4-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.4 Time",
+    "subStrandId": "4c7bd0ea-3bc3-44b5-97a1-217866474cdc",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "identify days of the week",
+    "sourcePages": [
+      21,
+      22
+    ]
+  },
+  "mission": {
+    "title": "identify days of the week",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Today is Monday. Tap the day after Monday.",
+        "choices": [
+          "Sunday",
+          "Tuesday",
+          "Friday"
+        ],
+        "answer": "Tuesday",
+        "feedback": "Yes! Tuesday comes after Monday.",
+        "retryHint": "Say the days: Monday, then ..."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "Watch the week start. Put Monday before Tuesday.",
+        "items": [
+          "Tuesday",
+          "Monday"
+        ],
+        "answer": [
+          "Monday",
+          "Tuesday"
+        ],
+        "tapAlternative": "Tap Monday first, then tap Tuesday.",
+        "feedback": "Good watching! Monday comes before Tuesday.",
+        "retryHint": "The week begins with Monday in this activity."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "Put these three days in order.",
+        "items": [
+          "Wednesday",
+          "Monday",
+          "Tuesday"
+        ],
+        "answer": [
+          "Monday",
+          "Tuesday",
+          "Wednesday"
+        ],
+        "tapAlternative": "Tap the days from first to last.",
+        "feedback": "Well done! Monday, Tuesday, Wednesday.",
+        "retryHint": "Start with Monday. What day comes next?"
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Tap the day that comes after Thursday.",
+        "choices": [
+          "Wednesday",
+          "Friday",
+          "Saturday"
+        ],
+        "answer": "Friday",
+        "feedback": "Correct! Friday comes after Thursday.",
+        "retryHint": "Say: Thursday, then ..."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "The maths club meets on Friday. Put the next two days in order.",
+        "items": [
+          "Sunday",
+          "Saturday"
+        ],
+        "answer": [
+          "Saturday",
+          "Sunday"
+        ],
+        "tapAlternative": "Tap Saturday first, then tap Sunday.",
+        "feedback": "Great! Saturday comes after Friday, then Sunday.",
+        "retryHint": "The weekend days are Saturday, then Sunday."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "ranked-list",
+        "prompt": "Show what you know. Put all the days of the week in order.",
+        "items": [
+          "Friday",
+          "Monday",
+          "Sunday",
+          "Wednesday",
+          "Saturday",
+          "Tuesday",
+          "Thursday"
+        ],
+        "answer": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "tapAlternative": "Tap each day from first to last.",
+        "feedback": "Excellent! You named all seven days in order.",
+        "retryHint": "Begin with Monday and say the week slowly."
+      }
+    ]
+  }
+}

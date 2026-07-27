@@ -1,0 +1,217 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.1-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.1 Lines",
+    "subStrandId": "ad7968e3-394c-4407-bdaa-4f353cdcb571",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "identify straight lines in different situations",
+    "sourcePages": [
+      36,
+      37,
+      38
+    ],
+    "sourceTextSha256": "3b4ea5c2d8b248e5ce76b79c073061ba9bbc9b97691b07d19c30e6bf3d2e105e"
+  },
+  "mission": {
+    "title": "identify straight lines in different situations",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at the two lines. Tap the straight line.",
+        "choices": [
+          {
+            "id": "curvy-line",
+            "label": "Curvy line",
+            "accessibleDescription": "a line that bends smoothly"
+          },
+          {
+            "id": "straight-line",
+            "label": "Straight line",
+            "accessibleDescription": "a line that goes in one direction without bending"
+          }
+        ],
+        "answer": "straight-line",
+        "feedback": "Yes! A straight line does not bend.",
+        "retryHint": "Find the line that goes in one direction without turning."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "A ruler has a straight edge. Tap the ruler.",
+        "choices": [
+          {
+            "id": "banana",
+            "label": "Banana",
+            "accessibleDescription": "a banana that bends in a curve"
+          },
+          {
+            "id": "ruler",
+            "label": "Ruler",
+            "accessibleDescription": "a ruler with a straight long edge"
+          },
+          {
+            "id": "rainbow",
+            "label": "Rainbow",
+            "accessibleDescription": "a rainbow curved like an arch"
+          }
+        ],
+        "answer": "ruler",
+        "feedback": "Great! The long edge of a ruler is straight.",
+        "retryHint": "Choose the tool used for measuring. Its edge does not bend."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Put the straight things in the Straight box.",
+        "items": [
+          {
+            "id": "pencil",
+            "label": "Pencil",
+            "accessibleDescription": "a pencil with straight sides"
+          },
+          {
+            "id": "curvy-river",
+            "label": "River",
+            "accessibleDescription": "a river that bends"
+          },
+          {
+            "id": "fence-rail",
+            "label": "Fence rail",
+            "accessibleDescription": "a level fence rail"
+          }
+        ],
+        "categories": [
+          {
+            "id": "straight",
+            "label": "Straight",
+            "accessibleDescription": "objects with a straight line"
+          },
+          {
+            "id": "not-straight",
+            "label": "Not straight",
+            "accessibleDescription": "objects with a line that bends"
+          }
+        ],
+        "tapAlternative": "Tap an item, then tap Straight or Not straight.",
+        "answer": {
+          "pencil": "straight",
+          "curvy-river": "not-straight",
+          "fence-rail": "straight"
+        },
+        "feedback": "Well done! Pencils and fence rails show straight lines.",
+        "retryHint": "A straight line does not bend. Look at each item carefully."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "At school, which edge is straight? Tap it.",
+        "choices": [
+          {
+            "id": "ball-edge",
+            "label": "Ball edge",
+            "accessibleDescription": "the round edge of a ball"
+          },
+          {
+            "id": "book-edge",
+            "label": "Book edge",
+            "accessibleDescription": "a straight edge of a book"
+          },
+          {
+            "id": "rope-loop",
+            "label": "Rope loop",
+            "accessibleDescription": "a rope bent into a loop"
+          }
+        ],
+        "answer": "book-edge",
+        "feedback": "Correct! The edge of a book is straight.",
+        "retryHint": "Look for the edge that does not turn or bend."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "On the way home, sort the things by their lines.",
+        "items": [
+          {
+            "id": "road-marking",
+            "label": "Road marking",
+            "accessibleDescription": "a straight painted road marking"
+          },
+          {
+            "id": "bent-slide",
+            "label": "Bending slide",
+            "accessibleDescription": "a playground slide that curves"
+          },
+          {
+            "id": "window-frame",
+            "label": "Window frame",
+            "accessibleDescription": "a window frame with straight sides"
+          }
+        ],
+        "categories": [
+          {
+            "id": "straight",
+            "label": "Straight",
+            "accessibleDescription": "things with straight lines"
+          },
+          {
+            "id": "not-straight",
+            "label": "Not straight",
+            "accessibleDescription": "things with lines that bend"
+          }
+        ],
+        "tapAlternative": "Tap a thing, then tap Straight or Not straight.",
+        "answer": {
+          "road-marking": "straight",
+          "bent-slide": "not-straight",
+          "window-frame": "straight"
+        },
+        "feedback": "Excellent sorting! Road markings and window frames have straight lines.",
+        "retryHint": "Straight lines keep going without bending."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. Which item has a straight line? Tap it.",
+        "choices": [
+          {
+            "id": "straight-stick",
+            "label": "Stick",
+            "accessibleDescription": "a straight stick lying on the ground"
+          },
+          {
+            "id": "curved-banana",
+            "label": "Banana",
+            "accessibleDescription": "a banana that bends"
+          },
+          {
+            "id": "round-plate",
+            "label": "Plate",
+            "accessibleDescription": "a round plate edge"
+          }
+        ],
+        "answer": "straight-stick",
+        "feedback": "You did it! A straight stick shows a straight line.",
+        "retryHint": "Choose the item that goes straight without bending."
+      }
+    ]
+  }
+}

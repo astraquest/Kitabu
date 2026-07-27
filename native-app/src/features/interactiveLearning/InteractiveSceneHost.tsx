@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import type { NativeSceneRendererInput } from './sceneAdapter';
 import { StructuredResponseView } from './structuredResponse/StructuredResponseView';
 import { RankedListView } from './rankedList/RankedListView';
+import { TraceConstructView } from './traceConstruct';
+import { AuthoredInteractionView } from './authoredInteraction';
 import { loadResponseSnapshot, saveResponseSnapshot } from './responseSnapshotStore';
 
 export interface InteractiveSceneHostProps {
@@ -63,6 +65,30 @@ export function InteractiveSceneHost({
         onResponseChange={updateResponse}
         props={scene.props}
         restoredOrder={response.startsWith('sequence:') ? response.slice('sequence:'.length).split('>') : undefined}
+        sceneId={scene.sceneId}
+      />
+    );
+  }
+
+  if (scene.rendererId === 'trace-construct/native') {
+    return (
+      <TraceConstructView
+        disabled={disabled}
+        onResponseChange={updateResponse}
+        props={scene.props}
+        restoredSelection={response.startsWith('selection:') ? response.slice('selection:'.length).split('|').filter(Boolean) : undefined}
+        sceneId={scene.sceneId}
+      />
+    );
+  }
+
+  if (scene.rendererId === 'authored-interaction/native') {
+    return (
+      <AuthoredInteractionView
+        disabled={disabled}
+        onResponseChange={updateResponse}
+        props={scene.props}
+        restoredResponse={response || undefined}
         sceneId={scene.sceneId}
       />
     );

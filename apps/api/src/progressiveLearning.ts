@@ -1,4 +1,9 @@
 import { lowerPrimaryLessonSeeds } from './progressiveLearningLowerPrimary.js';
+import { loadGrade1MathematicsLessonSeeds } from './grade1MathematicsContent.js';
+import {
+  evaluateLowerPrimaryInteraction,
+  type LowerPrimaryInteractionDefinition,
+} from './interactiveLearning/lowerPrimaryClassifySortMatchPattern.js';
 import { grade4LessonSeeds } from './progressiveLearningGrade4.js';
 import { grade5LessonSeeds } from './progressiveLearningGrade5.js';
 import { grade6LessonSeeds } from './progressiveLearningGrade6.js';
@@ -179,6 +184,10 @@ export type ProgressiveLessonPublic = {
   strand: string;
   subStrand: string;
   curriculumTopicCode?: string;
+  /** Stable official learning-outcome ID when a curriculum topic has outcome missions. */
+  curriculumOutcomeId?: string;
+  /** Release-scoped authored-content identity used by registries and diagnostics. */
+  curriculumLocationKey?: string;
   title: string;
   shortTitle: string;
   objective: string;
@@ -194,6 +203,7 @@ export type ProgressiveLessonPrivate = ProgressiveLessonPublic & {
       misconception: string;
       incorrectMessage: string;
       successMessage: string;
+      lowerPrimaryInteraction?: LowerPrimaryInteractionDefinition;
     }
   >;
 };
@@ -221,6 +231,8 @@ export type ProgressivePathNode = {
   subStrandNumber?: string;
   curriculumTopicId?: string;
   curriculumTopicKey?: string;
+  curriculumOutcomeId?: string;
+  curriculumLocationKey?: string;
   status: 'completed' | 'current' | 'locked' | 'needs_practice' | 'content_pending';
   availability: 'published' | 'content_pending';
   bestScore: number | null;
@@ -232,6 +244,8 @@ export type StepInput = Omit<ProgressiveLessonStep, 'id'> & {
   misconception: string;
   incorrectMessage: string;
   successMessage: string;
+  /** Private deterministic grading data for authored Grade 1 object activities. */
+  lowerPrimaryInteraction?: LowerPrimaryInteractionDefinition;
 };
 
 export type ProgressiveLessonSeed = {
@@ -243,12 +257,18 @@ export type ProgressiveLessonSeed = {
   strand?: string;
   subStrand?: string;
   curriculumTopicCode?: string;
+  curriculumOutcomeId?: string;
+  curriculumLocationKey?: string;
   title: string;
   shortTitle: string;
   objective: string;
   minutes: number;
   steps: StepInput[];
 };
+
+/** Lowercase URL-safe identifiers shared by every authored subject. */
+export const PROGRESSIVE_RUNTIME_ID_PATTERN = /^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$/;
+export const PROGRESSIVE_LESSON_KEY_MAX_LENGTH = 120;
 
 export function serializeProgressiveSequenceAnswer(itemIds: string[]) {
   return `sequence:${itemIds.join('>')}`;
@@ -266,6 +286,12 @@ export function serializeProgressiveChoiceAnswer(itemId: string) {
 }
 
 export function createProgressiveLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
+  if (
+    input.key.length > PROGRESSIVE_LESSON_KEY_MAX_LENGTH ||
+    !PROGRESSIVE_RUNTIME_ID_PATTERN.test(input.key)
+  ) {
+    throw new Error(`Invalid progressive lesson key: ${input.key}`);
+  }
   const answers: ProgressiveLessonPrivate['answers'] = {};
   const steps = input.steps.map((step, index) => {
     const id = `${input.key}-step-${index + 1}`;
@@ -273,13 +299,15 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
       answer: step.answer,
       misconception: step.misconception,
       incorrectMessage: step.incorrectMessage,
-      successMessage: step.successMessage
+      successMessage: step.successMessage,
+      lowerPrimaryInteraction: step.lowerPrimaryInteraction,
     };
     const {
       answer: _answer,
       misconception: _misconception,
       incorrectMessage: _incorrectMessage,
       successMessage: _successMessage,
+      lowerPrimaryInteraction: _lowerPrimaryInteraction,
       ...publicStep
     } = step;
     return { id, ...publicStep };
@@ -294,6 +322,8 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
     strand: input.strand ?? 'Algebra',
     subStrand: input.subStrand ?? 'Linear Equations',
     curriculumTopicCode: input.curriculumTopicCode,
+    curriculumOutcomeId: input.curriculumOutcomeId,
+    curriculumLocationKey: input.curriculumLocationKey,
     title: input.title,
     shortTitle: input.shortTitle,
     objective: input.objective,
@@ -744,7 +774,12 @@ const lessons: ProgressiveLessonPrivate[] = [
 ];
 
 const allLessons = [
-  ...lowerPrimaryLessonSeeds.map(createProgressiveLesson),
+  // Grade 1 Mathematics is compiled from the DB-grounded mission manifest,
+  // rather than the legacy three-topic lower-primary sample chapters.
+  ...lowerPrimaryLessonSeeds
+    .filter(seed => !(seed.grade === 'Grade 1' && seed.subjectId === 'math'))
+    .map(createProgressiveLesson),
+  ...loadGrade1MathematicsLessonSeeds().map(createProgressiveLesson),
   ...grade4LessonSeeds.map(createProgressiveLesson),
   ...grade5LessonSeeds.map(createProgressiveLesson),
   ...grade6LessonSeeds.map(createProgressiveLesson),
@@ -755,7 +790,13 @@ const allLessons = [
   ...lessons
 ];
 
-const lessonByKey = new Map(allLessons.map(lesson => [lesson.lessonKey, lesson]));
+const lessonByKey = new Map<string, ProgressiveLessonPrivate>();
+for (const lesson of allLessons) {
+  if (lessonByKey.has(lesson.lessonKey)) {
+    throw new Error(`Duplicate progressive lesson key: ${lesson.lessonKey}`);
+  }
+  lessonByKey.set(lesson.lessonKey, lesson);
+}
 
 export function listProgressiveLessonDefinitions(filters?: { grade?: string; subjectId?: string }) {
   return allLessons
@@ -791,6 +832,23 @@ export function gradeProgressiveLessonDefinitionStep(
   const step = lesson?.steps.find(candidate => candidate.id === stepId);
   if (!lesson || !answer || !step) {
     return null;
+  }
+
+  if (answer.lowerPrimaryInteraction) {
+    let parsedResponse: unknown;
+    try {
+      parsedResponse = JSON.parse(response);
+    } catch {
+      parsedResponse = null;
+    }
+    const result = evaluateLowerPrimaryInteraction(answer.lowerPrimaryInteraction, parsedResponse);
+    return {
+      isCorrect: result.correct,
+      phase: step.phase,
+      misconceptionCode: result.correct ? null : answer.misconception,
+      message: result.feedback,
+      hint: result.correct ? step.hint : result.retryHint ?? step.hint,
+    };
   }
 
   const isNumericStructuredResponse =

@@ -1,0 +1,191 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.2-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.2 Shapes",
+    "subStrandId": "77e1b45d-6336-40fd-967d-e5a7ff409fb0",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "identify rectangles, triangles, and circles in objects from the environment",
+    "sourcePages": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "sourceTextSha256": "d559ee913eb976d22b99e62c7b1d53a68368338737c34a440ec333e2d737dfef"
+  },
+  "mission": {
+    "title": "identify rectangles, triangles, and circles in objects from the environment",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at the clock. What shape is its face?",
+        "objects": [
+          "round clock face"
+        ],
+        "choices": [
+          "circle",
+          "triangle",
+          "rectangle"
+        ],
+        "answer": "circle",
+        "feedback": "Yes! A clock face is a circle.",
+        "retryHint": "A circle is round and has no corners."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "A window has 4 straight sides and 4 corners. Tap its shape.",
+        "objects": [
+          "classroom window"
+        ],
+        "choices": [
+          "triangle",
+          "rectangle",
+          "circle"
+        ],
+        "answer": "rectangle",
+        "feedback": "Great spotting! The window is a rectangle.",
+        "retryHint": "A rectangle has four sides and four corners."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "Match each object to its shape.",
+        "objects": [
+          {
+            "id": "traffic-sign",
+            "label": "road warning sign",
+            "accessibleDescription": "a three-cornered road warning sign"
+          },
+          {
+            "id": "plate",
+            "label": "plate",
+            "accessibleDescription": "a round plate"
+          },
+          {
+            "id": "book",
+            "label": "book cover",
+            "accessibleDescription": "a book cover with four straight sides"
+          }
+        ],
+        "targets": [
+          {
+            "id": "triangle",
+            "label": "triangle"
+          },
+          {
+            "id": "circle",
+            "label": "circle"
+          },
+          {
+            "id": "rectangle",
+            "label": "rectangle"
+          }
+        ],
+        "tapAlternative": "Tap an object, then tap the shape that matches it.",
+        "answer": {
+          "traffic-sign": "triangle",
+          "plate": "circle",
+          "book": "rectangle"
+        },
+        "feedback": "Wonderful! You matched every object to its shape.",
+        "retryHint": "Count corners: a triangle has 3, a rectangle has 4, and a circle has none."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which object is shaped like a triangle?",
+        "objects": [
+          "pizza slice",
+          "coin",
+          "door"
+        ],
+        "choices": [
+          "pizza slice",
+          "coin",
+          "door"
+        ],
+        "answer": "pizza slice",
+        "feedback": "Correct! A pizza slice can be a triangle.",
+        "retryHint": "Find the object with 3 straight sides and 3 corners."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Put the round objects in the circle group.",
+        "objects": [
+          {
+            "id": "coin",
+            "label": "coin",
+            "accessibleDescription": "a round coin"
+          },
+          {
+            "id": "door",
+            "label": "door",
+            "accessibleDescription": "a rectangular door"
+          },
+          {
+            "id": "ball",
+            "label": "ball",
+            "accessibleDescription": "a round ball"
+          }
+        ],
+        "targets": [
+          {
+            "id": "circle-group",
+            "label": "circle group"
+          },
+          {
+            "id": "not-circle-group",
+            "label": "not a circle group"
+          }
+        ],
+        "tapAlternative": "Tap an object, then tap its group.",
+        "answer": {
+          "coin": "circle-group",
+          "door": "not-circle-group",
+          "ball": "circle-group"
+        },
+        "feedback": "Excellent! Coins and balls are round like circles.",
+        "retryHint": "Choose objects with no corners for the circle group."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "A Kenyan flag is hanging on a wall. What shape is it?",
+        "objects": [
+          "Kenyan flag"
+        ],
+        "choices": [
+          "rectangle",
+          "circle",
+          "triangle"
+        ],
+        "answer": "rectangle",
+        "feedback": "You did it! A flag is a rectangle.",
+        "retryHint": "Look for four straight sides and four corners."
+      }
+    ]
+  }
+}

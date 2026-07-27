@@ -84,3 +84,112 @@ test('adapts a validated ranked list to its installed renderer', () => {
     input: { rendererId: 'classify-sort-match-rank/native', sceneId: 'g6-rank' },
   });
 });
+
+test('adapts a lower-primary trace/construct scene with tap-accessible choices', () => {
+  const scene = {
+    identity: { sceneId: 'g1-lines-curve', schemaVersion: '1.0.1' },
+    component: { componentId: 'trace-construct', componentVersion: '1.0.0' },
+    prompt: { default: 'Choose the curved line.' },
+    props: {
+      mode: 'trace-path',
+      instruction: { default: 'Tap the path you would trace.' },
+      accessibility: { selectionLabel: { default: 'Line choices' } },
+      targets: [
+        { id: 'curve', label: '⌒', accessibleDescription: 'A curved line' },
+        { id: 'straight', label: '—', accessibleDescription: 'A straight line' },
+      ],
+      selectionCount: 1,
+    },
+  };
+
+  expect(adaptComponentScene(scene)).toMatchObject({
+    ok: true,
+    input: { rendererId: 'trace-construct/native', sceneId: 'g1-lines-curve' },
+  });
+});
+
+test('rejects a trace/construct scene that exposes its answer contract', () => {
+  const scene = {
+    identity: { sceneId: 'g1-invalid', schemaVersion: '1.0.1' },
+    component: { componentId: 'trace-construct', componentVersion: '1.0.0' },
+    prompt: { default: 'Choose a shape.' },
+    props: {
+      mode: 'construct-pattern',
+      instruction: { default: 'Tap the next shape.' },
+      accessibility: { selectionLabel: { default: 'Shape choices' } },
+      targets: [
+        { id: 'circle', label: '○', accessibleDescription: 'A circle' },
+        { id: 'triangle', label: '△', accessibleDescription: 'A triangle' },
+      ],
+      selectionCount: 1,
+      requiredTargetIds: ['circle'],
+    },
+  };
+  expect(adaptComponentScene(scene)).toEqual({ ok: false, code: 'invalid-renderer-props' });
+});
+
+test('rejects an invalid trace/construct selection count', () => {
+  const scene = {
+    identity: { sceneId: 'g1-invalid-count', schemaVersion: '1.0.1' },
+    component: { componentId: 'trace-construct', componentVersion: '1.0.0' },
+    prompt: { default: 'Choose a shape.' },
+    props: {
+      mode: 'construct-pattern',
+      instruction: { default: 'Tap the next shape.' },
+      accessibility: { selectionLabel: { default: 'Shape choices' } },
+      targets: [
+        { id: 'circle', label: 'Circle', accessibleDescription: 'A circle' },
+        { id: 'triangle', label: 'Triangle', accessibleDescription: 'A triangle' },
+      ],
+      selectionCount: 3,
+    },
+  };
+  expect(adaptComponentScene(scene)).toEqual({ ok: false, code: 'invalid-renderer-props' });
+});
+
+test('adapts a public-only authored interaction scene', () => {
+  const scene = {
+    identity: { sceneId: 'g1-sort-food', schemaVersion: '1.0.1' },
+    component: { componentId: 'authored-interaction', componentVersion: '1.0.0' },
+    prompt: { default: 'Sort the food.' },
+    props: {
+      mode: 'classify',
+      instruction: 'Tap a food, then tap its group.',
+      items: [
+        { id: 'mango', label: 'Mango', accessibleDescription: 'A ripe mango' },
+        { id: 'carrot', label: 'Carrot' },
+      ],
+      groups: [
+        { id: 'fruit', label: 'Fruit' },
+        { id: 'vegetable', label: 'Vegetable' },
+      ],
+    },
+  };
+
+  expect(adaptComponentScene(scene)).toEqual({
+    ok: true,
+    input: {
+      rendererId: 'authored-interaction/native',
+      sceneId: 'g1-sort-food',
+      prompt: { default: 'Sort the food.' },
+      props: scene.props,
+    },
+  });
+});
+
+test('rejects authored interaction props that expose grading answers', () => {
+  const scene = {
+    identity: { sceneId: 'unsafe-sort', schemaVersion: '1.0.1' },
+    component: { componentId: 'authored-interaction', componentVersion: '1.0.0' },
+    prompt: { default: 'Sort the food.' },
+    props: {
+      mode: 'classify',
+      instruction: 'Sort the food.',
+      items: [{ id: 'mango', label: 'Mango' }],
+      groups: [{ id: 'fruit', label: 'Fruit' }],
+      answer: { mango: 'fruit' },
+    },
+  };
+
+  expect(adaptComponentScene(scene)).toEqual({ ok: false, code: 'invalid-renderer-props' });
+});

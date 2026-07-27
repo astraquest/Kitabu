@@ -1,0 +1,151 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.2-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.2 Mass",
+    "subStrandId": "498c26ea-fcf8-4c44-a480-ecc703ed9595",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "compare the mass of two objects using heavier than, lighter than, or same as",
+    "sourcePages": [
+      26,
+      27,
+      28
+    ],
+    "sourceTextSha256": "fc3715e4970954f138cea21ba958c3a08d6d13b9e7b387d8b06ac75e0e80d59d"
+  },
+  "mission": {
+    "title": "compare the mass of two objects using heavier than, lighter than, or same as",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the object that is heavier: a stone or a leaf.",
+        "objects": [
+          "stone",
+          "leaf"
+        ],
+        "choices": [
+          "stone",
+          "leaf"
+        ],
+        "answer": "stone",
+        "feedback": "Yes! A stone is heavier than a leaf.",
+        "retryHint": "Imagine holding one in each hand. Which hand feels more weight?"
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Look at the balance. The mango side goes down. Which object is heavier?",
+        "model": {
+          "leftObject": "mango",
+          "rightObject": "feather",
+          "balance": "left-down"
+        },
+        "choices": [
+          "mango",
+          "feather"
+        ],
+        "answer": "mango",
+        "feedback": "Good job! The side that goes down has the heavier object.",
+        "retryHint": "On a balance, the heavier side moves down."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "A book is heavier than a pencil. Tap the word that completes the sentence: The pencil is __ than the book.",
+        "pairs": [
+          {
+            "left": "pencil",
+            "right": "book",
+            "relationship": "lighter than"
+          }
+        ],
+        "choices": [
+          "heavier",
+          "lighter",
+          "same"
+        ],
+        "answer": "lighter",
+        "tapAlternative": "Tap one word to complete the sentence.",
+        "feedback": "Correct! The pencil is lighter than the book.",
+        "retryHint": "If the book is heavier, the pencil must be lighter."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Two cups sit on a balance. The cup with beans goes down. Which cup is lighter?",
+        "objects": [
+          "cup with beans",
+          "empty cup"
+        ],
+        "model": {
+          "leftObject": "cup with beans",
+          "rightObject": "empty cup",
+          "balance": "left-down"
+        },
+        "choices": [
+          "cup with beans",
+          "empty cup"
+        ],
+        "answer": "empty cup",
+        "feedback": "That is right! The empty cup is lighter than the cup with beans.",
+        "retryHint": "Choose the object on the side that goes up."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "pairs",
+        "prompt": "A shopkeeper puts two equal packets of salt on a balance. The balance stays level. Tap the right words: The packets are __.",
+        "pairs": [
+          {
+            "left": "packet of salt",
+            "right": "packet of salt",
+            "relationship": "same as"
+          }
+        ],
+        "choices": [
+          "heavier",
+          "lighter",
+          "the same mass"
+        ],
+        "answer": "the same mass",
+        "tapAlternative": "Tap one answer to describe the level balance.",
+        "feedback": "Excellent! A level balance means the two packets have the same mass.",
+        "retryHint": "Neither side goes down. They are equal."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. A ball is lighter than a bucket of sand. Which sentence is true?",
+        "objects": [
+          "ball",
+          "bucket of sand"
+        ],
+        "choices": [
+          "The ball is heavier than the bucket.",
+          "The bucket is lighter than the ball.",
+          "The bucket is heavier than the ball."
+        ],
+        "answer": "The bucket is heavier than the ball.",
+        "feedback": "Wonderful! You compared the two objects correctly.",
+        "retryHint": "If the ball is lighter, the bucket of sand is heavier."
+      }
+    ]
+  }
+}

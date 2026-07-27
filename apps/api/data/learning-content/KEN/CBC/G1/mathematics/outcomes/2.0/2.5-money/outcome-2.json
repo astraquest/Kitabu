@@ -1,0 +1,160 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.5-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.5 Money",
+    "subStrandId": "1255097f-959c-4ef3-aaaa-bd10eb5f9f83",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "identify the sh.50 Kenyan currency note",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "sourceTextSha256": "8c16ba40124ede3e497f161e59cb6a4aadb1f73f386b06229f780bd248e18ac1"
+  },
+  "mission": {
+    "title": "identify the sh.50 Kenyan currency note",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the Kenyan money that says Sh 50.",
+        "objects": [
+          "kenyan-coin-20",
+          "kenyan-note-50",
+          "kenyan-coin-5"
+        ],
+        "choices": [
+          "kenyan-coin-20",
+          "kenyan-note-50",
+          "kenyan-coin-5"
+        ],
+        "answer": "kenyan-note-50",
+        "feedback": "Yes! This is the Sh 50 Kenyan note.",
+        "retryHint": "Look for the paper note with 50 on it."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "A Sh 50 note is a paper note, not a round coin. Tap it.",
+        "objects": [
+          "kenyan-note-50",
+          "kenyan-coin-40",
+          "kenyan-coin-10"
+        ],
+        "choices": [
+          "kenyan-note-50",
+          "kenyan-coin-40",
+          "kenyan-coin-10"
+        ],
+        "answer": "kenyan-note-50",
+        "feedback": "Good looking! The Sh 50 money is a note.",
+        "retryHint": "Choose the flat paper note with 50 written on it."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match",
+        "prompt": "Match the Sh 50 note to its value.",
+        "pairs": [
+          [
+            "kenyan-note-50",
+            "Sh 50"
+          ]
+        ],
+        "tapAlternative": "Tap the note, then tap Sh 50.",
+        "answer": [
+          [
+            "kenyan-note-50",
+            "Sh 50"
+          ]
+        ],
+        "feedback": "Well done! The note is worth fifty shillings.",
+        "retryHint": "The number 50 tells the value of this note."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which one is the Sh 50 Kenyan note?",
+        "objects": [
+          "kenyan-coin-1",
+          "kenyan-note-50",
+          "kenyan-coin-40",
+          "kenyan-coin-20"
+        ],
+        "choices": [
+          "kenyan-coin-1",
+          "kenyan-note-50",
+          "kenyan-coin-40",
+          "kenyan-coin-20"
+        ],
+        "answer": "kenyan-note-50",
+        "feedback": "Correct! You found the Sh 50 note.",
+        "retryHint": "Find the paper note marked 50, not a round coin."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "At the classroom shop, put the Sh 50 note in the note tray.",
+        "availableObjects": [
+          "kenyan-coin-10",
+          "kenyan-note-50",
+          "kenyan-coin-20"
+        ],
+        "categories": [
+          "Sh 50 note",
+          "Other Kenyan money"
+        ],
+        "tapAlternative": "Tap each money piece, then tap its tray.",
+        "answer": {
+          "Sh 50 note": [
+            "kenyan-note-50"
+          ],
+          "Other Kenyan money": [
+            "kenyan-coin-10",
+            "kenyan-coin-20"
+          ]
+        },
+        "feedback": "Great sorting! You put the Sh 50 note in the right tray.",
+        "retryHint": "Only the paper note with 50 belongs in the Sh 50 note tray."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. Tap the Kenyan note worth fifty shillings.",
+        "objects": [
+          "kenyan-coin-5",
+          "kenyan-coin-40",
+          "kenyan-note-50"
+        ],
+        "choices": [
+          "kenyan-coin-5",
+          "kenyan-coin-40",
+          "kenyan-note-50"
+        ],
+        "answer": "kenyan-note-50",
+        "feedback": "Excellent! You can identify the Sh 50 Kenyan note.",
+        "retryHint": "Look for the paper note that says 50."
+      }
+    ]
+  }
+}

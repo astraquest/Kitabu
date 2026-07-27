@@ -123,3 +123,136 @@ test('does not auto-bind a repeated topic title without an explicit curriculum c
   assert.equal(explicit.nodes[0]?.availability, 'content_pending');
   assert.equal(explicit.nodes[1]?.lessonKey, 'words');
 });
+
+test('keeps each published learning outcome as its own ordered mission', () => {
+  const outcomeSubject = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: [{
+        ...subject.strands[0].subStrands[0],
+        outcomes: [
+          { id: 'official-outcome-1', text: 'Count objects to ten.' },
+          { id: 'official-outcome-2', text: 'Match objects in pairs.' },
+        ],
+      }],
+    }],
+  };
+  const missions = [
+    { ...authoredLessons[0], lessonKey: 'g1-count', title: 'Count to ten', curriculumOutcomeId: 'official-outcome-1' },
+    { ...authoredLessons[0], lessonKey: 'g1-match', title: 'Match pairs', curriculumOutcomeId: 'official-outcome-2' },
+  ];
+  const path = buildCurriculumAuthoredPath(outcomeSubject, [{
+    lesson_key: 'g1-count',
+    curriculum_topic_id: 'number-concept-topic',
+    best_score: 100,
+    status: 'completed',
+    attempt_count: 1,
+  }], 'Grade 1', missions);
+
+  assert.equal(path.totalCount, 2);
+  assert.match(path.nodes[0]?.id ?? '', /curriculum-outcome:.*official-outcome-1$/);
+  assert.equal(path.nodes[0]?.status, 'completed');
+  assert.equal(path.nodes[1]?.curriculumOutcomeId, 'official-outcome-2');
+  assert.equal(path.nodes[1]?.status, 'current');
+});
+
+test('scopes reused outcome IDs to their strand and sub-strand location', () => {
+  const outcomeSubject = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: [
+        {
+          ...subject.strands[0].subStrands[0],
+          outcomes: [{ id: 'outcome-1', text: 'Sort objects.' }],
+        },
+        {
+          ...subject.strands[0].subStrands[1],
+          outcomes: [{ id: 'outcome-1', text: 'Count objects.' }],
+        },
+      ],
+    }],
+  };
+  const missions = [
+    {
+      ...authoredLessons[0],
+      lessonKey: 'sort-objects',
+      subStrand: 'Number Concept',
+      curriculumOutcomeId: 'outcome-1',
+      objective: 'Sort objects.',
+    },
+    {
+      ...authoredLessons[0],
+      lessonKey: 'count-objects',
+      subStrand: 'Whole Numbers',
+      curriculumOutcomeId: 'outcome-1',
+      objective: 'Count objects.',
+    },
+  ];
+
+  const path = buildCurriculumAuthoredPath(outcomeSubject, [], 'Grade 1', missions);
+
+  assert.deepEqual(path.nodes.map(node => node.lessonKey), ['sort-objects', 'count-objects']);
+  assert.equal(new Set(path.nodes.map(node => node.id)).size, 2);
+  assert.deepEqual(path.nodes.map(node => node.status), ['current', 'locked']);
+  assert.ok(path.nodes.every(node => node.availability === 'published'));
+});
+
+test('keeps published outcome missions in exact completed, current and locked order', () => {
+  const outcomeSubject = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: [{
+        ...subject.strands[0].subStrands[0],
+        outcomes: [
+          { id: 'outcome-1', text: 'First outcome.' },
+          { id: 'outcome-2', text: 'Second outcome.' },
+          { id: 'outcome-3', text: 'Third outcome.' },
+        ],
+      }],
+    }],
+  };
+  const missions = ['outcome-1', 'outcome-2', 'outcome-3'].map((outcomeId, index) => ({
+    ...authoredLessons[0],
+    lessonKey: `mission-${index + 1}`,
+    curriculumOutcomeId: outcomeId,
+  }));
+  const path = buildCurriculumAuthoredPath(outcomeSubject, [{
+    lesson_key: 'mission-1',
+    best_score: 100,
+    status: 'completed',
+    attempt_count: 1,
+  }], 'Grade 1', missions);
+
+  assert.deepEqual(path.nodes.map(node => node.lessonKey), ['mission-1', 'mission-2', 'mission-3']);
+  assert.deepEqual(path.nodes.map(node => node.availability), ['published', 'published', 'published']);
+  assert.deepEqual(path.nodes.map(node => node.status), ['completed', 'current', 'locked']);
+});
+
+test('does not bind an outcome by global ID or matching objective text', () => {
+  const outcomeSubject = {
+    ...subject,
+    strands: [{
+      ...subject.strands[0],
+      subStrands: [{
+        ...subject.strands[0].subStrands[0],
+        outcomes: [{ id: 'outcome-1', text: 'Count objects.' }],
+      }],
+    }],
+  };
+  const misplacedMission = [{
+    ...authoredLessons[0],
+    lessonKey: 'wrong-location',
+    subStrand: 'Whole Numbers',
+    curriculumOutcomeId: 'outcome-1',
+    objective: 'Count objects.',
+  }];
+
+  const path = buildCurriculumAuthoredPath(outcomeSubject, [], 'Grade 1', misplacedMission);
+
+  assert.equal(path.nodes[0]?.lessonKey, null);
+  assert.equal(path.nodes[0]?.availability, 'content_pending');
+  assert.equal(path.nodes[0]?.status, 'content_pending');
+});

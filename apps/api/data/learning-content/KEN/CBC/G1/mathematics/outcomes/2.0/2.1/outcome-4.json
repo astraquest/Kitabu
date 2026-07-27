@@ -1,0 +1,151 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.1-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.1 Length",
+    "subStrandId": "d9d4e676-02df-470b-8f24-622c33124a2e",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "appreciate measuring length using arbitrary units.",
+    "sourcePages": [
+      24,
+      25,
+      26
+    ],
+    "sourceTextSha256": "fd3fcb01d8f64176c4b328be6c4737c765bd4115bb01d6576f13ef0b422b98cd"
+  },
+  "mission": {
+    "title": "appreciate measuring length using arbitrary units.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Mosi wants to know how long his pencil is. What can he use to measure it today?",
+        "choices": [
+          "paper clips",
+          "a song",
+          "a ball"
+        ],
+        "answer": "paper clips",
+        "feedback": "Yes! Paper clips can help us measure length.",
+        "retryHint": "Choose objects that can lie along the pencil."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "align-units",
+        "prompt": "Help the lion measure a storybook. Put 5 bottle tops from one end to the other.",
+        "unit": "bottle-top",
+        "measurementTarget": "storybook",
+        "targetUnits": 5,
+        "tapAlternative": "Tap each of the five bottle-top spaces from left to right.",
+        "answer": [
+          "bottle-top-slot-1",
+          "bottle-top-slot-2",
+          "bottle-top-slot-3",
+          "bottle-top-slot-4",
+          "bottle-top-slot-5"
+        ],
+        "feedback": "Great! The bottle tops touch in one line, so the book can be measured fairly.",
+        "retryHint": "Start at one end. Put every bottle top next to the last one, with no gaps."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "A desk is measured with cubes. Which row is ready to use?",
+        "choices": [
+          "cubes touching from one end to the other",
+          "cubes with spaces between them",
+          "cubes piled on top of each other"
+        ],
+        "answer": "cubes touching from one end to the other",
+        "feedback": "Well done! Units must touch in a straight row.",
+        "retryHint": "Good measuring has no gaps and no piles."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "number-manipulatives",
+        "activityMode": "count-units",
+        "prompt": "Amina measures the class mat with 7 hand spans. Tap the label that tells her length.",
+        "objects": [
+          "class-mat",
+          "hand-span",
+          "hand-span",
+          "hand-span",
+          "hand-span",
+          "hand-span",
+          "hand-span",
+          "hand-span"
+        ],
+        "choices": [
+          "7 hand spans",
+          "7 days",
+          "7 songs"
+        ],
+        "answer": "7 hand spans",
+        "feedback": "Correct! Amina can say the mat is 7 hand spans long.",
+        "retryHint": "Use the number and the thing Amina used to measure."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match",
+        "prompt": "Match each job to a good measuring unit: a leaf, a crayon, and a table edge.",
+        "pairs": [
+          {
+            "object": "leaf",
+            "unit": "buttons"
+          },
+          {
+            "object": "crayon",
+            "unit": "paper-clips"
+          },
+          {
+            "object": "table-edge",
+            "unit": "blocks"
+          }
+        ],
+        "availableUnits": [
+          "buttons",
+          "paper-clips",
+          "blocks"
+        ],
+        "tapAlternative": "Tap an object, then tap its measuring unit.",
+        "answer": {
+          "leaf": "buttons",
+          "crayon": "paper-clips",
+          "table-edge": "blocks"
+        },
+        "feedback": "Wonderful! Different everyday objects can help us measure length.",
+        "retryHint": "Pick a small unit that can be placed in a line along each object."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know. Why do we measure a ribbon with paper clips?",
+        "choices": [
+          "to find how long it is",
+          "to make it sing",
+          "to make it heavier"
+        ],
+        "answer": "to find how long it is",
+        "feedback": "You did it! Measuring helps us find how long things are in daily life.",
+        "retryHint": "Think about what length tells us."
+      }
+    ]
+  }
+}

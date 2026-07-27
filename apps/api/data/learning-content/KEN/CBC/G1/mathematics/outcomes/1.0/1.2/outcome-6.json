@@ -1,0 +1,162 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.2-outcome-6",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.2 Whole Numbers",
+    "subStrandId": "0b4dcbc3-9b7f-4f8a-b7c0-a3ae9bad624f",
+    "outcomeId": "outcome-6",
+    "outcomePosition": 6,
+    "outcomeText": "identify missing numbers in number patterns up to 20",
+    "sourcePages": [
+      16,
+      17,
+      18
+    ],
+    "sourceTextSha256": "5fc294268837295f39a8909efa7e92e1f7d734fa0b7fdc20e3d8df65f37ff785"
+  },
+  "mission": {
+    "title": "identify missing numbers in number patterns up to 20",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Look at 1, 2, __, 4. Tap the missing number.",
+        "pattern": [
+          "1",
+          "2",
+          null,
+          "4"
+        ],
+        "choices": [
+          "3",
+          "5",
+          "6"
+        ],
+        "answer": "3",
+        "feedback": "Yes! 3 comes after 2 and before 4.",
+        "retryHint": "Count from 1: one, two, then what comes next?"
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "The numbers go 5, 6, __, 8. Count one more than 6. Tap the missing number.",
+        "pattern": [
+          "5",
+          "6",
+          null,
+          "8"
+        ],
+        "model": {
+          "rule": "count-on-by-1",
+          "start": 5,
+          "end": 8
+        },
+        "choices": [
+          "7",
+          "9",
+          "10"
+        ],
+        "answer": "7",
+        "feedback": "Great! 7 fits between 6 and 8.",
+        "retryHint": "Start at 6 and count one more."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Complete the number path: 8, 9, __, 11. Tap the missing card.",
+        "pattern": [
+          "8",
+          "9",
+          null,
+          "11"
+        ],
+        "choices": [
+          "7",
+          "10",
+          "12"
+        ],
+        "answer": "10",
+        "feedback": "Well done! 10 comes after 9 and before 11.",
+        "retryHint": "Count on from 9 by one."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Find the missing number: 14, __, 16, 17.",
+        "pattern": [
+          "14",
+          null,
+          "16",
+          "17"
+        ],
+        "choices": [
+          "13",
+          "15",
+          "18",
+          "20"
+        ],
+        "answer": "15",
+        "feedback": "Correct! 15 comes between 14 and 16.",
+        "retryHint": "Say the counting numbers after 14."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "A game counts by twos: 10, 12, __, 16, 18. Tap the missing number.",
+        "pattern": [
+          "10",
+          "12",
+          null,
+          "16",
+          "18"
+        ],
+        "rule": "count-on-by-2",
+        "choices": [
+          "13",
+          "14",
+          "15",
+          "20"
+        ],
+        "answer": "14",
+        "feedback": "You got it! Two more than 12 is 14.",
+        "retryHint": "Count two steps after 12: 13, 14."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know: 11, 13, 15, __, 19. Tap the missing number.",
+        "pattern": [
+          "11",
+          "13",
+          "15",
+          null,
+          "19"
+        ],
+        "rule": "count-on-by-2",
+        "choices": [
+          "16",
+          "17",
+          "18",
+          "20"
+        ],
+        "answer": "17",
+        "feedback": "Excellent! The pattern adds 2 each time, so 17 is missing.",
+        "retryHint": "Count two more than 15."
+      }
+    ]
+  }
+}

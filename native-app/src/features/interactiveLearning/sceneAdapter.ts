@@ -3,6 +3,8 @@ import type {
   StructuredResponseSceneProps,
 } from './structuredResponse';
 import type { RankedListSceneProps } from './rankedList/types';
+import type { TraceConstructSceneProps } from './traceConstruct';
+import type { AuthoredInteractionSceneProps } from './authoredInteraction';
 
 export interface StructuredResponseRendererInput {
   rendererId: 'structured-response/native';
@@ -18,7 +20,25 @@ export interface RankedListRendererInput {
   props: RankedListSceneProps;
 }
 
-export type NativeSceneRendererInput = StructuredResponseRendererInput | RankedListRendererInput;
+export interface TraceConstructRendererInput {
+  rendererId: 'trace-construct/native';
+  sceneId: string;
+  prompt: StructuredResponseLocalizedText;
+  props: TraceConstructSceneProps;
+}
+
+export interface AuthoredInteractionRendererInput {
+  rendererId: 'authored-interaction/native';
+  sceneId: string;
+  prompt: StructuredResponseLocalizedText;
+  props: AuthoredInteractionSceneProps;
+}
+
+export type NativeSceneRendererInput =
+  | StructuredResponseRendererInput
+  | RankedListRendererInput
+  | TraceConstructRendererInput
+  | AuthoredInteractionRendererInput;
 
 export type SceneAdapterFailureCode =
   | 'invalid-scene'
@@ -122,6 +142,63 @@ function isRankedListProps(value: unknown): value is RankedListSceneProps {
   return value.keyboardMoveModel === 'pick-move-drop' || value.keyboardMoveModel === 'move-buttons';
 }
 
+function isTraceConstructProps(value: unknown): value is TraceConstructSceneProps {
+  if (!isRecord(value) || !hasOnlyKeys(value, ['mode', 'targets', 'selectionCount', 'instruction', 'accessibility'])) {
+    return false;
+  }
+  if (value.mode !== 'trace-path' && value.mode !== 'construct-pattern') return false;
+  if (!Array.isArray(value.targets) || value.targets.length < 2 || value.targets.length > 12) return false;
+  const targetIds = new Set<string>();
+  for (const target of value.targets) {
+    if (!isRecord(target) || !hasOnlyKeys(target, ['id', 'label', 'accessibleDescription']) ||
+      typeof target.id !== 'string' || target.id.length === 0 || target.id.length > 80 ||
+      typeof target.label !== 'string' || target.label.length === 0 || target.label.length > 80 ||
+      typeof target.accessibleDescription !== 'string' || target.accessibleDescription.length === 0 ||
+      targetIds.has(target.id)) return false;
+    targetIds.add(target.id);
+  }
+  if (!Number.isInteger(value.selectionCount) ||
+    (value.selectionCount as number) < 1 ||
+    (value.selectionCount as number) > value.targets.length) return false;
+  if (!isLocalizedText(value.instruction)) return false;
+  return isRecord(value.accessibility) && hasOnlyKeys(value.accessibility, ['selectionLabel']) &&
+    isLocalizedText(value.accessibility.selectionLabel);
+}
+
+function isAuthoredInteractionProps(value: unknown): value is AuthoredInteractionSceneProps {
+  if (!isRecord(value) || !hasOnlyKeys(value, ['mode', 'instruction', 'items', 'groups'])) return false;
+  if (!['classify', 'match', 'order', 'pattern'].includes(String(value.mode))) return false;
+  if (typeof value.instruction !== 'string' || value.instruction.length < 1 || value.instruction.length > 500) return false;
+  if (!Array.isArray(value.items) || value.items.length < 1 || value.items.length > 24) return false;
+
+  const itemIds = new Set<string>();
+  for (const item of value.items) {
+    if (!isRecord(item) || !hasOnlyKeys(item, ['id', 'label', 'accessibleDescription']) ||
+      typeof item.id !== 'string' || item.id.length < 1 || item.id.length > 80 || itemIds.has(item.id) ||
+      typeof item.label !== 'string' || item.label.length < 1 || item.label.length > 120 ||
+      (item.accessibleDescription !== undefined &&
+        (typeof item.accessibleDescription !== 'string' || item.accessibleDescription.length < 1 || item.accessibleDescription.length > 240))) {
+      return false;
+    }
+    itemIds.add(item.id);
+  }
+
+  if (value.groups !== undefined) {
+    if (!Array.isArray(value.groups) || value.groups.length < 1 || value.groups.length > 24) return false;
+    const groupIds = new Set<string>();
+    for (const group of value.groups) {
+      if (!isRecord(group) || !hasOnlyKeys(group, ['id', 'label']) ||
+        typeof group.id !== 'string' || group.id.length < 1 || group.id.length > 80 || groupIds.has(group.id) ||
+        typeof group.label !== 'string' || group.label.length < 1 || group.label.length > 120) return false;
+      groupIds.add(group.id);
+    }
+  }
+
+  if ((value.mode === 'classify' || value.mode === 'match') && !value.groups) return false;
+  if (value.mode === 'order' && value.items.length < 2) return false;
+  return true;
+}
+
 /** Converts an untrusted API componentScene into input for a renderer installed in this app build. */
 export function adaptComponentScene(componentScene: unknown): SceneAdapterResult {
   if (!isRecord(componentScene) || !isRecord(componentScene.identity) || !isRecord(componentScene.component)) {
@@ -142,6 +219,16 @@ export function adaptComponentScene(componentScene: unknown): SceneAdapterResult
   if (componentId === 'classify-sort-match-rank') {
     if (!isRankedListProps(componentScene.props)) return { ok: false, code: 'invalid-renderer-props' };
     return { ok: true, input: { rendererId: 'classify-sort-match-rank/native', sceneId, prompt: { ...componentScene.prompt }, props: componentScene.props } };
+  }
+
+  if (componentId === 'trace-construct') {
+    if (!isTraceConstructProps(componentScene.props)) return { ok: false, code: 'invalid-renderer-props' };
+    return { ok: true, input: { rendererId: 'trace-construct/native', sceneId, prompt: { ...componentScene.prompt }, props: componentScene.props } };
+  }
+
+  if (componentId === 'authored-interaction') {
+    if (!isAuthoredInteractionProps(componentScene.props)) return { ok: false, code: 'invalid-renderer-props' };
+    return { ok: true, input: { rendererId: 'authored-interaction/native', sceneId, prompt: { ...componentScene.prompt }, props: componentScene.props } };
   }
 
   if (componentId !== 'structured-response') return { ok: false, code: 'renderer-not-installed' };

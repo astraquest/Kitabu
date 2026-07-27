@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AccessibilityInfo,
   ActivityIndicator,
@@ -43,6 +43,8 @@ import {
 import { LowerPrimaryChoiceChallengeScene } from '../components/scenes/LowerPrimaryChoiceChallengeScene';
 import { PictureChoiceChallengeScene } from '../components/scenes/PictureChoiceChallengeScene';
 import { PictureWordChallengeScene } from '../components/scenes/PictureWordChallengeScene';
+import { NumberManipulativesScene } from '../components/scenes/NumberManipulativesScene';
+import { adaptAuthoredNumberManipulatives } from '../components/scenes/authoredNumberManipulatives';
 import {
   LearningInteractionView,
   serializeChoiceResponse,
@@ -53,6 +55,10 @@ import { StandardAnswerGrid } from '../components/StandardAnswerGrid';
 import { SubjectPageHeader } from '../components/SubjectPageHeader';
 import { useFeedbackChimes } from '../hooks/useFeedbackChimes';
 import { getLearningPresentationMode } from '../model/learningPresentationPolicy';
+import {
+  getLessonStartErrorPresentation,
+  type LessonStartErrorPresentation,
+} from '../model/lessonStartErrorPresentation';
 
 interface ProgressiveLessonScreenProps {
   lessonKey: string;
@@ -73,7 +79,7 @@ export function ProgressiveLessonScreen({
   onBack,
   onComplete,
 }: ProgressiveLessonScreenProps) {
-  const clientAttemptId = useRef(createProgressiveClientId()).current;
+  const clientAttemptId = useMemo(() => createProgressiveClientId(), []);
   const [lesson, setLesson] = useState<ProgressiveLesson | null>(null);
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,11 +94,16 @@ export function ProgressiveLessonScreen({
   const [questionOutcomes, setQuestionOutcomes] = useState<QuestionOutcome[]>(
     [],
   );
+  const [startError, setStartError] =
+    useState<LessonStartErrorPresentation | null>(null);
+  const [startRevision, setStartRevision] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
   const stepStartedAt = useRef(Date.now());
   const submissionInFlightRef = useRef(false);
-  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const continueLessonRef = useRef<() => Promise<void>>(async () => undefined);
   const shake = useRef(new Animated.Value(0)).current;
   const sceneEntrance = useRef(new Animated.Value(1)).current;
@@ -129,7 +140,23 @@ export function ProgressiveLessonScreen({
 
   useEffect(() => {
     let active = true;
+    setLesson(null);
+    setAttemptId(null);
+    setStartError(null);
     setError(null);
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setFeedback(null);
+    setHintStage(0);
+    setIsChecking(false);
+    setCompletion(null);
+    setSessionXp(0);
+    setQuestionOutcomes([]);
+    submissionInFlightRef.current = false;
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
+    }
     startProgressiveLesson({ clientAttemptId, lessonKey, lessonVersion, grade })
       .then(result => {
         if (!active) {
@@ -151,22 +178,22 @@ export function ProgressiveLessonScreen({
       })
       .catch(loadError => {
         if (active) {
-          setError(
-            loadError instanceof Error
-              ? loadError.message
-              : 'Unable to start this lesson.',
-          );
+          setStartError(getLessonStartErrorPresentation(loadError));
         }
       });
     return () => {
       active = false;
     };
-  }, [clientAttemptId, grade, lessonKey, lessonVersion]);
+  }, [clientAttemptId, grade, lessonKey, lessonVersion, startRevision]);
 
   const step = lesson?.steps[currentIndex] ?? null;
-  const componentSceneResult = step?.componentScene
-    ? adaptComponentScene(step.componentScene)
+  const numberManipulativesScene = step?.componentScene
+    ? adaptAuthoredNumberManipulatives(step.componentScene)
     : null;
+  const componentSceneResult =
+    step?.componentScene && !numberManipulativesScene
+      ? adaptComponentScene(step.componentScene)
+      : null;
   const componentScene = componentSceneResult?.ok
     ? componentSceneResult.input
     : null;
@@ -218,52 +245,61 @@ export function ProgressiveLessonScreen({
     : false;
   const usesLowerPrimaryExperience =
     getLearningPresentationMode(grade) === 'lower_primary';
-  const standardAnswerChoices = !usesLowerPrimaryExperience && step
-    ? step.interaction?.kind === 'choice_sprint'
-      ? step.interaction.items.map(item => ({
-          label: item.label,
-          value: serializeChoiceResponse(item.id),
-        }))
-      : step.interaction
-        ? []
-        : step.options.map(option => ({ label: option, value: option }))
-    : [];
-  const usesStandardAnswerGrid =
-    !componentScene && standardAnswerChoices.length > 0;
-  const usesArithmeticChallenge =
-    !componentScene && step?.visual.kind === 'arithmetic';
-  const lowerPrimaryChoices = step
-    ? step.options.length > 0
-      ? step.options.map(option => ({ label: option, value: option }))
-      : step.interaction?.kind === 'choice_sprint'
+  const standardAnswerChoices =
+    !usesLowerPrimaryExperience && step
+      ? step.interaction?.kind === 'choice_sprint'
         ? step.interaction.items.map(item => ({
             label: item.label,
             value: serializeChoiceResponse(item.id),
           }))
-        : []
+        : step.interaction
+        ? []
+        : step.options.map(option => ({ label: option, value: option }))
+      : [];
+  const usesStandardAnswerGrid =
+    !componentScene &&
+    !numberManipulativesScene &&
+    standardAnswerChoices.length > 0;
+  const usesArithmeticChallenge =
+    !componentScene &&
+    !numberManipulativesScene &&
+    step?.visual.kind === 'arithmetic';
+  const lowerPrimaryChoices = step
+    ? step.options.length > 0
+      ? step.options.map(option => ({ label: option, value: option }))
+      : step.interaction?.kind === 'choice_sprint'
+      ? step.interaction.items.map(item => ({
+          label: item.label,
+          value: serializeChoiceResponse(item.id),
+        }))
+      : []
     : [];
   const usesLowerPrimaryChoiceChallenge = Boolean(
     usesLowerPrimaryExperience &&
-    !usesArithmeticChallenge &&
-    step?.visual.kind !== 'picture_word' &&
-    step?.visual.kind !== 'picture_choice' &&
-    lowerPrimaryChoices.length > 0,
+      !usesArithmeticChallenge &&
+      !numberManipulativesScene &&
+      step?.visual.kind !== 'picture_word' &&
+      step?.visual.kind !== 'picture_choice' &&
+      lowerPrimaryChoices.length > 0,
   );
   const usesPictureWordChallenge = Boolean(
     usesLowerPrimaryExperience &&
-    step?.visual.kind === 'picture_word' &&
-    lowerPrimaryChoices.length > 0,
+      !numberManipulativesScene &&
+      step?.visual.kind === 'picture_word' &&
+      lowerPrimaryChoices.length > 0,
   );
   const usesPictureChoiceChallenge = Boolean(
     usesLowerPrimaryExperience &&
-    step?.visual.kind === 'picture_choice' &&
-    lowerPrimaryChoices.length > 0,
+      !numberManipulativesScene &&
+      step?.visual.kind === 'picture_choice' &&
+      lowerPrimaryChoices.length > 0,
   );
   const usesAutoGradedChallenge =
     usesArithmeticChallenge ||
     usesPictureWordChallenge ||
     usesPictureChoiceChallenge ||
-    usesLowerPrimaryChoiceChallenge;
+    usesLowerPrimaryChoiceChallenge ||
+    Boolean(numberManipulativesScene);
   const visualRepeatsAnswers = Boolean(
     usesStandardAnswerGrid &&
       step &&
@@ -273,11 +309,11 @@ export function ProgressiveLessonScreen({
             standardAnswerChoices.some(choice => choice.label === card.label),
           )
         : step.visual.kind === 'classify'
-          ? step.visual.items.length === standardAnswerChoices.length &&
-            step.visual.items.every(item =>
-              standardAnswerChoices.some(choice => choice.label === item.label),
-            )
-          : false),
+        ? step.visual.items.length === standardAnswerChoices.length &&
+          step.visual.items.every(item =>
+            standardAnswerChoices.some(choice => choice.label === item.label),
+          )
+        : false),
   );
   const hidesDuplicatedVisual = Boolean(
     !usesLowerPrimaryExperience && (step?.interaction || visualRepeatsAnswers),
@@ -467,7 +503,7 @@ export function ProgressiveLessonScreen({
     stepStartedAt.current = Date.now();
   }
 
-  if (!lesson && !error) {
+  if (!lesson && !startError) {
     return (
       <View style={styles.centeredState}>
         <ActivityIndicator color="#4F7CE8" size="large" />
@@ -480,6 +516,11 @@ export function ProgressiveLessonScreen({
   }
 
   if (!lesson || !step) {
+    const presentation =
+      startError ??
+      getLessonStartErrorPresentation(
+        new Error('The lesson did not include a playable activity.'),
+      );
     return (
       <View style={styles.centeredState}>
         <LearningMascotReaction
@@ -487,17 +528,40 @@ export function ProgressiveLessonScreen({
           reaction="encourage"
           size={112}
         />
-        <Text style={styles.centeredTitle}>We could not open this lesson</Text>
-        <Text style={styles.centeredText}>{error}</Text>
+        <Text accessibilityRole="header" style={styles.centeredTitle}>
+          {presentation.title}
+        </Text>
+        <Text accessibilityRole="alert" style={styles.centeredText}>
+          {presentation.message}
+        </Text>
         <SquishPressable
-          onPress={onBack}
+          accessibilityLabel={presentation.primaryLabel}
+          onPress={
+            presentation.primaryAction === 'retry'
+              ? () => setStartRevision(revision => revision + 1)
+              : onBack
+          }
           reduceMotion={reduceMotion}
           containerStyle={styles.centeredButtonWrap}
         >
           <View style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>Back to learning path</Text>
+            <Text style={styles.primaryButtonText}>
+              {presentation.primaryLabel}
+            </Text>
           </View>
         </SquishPressable>
+        {presentation.showBackAction ? (
+          <Pressable
+            accessibilityLabel="Back to learning path"
+            accessibilityRole="button"
+            onPress={onBack}
+            style={styles.centeredSecondaryButton}
+          >
+            <Text style={styles.centeredSecondaryButtonText}>
+              Back to learning path
+            </Text>
+          </Pressable>
+        ) : null}
       </View>
     );
   }
@@ -607,142 +671,178 @@ export function ProgressiveLessonScreen({
               },
             ]}
           >
-          {componentScene ? (
-            <InteractiveSceneHost
-              disabled={Boolean(feedback) || isChecking}
-              key={`${step.id}-${interactionRevision}`}
-              onResponseChange={value => {
-                setSelectedAnswer(value);
-                setFeedback(null);
-              }}
-              scene={componentScene}
-              snapshotKey={attemptId ? `${attemptId}:${step.id}` : undefined}
-            />
-          ) : usesPictureChoiceChallenge && step.visual.kind === 'picture_choice' ? (
-            <PictureChoiceChallengeScene
-              choices={lowerPrimaryChoices}
-              disabled={Boolean(feedback?.isCorrect) || isChecking}
-              mascotKey={mascotKey}
-              onSelect={answer => {
-                if (submissionInFlightRef.current || feedback?.isCorrect) {
-                  return;
+            {numberManipulativesScene ? (
+              <NumberManipulativesScene
+                disabled={Boolean(feedback?.isCorrect) || isChecking}
+                feedbackMessage={
+                  numberManipulativesScene.feedback ?? step.supportText
                 }
-                setSelectedAnswer(answer);
-                setFeedback(null);
-                triggerHaptic('selection');
-                primeFeedbackChimes();
-                submitAnswer(answer).catch(() => undefined);
-              }}
-              prompt={step.prompt}
-              reduceMotion={reduceMotion}
-              selectedAnswer={selectedAnswer}
-              spec={step.visual}
-              status={
-                isChecking
-                  ? 'checking'
-                  : feedback
+                initialValue={numberManipulativesScene.initialValue}
+                max={numberManipulativesScene.max}
+                min={numberManipulativesScene.min}
+                mode={numberManipulativesScene.mode}
+                onSubmit={answer => {
+                  if (submissionInFlightRef.current || feedback?.isCorrect)
+                    return;
+                  setSelectedAnswer(answer);
+                  setFeedback(null);
+                  triggerHaptic('selection');
+                  primeFeedbackChimes();
+                  submitAnswer(answer).catch(() => undefined);
+                }}
+                prompt={step.prompt}
+                retryHint={numberManipulativesScene.retryHint ?? step.hint}
+                status={
+                  isChecking
+                    ? 'checking'
+                    : feedback
                     ? feedback.isCorrect
                       ? 'correct'
                       : 'incorrect'
                     : 'idle'
-              }
-            />
-          ) : usesPictureWordChallenge && step.visual.kind === 'picture_word' ? (
-            <PictureWordChallengeScene
-              choices={lowerPrimaryChoices}
-              disabled={Boolean(feedback?.isCorrect) || isChecking}
-              language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
-              mascotKey={mascotKey}
-              onSelect={answer => {
-                if (submissionInFlightRef.current || feedback?.isCorrect) {
-                  return;
                 }
-                setSelectedAnswer(answer);
-                setFeedback(null);
-                triggerHaptic('selection');
-                primeFeedbackChimes();
-                submitAnswer(answer).catch(() => undefined);
-              }}
-              reduceMotion={reduceMotion}
-              selectedAnswer={selectedAnswer}
-              spec={step.visual}
-              status={
-                isChecking
-                  ? 'checking'
-                  : feedback
+                unitLabel={numberManipulativesScene.unitLabel}
+              />
+            ) : componentScene ? (
+              <InteractiveSceneHost
+                disabled={Boolean(feedback) || isChecking}
+                key={`${step.id}-${interactionRevision}`}
+                onResponseChange={value => {
+                  setSelectedAnswer(value);
+                  setFeedback(null);
+                }}
+                scene={componentScene}
+                snapshotKey={attemptId ? `${attemptId}:${step.id}` : undefined}
+              />
+            ) : usesPictureChoiceChallenge &&
+              step.visual.kind === 'picture_choice' ? (
+              <PictureChoiceChallengeScene
+                choices={lowerPrimaryChoices}
+                disabled={Boolean(feedback?.isCorrect) || isChecking}
+                feedbackMessage={step.supportText}
+                mascotKey={mascotKey}
+                onSelect={answer => {
+                  if (submissionInFlightRef.current || feedback?.isCorrect) {
+                    return;
+                  }
+                  setSelectedAnswer(answer);
+                  setFeedback(null);
+                  triggerHaptic('selection');
+                  primeFeedbackChimes();
+                  submitAnswer(answer).catch(() => undefined);
+                }}
+                prompt={step.prompt}
+                reduceMotion={reduceMotion}
+                retryHint={step.hint}
+                selectedAnswer={selectedAnswer}
+                spec={step.visual}
+                status={
+                  isChecking
+                    ? 'checking'
+                    : feedback
                     ? feedback.isCorrect
                       ? 'correct'
                       : 'incorrect'
                     : 'idle'
-              }
-            />
-          ) : usesLowerPrimaryChoiceChallenge ? (
-            <LowerPrimaryChoiceChallengeScene
-              choices={lowerPrimaryChoices}
-              disabled={Boolean(feedback?.isCorrect) || isChecking}
-              language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
-              mascotKey={mascotKey}
-              onSelect={answer => {
-                if (submissionInFlightRef.current || feedback?.isCorrect) {
-                  return;
                 }
-                setSelectedAnswer(answer);
-                setFeedback(null);
-                triggerHaptic('selection');
-                primeFeedbackChimes();
-                submitAnswer(answer).catch(() => undefined);
-              }}
-              prompt={step.prompt}
-              reduceMotion={reduceMotion}
-              selectedAnswer={selectedAnswer}
-              status={
-                isChecking
-                  ? 'checking'
-                  : feedback
+              />
+            ) : usesPictureWordChallenge &&
+              step.visual.kind === 'picture_word' ? (
+              <PictureWordChallengeScene
+                choices={lowerPrimaryChoices}
+                disabled={Boolean(feedback?.isCorrect) || isChecking}
+                language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
+                mascotKey={mascotKey}
+                onSelect={answer => {
+                  if (submissionInFlightRef.current || feedback?.isCorrect) {
+                    return;
+                  }
+                  setSelectedAnswer(answer);
+                  setFeedback(null);
+                  triggerHaptic('selection');
+                  primeFeedbackChimes();
+                  submitAnswer(answer).catch(() => undefined);
+                }}
+                reduceMotion={reduceMotion}
+                selectedAnswer={selectedAnswer}
+                spec={step.visual}
+                status={
+                  isChecking
+                    ? 'checking'
+                    : feedback
                     ? feedback.isCorrect
                       ? 'correct'
                       : 'incorrect'
                     : 'idle'
-              }
-            />
-          ) : (
-            <LearningVisual
-              arithmeticChallenge={
-                usesArithmeticChallenge
-                  ? {
-                      disabled: Boolean(feedback?.isCorrect) || isChecking,
-                      mascotKey,
-                      onSelect: answer => {
-                        if (
-                          submissionInFlightRef.current ||
-                          feedback?.isCorrect
-                        ) {
-                          return;
-                        }
-                        setSelectedAnswer(answer);
-                        setFeedback(null);
-                        triggerHaptic('selection');
-                        primeFeedbackChimes();
-                        submitAnswer(answer).catch(() => undefined);
-                      },
-                      options: step.options,
-                      questionIndex: currentIndex,
-                      reduceMotion,
-                      selectedAnswer,
-                      status: isChecking
-                        ? 'checking'
-                        : feedback
+                }
+              />
+            ) : usesLowerPrimaryChoiceChallenge ? (
+              <LowerPrimaryChoiceChallengeScene
+                choices={lowerPrimaryChoices}
+                disabled={Boolean(feedback?.isCorrect) || isChecking}
+                language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
+                mascotKey={mascotKey}
+                onSelect={answer => {
+                  if (submissionInFlightRef.current || feedback?.isCorrect) {
+                    return;
+                  }
+                  setSelectedAnswer(answer);
+                  setFeedback(null);
+                  triggerHaptic('selection');
+                  primeFeedbackChimes();
+                  submitAnswer(answer).catch(() => undefined);
+                }}
+                prompt={step.prompt}
+                reduceMotion={reduceMotion}
+                selectedAnswer={selectedAnswer}
+                status={
+                  isChecking
+                    ? 'checking'
+                    : feedback
+                    ? feedback.isCorrect
+                      ? 'correct'
+                      : 'incorrect'
+                    : 'idle'
+                }
+              />
+            ) : (
+              <LearningVisual
+                arithmeticChallenge={
+                  usesArithmeticChallenge
+                    ? {
+                        disabled: Boolean(feedback?.isCorrect) || isChecking,
+                        mascotKey,
+                        onSelect: answer => {
+                          if (
+                            submissionInFlightRef.current ||
+                            feedback?.isCorrect
+                          ) {
+                            return;
+                          }
+                          setSelectedAnswer(answer);
+                          setFeedback(null);
+                          triggerHaptic('selection');
+                          primeFeedbackChimes();
+                          submitAnswer(answer).catch(() => undefined);
+                        },
+                        options: step.options,
+                        questionIndex: currentIndex,
+                        reduceMotion,
+                        selectedAnswer,
+                        status: isChecking
+                          ? 'checking'
+                          : feedback
                           ? feedback.isCorrect
                             ? 'correct'
                             : 'incorrect'
                           : 'idle',
-                      totalQuestions: lesson.steps.length,
-                    }
-                  : undefined
-              }
-              spec={step.visual}
-            />
-          )}
+                        totalQuestions: lesson.steps.length,
+                      }
+                    : undefined
+                }
+                spec={step.visual}
+              />
+            )}
           </Animated.View>
         )}
 
@@ -773,7 +873,8 @@ export function ProgressiveLessonScreen({
         <Animated.View style={{ transform: [{ translateX: shake }] }}>
           {usesStandardAnswerGrid ||
           usesAutoGradedChallenge ||
-          componentScene ? null : step.interaction ? (
+          componentScene ||
+          numberManipulativesScene ? null : step.interaction ? (
             <LearningInteractionView
               disabled={Boolean(feedback) || isChecking}
               interaction={step.interaction}
@@ -788,66 +889,66 @@ export function ProgressiveLessonScreen({
               style={[styles.optionsWrap, usesAnswerGrid && styles.optionsGrid]}
             >
               {step.options.map(option => {
-              const selected = selectedAnswer === option;
-              const selectedCorrect = selected && feedback?.isCorrect;
-              const selectedIncorrect =
-                selected && feedback && !feedback.isCorrect;
+                const selected = selectedAnswer === option;
+                const selectedCorrect = selected && feedback?.isCorrect;
+                const selectedIncorrect =
+                  selected && feedback && !feedback.isCorrect;
                 return (
-                <SquishPressable
-                  key={option}
-                  accessibilityLabel={option}
-                  accessibilityRole="radio"
-                  accessibilityState={{
-                    checked: selected,
-                    disabled: Boolean(feedback?.isCorrect),
-                  }}
-                  disabled={Boolean(feedback?.isCorrect) || isChecking}
-                  containerStyle={
-                    usesAnswerGrid ? styles.optionGridItem : undefined
-                  }
-                  reduceMotion={reduceMotion}
-                  onPress={() => {
-                    setSelectedAnswer(option);
-                    setFeedback(null);
-                    triggerHaptic('selection');
-                  }}
-                >
-                  <View
-                    style={[
-                      styles.optionCard,
-                      selected && styles.optionSelected,
-                      selectedCorrect && styles.optionCorrect,
-                      selectedIncorrect && styles.optionIncorrect,
-                    ]}
+                  <SquishPressable
+                    key={option}
+                    accessibilityLabel={option}
+                    accessibilityRole="radio"
+                    accessibilityState={{
+                      checked: selected,
+                      disabled: Boolean(feedback?.isCorrect),
+                    }}
+                    disabled={Boolean(feedback?.isCorrect) || isChecking}
+                    containerStyle={
+                      usesAnswerGrid ? styles.optionGridItem : undefined
+                    }
+                    reduceMotion={reduceMotion}
+                    onPress={() => {
+                      setSelectedAnswer(option);
+                      setFeedback(null);
+                      triggerHaptic('selection');
+                    }}
                   >
                     <View
                       style={[
-                        styles.optionIndicator,
-                        selected && styles.optionIndicatorSelected,
-                        selectedCorrect && styles.optionIndicatorCorrect,
-                        selectedIncorrect && styles.optionIndicatorIncorrect,
+                        styles.optionCard,
+                        selected && styles.optionSelected,
+                        selectedCorrect && styles.optionCorrect,
+                        selectedIncorrect && styles.optionIncorrect,
                       ]}
                     >
-                      {selectedCorrect ? (
-                        <Check color="#FFFFFF" size={16} strokeWidth={3} />
-                      ) : null}
-                      {selectedIncorrect ? (
-                        <X color="#FFFFFF" size={16} strokeWidth={3} />
-                      ) : null}
-                      {selected && !feedback ? (
-                        <View style={styles.optionIndicatorDot} />
-                      ) : null}
+                      <View
+                        style={[
+                          styles.optionIndicator,
+                          selected && styles.optionIndicatorSelected,
+                          selectedCorrect && styles.optionIndicatorCorrect,
+                          selectedIncorrect && styles.optionIndicatorIncorrect,
+                        ]}
+                      >
+                        {selectedCorrect ? (
+                          <Check color="#FFFFFF" size={16} strokeWidth={3} />
+                        ) : null}
+                        {selectedIncorrect ? (
+                          <X color="#FFFFFF" size={16} strokeWidth={3} />
+                        ) : null}
+                        {selected && !feedback ? (
+                          <View style={styles.optionIndicatorDot} />
+                        ) : null}
+                      </View>
+                      <Text
+                        style={[
+                          styles.optionText,
+                          selected && styles.optionTextSelected,
+                        ]}
+                      >
+                        {option}
+                      </Text>
                     </View>
-                    <Text
-                      style={[
-                        styles.optionText,
-                        selected && styles.optionTextSelected,
-                      ]}
-                    >
-                      {option}
-                    </Text>
-                  </View>
-                </SquishPressable>
+                  </SquishPressable>
                 );
               })}
             </View>
@@ -999,6 +1100,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   centeredButtonWrap: { marginTop: 16, width: '100%' },
+  centeredSecondaryButton: { marginTop: 16, padding: 10 },
+  centeredSecondaryButtonText: {
+    color: '#315BB6',
+    fontSize: 15,
+    fontWeight: '800',
+  },
   centeredState: {
     alignItems: 'center',
     backgroundColor: '#F9FAFB',

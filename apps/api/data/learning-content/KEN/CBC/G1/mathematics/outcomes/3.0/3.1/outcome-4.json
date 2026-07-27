@@ -1,0 +1,161 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.1-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.1 Lines",
+    "subStrandId": "ad7968e3-394c-4407-bdaa-4f353cdcb571",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "draw curved lines on different surfaces",
+    "sourcePages": [
+      36,
+      37,
+      38
+    ],
+    "sourceTextSha256": "3b4ea5c2d8b248e5ce76b79c073061ba9bbc9b97691b07d19c30e6bf3d2e105e"
+  },
+  "mission": {
+    "title": "draw curved lines on different surfaces",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Make a curvy trail on the sand from the shell to the leaf.",
+        "surface": "sand",
+        "path": {
+          "from": "shell",
+          "to": "leaf",
+          "shape": "gentle-curve"
+        },
+        "tapAlternative": "Tap the shell, then tap the leaf to make a curvy trail.",
+        "answer": [
+          "shell",
+          "leaf",
+          "gentle-curve"
+        ],
+        "feedback": "Great! Your trail bends smoothly.",
+        "retryHint": "Start at the shell. Let your line bend softly as it goes to the leaf."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Follow the dotted rainbow curve from the cloud to the sun.",
+        "surface": "paper",
+        "modelPath": {
+          "from": "cloud",
+          "to": "sun",
+          "shape": "arch"
+        },
+        "path": {
+          "from": "cloud",
+          "to": "sun",
+          "shape": "arch"
+        },
+        "tapAlternative": "Tap the cloud, then tap the sun to choose the curved rainbow path.",
+        "answer": [
+          "cloud",
+          "sun",
+          "arch"
+        ],
+        "feedback": "Yes! A rainbow makes a lovely curve.",
+        "retryHint": "The rainbow bends like an upside-down U."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Draw a curved river from the hill to the lake.",
+        "surface": "map",
+        "path": {
+          "from": "hill",
+          "to": "lake",
+          "shape": "s-curve"
+        },
+        "tapAlternative": "Tap the hill, then the lake, and choose the curvy river path.",
+        "answer": [
+          "hill",
+          "lake",
+          "s-curve"
+        ],
+        "feedback": "Well done! The river bends as it flows to the lake.",
+        "retryHint": "A river can bend left, then right. Do not make a straight path."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "On your chalkboard, make a big curved smile from dot A to dot B.",
+        "surface": "chalkboard",
+        "path": {
+          "from": "A",
+          "to": "B",
+          "shape": "smile-curve"
+        },
+        "tapAlternative": "Tap A, then B, and choose the smile-shaped curve.",
+        "answer": [
+          "A",
+          "B",
+          "smile-curve"
+        ],
+        "feedback": "Correct! Your smiling line is curved.",
+        "retryHint": "Let the line dip down in the middle, like a smile."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Help a toy car follow the curved road from the market to home.",
+        "surface": "road map",
+        "path": {
+          "from": "market",
+          "to": "home",
+          "shape": "winding-curve"
+        },
+        "tapAlternative": "Tap the market, then home, and choose the winding road.",
+        "answer": [
+          "market",
+          "home",
+          "winding-curve"
+        ],
+        "feedback": "Excellent! The car followed the bending road home.",
+        "retryHint": "Look for the road that bends instead of going straight."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "trace-construct",
+        "activityMode": "trace-path",
+        "prompt": "Show what you know. Draw a curved vine from the tree to the mango.",
+        "surface": "garden picture",
+        "path": {
+          "from": "tree",
+          "to": "mango",
+          "shape": "curling-curve"
+        },
+        "tapAlternative": "Tap the tree, then the mango, and choose the curling vine.",
+        "answer": [
+          "tree",
+          "mango",
+          "curling-curve"
+        ],
+        "feedback": "You did it! A vine can make a curved line.",
+        "retryHint": "A vine curls and bends as it grows to the mango."
+      }
+    ]
+  }
+}

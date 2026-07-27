@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "work out missing numbers in patterns involving subtraction of whole numbers up to 50",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "work out missing numbers in patterns involving subtraction of whole numbers up to 50",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Follow the hops back. 10, 9, 8, __, 6. What number is missing?",
+        "numberLine": {
+          "start": 0,
+          "end": 10,
+          "pattern": "subtract-1"
+        },
+        "choices": [
+          "6",
+          "7",
+          "9"
+        ],
+        "answer": "7",
+        "feedback": "Yes! Each hop goes back 1, so 8, 7, 6.",
+        "retryHint": "Start at 8 and hop back one step. Say the next number."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "number-line-take-away",
+        "prompt": "Watch the pattern: 14, 12, 10, 8. We take away 2 each time. What comes next?",
+        "numberLine": {
+          "start": 0,
+          "end": 15,
+          "from": 8,
+          "backwardJumps": 2,
+          "pattern": "subtract-2"
+        },
+        "choices": [
+          "5",
+          "6",
+          "7"
+        ],
+        "answer": "6",
+        "feedback": "Great watching! Taking away 2 from 8 gives 6.",
+        "retryHint": "From 8, make two little hops back: 7, then 6."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "activityMode": "complete-pattern",
+        "prompt": "Tap the missing card: 18, 15, __, 9. We take away 3 each time.",
+        "targets": [
+          {
+            "id": "twelve",
+            "label": "12",
+            "accessibleDescription": "twelve"
+          },
+          {
+            "id": "thirteen",
+            "label": "13",
+            "accessibleDescription": "thirteen"
+          },
+          {
+            "id": "fourteen",
+            "label": "14",
+            "accessibleDescription": "fourteen"
+          }
+        ],
+        "tapAlternative": "Tap the number that comes after 15 when you take away 3.",
+        "answer": [
+          "twelve"
+        ],
+        "feedback": "Well done! 18, 15, 12, 9 goes back 3 each time.",
+        "retryHint": "Count back three from 15: 14, 13, 12."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Find the missing number: 25, 20, __, 10. What is the pattern number?",
+        "numberLine": {
+          "start": 0,
+          "end": 25,
+          "pattern": "subtract-5"
+        },
+        "choices": [
+          "12",
+          "15",
+          "18",
+          "30"
+        ],
+        "answer": "15",
+        "feedback": "Correct! We take away 5: 25, 20, 15, 10.",
+        "retryHint": "From 20, count back five: 19, 18, 17, 16, 15."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "activityMode": "complete-pattern",
+        "prompt": "At the market, a basket pattern has 32, 28, __, 20 mangoes. Tap the missing card. We take away 4 each time.",
+        "targets": [
+          {
+            "id": "twenty-four",
+            "label": "24",
+            "accessibleDescription": "twenty-four"
+          },
+          {
+            "id": "twenty-five",
+            "label": "25",
+            "accessibleDescription": "twenty-five"
+          },
+          {
+            "id": "twenty-six",
+            "label": "26",
+            "accessibleDescription": "twenty-six"
+          }
+        ],
+        "tapAlternative": "Tap the number left after taking 4 away from 28.",
+        "answer": [
+          "twenty-four"
+        ],
+        "feedback": "You got it! 32, 28, 24, 20 takes away 4 each time.",
+        "retryHint": "Count four steps back from 28: 27, 26, 25, 24."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Show what you know: 50, 40, __, 20. What number completes the subtraction pattern?",
+        "numberLine": {
+          "start": 0,
+          "end": 50,
+          "pattern": "subtract-10"
+        },
+        "choices": [
+          "25",
+          "30",
+          "35",
+          "45"
+        ],
+        "answer": "30",
+        "feedback": "Excellent! The pattern takes away 10: 50, 40, 30, 20.",
+        "retryHint": "After 40, take away one group of 10. Think of the tens: 4 tens becomes 3 tens."
+      }
+    ]
+  }
+}

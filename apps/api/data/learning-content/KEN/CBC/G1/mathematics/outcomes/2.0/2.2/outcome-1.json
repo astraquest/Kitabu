@@ -1,0 +1,145 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.2-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.2 Mass",
+    "subStrandId": "498c26ea-fcf8-4c44-a480-ecc703ed9595",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "collect objects with different masses from the immediate environment",
+    "sourcePages": [
+      26,
+      27,
+      28
+    ]
+  },
+  "mission": {
+    "title": "collect objects with different masses from the immediate environment",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the object you can pick up from a classroom.",
+        "objects": [
+          "book",
+          "desk",
+          "pencil"
+        ],
+        "choices": [
+          "pencil",
+          "desk",
+          "classroom wall"
+        ],
+        "answer": "pencil",
+        "feedback": "Yes! A pencil is an object you can collect.",
+        "retryHint": "Look for the small object you can carry with one hand."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Help the lion collect two objects with different masses. Tap the book and the stone.",
+        "objects": [
+          "book",
+          "stone",
+          "cloud"
+        ],
+        "tapAlternative": "Tap each object to add it to the collection.",
+        "answer": [
+          "book",
+          "stone"
+        ],
+        "feedback": "Great collecting! A book and a stone have different masses.",
+        "retryHint": "Choose real objects you can hold. Leave the cloud."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Tap the two things you can collect at home for a mass game.",
+        "objects": [
+          "spoon",
+          "orange",
+          "rainbow"
+        ],
+        "tapAlternative": "Tap each object to add it to the basket.",
+        "answer": [
+          "spoon",
+          "orange"
+        ],
+        "feedback": "Well done! A spoon and an orange are good objects to collect.",
+        "retryHint": "Pick things you can touch and carry."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which object can you collect from the playground?",
+        "objects": [
+          "stone",
+          "sun",
+          "school bus"
+        ],
+        "choices": [
+          "stone",
+          "sun",
+          "school bus"
+        ],
+        "answer": "stone",
+        "feedback": "Correct! You can collect a stone from the playground.",
+        "retryHint": "Choose the small real object."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "For a market stall game, collect two objects with different masses. Tap the tomato and the bag of flour.",
+        "objects": [
+          "tomato",
+          "bag of flour",
+          "mountain"
+        ],
+        "tapAlternative": "Tap each object to put it in the market basket.",
+        "answer": [
+          "tomato",
+          "bag of flour"
+        ],
+        "feedback": "Excellent! The tomato and flour bag are real objects with different masses.",
+        "retryHint": "Choose the two things sold at the market."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Show what you know. Tap all the objects you can collect to explore mass.",
+        "objects": [
+          "eraser",
+          "water bottle",
+          "moon",
+          "ball"
+        ],
+        "tapAlternative": "Tap each real object to make your collection.",
+        "answer": [
+          "eraser",
+          "water bottle",
+          "ball"
+        ],
+        "feedback": "Super work! You collected real objects with different masses.",
+        "retryHint": "Choose objects you can touch. Do not choose the moon."
+      }
+    ]
+  }
+}

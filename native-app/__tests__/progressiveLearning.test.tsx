@@ -15,17 +15,24 @@ import type { LearningStrand, Subject } from '../src/types/app';
 import {
   checkProgressiveLessonStep,
   completeProgressiveLesson,
+  LessonStartError,
   startProgressiveLesson,
 } from '../src/features/progressiveLearning/api/progressiveLearningService';
 
 jest.mock(
   '../src/features/progressiveLearning/api/progressiveLearningService',
-  () => ({
-    createProgressiveClientId: () => '11111111-1111-4111-8111-111111111111',
-    startProgressiveLesson: jest.fn(),
-    checkProgressiveLessonStep: jest.fn(),
-    completeProgressiveLesson: jest.fn(),
-  }),
+  () => {
+    const actual = jest.requireActual(
+      '../src/features/progressiveLearning/api/progressiveLearningService',
+    );
+    return {
+      ...actual,
+      createProgressiveClientId: () => '11111111-1111-4111-8111-111111111111',
+      startProgressiveLesson: jest.fn(),
+      checkProgressiveLessonStep: jest.fn(),
+      completeProgressiveLesson: jest.fn(),
+    };
+  },
 );
 
 jest.mock('../src/services/haptics', () => ({
@@ -137,6 +144,92 @@ const lesson: ProgressiveLesson = {
   ],
 };
 
+test('shows a specific recovery state when a prerequisite is locked', async () => {
+  const onBack = jest.fn();
+  (startProgressiveLesson as jest.Mock).mockReset().mockRejectedValue(
+    new LessonStartError({
+      code: 'PREREQUISITE_LOCKED',
+      message: 'Finish the lesson before this one to unlock it.',
+      status: 423,
+    }),
+  );
+
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(
+      <ProgressiveLessonScreen
+        lessonKey="lesson-2"
+        lessonVersion={1}
+        grade="Grade 1"
+        mascotKey="rabbit"
+        subjectName="Mathematics"
+        onBack={onBack}
+        onComplete={jest.fn()}
+      />,
+    );
+  });
+
+  expect(
+    renderer.root.findByProps({ children: 'This lesson is still locked' }),
+  ).toBeTruthy();
+  await act(async () => {
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Back to learning path' })
+      .props.onPress();
+  });
+  expect(onBack).toHaveBeenCalledTimes(1);
+  await act(async () => renderer.unmount());
+});
+
+test('lets a learner retry a lesson after a connection failure', async () => {
+  (startProgressiveLesson as jest.Mock)
+    .mockReset()
+    .mockRejectedValueOnce(
+      new LessonStartError({
+        code: 'NETWORK_UNAVAILABLE',
+        message:
+          'We could not connect to Kitabu. Check your connection and try again.',
+        retryable: true,
+      }),
+    )
+    .mockResolvedValueOnce({
+      attemptId: '22222222-2222-4222-8222-222222222222',
+      status: 'in_progress',
+      currentStepId: null,
+      lesson,
+    });
+
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(
+      <ProgressiveLessonScreen
+        lessonKey="lesson-1"
+        lessonVersion={1}
+        grade="Grade 1"
+        mascotKey="rabbit"
+        subjectName="Mathematics"
+        onBack={jest.fn()}
+        onComplete={jest.fn()}
+      />,
+    );
+  });
+  expect(
+    renderer.root.findByProps({ children: 'We’re having trouble connecting' }),
+  ).toBeTruthy();
+
+  await act(async () => {
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Try again' })
+      .props.onPress();
+  });
+
+  expect(startProgressiveLesson).toHaveBeenCalledTimes(2);
+  expect(
+    renderer.root.findAllByProps({ children: lesson.steps[0].prompt }),
+  ).not.toHaveLength(0);
+  await act(async () => renderer.unmount());
+});
+
 test('centralizes the simplified presentation policy for Grades 1 to 3', () => {
   expect(getLearningPresentationMode('Grade 1')).toBe('lower_primary');
   expect(getLearningPresentationMode('Grade 2')).toBe('lower_primary');
@@ -220,13 +313,17 @@ test('subject page keeps the curriculum path visible when a live refresh fails',
   });
 
   expect(
-    renderer.root.findByProps({ accessibilityLabel: 'See update: Linear Equations' }),
+    renderer.root.findByProps({
+      accessibilityLabel: 'See update: Linear Equations',
+    }),
   ).toBeTruthy();
   expect(
     renderer.root.findAllByProps({ children: 'This path is being prepared' }),
   ).toHaveLength(0);
   expect(
-    renderer.root.findAllByProps({ children: 'Please sign in again to continue.' }),
+    renderer.root.findAllByProps({
+      children: 'Please sign in again to continue.',
+    }),
   ).toHaveLength(0);
   renderer.unmount();
 });
@@ -253,9 +350,13 @@ test('subject page renders one learning path without the retired feature menu', 
   expect(
     renderer.root.findAllByProps({ children: 'Equality as balance' }).length,
   ).toBeGreaterThan(0);
-  expect(renderer.root.findByProps({ testID: 'subject-page-header' })).toBeTruthy();
   expect(
-    renderer.root.findByProps({ accessibilityLabel: 'Mathematics subject header' }),
+    renderer.root.findByProps({ testID: 'subject-page-header' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findByProps({
+      accessibilityLabel: 'Mathematics subject header',
+    }),
   ).toBeTruthy();
   expect(
     renderer.root.findByProps({
@@ -358,7 +459,9 @@ test('unpublished current topic opens the selected-mascot content notice', async
   ).toBeTruthy();
   expect(renderer.root.findByProps({ children: 'TOPIC 1.1.1' })).toBeTruthy();
   expect(
-    renderer.root.findAllByProps({ children: 'Your place in the curriculum is safe.' }),
+    renderer.root.findAllByProps({
+      children: 'Your place in the curriculum is safe.',
+    }),
   ).toHaveLength(0);
   renderer.unmount();
 });
@@ -444,10 +547,16 @@ test('subject page keeps only the current lesson active without card subtext', a
   });
 
   expect(
-    renderer.root.findAllByProps({ accessibilityLabel: 'Review Review topic 1' }),
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Review Review topic 1',
+    }),
   ).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'Review lesson' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'Objective 2' })).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Review lesson' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Objective 2' }),
+  ).toHaveLength(0);
   expect(
     renderer.root.findByProps({
       accessibilityLabel: 'Start lesson: Review topic 2',
@@ -505,8 +614,12 @@ test('subject progress includes a topic that has been practised', async () => {
     );
   });
 
-  expect(renderer.root.findByProps({ accessibilityLabel: '50% complete' })).toBeTruthy();
-  expect(renderer.root.findAllByProps({ accessibilityLabel: '0% complete' })).toHaveLength(0);
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: '50% complete' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ accessibilityLabel: '0% complete' }),
+  ).toHaveLength(0);
   expect(
     renderer.root.findByProps({
       accessibilityLabel:
@@ -658,18 +771,32 @@ test('standard lessons use answer cards once and omit decorative guidance copy',
     );
   });
 
-  expect(renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'CHECKPOINT' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'EXPLORE THE SCENE' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'What do you notice?' })).toHaveLength(0);
   expect(
-    renderer.root.findAllByProps({ children: 'This paragraph repeats the learning objective.' }),
+    renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' }),
+  ).toHaveLength(0);
+  expect(renderer.root.findAllByProps({ children: 'CHECKPOINT' })).toHaveLength(
+    0,
+  );
+  expect(
+    renderer.root.findAllByProps({ children: 'EXPLORE THE SCENE' }),
   ).toHaveLength(0);
   expect(
-    renderer.root.findAllByProps({ children: 'Scan the evidence, then spotlight one answer.' }),
+    renderer.root.findAllByProps({ children: 'What do you notice?' }),
   ).toHaveLength(0);
   expect(
-    renderer.root.findAllByProps({ children: 'Only one answer fits every clue.' }),
+    renderer.root.findAllByProps({
+      children: 'This paragraph repeats the learning objective.',
+    }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({
+      children: 'Scan the evidence, then spotlight one answer.',
+    }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({
+      children: 'Only one answer fits every clue.',
+    }),
   ).toHaveLength(0);
   expect(renderer.root.findAllByType(StandardAnswerGrid)).toHaveLength(1);
   for (const option of cleanLesson.steps[0].options) {
@@ -679,10 +806,14 @@ test('standard lessons use answer cards once and omit decorative guidance copy',
   }
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: '7.2 × 10^-4' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: '7.2 × 10^-4' })
+      .props.onPress();
   });
   await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props.onPress();
+    await renderer.root
+      .findByProps({ accessibilityLabel: 'Check answer' })
+      .props.onPress();
   });
   expect(checkProgressiveLessonStep).toHaveBeenCalledWith(
     expect.objectContaining({ response: '7.2 × 10^-4' }),
@@ -739,7 +870,9 @@ test('standard classification questions do not render a second copy of their ans
 
   expect(renderer.root.findAllByType(StandardAnswerGrid)).toHaveLength(1);
   expect(
-    renderer.root.findAllByProps({ accessibilityLabel: 'Repeated classification scene' }),
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Repeated classification scene',
+    }),
   ).toHaveLength(0);
   await act(async () => renderer.unmount());
 });
@@ -786,22 +919,32 @@ test('practice completion omits duplicate result copy and provides a top back ac
   });
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: '4 zebras' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: '4 zebras' })
+      .props.onPress();
   });
   await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props.onPress();
+    await renderer.root
+      .findByProps({ accessibilityLabel: 'Check answer' })
+      .props.onPress();
   });
   await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Continue lesson' }).props.onPress();
+    await renderer.root
+      .findByProps({ accessibilityLabel: 'Continue lesson' })
+      .props.onPress();
   });
 
-  expect(renderer.root.findAllByProps({ children: 'Practice run complete' })).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Practice run complete' }),
+  ).toHaveLength(0);
   expect(
     renderer.root.findAllByProps({
       children: 'Review the hints, then try again to unlock the next lesson.',
     }),
   ).toHaveLength(0);
-  const backAction = renderer.root.findByProps({ accessibilityLabel: 'Back to learning path' });
+  const backAction = renderer.root.findByProps({
+    accessibilityLabel: 'Back to learning path',
+  });
   expect(backAction).toBeTruthy();
   await act(async () => backAction.props.onPress());
   expect(onComplete).toHaveBeenCalledTimes(1);
@@ -862,19 +1005,33 @@ test('progressive lesson keeps Check disabled until an active interaction is com
     );
   });
 
-  expect(renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props.disabled).toBe(true);
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props
+      .disabled,
+  ).toBe(true);
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Add Start to position 1' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Add Start to position 1' })
+      .props.onPress();
   });
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Add Middle to position 2' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Add Middle to position 2' })
+      .props.onPress();
   });
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Add Finish to position 3' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Add Finish to position 3' })
+      .props.onPress();
   });
-  expect(renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props.disabled).toBe(false);
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props
+      .disabled,
+  ).toBe(false);
   await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Check answer' }).props.onPress();
+    await renderer.root
+      .findByProps({ accessibilityLabel: 'Check answer' })
+      .props.onPress();
   });
   expect(checkProgressiveLessonStep).toHaveBeenCalledWith(
     expect.objectContaining({ response: 'sequence:route-b>route-c>route-a' }),
@@ -904,7 +1061,11 @@ test('lower-primary topics use the simplified auto-graded choice surface', async
           layout: 'grid',
           cards: [
             { id: 'choice-1', label: 'Count each object once', accent: 'blue' },
-            { id: 'choice-2', label: 'Count the same object twice', accent: 'coral' },
+            {
+              id: 'choice-2',
+              label: 'Count the same object twice',
+              accent: 'coral',
+            },
           ],
           instruction: 'Scan the evidence, then spotlight one answer.',
           caption: 'Only one idea fits every clue.',
@@ -944,18 +1105,30 @@ test('lower-primary topics use the simplified auto-graded choice surface', async
   });
 
   expect(
-    renderer.root.findAllByProps({ accessibilityLabel: 'Spotlight choice interaction' }),
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Spotlight choice interaction',
+    }),
   ).toHaveLength(0);
   expect(
     renderer.root.findAllByProps({ accessibilityLabel: 'Answer choices' }),
   ).toHaveLength(0);
-  expect(renderer.root.findByProps({ testID: 'lower-primary-choice-challenge' })).toBeTruthy();
-  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Check answer' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'EXPLORE THE SCENE' })).toHaveLength(0);
+  expect(
+    renderer.root.findByProps({ testID: 'lower-primary-choice-challenge' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ accessibilityLabel: 'Check answer' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'EXPLORE THE SCENE' }),
+  ).toHaveLength(0);
   await act(async () => {
     renderer.root
-      .findByProps({ accessibilityLabel: 'Choose answer Count each object once' })
+      .findByProps({
+        accessibilityLabel: 'Choose answer Count each object once',
+      })
       .props.onPress();
     await Promise.resolve();
     await Promise.resolve();
@@ -1042,33 +1215,63 @@ test('lower-primary arithmetic grades immediately and advances after two seconds
     );
   });
 
-  expect(renderer.root.findByProps({ testID: 'lower-primary-arithmetic-challenge' })).toBeTruthy();
-  expect(renderer.root.findByProps({ testID: 'lower-primary-question-progress' })).toBeTruthy();
+  expect(
+    renderer.root.findByProps({ testID: 'lower-primary-arithmetic-challenge' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findByProps({ testID: 'lower-primary-question-progress' }),
+  ).toBeTruthy();
   expect(
     renderer.root.findByProps({
       accessibilityLabel: '2 questions: 0 correct, 0 incorrect',
     }),
   ).toBeTruthy();
   expect(
-    renderer.root.findByProps({ accessibilityLabel: 'Question 1: not answered' }),
+    renderer.root.findByProps({
+      accessibilityLabel: 'Question 1: not answered',
+    }),
   ).toBeTruthy();
   expect(
-    renderer.root.findByProps({ accessibilityLabel: 'Question 2: not answered' }),
+    renderer.root.findByProps({
+      accessibilityLabel: 'Question 2: not answered',
+    }),
   ).toBeTruthy();
-  expect(renderer.root.findByProps({ testID: 'subject-page-header' })).toBeTruthy();
   expect(
-    renderer.root.findByProps({ accessibilityLabel: 'Mathematics subject header' }),
+    renderer.root.findByProps({ testID: 'subject-page-header' }),
   ).toBeTruthy();
-  expect(renderer.root.findByProps({ accessibilityLabel: 'elephant learning mascot' })).toBeTruthy();
-  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Answer choices' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Check answer' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' })).toHaveLength(0);
+  expect(
+    renderer.root.findByProps({
+      accessibilityLabel: 'Mathematics subject header',
+    }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findByProps({
+      accessibilityLabel: 'elephant learning mascot',
+    }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ accessibilityLabel: 'Answer choices' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ accessibilityLabel: 'Check answer' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'GUIDED CHALLENGE' }),
+  ).toHaveLength(0);
   expect(renderer.root.findAllByProps({ children: '1/2' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ accessibilityRole: 'progressbar' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: 'Choose your answer!' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ children: '✦ QUESTION 1 OF 2 ✦' })).toHaveLength(0);
   expect(
-    renderer.root.findAllByProps({ accessibilityLabel: 'Question progress: 1 of 2' }),
+    renderer.root.findAllByProps({ accessibilityRole: 'progressbar' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Choose your answer!' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: '✦ QUESTION 1 OF 2 ✦' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Question progress: 1 of 2',
+    }),
   ).toHaveLength(0);
   expect(
     renderer.root.findAllByProps({
@@ -1076,7 +1279,9 @@ test('lower-primary arithmetic grades immediately and advances after two seconds
     }),
   ).toHaveLength(0);
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Choose answer 8' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Choose answer 8' })
+      .props.onPress();
     await Promise.resolve();
     await Promise.resolve();
   });
@@ -1092,7 +1297,9 @@ test('lower-primary arithmetic grades immediately and advances after two seconds
   expect(correctChimePlayer.play).toHaveBeenCalledTimes(1);
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Choose answer 9' }).props.onPress();
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Choose answer 9' })
+      .props.onPress();
     await Promise.resolve();
     await Promise.resolve();
   });
@@ -1103,7 +1310,9 @@ test('lower-primary arithmetic grades immediately and advances after two seconds
     renderer.root.findByProps({ accessibilityLabel: 'Question 1: incorrect' }),
   ).toBeTruthy();
   expect(correctChimePlayer.play).toHaveBeenCalledTimes(2);
-  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue lesson' })).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ accessibilityLabel: 'Continue lesson' }),
+  ).toHaveLength(0);
   expect(
     renderer.root.findByProps({
       accessibilityLabel: 'Arithmetic challenge: 6 + 3 equals what?',

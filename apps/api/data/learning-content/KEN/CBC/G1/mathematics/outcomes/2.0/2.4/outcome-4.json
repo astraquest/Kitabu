@@ -1,0 +1,159 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-2.4-outcome-4",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "2.0 Measurement",
+    "strandId": "daf35d68-d0d9-4bc6-a3a2-c5cf8dff75c9",
+    "subStrand": "2.4 Time",
+    "subStrandId": "4c7bd0ea-3bc3-44b5-97a1-217866474cdc",
+    "outcomeId": "outcome-4",
+    "outcomePosition": 4,
+    "outcomeText": "appreciate activities that are done on different days of the week.",
+    "sourcePages": [
+      30,
+      31,
+      32
+    ],
+    "sourceTextSha256": "d5000a3b4dc689882df98443d853295a7eeb694738d7adf1c119f0d3d8d28fe7"
+  },
+  "mission": {
+    "title": "appreciate activities that are done on different days of the week.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Amina goes to school on Monday. She plays at home on Saturday. Are these activities on different days?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
+        "answer": "Yes",
+        "feedback": "Yes! School and home play can happen on different days.",
+        "retryHint": "Look at the two day names: Monday and Saturday are not the same."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Look at this plan: Tuesday is reading day. Friday is games day. Which activity is on Friday?",
+        "model": {
+          "weekPlan": [
+            {
+              "day": "Tuesday",
+              "activity": "reading"
+            },
+            {
+              "day": "Friday",
+              "activity": "games"
+            }
+          ]
+        },
+        "choices": [
+          "Reading",
+          "Games",
+          "Sleeping"
+        ],
+        "answer": "Games",
+        "feedback": "Good looking! Friday is games day in this plan.",
+        "retryHint": "Point to Friday, then read the activity beside it."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "trace-construct",
+        "prompt": "Put the activity card on its day. Tap Wednesday, then tap art time.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "day-wednesday",
+            "label": "Wednesday",
+            "accessibleDescription": "Wednesday"
+          },
+          {
+            "id": "activity-art",
+            "label": "art time",
+            "accessibleDescription": "art time"
+          },
+          {
+            "id": "activity-games",
+            "label": "games",
+            "accessibleDescription": "games"
+          }
+        ],
+        "tapAlternative": "Tap Wednesday, then tap art time to make the match.",
+        "answer": [
+          "day-wednesday",
+          "activity-art"
+        ],
+        "feedback": "Nice match! Art time is planned for Wednesday.",
+        "retryHint": "Find the day named in the question first, then choose art time."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Musa visits his grandmother on Sunday. Which sentence is true?",
+        "choices": [
+          "The visit is on Sunday.",
+          "The visit is on Monday.",
+          "The visit is on Friday."
+        ],
+        "answer": "The visit is on Sunday.",
+        "feedback": "Correct! Musa's family visit is on Sunday.",
+        "retryHint": "Say the day in the story again: Musa visits on ___."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "trace-construct",
+        "prompt": "Make a kind weekly plan. Tap Saturday, then tap help at home.",
+        "activityMode": "trace-path",
+        "targets": [
+          {
+            "id": "day-saturday",
+            "label": "Saturday",
+            "accessibleDescription": "Saturday"
+          },
+          {
+            "id": "activity-help-home",
+            "label": "help at home",
+            "accessibleDescription": "help at home"
+          },
+          {
+            "id": "activity-school",
+            "label": "school",
+            "accessibleDescription": "school"
+          }
+        ],
+        "tapAlternative": "Tap Saturday, then tap help at home to make the plan.",
+        "answer": [
+          "day-saturday",
+          "activity-help-home"
+        ],
+        "feedback": "Wonderful plan! Helping at home is a caring Saturday activity.",
+        "retryHint": "Choose the day named first. Then choose the kind home activity."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Every day can have a useful activity. Why is a weekly plan helpful?",
+        "choices": [
+          "It helps us know what to do on different days.",
+          "It makes every day have the same activity.",
+          "It removes all activities."
+        ],
+        "answer": "It helps us know what to do on different days.",
+        "feedback": "Excellent! A weekly plan helps us enjoy and prepare for different activities.",
+        "retryHint": "Think about how a plan tells us what happens on each day."
+      }
+    ]
+  }
+}

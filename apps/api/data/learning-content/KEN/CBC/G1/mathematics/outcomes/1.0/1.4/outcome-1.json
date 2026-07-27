@@ -1,0 +1,153 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.4-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.4 Subtraction",
+    "subStrandId": "aafd3259-31a8-4f43-9e3a-ede835bc8048",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "model subtraction as taking away using concrete objects",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sourceTextSha256": "4edaee6dfa005541377f1f4072e35bbe0c9796e5515473800eacf490b1800ddb"
+  },
+  "mission": {
+    "title": "model subtraction as taking away using concrete objects",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "There are 3 bananas. One banana goes into the basket. How many bananas stay on the mat?",
+        "objects": [
+          {
+            "object": "banana",
+            "count": 3,
+            "state": "on-mat"
+          },
+          {
+            "object": "banana",
+            "count": 1,
+            "state": "taken-away"
+          }
+        ],
+        "choices": [
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": "2",
+        "feedback": "Yes! Start with 3. Take 1 away. 2 bananas stay.",
+        "retryHint": "Point to the banana that went away. Now count the bananas still on the mat."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Start with 5 bottle tops. Move 2 to the away box. Show how many stay.",
+        "initialValue": 5,
+        "takeAway": 2,
+        "target": 3,
+        "min": 0,
+        "max": 5,
+        "unitLabel": "bottle tops left",
+        "tapAlternative": "Tap the minus button two times, then tap Check.",
+        "answer": "3",
+        "feedback": "Great! 5 bottle tops take away 2 leaves 3.",
+        "retryHint": "Begin at 5. Count back two steps: 4, then 3."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Six toy cars are ready. Two drive away. Show the cars that are left.",
+        "initialValue": 6,
+        "takeAway": 2,
+        "target": 4,
+        "min": 0,
+        "max": 6,
+        "unitLabel": "cars left",
+        "tapAlternative": "Tap one less for each car that drives away, then tap Check.",
+        "answer": "4",
+        "feedback": "Well done! 6 take away 2 leaves 4 cars.",
+        "retryHint": "Take away one car: 5. Take away one more: 4."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Asha has 8 mangoes. She gives 3 mangoes to her friends. How many mangoes does Asha have now?",
+        "objects": [
+          {
+            "object": "mango",
+            "count": 8,
+            "state": "start"
+          },
+          {
+            "object": "mango",
+            "count": 3,
+            "state": "given-away"
+          }
+        ],
+        "choices": [
+          "4",
+          "5",
+          "6",
+          "8"
+        ],
+        "answer": "5",
+        "feedback": "Correct! Asha starts with 8. After 3 go away, 5 mangoes stay.",
+        "retryHint": "Cover the 3 mangoes given away. Count only the mangoes left."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "At the class garden, 9 seedlings are in a tray. Plant 4 seedlings. Show the seedlings still in the tray.",
+        "initialValue": 9,
+        "takeAway": 4,
+        "target": 5,
+        "min": 0,
+        "max": 9,
+        "unitLabel": "seedlings left",
+        "tapAlternative": "Tap one less four times for the planted seedlings, then tap Check.",
+        "answer": "5",
+        "feedback": "You did it! 9 seedlings take away 4 leaves 5 in the tray.",
+        "retryHint": "Count back four times from 9: 8, 7, 6, 5."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "number-manipulatives",
+        "activityMode": "take-away",
+        "prompt": "Show what you know. There are 12 shells. Put 5 shells in the collection bag. How many shells stay on the sand?",
+        "initialValue": 12,
+        "takeAway": 5,
+        "target": 7,
+        "min": 0,
+        "max": 12,
+        "unitLabel": "shells left",
+        "tapAlternative": "Tap one less five times, then tap Check.",
+        "answer": "7",
+        "feedback": "Excellent! 12 shells take away 5 leaves 7 shells.",
+        "retryHint": "Start at 12 and count back five steps: 11, 10, 9, 8, 7."
+      }
+    ]
+  }
+}

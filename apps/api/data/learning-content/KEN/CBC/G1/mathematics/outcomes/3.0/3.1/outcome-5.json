@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-3.1-outcome-5",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "3.0 Geometry",
+    "strandId": "b5453f81-6c5d-478b-8075-a242b4f17ce4",
+    "subStrand": "3.1 Lines",
+    "subStrandId": "ad7968e3-394c-4407-bdaa-4f353cdcb571",
+    "outcomeId": "outcome-5",
+    "outcomePosition": 5,
+    "outcomeText": "recognise straight and curved lines from real objects in the environment.",
+    "sourcePages": [
+      36,
+      37,
+      38
+    ],
+    "sourceTextSha256": "3b4ea5c2d8b248e5ce76b79c073061ba9bbc9b97691b07d19c30e6bf3d2e105e"
+  },
+  "mission": {
+    "title": "recognise straight and curved lines from real objects in the environment.",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Tap the straight line.",
+        "choices": [
+          {
+            "id": "straight",
+            "label": "Straight line",
+            "accessibleDescription": "a line that goes straight without bending"
+          },
+          {
+            "id": "curved",
+            "label": "Curved line",
+            "accessibleDescription": "a line that bends smoothly"
+          }
+        ],
+        "answer": "straight",
+        "feedback": "Yes! A straight line does not bend.",
+        "retryHint": "Look for the line that goes straight across."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "match",
+        "prompt": "Match each object to its line.",
+        "items": [
+          "ruler",
+          "banana"
+        ],
+        "choices": [
+          "straight",
+          "curved"
+        ],
+        "tapAlternative": "Tap an object, then tap its line word.",
+        "answer": {
+          "ruler": "straight",
+          "banana": "curved"
+        },
+        "feedback": "Great! A ruler is straight and a banana is curved.",
+        "retryHint": "Ask: does the object bend or stay straight?"
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify",
+        "prompt": "Put the objects in the straight or curved basket.",
+        "items": [
+          "pencil",
+          "rainbow",
+          "book-edge",
+          "bowl-rim"
+        ],
+        "groups": [
+          "straight",
+          "curved"
+        ],
+        "tapAlternative": "Tap an object, then tap the straight or curved basket.",
+        "answer": {
+          "pencil": "straight",
+          "rainbow": "curved",
+          "book-edge": "straight",
+          "bowl-rim": "curved"
+        },
+        "feedback": "Well done! You found lines on every object.",
+        "retryHint": "Straight objects do not turn. Curved ones bend around."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "At home, which object has a curved line? Tap it.",
+        "choices": [
+          {
+            "id": "plate",
+            "label": "Plate rim",
+            "accessibleDescription": "a round plate with a curved edge"
+          },
+          {
+            "id": "table",
+            "label": "Table edge",
+            "accessibleDescription": "a table with a straight edge"
+          },
+          {
+            "id": "ruler",
+            "label": "Ruler",
+            "accessibleDescription": "a ruler with a straight edge"
+          }
+        ],
+        "answer": "plate",
+        "feedback": "Correct! The round plate rim makes a curved line.",
+        "retryHint": "Choose the object with a round edge."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify",
+        "prompt": "On the school walk, sort the line clues.",
+        "items": [
+          "fence-rail",
+          "road-bend",
+          "window-side",
+          "swing-chain-curve"
+        ],
+        "groups": [
+          "straight",
+          "curved"
+        ],
+        "tapAlternative": "Tap each clue, then tap straight or curved.",
+        "answer": {
+          "fence-rail": "straight",
+          "road-bend": "curved",
+          "window-side": "straight",
+          "swing-chain-curve": "curved"
+        },
+        "feedback": "Excellent line hunting around school!",
+        "retryHint": "A rail and window side go straight. A bend turns around."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "match",
+        "prompt": "Show what you know. Match the real objects to their line.",
+        "items": [
+          "stick",
+          "river-path",
+          "door-edge",
+          "bracelet"
+        ],
+        "choices": [
+          "straight",
+          "curved"
+        ],
+        "tapAlternative": "Tap an object, then tap straight or curved.",
+        "answer": {
+          "stick": "straight",
+          "river-path": "curved",
+          "door-edge": "straight",
+          "bracelet": "curved"
+        },
+        "feedback": "You did it! You can spot straight and curved lines around you.",
+        "retryHint": "Look for objects that stay straight and objects that bend."
+      }
+    ]
+  }
+}

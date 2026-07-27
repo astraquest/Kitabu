@@ -1,0 +1,303 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-mathematics-1.1-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "Mathematical Activities",
+    "subjectId": "mathematics",
+    "strand": "1.0 Numbers",
+    "strandId": "21b93e59-e98d-42eb-9386-94b0d639bcab",
+    "subStrand": "1.1 Pre-number activities",
+    "subStrandId": "894525aa-7d31-4533-8d49-196c7a3f1148",
+    "outcomeId": "outcome-1",
+    "outcomePosition": 1,
+    "outcomeText": "sort objects according to similar attributes in different situations",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ],
+    "sourceTextSha256": "eddb615b1a4c1f2f35fe42ddafa7bc55e3d81fcf2cb7065de5099b7ea5a5347e"
+  },
+  "mission": {
+    "title": "sort objects according to similar attributes in different situations",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which two things are the same colour? Tap the pair.",
+        "choices": [
+          {
+            "id": "yellow-bananas",
+            "label": "Two yellow bananas",
+            "objects": [
+              "yellow-banana",
+              "yellow-banana"
+            ]
+          },
+          {
+            "id": "mixed-fruits",
+            "label": "A yellow banana and a red tomato",
+            "objects": [
+              "yellow-banana",
+              "red-tomato"
+            ]
+          },
+          {
+            "id": "mixed-balls",
+            "label": "A blue ball and a red ball",
+            "objects": [
+              "blue-ball",
+              "red-ball"
+            ]
+          }
+        ],
+        "answer": "yellow-bananas",
+        "feedback": "Yes! Both bananas are yellow.",
+        "retryHint": "Look for two objects with the same colour."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Let us sort by colour. Put each red fruit in the red basket.",
+        "categories": [
+          {
+            "id": "red-basket",
+            "label": "Red basket",
+            "accessibleDescription": "basket for red things"
+          },
+          {
+            "id": "yellow-basket",
+            "label": "Yellow basket",
+            "accessibleDescription": "basket for yellow things"
+          }
+        ],
+        "items": [
+          {
+            "id": "red-tomato",
+            "label": "red tomato",
+            "attribute": "red"
+          },
+          {
+            "id": "yellow-banana",
+            "label": "yellow banana",
+            "attribute": "yellow"
+          },
+          {
+            "id": "red-apple",
+            "label": "red apple",
+            "attribute": "red"
+          }
+        ],
+        "answer": {
+          "red-tomato": "red-basket",
+          "yellow-banana": "yellow-basket",
+          "red-apple": "red-basket"
+        },
+        "tapAlternative": "Tap an item, then tap the basket where it belongs.",
+        "feedback": "Great sorting! Red fruit goes in the red basket.",
+        "retryHint": "Look at the colour of each fruit before choosing a basket."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Sort the school things by shape. Put round things in the circle hoop.",
+        "categories": [
+          {
+            "id": "circle-hoop",
+            "label": "Circle hoop",
+            "accessibleDescription": "place for round objects"
+          },
+          {
+            "id": "not-circle-hoop",
+            "label": "Other shapes hoop",
+            "accessibleDescription": "place for objects that are not round"
+          }
+        ],
+        "items": [
+          {
+            "id": "ball",
+            "label": "ball",
+            "attribute": "round"
+          },
+          {
+            "id": "book",
+            "label": "book",
+            "attribute": "rectangle"
+          },
+          {
+            "id": "clock",
+            "label": "clock",
+            "attribute": "round"
+          }
+        ],
+        "answer": {
+          "ball": "circle-hoop",
+          "book": "not-circle-hoop",
+          "clock": "circle-hoop"
+        },
+        "tapAlternative": "Tap an object, then tap its hoop.",
+        "feedback": "Well done! A ball and a clock are round.",
+        "retryHint": "A round object has a curved edge all the way around."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "At the market, sort food by type. Put fruits in the fruit tray.",
+        "categories": [
+          {
+            "id": "fruit-tray",
+            "label": "Fruit tray",
+            "accessibleDescription": "tray for fruits"
+          },
+          {
+            "id": "vegetable-tray",
+            "label": "Vegetable tray",
+            "accessibleDescription": "tray for vegetables"
+          }
+        ],
+        "items": [
+          {
+            "id": "mango",
+            "label": "mango",
+            "attribute": "fruit"
+          },
+          {
+            "id": "carrot",
+            "label": "carrot",
+            "attribute": "vegetable"
+          },
+          {
+            "id": "banana",
+            "label": "banana",
+            "attribute": "fruit"
+          },
+          {
+            "id": "tomato",
+            "label": "tomato",
+            "attribute": "vegetable"
+          }
+        ],
+        "answer": {
+          "mango": "fruit-tray",
+          "carrot": "vegetable-tray",
+          "banana": "fruit-tray",
+          "tomato": "vegetable-tray"
+        },
+        "tapAlternative": "Tap each food item, then tap the right tray.",
+        "feedback": "Excellent! You sorted the market food by type.",
+        "retryHint": "Ask: is it a fruit or a vegetable?"
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Help at home. Sort the clothes by size for the washing basket.",
+        "categories": [
+          {
+            "id": "small-basket",
+            "label": "Small clothes basket",
+            "accessibleDescription": "basket for small clothes"
+          },
+          {
+            "id": "large-basket",
+            "label": "Large clothes basket",
+            "accessibleDescription": "basket for large clothes"
+          }
+        ],
+        "items": [
+          {
+            "id": "child-sock",
+            "label": "small sock",
+            "attribute": "small"
+          },
+          {
+            "id": "adult-shirt",
+            "label": "large shirt",
+            "attribute": "large"
+          },
+          {
+            "id": "child-tshirt",
+            "label": "small T-shirt",
+            "attribute": "small"
+          },
+          {
+            "id": "adult-trouser",
+            "label": "large trouser",
+            "attribute": "large"
+          }
+        ],
+        "answer": {
+          "child-sock": "small-basket",
+          "adult-shirt": "large-basket",
+          "child-tshirt": "small-basket",
+          "adult-trouser": "large-basket"
+        },
+        "tapAlternative": "Tap a cloth, then tap the small or large basket.",
+        "feedback": "You did it! Sorting makes washing easier.",
+        "retryHint": "Compare each cloth. Is it small or large?"
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Show what you know. Sort these objects by what they are made of.",
+        "categories": [
+          {
+            "id": "wood-box",
+            "label": "Wood box",
+            "accessibleDescription": "box for wooden objects"
+          },
+          {
+            "id": "plastic-box",
+            "label": "Plastic box",
+            "accessibleDescription": "box for plastic objects"
+          }
+        ],
+        "items": [
+          {
+            "id": "wooden-spoon",
+            "label": "wooden spoon",
+            "attribute": "wood"
+          },
+          {
+            "id": "plastic-cup",
+            "label": "plastic cup",
+            "attribute": "plastic"
+          },
+          {
+            "id": "wooden-block",
+            "label": "wooden block",
+            "attribute": "wood"
+          },
+          {
+            "id": "plastic-bottle",
+            "label": "plastic bottle",
+            "attribute": "plastic"
+          }
+        ],
+        "answer": {
+          "wooden-spoon": "wood-box",
+          "plastic-cup": "plastic-box",
+          "wooden-block": "wood-box",
+          "plastic-bottle": "plastic-box"
+        },
+        "tapAlternative": "Tap each object, then tap its box.",
+        "feedback": "Fantastic! You can sort objects using their attributes.",
+        "retryHint": "Think about what each object is made from: wood or plastic?"
+      }
+    ]
+  }
+}

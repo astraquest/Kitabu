@@ -9,28 +9,24 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
-import expo.modules.ReactNativeHostWrapper
 
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
-    ReactNativeHostWrapper(
-      this,
-      object : DefaultReactNativeHost(this) {
-        override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
+    object : DefaultReactNativeHost(this) {
+      override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
 
-        override fun getPackages(): List<ReactPackage> =
-          PackageList(this).packages.apply {
-            add(KitabuNativePackage())
-          }
+      override fun getPackages(): List<ReactPackage> =
+        PackageList(this).packages.apply {
+          add(KitabuNativePackage())
+        }
 
-        override fun getJSMainModuleName(): String = "index"
+      override fun getJSMainModuleName(): String = "index"
 
-        override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+      override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
 
-        override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
-      },
-    )
+      override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+    }
 
   override val reactHost: ReactHost
     get() = getDefaultReactHost(applicationContext, reactNativeHost)

@@ -8,10 +8,11 @@ const required = [
   join(root, 'outputs/mapping/release/mapping.txt'),
 ];
 for (const file of required) await access(file);
-const nativeSymbols = join(root, 'intermediates/stripped_native_libs/release/out/lib');
-const symbolArchitectures = await readdir(nativeSymbols).catch(() => []);
-if (symbolArchitectures.length === 0) throw new Error(`No native symbols found under ${nativeSymbols}`);
-console.log(JSON.stringify({ status: 'ok', artifactRoot: root, sourceMap: required[1], nativeSymbols: symbolArchitectures }));
+const nativeIntermediates = join(root, 'intermediates');
+const nativeFiles = await readdir(nativeIntermediates, { recursive: true, withFileTypes: true }).catch(() => []);
+const nativeSymbols = nativeFiles.filter(entry => entry.isFile() && entry.name.endsWith('.so'));
+if (nativeSymbols.length === 0) throw new Error(`No native symbols found under ${nativeIntermediates}`);
+console.log(JSON.stringify({ status: 'ok', artifactRoot: root, sourceMap: required[1], nativeSymbolCount: nativeSymbols.length }));
 
 if (process.env.RELEASE_OBSERVABILITY_REQUIRED === 'true') {
   for (const name of ['SENTRY_AUTH_TOKEN', 'SENTRY_ORG', 'SENTRY_PROJECT']) {

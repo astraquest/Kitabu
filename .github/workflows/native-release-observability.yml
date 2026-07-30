@@ -42,12 +42,16 @@ jobs:
           --project "$SENTRY_PROJECT"
           android/app/build/generated/sourcemaps/react/release
         working-directory: native-app
-      - run: >-
-          npx --yes @sentry/cli upload-dif
-          --org "$SENTRY_ORG"
-          --project "$SENTRY_PROJECT"
-          --release "$SENTRY_RELEASE"
-          android/app/build/intermediates/stripped_native_libs/release/out/lib
+      - name: Upload native debug information
+        shell: bash
         working-directory: native-app
+        run: |
+          NATIVE_SYMBOLS_DIR="$(find android/app/build/intermediates -type f -name '*.so' -print -quit | xargs -r dirname)"
+          test -n "$NATIVE_SYMBOLS_DIR"
+          npx --yes @sentry/cli upload-dif \
+            --org "$SENTRY_ORG" \
+            --project "$SENTRY_PROJECT" \
+            --release "$SENTRY_RELEASE" \
+            "$NATIVE_SYMBOLS_DIR"
       - run: npx --yes @sentry/cli releases finalize "$SENTRY_RELEASE"
         working-directory: native-app

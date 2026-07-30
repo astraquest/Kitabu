@@ -20,6 +20,10 @@ RUN npm ci --omit=dev && npm cache clean --force
 FROM node:22-alpine
 WORKDIR /app
 ENV NODE_ENV=production
+# The runtime image only needs Node.js; npm and npx are build-time tooling.
+# Removing the bundled package manager keeps its transitive advisories out of
+# the production attack surface and makes the image scanner meaningful.
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/packages/runtime-contracts/package.json /app/packages/runtime-contracts/package.json
 COPY --from=build /app/packages/runtime-contracts/dist /app/packages/runtime-contracts/dist

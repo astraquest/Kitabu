@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-2.2.1-outcome-1",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "English Language Activities", "subjectId": "english_language_activities",
+    "strand": "Reading", "strandCode": "2.2", "strandPosition": 6, "unitCode": "2.0",
+    "subStrand": "Pre-reading", "subStrandCode": "2.2.1", "subStrandPosition": 6,
+    "outcomeId": "outcome-1", "outcomeLabel": "a", "outcomePosition": 1,
+    "outcomeText": "identify small and capital lettersfrom a text",
+    "sourcePages": [18, 19],
+    "sourceTextSha256": "9b8974f6a5bb2c6031178546da7268c6c1bcb308803ca1185d4abd46ccf28beb"
+  },
+  "mission": {
+    "title": "identify small and capital lettersfrom a text",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Which is a capital letter?","choices":["m","M","n"],"answer":"M","feedback":"Yes! M is a capital letter.","retryHint":"Look for the tall letter."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Which small letter matches capital P?","choices":["p","b","q"],"answer":"p","feedback":"Correct! P and p are the same letter.","retryHint":"Look for the small letter with the same shape family."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify-sort-match-rank","activityMode":"match","prompt":"Match each capital letter to its small letter.","objects":["A","B"],"groups":[{"id":"a","label":"a","accessibleDescription":"small a"},{"id":"b","label":"b","accessibleDescription":"small b"}],"tapAlternative":"Tap a capital letter, then tap its small-letter match.","answer":{"A":"a","B":"b"},"feedback":"Great matching! A goes with a, and B goes with b.","retryHint":"Say each letter name before matching."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Read: Kendi has a Kite. Which capital letter is in the text?","choices":["k","K","t"],"answer":"K","feedback":"Well spotted! K is the capital letter.","retryHint":"Find the taller form of k."},
+      {"phase":"transfer","progressionLevel":5,"mode":"classify-sort-match-rank","activityMode":"classify","prompt":"Sort the letters into capital and small groups.","objects":["D","d","E","e"],"groups":[{"id":"capital","label":"Capital letters","accessibleDescription":"capital letter group"},{"id":"small","label":"Small letters","accessibleDescription":"small letter group"}],"tapAlternative":"Tap a letter, then tap its group.","answer":{"D":"capital","d":"small","E":"capital","e":"small"},"feedback":"Excellent! You sorted every capital and small letter.","retryHint":"Capital letters are the larger forms."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Which pair shows one capital and its matching small letter?","choices":["G and g","G and q","C and e"],"answer":"G and g","feedback":"Super reading! G and g are matching forms.","retryHint":"The two letters should have the same name."}
+    ]
+  }
+}

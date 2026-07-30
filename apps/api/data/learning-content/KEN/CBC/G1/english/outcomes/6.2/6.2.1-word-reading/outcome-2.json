@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-6.2.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Reading",
+    "strandCode": "6.2",
+    "strandPosition": 22,
+    "unitCode": "6.0",
+    "subStrand": "Word Reading",
+    "subStrandCode": "6.2.1",
+    "subStrandPosition": 22,
+    "outcomeId": "outcome-2",
+    "outcomeLabel": "b",
+    "outcomePosition": 2,
+    "outcomeText": "pronounce words with the target sounds accurately for fluency",
+    "sourcePages": [
+      35,
+      36
+    ],
+    "sourceTextSha256": "249661280d6bd8fe6aa8a12aa3221f5625b50ce7cd795836b3a34aea982cf727"
+  },
+  "mission": {
+    "title": "Fluent Word Sound Trail",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /f/?",
+        "choices": [
+          "fish",
+          "nest",
+          "hat"
+        ],
+        "answer": "fish",
+        "feedback": "Yes! Fish starts with /f/.",
+        "retryHint": "Let air flow gently: /f/."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /n/?",
+        "choices": [
+          "net",
+          "fan",
+          "hot"
+        ],
+        "answer": "net",
+        "feedback": "Correct! Net starts with /n/.",
+        "retryHint": "Say /n/, /n/, net."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /h/?",
+        "choices": [
+          "hen",
+          "nose",
+          "frog"
+        ],
+        "answer": "hen",
+        "feedback": "Great! Hen begins with /h/.",
+        "retryHint": "Breathe out softly as you say /h/."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which word has the short /É’/ sound heard in â€˜potâ€™?",
+        "choices": [
+          "hot",
+          "feet",
+          "moon"
+        ],
+        "answer": "hot",
+        "feedback": "Well read! Hot has short /É’/.",
+        "retryHint": "Say pot and hot slowly."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Which word has the long /É”Ë/ sound?",
+        "choices": [
+          "ball",
+          "bed",
+          "fish"
+        ],
+        "answer": "ball",
+        "feedback": "Exactly! Ball carries the long /É”Ë/ sound.",
+        "retryHint": "Stretch the vowel sound in each word."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Read smoothly. Which set follows /f/, /n/, /h/, /É’/, /É”Ë/?",
+        "choices": [
+          "fish, net, hen, hot, ball",
+          "net, fish, ball, hen, hot",
+          "hen, ball, fish, net, hot"
+        ],
+        "answer": "fish, net, hen, hot, ball",
+        "feedback": "Excellent! Accurate sounds build fluent reading.",
+        "retryHint": "Check each sound from left to right."
+      }
+    ]
+  }
+}

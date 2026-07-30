@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-2.2.1-outcome-2",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "English Language Activities", "subjectId": "english_language_activities",
+    "strand": "Reading", "strandCode": "2.2", "strandPosition": 6, "unitCode": "2.0",
+    "subStrand": "Pre-reading", "subStrandCode": "2.2.1", "subStrandPosition": 6,
+    "outcomeId": "outcome-2", "outcomeLabel": "b", "outcomePosition": 2,
+    "outcomeText": "position reading materials and sit appropriately while reading",
+    "sourcePages": [18, 19], "sourceTextSha256": "9b8974f6a5bb2c6031178546da7268c6c1bcb308803ca1185d4abd46ccf28beb"
+  },
+  "mission": {
+    "title": "Ready-to-Read Posture Quest",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Which child is ready to read?","choices":["Sitting upright with the book open","Lying on the book","Holding the book behind the head"],"answer":"Sitting upright with the book open","feedback":"Yes! Sitting upright helps us read comfortably.","retryHint":"Choose the child whose back is up and whose book can be seen."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Where should an open book rest while you read?","choices":["On a desk or lap","Under a shoe","Over the face"],"answer":"On a desk or lap","feedback":"Great! A desk or lap keeps the book steady.","retryHint":"Pick a safe, steady place where both pages are easy to see."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify","prompt":"Sort each reading habit into ready or not-ready.","items":["feet-steady","book-open","book-upside-down","head-on-desk"],"groups":["ready","not-ready"],"tapAlternative":"Tap a habit, then tap ready or not-ready.","answer":{"feet-steady":"ready","book-open":"ready","book-upside-down":"not-ready","head-on-desk":"not-ready"},"feedback":"Well done! You found the habits that make reading easier.","retryHint":"Ready habits keep your body comfortable and the words easy to see."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Amina's book is sideways. What should she do first?","choices":["Turn it upright","Close her eyes","Put it on the floor"],"answer":"Turn it upright","feedback":"Correct! Upright pages put words in the right position.","retryHint":"Think about which way letters should face."},
+      {"phase":"transfer","progressionLevel":5,"mode":"match","prompt":"Match each reading problem to the helpful action.","items":["book-too-close","slouching","pages-flapping"],"choices":["move-book-to-comfortable-distance","sit-upright","hold-book-steady"],"tapAlternative":"Tap a problem, then tap the action that fixes it.","answer":{"book-too-close":"move-book-to-comfortable-distance","slouching":"sit-upright","pages-flapping":"hold-book-steady"},"feedback":"Excellent! Each action makes reading safer and clearer.","retryHint":"Ask what would make the body comfortable and the page easy to see."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Show your best reading setup: feet steady, back upright, and what else?","choices":["Book upright at a comfortable distance","Book closed under the desk","Book pressed against the eyes"],"answer":"Book upright at a comfortable distance","feedback":"Super! Your whole reading setup is ready.","retryHint":"Choose the safe position that lets you see both page and words."}
+    ]
+  }
+}

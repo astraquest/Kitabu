@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-kiswahili-3.2.1-outcome-1",
+  "curriculum": {
+    "country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"Kiswahili Language Activities","subjectId":"kiswahili_language_activities",
+    "strand":"3.2 Kusoma","strandId":"3.2","subStrand":"3.2.1 Kusoma kwa Ufahamu Kifungu","subStrandId":"3.2.1",
+    "outcomeId":"outcome-1","outcomeLabel":"a","outcomePosition":1,
+    "outcomeText":"kutambua msamiati kuhusu suala lengwa katika kifungu chepesi cha ufahamu",
+    "sourcePages":[30,31,32],"sourceTextSha256":"9c9e5a37a2fe74b3df052609f11cd3825d32b73d31ac1bf5980518535a304919"
+  },
+  "mission": {
+    "title":"kutambua msamiati kuhusu suala lengwa katika kifungu chepesi cha ufahamu",
+    "interactions":[
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Soma: ‘Amina ana maembe mawili.’ Neno gani linataja idadi?","choices":["mawili","Amina","maembe"],"answer":"mawili","feedback":"Ndiyo! ‘Mawili’ ni neno la idadi.","retryHint":"Tafuta neno linalotuambia maembe ni mangapi."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Soma: ‘Kito ana kalamu tatu.’ Ni neno gani lina maana ya 3?","choices":["tatu","kalamu","ana"],"answer":"tatu","feedback":"Vizuri! ‘Tatu’ hutaja idadi ya kalamu.","retryHint":"Chagua jina la nambari 3."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify-sort-match-rank","prompt":"Linganisha neno la idadi na tarakimu yake.","activityMode":"matching","targets":[{"id":"moja","label":"moja"},{"id":"nne","label":"nne"},{"id":"saba","label":"saba"}],"choices":["1","4","7"],"answer":{"moja":"1","nne":"4","saba":"7"},"feedback":"Hongera! Umetambua msamiati wa idadi.","retryHint":"Hesabu kwa sauti kutoka moja hadi saba."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Soma: ‘Watoto watano walipanda miti miwili.’ Ni maneno yapi mawili ni msamiati wa idadi?","choices":["watano na miwili","watoto na miti","walipanda na miti"],"answer":"watano na miwili","feedback":"Sahihi! Maneno hayo yote yanataja idadi.","retryHint":"Tafuta maneno yanayojibu swali ‘wangapi?’"},
+      {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Soma: ‘Mama alinunua vikombe sita na sahani kumi.’ Ni vitu gani vilikuwa sita?","choices":["vikombe","sahani","mama"],"answer":"vikombe","feedback":"Bora! Umetumia msamiati wa idadi kuelewa kifungu.","retryHint":"Angalia neno lililo kabla ya ‘sita’."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Soma: ‘Ndege nane wako juu ya mti. Ndege wawili wakaruka.’ Ni maneno gani yanahusu idadi?","choices":["nane na wawili","ndege na mti","juu na wakaruka"],"answer":"nane na wawili","feedback":"Umehitimu! Unaweza kutambua msamiati wa suala lengwa katika kifungu.","retryHint":"Chagua maneno yanayosema ndege ni wangapi."}
+    ]
+  }
+}

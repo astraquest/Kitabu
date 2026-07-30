@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "assetId": "cell.escherichia-coli.001",
+  "version": "1.0.0",
+  "displayName": "Escherichia coli Cell",
+  "kind": "model-3d",
+  "status": "draft",
+  "subjectNeutral": true,
+  "tags": [],
+  "scientificIdentity": {},
+  "relationships": [],
+  "runtime": {
+    "format": "procedural-threejs",
+    "entrypoint": "runtime/index.html",
+    "trustedBundle": true
+  },
+  "files": [],
+  "semanticParts": [],
+  "geometryEvidence": {
+    "true3dRequired": true,
+    "allAroundGeometryStatus": "pending",
+    "billboardOrFlatPlaneFinal": false,
+    "sourceReferenceViews": [],
+    "referenceViewPolicy": {
+      "singleViewAllowedOnlyWhenLowRisk": true,
+      "preferredObservedViews": [
+        "front",
+        "side",
+        "rear"
+      ],
+      "addTopBottomWhenRelevant": true,
+      "syntheticViewsAreAcceptanceAuthority": false
+    },
+    "inferredSurfacePolicy": "label-and-review",
+    "requiredTurntableViews": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "front-three-quarter",
+      "rear-three-quarter"
+    ],
+    "renderedTurntableViews": [],
+    "geometryAudit": {
+      "orbit360Verified": false,
+      "topBottomVerified": false,
+      "backsideDetailVerified": false,
+      "attachmentContinuityVerified": false,
+      "volumetricParts": [],
+      "thinSurfaceParts": []
+    }
+  },
+  "mobileBudget": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "maxDownloadBytes": 25000000,
+    "maxTriangles": 250000,
+    "maxDrawCalls": 120,
+    "maxPeakMemoryMb": 256,
+    "minMedianFps": 30
+  },
+  "mobileMetrics": {},
+  "contentBindings": [],
+  "createdAt": "2026-07-27T09:17:55Z",
+  "updatedAt": "2026-07-27T09:17:55Z"
+}

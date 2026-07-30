@@ -1370,27 +1370,39 @@ export async function markUserEmailVerified(client: MaybeClient, userId: string)
   );
 }
 
-export async function getTotpSecret(userId: string): Promise<{ secret: string; enabled: boolean } | null> {
-  const result = await db.query<{ secret: string; enabled: boolean }>(
-    `SELECT secret, enabled FROM totp_credentials WHERE user_id = $1`,
+export async function getTotpSecret(
+  userId: string
+): Promise<{ secret: string; enabled: boolean; pendingSecret: string | null } | null> {
+  const result = await db.query<{ secret: string; enabled: boolean; pending_secret: string | null }>(
+    `SELECT secret, enabled, pending_secret FROM totp_credentials WHERE user_id = $1`,
     [userId]
   );
-  return result.rows[0] ?? null;
+  const credential = result.rows[0];
+  return credential
+    ? { secret: credential.secret, enabled: credential.enabled, pendingSecret: credential.pending_secret }
+    : null;
 }
 
-export async function upsertTotpSecret(client: MaybeClient, userId: string, secret: string, enabled: boolean) {
+export async function stageTotpSecret(client: MaybeClient, userId: string, secret: string) {
   await q(
     client,
-    `INSERT INTO totp_credentials (user_id, secret, enabled, updated_at)
-     VALUES ($1, $2, $3, NOW())
+    `INSERT INTO totp_credentials (user_id, secret, enabled, pending_secret, updated_at)
+     VALUES ($1, $2, FALSE, $3, NOW())
      ON CONFLICT (user_id)
-     DO UPDATE SET secret = EXCLUDED.secret, enabled = EXCLUDED.enabled, updated_at = NOW()`,
-    [userId, secret, enabled]
+     DO UPDATE SET pending_secret = EXCLUDED.pending_secret, updated_at = NOW()`,
+    [userId, secret, secret]
   );
 }
 
-export async function enableTotp(client: MaybeClient, userId: string) {
-  await q(client, `UPDATE totp_credentials SET enabled = TRUE, updated_at = NOW() WHERE user_id = $1`, [userId]);
+export async function confirmTotpSecret(client: MaybeClient, userId: string): Promise<boolean> {
+  const result = await q(
+    client,
+    `UPDATE totp_credentials
+     SET secret = pending_secret, pending_secret = NULL, enabled = TRUE, updated_at = NOW()
+     WHERE user_id = $1 AND pending_secret IS NOT NULL`,
+    [userId]
+  );
+  return result.rowCount === 1;
 }
 
 export async function updateUserPassword(client: MaybeClient, userId: string, passwordHash: string) {

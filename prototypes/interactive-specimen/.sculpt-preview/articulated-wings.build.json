@@ -1,0 +1,34 @@
+{
+  "artifactType": "threejs-sculpt-module-build-receipt",
+  "version": 1,
+  "moduleId": "articulated-wings",
+  "moduleHash": "ae334ea0b142ddb31e48ab0b38d20e5a87a1ec21c069bb5b193e42ff9a7a1679",
+  "manifestPath": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\butterfly-sculpt.json",
+  "resolvedSpec": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\.sculpt-preview\\articulated-wings.json",
+  "resolvedSpecSha256": "d3e60fbfa12f0d8c2d3b749da9718ab5b7ef32ebca591b6953b1820656fbe072",
+  "generatedOutput": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\src\\generated\\articulated-wings.generated.ts",
+  "generatedOutputSha256": "e8d0efb11c7608a24b4bd231fd2e27fbaa4a2297ce95f26edb07e92960337bd8",
+  "factoryId": "e87fd01b1c8fc4db2866e181f3e5781da6b086dc4a14d0cb61b5a8a727e95614",
+  "factoryExport": "createSculptModel",
+  "specSha256": "e1297f61be34ad9e17e823cc54c6d253650c010782f843c9c74d748a941eb9b8",
+  "passId": "blockout",
+  "expectedComponentIds": [
+    "left-forewing",
+    "left-hindwing",
+    "right-forewing",
+    "right-hindwing",
+    "root"
+  ],
+  "expectedMeshComponentIds": [
+    "left-forewing",
+    "left-hindwing",
+    "right-forewing",
+    "right-hindwing"
+  ],
+  "expectedPrimitives": {
+    "left-forewing": "extrude",
+    "right-forewing": "extrude",
+    "left-hindwing": "extrude",
+    "right-hindwing": "extrude"
+  }
+}

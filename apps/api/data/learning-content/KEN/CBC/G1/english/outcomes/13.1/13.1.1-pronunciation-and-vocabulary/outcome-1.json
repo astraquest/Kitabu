@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-13.1.1-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Listening and Speaking",
+    "strandCode": "13.1",
+    "strandPosition": 49,
+    "unitCode": "13.0",
+    "subStrand": "Pronunciation and Vocabulary",
+    "subStrandCode": "13.1.1",
+    "subStrandPosition": 51,
+    "outcomeId": "outcome-1",
+    "outcomeLabel": "a",
+    "outcomePosition": 1,
+    "outcomeText": "identify target sounds /ÊŠ/ and / eÉª / in words from an oral text",
+    "sourcePages": [
+      71,
+      72
+    ],
+    "sourceTextSha256": "ff459cbb01afe866c6be008ba50f560f204e008b50593f80866f621ee0d57a55"
+  },
+  "mission": {
+    "title": "Listen for /ÊŠ/ and /eÉª/",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Listen in your mind: book, bag, bed. Which has /ÊŠ/?",
+        "choices": [
+          "book",
+          "bag",
+          "bed"
+        ],
+        "answer": "book",
+        "feedback": "Yes! Book has the /ÊŠ/ sound.",
+        "retryHint": "Say book slowly and listen to its middle."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word has /eÉª/?",
+        "choices": [
+          "day",
+          "dog",
+          "cup"
+        ],
+        "answer": "day",
+        "feedback": "Correct! Day has /eÉª/.",
+        "retryHint": "Stretch the vowel in day."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Hear the sentence: â€˜Look at the cook.â€™ Which word has /ÊŠ/?",
+        "choices": [
+          "look",
+          "at",
+          "the"
+        ],
+        "answer": "look",
+        "feedback": "Great listening! Look has /ÊŠ/.",
+        "retryHint": "Listen for the vowel in book and look."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Hear: â€˜We play in the rain.â€™ Which word has /eÉª/?",
+        "choices": [
+          "play",
+          "in",
+          "the"
+        ],
+        "answer": "play",
+        "feedback": "Well heard! Play has /eÉª/.",
+        "retryHint": "Find the word that rhymes with day."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Which pair follows /ÊŠ/ then /eÉª/?",
+        "choices": [
+          "foot, train",
+          "train, foot",
+          "sun, bed"
+        ],
+        "answer": "foot, train",
+        "feedback": "Exactly! Foot has /ÊŠ/ and train has /eÉª/.",
+        "retryHint": "Compare the middle sounds."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Hear: â€˜The good snail waits.â€™ Choose the /ÊŠ/ word then the /eÉª/ word.",
+        "choices": [
+          "good, waits",
+          "waits, good",
+          "snail, good"
+        ],
+        "answer": "good, waits",
+        "feedback": "Super sound detecting! You identified both target sounds.",
+        "retryHint": "Listen for /ÊŠ/ first, then /eÉª/."
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-kiswahili-2.1.1-outcome-4",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "Kiswahili Language Activities", "subjectId": "kiswahili_language_activities",
+    "strand": "2.1 Kusikiliza na Kuzungumza", "strandId": "2.1",
+    "subStrand": "2.1.1 Matamshi Bora Sauti: (/m/, /a/, /u/, /k/, /t/ /l/)", "subStrandId": "2.1.1",
+    "outcomeId": "outcome-4", "outcomeLabel": "d", "outcomePosition": 4,
+    "outcomeText": "kutamka ipasavyo maneno yenye silabi za sauti lengwa",
+    "sourcePages": [20, 21, 22], "sourceTextSha256": "dfa39bbf978800b9a91372d58ec7e6724e5d9f8951c336b70b508cb5cd42e804"
+  },
+  "mission": {
+    "title": "Tamka silabi na maneno kwa ufasaha",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Picha ni ya mama. Chagua silabi ya kwanza ya neno mama.","objects":["mama akitabasamu"],"choices":["ma","ku","ti"],"answer":"ma","feedback":"Hongera! Mama huanza kwa silabi ma. Sema: ma-ma.","retryHint":"Tazama midomo unaposema mama: sauti ya kwanza ni /m/ pamoja na /a/."},
+      {"phase":"model","progressionLevel":2,"mode":"classify-sort-match-rank","activityMode":"match","prompt":"Oanisha kila picha na silabi ya mwanzo. Itamke baada ya kuoanisha.","objects":[{"id":"mama","label":"mama"},{"id":"kuku","label":"kuku"},{"id":"taa","label":"taa"}],"targets":[{"id":"ma","label":"ma"},{"id":"ku","label":"ku"},{"id":"ta","label":"ta"}],"tapAlternative":"Gusa picha, kisha gusa silabi yake ya mwanzo.","answer":{"mama":"ma","kuku":"ku","taa":"ta"},"feedback":"Safi! Umeoanisha ma, ku na ta kwa usahihi.","retryHint":"Tamka jina la kila picha polepole na usikilize mwanzo wake."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"picture-choice","prompt":"Ni neno gani linalotamkwa kwa silabi mbili: lu-lu?","objects":["lulu ya shingoni"],"choices":["lulu","kuku","mama"],"answer":"lulu","feedback":"Ndiyo! Lu-lu huunda neno lulu.","retryHint":"Unganisha lu na lu bila kubadilisha sauti."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"classify-sort-match-rank","activityMode":"classify","prompt":"Panga maneno kulingana na silabi ya mwanzo, kisha uyatamke.","objects":[{"id":"mkeka","label":"mkeka"},{"id":"mti","label":"mti"},{"id":"kuku","label":"kuku"},{"id":"kiti","label":"kiti"}],"targets":[{"id":"m","label":"Huanzia kwa /m/"},{"id":"k","label":"Huanzia kwa /k/"}],"tapAlternative":"Gusa neno, kisha gusa kundi lake.","answer":{"mkeka":"m","mti":"m","kuku":"k","kiti":"k"},"feedback":"Vizuri sana! Sauti za mwanzo /m/ na /k/ zimetamkwa wazi.","retryHint":"Sema kila neno polepole; sikiliza sauti ya kwanza tu."},
+      {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Chagua mgawanyo unaokusaidia kutamka neno limau ipasavyo.","objects":["limau lililoiva"],"choices":["li-ma-u","lim-au","li-mau-u"],"answer":"li-ma-u","feedback":"Bora! Li-ma-u hutamkwa kwa silabi tatu zilizo wazi.","retryHint":"Piga makofi kwa kila sehemu: li, ma, u."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"classify-sort-match-rank","activityMode":"sequence","prompt":"Panga silabi ili kuunda neno matatu, kisha litamke.","objects":[{"id":"ma","label":"ma"},{"id":"ta","label":"ta"},{"id":"tu","label":"tu"}],"targets":[{"id":"1","label":"Kwanza"},{"id":"2","label":"Pili"},{"id":"3","label":"Tatu"}],"tapAlternative":"Gusa silabi kwa mpangilio wa neno.","answer":{"ma":"1","ta":"2","tu":"3"},"feedback":"Umeweza! Ma-ta-tu hutamkwa matatu.","retryHint":"Anza na ma, fuatisha ta, kisha malizia tu."}
+    ]
+  }
+}

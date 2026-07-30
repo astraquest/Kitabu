@@ -22,6 +22,77 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run build
+      - run: npm run test:runtime
+      - run: npm run test:api
+      - run: npm audit --omit=dev --omit=optional --audit-level=high
+
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: kitabu_ci
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d kitabu_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run test:integration:migrations -w apps/api
+        env:
+          KITABU_DATABASE_URL: postgres://postgres:postgres@localhost:5432/kitabu_ci
+
+  load-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: |
+          node -e "require('http').createServer((_,r)=>r.end('ok')).listen(4173)" &
+      - run: sleep 1
+      - run: KITABU_LOAD_URL=http://127.0.0.1:4173 KITABU_LOAD_REQUESTS=100 KITABU_LOAD_CONCURRENCY=10 node scripts/load-smoke.mjs
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/api/Dockerfile
+          tags: kitabu-api:ci
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - uses: anchore/sbom-action@v0.20.5
+        with:
+          image: kitabu-api:ci
+          artifact-name: kitabu-api-sbom.spdx.json
+          format: spdx-json
+          output-file: kitabu-api-sbom.spdx.json
+      - run: test -s kitabu-api-sbom.spdx.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kitabu-api-sbom
+          path: kitabu-api-sbom.spdx.json
+      - uses: aquasecurity/trivy-action@0.31.0
+        with:
+          image-ref: kitabu-api:ci
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
 
   native-app:
     runs-on: ubuntu-latest
@@ -36,5 +107,7 @@ jobs:
           cache: npm
           cache-dependency-path: native-app/package-lock.json
       - run: npm ci
-      - run: npm test -- --runInBand
+      - run: npm run typecheck
+      - run: npm test -- --runInBand --ci --forceExit
       - run: npm run lint -- --max-warnings=0
+      - run: npm audit --omit=dev --omit=optional --audit-level=high

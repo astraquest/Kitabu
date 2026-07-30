@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-4.1.1-outcome-1",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Listening and Speaking",
+    "strandCode": "4.1",
+    "strandPosition": 13,
+    "unitCode": "4.0",
+    "subStrand": "Pronunciation and Vocabulary",
+    "subStrandCode": "4.1.1",
+    "subStrandPosition": 13,
+    "outcomeId": "outcome-1",
+    "outcomeLabel": "a",
+    "outcomePosition": 1,
+    "outcomeText": "articulate the sounds /Ã¦/ /m/, /t/ /e/ for clarity in communication",
+    "sourcePages": [
+      26,
+      27
+    ],
+    "sourceTextSha256": "a8b3188121872bd9f81ccbcdbaa6adaaa29181587a2046e3acf71d6724eebc35"
+  },
+  "mission": {
+    "title": "Sound Safari: a, m, t and e",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /m/?",
+        "choices": [
+          "mat",
+          "tap",
+          "egg"
+        ],
+        "answer": "mat",
+        "feedback": "Yes! Mat begins with /m/.",
+        "retryHint": "Close your lips and hum /m/."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /t/?",
+        "choices": [
+          "ten",
+          "man",
+          "apple"
+        ],
+        "answer": "ten",
+        "feedback": "Correct! Ten starts with the crisp /t/ sound.",
+        "retryHint": "Touch your tongue behind your top teeth: /t/."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Which word has the /Ã¦/ sound heard in â€˜catâ€™?",
+        "choices": [
+          "map",
+          "men",
+          "tin"
+        ],
+        "answer": "map",
+        "feedback": "Great! Map has /Ã¦/.",
+        "retryHint": "Open your mouth and say c-a-t, m-a-p."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which word has the /e/ sound heard in â€˜bedâ€™?",
+        "choices": [
+          "met",
+          "mat",
+          "moon"
+        ],
+        "answer": "met",
+        "feedback": "Well heard! Met has /e/.",
+        "retryHint": "Compare met with bed."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Choose the pair beginning with /m/ then /t/.",
+        "choices": [
+          "milk, top",
+          "top, milk",
+          "egg, apple"
+        ],
+        "answer": "milk, top",
+        "feedback": "Exactly! Milk starts /m/ and top starts /t/.",
+        "retryHint": "Say the first sound of each word."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Which sequence matches /Ã¦/, /m/, /t/, /e/?",
+        "choices": [
+          "apple, moon, ten, egg",
+          "egg, ten, moon, apple",
+          "moon, apple, egg, ten"
+        ],
+        "answer": "apple, moon, ten, egg",
+        "feedback": "Brilliant articulation! Your sounds are clear.",
+        "retryHint": "Work through one target sound at a time."
+      }
+    ]
+  }
+}

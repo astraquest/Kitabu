@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "usable": true,
+  "verdict": "pass",
+  "confidence": 0.86,
+  "extractionSuitability": 0.86,
+  "targetThreshold": 0.75,
+  "materialId": "wing-membrane-palette",
+  "sourceImage": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\output\\imagegen\\african-monarch-dorsal-transparent.png",
+  "outDir": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette",
+  "palette": [
+    "#E88408",
+    "#2C1F16",
+    "#EC9E25",
+    "#BB560C",
+    "#5B432F",
+    "#E1DED9"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette\\wing-membrane-palette_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction",
+      "tileSafe": true,
+      "url": "/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_albedo.png"
+    },
+    "roughness": {
+      "path": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette\\wing-membrane-palette_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction",
+      "tileSafe": true,
+      "url": "/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_roughness.png"
+    },
+    "height": {
+      "path": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette\\wing-membrane-palette_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction",
+      "tileSafe": true,
+      "url": "/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_height.png"
+    },
+    "normal": {
+      "path": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette\\wing-membrane-palette_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction",
+      "tileSafe": true,
+      "url": "/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_normal.png"
+    },
+    "ao": {
+      "path": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\sculpt-pbr\\wing-membrane-palette\\wing-membrane-palette_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction",
+      "tileSafe": true,
+      "url": "/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_ao.png"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "workingWidth": 1254,
+    "workingHeight": 1254,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 20,
+      "y": 183,
+      "width": 1209,
+      "height": 817
+    },
+    "mask": {
+      "backgroundColor": "#FFFFFF",
+      "backgroundNoise": 0.0,
+      "transparentPixelFraction": 0.6358,
+      "foregroundCoverage": 0.3678
+    },
+    "mapStats": {
+      "valueRange": 0.6672,
+      "heightP90Gradient": 0.03906,
+      "roughnessBase": 0.69,
+      "roughnessVariation": 0.064,
+      "normalStrength": 0.202,
+      "broadBlurRadius": 42,
+      "mesoBlurRadius": 8,
+      "tileEdgeBlendFraction": 0.08
+    },
+    "palette": [
+      "#E88408",
+      "#2C1F16",
+      "#EC9E25",
+      "#BB560C",
+      "#5B432F",
+      "#E1DED9"
+    ]
+  },
+  "warnings": [
+    "single-image inverse rendering cannot prove true physical PBR; confidence is capped"
+  ],
+  "materialCropConfirmed": true,
+  "limitation": "extractionSuitability measures whether these pixels are useful for inferred maps; it is not physical PBR accuracy and still needs render review"
+}

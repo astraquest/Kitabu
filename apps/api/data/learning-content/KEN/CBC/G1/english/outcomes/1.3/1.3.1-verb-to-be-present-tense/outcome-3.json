@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-1.3.1-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Language use",
+    "strandCode": "1.3",
+    "strandPosition": 3,
+    "unitCode": "1.0",
+    "subStrand": "Verb â€˜to beâ€™- Present Tense",
+    "subStrandCode": "1.3.1",
+    "subStrandPosition": 3,
+    "outcomeId": "outcome-3",
+    "outcomeLabel": "c",
+    "outcomePosition": 3,
+    "outcomeText": "acknowledge the importance of using correct tense in communication.",
+    "sourcePages": [
+      15,
+      16
+    ],
+    "sourceTextSha256": "508bfc06ceaa18146f1ed6e7829faff9cbb7630d24ca44ecdc0aa8ce56d32b7e"
+  },
+  "mission": {
+    "title": "Clear Greetings with Am, Is and Are",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Choose the sentence that sounds right.",
+        "choices": [
+          "I am Amina.",
+          "I is Amina.",
+          "I are Amina."
+        ],
+        "answer": "I am Amina.",
+        "feedback": "Yes! â€˜I amâ€™ makes the greeting clear.",
+        "retryHint": "Use am after I."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which introduction is correct?",
+        "choices": [
+          "He is Kamau.",
+          "He am Kamau.",
+          "He are Kamau."
+        ],
+        "answer": "He is Kamau.",
+        "feedback": "Correct! â€˜He isâ€™ tells us clearly who he is.",
+        "retryHint": "Use is after he or she."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Two friends arrive. Complete: We ___ happy to meet you.",
+        "choices": [
+          "are",
+          "is",
+          "am"
+        ],
+        "answer": "are",
+        "feedback": "Great! â€˜We areâ€™ is correct.",
+        "retryHint": "Use are after we."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which sentence communicates clearly?",
+        "choices": [
+          "She is my sister.",
+          "She are my sister.",
+          "She am my sister."
+        ],
+        "answer": "She is my sister.",
+        "feedback": "Well done! Correct tense makes the message easy to understand.",
+        "retryHint": "Say each sentence aloud and choose the natural one."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Why should we say â€˜They are my friendsâ€™ correctly?",
+        "choices": [
+          "So listeners understand us",
+          "To make the sentence confusing",
+          "To leave out meaning"
+        ],
+        "answer": "So listeners understand us",
+        "feedback": "Exactly! Correct tense supports clear communication.",
+        "retryHint": "Think about what helps a listener understand."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Choose the fully correct set.",
+        "choices": [
+          "I am; she is; they are",
+          "I is; she are; they am",
+          "I are; she am; they is"
+        ],
+        "answer": "I am; she is; they are",
+        "feedback": "Excellent! You value clear, correct communication.",
+        "retryHint": "Match Iâ€“am, one personâ€“is, and more than oneâ€“are."
+      }
+    ]
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 1,
+  "assetId": "cell.skeletal-muscle-fiber.001",
+  "assetVersion": "1.0.0",
+  "reviewStatus": "contract-defined-evidence-pending",
+  "scope": {
+    "subject": "A healthy, mature, mammalian skeletal muscle fiber shown as a shortened cylindrical segment with a longitudinal cutaway.",
+    "biologicalLevel": "single multinucleated muscle cell",
+    "referenceState": "relaxed or near-resting",
+    "notRepresentedAs": [
+      "a whole muscle",
+      "a fascicle",
+      "a generic mononucleated cell",
+      "cardiac muscle",
+      "smooth muscle",
+      "a literal nanoscale-to-microscale reconstruction"
+    ],
+    "cutawayDisclosure": "The removed shell and exposed interior are an artificial learning view, not a natural opening in the cell.",
+    "scaleDisclosure": "Membranes, organelles, sarcomere bands, spaces, and vessels are enlarged or separated selectively for legibility and are not mutually to scale."
+  },
+  "referencePolicy": {
+    "observedSourcesPreferred": [
+      "adult mammalian skeletal muscle light microscopy",
+      "electron microscopy of longitudinal and transverse sections",
+      "three-dimensional microscopy where spatial placement is asserted"
+    ],
+    "generatedViewClassification": "synthetic-hypothesis",
+    "generatedViewsMay": [
+      "guide construction",
+      "suggest a consistent hidden-side layout",
+      "veto visibly impossible geometry"
+    ],
+    "generatedViewsMayNot": [
+      "prove unseen anatomy",
+      "override microscopy",
+      "establish species-specific ultrastructure",
+      "serve as factual acceptance evidence"
+    ],
+    "singleViewLimit": "A single illustration or render cannot validate the rear surface, cutaway depth, internal connectivity, or organelle distribution."
+  },
+  "orientation": {
+    "longAxis": "All myofibrils and repeated sarcomeres run parallel to the fiber long axis.",
+    "transverseAxis": "Z discs and sarcomere bands form transverse registrations across neighboring myofibrils at learning scale.",
+    "outsideInsideRule": "The capillary remains extracellular; myonuclei, myofibrils, SR, T-tubules, and mitochondria are intracellular."
+  },
+  "semanticStructures": [
+    {
+      "id": "muscle-fiber",
+      "label": "Skeletal muscle fiber",
+      "kind": "multinucleated-cell",
+      "required": true,
+      "parent": null,
+      "geometryContract": "One elongated volumetric cell segment with a long axis, transverse cut face, intact rear/underside volume, and an intentional longitudinal cutaway exposing internal systems.",
+      "placementContract": "Root semantic object containing the sarcolemma, sarcoplasm, myonuclei, myofibrils, SR/T-tubules, and mitochondria; the capillary remains outside this root cell volume.",
+      "reviewFailures": [
+        "bundle of multiple muscle fibers labelled as one fiber",
+        "single-view relief or hollow shell",
+        "loss of cell volume at rear, sides, ends, top, or bottom"
+      ]
+    },
+    {
+      "id": "sarcolemma",
+      "label": "Sarcolemma",
+      "kind": "membrane-boundary",
+      "required": true,
+      "parent": "muscle-fiber",
+      "geometryContract": "A continuous volumetric cylindrical cell boundary with modelled thickness at cut edges. The T-tubule is continuous with this membrane as an inward invagination.",
+      "placementContract": "Outermost cellular boundary; must enclose sarcoplasm and all intracellular structures.",
+      "reviewFailures": [
+        "open accidental holes outside the intentional cutaway",
+        "paper-thin cut edge with no readable thickness",
+        "capillary placed inside the membrane",
+        "T-tubule floating independently of the membrane"
+      ]
+    },
+    {
+      "id": "myonucleus",
+      "label": "Myonucleus",
+      "kind": "organelle",
+      "required": true,
+      "parent": "sarcoplasm",
+      "multiplicity": "multiple",
+      "geometryContract": "Several elongated or flattened nuclei distributed along the segment; do not use one central spherical nucleus as the normal mature state.",
+      "placementContract": "Peripheral and intracellular, immediately beneath the sarcolemma, with spacing along the fiber rather than a dense cluster.",
+      "reviewFailures": [
+        "only one nucleus",
+        "nuclei outside the sarcolemma",
+        "normal adult fiber depicted with predominantly central nuclei",
+        "confusing an external satellite-cell nucleus with a myonucleus"
+      ],
+      "caveat": "Central myonuclei can occur during development, regeneration, loading responses, or disease; this asset represents a healthy mature mammalian fiber."
+    },
+    {
+      "id": "sarcoplasm",
+      "label": "Sarcoplasm",
+      "kind": "cytoplasmic-compartment",
+      "required": true,
+      "parent": "sarcolemma",
+      "geometryContract": "A continuous intracellular matrix occupying readable but modest spaces around and between myofibrils and organelles.",
+      "placementContract": "Inside the sarcolemma and outside the interiors of organelles and myofibrils.",
+      "reviewFailures": [
+        "rendered as an empty hollow cavity",
+        "rendered as an external coating",
+        "so much open space that myofibrils no longer read as densely packed"
+      ]
+    },
+    {
+      "id": "myofibril",
+      "label": "Myofibril",
+      "kind": "contractile-cylinder",
+      "required": true,
+      "parent": "sarcoplasm",
+      "multiplicity": "many",
+      "geometryContract": "Many densely packed, parallel, longitudinal contractile cylinders. At least one must be exposed or enlarged enough to resolve repeating sarcomeres.",
+      "placementContract": "Runs along the fiber long axis; neighboring myofibrils should register their striations approximately transversely.",
+      "reviewFailures": [
+        "randomly oriented bundles",
+        "a single central rod standing in for the fiber interior",
+        "striations painted only on the sarcolemma",
+        "featureless rear or underside interior"
+      ]
+    },
+    {
+      "id": "sarcomere",
+      "label": "Sarcomere",
+      "kind": "repeating-contractile-unit",
+      "required": true,
+      "parent": "myofibril",
+      "geometryContract": "A repeating longitudinal unit bounded by two Z discs. The learning-scale band order must be Z disc, half I band, A band, half I band, next Z disc.",
+      "placementContract": "Repeated in series along each myofibril, with shared Z-disc boundaries between adjacent units.",
+      "reviewFailures": [
+        "sarcomere boundaries not tied to Z discs",
+        "irregular decorative striping with no consistent band order",
+        "neighboring sarcomeres represented as disconnected beads"
+      ]
+    },
+    {
+      "id": "z-disc",
+      "label": "Z disc",
+      "kind": "sarcomere-boundary",
+      "required": true,
+      "parent": "sarcomere",
+      "geometryContract": "A narrow transverse disc or line marking each sarcomere boundary and bisecting the I-band region shared by adjacent sarcomeres.",
+      "placementContract": "Perpendicular to the myofibril long axis; successive discs define sarcomere length.",
+      "reviewFailures": [
+        "placed at the center of the A band",
+        "drawn as a longitudinal stripe",
+        "omitted from the contraction state"
+      ]
+    },
+    {
+      "id": "a-band",
+      "label": "A band",
+      "kind": "sarcomere-band",
+      "required": true,
+      "parent": "sarcomere",
+      "geometryContract": "A broad central band corresponding to the full length of the thick filaments; shown consistently across repeated sarcomeres.",
+      "placementContract": "Centered between Z discs and flanked by I-band regions.",
+      "reviewFailures": [
+        "A band shown at a Z disc",
+        "A-band width changing during the contraction demonstration",
+        "alternating band sequence that implies discontinuous thick filaments"
+      ]
+    },
+    {
+      "id": "i-band",
+      "label": "I band",
+      "kind": "sarcomere-band",
+      "required": true,
+      "parent": "sarcomere",
+      "geometryContract": "A lighter or otherwise distinguishable thin-filament-only region bordering each A band; each Z disc lies within the continuous I-band region shared across a sarcomere boundary.",
+      "placementContract": "Between the edge of an A band and the Z disc on each side.",
+      "reviewFailures": [
+        "I band placed at the sarcomere center",
+        "I band omitted entirely",
+        "I-band width held fixed in a claimed shortening animation"
+      ]
+    },
+    {
+      "id": "sarcoplasmic-reticulum",
+      "label": "Sarcoplasmic reticulum",
+      "kind": "membrane-network",
+      "required": true,
+      "parent": "sarcoplasm",
+      "geometryContract": "A connected network of longitudinal tubules and enlarged terminal cisternae wrapping around myofibrils, presented selectively rather than as an opaque sleeve.",
+      "placementContract": "Interfibrillar and intracellular; closely associated with each displayed myofibril and continuous with terminal cisternae.",
+      "reviewFailures": [
+        "isolated decorative loops with no network continuity",
+        "placed outside the sarcolemma",
+        "fused visually with the T-tubule as one membrane compartment"
+      ]
+    },
+    {
+      "id": "t-tubule",
+      "label": "T-tubule",
+      "kind": "sarcolemmal-invagination",
+      "required": true,
+      "parent": "sarcolemma",
+      "geometryContract": "A transverse inward continuation of the sarcolemma that penetrates the fiber and remains a distinct membrane system from the SR.",
+      "placementContract": "At the A-I junction in the adult mammalian reference model; one T-tubule passes between two terminal cisternae to form a triad.",
+      "reviewFailures": [
+        "closed intracellular tube with no continuity to sarcolemma",
+        "longitudinal orientation presented as typical",
+        "merged into the SR lumen"
+      ],
+      "caveat": "Triad position varies among vertebrate groups and developmental states; A-I-junction placement is the adult mammalian convention used here."
+    },
+    {
+      "id": "terminal-cisterna",
+      "label": "Terminal cisterna",
+      "kind": "specialized-sr-sac",
+      "required": true,
+      "parent": "sarcoplasmic-reticulum",
+      "multiplicity": "two-per-displayed-triad",
+      "geometryContract": "Two enlarged SR sacs flanking a central T-tubule without becoming continuous with its lumen.",
+      "placementContract": "One on each side of the T-tubule at a displayed A-I junction.",
+      "reviewFailures": [
+        "only one cisterna in a structure labelled triad",
+        "cisternae located inside the T-tubule",
+        "no connection to longitudinal SR"
+      ]
+    },
+    {
+      "id": "triad",
+      "label": "Triad",
+      "kind": "membrane-junction",
+      "required": true,
+      "parent": "sarcoplasm",
+      "members": [
+        "terminal-cisterna",
+        "t-tubule",
+        "terminal-cisterna"
+      ],
+      "geometryContract": "Exactly one central T-tubule closely apposed to two terminal cisternae, one on either side; members remain pickable as their own semantic parts.",
+      "placementContract": "At an A-I junction in the adult mammalian reference model; a teaching close-up may enlarge one representative triad.",
+      "reviewFailures": [
+        "dyad labelled as triad",
+        "three identical tubes",
+        "triad placed randomly with no sarcomere landmark",
+        "junction floating away from a myofibril"
+      ]
+    },
+    {
+      "id": "mitochondrion",
+      "label": "Mitochondrion",
+      "kind": "organelle",
+      "required": true,
+      "parent": "sarcoplasm",
+      "multiplicity": "several-representative",
+      "geometryContract": "Several elongated or ovoid organelles, not a uniform shell or dense carpet. A simplified inner fold cue may be enlarged for recognition.",
+      "placementContract": "Representative interfibrillar mitochondria lie between myofibrils; representative peripheral mitochondria may lie beneath the sarcolemma and near nuclei or a capillary groove.",
+      "reviewFailures": [
+        "inside myofibril contractile material",
+        "inside capillary lumen",
+        "uniform abundance implied for all fiber types",
+        "all mitochondria restricted to one arbitrary cluster"
+      ],
+      "caveat": "Mitochondrial abundance, shape, connectivity, and subcellular distribution vary strongly with fiber type, metabolic state, muscle, species, and sampling method."
+    },
+    {
+      "id": "capillary",
+      "label": "Capillary",
+      "kind": "external-vessel",
+      "required": true,
+      "parent": null,
+      "geometryContract": "A narrow vessel segment following the outside of the fiber; it may occupy a shallow surface groove but retains its own wall and lumen.",
+      "placementContract": "Extracellular, alongside the sarcolemma and approximately parallel or gently oblique to the fiber long axis. It may indent the surface but must never enter the sarcoplasm.",
+      "reviewFailures": [
+        "capillary lumen inside the muscle cell",
+        "capillary presented as a T-tubule",
+        "vessel crossing freely through myofibrils",
+        "claiming one vessel serves only one fiber"
+      ],
+      "caveat": "A capillary is shared within the endomysial microvascular network; the close apposition shown is representative, not a complete vascular map."
+    }
+  ],
+  "semanticRelationships": [
+    [
+      "sarcolemma",
+      "encloses",
+      "sarcoplasm"
+    ],
+    [
+      "myonucleus",
+      "lies-beneath",
+      "sarcolemma"
+    ],
+    [
+      "myofibril",
+      "runs-parallel-to",
+      "muscle-fiber-long-axis"
+    ],
+    [
+      "sarcomere",
+      "repeats-in-series-within",
+      "myofibril"
+    ],
+    [
+      "z-disc",
+      "bounds",
+      "sarcomere"
+    ],
+    [
+      "a-band",
+      "is-flanked-by",
+      "i-band"
+    ],
+    [
+      "sarcoplasmic-reticulum",
+      "wraps-around",
+      "myofibril"
+    ],
+    [
+      "t-tubule",
+      "is-continuous-with",
+      "sarcolemma"
+    ],
+    [
+      "terminal-cisterna",
+      "is-continuous-with",
+      "sarcoplasmic-reticulum"
+    ],
+    [
+      "triad",
+      "is-positioned-at",
+      "a-i-junction"
+    ],
+    [
+      "mitochondrion",
+      "occupies",
+      "interfibrillar-or-subsarcolemmal-sarcoplasm"
+    ],
+    [
+      "capillary",
+      "lies-outside-and-adjacent-to",
+      "sarcolemma"
+    ]
+  ],
+  "contractionDemonstration": {
+    "status": "optional-illustrative-state",
+    "mustShow": [
+      "Z discs move closer together",
+      "sarcomere length decreases",
+      "I bands narrow",
+      "thin and thick filaments increase their overlap without the filaments themselves shortening"
+    ],
+    "mustPreserve": [
+      "A-band width",
+      "Z-disc identity",
+      "serial order of sarcomeres",
+      "parallel alignment of myofibrils"
+    ],
+    "mayShowIfIncluded": [
+      "H-zone narrowing",
+      "modest transverse fiber expansion when whole-fiber shortening is animated",
+      "calcium-release direction as a symbolic overlay clearly labelled schematic"
+    ],
+    "mustNotClaimOrShow": [
+      "actin or myosin filaments shrinking",
+      "A band shortening",
+      "sarcomeres along one myofibril contracting out of sequence as the normal mechanism",
+      "nuclei or mitochondria actively producing contractile force",
+      "the cutaway peeling open during physiological contraction",
+      "exact force, velocity, calcium concentration, or time course unless driven by a separately validated quantitative model"
+    ],
+    "disclosure": "Animation is a qualitative sliding-filament teaching model. Distances and timing are exaggerated for visibility and do not constitute a biomechanical simulation."
+  },
+  "minimumScientificAcceptance": [
+    "The fiber reads as one long multinucleated cell, not a bundle of separate cells.",
+    "The uncut remainder, rear, sides, and ends retain real volume under unrestricted orbit.",
+    "Several peripheral myonuclei lie beneath an enclosing sarcolemma.",
+    "Many longitudinal myofibrils occupy the sarcoplasm and display consistent transverse striation registration.",
+    "At least one learning-scale sarcomere clearly resolves Z discs, A band, and I bands in correct order.",
+    "At least one triad resolves one T-tubule plus two distinct SR terminal cisternae at an A-I junction.",
+    "The T-tubule is continuous with the sarcolemma; terminal cisternae are continuous with the SR, not with the T-tubule lumen.",
+    "Representative mitochondria occupy plausible interfibrillar and/or subsarcolemmal spaces without implying uniform fiber-type abundance.",
+    "The capillary is extracellular and may lie in a sarcolemmal surface groove without entering the fiber.",
+    "Any contraction state preserves A-band width while narrowing I bands and shortening Z-to-Z distance.",
+    "All scale exaggerations, omitted structures, and synthetic-hypothesis views are disclosed."
+  ],
+  "knownSimplifications": [
+    "Molecular proteins, myofilament lattice geometry, M line, H zone, costameres, basal lamina, endomysium, motor end plate, satellite cells, and complete microvascular branching may be omitted unless separately implemented and reviewed.",
+    "A small representative subset of myofibrils, sarcomeres, SR membranes, mitochondria, nuclei, and capillaries stands in for much larger biological counts.",
+    "Colors are semantic teaching colors rather than native tissue colors.",
+    "The cutaway may spatially separate tightly packed structures so learners can select them.",
+    "Adult mammalian organization is not universal across species, development, regeneration, or disease."
+  ],
+  "evidenceSources": [
+    {
+      "id": "squire-2017-muscle-contraction",
+      "type": "peer-reviewed-authoritative-review-with-electron-micrograph",
+      "citation": "Squire JM. Muscle Contraction: Sliding Filament History, Sarcomere Dynamics and the Two Huxleys. Cold Spring Harbor Perspectives in Biology. 2017;9:a023200.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5793755/",
+      "supports": [
+        "sarcomere band organization",
+        "Z-disc boundaries",
+        "A-band constancy and I/H-band narrowing during shortening",
+        "sliding-filament limitation"
+      ]
+    },
+    {
+      "id": "huxley-hanson-1954",
+      "type": "primary-landmark-experiment",
+      "citation": "Huxley H, Hanson J. Changes in the Cross-Striations of Muscle during Contraction and Stretch and their Structural Interpretation. Nature. 1954;173:973-976. doi:10.1038/173973a0.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13165698/",
+      "supports": [
+        "sliding-filament interpretation",
+        "cross-striation changes during contraction and stretch"
+      ]
+    },
+    {
+      "id": "al-qusairi-laporte-2011",
+      "type": "peer-reviewed-authoritative-review-with-electron-micrograph",
+      "citation": "Al-Qusairi L, Laporte J. T-tubule biogenesis and triad formation in skeletal muscle and implication in human diseases. Skeletal Muscle. 2011;1:26.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3156648/",
+      "supports": [
+        "T-tubule as sarcolemmal invagination",
+        "triad composition",
+        "junctional SR and terminal cisternae"
+      ]
+    },
+    {
+      "id": "rossi-2022-sr-review",
+      "type": "peer-reviewed-authoritative-review",
+      "citation": "Rossi D et al. The Sarcoplasmic Reticulum of Skeletal Muscle Cells: A Labyrinth of Membrane Contact Sites. Biomolecules. 2022;12:488.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9026860/",
+      "supports": [
+        "longitudinal SR network around myofibrils",
+        "terminal cisternae",
+        "adult mammalian A-I-junction triad organization"
+      ]
+    },
+    {
+      "id": "hastings-et-al-2020",
+      "type": "primary-imaging-study",
+      "citation": "Hastings RL, Massopust RT, Haddix SG, Lee YI, Thompson WJ. Exclusive vital labeling of myonuclei for studying myonuclear arrangement in mouse skeletal muscle tissue. Skeletal Muscle. 2020;10:15. doi:10.1186/s13395-020-00233-6.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7204059/",
+      "supports": [
+        "multinucleate muscle fibers",
+        "healthy adult peripheral myonuclei beneath the sarcolemma",
+        "distinguishing myonuclei from non-muscle nuclei"
+      ]
+    },
+    {
+      "id": "glancy-2014-capillaries",
+      "type": "primary-three-dimensional-in-vivo-imaging-study",
+      "citation": "Glancy B et al. In Vivo Microscopy Reveals Extensive Embedding of Capillaries within the Sarcolemma of Skeletal Muscle Fibers. Microcirculation. 2014;21:131-147.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4185432/",
+      "supports": [
+        "capillary surface grooves and close apposition",
+        "capillary remains outside the muscle cell",
+        "peripheral mitochondrial and nuclear spaces near embedded capillaries"
+      ]
+    },
+    {
+      "id": "parry-et-al-2024-mitochondria",
+      "type": "primary-three-dimensional-imaging-and-functional-study",
+      "citation": "Parry HA, Willingham TB, Giordano KA, Kim Y, Qazi S, Knutson JR, Combs CA, Glancy B. Impact of Capillary and Sarcolemmal Proximity on Mitochondrial Structure and Energetic Function in Skeletal Muscle. Journal of Physiology. 2024;602:1967-1986. doi:10.1113/JP286246.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11068488/",
+      "supports": [
+        "interfibrillar, subsarcolemmal, and paravascular mitochondrial regions",
+        "nonuniform mitochondrial morphology and placement",
+        "mitochondrial contacts with SR"
+      ]
+    }
+  ]
+}

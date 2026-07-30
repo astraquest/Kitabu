@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-4.3.1-outcome-3",
+  "curriculum": {
+    "country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"English Language Activities","subjectId":"english_language_activities",
+    "strand":"Language use","strandCode":"4.3","strandPosition":15,"unitCode":"4.0","subStrand":"Singular and plurals (adding -s and -es)","subStrandCode":"4.3.1","subStrandPosition":15,
+    "outcomeId":"outcome-3","outcomeLabel":"c","outcomePosition":3,"outcomeText":"appreciate the importance of using singular and plural nouns correctly in communication.",
+    "sourcePages":[28,29],"sourceTextSha256":"ef7c21c58151b4f869272cb8d64ffb25eb8618d71414d03e9abb415f67ff40c1"
+  },
+  "mission":{"title":"One or Many Word Party","interactions":[
+    {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"You see one cup. Which words tell it clearly?","choices":["one cup","two cups","three cups"],"answer":"one cup","feedback":"Yes! One cup names a single thing clearly.","retryHint":"One means there is only a single cup."},
+    {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"You see three books. Complete: I see three ___.","choices":["book","books","bookes"],"answer":"books","feedback":"Great! We add -s to book when there is more than one.","retryHint":"More than one book needs the plural ending -s."},
+    {"phase":"guided-practice","progressionLevel":3,"mode":"match","prompt":"Match each amount to the clear noun phrase.","items":["one-bag","two-bags","three-boxes"],"choices":["a bag","two bags","three boxes"],"tapAlternative":"Tap an amount, then tap its matching words.","answer":{"one-bag":"a bag","two-bags":"two bags","three-boxes":"three boxes"},"feedback":"Well done! Your nouns tell exactly how many.","retryHint":"Use no plural ending for one; use -s or -es for many."},
+    {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Musa asks for two brushes. Which sentence is clear?","choices":["Please give me two brushes.","Please give me two brush.","Please give me one brushes."],"answer":"Please give me two brushes.","feedback":"Correct! Two brushes uses the plural noun correctly.","retryHint":"The number two must be followed by a word meaning many."},
+    {"phase":"transfer","progressionLevel":5,"mode":"classify","prompt":"Sort the phrases into clear or needs-fixing.","items":["one-dish","four-dishes","two-bus","three-buses"],"groups":["clear","needs-fixing"],"tapAlternative":"Tap a phrase, then choose clear or needs-fixing.","answer":{"one-dish":"clear","four-dishes":"clear","two-bus":"needs-fixing","three-buses":"clear"},"feedback":"Excellent! Correct singulars and plurals prevent mix-ups.","retryHint":"Check whether the number is one or many, then check the noun ending."},
+    {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Your teacher needs five boxes. Which message gives the right information?","choices":["We need five boxes.","We need five box.","We need one boxes."],"answer":"We need five boxes.","feedback":"Fantastic! The correct plural makes your message clear.","retryHint":"Five means many, and box takes -es when it means many."}
+  ]}
+}

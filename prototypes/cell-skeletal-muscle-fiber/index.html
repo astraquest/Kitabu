@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#f4ede2" />
+    <meta name="description" content="Explore a volumetric cutaway model of one skeletal muscle fiber." />
+    <title>Skeletal muscle fiber · Kitabu</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Kitabu · Cell studio</p>
+          <h1>One muscle fiber</h1>
+        </div>
+        <button id="reset-view" class="quiet-button" type="button">Reset</button>
+      </header>
+
+      <section class="study-card" aria-label="Interactive skeletal muscle fiber">
+        <div id="viewer" class="viewer">
+          <canvas id="fiber-canvas" tabindex="0" aria-label="Interactive three-dimensional skeletal muscle fiber cutaway. Drag to orbit and pinch to zoom."></canvas>
+          <div id="hotspot-layer" class="hotspot-layer" aria-label="Muscle fiber structures"></div>
+          <div id="loading" class="loading" role="status">Building my internal layers…</div>
+          <p class="orbit-hint">Drag to orbit · pinch to zoom</p>
+        </div>
+
+        <aside class="learning-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">How I contract</p>
+            <span id="runtime-status" class="runtime-status" role="status">Ready</span>
+          </div>
+          <h2 id="detail-title">Explore my structure</h2>
+          <p id="detail-copy" class="detail-copy">I am one long, multinucleated skeletal muscle cell packed with parallel myofibrils.</p>
+
+          <div class="mode-grid" role="group" aria-label="Fiber view mode">
+            <button class="mode-button is-active" data-mode="longitudinal" type="button" aria-pressed="true">Length</button>
+            <button class="mode-button" data-mode="cross-section" type="button" aria-pressed="false">Section</button>
+            <button class="mode-button" data-mode="explode" type="button" aria-pressed="false">Explode</button>
+          </div>
+
+          <div class="action-row">
+            <button id="isolate-part" class="action-button" type="button" disabled>Isolate part</button>
+            <button id="contraction-toggle" class="action-button accent" type="button" aria-pressed="false">Show contraction</button>
+          </div>
+
+          <label class="layer-control" for="layer-select">
+            <span>Visible layer</span>
+            <select id="layer-select">
+              <option value="all">All layers</option>
+              <option value="surface">Surface</option>
+              <option value="contractile">Myofibrils</option>
+              <option value="excitation">Triad + SR</option>
+              <option value="energy">Mitochondria</option>
+              <option value="supply">Capillary</option>
+            </select>
+          </label>
+
+          <details class="accuracy-note">
+            <summary>Model limits</summary>
+            <p>This explanatory procedural model enlarges fine structures and shows representative mitochondria and one external capillary. Synthetic views guide geometry only; they are not anatomical proof.</p>
+          </details>
+        </aside>
+      </section>
+
+      <footer class="asset-footer">
+        <span>cell.skeletal-muscle-fiber.001 · v1.0.0</span>
+        <span>Adult mammalian reference · learning scale</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

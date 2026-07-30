@@ -1,0 +1,913 @@
+{
+  "schemaVersion": "4.0",
+  "manifestRevision": 4,
+  "targetName": "African Monarch Butterfly",
+  "targetId": "african-monarch-butterfly",
+  "sourceImage": "../../output/imagegen/african-monarch-dorsal-transparent.png",
+  "globalSpec": {
+    "targetName": "African Monarch Butterfly",
+    "targetId": "african-monarch-butterfly",
+    "schemaVersion": "3.1",
+    "specRevision": 1,
+    "intendedUse": "animated",
+    "qualityProfile": "reference-fidelity",
+    "sourceImage": "../../output/imagegen/african-monarch-dorsal-transparent.png",
+    "viewHypothesisPolicy": {
+      "enabled": true,
+      "generator": "built-in-imagegen",
+      "promptVersion": "identity-turnaround-v1",
+      "requiredViews": [
+        "three-quarter",
+        "side",
+        "back"
+      ],
+      "allowedUse": "planning-veto",
+      "acceptanceAuthority": false,
+      "generationContract": "Preserve the exact object identity, proportions, parts, materials, and scale; generate only the named unseen view on a neutral background; do not redesign or add parts.",
+      "manifestPath": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\.sculpt-cache\\butterfly-sculpt\\view-hypotheses-232714250719f3ff8398.json",
+      "manifestSha256": "a81d722dd36269836829478f0164aeed7e34d84df7f47dd662114109fdad82a0",
+      "cacheKey": "232714250719f3ff83981a5cdcc2d7bfde52460dad68c23e7d77586a30dadd9e"
+    },
+    "suitability": "conditional",
+    "scores": {
+      "object_isolation": 3,
+      "silhouette_readability": 3,
+      "depth_inference": 1,
+      "primitive_decomposition": 3,
+      "material_procedurality": 3,
+      "occlusion_risk": 2,
+      "interaction_fit": 3
+    },
+    "preSpecAssessment": {
+      "objectClass": {
+        "primaryType": "organic articulated insect specimen",
+        "formLanguage": [
+          "organic",
+          "bilaterally symmetric",
+          "thin-membrane"
+        ],
+        "structureKind": [
+          "compound object",
+          "layered shell",
+          "articulated assembly",
+          "repeated markings"
+        ],
+        "motionPotential": [
+          "articulated",
+          "whole-object transform"
+        ],
+        "materialFamilies": [
+          "scale-covered wing membrane",
+          "chitin-like exoskeleton",
+          "hair-like thoracic setae"
+        ],
+        "notes": "One isolated dorsal view clearly shows the four-wing silhouette and characteristic orange/black/white pattern. Underside, depth, and small appendage joints are not observed."
+      },
+      "complexity": {
+        "tier": "complex",
+        "scores": {
+          "silhouetteComplexity": 3,
+          "componentCount": 3,
+          "hierarchyDepth": 2,
+          "repetitionDensity": 3,
+          "materialLayerCount": 3,
+          "localDetailDensity": 3,
+          "occlusionRisk": 2,
+          "actionReadinessNeed": 3
+        },
+        "estimatedCounts": {
+          "macroComponents": 3,
+          "mesoComponents": 17,
+          "microFeatureGroups": 6,
+          "materialLayers": 5,
+          "repetitionSystems": 3
+        },
+        "reasoning": [
+          "Complex is warranted by four independent wing pivots, compound wing markings, venation, segmented anatomy, six legs, antennae, and animated attachment correctness."
+        ]
+      },
+      "specDepthDecision": {
+        "requiredDepth": "complex",
+        "minimumComponentLevels": [
+          "macro",
+          "meso",
+          "micro"
+        ],
+        "needsRepetitionSystems": true,
+        "needsMaterialLocalOverrides": true,
+        "needsMultipleReviewViews": true,
+        "needsActionReadyHierarchy": true,
+        "rationale": "Use only the depth needed to preserve the visible identity and intended behavior."
+      },
+      "specializedRegions": {
+        "status": "none",
+        "notes": "No human face or hand regions are present; insect head landmarks are handled by body-anatomy.",
+        "regions": []
+      },
+      "unknownsToResolveBeforeImplementation": []
+    },
+    "surfaceTopologyPlan": {
+      "status": "planned",
+      "reason": "Articulation boundaries and thin membranes require separate assemblies; small markings and veins are surface relief/material systems.",
+      "decisionRule": "Classify each visible system as continuous sculpt, intentional assembly, conforming shell, embedded relief, host-bound fiber, or material-only before modules.",
+      "groups": [
+        {
+          "id": "wing-membranes",
+          "strategy": "assembled-solid",
+          "ownerModuleId": "articulated-wings",
+          "regions": [
+            "left and right forewings",
+            "left and right hindwings"
+          ],
+          "componentRefs": [
+            "left-forewing",
+            "right-forewing",
+            "left-hindwing",
+            "right-hindwing"
+          ],
+          "materialRefs": [],
+          "requiredTopology": "intentional-separate-parts",
+          "separationReason": "Each observed wing has a real thoracic articulation boundary and must rotate independently.",
+          "rationale": "Four separately hinged membranes preserve the observed silhouette and required runtime motion.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.97
+        },
+        {
+          "id": "wing-borders-spots",
+          "strategy": "material-only",
+          "ownerModuleId": "articulated-wings",
+          "regions": [
+            "black marginal fields",
+            "cream-white spot bands",
+            "orange scale fields"
+          ],
+          "componentRefs": [],
+          "materialRefs": [
+            "wing-membrane-palette"
+          ],
+          "requiredTopology": "no-geometry",
+          "rationale": "These scale-color regions do not change the primary wing silhouette; runtime may realize them as shallow decals.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.94
+        },
+        {
+          "id": "wing-venation",
+          "strategy": "material-only",
+          "ownerModuleId": "articulated-wings",
+          "regions": [
+            "major radial and cross veins"
+          ],
+          "componentRefs": [],
+          "materialRefs": [
+            "wing-membrane-palette"
+          ],
+          "requiredTopology": "no-geometry",
+          "rationale": "Observed veins are sub-silhouette dark linework represented as shallow render detail.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.86
+        },
+        {
+          "id": "body-exoskeleton",
+          "strategy": "assembled-solid",
+          "ownerModuleId": "body-anatomy",
+          "regions": [
+            "head",
+            "thorax",
+            "segmented abdomen"
+          ],
+          "componentRefs": [
+            "head",
+            "thorax",
+            "abdomen"
+          ],
+          "materialRefs": [],
+          "requiredTopology": "intentional-separate-parts",
+          "separationReason": "Observed exoskeletal regions have recognizable boundaries and different segment behavior.",
+          "rationale": "Named masses support anatomy hotspots while remaining visibly connected.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": "appendages",
+          "strategy": "assembled-solid",
+          "ownerModuleId": "body-anatomy",
+          "regions": [
+            "six legs",
+            "paired clubbed antennae",
+            "coiled proboscis"
+          ],
+          "componentRefs": [
+            "legs",
+            "antennae",
+            "proboscis"
+          ],
+          "materialRefs": [],
+          "requiredTopology": "intentional-separate-parts",
+          "separationReason": "Appendages attach at anatomical sockets and remain distinct narrow structures.",
+          "rationale": "Curve-based tubes are bounded approximations of visible appendages and their hidden roots.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.68
+        },
+        {
+          "id": "thoracic-setae",
+          "strategy": "material-only",
+          "ownerModuleId": "body-anatomy",
+          "regions": [
+            "thoracic hair-like surface"
+          ],
+          "componentRefs": [],
+          "materialRefs": [
+            "body-surface-palette"
+          ],
+          "requiredTopology": "no-geometry",
+          "rationale": "Dense setae are bounded to roughness and color breakup rather than unsupported strand grooming.",
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "confidence": 0.72
+        }
+      ]
+    },
+    "qualityContract": {
+      "qualityBar": "complex",
+      "qualityProfile": "reference-fidelity",
+      "definitionOfDone": [
+        "Dorsally, the model reads immediately as Danaus chrysippus: broad orange forewings with black apices and white bands, rounded orange hindwings with black-and-white margins, a narrow dark segmented body, and four independently hinged wings. Wing roots remain attached throughout a subtle asynchronous flight-idle animation."
+      ],
+      "minimumSpecDepth": {
+        "macroComponents": 3,
+        "mesoComponents": 17,
+        "microFeatureGroups": 6,
+        "materialLayers": 5,
+        "repetitionSystems": 3,
+        "reviewViewpoints": 3
+      },
+      "featureGroups": [
+        {
+          "id": "overall-silhouette",
+          "name": "Overall silhouette and proportions",
+          "required": true,
+          "qualityCriteria": [
+            "Bounding shape, negative space, and main mass ratios are explicit."
+          ],
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "failureModes": [
+            "The model reads as a generic placeholder."
+          ]
+        },
+        {
+          "id": "primary-structure",
+          "name": "Primary structure and attachments",
+          "required": true,
+          "qualityCriteria": [
+            "Major parts, hierarchy, joints, and contacts are explicit."
+          ],
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "failureModes": [
+            "Parts float, intersect accidentally, or use the wrong hierarchy."
+          ]
+        },
+        {
+          "id": "reference-lookdev",
+          "name": "Material, surface, lighting, and contact shadow",
+          "required": true,
+          "qualityCriteria": [
+            "Color and light response remain believable under review lighting."
+          ],
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "failureModes": [
+            "The object looks flat, uniformly plastic, or detached from the ground."
+          ]
+        }
+      ],
+      "visualDeltaChecks": [
+        "silhouette and proportion delta",
+        "structure and attachment delta",
+        "material and lighting delta"
+      ],
+      "antiShallowSpecRules": [
+        "Do not generate blockout before the integrated pre-spec fields and silhouette are filled.",
+        "Do not continue a visual pass without a hash-bound comparison manifest and artifact-bound AI review.",
+        "Do not lower global or pass-specific thresholds from a review command.",
+        "Do not mark optimization complete without measured metrics and a fresh no-regression visual review."
+      ]
+    },
+    "terminologyProfile": {
+      "domain": "real-time procedural Three.js asset",
+      "geometryTerms": [
+        "silhouette",
+        "proportion",
+        "primitive",
+        "bevel",
+        "taper",
+        "attachment"
+      ],
+      "materialTerms": [
+        "albedo",
+        "roughness",
+        "metalness",
+        "normal",
+        "ambient occlusion"
+      ],
+      "lightingTerms": [
+        "key light",
+        "fill light",
+        "environment light",
+        "contact shadow"
+      ],
+      "descriptionRule": "Pair plain-language observations with measurable geometry, material, or light parameters."
+    },
+    "qualityTargets": {
+      "targetFidelity": 0.85,
+      "mustMatch": [
+        "silhouette",
+        "primary proportions",
+        "recognizable structure",
+        "material response"
+      ],
+      "niceToHave": [
+        "micro wear",
+        "secondary lighting match"
+      ],
+      "reviewViewpoints": [
+        "neutral",
+        "grazing",
+        "reference"
+      ],
+      "diagnosticTargets": {
+        "silhouetteIou": 0.88,
+        "maximumCentroidDelta": 0.02,
+        "maximumAspectRatioDelta": 0.03,
+        "minimumDetailEnergyRatio": 0.75,
+        "minimumEdgeDensityRatio": 0.35,
+        "minimumHistogramIntersection": 0.35,
+        "maximumMeanColorDelta": 0.4,
+        "minimumHighlightCoverageRatio": 0.1,
+        "minimumHighlightEnergyRatio": 0.1,
+        "acceptanceAuthority": false,
+        "guardrailMode": "veto-only"
+      }
+    },
+    "selfCorrectLoop": {
+      "enabled": true,
+      "reviewAfterPasses": [
+        "blockout",
+        "structure",
+        "form",
+        "lookdev",
+        "interaction"
+      ],
+      "allowedActions": [
+        "continue",
+        "refine-spec",
+        "refine-code",
+        "refine-batch",
+        "request-input",
+        "stop"
+      ],
+      "specRefineTriggers": [
+        "missing part",
+        "wrong primitive",
+        "wrong proportions",
+        "reference ambiguity"
+      ],
+      "codeRefineTriggers": [
+        "render mismatch",
+        "runtime failure",
+        "performance budget exceeded"
+      ],
+      "stopCriteria": [
+        "quality target reached",
+        "remaining gap needs a better reference or manual art"
+      ],
+      "visualAcceptance": {
+        "reviewer": "ai-vision",
+        "threshold": 0.85,
+        "minimumAiVisionScore": 0.85,
+        "comparisonArtifactRequired": true,
+        "layerScoresRequired": true,
+        "codePixelDiffIsAcceptanceAuthority": false,
+        "requiredLayerScores": [],
+        "scoringRule": "AI vision reviews the full no-crop contact sheet; pass-specific scores are defined in buildPasses.",
+        "featureReviewPolicy": {
+          "enabled": true,
+          "reviewUnit": "multi-view-contact-sheet",
+          "maxCriticalFeaturesPerPass": 8,
+          "maxImportantFeaturesPerPass": 3,
+          "criticalDefaultThreshold": 0.85,
+          "importantAverageThreshold": 0.78,
+          "adaptiveEscalation": true,
+          "singleImagePairOnly": false,
+          "selectionRule": "Review a few identity-defining semantic systems, not every mesh; visible face and hand regions remain independent critical targets."
+        }
+      },
+      "screenshotPolicy": {
+        "requiredForPasses": [
+          "blockout",
+          "structure",
+          "form",
+          "lookdev"
+        ],
+        "preferredCapture": "in-app-browser-screenshot",
+        "fallbackCapture": "user-supplied-screenshot-path",
+        "minimumEvidence": "Required reference/render views, one combined sheet, AI scores, and critique.",
+        "reviewPairRule": "Use matching camera and framing whenever possible.",
+        "acceptanceAuthority": "AI vision plus pass-specific semantic gates."
+      }
+    },
+    "featureReviewTargets": [
+      {
+        "id": "overall-silhouette",
+        "name": "Overall silhouette and proportions",
+        "tier": "critical",
+        "passIds": [
+          "blockout",
+          "form"
+        ],
+        "minimumScore": 0.85,
+        "mustPass": true,
+        "componentRefs": [
+          "root"
+        ],
+        "evidenceRefs": [
+          "full-object"
+        ]
+      },
+      {
+        "id": "primary-structure",
+        "name": "Primary structure and attachment system",
+        "tier": "critical",
+        "passIds": [
+          "structure",
+          "form"
+        ],
+        "minimumScore": 0.85,
+        "mustPass": true,
+        "componentRefs": [
+          "root"
+        ],
+        "evidenceRefs": [
+          "full-object"
+        ]
+      },
+      {
+        "id": "reference-lookdev",
+        "name": "Reference material and lighting response",
+        "tier": "critical",
+        "passIds": [
+          "lookdev"
+        ],
+        "minimumScore": 0.85,
+        "mustPass": true,
+        "componentRefs": [
+          "root"
+        ],
+        "evidenceRefs": [
+          "full-object"
+        ]
+      }
+    ],
+    "actionReadiness": {
+      "enabled": true,
+      "contract": "Use stable named pivot nodes; add sockets, colliders, and destruction data only when the intended use needs them.",
+      "defaultRigType": "action-ready-rig",
+      "rootMotionNode": "root",
+      "requiredComponentFields": [
+        "id",
+        "parent",
+        "transform",
+        "actionProfile"
+      ],
+      "transformChannels": [
+        "translate",
+        "rotate",
+        "scale",
+        "visibility"
+      ],
+      "authoringRules": [
+        "Do not merge independently movable parts."
+      ],
+      "destructionPolicy": {
+        "defaultBreakable": false
+      }
+    },
+    "assumptions": [
+      "Canonical source ../../output/imagegen/african-monarch-dorsal-transparent.png verified SHA-256 EC890CC2C5D59F1D6800675BBE7DD3881B6DC40259F187EDB38CFD45B38C676B.",
+      "The supplied generated dorsal plate is planning/reference evidence, not proof of unseen biological surfaces.",
+      "Right/left wing planforms are mirrored for runtime stability; minor surface marks vary deterministically.",
+      "Wing membranes use small visible thickness and double-sided materials for robust browser rendering.",
+      "Hidden ventral coloration and appendage insertions are approximate."
+    ],
+    "coordinateFrame": {
+      "front": "+Z toward head/anterior",
+      "up": "+Y dorsal/up",
+      "scaleReference": "body length 2.35 model units; full open wingspan approximately 5.2 units"
+    },
+    "silhouette": {
+      "boundingShape": "broad bilateral four-lobed wing envelope around a narrow longitudinal body",
+      "aspectRatios": [
+        "open wingspan:body length ~= 2.2:1",
+        "forewing span:hindwing span ~= 1.18:1",
+        "thorax width:body length ~= 0.16:1"
+      ],
+      "symmetry": "strong bilateral symmetry about X=0 with small biological/material variation only",
+      "dominantCurves": [
+        "forewing leading edges sweep outward and posterior before rounded dark apices",
+        "hindwings form broad convex fans tapering into thoracic roots",
+        "abdomen tapers continuously toward posterior"
+      ],
+      "negativeSpaces": [
+        "narrow V between forewing leading edges and antennae",
+        "shallow clefts between forewing and hindwing trailing edges",
+        "clear gaps between abdomen and hindwing inner edges"
+      ],
+      "landmarks": [
+        "head at Z=+1.08",
+        "forewing roots near X=+-0.16 Z=+0.35",
+        "hindwing roots near X=+-0.16 Z=+0.05",
+        "abdomen tip near Z=-1.28",
+        "forewing tips near X=+-2.6 Z=+0.62"
+      ]
+    },
+    "viewEvidence": [
+      {
+        "id": "full-object",
+        "view": "primary",
+        "imageRegion": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0,
+          "units": "normalized"
+        },
+        "observations": [
+          "Dorsal forewings are warm orange centrally, with dark brown-black apical fields and a transverse series of large cream-white spots.",
+          "Rounded hindwings carry broad black marginal bands punctuated by small white spots and two small black discal marks.",
+          "The head and thorax are black with paired white spots; the abdomen is narrow, dark brown, segmented, and tapers posteriorly.",
+          "Antennae are long, clubbed, and diverge symmetrically; legs are mostly occluded by the body and wings."
+        ],
+        "confidence": 0.92
+      }
+    ],
+    "componentTree": [
+      {
+        "id": "root",
+        "name": "African Monarch Butterfly",
+        "componentType": "assembly",
+        "level": "macro",
+        "role": "assembly-root",
+        "importance": 1.0,
+        "confidence": 1.0,
+        "parent": null,
+        "attachment": null,
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "actionProfile": {
+          "animationRole": "root",
+          "pivot": {
+            "mode": "center",
+            "localPosition": [
+              0,
+              0,
+              0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "confidence": 1.0
+          },
+          "transformChannels": {
+            "translate": true,
+            "rotate": true,
+            "scale": true,
+            "bend": false,
+            "visibility": true
+          },
+          "sockets": [],
+          "collider": null,
+          "breakable": false
+        },
+        "evidenceRefs": [
+          "full-object"
+        ]
+      }
+    ],
+    "materials": [],
+    "repetitionSystems": [],
+    "buildPasses": [
+      {
+        "id": "blockout",
+        "label": "Khối chính",
+        "objective": "Match overall silhouette, framing, mass, and proportions before detail.",
+        "componentRefs": [
+          "root"
+        ],
+        "acceptance": [
+          "Reference and render preserve the same overall silhouette.",
+          "Primary masses and framing are correct before detail work."
+        ],
+        "evidenceType": "visual",
+        "requiredViews": [
+          "primary"
+        ],
+        "diagnosticViews": [
+          "three-quarter",
+          "side",
+          "back"
+        ],
+        "requiredLayerScores": {
+          "silhouette": 0.85
+        }
+      },
+      {
+        "id": "structure",
+        "label": "Cấu trúc",
+        "objective": "Resolve hierarchy, attachments, joints, and medium-scale forms.",
+        "componentRefs": [
+          "root"
+        ],
+        "acceptance": [
+          "All major child parts attach cleanly to their parent.",
+          "No floating joints or accidental gaps are visible."
+        ],
+        "evidenceType": "visual",
+        "requiredViews": [
+          "primary"
+        ],
+        "diagnosticViews": [
+          "three-quarter",
+          "side",
+          "back"
+        ],
+        "requiredLayerScores": {
+          "structure": 0.84
+        }
+      },
+      {
+        "id": "form",
+        "label": "Hoàn thiện hình",
+        "objective": "Refine shape and the visible forms needed by the selected complexity tier.",
+        "componentRefs": [
+          "root"
+        ],
+        "acceptance": [
+          "Macro and required meso forms match the reference.",
+          "Proportion and attachment errors found in the previous review are resolved."
+        ],
+        "evidenceType": "visual",
+        "requiredViews": [
+          "primary"
+        ],
+        "diagnosticViews": [
+          "three-quarter",
+          "side",
+          "back"
+        ],
+        "requiredLayerScores": {
+          "silhouette": 0.86,
+          "structure": 0.84,
+          "formDetail": 0.82
+        }
+      },
+      {
+        "id": "lookdev",
+        "label": "Vật liệu và ánh sáng",
+        "objective": "Validate color, material response, surface detail, lighting, and contact shadows together.",
+        "componentRefs": [
+          "root"
+        ],
+        "acceptance": [
+          "Materials preserve the reference palette and roughness response.",
+          "Lighting reveals form without baking the source lighting into albedo.",
+          "Contact shadows and surface detail remain believable at the target view."
+        ],
+        "evidenceType": "visual",
+        "requiredViews": [
+          "neutral",
+          "grazing",
+          "reference"
+        ],
+        "diagnosticViews": [
+          "three-quarter",
+          "side",
+          "back"
+        ],
+        "requiredLayerScores": {
+          "material": 0.85,
+          "lighting": 0.8
+        }
+      },
+      {
+        "id": "interaction",
+        "label": "Tương tác",
+        "objective": "Validate only the runtime behavior required by the intended use.",
+        "componentRefs": [
+          "root"
+        ],
+        "acceptance": [
+          "Required pivots, sockets, animation groups, and colliders work at runtime.",
+          "The model remains stable before, during, and after interaction."
+        ],
+        "evidenceType": "runtime",
+        "requiredRuntimeChecks": [
+          "loads",
+          "transforms",
+          "interaction"
+        ]
+      }
+    ],
+    "lookDevTargets": {
+      "qualityPriority": "reference-fidelity",
+      "materialPass": {
+        "minimumTextureResolution": 1024,
+        "independentMapChannels": [
+          "albedo",
+          "roughness",
+          "height",
+          "normal",
+          "ambient-occlusion"
+        ],
+        "referencePbrExtraction": {
+          "requiredWhenSourceImagePresent": true,
+          "targetThreshold": 0.75,
+          "stopOnLowConfidence": true,
+          "acceptedLimitation": "Single-image maps are inferred material evidence, not photogrammetry."
+        }
+      },
+      "lightingPass": {
+        "requiredTerms": [
+          "key/fill/environment",
+          "exposure/tone",
+          "contact shadow"
+        ]
+      },
+      "screenshotReview": [
+        "neutral",
+        "grazing",
+        "reference"
+      ]
+    },
+    "reviewHistory": [],
+    "lodPlan": [
+      {
+        "tier": "near",
+        "distance": 0,
+        "strategy": "full accepted model"
+      },
+      {
+        "tier": "far",
+        "distance": 30,
+        "strategy": "merge static parts and reduce non-silhouette detail"
+      }
+    ],
+    "performanceBudget": {
+      "qualityPriority": "reference-fidelity",
+      "targetTriangles": 250000,
+      "maxDrawCalls": 120,
+      "textureSize": 2048,
+      "fpsTarget": 60,
+      "optimizationPolicy": "Measure first; optimize without removing reference-critical features."
+    },
+    "lightingFromPhoto": [],
+    "proceduralStrategy": [
+      "Match silhouette and proportions.",
+      "Add only the structure required by complexity.",
+      "Validate material, surface, lighting, and contact shadow together.",
+      "Run interaction and performance checks only when relevant."
+    ],
+    "risks": [
+      "Thin layered wing fields can z-fight; each marking layer requires a deliberate dorsal offset.",
+      "Four animated wing roots can expose gaps unless membrane shapes overlap the thorax sockets.",
+      "Single-view evidence cannot validate side depth, underside markings, or exact leg articulation.",
+      "Dense spot and vein geometry can inflate draw calls; repeated markings share geometry and materials where practical."
+    ],
+    "sculptPipeline": {
+      "passGateMode": "adaptive-sequential",
+      "passOrder": [
+        "blockout",
+        "structure",
+        "form",
+        "lookdev",
+        "interaction"
+      ],
+      "currentPass": "blockout",
+      "completedPasses": [],
+      "lastCompletedPass": "",
+      "state": "ready",
+      "latestAction": "",
+      "pendingCorrectionBatch": {},
+      "refinementBudget": {
+        "maximumBatches": 2,
+        "usedBatches": 0,
+        "remainingBatches": 2,
+        "exhausted": false,
+        "maximumStrategyResets": 1,
+        "usedStrategyResets": 0,
+        "remainingStrategyResets": 1
+      },
+      "blockedReason": "",
+      "gateFailures": [],
+      "nextRequiredEvidence": [
+        "Reference and render preserve the same overall silhouette.",
+        "Primary masses and framing are correct before detail work.",
+        "hash-bound reference + render comparison manifest for every required view",
+        "one artifact-bound AI reviewer record with critique and required scores",
+        "latest review action=continue for the current spec"
+      ],
+      "specHash": "d35cbe77c10a9539"
+    },
+    "reviewGovernance": {
+      "independentContextRequired": true,
+      "reviewerRole": "independent-reviewer",
+      "verdictArtifactRequired": true,
+      "builderMayNotOverrideVerdict": true
+    }
+  },
+  "assemblyContract": {
+    "rootComponentId": "root",
+    "coordinateFrame": {
+      "front": "+Z toward head/anterior",
+      "up": "+Y dorsal/up",
+      "scaleReference": "body length 2.35 model units; full open wingspan approximately 5.2 units"
+    },
+    "units": "relative",
+    "connectorRule": "Cross-module parenting must target root or a connector exported by a dependency.",
+    "invariants": [
+      "component, material, repetition, feature, and region ids are globally unique",
+      "module internals may change without invalidating dependants when exported connectors stay stable"
+    ]
+  },
+  "coverageContract": {
+    "assemblyFeatureGroups": [
+      "reference-lookdev"
+    ],
+    "rule": "Every required feature group has exactly one owner mode: one visual module or the assembled-pass gate."
+  },
+  "modulePolicy": {
+    "order": "highest-risk-ready-first",
+    "failClosed": true,
+    "cache": "content-and-interface-hash",
+    "finalAssemblyRequiresAcceptedModules": true
+  },
+  "modules": [
+    {
+      "id": "articulated-wings",
+      "path": "butterfly-sculpt.modules\\articulated-wings.json",
+      "role": "Four independently hinged reference-silhouette wing membranes, dorsal borders, spot bands, and venation",
+      "riskScore": 96.0,
+      "riskTier": "critical",
+      "dependsOn": [],
+      "gateType": "visual",
+      "covers": [
+        "overall-silhouette"
+      ],
+      "required": true
+    },
+    {
+      "id": "body-anatomy",
+      "path": "butterfly-sculpt.modules\\body-anatomy.json",
+      "role": "Head, thorax, abdomen, six legs with reduced forelegs, paired antennae, and proboscis",
+      "riskScore": 72.0,
+      "riskTier": "high",
+      "dependsOn": [],
+      "gateType": "visual",
+      "covers": [
+        "primary-structure"
+      ],
+      "required": true
+    }
+  ]
+}

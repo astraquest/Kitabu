@@ -113,6 +113,14 @@ for (const name of requiredEnv) {
   }
 }
 
+if ((process.env.KITABU_NODE_ENV?.trim() || process.env.NODE_ENV?.trim()) === 'production') {
+  for (const name of ['KITABU_RELEASE_VERSION', 'KITABU_RELEASE_SHA']) {
+    if (!hasValue(name) || process.env[name].trim() === 'unknown') {
+      failures.push(`${name} must identify the immutable production release`);
+    }
+  }
+}
+
 if (!hasValue('KITABU_DEEPSEEK_API_KEY') && !hasValue('KITABU_NVIDIA_API_KEY')) {
   failures.push('Set KITABU_DEEPSEEK_API_KEY or KITABU_NVIDIA_API_KEY for DeepSeek v4 flash fallback');
 }

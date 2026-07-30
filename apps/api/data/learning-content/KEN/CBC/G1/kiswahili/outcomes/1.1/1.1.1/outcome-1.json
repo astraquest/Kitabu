@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-kiswahili-1.1.1-outcome-1",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "Kiswahili Language Activities", "subjectId": "kiswahili_language_activities",
+    "strand": "1.1 Kusikiliza na Kuzungumza", "strandId": "1.1",
+    "subStrand": "1.1.1 Maamkuzi na Maagano", "subStrandId": "1.1.1",
+    "outcomeId": "outcome-1", "outcomeLabel": "a", "outcomePosition": 1,
+    "outcomeText": "kutambua maneno yanayotumiwa katika maamkuzi na maagano",
+    "sourcePages": [12, 13, 14],
+    "sourceTextSha256": "4af2ecf5ee0816ce9485d102dc52f3b9ea2277882f1b50461134404da8dd5926"
+  },
+  "mission": {
+    "title": "kutambua maneno yanayotumiwa katika maamkuzi na maagano",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Amina anamwona mwalimu asubuhi. Achague neno la kuamkua.","objects":["Amina akimsalimia mwalimu langoni mwa shule"],"choices":["Habari?","Kwaheri","Samahani"],"answer":"Habari?","feedback":"Hongera! ‘Habari?’ ni neno la maamkuzi.","retryHint":"Chagua neno tunalosema tunapokutana."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Juma anaulizwa ‘Hujambo?’ Jibu lipi linafaa?","objects":["Juma akizungumza na rafiki yake"],"choices":["Sijambo","Kwaheri","Asante"],"answer":"Sijambo","feedback":"Vizuri! Tunajibu ‘Hujambo?’ kwa ‘Sijambo.’","retryHint":"Tafuta jibu linaloanza kwa ‘Si-’."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify-sort-match-rank","activityMode":"classify","prompt":"Panga maneno katika maamkuzi na maagano.","objects":[{"id":"hujambo","label":"Hujambo?"},{"id":"habari","label":"Habari?"},{"id":"kwaheri","label":"Kwaheri"},{"id":"kuonana","label":"Kwaheri ya kuonana"}],"targets":[{"id":"maamkuzi","label":"Maamkuzi"},{"id":"maagano","label":"Maagano"}],"tapAlternative":"Gusa neno, kisha gusa kundi lake.","answer":{"hujambo":"maamkuzi","habari":"maamkuzi","kwaheri":"maagano","kuonana":"maagano"},"feedback":"Umeweza! Maamkuzi ni ya kukutana; maagano ni ya kuondoka.","retryHint":"Jiulize: tunakutana au tunaondoka?"},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Watoto wanamaliza kucheza na kurudi nyumbani. Waseme nini?","objects":["watoto wawili wakiagana baada ya mchezo"],"choices":["Kwaheri ya kuonana","Hamjambo?","Sijambo"],"answer":"Kwaheri ya kuonana","feedback":"Sahihi! Hilo ni agano la kuondoka.","retryHint":"Chagua maneno ya kuagana."},
+      {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Mama anawauliza watoto wengi, ‘Hamjambo?’ Wajibu nini?","objects":["mama akizungumza na watoto watatu"],"choices":["Hatujambo","Sijambo","Kwaheri"],"answer":"Hatujambo","feedback":"Bora sana! Watu wengi hujibu ‘Hatujambo.’","retryHint":"Jibu linawahusu watu wengi."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Ni jozi ipi ina maamkuzi kisha maagano?","choices":["Habari? — Kwaheri","Kwaheri — Sijambo","Hatujambo — Nzuri"],"answer":"Habari? — Kwaheri","feedback":"Umehitimu! Umetambua maamkuzi na maagano.","retryHint":"La kwanza ni la kukutana; la pili ni la kuondoka."}
+    ]
+  }
+}

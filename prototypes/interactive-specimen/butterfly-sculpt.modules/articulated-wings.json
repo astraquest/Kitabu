@@ -1,0 +1,1074 @@
+{
+    "schemaVersion": "4.0-module",
+    "moduleId": "articulated-wings",
+    "revision": 2,
+    "role": "Four independently hinged reference-silhouette wing membranes, dorsal borders, spot bands, and venation",
+    "dependsOn": [],
+    "risk": {
+        "score": 96,
+        "tier": "critical",
+        "reasons": [
+            "Four thin shape-extruded membranes must share hidden thoracic sockets without gaps",
+            "Layered dorsal markings and veins risk z-fighting",
+            "Animation must preserve bilateral phase and a subtler hindwing lag"
+        ]
+    },
+    "qualityGate": {
+        "type": "visual",
+        "minimumScore": 0.86,
+        "requiredViews": [
+            "reference"
+        ],
+        "diagnosticViews": [
+            "three-quarter",
+            "side",
+            "back"
+        ],
+        "requiredLayerScores": {
+            "silhouetteProportion": 0.86,
+            "componentStructure": 0.84,
+            "formDetail": 0.82,
+            "materialSurface": 0.86
+        },
+        "diagnosticThresholds": {
+            "minimumSilhouetteIou": 0.63,
+            "maximumCentroidDelta": 0.08,
+            "maximumAspectRatioDelta": 0.15,
+            "minimumDetailEnergyRatio": 0.35,
+            "minimumEdgeDensityRatio": 0.25,
+            "minimumHistogramIntersection": 0.3,
+            "maximumMeanColorDelta": 0.42,
+            "minimumHighlightCoverageRatio": 0.12,
+            "minimumHighlightEnergyRatio": 0.12
+        }
+    },
+    "contract": {
+        "coordinateFrameRef": "root",
+        "connectors": [
+            {
+                "id": "left-forewing-socket",
+                "componentRef": "left-forewing",
+                "position": [
+                    -0.145,
+                    0.005,
+                    0.43
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "role": "hinge"
+            },
+            {
+                "id": "right-forewing-socket",
+                "componentRef": "right-forewing",
+                "position": [
+                    0.145,
+                    0.005,
+                    0.43
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "role": "hinge"
+            },
+            {
+                "id": "left-hindwing-socket",
+                "componentRef": "left-hindwing",
+                "position": [
+                    -0.14,
+                    -0.008,
+                    0.12
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "role": "hinge"
+            },
+            {
+                "id": "right-hindwing-socket",
+                "componentRef": "right-hindwing",
+                "position": [
+                    0.14,
+                    -0.008,
+                    0.12
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "role": "hinge"
+            }
+        ],
+        "invariants": [
+            "All four pivots remain embedded at thoracic sockets",
+            "Left and right transforms mirror about X=0",
+            "Hindwings use a smaller phase-lagged flap amplitude"
+        ],
+        "implementationFiles": [
+            "src/butterfly-model.js"
+        ],
+        "owns": {
+            "components": [
+                "left-forewing",
+                "right-forewing",
+                "left-hindwing",
+                "right-hindwing"
+            ],
+            "materials": [
+                "wing-membrane-palette"
+            ],
+            "repetitionSystems": [],
+            "featureTargets": [
+                "articulated-wing-silhouette"
+            ],
+            "specializedRegions": []
+        }
+    },
+    "payload": {
+        "componentTree": [
+            {
+                "id": "left-forewing",
+                "name": "Left forewing",
+                "componentType": "part",
+                "level": "macro",
+                "role": "articulated wing membrane",
+                "importance": 1,
+                "confidence": 0.96,
+                "primitive": "extrude",
+                "geometryDescriptor": {
+                    "parameters": {
+                        "shape": [
+                            [
+                                -0.08,
+                                -0.05
+                            ],
+                            [
+                                0.34,
+                                0.34
+                            ],
+                            [
+                                1.28,
+                                0.86
+                            ],
+                            [
+                                2.05,
+                                0.93
+                            ],
+                            [
+                                2.38,
+                                0.71
+                            ],
+                            [
+                                2.48,
+                                0.32
+                            ],
+                            [
+                                2.28,
+                                -0.1
+                            ],
+                            [
+                                1.72,
+                                -0.38
+                            ],
+                            [
+                                0.88,
+                                -0.36
+                            ],
+                            [
+                                0.2,
+                                -0.16
+                            ]
+                        ],
+                        "holes": [],
+                        "depth": 0.025,
+                        "curveSegments": 16,
+                        "bevelEnabled": true,
+                        "bevelThickness": 0.006,
+                        "bevelSize": 0.012,
+                        "bevelSegments": 2
+                    },
+                    "topologyIntent": "thin closed wing membrane with observed dorsal outline",
+                    "edgeTreatment": {
+                    "type": "none",
+                    "bevelRadius": 0,
+                    "segments": 1
+                    },
+                    "deformationStack": [],
+                    "uvStrategy": "generated procedural coordinates",
+                    "normalStrategy": "generated vertex normals"
+                },
+                "parent": "root",
+                "attachment": {
+                    "type": "hinge",
+                    "parentId": "root",
+                    "parentSocket": "left-forewing-thoracic-socket",
+                    "localStart": [
+                        -0.145,
+                        0.005,
+                        0.43
+                    ],
+                    "localEnd": [
+                        -2.625,
+                        0.005,
+                        0.75
+                    ],
+                    "contactType": "hinge",
+                    "overlap": 0.09,
+                    "gapTolerance": 0.025,
+                    "evidenceRefs": [
+                        "full-object"
+                    ],
+                    "contactRule": "membrane root remains embedded beneath thorax throughout flap"
+                },
+                "dimensions": {
+                    "width": 2.48,
+                    "height": 0.025,
+                    "depth": 1.31,
+                    "units": "relative",
+                    "confidence": 0.94
+                },
+                "transform": {
+                    "position": [
+                        -0.145,
+                        0.005,
+                        0.43
+                    ],
+                    "rotation": [
+                        1.5707963268,
+                        0,
+                        0
+                    ],
+                    "scale": [
+                        -1,
+                        1,
+                        1
+                    ]
+                },
+                "actionProfile": {
+                    "animationRole": "hinged-wing",
+                    "pivot": {
+                        "mode": "hinge",
+                        "localPosition": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "axis": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "confidence": 0.94
+                    },
+                    "transformChannels": {
+                        "translate": false,
+                        "rotate": true,
+                        "scale": false,
+                        "visibility": true
+                    },
+                    "sockets": [],
+                    "constraints": [
+                        "mirror right forewing",
+                        "maximum idle flap 0.19 radians"
+                    ]
+                },
+                "material": "wing-membrane-palette",
+                "materialLayers": [
+                    "wing-membrane-palette"
+                ],
+                "deformations": [],
+                "joints": [
+                    "left-forewing-thoracic-hinge"
+                ],
+                "seams": [],
+                "localFeatures": [
+                    {
+                        "id": "left-forewing-dorsal-pattern",
+                        "type": "decal",
+                        "name": "orange black cream dorsal fields",
+                        "placement": "dorsal membrane",
+                        "size": [
+                            2.3,
+                            1.2
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "materialEffect": "layered palette",
+                        "geometryEffect": "shallow render overlay",
+                        "confidence": 0.94
+                    }
+                ],
+                "surfaceDetail": {
+                    "macroRoughness": 0.08,
+                    "microRoughness": 0.16,
+                    "bumpAmplitude": 0.01,
+                    "normalPattern": "fine aligned wing scales"
+                },
+                "evidenceRefs": [
+                    "full-object"
+                ],
+                "details": [],
+                "fidelityTier": "lookdev"
+            },
+            {
+                "id": "right-forewing",
+                "name": "Right forewing",
+                "componentType": "part",
+                "level": "macro",
+                "role": "articulated wing membrane",
+                "importance": 1,
+                "confidence": 0.96,
+                "primitive": "extrude",
+                "geometryDescriptor": {
+                    "parameters": {
+                        "shape": [
+                            [
+                                -0.08,
+                                -0.05
+                            ],
+                            [
+                                0.34,
+                                0.34
+                            ],
+                            [
+                                1.28,
+                                0.86
+                            ],
+                            [
+                                2.05,
+                                0.93
+                            ],
+                            [
+                                2.38,
+                                0.71
+                            ],
+                            [
+                                2.48,
+                                0.32
+                            ],
+                            [
+                                2.28,
+                                -0.1
+                            ],
+                            [
+                                1.72,
+                                -0.38
+                            ],
+                            [
+                                0.88,
+                                -0.36
+                            ],
+                            [
+                                0.2,
+                                -0.16
+                            ]
+                        ],
+                        "holes": [],
+                        "depth": 0.025,
+                        "curveSegments": 16,
+                        "bevelEnabled": true,
+                        "bevelThickness": 0.006,
+                        "bevelSize": 0.012,
+                        "bevelSegments": 2
+                    },
+                    "topologyIntent": "thin closed wing membrane with observed dorsal outline",
+                    "edgeTreatment": {
+                    "type": "none",
+                    "bevelRadius": 0,
+                    "segments": 1
+                    },
+                    "deformationStack": [],
+                    "uvStrategy": "generated procedural coordinates",
+                    "normalStrategy": "generated vertex normals"
+                },
+                "parent": "root",
+                "attachment": {
+                    "type": "hinge",
+                    "parentId": "root",
+                    "parentSocket": "right-forewing-thoracic-socket",
+                    "localStart": [
+                        0.145,
+                        0.005,
+                        0.43
+                    ],
+                    "localEnd": [
+                        2.625,
+                        0.005,
+                        0.75
+                    ],
+                    "contactType": "hinge",
+                    "overlap": 0.09,
+                    "gapTolerance": 0.025,
+                    "evidenceRefs": [
+                        "full-object"
+                    ],
+                    "contactRule": "membrane root remains embedded beneath thorax throughout flap"
+                },
+                "dimensions": {
+                    "width": 2.48,
+                    "height": 0.025,
+                    "depth": 1.31,
+                    "units": "relative",
+                    "confidence": 0.94
+                },
+                "transform": {
+                    "position": [
+                        0.145,
+                        0.005,
+                        0.43
+                    ],
+                    "rotation": [
+                        1.5707963268,
+                        0,
+                        0
+                    ],
+                    "scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "actionProfile": {
+                    "animationRole": "hinged-wing",
+                    "pivot": {
+                        "mode": "hinge",
+                        "localPosition": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "axis": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "confidence": 0.94
+                    },
+                    "transformChannels": {
+                        "translate": false,
+                        "rotate": true,
+                        "scale": false,
+                        "visibility": true
+                    },
+                    "sockets": [],
+                    "constraints": [
+                        "mirror left forewing",
+                        "maximum idle flap 0.19 radians"
+                    ]
+                },
+                "material": "wing-membrane-palette",
+                "materialLayers": [
+                    "wing-membrane-palette"
+                ],
+                "deformations": [],
+                "joints": [
+                    "right-forewing-thoracic-hinge"
+                ],
+                "seams": [],
+                "localFeatures": [
+                    {
+                        "id": "right-forewing-dorsal-pattern",
+                        "type": "decal",
+                        "name": "orange black cream dorsal fields",
+                        "placement": "dorsal membrane",
+                        "size": [
+                            2.3,
+                            1.2
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "materialEffect": "layered palette",
+                        "geometryEffect": "shallow render overlay",
+                        "confidence": 0.94
+                    }
+                ],
+                "surfaceDetail": {
+                    "macroRoughness": 0.08,
+                    "microRoughness": 0.16,
+                    "bumpAmplitude": 0.01,
+                    "normalPattern": "fine aligned wing scales"
+                },
+                "evidenceRefs": [
+                    "full-object"
+                ],
+                "details": [],
+                "fidelityTier": "lookdev"
+            },
+            {
+                "id": "left-hindwing",
+                "name": "Left hindwing",
+                "componentType": "part",
+                "level": "macro",
+                "role": "articulated wing membrane",
+                "importance": 1,
+                "confidence": 0.95,
+                "primitive": "extrude",
+                "geometryDescriptor": {
+                    "parameters": {
+                        "shape": [
+                            [
+                                -0.08,
+                                0.08
+                            ],
+                            [
+                                0.38,
+                                0.08
+                            ],
+                            [
+                                1.16,
+                                -0.1
+                            ],
+                            [
+                                1.7,
+                                -0.43
+                            ],
+                            [
+                                1.94,
+                                -0.88
+                            ],
+                            [
+                                1.77,
+                                -1.28
+                            ],
+                            [
+                                1.24,
+                                -1.53
+                            ],
+                            [
+                                0.67,
+                                -1.42
+                            ],
+                            [
+                                0.27,
+                                -1.08
+                            ],
+                            [
+                                0.02,
+                                -0.35
+                            ]
+                        ],
+                        "holes": [],
+                        "depth": 0.025,
+                        "curveSegments": 16,
+                        "bevelEnabled": true,
+                        "bevelThickness": 0.006,
+                        "bevelSize": 0.012,
+                        "bevelSegments": 2
+                    },
+                    "topologyIntent": "thin closed rounded hindwing membrane",
+                    "edgeTreatment": {
+                    "type": "none",
+                    "bevelRadius": 0,
+                    "segments": 1
+                    },
+                    "deformationStack": [],
+                    "uvStrategy": "generated procedural coordinates",
+                    "normalStrategy": "generated vertex normals"
+                },
+                "parent": "root",
+                "attachment": {
+                    "type": "hinge",
+                    "parentId": "root",
+                    "parentSocket": "left-hindwing-thoracic-socket",
+                    "localStart": [
+                        -0.14,
+                        -0.008,
+                        0.12
+                    ],
+                    "localEnd": [
+                        -2.08,
+                        -0.008,
+                        -0.76
+                    ],
+                    "contactType": "hinge",
+                    "overlap": 0.09,
+                    "gapTolerance": 0.025,
+                    "evidenceRefs": [
+                        "full-object"
+                    ],
+                    "contactRule": "membrane root remains embedded beneath thorax throughout flap"
+                },
+                "dimensions": {
+                    "width": 1.94,
+                    "height": 0.025,
+                    "depth": 1.61,
+                    "units": "relative",
+                    "confidence": 0.93
+                },
+                "transform": {
+                    "position": [
+                        -0.14,
+                        -0.008,
+                        0.12
+                    ],
+                    "rotation": [
+                        1.5707963268,
+                        0,
+                        0
+                    ],
+                    "scale": [
+                        -1,
+                        1,
+                        1
+                    ]
+                },
+                "actionProfile": {
+                    "animationRole": "hinged-wing",
+                    "pivot": {
+                        "mode": "hinge",
+                        "localPosition": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "axis": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "confidence": 0.94
+                    },
+                    "transformChannels": {
+                        "translate": false,
+                        "rotate": true,
+                        "scale": false,
+                        "visibility": true
+                    },
+                    "sockets": [],
+                    "constraints": [
+                        "phase lag forewing by 0.2 radians",
+                        "use 77 percent forewing amplitude"
+                    ]
+                },
+                "material": "wing-membrane-palette",
+                "materialLayers": [
+                    "wing-membrane-palette"
+                ],
+                "deformations": [],
+                "joints": [
+                    "left-hindwing-thoracic-hinge"
+                ],
+                "seams": [],
+                "localFeatures": [
+                    {
+                        "id": "left-hindwing-dorsal-pattern",
+                        "type": "decal",
+                        "name": "orange field black margin cream spots",
+                        "placement": "dorsal membrane",
+                        "size": [
+                            1.8,
+                            1.5
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "materialEffect": "layered palette",
+                        "geometryEffect": "shallow render overlay",
+                        "confidence": 0.94
+                    }
+                ],
+                "surfaceDetail": {
+                    "macroRoughness": 0.08,
+                    "microRoughness": 0.16,
+                    "bumpAmplitude": 0.01,
+                    "normalPattern": "fine aligned wing scales"
+                },
+                "evidenceRefs": [
+                    "full-object"
+                ],
+                "details": [],
+                "fidelityTier": "lookdev"
+            },
+            {
+                "id": "right-hindwing",
+                "name": "Right hindwing",
+                "componentType": "part",
+                "level": "macro",
+                "role": "articulated wing membrane",
+                "importance": 1,
+                "confidence": 0.95,
+                "primitive": "extrude",
+                "geometryDescriptor": {
+                    "parameters": {
+                        "shape": [
+                            [
+                                -0.08,
+                                0.08
+                            ],
+                            [
+                                0.38,
+                                0.08
+                            ],
+                            [
+                                1.16,
+                                -0.1
+                            ],
+                            [
+                                1.7,
+                                -0.43
+                            ],
+                            [
+                                1.94,
+                                -0.88
+                            ],
+                            [
+                                1.77,
+                                -1.28
+                            ],
+                            [
+                                1.24,
+                                -1.53
+                            ],
+                            [
+                                0.67,
+                                -1.42
+                            ],
+                            [
+                                0.27,
+                                -1.08
+                            ],
+                            [
+                                0.02,
+                                -0.35
+                            ]
+                        ],
+                        "holes": [],
+                        "depth": 0.025,
+                        "curveSegments": 16,
+                        "bevelEnabled": true,
+                        "bevelThickness": 0.006,
+                        "bevelSize": 0.012,
+                        "bevelSegments": 2
+                    },
+                    "topologyIntent": "thin closed rounded hindwing membrane",
+                    "edgeTreatment": {
+                    "type": "none",
+                    "bevelRadius": 0,
+                    "segments": 1
+                    },
+                    "deformationStack": [],
+                    "uvStrategy": "generated procedural coordinates",
+                    "normalStrategy": "generated vertex normals"
+                },
+                "parent": "root",
+                "attachment": {
+                    "type": "hinge",
+                    "parentId": "root",
+                    "parentSocket": "right-hindwing-thoracic-socket",
+                    "localStart": [
+                        0.14,
+                        -0.008,
+                        0.12
+                    ],
+                    "localEnd": [
+                        2.08,
+                        -0.008,
+                        -0.76
+                    ],
+                    "contactType": "hinge",
+                    "overlap": 0.09,
+                    "gapTolerance": 0.025,
+                    "evidenceRefs": [
+                        "full-object"
+                    ],
+                    "contactRule": "membrane root remains embedded beneath thorax throughout flap"
+                },
+                "dimensions": {
+                    "width": 1.94,
+                    "height": 0.025,
+                    "depth": 1.61,
+                    "units": "relative",
+                    "confidence": 0.93
+                },
+                "transform": {
+                    "position": [
+                        0.14,
+                        -0.008,
+                        0.12
+                    ],
+                    "rotation": [
+                        1.5707963268,
+                        0,
+                        0
+                    ],
+                    "scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "actionProfile": {
+                    "animationRole": "hinged-wing",
+                    "pivot": {
+                        "mode": "hinge",
+                        "localPosition": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "axis": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "confidence": 0.94
+                    },
+                    "transformChannels": {
+                        "translate": false,
+                        "rotate": true,
+                        "scale": false,
+                        "visibility": true
+                    },
+                    "sockets": [],
+                    "constraints": [
+                        "phase lag forewing by 0.2 radians",
+                        "use 77 percent forewing amplitude"
+                    ]
+                },
+                "material": "wing-membrane-palette",
+                "materialLayers": [
+                    "wing-membrane-palette"
+                ],
+                "deformations": [],
+                "joints": [
+                    "right-hindwing-thoracic-hinge"
+                ],
+                "seams": [],
+                "localFeatures": [
+                    {
+                        "id": "right-hindwing-dorsal-pattern",
+                        "type": "decal",
+                        "name": "orange field black margin cream spots",
+                        "placement": "dorsal membrane",
+                        "size": [
+                            1.8,
+                            1.5
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "materialEffect": "layered palette",
+                        "geometryEffect": "shallow render overlay",
+                        "confidence": 0.94
+                    }
+                ],
+                "surfaceDetail": {
+                    "macroRoughness": 0.08,
+                    "microRoughness": 0.16,
+                    "bumpAmplitude": 0.01,
+                    "normalPattern": "fine aligned wing scales"
+                },
+                "evidenceRefs": [
+                    "full-object"
+                ],
+                "details": [],
+                "fidelityTier": "lookdev"
+            }
+        ],
+        "materials": [
+            {
+                "id": "wing-membrane-palette",
+                "name": "African monarch dorsal wing scale palette",
+                "type": "standard",
+                "shaderModel": "MeshPhysicalMaterial",
+                "baseColor": "#E8790B",
+                "albedo": {
+                    "dominant": "#E8790B",
+                    "secondary": [
+                        "#21150F",
+                        "#F2E9D2"
+                    ],
+                    "samplingNotes": "Orange central fields, dark brown-black margins, cream-white dorsal spots from full-object reference."
+                },
+                "colorVariation": {
+                    "palette": [
+                        "#E8790B",
+                        "#C95B08",
+                        "#21150F",
+                        "#F2E9D2"
+                    ],
+                    "pattern": "layered dorsal fields with bounded mottling",
+                    "amplitude": 0.08,
+                    "heightCorrelation": 0.15
+                },
+                "textureResolution": 2048,
+                "referencePbr": {
+                    "version": "1.0",
+                    "sourceImage": "../../output/imagegen/african-monarch-dorsal-transparent.png",
+                    "extractor": "extract_reference_pbr.py",
+                    "method": "single-image pixel evidence with broad/meso/micro de-lighting and tile-edge blending; not photogrammetry",
+                    "usable": true,
+                    "verdict": "pass",
+                    "confidence": 0.86,
+                    "extractionSuitability": 0.86,
+                    "targetThreshold": 0.75,
+                    "materialCropConfirmed": true,
+                    "hardLimit": "A single image cannot uniquely recover true albedo, roughness, normal, or AO; maps are reference-derived estimates.",
+                    "maps": {
+                        "albedo": {"path":"sculpt-pbr/wing-membrane-palette/wing-membrane-palette_albedo.png","channel":"albedo","source":"reference-pixel-extraction","tileSafe":true,"url":"/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_albedo.png"},
+                        "roughness": {"path":"sculpt-pbr/wing-membrane-palette/wing-membrane-palette_roughness.png","channel":"roughness","source":"reference-pixel-extraction","tileSafe":true,"url":"/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_roughness.png"},
+                        "height": {"path":"sculpt-pbr/wing-membrane-palette/wing-membrane-palette_height.png","channel":"height","source":"reference-pixel-extraction","tileSafe":true,"url":"/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_height.png"},
+                        "normal": {"path":"sculpt-pbr/wing-membrane-palette/wing-membrane-palette_normal.png","channel":"normal","source":"reference-pixel-extraction","tileSafe":true,"url":"/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_normal.png"},
+                        "ao": {"path":"sculpt-pbr/wing-membrane-palette/wing-membrane-palette_ao.png","channel":"ao","source":"reference-pixel-extraction","tileSafe":true,"url":"/sculpt-pbr/wing-membrane-palette/wing-membrane-palette_ao.png"}
+                    },
+                    "warnings": ["Single-image inverse rendering cannot prove true physical PBR; confidence is capped."]
+                },
+                "textureProjection": {
+                    "mode": "uv",
+                    "repeat": [
+                        1,
+                        1
+                    ],
+                    "anisotropy": 8,
+                    "texelDensityIntent": "Keep spot edges and veins legible in the default browser view."
+                },
+                "surfaceFrequencyBands": [
+                    {
+                        "id": "macro",
+                        "frequency": 1.5,
+                        "amplitude": 0.5,
+                        "role": "orange dark cream color fields"
+                    },
+                    {
+                        "id": "meso",
+                        "frequency": 12,
+                        "amplitude": 0.14,
+                        "role": "veins and scale direction"
+                    },
+                    {
+                        "id": "micro",
+                        "frequency": 64,
+                        "amplitude": 0.04,
+                        "role": "scale highlight breakup"
+                    }
+                ],
+                "roughness": {
+                    "base": 0.68,
+                    "variation": 0.1,
+                    "map": "independent-procedural-field"
+                },
+                "metalness": {
+                    "base": 0,
+                    "variation": 0
+                },
+                "specularIntensity": 0.38,
+                "specularColor": "#FFF4DE",
+                "envMapIntensity": 0.72,
+                "normal": {
+                    "pattern": "fine aligned scales",
+                    "strength": 0.12,
+                    "scale": 58
+                },
+                "bump": {
+                    "pattern": "vein ridges independent from albedo",
+                    "amplitude": 0.012
+                },
+                "displacement": {
+                    "pattern": "none",
+                    "amplitude": 0,
+                    "silhouetteAffects": false
+                },
+                "ambientOcclusion": {
+                    "cavityStrength": 0.12,
+                    "contactShadowBias": 0.2
+                },
+                "wear": {
+                    "edgeWear": 0.015,
+                    "scratches": [],
+                    "chips": []
+                },
+                "dirt": {
+                    "amount": 0,
+                    "cavityBias": 0,
+                    "color": "#21150F"
+                },
+                "localOverrides": [
+                    {
+                        "id": "dark-margin-zone",
+                        "type": "stain",
+                        "amount": 1,
+                        "color": "#21150F",
+                        "evidenceRefs": ["full-object"],
+                        "mask": {"pattern": "edge"},
+                        "roughnessDelta": 0.06
+                    },
+                    {
+                        "id": "cream-spot-zone",
+                        "type": "fade",
+                        "amount": 1,
+                        "color": "#F2E9D2",
+                        "evidenceRefs": ["full-object"],
+                        "mask": {"pattern": "speckle"},
+                        "roughnessDelta": 0.14
+                    }
+                ],
+                "shaderNotes": [
+                    "Runtime uses separate shallow dorsal meshes for color fields and tube geometry for the major veins.",
+                    "Albedo, roughness, and shallow vein relief remain independent."
+                ]
+            }
+        ],
+        "repetitionSystems": [],
+        "featureReviewTargets": [
+            {
+                "id": "articulated-wing-silhouette",
+                "name": "Four-wing dorsal silhouette and root articulation",
+                "tier": "critical",
+                "passIds": [
+                    "blockout",
+                    "structure",
+                    "form",
+                    "interaction"
+                ],
+                "minimumScore": 0.86,
+                "mustPass": true,
+                "componentRefs": [
+                    "left-forewing",
+                    "right-forewing",
+                    "left-hindwing",
+                    "right-hindwing"
+                ],
+                "evidenceRefs": [
+                    "full-object"
+                ]
+            }
+        ],
+        "viewEvidence": [
+            {
+                "id": "wing-full-object",
+                "view": "reference",
+                "imageRegion": {
+                    "x": 0.02,
+                    "y": 0.14,
+                    "width": 0.96,
+                    "height": 0.64,
+                    "units": "normalized"
+                },
+                "observations": [
+                    "Forewings have long convex leading edges, rounded black apices, and orange centers.",
+                    "Hindwings are broad and rounded with dark cream-spotted margins.",
+                    "All four roots disappear beneath the thoracic mass."
+                ],
+                "confidence": 0.95
+            }
+        ],
+        "specializedRegions": []
+    }
+}

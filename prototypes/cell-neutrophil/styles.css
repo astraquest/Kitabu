@@ -1,0 +1,59 @@
+:root {
+  color: #edf4ff;
+  background: #07101d;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100svh; background: radial-gradient(circle at 25% 10%, #183155 0, #07101d 52%); }
+button { font: inherit; }
+
+.app-shell { width: min(1120px, 100%); min-height: 100svh; margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)); display: grid; grid-template-rows: auto 1fr auto; gap: 14px; }
+.topbar, .asset-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.eyebrow, .detail-kicker { margin: 0 0 4px; color: #8fd8ea; font-size: .72rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 0; font-size: clamp(1.45rem, 4.5vw, 2.25rem); letter-spacing: -.035em; }
+h2 { margin-bottom: 8px; font-size: 1.35rem; }
+h3 { margin-bottom: 7px; font-size: 1.05rem; }
+.quiet-button, .mode-button, .isolate-button { min-height: 44px; border: 1px solid #38526d; border-radius: 12px; color: inherit; background: #101f33; cursor: pointer; }
+.quiet-button { padding: 0 14px; }
+.study-card { min-height: 0; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(290px, .7fr); border: 1px solid #2b435e; border-radius: 22px; background: rgba(8, 20, 35, .86); box-shadow: 0 24px 80px rgba(0,0,0,.35); }
+.viewer { position: relative; min-height: 540px; overflow: hidden; background: radial-gradient(circle, rgba(103, 190, 204, .17), transparent 57%); touch-action: none; }
+#cell-canvas { width: 100%; height: 100%; display: block; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: #bed4e9; background: #0a1626; transition: opacity .2s; }
+.loading.is-hidden { opacity: 0; pointer-events: none; }
+.hotspot-layer { position: absolute; inset: 0; pointer-events: none; }
+.hotspot { position: absolute; width: 34px; height: 34px; transform: translate(-50%, -50%); border: 1px solid #fff; border-radius: 50%; background: #1fa7be; color: #06111c; font-weight: 850; pointer-events: auto; box-shadow: 0 0 0 5px rgba(31,167,190,.18); }
+.hotspot.is-active { background: #ffd68a; box-shadow: 0 0 0 6px rgba(255,214,138,.22); }
+.orbit-hint { position: absolute; left: 50%; bottom: 12px; margin: 0; transform: translateX(-50%); color: #a8bbce; font-size: .78rem; white-space: nowrap; }
+.learning-panel { min-height: 0; padding: clamp(20px, 4vw, 34px); overflow: auto; border-left: 1px solid #2b435e; background: linear-gradient(180deg, rgba(16,31,51,.8), rgba(8,19,33,.96)); }
+.mode-copy, .detail p, .accuracy-note p { color: #b8c8d8; line-height: 1.5; }
+.mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0; }
+.mode-button { padding: 8px; }
+.mode-button.is-active { border-color: #6fdbec; background: #16465b; }
+.detail { min-height: 180px; padding: 18px; border: 1px solid #294760; border-radius: 16px; background: rgba(7,16,29,.65); }
+.isolate-button { width: 100%; padding: 8px 12px; }
+.isolate-button:disabled { opacity: .42; cursor: default; }
+.accuracy-note { margin-top: 15px; color: #c9d7e5; font-size: .82rem; }
+.accuracy-note summary { cursor: pointer; }
+.asset-footer { color: #8299ad; font-size: .72rem; }
+
+@media (max-width: 720px) {
+  .app-shell { height: 100svh; padding: max(10px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom)); gap: 8px; }
+  .topbar .quiet-button { min-height: 38px; }
+  .study-card { grid-template-columns: 1fr; grid-template-rows: minmax(330px, 48svh) minmax(0, 1fr); }
+  .viewer { min-height: 0; }
+  .learning-panel { padding: 14px; border-left: 0; border-top: 1px solid #2b435e; }
+  .learning-panel > .mode-copy { display: none; }
+  .mode-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 10px 0; }
+  .mode-button { min-height: 40px; padding: 5px 2px; font-size: .75rem; }
+  .detail { min-height: 0; padding: 12px; }
+  .detail p { margin-bottom: 10px; font-size: .86rem; }
+  .accuracy-note { margin-top: 8px; }
+  .asset-footer { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}

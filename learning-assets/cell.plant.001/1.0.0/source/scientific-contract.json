@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "assetId": "cell.plant.001",
+  "assetVersion": "1.0.0",
+  "contractType": "scientific-geometry-and-labeling",
+  "reviewState": "approved-for-production-with-explicit-didactic-scaling",
+  "archetype": {
+    "name": "mature photosynthetic leaf mesophyll cell",
+    "scopeNote": "A representative angiosperm leaf cell chosen because the requested combination of a large central vacuole and grana-bearing chloroplasts is characteristic of photosynthetic vegetative tissue. It is not a universal template for every plant cell or tissue.",
+    "crossSectionMode": "volumetric cutaway",
+    "requiredInterpretation": "The model must read as a cut through a closed three-dimensional cell volume, not as organelles drawn on a flat plate. Every membrane-bounded structure must have depth, an enclosing surface, and a coherent interior.",
+    "neighborContext": "Include a small adjacent-cell/wall fragment only where needed to make plasmodesmata anatomically meaningful."
+  },
+  "globalConstraints": [
+    {
+      "id": "G1",
+      "requirement": "Cell wall is the outer extracellular shell; plasma membrane is a distinct, much thinner continuous boundary immediately inside it.",
+      "severity": "must"
+    },
+    {
+      "id": "G2",
+      "requirement": "A single membrane-bounded central vacuole dominates the interior and displaces most cytoplasm and organelles to a peripheral layer, while allowing a few plausible transvacuolar cytoplasmic strands.",
+      "severity": "must"
+    },
+    {
+      "id": "G3",
+      "requirement": "No organelle may float inside the vacuolar lumen. The tonoplast must separate vacuolar lumen from cytoplasm everywhere except at the deliberate cut surface.",
+      "severity": "must"
+    },
+    {
+      "id": "G4",
+      "requirement": "Cut surfaces must expose shell thickness and internal depth. Uncut rear and side surfaces must remain modeled and inspectable through a full orbit.",
+      "severity": "must"
+    },
+    {
+      "id": "G5",
+      "requirement": "Use coherent relative scale and spatial relationships. Ultrastructural details that cannot be shown at the same scale may be enlarged only as declared didactic exaggerations, never presented as literal scale.",
+      "severity": "must"
+    }
+  ],
+  "structures": [
+    {
+      "id": "cell-wall",
+      "label": "Cell wall",
+      "required": true,
+      "geometry": "Rigid, continuous, volumetric outer shell with visible cut thickness; gently faceted or box-like is acceptable for a generalized mesophyll cell.",
+      "relationships": ["Outside the plasma membrane", "Shared wall context may be shown at the plasmodesmata patch"],
+      "avoid": ["Animal-cell-like flexible outer boundary", "Cell wall drawn inside the plasma membrane", "Claiming lignified secondary wall for this generalized living mesophyll cell"],
+      "evidence": ["S1", "S2"]
+    },
+    {
+      "id": "plasma-membrane",
+      "label": "Plasma membrane",
+      "required": true,
+      "geometry": "Thin continuous volumetric surface immediately inside the cell wall and outside the cytoplasm; separation may be visually exaggerated for legibility.",
+      "relationships": ["Encloses the protoplast", "Continuous with the outer membrane lining of plasmodesmata"],
+      "avoid": ["Merging it with the tonoplast", "Leaving it absent at the rear or sides"],
+      "evidence": ["S1", "S8"]
+    },
+    {
+      "id": "cytoplasm",
+      "label": "Cytoplasm",
+      "required": true,
+      "geometry": "A connected peripheral volume between plasma membrane and tonoplast, with optional narrow transvacuolar strands; not a solid fill occupying the vacuole.",
+      "relationships": ["Contains nucleus and organelles", "Continuous around the vacuole and through transvacuolar strands"],
+      "avoid": ["Uniformly filling the full cell interior", "Treating cytoplasm as only a background color"],
+      "evidence": ["S2", "S4"]
+    },
+    {
+      "id": "central-vacuole",
+      "label": "Large central vacuole",
+      "required": true,
+      "geometry": "One dominant, fluid-filled three-dimensional compartment. Target roughly 65-85% of model cell volume to preserve the biologically dominant appearance while keeping organelles readable; literature reports up to about 90% in mature vegetative cells.",
+      "relationships": ["Bounded by tonoplast", "Pushes nucleus and most organelles toward cell cortex"],
+      "avoid": ["Many equal-sized bubbles", "Small decorative vacuole", "Unbounded cavity"],
+      "evidence": ["S3", "S4"]
+    },
+    {
+      "id": "tonoplast",
+      "label": "Tonoplast",
+      "required": true,
+      "geometry": "A continuous single membrane enclosing the central vacuole, visibly distinct from the plasma membrane.",
+      "relationships": ["Vacuolar lumen on one side", "Cytoplasm on the other side"],
+      "avoid": ["Labeling plasma membrane as tonoplast", "Double-membrane depiction"],
+      "evidence": ["S3", "S4"]
+    },
+    {
+      "id": "nucleus",
+      "label": "Nucleus",
+      "required": true,
+      "geometry": "Peripheral, rounded or slightly compressed volumetric organelle with a double nuclear envelope, visible envelope pores only if explicitly marked as enlarged, chromatin-like interior, and one conspicuous nucleolus.",
+      "relationships": ["Located in cytoplasm, not vacuole", "Outer nuclear membrane continuous with endoplasmic reticulum"],
+      "avoid": ["Central placement that unrealistically displaces the mature vacuole", "Nucleolus outside nucleus", "Single-layer nuclear envelope"],
+      "evidence": ["S1", "S5"]
+    },
+    {
+      "id": "chloroplasts",
+      "label": "Chloroplasts",
+      "required": true,
+      "geometry": "Multiple lenticular or ellipsoidal double-envelope organelles in peripheral cytoplasm. At least one cutaway chloroplast must show stroma and flattened thylakoid membranes arranged in several grana stacks, with intergranal/stroma lamellae connecting stacks.",
+      "relationships": ["Restricted to cytoplasm", "Often apposed near the cell periphery", "May be near mitochondria and peroxisomes"],
+      "avoid": ["Putting chlorophyll in the envelope", "Drawing grana as free coins unconnected to thylakoid membrane", "Folding the chloroplast inner envelope into cristae", "Placing chloroplasts in vacuolar lumen"],
+      "evidence": ["S2", "S6"]
+    },
+    {
+      "id": "mitochondria",
+      "label": "Mitochondria",
+      "required": true,
+      "geometry": "Several smaller ovoid or short tubular double-membrane organelles. At least one cutaway must show the inner membrane folding inward as cristae around the matrix.",
+      "relationships": ["Located in cytoplasm", "May occur near chloroplasts and peroxisomes in photosynthetic tissue"],
+      "avoid": ["Grana inside mitochondria", "Cristae attached to outer membrane", "Single-membrane depiction"],
+      "evidence": ["S7", "S10"]
+    },
+    {
+      "id": "endoplasmic-reticulum",
+      "label": "Endoplasmic reticulum",
+      "required": true,
+      "geometry": "A connected membrane network combining tubules and flattened cisternal regions, distributed through peripheral cytoplasm and optional transvacuolar strands. Rough ER bears cytosolic ribosome particles; smooth ER lacks them.",
+      "relationships": ["Continuous with outer nuclear membrane", "Closely associated with dispersed Golgi stacks but not fused into them"],
+      "avoid": ["One isolated ribbon", "ER inside vacuole", "Ribosomes inside ER lumen"],
+      "evidence": ["S5", "S9"]
+    },
+    {
+      "id": "golgi",
+      "label": "Golgi apparatus",
+      "required": true,
+      "geometry": "Multiple small, dispersed stacks of curved flattened cisternae with nearby vesicles. A visible stack should have an ordered cis-to-trans progression without implying that all stacks form one perinuclear mammalian-style ribbon.",
+      "relationships": ["Dispersed and motile in plant-cell cytoplasm", "Functionally associated with ER and trans-Golgi network"],
+      "avoid": ["Single giant central Golgi", "Unstacked random bubbles", "Placement in vacuole"],
+      "evidence": ["S9"]
+    },
+    {
+      "id": "ribosomes",
+      "label": "Ribosomes",
+      "required": true,
+      "geometry": "Small particles represented both free in cytosol and attached to the cytosolic face of rough ER; particle size must be flagged as exaggerated if individually visible.",
+      "relationships": ["Free ribosomes in cytosol", "Bound ribosomes on rough ER", "Organelle ribosomes need not be individually modeled"],
+      "avoid": ["Ribosomes in vacuolar lumen", "Ribosomes embedded between cell wall layers", "Particles on smooth ER"],
+      "evidence": ["S1", "S5"]
+    },
+    {
+      "id": "peroxisomes",
+      "label": "Peroxisomes",
+      "required": true,
+      "geometry": "A few small single-membrane spherical to ellipsoidal organelles with a relatively uniform lumen; no cristae, grana, or DNA-bearing double envelope.",
+      "relationships": ["Located in cytoplasm", "At least one may be positioned near a chloroplast and mitochondrion to reflect photorespiratory association"],
+      "avoid": ["Double membrane", "Cristae", "Treating a peroxisome as a miniature vacuole"],
+      "evidence": ["S10"]
+    },
+    {
+      "id": "plasmodesmata",
+      "label": "Plasmodesmata",
+      "required": "where-feasible",
+      "geometry": "A localized group of narrow channels traversing the cell wall. For a magnified cutaway, show an outer lining continuous with plasma membrane, a central desmotubule continuous with ER, and a cytosolic sleeve between them.",
+      "relationships": ["Must connect cytoplasm of the modeled cell to an indicated neighboring-cell cytoplasm", "Passes through, rather than terminating within, the shared wall"],
+      "avoid": ["Blind pores ending in wall", "Freestanding cytoplasmic tubes", "Literal-scale claim when enlarged for visibility"],
+      "fallback": "If mobile geometry cannot resolve the channel, show a scientifically placed wall patch and a separate labeled magnified inset; do not fabricate a large cellular tunnel.",
+      "evidence": ["S8"]
+    }
+  ],
+  "labelingRules": [
+    "Use 'cell wall' and 'plasma membrane' as separate labels.",
+    "Use 'central vacuole' for the lumen/compartment and 'tonoplast' only for its bounding membrane.",
+    "Use 'chloroplast' for the organelle, 'granum' for one stack (plural 'grana'), and 'thylakoid' for the individual/continuous membrane system.",
+    "Use 'mitochondrion' for one organelle (plural 'mitochondria') and 'crista' for one inner-membrane fold (plural 'cristae').",
+    "Use 'nuclear envelope' for the double membrane and 'nucleolus' for the dense body inside the nucleus.",
+    "Do not label generic transport vesicles as lysosomes; the central lytic vacuole fulfills many analogous degradative roles in mature plant cells.",
+    "Any enlarged membrane thickness, ribosome, pore, plasmodesma, granum, or crista must be described as a didactic scale exaggeration."
+  ],
+  "prohibitedMisconceptions": [
+    "All plant cells contain chloroplasts.",
+    "The cell wall replaces the plasma membrane.",
+    "The vacuole is empty space or extracellular space.",
+    "Cytoplasm fills the central vacuole.",
+    "Grana and mitochondrial cristae are interchangeable structures.",
+    "Plasmodesmata are open holes with no membrane continuity.",
+    "A representative cell has fixed organelle counts or universally fixed proportions."
+  ],
+  "acceptanceChecks": [
+    "A 360-degree orbit confirms closed three-dimensional rear, side, top, and bottom geometry.",
+    "The cutaway visibly preserves the outside-to-inside order: cell wall, plasma membrane, cytoplasm, tonoplast, vacuolar lumen.",
+    "No chloroplast, mitochondrion, ER, Golgi stack, ribosome, peroxisome, or nucleus intersects or occupies the vacuolar lumen.",
+    "One chloroplast cutaway distinguishes double envelope, stroma, grana, and connecting thylakoid lamellae.",
+    "One mitochondrion cutaway distinguishes outer membrane, inner membrane/cristae, intermembrane space, and matrix.",
+    "Nucleolus is inside a double-envelope nucleus, and ER continuity is spatially credible.",
+    "Golgi stacks are dispersed in cytoplasm and composed of stacked cisternae.",
+    "If plasmodesmata are present, they cross a shared wall into adjacent-cell context and are declared enlarged.",
+    "All labels point to the correct three-dimensional structure without crossing to a different compartment.",
+    "Scale legend separates cell-scale geometry from enlarged ultrastructural details."
+  ],
+  "evidenceSources": [
+    {
+      "id": "S1",
+      "citation": "Cooper GM. The Cell: A Molecular Approach. 2nd ed. 'The Origin and Evolution of Cells.' NCBI Bookshelf, 2000.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9841/",
+      "supports": ["plant/eukaryotic cell boundaries", "nucleus", "ribosomes", "major organelles", "large plant vacuoles"]
+    },
+    {
+      "id": "S2",
+      "citation": "Alberts B, Johnson A, Lewis J, et al. Molecular Biology of the Cell. 4th ed. 'Chloroplasts and Photosynthesis.' NCBI Bookshelf, 2002.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK26819/",
+      "supports": ["peripheral cytoplasm around large vacuole", "chloroplast envelope", "stroma", "thylakoids and grana"]
+    },
+    {
+      "id": "S3",
+      "citation": "Dünser K, et al. To Lead or to Follow: Contribution of the Plant Vacuole to Cell Growth. Front Plant Sci. 2020;11:553.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7227418/",
+      "supports": ["vacuole as largest organelle", "up to 90% cellular volume", "vacuolar function and turgor"]
+    },
+    {
+      "id": "S4",
+      "citation": "Rojo E, Denecke J. The Secretory System of Arabidopsis. The Arabidopsis Book. 2008;6:e0114.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3243370/",
+      "supports": ["large central vacuole in mature cells", "tonoplast", "plant secretory compartments"]
+    },
+    {
+      "id": "S5",
+      "citation": "Cooper GM. The Cell: A Molecular Approach. 2nd ed. Glossary entries for nuclear envelope, nuclear membranes, nucleolus, and ribosome. NCBI Bookshelf, 2000.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9926/",
+      "supports": ["double nuclear envelope", "outer nuclear membrane continuity with ER", "nucleolus", "ribosome terminology"]
+    },
+    {
+      "id": "S6",
+      "citation": "Cooper GM. The Cell: A Molecular Approach. 2nd ed. 'Chloroplasts and Other Plastids.' NCBI Bookshelf, 2000.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9905/",
+      "supports": ["chloroplast size range", "double envelope", "thylakoid membrane", "distinction from mitochondrial cristae"]
+    },
+    {
+      "id": "S7",
+      "citation": "Cooper GM. The Cell: A Molecular Approach. 2nd ed. 'Mitochondria.' NCBI Bookshelf, 2000.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9896/",
+      "supports": ["mitochondrial double membrane", "cristae", "matrix and intermembrane space"]
+    },
+    {
+      "id": "S8",
+      "citation": "Burch-Smith TM, et al. Communicating Across Cell Walls: Structure, Evolution, and Regulation of Plasmodesmatal Transport in Plants. 2025.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12147918/",
+      "supports": ["plasmodesmal outer membrane continuity with plasma membrane", "desmotubule continuity with ER", "cytosolic sleeve", "scale limitation"]
+    },
+    {
+      "id": "S9",
+      "citation": "Brandizzi F. Transport from the endoplasmic reticulum to the Golgi in plants: Where are we now? Semin Cell Dev Biol. 2018;80:94-105.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5756139/",
+      "supports": ["plant ER tubules and cisternae", "peripheral/transvacuolar ER", "dispersed motile Golgi stacks", "stacked cisternae"]
+    },
+    {
+      "id": "S10",
+      "citation": "Bobik K, Burch-Smith TM. Chloroplast signaling within, between and beyond cells. Front Plant Sci. 2015;6:781. doi:10.3389/fpls.2015.00781.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4593955/",
+      "supports": ["peroxisomes as membrane-bound organelles", "chloroplast-peroxisome-mitochondrion proximity in photosynthetic metabolism"]
+    }
+  ],
+  "evidencePolicy": {
+    "accessedOn": "2026-07-27",
+    "imageGenerationReferences": "Synthetic or generated views are composition hypotheses only and are never evidence for anatomy, topology, scale, or acceptance.",
+    "conflictRule": "When a visual reference conflicts with this contract or the cited scientific literature, the contract and literature prevail."
+  }
+}

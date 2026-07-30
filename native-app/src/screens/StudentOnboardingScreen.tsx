@@ -2759,13 +2759,13 @@ export function StudentOnboardingScreen({
     /^(?:\+?254|0)?7\d{8}$/.test(signupPhoneDigits) ||
     /^\+?[\d\s-]{9,14}$/.test(signupPhoneTrimmed);
   const signupPasswordStrength =
-    signupPassword.length >= 10 ? 3 : signupPassword.length >= 6 ? 2 : signupPassword.length > 0 ? 1 : 0;
+    signupPassword.length >= 10 ? 3 : signupPassword.length >= 8 ? 2 : signupPassword.length > 0 ? 1 : 0;
   const signupPasswordsMatch =
     signupPasswordConfirm.length > 0 && signupPassword === signupPasswordConfirm;
   const canSubmitSignupEmail =
-    isSignupEmailValid && signupPassword.length >= 6 && signupPasswordsMatch;
+    isSignupEmailValid && signupPassword.length >= 8 && signupPasswordsMatch;
   const canSubmitSignupPhone =
-    isSignupPhoneValid && signupPassword.length >= 6 && signupPasswordsMatch;
+    isSignupPhoneValid && signupPassword.length >= 8 && signupPasswordsMatch;
   const signupOtpValue = signupOtp.join('');
   const canVerifySignupOtp = signupOtpValue.length === 6;
   const usesInlineSignupFlow = introStep === 'signup' && collectSignupCredentials;
@@ -5018,8 +5018,8 @@ export function StudentOnboardingScreen({
       setLocalError(
         !isSignupEmailValid
           ? 'Enter a valid email address.'
-          : signupPassword.length < 6
-            ? 'Use at least 6 characters for your password.'
+          : signupPassword.length < 8
+            ? 'Use at least 8 characters for your password.'
             : 'Passwords do not match.',
       );
       return;
@@ -5036,8 +5036,8 @@ export function StudentOnboardingScreen({
       setLocalError(
         !isSignupPhoneValid
           ? 'Enter a valid Kenyan phone number.'
-          : signupPassword.length < 6
-            ? 'Use at least 6 characters for your password.'
+          : signupPassword.length < 8
+            ? 'Use at least 8 characters for your password.'
             : 'Passwords do not match.',
       );
       return;
@@ -8458,7 +8458,7 @@ export function StudentOnboardingScreen({
                             },
                           ]}>
                           {signupPasswordStrength === 0
-                            ? 'Enter at least 6 characters'
+                            ? 'Enter at least 8 characters'
                             : signupPasswordStrength === 1
                               ? 'Too weak'
                               : signupPasswordStrength === 2

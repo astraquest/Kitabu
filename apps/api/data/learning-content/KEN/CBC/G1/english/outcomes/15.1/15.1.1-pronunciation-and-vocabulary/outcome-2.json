@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-15.1.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Listening and Speaking",
+    "strandCode": "15.1",
+    "strandPosition": 57,
+    "unitCode": "15.0",
+    "subStrand": "Pronunciation and vocabulary",
+    "subStrandCode": "15.1.1",
+    "subStrandPosition": 60,
+    "outcomeId": "outcome-2",
+    "outcomeLabel": "b",
+    "outcomePosition": 2,
+    "outcomeText": "articulate words with the target sounds /l/, / s/ and /r/ correctly to discriminate sounds",
+    "sourcePages": [
+      80,
+      81
+    ],
+    "sourceTextSha256": "92e987888e4c453a7cf8c26b12d49d132864169796e406cdfbe3565cc912d9df"
+  },
+  "mission": {
+    "title": "Lion, Sun and Rabbit Sound Race",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /l/?",
+        "choices": [
+          "lion",
+          "sun",
+          "rabbit"
+        ],
+        "answer": "lion",
+        "feedback": "Yes! Lion begins with /l/.",
+        "retryHint": "Lift your tongue behind your top teeth: /l/."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /s/?",
+        "choices": [
+          "sock",
+          "log",
+          "red"
+        ],
+        "answer": "sock",
+        "feedback": "Correct! Sock begins with /s/.",
+        "retryHint": "Let air hiss softly like a snake: /s/."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /r/?",
+        "choices": [
+          "rain",
+          "leaf",
+          "soap"
+        ],
+        "answer": "rain",
+        "feedback": "Great! Rain starts with /r/.",
+        "retryHint": "Say /r/, /r/, rain."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Choose the word that begins differently from â€˜lightâ€™.",
+        "choices": [
+          "red",
+          "lamp",
+          "leg"
+        ],
+        "answer": "red",
+        "feedback": "Well done! Red begins /r/, while light, lamp and leg begin /l/.",
+        "retryHint": "Compare only the first sound."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Which pair begins with /s/ then /r/?",
+        "choices": [
+          "sun, road",
+          "road, sun",
+          "leaf, road"
+        ],
+        "answer": "sun, road",
+        "feedback": "Exactly! Sun starts /s/ and road starts /r/.",
+        "retryHint": "Say each first sound clearly."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Which sequence matches /l/, /s/, /r/?",
+        "choices": [
+          "lake, soap, ring",
+          "soap, ring, lake",
+          "ring, lake, soap"
+        ],
+        "answer": "lake, soap, ring",
+        "feedback": "Excellent articulation! You can discriminate all three sounds.",
+        "retryHint": "Check /l/ first, /s/ second and /r/ last."
+      }
+    ]
+  }
+}

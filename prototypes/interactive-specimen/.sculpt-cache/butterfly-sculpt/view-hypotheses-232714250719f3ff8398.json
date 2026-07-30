@@ -1,0 +1,34 @@
+{
+  "artifactType": "threejs-sculpt-view-hypotheses",
+  "version": 1,
+  "generator": "built-in-imagegen",
+  "sourceImage": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\output\\imagegen\\african-monarch-dorsal-transparent.png",
+  "sourceSha256": "ec890cc2c5d59f1d6800675bbe7dd3881b6dc40259f187edb38cfd45b38c676b",
+  "promptVersion": "identity-turnaround-v1",
+  "cacheKey": "232714250719f3ff83981a5cdcc2d7bfde52460dad68c23e7d77586a30dadd9e",
+  "views": [
+    {
+      "viewId": "back",
+      "image": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\review\\hypotheses\\back.png",
+      "sha256": "b4bab2cef4226583d36d91ffd80d64800279a0c666aa3dc7ec3de97bbf96dbe7",
+      "origin": "synthetic-hypothesis",
+      "allowedUse": "planning-veto"
+    },
+    {
+      "viewId": "side",
+      "image": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\review\\hypotheses\\side.png",
+      "sha256": "697eb157a42f07478e45f074f67890bdf3795a2a1f1d1c52633253e2bd7c5cce",
+      "origin": "synthetic-hypothesis",
+      "allowedUse": "planning-veto"
+    },
+    {
+      "viewId": "three-quarter",
+      "image": "D:\\APP BACKUPS\\KITABU\\kitabu-ai-progressive-release\\prototypes\\interactive-specimen\\review\\hypotheses\\three-quarter.png",
+      "sha256": "4afda77af07e54eb60d9bf7171fb63ced621b3dbe351fbde48588d110e975670",
+      "origin": "synthetic-hypothesis",
+      "allowedUse": "planning-veto"
+    }
+  ],
+  "acceptanceAuthority": false,
+  "allowedUse": "planning-veto"
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-8.3.1-outcome-3",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Language use",
+    "strandCode": "8.3",
+    "strandPosition": 31,
+    "unitCode": "8.0",
+    "subStrand": "Demonstratives: this, that, these and those",
+    "subStrandCode": "8.3.1",
+    "subStrandPosition": 31,
+    "outcomeId": "outcome-3",
+    "outcomeLabel": "c",
+    "outcomePosition": 3,
+    "outcomeText": "appreciate the importance of the words this, that, these, and those in communication.",
+    "sourcePages": [
+      46,
+      47,
+      48
+    ],
+    "sourceTextSha256": "cc50def2756f75e9e23c6e3761bf031e9cf3ffd69fa77d26be49220d4120ba65"
+  },
+  "mission": {
+    "title": "Point Clearly: This, That, These, Those",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "One book is in your hand. What do you say?",
+        "choices": [
+          "This is my book.",
+          "Those is my book.",
+          "These is my book."
+        ],
+        "answer": "This is my book.",
+        "feedback": "Yes! â€˜Thisâ€™ points to one nearby thing.",
+        "retryHint": "Choose the word for one thing near you."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "One tree is far away. Choose the clear sentence.",
+        "choices": [
+          "That is a tree.",
+          "These are a tree.",
+          "This are a tree."
+        ],
+        "answer": "That is a tree.",
+        "feedback": "Correct! â€˜Thatâ€™ points to one far thing.",
+        "retryHint": "Use that for one thing farther away."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Two pencils are beside you. What do you say?",
+        "choices": [
+          "These are pencils.",
+          "That are pencils.",
+          "This is pencils."
+        ],
+        "answer": "These are pencils.",
+        "feedback": "Great! â€˜Theseâ€™ points to several nearby things.",
+        "retryHint": "Use these for more than one thing near you."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Three birds are far away. Choose the best sentence.",
+        "choices": [
+          "Those are birds.",
+          "This is birds.",
+          "That are birds."
+        ],
+        "answer": "Those are birds.",
+        "feedback": "Well done! â€˜Thoseâ€™ points clearly to faraway birds.",
+        "retryHint": "Use those for more than one far thing."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Why are this, that, these and those useful?",
+        "choices": [
+          "They show which things we mean",
+          "They hide what we mean",
+          "They make every thing far away"
+        ],
+        "answer": "They show which things we mean",
+        "feedback": "Exactly! These words make communication precise.",
+        "retryHint": "Think about helping a listener identify an object."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Choose the correct near-one, far-one, near-many, far-many order.",
+        "choices": [
+          "this, that, these, those",
+          "that, this, those, these",
+          "these, those, this, that"
+        ],
+        "answer": "this, that, these, those",
+        "feedback": "Excellent! You can point things out clearly.",
+        "retryHint": "Match distance and number carefully."
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema":"../../../outcome.schema.json","id":"g1-english-4.3.1-outcome-1",
+  "curriculum":{"country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"English Language Activities","subjectId":"english","strand":"4.3 Language use","subStrand":"4.3.1 Singular and plurals (adding -s and -es)","outcomeId":"outcome-1","outcomePosition":1,"outcomeText":"identify singular nouns which require the addition of -s or - es to form plural","sourcePages":[28,29],"sourceTextSha256":"ef7c21c58151b4f869272cb8d64ffb25eb8618d71414d03e9abb415f67ff40c1"},
+  "mission":{"title":"identify singular nouns which require the addition of -s or - es to form plural","interactions":[
+    {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"One cat becomes two ___.","choices":["cats","cates","cat"],"answer":"cats","feedback":"Yes! Add -s: cat becomes cats.","retryHint":"For many cats, keep cat and add s."},
+    {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"One bus becomes two ___.","choices":["buses","buss","bus"],"answer":"buses","feedback":"Correct! Bus ends in s, so add -es: buses.","retryHint":"A word ending in s often needs -es."},
+    {"phase":"guided-practice","progressionLevel":3,"mode":"picture-choice","prompt":"Which plural is made by adding only -s to book?","choices":["books","bookes","book"],"answer":"books","feedback":"Great! Book becomes books.","retryHint":"Say book, then add the /s/ sound."},
+    {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Choose the correct plural for box.","choices":["boxes","boxs","box"],"answer":"boxes","feedback":"Well done! Box ends in x, so we add -es.","retryHint":"Words ending in x need -es here."},
+    {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"A shop has one dish and three ___.","choices":["dishes","dishs","dish"],"answer":"dishes","feedback":"Excellent! Dish ends in sh, so add -es.","retryHint":"Listen to the ending /sh/; it needs -es."},
+    {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Which pair is correct?","choices":["cup-cups-and-watch-watches","cup-cupes-and-watch-watchs","cup-cup-and-watch-watches"],"answer":"cup-cups-and-watch-watches","feedback":"Super! You know when to add -s and when to add -es.","retryHint":"Cup takes -s; watch ends in ch and takes -es."}
+  ]}
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-14.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english",
+    "strand": "14.1 Listening and Speaking",
+    "strandId": "c5c45c41-41db-505d-9272-9f93cbd23972",
+    "subStrand": "14.1.1 Pronunciation and Vocabulary",
+    "subStrandId": "a816ff3e-31ee-5540-9538-6a9375b47e95",
+    "outcomeId": "outcome-2",
+    "outcomePosition": 2,
+    "outcomeText": "articulate the words with the target sounds in oral communication",
+    "sourcePages": [75, 76],
+    "sourceTextSha256": "30f74c957a71218be4d54a4d1931fa9f4858be99047cab934d24af2dcfb77c08"
+  },
+  "mission": {
+    "title": "Sound Garden Voices",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Say each picture name. Which word begins with the /dʒ/ sound?",
+        "objects": ["jam jar", "sun", "ring"],
+        "choices": ["jam", "sun", "ring"],
+        "answer": "jam",
+        "feedback": "Great speaking! Jam begins with /dʒ/.",
+        "retryHint": "Listen for the sound at the start of jump."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word should you say with a long /ŋ/ sound at the end?",
+        "objects": ["a child singing", "a cup", "a hen"],
+        "choices": ["sing", "cup", "hen"],
+        "answer": "sing",
+        "feedback": "Yes! Say si-ng, keeping the final /ŋ/ sound smooth.",
+        "retryHint": "Choose the word that ends like song."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "classify",
+        "prompt": "Say each word aloud, then sort it by its target sound.",
+        "objects": [
+          {"id": "juice", "label": "juice"},
+          {"id": "sun", "label": "sun"},
+          {"id": "song", "label": "song"},
+          {"id": "jump", "label": "jump"},
+          {"id": "soap", "label": "soap"},
+          {"id": "ring", "label": "ring"}
+        ],
+        "targets": [
+          {"id": "j", "label": "/dʒ/"},
+          {"id": "s", "label": "/s/"},
+          {"id": "ng", "label": "/ŋ/"}
+        ],
+        "tapAlternative": "Tap a word, then tap its sound group.",
+        "answer": {"juice": "j", "sun": "s", "song": "ng", "jump": "j", "soap": "s", "ring": "ng"},
+        "feedback": "Sound sorting star! You articulated all three target sounds.",
+        "retryHint": "Say the word slowly and listen at its beginning or end."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "You are asking for a drink. Which complete sentence clearly articulates a /dʒ/ word?",
+        "choices": ["Please give me some juice.", "Please give me some soup.", "Some give please."],
+        "answer": "Please give me some juice.",
+        "feedback": "Clear voice! Juice uses /dʒ/ in a meaningful request.",
+        "retryHint": "Choose the polite sentence with the word juice."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "classify-sort-match-rank",
+        "activityMode": "match-pairs",
+        "prompt": "Match each oral message to the target sound you should pronounce clearly.",
+        "objects": [
+          {"id": "j-message", "label": "Juma can jump."},
+          {"id": "s-message", "label": "Sara sees the sun."},
+          {"id": "ng-message", "label": "We sing a song."}
+        ],
+        "targets": [
+          {"id": "j", "label": "/dʒ/"},
+          {"id": "s", "label": "/s/"},
+          {"id": "ng", "label": "/ŋ/"}
+        ],
+        "tapAlternative": "Tap a message, then its strongest target sound.",
+        "answer": {"j-message": "j", "s-message": "s", "ng-message": "ng"},
+        "feedback": "Excellent! Your messages use the target sounds in real communication.",
+        "retryHint": "Listen for jump, sun, and song."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Which line lets you clearly articulate /dʒ/, /s/, and /ŋ/ words together?",
+        "choices": ["Juma sings a song in the sunshine.", "The cat naps.", "A hen has eggs."],
+        "answer": "Juma sings a song in the sunshine.",
+        "feedback": "Mission complete! You used /dʒ/, /s/, and /ŋ/ clearly in oral communication.",
+        "retryHint": "Find the line with Juma, sings, song, and sunshine."
+      }
+    ]
+  }
+}

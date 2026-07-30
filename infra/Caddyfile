@@ -60,6 +60,7 @@ http://admin.kitabu.ai {
 		X-Frame-Options "DENY"
 		Referrer-Policy "strict-origin-when-cross-origin"
 		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; connect-src 'self' https://app.kitabu.ai; frame-src 'self' https://app.kitabu.ai; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
 		X-Robots-Tag "noindex, nofollow"
 		?Cache-Control "no-store"
 	}

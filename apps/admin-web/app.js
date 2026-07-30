@@ -1,8 +1,6 @@
 const API_BASE = window.KITABU_API_BASE || (["127.0.0.1", "localhost"].includes(window.location.hostname) ? "/api" : "https://app.kitabu.ai");
-const TOKEN_KEY = "kitabu.admin.accessToken";
-const REFRESH_KEY = "kitabu.admin.refreshToken";
-const USER_KEY = "kitabu.admin.user";
 const SALES_AGENT_MESSAGES_KEY = "kitabu.admin.salesAgentMessages";
+const ADMIN_SESSION_HEADER = "x-kitabu-admin-session";
 const REFRESH_MS = 30000;
 
 const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Form 3", "Form 4"];
@@ -36,9 +34,8 @@ const navItems = [
 
 const state = {
   route: "dashboard",
-  user: readJson(USER_KEY),
-  accessToken: localStorage.getItem(TOKEN_KEY),
-  refreshToken: localStorage.getItem(REFRESH_KEY),
+  user: null,
+  accessToken: null,
   timer: null,
   presenceTimer: null,
   loading: false,
@@ -101,22 +98,24 @@ function writeJson(key, value) {
 
 function writeSession(payload) {
   state.accessToken = payload.accessToken;
-  state.refreshToken = payload.refreshToken || state.refreshToken;
   state.user = payload.user;
-  localStorage.setItem(TOKEN_KEY, state.accessToken);
-  if (state.refreshToken) localStorage.setItem(REFRESH_KEY, state.refreshToken);
-  localStorage.setItem(USER_KEY, JSON.stringify(state.user));
 }
 
 function clearSession() {
   stopPresencePolling();
   sendPresenceSignal("offline", { keepalive: true, reason: "sign_out" });
   state.accessToken = null;
-  state.refreshToken = null;
   state.user = null;
-  localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem(REFRESH_KEY);
-  localStorage.removeItem(USER_KEY);
+  // Remove credentials created by older portal builds and clear the HttpOnly cookie.
+  localStorage.removeItem("kitabu.admin.accessToken");
+  localStorage.removeItem("kitabu.admin.refreshToken");
+  localStorage.removeItem("kitabu.admin.user");
+  void fetch(`${API_BASE}/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+    headers: { [ADMIN_SESSION_HEADER]: "1" },
+    keepalive: true,
+  }).catch(() => undefined);
 }
 
 function icon(name) {
@@ -134,15 +133,17 @@ function icon(name) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] || paths.chart}</svg>`;
 }
 
-function init() {
+async function init() {
   renderNav();
   bindEvents();
-  if (state.accessToken) {
+  try {
+    await refreshSession();
     showApp();
+    renderNav();
     startPresencePolling();
     loadAll();
     startSync();
-  } else {
+  } catch {
     showLogin();
   }
 }
@@ -246,9 +247,11 @@ async function api(path, options = {}) {
   const headers = { ...(options.headers || {}) };
   if (options.body) headers["Content-Type"] = "application/json";
   if (!options.public && state.accessToken) headers.Authorization = `Bearer ${state.accessToken}`;
+  headers[ADMIN_SESSION_HEADER] = "1";
   const response = await fetch(`${API_BASE}${path}`, {
     method: options.method || "GET",
     headers,
+    credentials: "include",
     body: options.body ? JSON.stringify(options.body) : undefined
   });
   let payload = null;
@@ -256,7 +259,7 @@ async function api(path, options = {}) {
   if (text) {
     try { payload = JSON.parse(text); } catch { payload = { message: text }; }
   }
-  if (response.status === 401 && state.refreshToken && !options.public && !options.retrying) {
+  if (response.status === 401 && !options.public && !options.retrying) {
     await refreshSession();
     return api(path, { ...options, retrying: true });
   }
@@ -270,9 +273,8 @@ async function api(path, options = {}) {
 }
 
 async function refreshSession() {
-  if (!state.refreshToken) throw new Error("Your session expired. Please sign in again.");
   if (!refreshPromise) {
-    refreshPromise = api("/auth/refresh", { method: "POST", public: true, body: { refreshToken: state.refreshToken } })
+    refreshPromise = api("/auth/refresh", { method: "POST", public: true })
       .then(payload => {
         writeSession(payload);
         return payload;

@@ -7,7 +7,6 @@ const LOGIN_CREDENTIALS_STORAGE_KEY = 'login_credentials';
 
 export interface SavedLoginCredentials {
   email: string;
-  password: string;
 }
 
 interface LoginResponse {
@@ -54,21 +53,19 @@ export async function loadSavedLoginCredentials(): Promise<SavedLoginCredentials
     null,
   );
 
-  if (
-    !credentials ||
-    typeof credentials.email !== 'string' ||
-    typeof credentials.password !== 'string'
-  ) {
+  if (!credentials || typeof credentials.email !== 'string') {
     return null;
   }
 
-  return credentials;
+  // Migrate legacy records that contained a raw password by overwriting them
+  // with the email-only shape before returning control to the UI.
+  await saveLoginCredentials(credentials.email);
+  return { email: credentials.email };
 }
 
-export async function saveLoginCredentials(email: string, password: string): Promise<void> {
+export async function saveLoginCredentials(email: string): Promise<void> {
   await saveSecureJson<SavedLoginCredentials>(LOGIN_CREDENTIALS_STORAGE_KEY, {
     email: email.trim(),
-    password,
   });
 }
 
@@ -78,7 +75,7 @@ export async function clearSavedLoginPassword(): Promise<void> {
     return;
   }
 
-  await saveLoginCredentials(credentials.email, '');
+  await saveLoginCredentials(credentials.email);
 }
 
 export async function restoreStoredAuthSession(): Promise<AuthSession | null> {
@@ -98,7 +95,7 @@ export async function restoreStoredAuthSession(): Promise<AuthSession | null> {
 export async function loginWithPassword(email: string, password: string): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/login', { email, password });
   const session = await persistLoginResponse(payload);
-  await saveLoginCredentials(email, password);
+  await saveLoginCredentials(email);
   return session;
 }
 
@@ -117,7 +114,7 @@ export async function signupWithPassword(input: {
 }): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/signup', input);
   const session = await persistLoginResponse(payload);
-  await saveLoginCredentials(input.email, input.password);
+  await saveLoginCredentials(input.email);
   return session;
 }
 

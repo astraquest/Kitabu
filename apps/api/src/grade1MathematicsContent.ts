@@ -16,8 +16,10 @@ type CurriculumMetadata = {
   subject: string;
   subjectId: string;
   strand: string;
+  strandCode?: string;
   strandId: string;
   subStrand: string;
+  subStrandCode?: string;
   subStrandId: string;
   outcomeId: string;
   outcomePosition: number;
@@ -54,16 +56,16 @@ export type Grade1MathematicsLessonSeed = ProgressiveLessonSeed & {
   curriculumLocationKey: string;
 };
 
-const CONTENT_SEGMENTS = ['data', 'learning-content', 'KEN', 'CBC', 'G1', 'mathematics'];
+const CONTENT_SEGMENTS = ['data', 'learning-content', 'KEN', 'CBC', 'G1'];
 
-function contentRoot() {
+function contentRoot(subjectDirectory = 'mathematics') {
   const candidates = [
-    fileURLToPath(new URL('../data/learning-content/KEN/CBC/G1/mathematics/', import.meta.url)),
-    join(process.cwd(), ...CONTENT_SEGMENTS),
-    resolve(process.cwd(), 'apps', 'api', ...CONTENT_SEGMENTS),
+    fileURLToPath(new URL(`../data/learning-content/KEN/CBC/G1/${subjectDirectory}/`, import.meta.url)),
+    join(process.cwd(), ...CONTENT_SEGMENTS, subjectDirectory),
+    resolve(process.cwd(), 'apps', 'api', ...CONTENT_SEGMENTS, subjectDirectory),
   ];
   const root = candidates.find(candidate => existsSync(join(candidate, 'index.json')));
-  if (!root) throw new Error('Grade 1 Mathematics content index is missing.');
+  if (!root) throw new Error(`Grade 1 ${subjectDirectory} content index is missing.`);
   return root;
 }
 
@@ -533,13 +535,22 @@ function stepFor(missionId: string, interaction: JsonRecord, index: number): Ste
   return structuredStep(missionId, interaction, index);
 }
 
-function readMission(root: string, entry: ContentIndex['missions'][number]): OutcomeMission {
+function readMission(root: string, entry: ContentIndex['missions'][number], subjectLabel: string): OutcomeMission {
   const relativePath = entry.sourcePath ?? entry.path;
   const document = record(JSON.parse(readFileSync(join(root, relativePath), 'utf8')));
-  const curriculum = record(document.curriculum) as CurriculumMetadata;
+  const rawCurriculum = record(document.curriculum) as CurriculumMetadata;
+  const curriculum = {
+    ...rawCurriculum,
+    strand: rawCurriculum.strandCode && !curriculumCode(rawCurriculum.strand).length
+      ? `${rawCurriculum.strandCode} ${rawCurriculum.strand}`
+      : rawCurriculum.strand,
+    subStrand: rawCurriculum.subStrandCode && !curriculumCode(rawCurriculum.subStrand).length
+      ? `${rawCurriculum.subStrandCode} ${rawCurriculum.subStrand}`
+      : rawCurriculum.subStrand,
+  };
   const mission = record(document.mission);
   if (!Array.isArray(mission.interactions) || mission.interactions.length !== 6) {
-    throw new Error(`Grade 1 Mathematics mission ${entry.id} must contain six interactions.`);
+    throw new Error(`Grade 1 ${subjectLabel} mission ${entry.id} must contain six interactions.`);
   }
   return {
     id: text(document.id, entry.id),
@@ -551,21 +562,28 @@ function readMission(root: string, entry: ContentIndex['missions'][number]): Out
   };
 }
 
-/** Loads the compiled DB-grounded Grade 1 Mathematics missions at API startup. */
-export function loadGrade1MathematicsLessonSeeds(): Grade1MathematicsLessonSeed[] {
-  const root = contentRoot();
+type Grade1AuthoredSubjectConfig = {
+  contentDirectory: string;
+  runtimeSubjectId: string;
+  runtimeSubjectName: string;
+  curriculumSubjectId: string;
+};
+
+/** Loads compiled, curriculum-grounded Grade 1 missions for any authored subject. */
+export function loadGrade1AuthoredLessonSeeds(config: Grade1AuthoredSubjectConfig): Grade1MathematicsLessonSeed[] {
+  const root = contentRoot(config.contentDirectory);
   const index = record(JSON.parse(readFileSync(join(root, 'index.json'), 'utf8'))) as ContentIndex;
   if (!Array.isArray(index.missions) || index.missions.length === 0) {
-    throw new Error('Grade 1 Mathematics content index contains no missions.');
+    throw new Error(`Grade 1 ${config.runtimeSubjectName} content index contains no missions.`);
   }
   return index.missions
-    .map(entry => readMission(root, entry))
+    .map(entry => readMission(root, entry, config.runtimeSubjectName))
     .sort(compareOfficial)
     .map(mission => ({
       key: mission.id,
       version: 1,
-      subjectId: 'math',
-      subjectName: 'Mathematics',
+      subjectId: config.runtimeSubjectId,
+      subjectName: config.runtimeSubjectName,
       grade: 'Grade 1',
       strand: curriculumLabel(mission.curriculum.strand),
       subStrand: curriculumLabel(mission.curriculum.subStrand),
@@ -575,8 +593,8 @@ export function loadGrade1MathematicsLessonSeeds(): Grade1MathematicsLessonSeed[
         curriculum: mission.curriculum.curriculum,
         release: mission.curriculum.revision,
         grade: mission.curriculum.grade,
-        subject: mission.curriculum.subjectId,
-        subStrand: mission.curriculum.subStrandId,
+        subject: config.curriculumSubjectId,
+        subStrand: mission.curriculum.subStrandId || mission.curriculum.subStrand,
         outcome: mission.curriculum.outcomeId,
       }),
       title: mission.mission.title,
@@ -585,4 +603,32 @@ export function loadGrade1MathematicsLessonSeeds(): Grade1MathematicsLessonSeed[
       minutes: 10,
       steps: mission.mission.interactions.map((interaction, index) => stepFor(mission.id, interaction, index)),
     }));
+}
+
+/** Backward-compatible Mathematics entry point. */
+export function loadGrade1MathematicsLessonSeeds(): Grade1MathematicsLessonSeed[] {
+  return loadGrade1AuthoredLessonSeeds({
+    contentDirectory: 'mathematics',
+    runtimeSubjectId: 'math',
+    runtimeSubjectName: 'Mathematics',
+    curriculumSubjectId: 'mathematics',
+  });
+}
+
+export function loadGrade1EnglishLessonSeeds(): Grade1MathematicsLessonSeed[] {
+  return loadGrade1AuthoredLessonSeeds({
+    contentDirectory: 'english',
+    runtimeSubjectId: 'english',
+    runtimeSubjectName: 'English',
+    curriculumSubjectId: 'english_language_activities',
+  });
+}
+
+export function loadGrade1KiswahiliLessonSeeds(): Grade1MathematicsLessonSeed[] {
+  return loadGrade1AuthoredLessonSeeds({
+    contentDirectory: 'kiswahili',
+    runtimeSubjectId: 'kiswahili',
+    runtimeSubjectName: 'Kiswahili',
+    curriculumSubjectId: 'kiswahili_language_activities',
+  });
 }

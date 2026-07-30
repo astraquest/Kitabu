@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-1.1.1-outcome-2",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "English Language Activities", "subjectId": "english_language_activities",
+    "strand": "Listening and Speaking", "strandCode": "1.1", "strandPosition": 1, "unitCode": "1.0",
+    "subStrand": "Pronunciation and vocabulary", "subStrandCode": "1.1.1", "subStrandPosition": 1,
+    "outcomeId": "outcome-2", "outcomeLabel": "b", "outcomePosition": 2,
+    "outcomeText": "pronounce words with the sounds /a:/,/æ/, / ɜː/, /ɑː/, /ə/, /b:/, /b/, /k/, /s/, /d/, /e/, /iː/, /f/ /g/, /h/ for oral fluency",
+    "sourcePages": [13, 14], "sourceTextSha256": "31b7d88fbd40181aa90da12cb04304d3920f42488a298ac74b042cf4c773afc9"
+  },
+  "mission": {
+    "title": "Sound Stars at School",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Tap the word that begins with /b/.","choices":["ball","cat","fish"],"answer":"ball","feedback":"Yes! Ball begins with /b/.","retryHint":"Close your lips, then say /b/."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Teacher says /k/ as in ___. Choose the word.","choices":["cup","sun","dog"],"answer":"cup","feedback":"Correct! Cup begins with /k/.","retryHint":"Say cup slowly and listen to its first sound."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"picture-choice","prompt":"Which word begins with the long sound /iː/?","choices":["eagle","apple","hen"],"answer":"eagle","feedback":"Great! Eagle begins with /iː/.","retryHint":"Stretch the first sound: /iː/—eagle."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"At the market, which word begins with /f/?","choices":["fish","goat","basket"],"answer":"fish","feedback":"Fantastic! Fish begins with /f/.","retryHint":"Let air flow gently: /fff/."},
+      {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Choose the pair whose words begin with /d/ and /h/, in that order.","choices":["drum, hat","hat, drum","cat, sun"],"answer":"drum, hat","feedback":"Well done! Drum begins /d/ and hat begins /h/.","retryHint":"Say both first sounds before choosing."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Which sequence begins with /b/, /k/, /s/ in that order?","choices":["ball, cup, sun","cup, sun, ball","sun, ball, cup"],"answer":"ball, cup, sun","feedback":"Sound star! You pronounced and matched all three sounds.","retryHint":"Check one word at a time: /b/, then /k/, then /s/."}
+    ]
+  }
+}

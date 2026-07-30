@@ -880,6 +880,9 @@ export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, re
 export function normalizeProgressiveSubjectId(subjectId: string, grade?: string) {
   const aliases: Record<string, string> = {
     mathematics: 'math',
+    mathematical_activities: 'math',
+    english_language_activities: 'english',
+    kiswahili_language_activities: 'kiswahili',
     science_technology: 'science',
     general_science: 'science',
     social_studies: 'social',

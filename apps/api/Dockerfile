@@ -44,6 +44,7 @@ COPY native-app/src/assets/mascot/simba-lion.png /app/legal/assets/mascot/simba-
 COPY native-app/src/assets/mascot/ndovu-elephant.png /app/legal/assets/mascot/ndovu-elephant.png
 COPY apps/web/assets/fonts/bricolage-grotesque-latin.woff2 /app/legal/assets/fonts/bricolage-grotesque-latin.woff2
 COPY apps/web/assets/fonts/plus-jakarta-sans-latin.woff2 /app/legal/assets/fonts/plus-jakarta-sans-latin.woff2
+COPY learning-assets /app/data/learning-assets
 RUN mkdir -p /app/data/books
 COPY --from=build /app/apps/api/package.json /app/package.json
 EXPOSE 4000

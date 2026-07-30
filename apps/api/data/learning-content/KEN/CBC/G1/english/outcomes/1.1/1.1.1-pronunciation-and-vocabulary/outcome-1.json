@@ -1,0 +1,12 @@
+{
+  "$schema":"../../../outcome.schema.json","id":"g1-english-1.1.1-outcome-1",
+  "curriculum":{"country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"English Language Activities","subjectId":"english_language_activities","strand":"Listening and Speaking","strandCode":"1.1","strandPosition":1,"unitCode":"1.0","subStrand":"Pronunciation and vocabulary","subStrandCode":"1.1.1","subStrandPosition":1,"outcomeId":"outcome-1","outcomeLabel":"a","outcomePosition":1,"outcomeText":"pick out the letters a-h and their corresponding soundsfor effective communication","sourcePages":[13,14],"sourceTextSha256":"31b7d88fbd40181aa90da12cb04304d3920f42488a298ac74b042cf4c773afc9"},
+  "mission":{"title":"Letter-Sound Safari: a to h","interactions":[
+    {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Amani says /a/ as in ant. Tap its letter.","choices":["a","b","d"],"answer":"a","feedback":"Yes! a can make /a/.","retryHint":"Say ant slowly and listen first."},
+    {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Which letter matches /b/ as in ball?","choices":["d","b","h"],"answer":"b","feedback":"Brilliant! b begins ball.","retryHint":"Put your lips together: /b/, ball."},
+    {"phase":"guided-practice","progressionLevel":3,"mode":"picture-choice","prompt":"Which letter begins cat?","choices":["c","e","g"],"answer":"c","feedback":"Correct! Cat begins with c.","retryHint":"Say cat slowly and listen first."},
+    {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"A drum plays in the school parade. Pick its first letter.","choices":["b","d","f"],"answer":"d","feedback":"You got it! Drum starts with d.","retryHint":"Say /d/, /d/, drum."},
+    {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"At the market you see eggs, fish and hats. Which letter begins fish?","choices":["e","f","h"],"answer":"f","feedback":"Fantastic! Fish starts with f.","retryHint":"Stretch the first sound: /fff/ish."},
+    {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Show what you know: which letter begins goat?","choices":["c","g","h"],"answer":"g","feedback":"Excellent! g begins goat.","retryHint":"Say goat slowly and choose its first letter."}
+  ]}
+}

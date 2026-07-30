@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "4.0-module",
+  "moduleId": "body-anatomy",
+  "revision": 1,
+  "role": "Head, thorax, abdomen, six legs with reduced forelegs, paired antennae, and proboscis",
+  "dependsOn": [],
+  "risk": {
+    "score": 72.0,
+    "tier": "high",
+    "reasons": []
+  },
+  "qualityGate": {
+    "type": "visual",
+    "minimumScore": 0.85,
+    "requiredViews": [
+      "reference"
+    ],
+    "diagnosticViews": [
+      "three-quarter",
+      "side",
+      "back"
+    ],
+    "requiredLayerScores": {
+      "silhouetteProportion": 0.8099999999999999,
+      "componentStructure": 0.8099999999999999,
+      "formDetail": 0.8099999999999999,
+      "materialSurface": 0.85
+    },
+    "diagnosticThresholds": {
+      "minimumSilhouetteIou": 0.63,
+      "maximumCentroidDelta": 0.08,
+      "maximumAspectRatioDelta": 0.15,
+      "minimumDetailEnergyRatio": 0.35,
+      "minimumEdgeDensityRatio": 0.25,
+      "minimumHistogramIntersection": 0.3,
+      "maximumMeanColorDelta": 0.42,
+      "minimumHighlightCoverageRatio": 0.12,
+      "minimumHighlightEnergyRatio": 0.12
+    }
+  },
+  "contract": {
+    "coordinateFrameRef": "root",
+    "connectors": [],
+    "invariants": [],
+    "implementationFiles": [],
+    "owns": {
+      "components": [
+        "body-anatomy-body"
+      ],
+      "materials": [
+        "base"
+      ],
+      "repetitionSystems": [],
+      "featureTargets": [],
+      "specializedRegions": []
+    }
+  },
+  "payload": {
+    "componentTree": [
+      {
+        "id": "body-anatomy-body",
+        "name": "African Monarch Butterfly foundation body",
+        "componentType": "part",
+        "level": "macro",
+        "role": "body",
+        "importance": 1.0,
+        "confidence": 0.5,
+        "primitive": "box",
+        "geometryDescriptor": {
+          "parameters": {},
+          "topologyIntent": "blockout primitive; replace from reference",
+          "edgeTreatment": {
+            "type": "none",
+            "bevelRadius": 0.0,
+            "segments": 1
+          },
+          "deformationStack": [],
+          "uvStrategy": "generated procedural coordinates",
+          "normalStrategy": "generated vertex normals"
+        },
+        "parent": "root",
+        "attachment": {
+          "type": "rigid",
+          "parentId": "root",
+          "parentSocket": "root-origin",
+          "localStart": [
+            0,
+            0,
+            0
+          ],
+          "localEnd": [
+            0,
+            0.01,
+            0
+          ],
+          "contactType": "embedded",
+          "overlap": 0.01,
+          "gapTolerance": 0.002,
+          "evidenceRefs": [
+            "full-object"
+          ],
+          "contactRule": "foundation body is anchored to the global assembly root"
+        },
+        "dimensions": {
+          "width": 1.0,
+          "height": 1.0,
+          "depth": 1.0,
+          "units": "relative",
+          "confidence": 0.5
+        },
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "actionProfile": {
+          "animationRole": "root",
+          "pivot": {
+            "mode": "center",
+            "localPosition": [
+              0,
+              0,
+              0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "confidence": 0.5
+          },
+          "transformChannels": {
+            "translate": true,
+            "rotate": true,
+            "scale": true,
+            "visibility": true
+          },
+          "sockets": [],
+          "constraints": []
+        },
+        "material": "base",
+        "materialLayers": [
+          "base"
+        ],
+        "deformations": [],
+        "joints": [],
+        "seams": [],
+        "localFeatures": [],
+        "surfaceDetail": {
+          "macroRoughness": 0.0,
+          "microRoughness": 0.0,
+          "bumpAmplitude": 0.0,
+          "normalPattern": "",
+          "displacementPattern": "",
+          "occlusionPattern": "",
+          "edgeWearPattern": "",
+          "notes": "Fill before lookdev if the surface is not intentionally smooth."
+        },
+        "evidenceRefs": [
+          "full-object"
+        ],
+        "details": [],
+        "fidelityTier": "blockout"
+      }
+    ],
+    "materials": [
+      {
+        "id": "base",
+        "name": "Replace with observed material",
+        "type": "standard",
+        "shaderModel": "MeshStandardMaterial",
+        "baseColor": "#8A7A5F",
+        "albedo": {
+          "dominant": "#8A7A5F",
+          "secondary": [
+            "#6E614B",
+            "#A08F70"
+          ],
+          "samplingNotes": "Replace with color zones sampled from the reference."
+        },
+        "colorVariation": {
+          "palette": [
+            "#8A7A5F",
+            "#6E614B",
+            "#A08F70"
+          ],
+          "pattern": "mottled",
+          "amplitude": 0.12,
+          "heightCorrelation": 0.2
+        },
+        "textureResolution": 2048,
+        "textureProjection": {
+          "mode": "uv",
+          "repeat": [
+            2.0,
+            2.0
+          ],
+          "anisotropy": 8,
+          "texelDensityIntent": "Keep visible detail at a stable object-space scale."
+        },
+        "surfaceFrequencyBands": [
+          {
+            "id": "macro",
+            "frequency": 2.0,
+            "amplitude": 0.35,
+            "role": "broad variation"
+          },
+          {
+            "id": "meso",
+            "frequency": 12.0,
+            "amplitude": 0.18,
+            "role": "visible relief"
+          },
+          {
+            "id": "micro",
+            "frequency": 56.0,
+            "amplitude": 0.06,
+            "role": "highlight breakup"
+          }
+        ],
+        "roughness": {
+          "base": 0.75,
+          "variation": 0.12,
+          "map": "independent-procedural-field"
+        },
+        "metalness": {
+          "base": 0.0,
+          "variation": 0.0
+        },
+        "specularIntensity": 0.5,
+        "specularColor": "#FFFFFF",
+        "envMapIntensity": 0.8,
+        "normal": {
+          "pattern": "independent-height-field",
+          "strength": 0.25,
+          "scale": 24.0
+        },
+        "bump": {
+          "pattern": "none",
+          "amplitude": 0.0
+        },
+        "displacement": {
+          "pattern": "none",
+          "amplitude": 0.0,
+          "silhouetteAffects": false
+        },
+        "ambientOcclusion": {
+          "cavityStrength": 0.2,
+          "contactShadowBias": 0.3
+        },
+        "wear": {
+          "edgeWear": 0.0,
+          "scratches": [],
+          "chips": []
+        },
+        "dirt": {
+          "amount": 0.0,
+          "cavityBias": 0.0,
+          "color": "#2F2A22"
+        },
+        "localOverrides": [],
+        "shaderNotes": [
+          "Replace generic values with observed evidence before lookdev review.",
+          "Never reuse albedo as roughness, height, normal, or AO."
+        ]
+      }
+    ],
+    "repetitionSystems": [],
+    "featureReviewTargets": [],
+    "viewEvidence": [],
+    "specializedRegions": []
+  }
+}

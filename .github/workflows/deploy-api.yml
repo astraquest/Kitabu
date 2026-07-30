@@ -172,7 +172,13 @@ jobs:
             -e KITABU_DATA_OPERATION_MEMORY_BUDGET_MIB=900 \
             -e NODE_OPTIONS=--max-old-space-size=640 \
             api node scripts/deployment/run-data-operations.mjs --apply $data_apply_guard </dev/null
-          docker compose run --rm -T api node scripts/verify-production-readiness.mjs </dev/null
+          docker compose run --rm -T \
+            -e KITABU_NODE_ENV=production \
+            -e KITABU_RELEASE_VERSION='${{ github.ref_name }}' \
+            -e KITABU_RELEASE_SHA='${{ github.sha }}' \
+            api node scripts/verify-production-readiness.mjs </dev/null
+          KITABU_RELEASE_VERSION='${{ github.ref_name }}' \
+          KITABU_RELEASE_SHA='${{ github.sha }}' \
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
           docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile

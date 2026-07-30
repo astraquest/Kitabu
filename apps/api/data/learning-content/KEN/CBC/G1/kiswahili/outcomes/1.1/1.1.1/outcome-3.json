@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-kiswahili-1.1.1-outcome-3",
+  "curriculum": {
+    "country": "KEN", "curriculum": "CBC", "revision": "2024", "grade": "Grade 1",
+    "subject": "Kiswahili Language Activities", "subjectId": "kiswahili_language_activities",
+    "strand": "1.1 Kusikiliza na Kuzungumza", "strandId": "1.1",
+    "subStrand": "1.1.1 Maamkuzi na Maagano", "subStrandId": "1.1.1",
+    "outcomeId": "outcome-3", "outcomeLabel": "c", "outcomePosition": 3,
+    "outcomeText": "kuchangamkia maamkuzi na maagano katika maisha ya kila siku.",
+    "sourcePages": [12, 13, 14],
+    "sourceTextSha256": "4af2ecf5ee0816ce9485d102dc52f3b9ea2277882f1b50461134404da8dd5926"
+  },
+  "mission": {
+    "title": "kuchangamkia maamkuzi na maagano katika maisha ya kila siku.",
+    "interactions": [
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Asubuhi, Asha anamwona rafiki yake langoni. Aanze kwa kusema nini kwa furaha?","choices":["Habari yako?","Kwaheri","Pole"],"answer":"Habari yako?","feedback":"Hongera! Maamkuzi hutusaidia kuanza siku kwa urafiki.","retryHint":"Chagua maneno ya kusema unapokutana na mtu."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Mwalimu anasema, ‘Hamjambo, watoto?’ Watoto wajibu vipi kwa pamoja?","choices":["Hatujambo, mwalimu!","Sijambo, mtoto!","Kwaheri!"],"answer":"Hatujambo, mwalimu!","feedback":"Vizuri! Watu wengi hujibu ‘Hatujambo.’","retryHint":"Jibu linapaswa kuwahusu watoto wengi."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify-sort-match-rank","prompt":"Weka kila usemi mahali unapofaa.","activityMode":"category-sort","targets":[{"id":"habari","label":"Habari yako?","category":"tunapokutana"},{"id":"hujambo","label":"Hujambo?","category":"tunapokutana"},{"id":"kwaheri","label":"Kwaheri","category":"tunapoondoka"},{"id":"kuonana","label":"Tutaonana","category":"tunapoondoka"}],"categories":["tunapokutana","tunapoondoka"],"answer":{"tunapokutana":["habari","hujambo"],"tunapoondoka":["kwaheri","kuonana"]},"feedback":"Umeweza! Maamkuzi ni ya kukutana na maagano ni ya kuondoka.","retryHint":"Jiulize kama watu wanakutana au wanaondoka."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Kipindi kimeisha. Wanjiku anataka kuagana na mwalimu kwa adabu. Achague usemi gani?","choices":["Kwaheri, mwalimu.","Hujambo, mwalimu?","Habari za asubuhi?"],"answer":"Kwaheri, mwalimu.","feedback":"Sahihi! Huo ni usemi mzuri wa kuagana.","retryHint":"Chagua usemi wa kusema kabla ya kuondoka."},
+      {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Musa anafika nyumbani jioni, kisha baadaye anaondoka kwa jirani. Ni jozi ipi itumike kwa mpangilio huo?","choices":["Habari za jioni? — Tutaonana","Kwaheri — Hujambo?","Tutaonana — Habari za asubuhi?"],"answer":"Habari za jioni? — Tutaonana","feedback":"Bora sana! Ameamkua alipofika na akaagana alipoondoka.","retryHint":"Kwanza anafika; baadaye anaondoka."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Ni mtoto gani anaonyesha kuchangamkia maamkuzi na maagano kila siku?","choices":["Nia huamkua watu kwa furaha na huaga anapoondoka.","Timo hunyamaza kila anapokutana na watu.","Zuri husema kwaheri anapofika."],"answer":"Nia huamkua watu kwa furaha na huaga anapoondoka.","feedback":"Umefanikiwa! Unaweza kutumia maamkuzi na maagano kwa furaha kila siku.","retryHint":"Tafuta mtoto anayeamkua anapofika na kuaga anapoondoka."}
+    ]
+  }
+}

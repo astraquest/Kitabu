@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-4.3.1-outcome-2",
+  "curriculum": {
+    "country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"English Language Activities","subjectId":"english_language_activities",
+    "strand":"Language use","strandCode":"4.3","strandPosition":15,"unitCode":"4.0","subStrand":"Singular and plurals (adding -s and -es)","subStrandCode":"4.3.1","subStrandPosition":15,
+    "outcomeId":"outcome-2","outcomeLabel":"b","outcomePosition":2,"outcomeText":"form plural nouns from their singular forms by adding -s or -es","sourcePages":[28,29],"sourceTextSha256":"ef7c21c58151b4f869272cb8d64ffb25eb8618d71414d03e9abb415f67ff40c1"
+  },
+  "mission": {
+    "title":"form plural nouns from their singular forms by adding -s or -es",
+    "interactions":[
+      {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"One cup becomes two ___.","choices":["cups","cupes","cup"],"answer":"cups","feedback":"Yes! Add -s: cup becomes cups.","retryHint":"For many cups, add s."},
+      {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"One bus becomes two ___.","choices":["buss","buses","bus"],"answer":"buses","feedback":"Correct! Add -es: bus becomes buses.","retryHint":"A word ending in s often takes -es."},
+      {"phase":"guided-practice","progressionLevel":3,"mode":"classify-sort-match-rank","activityMode":"classify","prompt":"Sort each plural by the ending added.","objects":["books","dishes","bags","boxes"],"groups":[{"id":"add-s","label":"add -s","accessibleDescription":"words formed by adding s"},{"id":"add-es","label":"add -es","accessibleDescription":"words formed by adding e s"}],"tapAlternative":"Tap a word, then tap its ending group.","answer":{"books":"add-s","dishes":"add-es","bags":"add-s","boxes":"add-es"},"feedback":"Great! Books and bags add -s; dishes and boxes add -es.","retryHint":"Look closely at the last letters of each plural."},
+      {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Which is the plural of brush?","choices":["brushs","brushes","brush"],"answer":"brushes","feedback":"Well done! Brush becomes brushes.","retryHint":"Brush ends in sh, so add -es."},
+      {"phase":"transfer","progressionLevel":5,"mode":"classify-sort-match-rank","activityMode":"match","prompt":"Match each singular noun to its plural.","objects":["hen","church","tree"],"groups":[{"id":"hens","label":"hens","accessibleDescription":"plural hens"},{"id":"churches","label":"churches","accessibleDescription":"plural churches"},{"id":"trees","label":"trees","accessibleDescription":"plural trees"}],"tapAlternative":"Tap a singular noun, then its plural.","answer":{"hen":"hens","church":"churches","tree":"trees"},"feedback":"Excellent! Every noun now names more than one.","retryHint":"Try adding -s or -es to each singular noun."},
+      {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Which sentence uses the correct plural?","choices":["I see three boxes.","I see three boxs.","I see three box."],"answer":"I see three boxes.","feedback":"Fantastic! Boxes is the correct plural of box.","retryHint":"Box ends in x, so add -es."}
+    ]
+  }
+}

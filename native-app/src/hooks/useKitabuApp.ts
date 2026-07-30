@@ -982,7 +982,8 @@ export function useKitabuApp() {
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
       setLoginEmail(storedLoginCredentials?.email ?? '');
-      setLoginPassword(storedLoginCredentials?.password ?? '');
+      // Passwords are intentionally never restored from storage.
+      setLoginPassword('');
       setLastUsedAuthRole(isLastUsedAuthRole(storedLastUsedAuthRole) ? storedLastUsedAuthRole : null);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
       const storedMascotKey =

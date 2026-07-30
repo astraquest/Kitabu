@@ -50,6 +50,7 @@ import {
   verifyTotpToken
 } from './auth.js';
 import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
+import { readLearningAssetCatalog, resolveLearningAssetRuntimeFile } from './interactiveLearning/assetCatalog.js';
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
@@ -81,7 +82,7 @@ import {
   consumeEmailVerificationToken,
   consumePasswordResetToken,
   expirePendingPaymentRequests,
-  enableTotp,
+  confirmTotpSecret,
   findActiveEmailVerificationToken,
   findActiveRefreshToken,
   findActivePasswordResetToken,
@@ -199,7 +200,7 @@ import {
   upsertLearnerSubjectDisplayPreferences,
   upsertPushToken,
   upsertBillingProfile,
-  upsertTotpSecret,
+  stageTotpSecret,
   createSchoolOnboardingRequest,
   markSchoolOnboardingEmailDelivered,
   awardLearningReward,
@@ -531,6 +532,10 @@ const signupSchema = z.object({
 
 const totpSchema = z.object({
   token: z.string().length(6)
+});
+
+const totpSetupBeginSchema = z.object({
+  currentPassword: z.string().min(8)
 });
 
 const rotatePasswordSchema = z.object({
@@ -1178,6 +1183,15 @@ function getAllowedCorsOrigins() {
   return Array.from(origins);
 }
 
+function getLearningAssetFrameAncestors() {
+  const origins = new Set(["'self'", ...getAllowedCorsOrigins()]);
+  if (appConfig.KITABU_NODE_ENV !== 'production') {
+    origins.add('http://localhost:8099');
+    origins.add('http://127.0.0.1:8099');
+  }
+  return Array.from(origins).join(' ');
+}
+
 function renderHandoffPage(args: {
   title: string;
   message: string;
@@ -1791,7 +1805,13 @@ export function buildServer(options: BuildServerOptions = {}) {
     credentials: true
   });
   app.register(cookie);
-  app.register(helmet);
+  app.register(helmet, { frameguard: false });
+  app.addHook('onRequest', (request, reply, done) => {
+    if (!/^\/learning-assets\/[^/]+\/[^/]+\/runtime\//.test(request.raw.url ?? '')) {
+      reply.header('X-Frame-Options', 'SAMEORIGIN');
+    }
+    done();
+  });
   app.register(sensible);
   app.register(rateLimit, {
     global: false,
@@ -1904,6 +1924,11 @@ export function buildServer(options: BuildServerOptions = {}) {
 
     return {
       status,
+      release: {
+        version: appConfig.KITABU_RELEASE_VERSION,
+        sha: appConfig.KITABU_RELEASE_SHA,
+        environment: appConfig.KITABU_RUNTIME_ENV
+      },
       checks: {
         database,
         redis: redisHealth
@@ -4400,11 +4425,29 @@ Requirements:
       return precondition;
     }
 
+    const body = totpSetupBeginSchema.parse(request.body ?? {});
+    const credential = await getTotpSecret(request.user!.id);
+    if (credential?.enabled && !request.user!.stepUp) {
+      return reply.status(428).send({ message: 'Step-up authentication required to replace TOTP' });
+    }
+
+    const user = await findUserByEmail(request.user!.email);
+    if (!user || !(await verifyPassword(body.currentPassword, user.password_hash))) {
+      await withTransaction(client => createAuditLog(
+        client,
+        request.user!.id,
+        request.user!.schoolId,
+        'auth.totp.setup.rejected',
+        { reason: 'password_reauthentication_failed' }
+      ));
+      return reply.unauthorized('Current password is incorrect');
+    }
+
     const secret = generateTotpSecret();
     const otpauthUrl = buildTotpUri(request.user!.email, secret);
 
     await withTransaction(async client => {
-      await upsertTotpSecret(client, request.user!.id, secret, false);
+      await stageTotpSecret(client, request.user!.id, secret);
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'auth.totp.setup.started');
     });
 
@@ -4422,17 +4465,23 @@ Requirements:
 
     const body = totpSchema.parse(request.body);
     const credential = await getTotpSecret(request.user!.id);
-    if (!credential) {
+    if (!credential?.pendingSecret) {
       return reply.badRequest('TOTP setup has not been started');
     }
-    if (!verifyTotpToken(credential.secret, body.token)) {
+    if (!verifyTotpToken(credential.pendingSecret, body.token)) {
       return reply.unauthorized('Invalid TOTP token');
     }
 
+    let confirmed = false;
     await withTransaction(async client => {
-      await enableTotp(client, request.user!.id);
-      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'auth.totp.setup.completed');
+      confirmed = await confirmTotpSecret(client, request.user!.id);
+      if (confirmed) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'auth.totp.setup.completed');
+      }
     });
+    if (!confirmed) {
+      return reply.badRequest('TOTP setup has expired or was already completed');
+    }
 
     const refreshedUser = await findUserById(request.user!.id);
     if (!refreshedUser) {
@@ -8129,6 +8178,49 @@ Return valid JSON with this shape:
   };
   app.post('/admin/interactive-learning/releases/publish', moveInteractivePointer('publish'));
   app.post('/admin/interactive-learning/releases/rollback', moveInteractivePointer('rollback'));
+
+  app.get('/admin/interactive-learning/assets', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    return readLearningAssetCatalog();
+  });
+
+  const learningAssetIdentitySchema = z.object({
+    assetId: z.string().min(1).max(160),
+    version: z.string().min(1).max(40),
+  });
+  const sendLearningAssetRuntime = async (
+    assetId: string,
+    version: string,
+    path: string | undefined,
+    reply: FastifyReply,
+  ) => {
+    try {
+      const file = await resolveLearningAssetRuntimeFile(assetId, version, path);
+      if (!file) return reply.notFound('Learning asset runtime is unavailable');
+      const isEntrypoint = file.mimeType.startsWith('text/html');
+      return reply
+        .type(file.mimeType)
+        .header('Cache-Control', isEntrypoint ? 'no-store' : 'public, max-age=31536000, immutable')
+        .header('Cross-Origin-Resource-Policy', 'cross-origin')
+        .header('Content-Security-Policy', `default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; connect-src 'self'; font-src 'self' data:; frame-ancestors ${getLearningAssetFrameAncestors()}`)
+        .send(createReadStream(file.absolutePath));
+    } catch {
+      return reply.badRequest('Invalid learning asset runtime path');
+    }
+  };
+
+  app.get('/learning-assets/:assetId/:version/runtime/', async (request, reply) => {
+    const params = learningAssetIdentitySchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid learning asset request');
+    return sendLearningAssetRuntime(params.data.assetId, params.data.version, undefined, reply);
+  });
+
+  app.get('/learning-assets/:assetId/:version/runtime/*', async (request, reply) => {
+    const params = learningAssetIdentitySchema.extend({ '*': z.string().min(1).max(240) }).safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid learning asset request');
+    return sendLearningAssetRuntime(params.data.assetId, params.data.version, params.data['*'], reply);
+  });
 
   app.get('/interactive-learning/releases/:channel', async (request, reply) => {
     const params = z.object({ channel: interactiveChannelSchema }).safeParse(request.params);

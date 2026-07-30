@@ -1,0 +1,118 @@
+{
+  "$schema": "../../../outcome.schema.json",
+  "id": "g1-english-11.1.1-outcome-2",
+  "curriculum": {
+    "country": "KEN",
+    "curriculum": "CBC",
+    "revision": "2024",
+    "grade": "Grade 1",
+    "subject": "English Language Activities",
+    "subjectId": "english_language_activities",
+    "strand": "Listening and Speaking",
+    "strandCode": "11.1",
+    "strandPosition": 41,
+    "unitCode": "11.0",
+    "subStrand": "Pronunciation and Vocabulary",
+    "subStrandCode": "11.1.1",
+    "subStrandPosition": 41,
+    "outcomeId": "outcome-2",
+    "outcomeLabel": "b",
+    "outcomePosition": 2,
+    "outcomeText": "pronounce words with the sounds: / Êƒ/, /tÊƒ/, /Î¸/, and /Ã°/ correctly for clarity of speech",
+    "sourcePages": [
+      60,
+      61,
+      62
+    ],
+    "sourceTextSha256": "3e35a2762722ce8952d8d10b10ee87cfe2f92d5750733f8a77bcb43557dd164a"
+  },
+  "mission": {
+    "title": "Clear Speech Sound Challenge",
+    "interactions": [
+      {
+        "phase": "warm-up",
+        "progressionLevel": 1,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /Êƒ/?",
+        "choices": [
+          "shoe",
+          "chair",
+          "thumb"
+        ],
+        "answer": "shoe",
+        "feedback": "Yes! Shoe begins with /Êƒ/.",
+        "retryHint": "Use the quiet sound in â€˜shhâ€™."
+      },
+      {
+        "phase": "model",
+        "progressionLevel": 2,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with /tÊƒ/?",
+        "choices": [
+          "chair",
+          "ship",
+          "this"
+        ],
+        "answer": "chair",
+        "feedback": "Correct! Chair begins with /tÊƒ/.",
+        "retryHint": "Listen for the sound at the start of â€˜cheeseâ€™."
+      },
+      {
+        "phase": "guided-practice",
+        "progressionLevel": 3,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with the quiet /Î¸/ sound?",
+        "choices": [
+          "thumb",
+          "that",
+          "shop"
+        ],
+        "answer": "thumb",
+        "feedback": "Great! Thumb begins with /Î¸/.",
+        "retryHint": "Place your tongue gently between your teeth and blow."
+      },
+      {
+        "phase": "independent-practice",
+        "progressionLevel": 4,
+        "mode": "picture-choice",
+        "prompt": "Which word begins with the voiced /Ã°/ sound?",
+        "choices": [
+          "this",
+          "thin",
+          "chip"
+        ],
+        "answer": "this",
+        "feedback": "Well said! This begins with /Ã°/.",
+        "retryHint": "Let your voice buzz in the th sound."
+      },
+      {
+        "phase": "transfer",
+        "progressionLevel": 5,
+        "mode": "picture-choice",
+        "prompt": "Choose the pair that begins /Êƒ/ then /tÊƒ/.",
+        "choices": [
+          "shop, child",
+          "child, shop",
+          "thumb, this"
+        ],
+        "answer": "shop, child",
+        "feedback": "Exactly! Shop starts /Êƒ/ and child starts /tÊƒ/.",
+        "retryHint": "Say both words slowly."
+      },
+      {
+        "phase": "exit-check",
+        "progressionLevel": 6,
+        "mode": "picture-choice",
+        "prompt": "Which sequence matches /Êƒ/, /tÊƒ/, /Î¸/, /Ã°/?",
+        "choices": [
+          "ship, chair, thin, those",
+          "chair, ship, those, thin",
+          "thin, those, ship, chair"
+        ],
+        "answer": "ship, chair, thin, those",
+        "feedback": "Excellent clear speech! You separated all four sounds.",
+        "retryHint": "Check each first sound in order."
+      }
+    ]
+  }
+}

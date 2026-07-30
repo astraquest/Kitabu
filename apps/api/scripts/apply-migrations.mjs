@@ -89,6 +89,24 @@ const sqlFiles = readdirSync(sqlDir)
   .filter(file => /^\d+.*\.sql$/i.test(file))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
+function assertMigrationSafety(file, sql) {
+  if (process.env.KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS === 'true') return;
+
+  const checks = [
+    { pattern: /\bDROP\s+(TABLE|SCHEMA|DATABASE)\b/i, label: 'DROP TABLE/SCHEMA/DATABASE' },
+    { pattern: /\bTRUNCATE\b/i, label: 'TRUNCATE' },
+    { pattern: /\bDELETE\s+FROM\s+[a-z0-9_."`]+\s*;/i, label: 'DELETE without a WHERE clause' },
+    { pattern: /\bDELETE\s+FROM\s+users\b/i, label: 'DELETE FROM users' },
+  ];
+  const issue = checks.find(check => check.pattern.test(sql));
+  if (issue) {
+    throw new Error(
+      `${file} contains ${issue.label}. Migration execution is blocked by default. ` +
+      'Create a reviewed backup/restore record and set KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS=true only for the approved run.'
+    );
+  }
+}
+
 if (sqlFiles.length === 0) {
   console.log('No SQL migrations found.');
   process.exit(0);
@@ -146,6 +164,7 @@ try {
       }
 
       console.log(`Applying ${file}`);
+      assertMigrationSafety(file, sql);
       await pool.query('BEGIN');
       try {
         await pool.query(sql);

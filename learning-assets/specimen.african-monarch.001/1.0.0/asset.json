@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "assetId": "specimen.african-monarch.001",
+  "version": "1.0.0",
+  "displayName": "African Monarch",
+  "kind": "model-3d",
+  "status": "prototype-conditional",
+  "subjectNeutral": true,
+  "tags": [
+    "african-monarch",
+    "butterfly",
+    "insect",
+    "metamorphosis",
+    "pollinator",
+    "animal-anatomy"
+  ],
+  "scientificIdentity": {
+    "commonName": "African Monarch",
+    "scientificName": "Danaus chrysippus",
+    "lifeStage": "adult"
+  },
+  "relationships": [
+    {
+      "type": "lifecycle-stage",
+      "collectionKey": "butterfly-metamorphosis",
+      "stage": "adult"
+    }
+  ],
+  "framework": {
+    "name": "img2threejs",
+    "version": "1.4.1",
+    "lockFile": "../../framework-lock.json",
+    "currentPrototypeOrigin": "local-object-to-threejs-procedural",
+    "migrationStatus": "requires-v1.4.1-multi-view-rebuild"
+  },
+  "runtime": {
+    "format": "procedural-threejs",
+    "entrypoint": "runtime/index.html",
+    "trustedBundle": true
+  },
+  "files": [
+    {
+      "id": "preview.mobile-detail",
+      "role": "preview",
+      "path": "previews/mobile-detail.png",
+      "mimeType": "image/png",
+      "byteSize": 48642,
+      "sha256": "b9f141b666316eb1e94df53b1d34b907db4539a11297b5327f2e497dbea2e230",
+      "variant": "mobile"
+    },
+    {
+      "id": "receipt.wing-material-report",
+      "role": "receipt",
+      "path": "receipts/wing-material-report.json",
+      "mimeType": "application/json",
+      "byteSize": 3678,
+      "sha256": "75a16a52d3a22c761eb3b096336bebb2275a6186e09ca0568c133b19626e29ea"
+    },
+    {
+      "id": "review.synthetic-back",
+      "role": "review",
+      "path": "review/synthetic-back.png",
+      "mimeType": "image/png",
+      "byteSize": 1627803,
+      "sha256": "b4bab2cef4226583d36d91ffd80d64800279a0c666aa3dc7ec3de97bbf96dbe7",
+      "variant": "synthetic-hypothesis"
+    },
+    {
+      "id": "review.synthetic-side",
+      "role": "review",
+      "path": "review/synthetic-side.png",
+      "mimeType": "image/png",
+      "byteSize": 1281693,
+      "sha256": "697eb157a42f07478e45f074f67890bdf3795a2a1f1d1c52633253e2bd7c5cce",
+      "variant": "synthetic-hypothesis"
+    },
+    {
+      "id": "review.synthetic-three-quarter",
+      "role": "review",
+      "path": "review/synthetic-three-quarter.png",
+      "mimeType": "image/png",
+      "byteSize": 1650924,
+      "sha256": "4afda77af07e54eb60d9bf7171fb63ced621b3dbe351fbde48588d110e975670",
+      "variant": "synthetic-hypothesis"
+    },
+    {
+      "id": "runtime.index-bz7j_1g7",
+      "role": "runtime",
+      "path": "runtime/assets/index-Bz7J_1G7.js",
+      "mimeType": "text/javascript",
+      "byteSize": 752937,
+      "sha256": "7b41a0bc5c0ed626afa1aa3626c9e6af4c463dd46d695b4023e1016bcb0c1165"
+    },
+    {
+      "id": "runtime.index-colzapro",
+      "role": "runtime",
+      "path": "runtime/assets/index-ColZapro.css",
+      "mimeType": "text/css",
+      "byteSize": 15760,
+      "sha256": "574081bf31a2e7a99f850c3535053cc704241cfcc650b6d32139b5861e407be5"
+    },
+    {
+      "id": "runtime.index",
+      "role": "runtime",
+      "path": "runtime/index.html",
+      "mimeType": "text/html",
+      "byteSize": 6853,
+      "sha256": "af4d3da87ff9c96bd38bbf49f283faef64bc26427d4430ee85079885c7baaadc"
+    },
+    {
+      "id": "source.african-monarch-dorsal",
+      "role": "source",
+      "path": "source/african-monarch-dorsal.png",
+      "mimeType": "image/png",
+      "byteSize": 1445232,
+      "sha256": "ec890cc2c5d59f1d6800675bbe7dd3881b6dc40259f187edb38cfd45b38c676b"
+    },
+    {
+      "id": "source.articulated-wings.generated",
+      "role": "source",
+      "path": "source/articulated-wings.generated.ts",
+      "mimeType": "text/typescript",
+      "byteSize": 74298,
+      "sha256": "e8d0efb11c7608a24b4bd231fd2e27fbaa4a2297ce95f26edb07e92960337bd8"
+    },
+    {
+      "id": "source.articulated-wings.module",
+      "role": "source",
+      "path": "source/articulated-wings.module.json",
+      "mimeType": "application/json",
+      "byteSize": 40364,
+      "sha256": "54b81596ecd739ff9cc07bfb547c472228489313e369afc4c319030df11b5e13"
+    },
+    {
+      "id": "source.body-anatomy.module",
+      "role": "source",
+      "path": "source/body-anatomy.module.json",
+      "mimeType": "application/json",
+      "byteSize": 7485,
+      "sha256": "13200fc9a05888e7d169c2d9493bfa1a3d89d9d7ec6fc7c6d169b5b6e38add8c"
+    },
+    {
+      "id": "source.butterfly-model",
+      "role": "source",
+      "path": "source/butterfly-model.js",
+      "mimeType": "text/javascript",
+      "byteSize": 14285,
+      "sha256": "47996644098a207209c3aca9a4338c9879fd6374b4be35a99852564c0edd3f5b"
+    },
+    {
+      "id": "source.object-sculpt",
+      "role": "source",
+      "path": "source/object-sculpt.json",
+      "mimeType": "application/json",
+      "byteSize": 30881,
+      "sha256": "d4733256e4ef6c9686c23777b98b1c81ea9b479426fbbccd5e1d925658d7863c"
+    }
+  ],
+  "semanticParts": [
+    "antennae",
+    "compound-eye",
+    "proboscis",
+    "thorax",
+    "abdomen",
+    "forewing",
+    "hindwing",
+    "legs",
+    "wing-scales"
+  ],
+  "geometryEvidence": {
+    "true3dRequired": true,
+    "allAroundGeometryStatus": "pending",
+    "billboardOrFlatPlaneFinal": false,
+    "sourceReferenceViews": [
+      {
+        "id": "dorsal-primary",
+        "path": "source/african-monarch-dorsal.png",
+        "origin": "synthetic-generated",
+        "allowedUse": "visual-design-and-planning",
+        "scientificAcceptanceAuthority": false
+      },
+      {
+        "id": "side-hypothesis",
+        "path": "review/synthetic-side.png",
+        "origin": "synthetic-hypothesis",
+        "allowedUse": "planning-veto",
+        "scientificAcceptanceAuthority": false
+      },
+      {
+        "id": "rear-hypothesis",
+        "path": "review/synthetic-back.png",
+        "origin": "synthetic-hypothesis",
+        "allowedUse": "planning-veto",
+        "scientificAcceptanceAuthority": false
+      },
+      {
+        "id": "three-quarter-hypothesis",
+        "path": "review/synthetic-three-quarter.png",
+        "origin": "synthetic-hypothesis",
+        "allowedUse": "planning-veto",
+        "scientificAcceptanceAuthority": false
+      }
+    ],
+    "referenceViewPolicy": {
+      "singleViewAllowedOnlyWhenLowRisk": true,
+      "preferredObservedViews": [
+        "front",
+        "side",
+        "rear"
+      ],
+      "addTopBottomWhenRelevant": true,
+      "syntheticViewsAreAcceptanceAuthority": false
+    },
+    "inferredSurfacePolicy": "label-and-review",
+    "requiredTurntableViews": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "front-three-quarter",
+      "rear-three-quarter"
+    ],
+    "renderedTurntableViews": [],
+    "geometryAudit": {
+      "orbit360Verified": false,
+      "topBottomVerified": false,
+      "backsideDetailVerified": false,
+      "attachmentContinuityVerified": false,
+      "volumetricParts": [
+        "head",
+        "thorax",
+        "abdomen"
+      ],
+      "thinSurfaceParts": [
+        {
+          "id": "four-wing-system",
+          "thicknessModelled": true,
+          "frontDetail": true,
+          "backDetail": false,
+          "edgeDetail": true
+        }
+      ]
+    }
+  },
+  "mobileBudget": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "maxDownloadBytes": 25000000,
+    "maxTriangles": 250000,
+    "maxDrawCalls": 120,
+    "maxPeakMemoryMb": 256,
+    "minMedianFps": 30
+  },
+  "mobileMetrics": {},
+  "contentBindings": [
+    "ken.cbc.g6.science.butterfly-anatomy.explore-1",
+    "ken.cbc.g6.science.butterfly-anatomy.identify-1",
+    "ken.cbc.g6.science.butterfly-anatomy.explain-1"
+  ],
+  "createdAt": "2026-07-26T21:20:55Z",
+  "updatedAt": "2026-07-27T08:53:07Z"
+}

@@ -40,7 +40,7 @@ beforeEach(() => {
   saveSecure.mockClear();
 });
 
-test('securely remembers email and password after a successful sign in', async () => {
+test('securely remembers the email without persisting the password after sign in', async () => {
   request.mockResolvedValue({ ...session, authState: 'authenticated' });
 
   await expect(loginWithPassword(' learner@kitabu.ai ', 'secret-pass')).resolves.toEqual(session);
@@ -48,7 +48,6 @@ test('securely remembers email and password after a successful sign in', async (
   expect(saveSecure).toHaveBeenCalledWith('auth_session', session);
   expect(saveSecure).toHaveBeenCalledWith('login_credentials', {
     email: 'learner@kitabu.ai',
-    password: 'secret-pass',
   });
 });
 
@@ -68,7 +67,6 @@ test('loads saved credentials for sign-in field hydration', async () => {
 
   await expect(loadSavedLoginCredentials()).resolves.toEqual({
     email: 'learner@kitabu.ai',
-    password: 'secret-pass',
   });
 });
 
@@ -82,6 +80,5 @@ test('clears a stale saved password after account recovery', async () => {
 
   expect(saveSecure).toHaveBeenCalledWith('login_credentials', {
     email: 'learner@kitabu.ai',
-    password: '',
   });
 });

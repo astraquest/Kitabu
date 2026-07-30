@@ -60,6 +60,8 @@ const configSchema = z.object({
   KITABU_NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   KITABU_HOST: z.string().default('0.0.0.0'),
   KITABU_PORT: z.coerce.number().int().positive().default(Number(defaultPort)),
+  KITABU_RELEASE_VERSION: z.string().trim().min(1).default('unknown'),
+  KITABU_RELEASE_SHA: z.string().trim().min(1).default('unknown'),
   KITABU_TRUST_PROXY: booleanish.default(false),
   KITABU_ENABLE_API_DOCS: booleanish.default(false),
   KITABU_BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(16 * 1024 * 1024),

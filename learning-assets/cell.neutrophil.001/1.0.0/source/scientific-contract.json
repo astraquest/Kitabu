@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "assetId": "cell.neutrophil.001",
+  "assetVersion": "1.0.0",
+  "contractStatus": "approved-for-geometry-authoring-with-stated-limitations",
+  "specimenDefinition": {
+    "organism": "Homo sapiens",
+    "cellType": "mature segmented neutrophil",
+    "state": "resting, circulating peripheral-blood cell",
+    "presentation": "three-dimensional intact cell with an optional pedagogical cutaway",
+    "excludedStates": [
+      "myelocyte or other immature granulocytic precursor",
+      "band neutrophil",
+      "activated polarized or migrating neutrophil",
+      "phagocytosing neutrophil",
+      "degranulating neutrophil",
+      "NET-forming neutrophil",
+      "apoptotic neutrophil"
+    ]
+  },
+  "scaleAndShape": {
+    "restingSuspensionDiameterMicrometres": {
+      "target": 10.4,
+      "displayRange": [
+        9.5,
+        12.0
+      ],
+      "basis": "Primary optical-stretcher measurements reported 10.39 +/- 0.19 micrometres for 322 resting primary human neutrophils; the wider display range allows normal biological and preparation variation."
+    },
+    "restingShape": "approximately spherical in suspension, not a flattened blood-smear silhouette",
+    "mechanics": "viscoelastic and strongly deformable; surface geometry may include restrained folds or microridges that provide membrane reserve",
+    "cutawayScalePolicy": "Membrane thickness, chromatin bridges, granules, vesicles and glycogen cannot all be simultaneously rendered at literal scale. Any enlargement must preserve relative hierarchy and be described as pedagogical, not quantitative."
+  },
+  "semanticPartNamesExpectedByIntegration": [
+    "plasma-membrane",
+    "cytoplasm",
+    "nucleus",
+    "nuclear-lobes",
+    "chromatin-bridges",
+    "azurophilic-granules",
+    "specific-granules"
+  ],
+  "optionalSemanticPartNames": [
+    "gelatinase-granules",
+    "secretory-vesicles",
+    "glycogen-particles",
+    "mitochondria"
+  ],
+  "requiredAnatomy": [
+    {
+      "semanticId": "plasma-membrane",
+      "label": "Plasma membrane",
+      "geometryContract": "One continuous, closed, deformable boundary enclosing the entire cell. It must not read as a rigid capsule or a second cell wall. Subtle folds or microridges are acceptable; large permanent spikes are not appropriate for the resting state.",
+      "appearanceContract": "Thin translucent boundary with restrained surface relief. Any visible thickness is pedagogically enlarged.",
+      "evidenceIds": [
+        "E1",
+        "E2",
+        "E11"
+      ]
+    },
+    {
+      "semanticId": "cytoplasm",
+      "label": "Cytoplasm",
+      "geometryContract": "Continuous volume between the plasma membrane and nucleus, densely populated by granules but not fully occluded. It must remain visibly distinct from the nucleus.",
+      "appearanceContract": "Pale, low-saturation, slightly translucent material. Granularity should come from discrete organelles and restrained microtexture, not from an opaque noisy shader.",
+      "evidenceIds": [
+        "E3",
+        "E4"
+      ]
+    },
+    {
+      "semanticId": "nucleus",
+      "label": "Segmented nucleus",
+      "geometryContract": "A single nuclear system made from interconnected lobes. It is a logical parent for nuclear-lobes and chromatin-bridges and must never be represented as multiple independent nuclei.",
+      "appearanceContract": "Condensed chromatin should read darker/denser than the cytoplasm, with modest internal heterogeneity rather than a uniform glossy solid.",
+      "evidenceIds": [
+        "E5",
+        "E6",
+        "E7"
+      ]
+    },
+    {
+      "semanticId": "nuclear-lobes",
+      "label": "Nuclear lobes",
+      "geometryContract": "Use three or four irregular, unequal lobes as the canonical individual specimen. Two to five lobes is normal mature variation. Lobes should form a compact, gently curved array within the cell and must not resemble a flower, chain of identical beads or separate nuclei.",
+      "appearanceContract": "Dense, heterochromatin-rich lobes sharing the nucleus material family.",
+      "runtimeChildren": [
+        "nuclear-lobe-1",
+        "nuclear-lobe-2",
+        "nuclear-lobe-3",
+        "nuclear-lobe-4"
+      ],
+      "evidenceIds": [
+        "E5",
+        "E6",
+        "E7"
+      ]
+    },
+    {
+      "semanticId": "chromatin-bridges",
+      "label": "Chromatin bridges between nuclear lobes",
+      "geometryContract": "Every adjacent lobe must be joined by a continuous narrow DNA/chromatin-containing nuclear segment. Bridges may taper and curve but must not float, break, or look like cytoplasmic cords.",
+      "appearanceContract": "Same chromatin/nuclear-envelope family as the lobes, with a minimum renderable diameter clearly labelled as enlarged for visibility.",
+      "runtimeChildren": [
+        "chromatin-bridge-1",
+        "chromatin-bridge-2",
+        "chromatin-bridge-3"
+      ],
+      "evidenceIds": [
+        "E5",
+        "E6"
+      ]
+    },
+    {
+      "semanticId": "azurophilic-granules",
+      "label": "Primary (azurophilic) granules",
+      "geometryContract": "Numerous membrane-bound submicrometre granules distributed through the cytoplasm without intersecting the nucleus or membrane. Use a heterogeneous size distribution; do not define identity solely by size because primary and secondary populations overlap.",
+      "appearanceContract": "Visually distinguishable as a population from specific granules, preferably slightly denser/darker in cutaway view. The palette is a teaching code, not a claim that living granules are literally purple or black.",
+      "identityMarkers": [
+        "myeloperoxidase (MPO)",
+        "neutrophil elastase",
+        "defensins"
+      ],
+      "evidenceIds": [
+        "E3",
+        "E4"
+      ]
+    },
+    {
+      "semanticId": "specific-granules",
+      "label": "Secondary (specific) granules",
+      "geometryContract": "Numerous membrane-bound submicrometre granules intermingled with the primary granules throughout the cytoplasm. Use heterogeneous size and distribution, with no artificial radial layers or perfect lattice.",
+      "appearanceContract": "A second restrained teaching-code material, typically lighter or less optically dense than the primary-granule material. Do not imply exact biochemical identity from color alone.",
+      "identityMarkers": [
+        "lactoferrin",
+        "neutrophil gelatinase-associated lipocalin (NGAL)"
+      ],
+      "evidenceIds": [
+        "E3",
+        "E4"
+      ]
+    }
+  ],
+  "optionalOrSubvisualAnatomy": [
+    {
+      "semanticId": "gelatinase-granules",
+      "decision": "optional, low-salience",
+      "contract": "Mature neutrophils contain gelatinase/tertiary granules, but their morphology overlaps the peroxidase-negative granule continuum. If included, render as a subtle minority population and do not claim reliable identification by shape or color alone.",
+      "evidenceIds": [
+        "E3",
+        "E4"
+      ]
+    },
+    {
+      "semanticId": "secretory-vesicles",
+      "decision": "optional, low-salience",
+      "contract": "Secretory vesicles are supported by subcellular fractionation and proteomics. If shown, use small sparse vesicles near and throughout the cytoplasm; they must not dominate the silhouette or be confused with granules.",
+      "evidenceIds": [
+        "E4"
+      ]
+    },
+    {
+      "semanticId": "glycogen-particles",
+      "decision": "subvisual or texture-only",
+      "contract": "Human neutrophil-rich leukocyte preparations contain approximately 20 nm glycogen particles. At whole-cell scale they should be omitted as discrete spheres or represented only by restrained cytoplasmic microtexture; conspicuous glycogen boulders are inaccurate.",
+      "evidenceIds": [
+        "E8"
+      ]
+    },
+    {
+      "semanticId": "mitochondria",
+      "decision": "biologically present but not a prominent textbook decoration",
+      "contract": "Primary human neutrophils possess a functional mitochondrial network, while neutrophil ATP production is strongly glycolytic and mitochondrial abundance/function differs from conventional textbook cells. Omit mitochondria from the core hotspot set. If included in a high-detail cutaway, keep them fine, low-salience and evidence-labelled rather than adding a few large bean-shaped organelles.",
+      "evidenceIds": [
+        "E9",
+        "E10"
+      ]
+    }
+  ],
+  "excludedOrDeemphasizedFeatures": [
+    {
+      "feature": "large prominent Golgi apparatus",
+      "reason": "A mature neutrophil may retain a small Golgi region, but it is not an identity-defining whole-cell feature and should not be enlarged into a generic textbook stack."
+    },
+    {
+      "feature": "large rough endoplasmic reticulum network or prominent nucleolus",
+      "reason": "These are characteristic teaching decorations of biosynthetically active generic cells or immature precursors, not the defining morphology of a mature segmented neutrophil."
+    },
+    {
+      "feature": "literal stain colors",
+      "reason": "Azurophilic, specific and nuclear colors depend on preparation, stain and imaging modality. Color may encode categories but must be documented as semantic coloring."
+    },
+    {
+      "feature": "perfectly smooth rigid sphere",
+      "reason": "The resting cell is approximately spherical, but it is deformable and has membrane reserve; a polished rigid orb misrepresents its mechanics."
+    },
+    {
+      "feature": "uniform or countable granule inventory",
+      "reason": "Granule populations are heterogeneous and dynamic. The model must not imply an exact count, exact diameter distribution or complete biochemical classification."
+    }
+  ],
+  "integrationRules": {
+    "manifestSemanticParts": [
+      "plasma-membrane",
+      "cytoplasm",
+      "nucleus",
+      "nuclear-lobes",
+      "chromatin-bridges",
+      "azurophilic-granules",
+      "specific-granules"
+    ],
+    "hotspotPolicy": "Hotspots bind to the stable semantic IDs above. Individual lobe and bridge child names are allowed for selection/debugging but learner content should normally target the aggregate nuclear-lobes or chromatin-bridges IDs.",
+    "groupingPolicy": "nucleus is the aggregate parent of nuclear-lobes and chromatin-bridges; azurophilic-granules and specific-granules are population groups, not individual hotspot-per-granule inventories.",
+    "materialPolicy": "All educational colors require an in-scene legend or metadata note stating that they are semantic colors and not literal living-cell coloration.",
+    "statePolicy": "Any animation that polarizes, migrates, phagocytoses, degranulates or forms a NET is a separate state/configuration and must not silently alter the resting reference geometry."
+  },
+  "acceptanceChecks": [
+    "The intact exterior is a continuous closed surface with real three-dimensional depth from every view.",
+    "The canonical nucleus has three or four visible lobes and every adjacent lobe is continuously connected by a chromatin bridge.",
+    "No lobe reads as a separate nucleus or floats in cytoplasm.",
+    "Both azurophilic-granules and specific-granules are present as intermingled heterogeneous populations.",
+    "Granule identity is not claimed from size or color alone.",
+    "No prominent generic Golgi, rough-ER or oversized bean-shaped mitochondrial decoration competes with the defining neutrophil anatomy.",
+    "Any cutaway exaggeration is disclosed and the uncut cell still passes the all-around geometry gate.",
+    "The semantic IDs exactly match semanticPartNamesExpectedByIntegration."
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "type": "primary-research",
+      "citation": "Ekpenyong AE et al. Mechanical deformation induces depolarization of neutrophils. Science Advances. 2017;3:e1602536.",
+      "doi": "10.1126/sciadv.1602536",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5470826/",
+      "supports": "Resting primary human neutrophils are approximately spherical in suspension; measured diameter 10.39 +/- 0.19 micrometres; whole-cell shape is mechanically deformable."
+    },
+    {
+      "id": "E2",
+      "type": "primary-research",
+      "citation": "Morikis VA et al. Atrial natriuretic peptide down-regulates neutrophil recruitment on inflamed endothelium by reducing cell deformability and resistance to detachment force. Biorheology. 2015;52:447-463.",
+      "doi": "10.3233/BIR-15067",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5019877/",
+      "supports": "Primary human neutrophil viscoelastic deformation, cortical tension/viscosity and recovery toward spherical shape after micropipette aspiration."
+    },
+    {
+      "id": "E3",
+      "type": "primary-research",
+      "citation": "Rice WG, Kinkade JM Jr, Parmley RT. High resolution of heterogeneity among human neutrophil granules: physical, biochemical, and ultrastructural properties of isolated fractions. Blood. 1986;68:541-555.",
+      "pmid": "3015286",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3015286/",
+      "supports": "MPO-containing azurophil/primary and lactoferrin-associated specific/secondary granules, intact membrane-bound profiles, overlapping size/density and substantial heterogeneity."
+    },
+    {
+      "id": "E4",
+      "type": "primary-research",
+      "citation": "Rorvig S et al. Proteome profiling of human neutrophil granule subsets, secretory vesicles, and cell membrane: correlation with transcriptome profiling of neutrophil precursors. Journal of Leukocyte Biology. 2013;94:711-721.",
+      "doi": "10.1189/jlb.1212619",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23650620/",
+      "supports": "Fresh human neutrophil granule subsets, secretory vesicles and plasma-membrane fractions; validates multiple granule/vesicle compartments while cautioning against a simplistic two-shape inventory."
+    },
+    {
+      "id": "E5",
+      "type": "primary-research",
+      "citation": "Sanchez JA, Karni RJ, Wangh LJ. Fluorescent in situ hybridization analysis of the relationship between chromosome location and nuclear morphology in human neutrophils. Chromosoma. 1997;106:168-177.",
+      "doi": "10.1007/s004120050236",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9233990/",
+      "supports": "Typical mature human neutrophil nuclei comprise three or four heterochromatic lobes joined by thin DNA-containing filaments."
+    },
+    {
+      "id": "E6",
+      "type": "primary-research",
+      "citation": "Campbell MS, Lovell MA, Gorbsky GJ. Stability of nuclear segments in human neutrophils and evidence against a role for microfilaments or microtubules in their genesis during differentiation of HL60 myelocytes. Journal of Leukocyte Biology. 1995;58:659-666.",
+      "doi": "10.1002/jlb.58.6.659",
+      "url": "https://academic.oup.com/jleukbio/article/58/6/659/6958648",
+      "supports": "Mature human neutrophils have three to five interconnected nuclear lobes; thin connectors elongate during migration but remain continuous."
+    },
+    {
+      "id": "E7",
+      "type": "primary-research",
+      "citation": "Shen C et al. Nuclear segmentation facilitates neutrophil migration. Journal of Cell Science. 2023;136:jcs260768.",
+      "doi": "10.1242/jcs.260768",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10309577/",
+      "supports": "Direct imaging of primary human neutrophils links nuclear lobe number/segmentation to migration through narrow channels."
+    },
+    {
+      "id": "E8",
+      "type": "primary-research",
+      "citation": "Scott RB, Still WJS. Glycogen in human peripheral blood leukocytes. II. The macromolecular state of leukocyte glycogen. Journal of Clinical Investigation. 1968;47:353-359.",
+      "doi": "10.1172/JCI105731",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC297177/",
+      "supports": "Electron microscopy of human leukocyte preparations composed chiefly of neutrophils found approximately 20 nm glycogen particles; supports inclusion only below whole-cell visual scale."
+    },
+    {
+      "id": "E9",
+      "type": "primary-research",
+      "citation": "Fossati G et al. The mitochondrial network of human neutrophils: role in chemotaxis, phagocytosis, respiratory burst activation, and commitment to apoptosis. Journal of Immunology. 2003;170:1964-1972.",
+      "doi": "10.4049/jimmunol.170.4.1964",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12574365/",
+      "supports": "Live human neutrophils possess a functional mitochondrial network; mitochondria should not be declared absent."
+    },
+    {
+      "id": "E10",
+      "type": "primary-research",
+      "citation": "Maianski NA et al. Functional characterization of mitochondria in neutrophils: a role restricted to apoptosis. Cell Death and Differentiation. 2004;11:143-153.",
+      "doi": "10.1038/sj.cdd.4401320",
+      "url": "https://www.nature.com/articles/4401320",
+      "supports": "Human blood neutrophil mitochondria are present but contribute little to ATP synthesis compared with conventional oxidative cells; supports low visual salience rather than generic textbook prominence."
+    },
+    {
+      "id": "E11",
+      "type": "primary-research",
+      "citation": "Al Jumaa MA, Dewitt S, Hallett MB. Topographical interrogation of the living cell surface reveals its role in rapid cell shape changes during phagocytosis and spreading. Scientific Reports. 2017;7:9790.",
+      "doi": "10.1038/s41598-017-09761-6",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5575107/",
+      "supports": "Live-cell membrane diffusion measurements and correlated electron microscopy support a wrinkled/microridged surface and membrane reserve in round neutrophils."
+    }
+  ],
+  "limitations": [
+    "This contract defines one representative mature resting human neutrophil, not the full biological range of neutrophil age, activation state, disease phenotype or tissue adaptation.",
+    "The canonical three- or four-lobed nucleus is representative; a normal individual neutrophil may have two to five lobes.",
+    "The two highlighted granule groups are a teaching simplification. Human neutrophil granules form heterogeneous subsets/continua that also include gelatinase granules and secretory vesicles.",
+    "Organelle colors, transparency and enlarged submicrometre structures are visualization conventions, not literal appearance or quantitative histology.",
+    "Glycogen evidence cited here used leukocyte suspensions composed chiefly, but not exclusively, of neutrophils and is therefore used only to justify a subvisual/optional treatment.",
+    "Mitochondrial organization in neutrophils is experimentally supported but remains context- and method-sensitive; it is intentionally not an identity-defining hotspot in this whole-cell asset."
+  ]
+}

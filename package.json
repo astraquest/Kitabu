@@ -23,6 +23,9 @@
     "deploy:build": "docker compose build api worker"
   },
   "overrides": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "brace-expansion": "^5.0.8",
+    "fast-uri": "^3.1.4",
+    "find-my-way": "^9.7.0"
   }
 }

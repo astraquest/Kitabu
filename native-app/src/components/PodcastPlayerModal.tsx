@@ -131,7 +131,6 @@ function ProtectedVideoPlayer({ source }: { source: ProtectedMediaSource }) {
 
   return (
     <VideoView
-      allowsFullscreen
       allowsPictureInPicture={false}
       allowsVideoFrameAnalysis={false}
       contentFit="contain"

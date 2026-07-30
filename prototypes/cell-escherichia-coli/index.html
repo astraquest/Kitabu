@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#071811" />
+    <meta name="description" content="Explore a representative Escherichia coli cell as a layered, all-around procedural model." />
+    <title>Inside E. coli · Kitabu</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div><p class="eyebrow">Kitabu · Cell study</p><h1>Inside <i>E. coli</i></h1></div>
+        <button id="reset-view" class="quiet-button" type="button">Reset</button>
+      </header>
+      <section class="study-card" aria-label="Interactive representative Escherichia coli cell">
+        <div id="viewer" class="viewer">
+          <canvas id="cell-canvas" tabindex="0" aria-label="Three-dimensional representative Escherichia coli cell. Drag to orbit and pinch to zoom."></canvas>
+          <div id="hotspot-layer" class="hotspot-layer" aria-label="Cell structures"></div>
+          <div id="loading" class="loading" role="status">Building cell geometry…</div>
+          <p class="orbit-hint">Drag to orbit · pinch to zoom</p>
+        </div>
+        <aside class="learning-panel">
+          <p class="eyebrow">How I am built</p>
+          <h2>Peel back my layers</h2>
+          <p class="intro-copy">I am a representative bacterium—not one exact strain. Rotate me, peel my envelope, or choose a marker.</p>
+          <div class="mode-grid" role="group" aria-label="Cell view mode">
+            <button class="mode-button is-active" data-mode="explore" type="button" aria-pressed="true">Whole</button>
+            <button class="mode-button" data-mode="peel" type="button" aria-pressed="false">Peel</button>
+            <button class="mode-button" data-mode="cross-section" type="button" aria-pressed="false">Section</button>
+            <button class="mode-button" data-mode="explode" type="button" aria-pressed="false">Explode</button>
+          </div>
+          <section id="detail" class="detail" aria-live="polite">
+            <p id="detail-kicker" class="detail-kicker">Select a marker</p>
+            <h3 id="detail-title">My bacterial structures</h3>
+            <p id="detail-copy">I have a layered cell envelope, cytoplasm, DNA and ribosomes—no nucleus or membrane-bound organelles.</p>
+            <button id="isolate-part" class="isolate-button" type="button" disabled>Isolate selected part</button>
+          </section>
+          <details class="accuracy-note">
+            <summary>Model limits</summary>
+            <p>This explanatory model is not microscopy. Counts and spacing are simplified. Plasmids, flagella, fimbriae and pili vary by strain and conditions. Synthetic reference views are hypotheses, not scientific evidence.</p>
+          </details>
+        </aside>
+      </section>
+      <footer class="asset-footer"><span>cell.escherichia-coli.001 · v1.0.0</span><span id="runtime-status" role="status">Reduced motion respected</span></footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

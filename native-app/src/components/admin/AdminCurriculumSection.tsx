@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 import { BookOpen, Paperclip, Plus, Trash2, Upload } from 'lucide-react-native';
 
 import { SUPPORTED_GRADES } from '../../constants/grades';
 import { LearningStrand } from '../../types/app';
 import { InteractiveLearningPublisherPanel } from './InteractiveLearningPublisherPanel';
+import { AdminLearningAssetsPanel } from './AdminLearningAssetsPanel';
 
 interface AdminCurriculumSectionProps {
   styles: Record<string, any>;
@@ -35,6 +36,8 @@ export function AdminCurriculumSection({
   onOpenEditor,
   onRemoveSubject,
 }: AdminCurriculumSectionProps) {
+  const [showAssets, setShowAssets] = useState(false);
+
   return (
     <>
       <View style={styles.cardsRow}>
@@ -53,34 +56,46 @@ export function AdminCurriculumSection({
       <View style={styles.pageHeadRow}>
         <View style={styles.pageHead}>
           <Text style={styles.pageTitle}>Curriculum</Text>
-          <Text style={styles.pageSub}>Select grade and subject to edit.</Text>
+          <Text style={styles.pageSub}>{showAssets ? 'View generated 3D learning assets.' : 'Select grade and subject to edit.'}</Text>
         </View>
-        <Pressable onPress={onAddSubject} style={styles.blackFab}>
-          <Plus size={18} color="#FFF" />
-        </Pressable>
+        {!showAssets ? (
+          <Pressable accessibilityLabel="Add subject" onPress={onAddSubject} style={styles.blackFab}>
+            <Plus size={18} color="#FFF" />
+          </Pressable>
+        ) : null}
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.gradeRow}>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => setShowAssets(true)}
+          style={[styles.gradeChip, showAssets && styles.gradeChipActive]}>
+          <Text style={[styles.gradeChipText, showAssets && styles.gradeChipTextActive]}>Assets</Text>
+        </Pressable>
         {SUPPORTED_GRADES.map(grade => (
           <Pressable
             key={grade}
-            onPress={() => onSelectGrade(grade)}
-            style={[styles.gradeChip, currentGrade === grade && styles.gradeChipActive]}>
-            <Text style={[styles.gradeChipText, currentGrade === grade && styles.gradeChipTextActive]}>
+            onPress={() => {
+              setShowAssets(false);
+              onSelectGrade(grade);
+            }}
+            style={[styles.gradeChip, !showAssets && currentGrade === grade && styles.gradeChipActive]}>
+            <Text style={[styles.gradeChipText, !showAssets && currentGrade === grade && styles.gradeChipTextActive]}>
               {grade}
             </Text>
           </Pressable>
         ))}
       </ScrollView>
 
-      <View style={styles.panel}>
-        <Text style={styles.panelTitle}>PDF Import</Text>
-        <Text style={styles.panelText}>Import bridge status: {pdfImportStatus}</Text>
-      </View>
+      {showAssets ? <AdminLearningAssetsPanel /> : <>
+        <View style={styles.panel}>
+          <Text style={styles.panelTitle}>PDF Import</Text>
+          <Text style={styles.panelText}>Import bridge status: {pdfImportStatus}</Text>
+        </View>
 
-      <InteractiveLearningPublisherPanel styles={styles} />
+        <InteractiveLearningPublisherPanel styles={styles} />
 
-      <View style={styles.list}>
+        <View style={styles.list}>
         {currentSubjects.map(subject => {
           const strands = curriculumData[`${currentGrade}-${subject.id}`] || [];
           const hasCurriculum = strands.length > 0;
@@ -122,7 +137,8 @@ export function AdminCurriculumSection({
             </View>
           );
         })}
-      </View>
+        </View>
+      </>}
     </>
   );
 }

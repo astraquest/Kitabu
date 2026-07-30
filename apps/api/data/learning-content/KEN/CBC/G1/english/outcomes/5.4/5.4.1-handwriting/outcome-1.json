@@ -1,0 +1,12 @@
+{
+  "$schema":"../../../outcome.schema.json","id":"g1-english-5.4.1-outcome-1",
+  "curriculum":{"country":"KEN","curriculum":"CBC","revision":"2024","grade":"Grade 1","subject":"English Language Activities","subjectId":"english_language_activities","strand":"Writing","strandCode":"5.4","strandPosition":20,"unitCode":"5.0","subStrand":"Handwriting","subStrandCode":"5.4.1","subStrandPosition":20,"outcomeId":"outcome-1","outcomeLabel":"a","outcomePosition":1,"outcomeText":"identify the letters Ss, Ll, Ii and Pp in their small or capital forms","sourcePages":[33,34],"sourceTextSha256":"1321a358ffc5334bebbe39d4b2ad1262f226074ab84b2204cf7e6001e08e3e8c"},
+  "mission":{"title":"Capital and Small Letter Pairs","interactions":[
+    {"phase":"warm-up","progressionLevel":1,"mode":"picture-choice","prompt":"Tap the capital letter S.","choices":["S","s","L"],"answer":"S","feedback":"Yes! S is the capital form.","retryHint":"The capital letter is the bigger S."},
+    {"phase":"model","progressionLevel":2,"mode":"picture-choice","prompt":"Which pair shows capital L and small l?","choices":["L l","I i","P p"],"answer":"L l","feedback":"Correct! L and l are a letter pair.","retryHint":"Find the pair that starts with L."},
+    {"phase":"guided-practice","progressionLevel":3,"mode":"picture-choice","prompt":"Which small letter belongs with capital I?","choices":["i","l","p"],"answer":"i","feedback":"Great! I pairs with i.","retryHint":"Say the letter name I as you compare."},
+    {"phase":"independent-practice","progressionLevel":4,"mode":"picture-choice","prompt":"Find the correct pair for the first letter in 'Peter'.","choices":["P p","S s","L l"],"answer":"P p","feedback":"Perfect! Peter begins with capital P, and p is its small form.","retryHint":"Look at the first letter in Peter."},
+    {"phase":"transfer","progressionLevel":5,"mode":"picture-choice","prompt":"Which row contains only correct capital-small pairs?","choices":["S s, L l","S l, L s","I p, P i"],"answer":"S s, L l","feedback":"Well spotted! Both pairs match.","retryHint":"Check each capital against its small form."},
+    {"phase":"exit-check","progressionLevel":6,"mode":"picture-choice","prompt":"Choose all four pairs in the correct order: Ss, Ll, Ii, Pp.","choices":["S s | L l | I i | P p","S l | L i | I p | P s","s S | l L | i I | p P"],"answer":"S s | L l | I i | P p","feedback":"Handwriting hero! You identified every capital and small form.","retryHint":"Each capital should be followed by its matching small letter."}
+  ]}
+}

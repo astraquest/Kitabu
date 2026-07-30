@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "assetId": "cell.escherichia-coli.001",
+  "assetVersion": "1.0.0",
+  "contractType": "scientific-geometry-and-labeling",
+  "reviewState": "approved-for-production-with-explicit-strain-and-scale-qualifiers",
+  "archetype": {
+    "name": "representative vegetative Escherichia coli cell",
+    "scopeNote": "A generalized, non-dividing rod-shaped E. coli cell used to teach the stable Gram-negative envelope and core cytoplasmic organization. It is not a reconstruction of a named strain, growth condition, or cell-cycle stage.",
+    "crossSectionMode": "volumetric cutaway",
+    "representativeDimensions": {
+      "lengthMicrometres": "approximately 2-3",
+      "widthMicrometres": "approximately 0.8-1.0",
+      "interpretation": "Representative teaching proportions only. E. coli size and aspect ratio vary with strain, medium, growth rate, cell-cycle stage, and perturbation."
+    },
+    "requiredInterpretation": "The model must read as a closed three-dimensional rod with rounded poles and nested envelope layers, not as a flat diagram. Molecular and ultrastructural details may be enlarged only when declared as didactic scale exaggerations."
+  },
+  "globalConstraints": [
+    {
+      "id": "G1",
+      "requirement": "Preserve the outside-to-inside envelope order: outer membrane with LPS in its outer leaflet, periplasm containing a thin peptidoglycan sacculus, inner membrane, then cytoplasm.",
+      "severity": "must"
+    },
+    {
+      "id": "G2",
+      "requirement": "The peptidoglycan must be much thinner than a Gram-positive wall and must lie within the periplasm, not outside the outer membrane.",
+      "severity": "must"
+    },
+    {
+      "id": "G3",
+      "requirement": "Chromosomal DNA must occupy a non-membrane-bounded nucleoid in direct continuity with cytoplasm. Do not model a nucleus, nuclear envelope, nucleolus, mitochondria, Golgi apparatus, endoplasmic reticulum, chloroplasts, lysosomes, or other eukaryotic membrane-bound organelles.",
+      "severity": "must"
+    },
+    {
+      "id": "G4",
+      "requirement": "Plasmids, flagella, fimbriae, conjugative pili, capsules, and extracellular polymers are optional strain- and condition-dependent features. If shown, they must be labeled optional rather than defining every E. coli cell.",
+      "severity": "must"
+    },
+    {
+      "id": "G5",
+      "requirement": "Cut surfaces must reveal true shell thickness and internal depth; uncut rear, side, top, and bottom surfaces must remain closed and inspectable through a full orbit.",
+      "severity": "must"
+    },
+    {
+      "id": "G6",
+      "requirement": "Generated turnaround or unseen-side views are synthetic hypotheses for composition and geometry only. They cannot establish anatomy, abundance, topology, scale, or scientific acceptance.",
+      "severity": "must"
+    }
+  ],
+  "structures": [
+    {
+      "id": "cell-body",
+      "label": "Rod-shaped cell body",
+      "required": true,
+      "geometry": "A straight to gently irregular spherocylinder: a cylindrical sidewall with rounded poles and real volume. Use representative proportions near 2.5 micrometres long by 0.8-1.0 micrometres wide, while declaring the dimensions variable.",
+      "relationships": ["Envelope layers follow the same rod-and-rounded-pole topology", "Cutaway does not collapse the rear or underside"],
+      "avoid": ["Perfect sphere", "Flat capsule silhouette", "Universally fixed dimensions", "A dividing septum unless the asset is explicitly changed to a division-stage variant"],
+      "evidence": ["S1", "S2"]
+    },
+    {
+      "id": "outer-membrane-lps",
+      "label": "Outer membrane and lipopolysaccharide (LPS)",
+      "required": true,
+      "geometry": "Continuous outer bilayer shell. Represent LPS as a molecularly simplified surface treatment of the outer leaflet, not as a separate membrane or thick capsule. Lipid A/core/O-antigen detail, if visible, is didactically enlarged and chemically generalized.",
+      "relationships": ["Outermost required membrane", "Periplasm lies immediately inside", "LPS is in the outer leaflet"],
+      "avoid": ["LPS on the inner membrane", "A second free-floating LPS shell", "Claiming a particular O-antigen or smooth-LPS chain length without a named strain/serotype"],
+      "evidence": ["S3", "S10"]
+    },
+    {
+      "id": "periplasm",
+      "label": "Periplasm",
+      "required": true,
+      "geometry": "A continuous, narrow three-dimensional compartment between outer and inner membranes. Its width may be enlarged for legibility, but the legend must state that this is not literal scale.",
+      "relationships": ["Bounded externally by outer membrane", "Bounded internally by inner membrane", "Contains the peptidoglycan sacculus"],
+      "avoid": ["Calling it cytoplasm", "Treating it as empty extracellular space", "Placing ribosomes or chromosomal DNA in it"],
+      "evidence": ["S3", "S10"]
+    },
+    {
+      "id": "peptidoglycan-sacculus",
+      "label": "Thin peptidoglycan sacculus",
+      "required": true,
+      "geometry": "A continuous, stress-bearing mesh-like shell inside the periplasm. It must be visibly thinner than the membrane-to-membrane periplasmic gap; any mesh spacing and strand thickness are enlarged teaching abstractions. Cryo-electron tomography places Gram-negative peptidoglycan at no more than about 4 nm in the examined sacculi.",
+      "relationships": ["Within the periplasm", "Surrounds the inner membrane/cytoplasm", "Supports rod shape"],
+      "avoid": ["Thick Gram-positive wall", "Layer outside the outer membrane", "Open discontinuous belt presented as the whole sacculus"],
+      "evidence": ["S3", "S4"]
+    },
+    {
+      "id": "inner-membrane",
+      "label": "Inner membrane",
+      "required": true,
+      "geometry": "A continuous phospholipid bilayer shell immediately inside the periplasm, enclosing the cytoplasm. Bilayer thickness and embedded proteins may be enlarged for visibility.",
+      "relationships": ["Periplasm outside", "Cytoplasm inside", "Distinct from outer membrane"],
+      "avoid": ["Merging with outer membrane", "Calling it a mitochondrial membrane", "ER-like internal folds"],
+      "evidence": ["S3", "S10"]
+    },
+    {
+      "id": "cytoplasm",
+      "label": "Cytoplasm",
+      "required": true,
+      "geometry": "A connected interior volume enclosed by the inner membrane, containing the nucleoid region, ribosomes, and soluble cellular material. It is crowded and organized, but should not be rendered as membrane-bounded subcompartments.",
+      "relationships": ["Directly surrounds the nucleoid", "Contains ribosomes", "Excludes the periplasm"],
+      "avoid": ["Empty clear fluid", "Eukaryotic organelles", "A membrane around the nucleoid"],
+      "evidence": ["S5", "S10"]
+    },
+    {
+      "id": "nucleoid-chromosomal-dna",
+      "label": "Nucleoid (chromosomal DNA)",
+      "required": true,
+      "geometry": "A diffuse, irregular or lobed central DNA-rich region represented by a folded/supercoiled chromosomal-DNA network with associated proteins. It has no enclosing membrane. Avoid a single tidy ball or exact fixed loop pattern; organization changes with growth and replication.",
+      "relationships": ["Continuous with surrounding cytoplasm", "May exclude many translating ribosomes from its densest regions", "Represents the main bacterial chromosome rather than a eukaryotic nucleus"],
+      "avoid": ["Nuclear envelope", "Nucleolus", "Chromosomes drawn as eukaryotic X shapes", "Claiming one visible DNA loop equals the literal chromosome conformation"],
+      "evidence": ["S5", "S6"]
+    },
+    {
+      "id": "ribosomes",
+      "label": "70S ribosomes",
+      "required": true,
+      "geometry": "Numerous small particles in the cytoplasm, with particle size and count reduced or enlarged for mobile legibility. A mildly ribosome-rich region outside dense nucleoid lobes is defensible, but no exact stationary pattern should be implied.",
+      "relationships": ["In cytoplasm, not periplasm", "Not attached to rough ER because E. coli has no ER", "Distribution relative to the nucleoid is dynamic and growth-condition dependent"],
+      "avoid": ["Ribosomes inside a nucleus", "Rough endoplasmic reticulum", "A sparse handful presented as literal abundance", "A universal fixed spatial lattice"],
+      "evidence": ["S7", "S10"]
+    },
+    {
+      "id": "plasmid-dna",
+      "label": "Plasmid DNA",
+      "required": false,
+      "geometry": "Zero or a small number of compact, circular DNA loops in cytoplasm, spatially distinct enough for labeling. Visible diameter and separation are teaching exaggerations.",
+      "relationships": ["Cytoplasmic and not membrane-bound", "Separate from the main chromosome/nucleoid representation"],
+      "avoid": ["Presenting plasmids as universal or essential", "Plasmid inside a nucleus", "Claiming an exact copy number or gene cargo without a named plasmid and strain"],
+      "condition": "Include only with an explicit 'optional; strain-dependent' qualifier. A plasmid-free representative state is scientifically acceptable.",
+      "evidence": ["S8"]
+    },
+    {
+      "id": "flagellum",
+      "label": "Flagellum",
+      "required": false,
+      "geometry": "If a motile flagellated state is selected, use one or more long helical filaments connected through hook/basal regions to the envelope. A peritrichous distribution over the cell surface is characteristic of flagellated E. coli, but filament number varies.",
+      "relationships": ["Connected to the cell envelope", "Much longer than fimbriae when drawn at comparable scale", "May bundle during swimming"],
+      "avoid": ["Eukaryotic whip-like axoneme", "Floating filaments", "Universal fixed count", "Claiming every strain or cell is motile/flagellated"],
+      "condition": "Optional and dependent on strain, genotype, expression state, and growth conditions.",
+      "evidence": ["S9"]
+    },
+    {
+      "id": "fimbriae",
+      "label": "Fimbriae (adhesive pili)",
+      "required": false,
+      "geometry": "If selected, show many short, fine surface fibers that are clearly shorter than flagella. Their density is illustrative rather than a literal fixed count.",
+      "relationships": ["Surface-attached", "Functionally associated with adhesion", "Terminology overlaps with 'pili' in the literature"],
+      "avoid": ["Calling every short fiber a conjugative pilus", "Universal presence", "Floating or penetrating into cytoplasm without an envelope attachment"],
+      "condition": "Optional; fimbrial gene content and expression are strain- and condition-dependent, and type 1 fimbriae can be phase-variable.",
+      "evidence": ["S11", "S12"]
+    },
+    {
+      "id": "conjugative-pilus",
+      "label": "Conjugative pilus",
+      "required": false,
+      "geometry": "At most a few longer surface filaments, clearly distinguishable from a dense fimbrial coat and connected to an envelope-spanning assembly platform when magnified.",
+      "relationships": ["Requires relevant conjugative genetic machinery, commonly plasmid encoded", "Distinct educational role from adhesive fimbriae"],
+      "avoid": ["Universal presence", "Equating all pili with fimbriae", "Showing F-pilus machinery in a cell explicitly labeled plasmid-free"],
+      "condition": "Include only in a specifically labeled conjugative/plasmid-bearing variant.",
+      "evidence": ["S13"]
+    }
+  ],
+  "labelingRules": [
+    "Use 'outer membrane' and 'inner membrane' as separate labels; 'cell membrane' alone is ambiguous in a Gram-negative bacterium.",
+    "Label LPS as part of the outer leaflet of the outer membrane, not as a standalone wall.",
+    "Label the compartment between the two membranes 'periplasm' and the thin mesh within it 'peptidoglycan sacculus'.",
+    "Use 'nucleoid' or 'nucleoid (chromosomal DNA)', never 'nucleus'.",
+    "Use '70S ribosomes' without implying that visible particle size or count is literal.",
+    "Label plasmid DNA, flagella, fimbriae, conjugative pili, and any capsule as optional and strain/condition dependent.",
+    "If both fimbriae and a conjugative pilus are shown, distinguish their forms and functions in the legend while acknowledging overlapping terminology.",
+    "Any enlarged membrane, LPS molecule, peptidoglycan mesh, ribosome, DNA filament, or appendage diameter must be described as didactic scale exaggeration."
+  ],
+  "prohibitedMisconceptions": [
+    "E. coli has a nucleus, nuclear membrane, nucleolus, mitochondria, Golgi apparatus, endoplasmic reticulum, chloroplasts, lysosomes, or other eukaryotic membrane-bound organelles.",
+    "The nucleoid is a membrane-bounded organelle.",
+    "Gram-negative E. coli has one membrane or a thick Gram-positive peptidoglycan wall.",
+    "LPS is located on the inner membrane or forms a separate third membrane.",
+    "The periplasm is the same compartment as cytoplasm.",
+    "Every E. coli cell carries plasmids, flagella, fimbriae, conjugative pili, or a capsule.",
+    "A representative cell has a fixed size, chromosome conformation, ribosome distribution, or appendage count."
+  ],
+  "acceptanceChecks": [
+    "A 360-degree orbit confirms a volumetric rod with rounded poles and closed rear, side, top, and bottom geometry.",
+    "The cutaway preserves the outside-to-inside order: outer membrane/LPS, periplasm with thin peptidoglycan, inner membrane, cytoplasm.",
+    "Peptidoglycan is a thin sacculus within the periplasm rather than a thick external wall.",
+    "The nucleoid is visibly non-membrane-bounded and contains a plausible folded DNA network without eukaryotic chromosome forms.",
+    "Ribosomes occupy cytoplasm and do not occur in periplasm or on rough ER.",
+    "No nucleus, mitochondria, Golgi, ER, chloroplast, lysosome, or other eukaryotic membrane-bound organelle is present.",
+    "Every optional plasmid or appendage is disclosed as strain/condition dependent, and every filament has a continuous envelope attachment.",
+    "If flagella are included, their helical filaments are distinguishable from short fimbriae; if a conjugative pilus is included, it is distinguished from adhesive fimbriae.",
+    "A legend separates cell-scale proportions from enlarged molecular and ultrastructural details.",
+    "No generated or synthetic view is cited as scientific proof."
+  ],
+  "evidenceSources": [
+    {
+      "id": "S1",
+      "citation": "Takeuchi S, DiLuzio WR, Weibel DB, Whitesides GM. Controlling the Shape of Filamentous Cells of Escherichia coli. Nano Letters. 2005;5(9):1819-1823.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2519610/",
+      "supports": ["rod morphology", "representative dimensions of approximately 0.8 micrometres wide and 2.5 micrometres long"]
+    },
+    {
+      "id": "S2",
+      "citation": "Ursell TS, et al. Rod-like bacterial shape is maintained by feedback between cell curvature and cytoskeletal localization. Proceedings of the National Academy of Sciences. 2014;111(11):E1025-E1034.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3964057/",
+      "supports": ["rod-like E. coli morphology", "cylindrical body and cell-wall growth", "shape as regulated rather than geometrically perfect"]
+    },
+    {
+      "id": "S3",
+      "citation": "Szczepaniak J, Press C, Kleanthous C. The multifarious roles of Tol-Pal in Gram-negative bacteria. FEMS Microbiology Reviews. 2020;44(4):490-506; envelope organization summarized with primary literature.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7391070/",
+      "supports": ["Gram-negative inner and outer membranes", "periplasm", "peptidoglycan positioning"]
+    },
+    {
+      "id": "S4",
+      "citation": "Gan L, Chen S, Jensen GJ. Molecular organization of Gram-negative peptidoglycan. Proceedings of the National Academy of Sciences. 2008;105(48):18953-18957.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2596242/",
+      "supports": ["E. coli peptidoglycan sacculus", "Gram-negative peptidoglycan at most about 4 nm thick in cryo-electron tomograms"]
+    },
+    {
+      "id": "S5",
+      "citation": "Verma SC, Qian Z, Adhya SL. Architecture of the Escherichia coli nucleoid. PLoS Genetics. 2019;15(12):e1008456.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6907758/",
+      "supports": ["nucleoid is not enclosed by a nuclear membrane", "folded negatively supercoiled chromosomal DNA", "condition-dependent nucleoid architecture"]
+    },
+    {
+      "id": "S6",
+      "citation": "Salton MRJ, Kim KS. Structure. In: Baron S, editor. Medical Microbiology. 4th edition. University of Texas Medical Branch at Galveston; 1996.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK8477/",
+      "supports": ["prokaryotic nucleoid rather than enveloped nucleus", "absence of membrane-bound cytoplasmic organelles", "bacterial chromosome and core cell structures"]
+    },
+    {
+      "id": "S7",
+      "citation": "Bakshi S, Siryaporn A, Goulian M, Weisshaar JC. Superresolution Imaging of Ribosomes and RNA Polymerase in Live Escherichia coli Cells. Molecular Microbiology. 2012;85(1):21-38.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3383343/",
+      "supports": ["numerous cytoplasmic ribosomes", "dynamic ribosome-rich regions", "partial spatial segregation of ribosomes and dense nucleoid regions"]
+    },
+    {
+      "id": "S8",
+      "citation": "Damborg P, et al. Sequence types and plasmid carriage of uropathogenic Escherichia coli devoid of phenotypically detectable resistance. Journal of Antimicrobial Chemotherapy. 2012;67(1):69-73.",
+      "url": "https://academic.oup.com/jac/article/67/1/69/726138",
+      "supports": ["plasmid carriage is variable", "plasmid-free E. coli isolates exist", "plasmid number is not universal"]
+    },
+    {
+      "id": "S9",
+      "citation": "Mears PJ, et al. Escherichia coli swimming is robust against variations in flagellar number. eLife. 2014;3:e01916.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3917375/",
+      "supports": ["multiple flagella in motile E. coli", "cell-to-cell variation in flagellar number", "helical flagellar filaments and swimming behavior"]
+    },
+    {
+      "id": "S10",
+      "citation": "Moreira CG, et al. Peptidoglycan Remodeling Enables Escherichia coli To Survive Severe Outer Membrane Assembly Defect. mBio. 2019;10(1):e02729-18.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6428754/",
+      "supports": ["E. coli envelope contains cytoplasmic membrane, periplasm with thin peptidoglycan, and outer membrane", "LPS occupies the outer leaflet of the outer membrane"]
+    },
+    {
+      "id": "S11",
+      "citation": "Hasman H, et al. Antigen 43 and Type 1 Fimbriae Determine Colony Morphology of Escherichia coli K-12. Journal of Bacteriology. 2000;182(4):1089-1095.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC94386/",
+      "supports": ["type 1 fimbriae are surface structures", "fimbrial expression is phase-variable"]
+    },
+    {
+      "id": "S12",
+      "citation": "Hospenthal MK, Costa TRD, Waksman G. A comprehensive guide to pilus biogenesis in Gram-negative bacteria. Nature Reviews Microbiology. 2017;15:365-379.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455040/",
+      "supports": ["diversity of pili/fimbriae", "surface-fiber assembly", "adhesive and conjugative systems are distinct categories"]
+    },
+    {
+      "id": "S13",
+      "citation": "Hu B, et al. Structural bases for F plasmid conjugation and F pilus biogenesis in Escherichia coli. Proceedings of the National Academy of Sciences. 2019;116(28):14222-14227.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6628675/",
+      "supports": ["F pilus is plasmid encoded", "conjugative pilus and envelope-spanning assembly platform", "distinction from other pilus systems"]
+    }
+  ],
+  "evidencePolicy": {
+    "accessedOn": "2026-07-27",
+    "imageGenerationReferences": "Synthetic or generated views are hypotheses for composition, occlusion, and unseen geometry only; they are never evidence for biological anatomy, abundance, topology, scale, or acceptance.",
+    "strainPolicy": "Unnamed representative imagery cannot justify strain-specific O-antigen, capsule, plasmid, appendage, virulence, or motility claims.",
+    "conflictRule": "When an image or generated view conflicts with this contract or the cited scientific literature, the contract and literature prevail."
+  }
+}

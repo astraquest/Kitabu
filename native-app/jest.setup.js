@@ -4,6 +4,10 @@ jest.mock('expo-linear-gradient', () => ({
   LinearGradient: 'LinearGradient',
 }));
 
+jest.mock('react-native-webview', () => ({
+  WebView: 'WebView',
+}));
+
 jest.mock('@react-native-async-storage/async-storage', () => ({
   setItem: jest.fn(() => Promise.resolve()),
   getItem: jest.fn(() => Promise.resolve(null)),
@@ -18,6 +22,12 @@ jest.mock('expo-constants', () => ({
       extra: {},
     },
   },
+}));
+
+jest.mock('@sentry/react-native', () => ({
+  init: jest.fn(),
+  captureException: jest.fn(),
+  addBreadcrumb: jest.fn(),
 }));
 
 jest.mock('expo-secure-store', () => ({

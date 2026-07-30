@@ -7,6 +7,8 @@ const DEFAULT_GOOGLE_ANDROID_CLIENT_ID =
   '623941719538-3eh00pk50n22lk91e1ocbevkkiqal3sd.apps.googleusercontent.com';
 const DEFAULT_GOOGLE_IOS_CLIENT_ID =
   '623941719538-d37q0vrph76pciungh1mapq9ug5f4gbq.apps.googleusercontent.com';
+const DEFAULT_SENTRY_DSN =
+  'https://5901f5f9a6ef0a0e6d585c22f26f61db@o4511822763393024.ingest.us.sentry.io/4511822768504832';
 
 function readAndroidGradleProperty(name) {
   const gradlePropertiesPath = path.join(__dirname, 'android', 'gradle.properties');
@@ -49,6 +51,7 @@ module.exports = {
     version: '1.2.6',
     assetBundlePatterns: ['**/*'],
     plugins: [
+      'expo-asset',
       [
         'expo-audio',
         {
@@ -67,6 +70,16 @@ module.exports = {
         {
           // Used for the daily study reminder opt-in on the onboarding Reminder (S16) screen.
           color: '#F97316',
+        },
+      ],
+      'expo-secure-store',
+      'expo-status-bar',
+      'expo-web-browser',
+      [
+        '@sentry/react-native',
+        {
+          organization: process.env.SENTRY_ORG || 'astra-quest',
+          project: process.env.SENTRY_PROJECT || 'react-native',
         },
       ],
     ],
@@ -95,6 +108,7 @@ module.exports = {
       googleIosClientId,
       googleRedirectUri,
       kitabuExpoProjectId: process.env.KITABU_EXPO_PROJECT_ID || process.env.EXPO_PUBLIC_KITABU_EXPO_PROJECT_ID || '',
+      sentryDsn: process.env.SENTRY_DSN || process.env.EXPO_PUBLIC_SENTRY_DSN || DEFAULT_SENTRY_DSN,
     },
   },
 };

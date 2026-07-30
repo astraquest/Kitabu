@@ -32,17 +32,22 @@ jobs:
         working-directory: native-app
       - name: Verify Sentry credentials
         run: npx --yes @sentry/cli info
+        working-directory: native-app
       - run: npx --yes @sentry/cli releases new "$SENTRY_RELEASE"
+        working-directory: native-app
       - run: >-
           npx --yes @sentry/cli sourcemaps upload
           --release "$SENTRY_RELEASE"
           --org "$SENTRY_ORG"
           --project "$SENTRY_PROJECT"
           android/app/build/generated/sourcemaps/react/release
+        working-directory: native-app
       - run: >-
           npx --yes @sentry/cli upload-dif
           --org "$SENTRY_ORG"
           --project "$SENTRY_PROJECT"
           --release "$SENTRY_RELEASE"
           android/app/build/intermediates/stripped_native_libs/release/out/lib
+        working-directory: native-app
       - run: npx --yes @sentry/cli releases finalize "$SENTRY_RELEASE"
+        working-directory: native-app

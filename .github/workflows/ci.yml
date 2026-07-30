@@ -86,7 +86,7 @@ jobs:
         with:
           name: kitabu-api-sbom
           path: kitabu-api-sbom.spdx.json
-      - uses: aquasecurity/trivy-action@0.31.0
+      - uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: kitabu-api:ci
           format: table

@@ -42,7 +42,13 @@ function collectJsonFiles(input: string): string[] {
 }
 
 function digestFile(path: string): string {
-  return createHash('sha256').update(readFileSync(path)).digest('hex');
+  // Curriculum JSON is committed as text and may be checked out with CRLF on
+  // Windows. Hash its canonical LF representation so fixture integrity is
+  // stable across developer machines and Linux CI runners.
+  const bytes = readFileSync(path);
+  const text = bytes.toString('utf8');
+  const canonical = text.includes('\r\n') ? text.replaceAll('\r\n', '\n') : text;
+  return createHash('sha256').update(canonical, 'utf8').digest('hex');
 }
 
 function checkSha256(value: unknown, field: string, source: string, issues: IntegrityIssue[]): void {

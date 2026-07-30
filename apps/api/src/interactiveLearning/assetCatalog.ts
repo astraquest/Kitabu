@@ -5,14 +5,26 @@ export interface LearningAssetSummary {
   assetId: string;
   version: string;
   displayName: string;
-  kind: 'model-3d';
+  kind: 'model-3d' | 'vector';
   status: string;
+  category?: string;
+  collectionId?: string;
+  uses?: string[];
+}
+
+export interface LearningAssetCollectionProgress {
+  id: string;
+  label: string;
+  target: number;
+  registered: number;
+  ready: number;
 }
 
 export interface LearningAssetCatalog {
   assets: LearningAssetSummary[];
   totalReady: number;
   totalRegistered: number;
+  collections: LearningAssetCollectionProgress[];
 }
 
 type RegistryAsset = {
@@ -22,6 +34,16 @@ type RegistryAsset = {
   kind?: unknown;
   status?: unknown;
   manifest?: unknown;
+  path?: unknown;
+  category?: unknown;
+  collectionId?: unknown;
+  uses?: unknown;
+};
+
+type RegistryCollection = {
+  id?: unknown;
+  label?: unknown;
+  target?: unknown;
 };
 
 type ManifestFile = {
@@ -65,15 +87,22 @@ async function readFirstAvailableRegistry() {
 }
 
 export async function readLearningAssetCatalog(registryJson?: string): Promise<LearningAssetCatalog> {
-  const parsed = JSON.parse(registryJson ?? (await readFirstAvailableRegistry()).json) as { assets?: unknown };
+  const parsed = JSON.parse(registryJson ?? (await readFirstAvailableRegistry()).json) as {
+    assets?: unknown;
+    collections?: unknown;
+  };
   const registered = Array.isArray(parsed.assets) ? parsed.assets as RegistryAsset[] : [];
   const assets = registered.flatMap(asset => {
+    const kind: LearningAssetSummary['kind'] | null = asset.kind === 'model-3d'
+      ? 'model-3d'
+      : asset.kind === 'vector' ? 'vector' : null;
     if (
-      asset.kind !== 'model-3d' ||
+      kind === null ||
       typeof asset.assetId !== 'string' ||
       typeof asset.version !== 'string' ||
       typeof asset.displayName !== 'string' ||
-      typeof asset.status !== 'string'
+      typeof asset.status !== 'string' ||
+      (kind === 'vector' && (typeof asset.path !== 'string' || !asset.path.endsWith('.svg')))
     ) {
       return [];
     }
@@ -81,8 +110,29 @@ export async function readLearningAssetCatalog(registryJson?: string): Promise<L
       assetId: asset.assetId,
       version: asset.version,
       displayName: asset.displayName,
-      kind: 'model-3d' as const,
+      kind,
       status: asset.status,
+      ...(typeof asset.category === 'string' ? { category: asset.category } : {}),
+      ...(typeof asset.collectionId === 'string' ? { collectionId: asset.collectionId } : {}),
+      ...(Array.isArray(asset.uses) && asset.uses.every(use => typeof use === 'string') ? { uses: asset.uses } : {}),
+    }];
+  });
+  const collections = (Array.isArray(parsed.collections) ? parsed.collections as RegistryCollection[] : []).flatMap(collection => {
+    const target = collection.target;
+    if (
+      typeof collection.id !== 'string' ||
+      typeof collection.label !== 'string' ||
+      typeof target !== 'number' ||
+      !Number.isSafeInteger(target) ||
+      target < 0
+    ) return [];
+    const collectionAssets = assets.filter(asset => asset.collectionId === collection.id);
+    return [{
+      id: collection.id,
+      label: collection.label,
+      target,
+      registered: collectionAssets.length,
+      ready: collectionAssets.filter(asset => asset.status === 'ready').length,
     }];
   });
 
@@ -90,6 +140,7 @@ export async function readLearningAssetCatalog(registryJson?: string): Promise<L
     assets,
     totalReady: assets.filter(asset => asset.status === 'ready').length,
     totalRegistered: registered.length,
+    collections,
   };
 }
 
@@ -142,5 +193,22 @@ export async function resolveLearningAssetRuntimeFile(
             : extension === '.png' ? 'image/png'
               : extension === '.webp' ? 'image/webp'
                 : extension === '.jpg' || extension === '.jpeg' ? 'image/jpeg' : 'application/octet-stream',
+  };
+}
+
+/** Resolves a registered SVG vector file for direct, safe admin preview. */
+export async function resolveLearningAssetPreviewFile(
+  assetId: string,
+  version: string,
+): Promise<LearningAssetFile | null> {
+  const registry = await readFirstAvailableRegistry();
+  const parsed = JSON.parse(registry.json) as { assets?: unknown };
+  const entries = Array.isArray(parsed.assets) ? parsed.assets as RegistryAsset[] : [];
+  const entry = entries.find(asset => asset.assetId === assetId && asset.version === version);
+  if (entry?.kind !== 'vector' || typeof entry.path !== 'string' || !entry.path.endsWith('.svg')) return null;
+
+  return {
+    absolutePath: resolveInside(dirname(registry.path), entry.path),
+    mimeType: 'image/svg+xml',
   };
 }

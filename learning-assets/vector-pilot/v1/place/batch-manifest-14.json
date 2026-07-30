@@ -1,0 +1,42 @@
+{
+  "batch": 14,
+  "category": "place",
+  "records": [
+    {
+      "slug": "school",
+      "displayName": "School",
+      "description": "A friendly school building for identifying community places.",
+      "uses": ["vocabulary", "matching", "storytelling"]
+    },
+    {
+      "slug": "church",
+      "displayName": "Church",
+      "description": "A church building for learning about familiar community and faith places.",
+      "uses": ["vocabulary", "matching", "faith-cre"]
+    },
+    {
+      "slug": "mosque",
+      "displayName": "Mosque",
+      "description": "A mosque building for learning about familiar community and faith places.",
+      "uses": ["vocabulary", "matching", "faith-ire"]
+    },
+    {
+      "slug": "market",
+      "displayName": "Market",
+      "description": "A colourful market stall for sorting food and discussing daily life.",
+      "uses": ["vocabulary", "sorting", "counting"]
+    },
+    {
+      "slug": "clinic",
+      "displayName": "Clinic",
+      "description": "A clinic building for matching helpers and community places.",
+      "uses": ["vocabulary", "matching", "storytelling"]
+    },
+    {
+      "slug": "playground",
+      "displayName": "Playground",
+      "description": "A playground scene for describing movement, play, and familiar places.",
+      "uses": ["vocabulary", "body-awareness", "storytelling"]
+    }
+  ]
+}

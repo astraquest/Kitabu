@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "straight-line",
+    "displayName": "Straight Line",
+    "description": "A simple horizontal path with distinct endpoints for following from one side to the other.",
+    "uses": ["patterns", "matching", "shape-learning"]
+  },
+  {
+    "slug": "curve",
+    "displayName": "Curve",
+    "description": "A smooth curved path for tracing, comparing line types, and describing movement.",
+    "uses": ["patterns", "vocabulary", "shape-learning"]
+  },
+  {
+    "slug": "zigzag",
+    "displayName": "Zigzag",
+    "description": "A repeating angular path that supports tracing and noticing alternating directions.",
+    "uses": ["patterns", "matching", "shape-learning"]
+  },
+  {
+    "slug": "loop",
+    "displayName": "Loop",
+    "description": "A returning path for tracing circular movement and exploring looping shapes.",
+    "uses": ["patterns", "body-awareness", "shape-learning"]
+  },
+  {
+    "slug": "circle-path",
+    "displayName": "Circle Path",
+    "description": "A guided round path for following direction around a circle and recognising a circular shape.",
+    "uses": ["shape-learning", "patterns", "body-awareness"]
+  },
+  {
+    "slug": "wave",
+    "displayName": "Wave",
+    "description": "A flowing repeating path for tracing and recognising a wave-like pattern.",
+    "uses": ["patterns", "vocabulary", "matching"]
+  }
+]

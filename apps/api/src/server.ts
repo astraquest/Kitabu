@@ -50,7 +50,8 @@ import {
   verifyTotpToken
 } from './auth.js';
 import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
-import { readLearningAssetCatalog, resolveLearningAssetRuntimeFile } from './interactiveLearning/assetCatalog.js';
+import { readAdminCurriculumCatalog } from './curriculumCatalog.js';
+import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearningAssetRuntimeFile } from './interactiveLearning/assetCatalog.js';
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
@@ -1807,7 +1808,7 @@ export function buildServer(options: BuildServerOptions = {}) {
   app.register(cookie);
   app.register(helmet, { frameguard: false });
   app.addHook('onRequest', (request, reply, done) => {
-    if (!/^\/learning-assets\/[^/]+\/[^/]+\/runtime\//.test(request.raw.url ?? '')) {
+    if (!/^\/learning-assets\/[^/]+\/[^/]+\/(?:runtime\/|preview$)/.test(request.raw.url ?? '')) {
       reply.header('X-Frame-Options', 'SAMEORIGIN');
     }
     done();
@@ -8151,6 +8152,12 @@ Return valid JSON with this shape:
     return validatePublishableBundle(bundle, channel.data);
   });
 
+  app.get('/admin/curriculum/catalog', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
+    if (denied) return;
+    return readAdminCurriculumCatalog();
+  });
+
   app.post('/admin/interactive-learning/bundles', async (request, reply) => {
     const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
     if (denied) return;
@@ -8220,6 +8227,23 @@ Return valid JSON with this shape:
     const params = learningAssetIdentitySchema.extend({ '*': z.string().min(1).max(240) }).safeParse(request.params);
     if (!params.success) return reply.badRequest('Invalid learning asset request');
     return sendLearningAssetRuntime(params.data.assetId, params.data.version, params.data['*'], reply);
+  });
+
+  app.get('/learning-assets/:assetId/:version/preview', async (request, reply) => {
+    const params = learningAssetIdentitySchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid learning asset request');
+    try {
+      const file = await resolveLearningAssetPreviewFile(params.data.assetId, params.data.version);
+      if (!file) return reply.notFound('Learning asset preview is unavailable');
+      return reply
+        .type(file.mimeType)
+        .header('Cache-Control', 'public, max-age=31536000, immutable')
+        .header('Cross-Origin-Resource-Policy', 'cross-origin')
+        .header('Content-Security-Policy', `default-src 'none'; frame-ancestors ${getLearningAssetFrameAncestors()}`)
+        .send(createReadStream(file.absolutePath));
+    } catch {
+      return reply.badRequest('Invalid learning asset preview path');
+    }
   });
 
   app.get('/interactive-learning/releases/:channel', async (request, reply) => {

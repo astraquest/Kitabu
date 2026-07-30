@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 import { BookOpen, Paperclip, Plus, Trash2, Upload } from 'lucide-react-native';
 
 import { SUPPORTED_GRADES } from '../../constants/grades';
+import { getAdminCurriculumCatalog } from '../../services/curriculumService';
 import { LearningStrand } from '../../types/app';
 import { InteractiveLearningPublisherPanel } from './InteractiveLearningPublisherPanel';
 import { AdminLearningAssetsPanel } from './AdminLearningAssetsPanel';
@@ -37,6 +38,22 @@ export function AdminCurriculumSection({
   onRemoveSubject,
 }: AdminCurriculumSectionProps) {
   const [showAssets, setShowAssets] = useState(false);
+  const [grades, setGrades] = useState<string[]>([...SUPPORTED_GRADES]);
+
+  useEffect(() => {
+    let active = true;
+    const load = () => getAdminCurriculumCatalog()
+      .then(catalog => {
+        if (active && catalog.grades.length) setGrades(catalog.grades);
+      })
+      .catch(() => undefined);
+    load();
+    const timer = setInterval(load, 30000);
+    return () => {
+      active = false;
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <>
@@ -72,7 +89,7 @@ export function AdminCurriculumSection({
           style={[styles.gradeChip, showAssets && styles.gradeChipActive]}>
           <Text style={[styles.gradeChipText, showAssets && styles.gradeChipTextActive]}>Assets</Text>
         </Pressable>
-        {SUPPORTED_GRADES.map(grade => (
+        {grades.map(grade => (
           <Pressable
             key={grade}
             onPress={() => {

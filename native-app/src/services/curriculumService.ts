@@ -5,6 +5,10 @@ async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T
   return apiJsonRequest<T>(path, options);
 }
 
+export async function getAdminCurriculumCatalog() {
+  return apiRequest<{ grades: string[] }>('/admin/curriculum/catalog', { method: 'GET' });
+}
+
 export async function getCurriculumForGrade(
   grade: string,
   subjectId?: string,

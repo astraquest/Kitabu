@@ -1,0 +1,42 @@
+{
+  "batch": "09",
+  "category": "shape",
+  "assets": [
+    {
+      "slug": "circle",
+      "displayName": "Circle",
+      "description": "A clear circle outline for identifying, tracing, colouring, and matching round shapes.",
+      "uses": ["shape-learning", "matching", "colouring", "sorting"]
+    },
+    {
+      "slug": "square",
+      "displayName": "Square",
+      "description": "A clear square outline for identifying corners, tracing, colouring, and sorting shapes.",
+      "uses": ["shape-learning", "colouring", "sorting", "matching"]
+    },
+    {
+      "slug": "triangle",
+      "displayName": "Triangle",
+      "description": "A clear triangle outline for counting sides, tracing, matching, and shape sorting.",
+      "uses": ["shape-learning", "counting", "matching", "sorting"]
+    },
+    {
+      "slug": "rectangle",
+      "displayName": "Rectangle",
+      "description": "A clear rectangle outline for comparing long and short sides, tracing, and matching shapes.",
+      "uses": ["shape-learning", "matching", "colouring", "sorting"]
+    },
+    {
+      "slug": "oval",
+      "displayName": "Oval",
+      "description": "A clear oval outline for identifying curved shapes, tracing, colouring, and matching.",
+      "uses": ["shape-learning", "colouring", "matching", "sorting"]
+    },
+    {
+      "slug": "star-shape",
+      "displayName": "Star Shape",
+      "description": "A clear five-point star outline for shape recognition, counting points, colouring, and patterns.",
+      "uses": ["shape-learning", "counting", "colouring", "patterns"]
+    }
+  ]
+}

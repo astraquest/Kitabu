@@ -1,0 +1,2148 @@
+{
+    "catalogueVersion":  1,
+    "kitId":  "kitabu.pp2-vector-pilot",
+    "version":  "1.0.0",
+    "description":  "Reusable vector learning assets for PP2 to Grade 3.",
+    "assetCountTarget":  100,
+    "assets":  [
+                   {
+                       "assetId":  "kitabu.vector.animal.chicken",
+                       "version":  "1.0.0",
+                       "displayName":  "Chicken",
+                       "description":  "Friendly chicken for introducing familiar farm animals.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/chicken.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.fish",
+                       "version":  "1.0.0",
+                       "displayName":  "Fish",
+                       "description":  "Friendly fish for water-animal vocabulary and visual sorting.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/fish.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.cat",
+                       "version":  "1.0.0",
+                       "displayName":  "Cat",
+                       "description":  "Friendly cat for pet vocabulary, matching, and story scenes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/cat.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "phonics",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.dog",
+                       "version":  "1.0.0",
+                       "displayName":  "Dog",
+                       "description":  "Friendly dog for familiar-animal naming and sorting activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/dog.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "phonics",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.goat",
+                       "version":  "1.0.0",
+                       "displayName":  "Goat",
+                       "description":  "Friendly goat for farm vocabulary and animal matching exercises.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/goat.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.cow",
+                       "version":  "1.0.0",
+                       "displayName":  "Cow",
+                       "description":  "Friendly cow for farm sorting, vocabulary, and colouring practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/cow.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.sheep",
+                       "version":  "1.0.0",
+                       "displayName":  "Sheep",
+                       "description":  "Friendly sheep for farm-animal vocabulary and pattern activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "animal",
+                       "path":  "vector-pilot/v1/animal/sheep.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "patterns",
+                                    "matching",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.hand",
+                       "version":  "1.0.0",
+                       "displayName":  "Open Hand",
+                       "description":  "A friendly open hand with five clear fingers.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/hand.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.foot",
+                       "version":  "1.0.0",
+                       "displayName":  "Foot",
+                       "description":  "A clear foot with visible toes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/foot.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.eye",
+                       "version":  "1.0.0",
+                       "displayName":  "Eye",
+                       "description":  "A bright eye with a distinct iris and pupil.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/eye.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.ear",
+                       "version":  "1.0.0",
+                       "displayName":  "Ear",
+                       "description":  "A simple ear with a readable inner curve.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/ear.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "phonics"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.nose",
+                       "version":  "1.0.0",
+                       "displayName":  "Nose",
+                       "description":  "A friendly front-view nose with two nostrils.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/nose.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.mouth",
+                       "version":  "1.0.0",
+                       "displayName":  "Smiling Mouth",
+                       "description":  "A cheerful smiling mouth with a tongue.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/mouth.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.teeth",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Teeth",
+                       "description":  "A clear smiling set of teeth for recognising and naming parts of the mouth.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/teeth.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.hair",
+                       "version":  "1.0.0",
+                       "displayName":  "Curly Hair",
+                       "description":  "A textured hair illustration for describing appearance and sorting by visible features.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/hair.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.neck",
+                       "version":  "1.0.0",
+                       "displayName":  "Neck and Shoulders",
+                       "description":  "A simple neck and shoulder shape for identifying how body parts connect.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/neck.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.head",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Head",
+                       "description":  "A smiling head illustration for naming facial features and completing body-part matches.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/head.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.legs",
+                       "version":  "1.0.0",
+                       "displayName":  "Walking Legs",
+                       "description":  "A pair of moving legs for action vocabulary and body-part recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/legs.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.child-avatar",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Child Avatar",
+                       "description":  "A cheerful child character for storytelling, body awareness, and matching activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "body",
+                       "path":  "vector-pilot/v1/body/child-avatar.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "body-awareness",
+                                    "storytelling",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.pen",
+                       "version":  "1.0.0",
+                       "displayName":  "Pen",
+                       "description":  "A blue pen for classroom writing and object-identification activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/pen.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.pencil",
+                       "version":  "1.0.0",
+                       "displayName":  "Pencil",
+                       "description":  "A yellow pencil for writing-tool vocabulary and sorting activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/pencil.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.ruler",
+                       "version":  "1.0.0",
+                       "displayName":  "Ruler",
+                       "description":  "An orange ruler for measuring, counting marks, and pattern practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/ruler.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.book",
+                       "version":  "1.0.0",
+                       "displayName":  "Book",
+                       "description":  "An open book for reading, vocabulary, and storytelling prompts.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/book.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "storytelling",
+                                    "vocabulary",
+                                    "phonics"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.school-bag",
+                       "version":  "1.0.0",
+                       "displayName":  "School Bag",
+                       "description":  "A school bag for matching classroom objects and sorting activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/school-bag.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "matching",
+                                    "sorting",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.chair",
+                       "version":  "1.0.0",
+                       "displayName":  "Chair",
+                       "description":  "A classroom chair for object vocabulary, matching, and spatial storytelling.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "classroom",
+                       "path":  "vector-pilot/v1/classroom/chair.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.red-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Red Swatch",
+                       "description":  "A bright red rounded swatch with a simple highlight.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/red-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.yellow-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Yellow Swatch",
+                       "description":  "A sunny yellow rounded swatch with a diamond detail.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/yellow-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.blue-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Blue Swatch",
+                       "description":  "A deep blue rounded swatch with a stripe detail.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/blue-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.green-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Green Swatch",
+                       "description":  "A fresh green rounded swatch with a leaf detail.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/green-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.orange-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Orange Swatch",
+                       "description":  "A vivid orange rounded swatch with a circle detail.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/orange-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.purple-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Purple Swatch",
+                       "description":  "A rich purple rounded swatch with a star detail.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "colour",
+                       "path":  "vector-pilot/v1/colour/purple-swatch.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.bible",
+                       "version":  "1.0.0",
+                       "displayName":  "Bible",
+                       "description":  "A closed book for introducing Bible stories and vocabulary.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/bible.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-cre",
+                                    "storytelling",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.cross",
+                       "version":  "1.0.0",
+                       "displayName":  "Cross",
+                       "description":  "A simple cross for Christian religious education activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/cross.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-cre",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.prayer-hands",
+                       "version":  "1.0.0",
+                       "displayName":  "Prayer Hands",
+                       "description":  "Hands together for discussing prayer in faith learning.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/prayer-hands.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-cre",
+                                    "faith-ire",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.prayer-mat",
+                       "version":  "1.0.0",
+                       "displayName":  "Prayer Mat",
+                       "description":  "A simple prayer mat for Islamic religious education activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/prayer-mat.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-ire",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.crescent-star",
+                       "version":  "1.0.0",
+                       "displayName":  "Crescent and Star",
+                       "description":  "A crescent and star for Islamic religious education activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/crescent-star.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-ire",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.creation-globe",
+                       "version":  "1.0.0",
+                       "displayName":  "Creation Globe",
+                       "description":  "A globe for creation stories and world vocabulary learning.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "faith",
+                       "path":  "vector-pilot/v1/faith/creation-globe.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "faith-cre",
+                                    "storytelling",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.carrot",
+                       "version":  "1.0.0",
+                       "displayName":  "Carrot",
+                       "description":  "A bright orange carrot with leafy green tops.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/carrot.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.tomato",
+                       "version":  "1.0.0",
+                       "displayName":  "Tomato",
+                       "description":  "A round red tomato with a leafy green stem.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/tomato.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.potato",
+                       "version":  "1.0.0",
+                       "displayName":  "Potato",
+                       "description":  "A warm golden potato with visible eyes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/potato.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.maize",
+                       "version":  "1.0.0",
+                       "displayName":  "Maize Cob",
+                       "description":  "A golden maize cob partly wrapped in green husks.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/maize.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.bread",
+                       "version":  "1.0.0",
+                       "displayName":  "Bread Loaf",
+                       "description":  "A soft white bread loaf with a golden crust.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/bread.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.milk",
+                       "version":  "1.0.0",
+                       "displayName":  "Milk Bottle",
+                       "description":  "A white milk bottle with a blue cap and rounded shape.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/milk.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.egg",
+                       "version":  "1.0.0",
+                       "displayName":  "Fried Egg",
+                       "description":  "A fried egg with a sunny golden yolk.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "food",
+                       "path":  "vector-pilot/v1/food/egg.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.apple",
+                       "version":  "1.0.0",
+                       "displayName":  "Apple",
+                       "description":  "A bright red apple with a leaf for familiar fruit vocabulary activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/apple.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.banana",
+                       "version":  "1.0.0",
+                       "displayName":  "Banana",
+                       "description":  "A curved golden banana for fruit matching and number practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/banana.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "vocabulary",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.mango",
+                       "version":  "1.0.0",
+                       "displayName":  "Mango",
+                       "description":  "A plump mango for recognising fruit shapes and building vocabulary.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/mango.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.orange",
+                       "version":  "1.0.0",
+                       "displayName":  "Orange",
+                       "description":  "A round orange fruit for colour, counting, and word-learning activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/orange.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "phonics",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.pear",
+                       "version":  "1.0.0",
+                       "displayName":  "Pear",
+                       "description":  "A green pear for sorting games and fruit vocabulary practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/pear.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "sorting",
+                                    "matching",
+                                    "colouring",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.avocado",
+                       "version":  "1.0.0",
+                       "displayName":  "Avocado",
+                       "description":  "A cut avocado that introduces fruit parts, shape, and colour.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/avocado.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.pineapple",
+                       "version":  "1.0.0",
+                       "displayName":  "Pineapple",
+                       "description":  "A patterned pineapple for counting, matching, and fruit vocabulary.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "fruit",
+                       "path":  "vector-pilot/v1/fruit/pineapple.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.cup",
+                       "version":  "1.0.0",
+                       "displayName":  "Cup",
+                       "description":  "A striped drinking cup for everyday-object activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/cup.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.mat",
+                       "version":  "1.0.0",
+                       "displayName":  "Mat",
+                       "description":  "A patterned floor mat for identifying repeated shapes and colours.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/mat.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "shape-learning",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.jug",
+                       "version":  "1.0.0",
+                       "displayName":  "Jug",
+                       "description":  "A water jug for sorting household items and practising vocabulary.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/jug.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.vest",
+                       "version":  "1.0.0",
+                       "displayName":  "Vest",
+                       "description":  "A sleeveless vest for clothing vocabulary and counting buttons.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/vest.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.umbrella",
+                       "version":  "1.0.0",
+                       "displayName":  "Umbrella",
+                       "description":  "An open umbrella for weather stories and colour matching activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/umbrella.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.house",
+                       "version":  "1.0.0",
+                       "displayName":  "House",
+                       "description":  "A cosy house for home vocabulary, shape finding, and storytelling.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "home",
+                       "path":  "vector-pilot/v1/home/house.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-a",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase A",
+                       "description":  "A rounded lowercase a with an apple-inspired counter to support recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/lowercase-a.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-c",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase C",
+                       "description":  "A curved lowercase c with a cheerful caterpillar detail for initial-sound activities.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/lowercase-c.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-e",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase E",
+                       "description":  "A playful lowercase e designed for letter recognition and sound matching.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/lowercase-e.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-h",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase H",
+                       "description":  "A sturdy lowercase h with a small house-window cue for formation practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/lowercase-h.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.uppercase-b",
+                       "version":  "1.0.0",
+                       "displayName":  "Uppercase B",
+                       "description":  "A bold uppercase B with balloon counters for alphabet matching and word prompts.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/uppercase-b.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.uppercase-l",
+                       "version":  "1.0.0",
+                       "displayName":  "Uppercase L",
+                       "description":  "A clear uppercase L with a lantern cue for alphabet and vocabulary learning.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "letter",
+                       "path":  "vector-pilot/v1/letter/uppercase-l.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.leaf",
+                       "version":  "1.0.0",
+                       "displayName":  "Leaf",
+                       "description":  "A green leaf with visible stem and veins.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/leaf.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.flower",
+                       "version":  "1.0.0",
+                       "displayName":  "Flower",
+                       "description":  "A five-petal pink flower with leaves.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/flower.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "colouring",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.tree",
+                       "version":  "1.0.0",
+                       "displayName":  "Tree",
+                       "description":  "A leafy tree with a sturdy trunk.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/tree.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.seedling",
+                       "version":  "1.0.0",
+                       "displayName":  "Seedling",
+                       "description":  "A young plant growing from soil.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/seedling.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.sun",
+                       "version":  "1.0.0",
+                       "displayName":  "Sun",
+                       "description":  "A warm sun with eight clear rays.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/sun.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.cloud",
+                       "version":  "1.0.0",
+                       "displayName":  "Cloud",
+                       "description":  "A soft cloud made from rounded puffs.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/cloud.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.star",
+                       "version":  "1.0.0",
+                       "displayName":  "Star",
+                       "description":  "A five-pointed purple star.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "nature",
+                       "path":  "vector-pilot/v1/nature/star.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "shape-learning",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-zero",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Zero",
+                       "description":  "Outlined numeral card showing zero for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-zero.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-one",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit One",
+                       "description":  "Outlined numeral card showing one for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-one.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "addition"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-two",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Two",
+                       "description":  "Outlined numeral card showing two for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-two.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "subtraction"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-three",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Three",
+                       "description":  "Outlined numeral card showing three for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-three.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-four",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Four",
+                       "description":  "Outlined numeral card showing four for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-four.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "addition"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-five",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Five",
+                       "description":  "Outlined numeral card showing five for early number recognition.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "number",
+                       "path":  "vector-pilot/v1/number/digit-five.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "subtraction"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.school",
+                       "version":  "1.0.0",
+                       "displayName":  "School",
+                       "description":  "A friendly school building for identifying community places.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/school.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.church",
+                       "version":  "1.0.0",
+                       "displayName":  "Church",
+                       "description":  "A church building for learning about familiar community and faith places.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/church.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "faith-cre"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.mosque",
+                       "version":  "1.0.0",
+                       "displayName":  "Mosque",
+                       "description":  "A mosque building for learning about familiar community and faith places.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/mosque.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "faith-ire"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.market",
+                       "version":  "1.0.0",
+                       "displayName":  "Market",
+                       "description":  "A colourful market stall for sorting food and discussing daily life.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/market.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.clinic",
+                       "version":  "1.0.0",
+                       "displayName":  "Clinic",
+                       "description":  "A clinic building for matching helpers and community places.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/clinic.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.playground",
+                       "version":  "1.0.0",
+                       "displayName":  "Playground",
+                       "description":  "A playground scene for describing movement, play, and familiar places.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "place",
+                       "path":  "vector-pilot/v1/place/playground.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "body-awareness",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.circle",
+                       "version":  "1.0.0",
+                       "displayName":  "Circle",
+                       "description":  "A clear circle outline for identifying, tracing, colouring, and matching round shapes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/circle.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "matching",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.square",
+                       "version":  "1.0.0",
+                       "displayName":  "Square",
+                       "description":  "A clear square outline for identifying corners, tracing, colouring, and sorting shapes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/square.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "colouring",
+                                    "sorting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.triangle",
+                       "version":  "1.0.0",
+                       "displayName":  "Triangle",
+                       "description":  "A clear triangle outline for counting sides, tracing, matching, and shape sorting.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/triangle.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "counting",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.rectangle",
+                       "version":  "1.0.0",
+                       "displayName":  "Rectangle",
+                       "description":  "A clear rectangle outline for comparing long and short sides, tracing, and matching shapes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/rectangle.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "matching",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.oval",
+                       "version":  "1.0.0",
+                       "displayName":  "Oval",
+                       "description":  "A clear oval outline for identifying curved shapes, tracing, colouring, and matching.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/oval.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "colouring",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.star-shape",
+                       "version":  "1.0.0",
+                       "displayName":  "Star Shape",
+                       "description":  "A clear five-point star outline for shape recognition, counting points, colouring, and patterns.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "shape",
+                       "path":  "vector-pilot/v1/shape/star-shape.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "counting",
+                                    "colouring",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.straight-line",
+                       "version":  "1.0.0",
+                       "displayName":  "Straight Line",
+                       "description":  "A simple horizontal path with distinct endpoints for following from one side to the other.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/straight-line.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "matching",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.curve",
+                       "version":  "1.0.0",
+                       "displayName":  "Curve",
+                       "description":  "A smooth curved path for tracing, comparing line types, and describing movement.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/curve.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "vocabulary",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.zigzag",
+                       "version":  "1.0.0",
+                       "displayName":  "Zigzag",
+                       "description":  "A repeating angular path that supports tracing and noticing alternating directions.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/zigzag.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "matching",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.loop",
+                       "version":  "1.0.0",
+                       "displayName":  "Loop",
+                       "description":  "A returning path for tracing circular movement and exploring looping shapes.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/loop.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "body-awareness",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.circle-path",
+                       "version":  "1.0.0",
+                       "displayName":  "Circle Path",
+                       "description":  "A guided round path for following direction around a circle and recognising a circular shape.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/circle-path.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "shape-learning",
+                                    "patterns",
+                                    "body-awareness"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.wave",
+                       "version":  "1.0.0",
+                       "displayName":  "Wave",
+                       "description":  "A flowing repeating path for tracing and recognising a wave-like pattern.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "stroke",
+                       "path":  "vector-pilot/v1/stroke/wave.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "patterns",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.bus",
+                       "version":  "1.0.0",
+                       "displayName":  "Bus",
+                       "description":  "A friendly green bus for introducing everyday transport.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/bus.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.bicycle",
+                       "version":  "1.0.0",
+                       "displayName":  "Bicycle",
+                       "description":  "A purple bicycle with a basket and two colourful wheels.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/bicycle.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.car",
+                       "version":  "1.0.0",
+                       "displayName":  "Car",
+                       "description":  "A rounded orange car for transport sorting and word practice.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/car.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.boat",
+                       "version":  "1.0.0",
+                       "displayName":  "Boat",
+                       "description":  "A bright sailing boat that supports water-travel stories.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/boat.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.airplane",
+                       "version":  "1.0.0",
+                       "displayName":  "Airplane",
+                       "description":  "A blue airplane for matching different ways to travel.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/airplane.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.train",
+                       "version":  "1.0.0",
+                       "displayName":  "Train",
+                       "description":  "A cheerful purple train for vehicle vocabulary and counting wheels.",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "category":  "transport",
+                       "path":  "vector-pilot/v1/transport/train.svg",
+                       "grades":  [
+                                      "PP2",
+                                      "Grade 1",
+                                      "Grade 2",
+                                      "Grade 3"
+                                  ],
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "patterns"
+                                ]
+                   }
+               ]
+}

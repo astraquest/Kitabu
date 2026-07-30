@@ -3910,6 +3910,17 @@ export function useKitabuApp() {
   }, [authSession, adminSelectedGrade, currentGrade]);
 
   useEffect(() => {
+    if (!authSession || currentView !== 'admin_portal') {
+      return;
+    }
+
+    const refresh = () => loadCurriculumGrade(adminSelectedGrade, true).catch(() => undefined);
+    refresh();
+    const timer = setInterval(refresh, 30000);
+    return () => clearInterval(timer);
+  }, [authSession, adminSelectedGrade, currentView]);
+
+  useEffect(() => {
     if (!authSession || (!isAdminRole(authSession.user.roles) && !isKnownAdminEmail(authSession.user.email))) {
       return;
     }

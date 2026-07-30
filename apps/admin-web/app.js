@@ -3,7 +3,7 @@ const SALES_AGENT_MESSAGES_KEY = "kitabu.admin.salesAgentMessages";
 const ADMIN_SESSION_HEADER = "x-kitabu-admin-session";
 const REFRESH_MS = 30000;
 
-const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Form 3", "Form 4"];
+let grades = ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 const subjects = ["Mathematics", "English", "Science", "Kiswahili", "Social Studies", "Computer Science"];
 const timeRangeOptions = ["This Term", "This Month", "Last Month", "Last 3 Months", "Last 6 Months", "This Year", "Lifetime"];
 const defaultSchoolPlanPricesKsh = { weekly: 100, monthly: 500, annual: 1999 };
@@ -41,6 +41,8 @@ const state = {
   loading: false,
   lastSync: null,
   selectedGrade: "All Grades",
+  curriculumView: "curriculum",
+  selectedAssetCategory: "all",
   selectedSubject: "All Subjects",
   selectedSchool: "All Schools",
   selectedCounty: "All Counties",
@@ -65,6 +67,11 @@ const state = {
     subjectEngagement: null,
     curriculumByGrade: {},
     subjectEngagementByGrade: {},
+    curriculumCatalog: null,
+    learningAssets: null,
+    learningAssetsError: null,
+    loadingLearningAssets: false,
+    learningAssetsRequest: null,
     loadingCurriculumGrades: new Set(),
     curriculumGradeRequests: {},
     teacherStudents: [],
@@ -340,7 +347,8 @@ async function loadAll(force = false) {
         api("/admin/users"),
         api("/admin/schools"),
         api("/admin/analytics/ai-usage"),
-        api("/admin/analytics/billing")
+        api("/admin/analytics/billing"),
+        api("/admin/curriculum/catalog")
       ]);
       if (results.some(result => result.status === "rejected" && isAuthError(result.reason))) {
         clearSession();
@@ -348,17 +356,29 @@ async function loadAll(force = false) {
         setSync("Signed out", "Authentication required", "error");
         return;
       }
-      const [users, schools, ai, billing] = results.map(result => result.status === "fulfilled" ? result.value : null);
+      const [users, schools, ai, billing, curriculumCatalog] = results.map(result => result.status === "fulfilled" ? result.value : null);
 
       state.data.users = users?.users || state.data.users;
       state.data.schools = schools?.schools || state.data.schools;
       state.data.ai = ai || state.data.ai;
       state.data.billing = billing || state.data.billing;
+      if (Array.isArray(curriculumCatalog?.grades) && curriculumCatalog.grades.length) {
+        grades = curriculumCatalog.grades.map(grade => String(grade));
+        state.data.curriculumCatalog = curriculumCatalog;
+        if (state.selectedGrade !== "All Grades" && !grades.includes(state.selectedGrade)) {
+          state.selectedGrade = grades[0];
+        }
+      }
 
       await loadTeacherData();
     }
     if (!state.accessToken) return;
-    if (state.route === "subjects" || state.route === "subjectAnalytics") await loadCurriculumGrade();
+    if (state.route === "subjects" || state.route === "subjectAnalytics") {
+      await Promise.all([
+        loadCurriculumGrade(),
+        state.route === "subjects" ? loadLearningAssets({ force: true }) : Promise.resolve(),
+      ]);
+    }
     if (!state.accessToken) return;
     state.lastSync = new Date();
     setSync("Live", `Updated ${state.lastSync.toLocaleTimeString()}`, "live");
@@ -452,6 +472,31 @@ async function loadCurriculumGrade(grade = currentCurriculumGrade(), options = {
   if (renderWhenDone && (state.route === "subjects" || state.route === "subjectAnalytics") && currentCurriculumGrade() === targetGrade) renderRoute();
 }
 
+async function loadLearningAssets(options = {}) {
+  const force = Boolean(options.force);
+  if (!force && state.data.learningAssets) return state.data.learningAssets;
+  if (state.data.learningAssetsRequest) return state.data.learningAssetsRequest;
+
+  state.data.loadingLearningAssets = true;
+  const request = api("/admin/interactive-learning/assets")
+    .then(catalog => {
+      state.data.learningAssets = catalog;
+      state.data.learningAssetsError = null;
+      return catalog;
+    })
+    .catch(error => {
+      state.data.learningAssetsError = error.message || "Unable to load learning assets.";
+      return null;
+    })
+    .finally(() => {
+      state.data.loadingLearningAssets = false;
+      state.data.learningAssetsRequest = null;
+      if (state.route === "subjects" && state.curriculumView === "assets") renderRoute();
+    });
+  state.data.learningAssetsRequest = request;
+  return request;
+}
+
 function setSync(title, meta, tone) {
   document.getElementById("syncState").textContent = title;
   document.getElementById("syncMeta").textContent = meta;
@@ -473,7 +518,7 @@ function renderRoute() {
   app.dataset.audience = isParentOnly() ? "parent" : isTeacherOnly() ? "teacher" : "admin";
   const titleMap = {
     dashboard: ["Dashboard", "Overview and performance across live admin data."],
-    subjects: ["Curriculum", "Select grade and subject to edit."],
+    subjects: ["Curriculum", state.curriculumView === "assets" ? "Browse and preview shared learning assets." : "Select grade and subject to edit."],
     subjectAnalytics: ["Subjects", "Monitor engagement, watch time and subject improvement."],
     users: ["Users", "Manage and monitor all users across the platform."],
     schools: ["Schools", "Monitor school performance, learner engagement and activity across the platform."],
@@ -1142,6 +1187,7 @@ function renderDashboard() {
 }
 
 function renderSubjects() {
+  if (state.curriculumView === "assets") return renderLearningAssets();
   const grade = currentCurriculumGrade();
   const curriculum = cachedCurriculumForGrade(grade);
   const isLoading = isCurriculumGradeLoading(grade);
@@ -1153,6 +1199,7 @@ function renderSubjects() {
     <div class="curriculum-page">
       <div class="curriculum-grade-strip">
         <div class="curriculum-grade-pills" role="tablist" aria-label="Curriculum grades">
+          <button class="curriculum-grade-pill ${state.curriculumView === "assets" ? "active" : ""}" type="button" role="tab" aria-selected="${state.curriculumView === "assets"}" data-curriculum-assets>Assets</button>
           ${grades.map(option => `<button class="curriculum-grade-pill ${option === grade ? "active" : ""}" type="button" role="tab" aria-selected="${option === grade}" data-curriculum-grade="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}
         </div>
         <button class="curriculum-add-button" type="button" data-add-subject aria-label="Add subject">${miniIcon("plus")}</button>
@@ -1167,6 +1214,57 @@ function renderSubjects() {
         ${curriculumSubjects.map((subject, index) => curriculumSubjectRow(subject, index, curriculum)).join("")}
       </section>
     </div>`;
+}
+
+function renderLearningAssets() {
+  const catalog = state.data.learningAssets;
+  const assets = Array.isArray(catalog?.assets) ? catalog.assets : [];
+  const categories = Array.from(new Set(assets.map(asset => asset.category).filter(Boolean))).sort();
+  const displayedAssets = state.selectedAssetCategory === "all"
+    ? assets
+    : assets.filter(asset => asset.category === state.selectedAssetCategory);
+  const vectorPilot = Array.isArray(catalog?.collections)
+    ? catalog.collections.find(collection => collection.id === "kitabu.pp2-vector-pilot")
+    : null;
+
+  return `
+    <div class="curriculum-page learning-assets-page">
+      <div class="curriculum-grade-strip">
+        <div class="curriculum-grade-pills" role="tablist" aria-label="Curriculum grades and assets">
+          <button class="curriculum-grade-pill active" type="button" role="tab" aria-selected="true" data-curriculum-assets>Assets</button>
+          ${grades.map(option => `<button class="curriculum-grade-pill" type="button" role="tab" aria-selected="false" data-curriculum-grade="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}
+        </div>
+      </div>
+      ${state.data.loadingLearningAssets ? `<div class="curriculum-loading">${miniIcon("clock")} Loading learning assets...</div>` : ""}
+      ${state.data.learningAssetsError ? `<div class="curriculum-error">${escapeHtml(state.data.learningAssetsError)}</div>` : ""}
+      ${catalog ? `
+        <section class="learning-assets-summary">
+          <div><span>Learning Assets</span><strong>${Number(catalog.totalReady || 0).toLocaleString("en-KE")} ready</strong><small>${Number(catalog.totalRegistered || 0).toLocaleString("en-KE")} registered</small></div>
+          ${vectorPilot ? `<div class="learning-assets-progress"><span>${escapeHtml(vectorPilot.label)}</span><strong>${Number(vectorPilot.ready || 0)} / ${Number(vectorPilot.target || 0)}</strong></div>` : ""}
+        </section>
+        ${categories.length ? `<div class="learning-assets-filters" aria-label="Asset categories">${["all", ...categories].map(category => `<button class="learning-asset-filter ${category === state.selectedAssetCategory ? "active" : ""}" type="button" data-asset-category="${escapeHtml(category)}">${escapeHtml(category === "all" ? "All" : category)}</button>`).join("")}</div>` : ""}
+        ${displayedAssets.length ? `<section class="learning-assets-grid" aria-label="Learning asset catalog">${displayedAssets.map(learningAssetCard).join("")}</section>` : `<section class="learning-assets-empty"><strong>No assets in this category</strong><span>Choose another category or register a new learning asset.</span></section>`}
+      ` : state.data.loadingLearningAssets ? "" : `<section class="learning-assets-empty"><strong>No learning assets registered</strong><span>Generated assets will appear here once the catalog is available.</span></section>`}
+    </div>`;
+}
+
+function learningAssetCard(asset) {
+  const status = String(asset.status || "unknown");
+  const uses = Array.isArray(asset.uses) ? asset.uses.join(" · ") : "";
+  return `<button class="learning-asset-card" type="button" data-learning-asset-id="${escapeHtml(asset.assetId)}" data-learning-asset-version="${escapeHtml(asset.version)}">
+    <span class="learning-asset-icon ${asset.kind === "vector" ? "vector" : "model"}">${miniIcon(asset.kind === "vector" ? "shapes" : "cube")}</span>
+    <span class="learning-asset-copy"><strong>${escapeHtml(asset.displayName || asset.assetId)}</strong><small>${escapeHtml(asset.category || "Learning asset")} · ${escapeHtml(asset.kind === "vector" ? "Reusable SVG" : "3D model")}</small>${uses ? `<em>${escapeHtml(uses)}</em>` : ""}</span>
+    <span class="learning-asset-status ${status === "ready" ? "ready" : "draft"}">${escapeHtml(status === "prototype-conditional" ? "Conditional" : status)}</span>
+  </button>`;
+}
+
+function openLearningAssetPreview(asset) {
+  const assetPath = `/learning-assets/${encodeURIComponent(asset.assetId)}/${encodeURIComponent(asset.version)}/${asset.kind === "vector" ? "preview" : "runtime/"}`;
+  const previewUrl = `${API_BASE}${assetPath}`;
+  const preview = asset.kind === "vector"
+    ? `<img class="learning-asset-preview-image" src="${escapeHtml(previewUrl)}" alt="${escapeHtml(asset.displayName)} preview">`
+    : `<iframe class="learning-asset-preview-frame" src="${escapeHtml(previewUrl)}" title="${escapeHtml(asset.displayName)} preview" sandbox="allow-scripts"></iframe>`;
+  openModal(asset.displayName || asset.assetId, `<div class="learning-asset-preview"><span>${asset.kind === "vector" ? "SVG VECTOR PREVIEW" : "3D ASSET PREVIEW"}</span>${preview}<small>${escapeHtml(asset.assetId)} · Version ${escapeHtml(asset.version)}</small></div>`, "asset-preview-modal");
 }
 
 function curriculumHeroCard(tone, eyebrow, title, chip, iconName) {
@@ -3108,10 +3206,24 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-curriculum-upload]").forEach(button => button.addEventListener("click", () => pickAndImportCurriculum(button.dataset.curriculumUpload)));
   document.querySelectorAll("[data-curriculum-delete]").forEach(button => button.addEventListener("click", () => openModal("Delete Curriculum", `<p class="visually-muted">Curriculum deletion is not enabled from this dashboard yet. Use the editor to replace or update ${escapeHtml(button.dataset.curriculumDelete)} content.</p>`)));
   document.querySelectorAll("[data-add-subject]").forEach(button => button.addEventListener("click", openAddSubjectModal));
+  document.querySelectorAll("[data-curriculum-assets]").forEach(button => button.addEventListener("click", () => {
+    state.curriculumView = "assets";
+    loadLearningAssets({ force: true });
+    renderRoute();
+  }));
   document.querySelectorAll("[data-curriculum-grade]").forEach(button => button.addEventListener("click", () => {
+    state.curriculumView = "curriculum";
     state.selectedGrade = button.dataset.curriculumGrade;
     renderRoute();
     loadCurriculumGrade(state.selectedGrade, { renderWhenDone: true });
+  }));
+  document.querySelectorAll("[data-asset-category]").forEach(button => button.addEventListener("click", () => {
+    state.selectedAssetCategory = button.dataset.assetCategory || "all";
+    renderRoute();
+  }));
+  document.querySelectorAll("[data-learning-asset-id]").forEach(button => button.addEventListener("click", () => {
+    const asset = state.data.learningAssets?.assets?.find(candidate => candidate.assetId === button.dataset.learningAssetId && candidate.version === button.dataset.learningAssetVersion);
+    if (asset) openLearningAssetPreview(asset);
   }));
   document.querySelectorAll("[data-modal]").forEach(button => button.addEventListener("click", () => showNamedModal(button.dataset.modal)));
 }
@@ -3133,6 +3245,8 @@ function miniIcon(name) {
     phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/>',
     activity: '<path d="M3 12h4l3-7 4 14 3-7h4"/>',
     trend: '<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-7"/><path d="M15 7h4v4"/>',
+    shapes: '<circle cx="7" cy="7" r="3"/><path d="m14 5 5 8h-10l5-8Z"/><rect x="4" y="15" width="7" height="5" rx="1"/>',
+    cube: '<path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/>',
     bars: '<path d="M6 19V11"/><path d="M12 19V5"/><path d="M18 19v-8"/>',
     calculator: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 15h.01"/><path d="M12 15h.01"/><path d="M16 15h.01"/>',
     abc: '<path d="M4 17 8 7l4 10"/><path d="M5.5 13h5"/><path d="M14 10h3.5a2.5 2.5 0 0 1 0 5H14V8h3a2 2 0 0 1 0 4h-3"/>',

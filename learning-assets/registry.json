@@ -1,45 +1,1591 @@
 {
-  "registryVersion": 1,
-  "assets": [
-    {
-      "assetId": "cell.escherichia-coli.001",
-      "version": "1.0.0",
-      "displayName": "Escherichia coli Cell",
-      "kind": "model-3d",
-      "status": "draft",
-      "manifest": "cell.escherichia-coli.001/1.0.0/asset.json"
-    },
-    {
-      "assetId": "cell.neutrophil.001",
-      "version": "1.0.0",
-      "displayName": "Neutrophil (White Blood Cell)",
-      "kind": "model-3d",
-      "status": "draft",
-      "manifest": "cell.neutrophil.001/1.0.0/asset.json"
-    },
-    {
-      "assetId": "cell.plant.001",
-      "version": "1.0.0",
-      "displayName": "Plant Cell",
-      "kind": "model-3d",
-      "status": "draft",
-      "manifest": "cell.plant.001/1.0.0/asset.json"
-    },
-    {
-      "assetId": "cell.skeletal-muscle-fiber.001",
-      "version": "1.0.0",
-      "displayName": "Skeletal Muscle Fiber",
-      "kind": "model-3d",
-      "status": "draft",
-      "manifest": "cell.skeletal-muscle-fiber.001/1.0.0/asset.json"
-    },
-    {
-      "assetId": "specimen.african-monarch.001",
-      "version": "1.0.0",
-      "displayName": "African Monarch",
-      "kind": "model-3d",
-      "status": "prototype-conditional",
-      "manifest": "specimen.african-monarch.001/1.0.0/asset.json"
-    }
-  ]
+    "registryVersion":  1,
+    "assets":  [
+                   {
+                       "assetId":  "cell.escherichia-coli.001",
+                       "version":  "1.0.0",
+                       "displayName":  "Escherichia coli Cell",
+                       "kind":  "model-3d",
+                       "status":  "draft",
+                       "manifest":  "cell.escherichia-coli.001/1.0.0/asset.json"
+                   },
+                   {
+                       "assetId":  "cell.neutrophil.001",
+                       "version":  "1.0.0",
+                       "displayName":  "Neutrophil (White Blood Cell)",
+                       "kind":  "model-3d",
+                       "status":  "draft",
+                       "manifest":  "cell.neutrophil.001/1.0.0/asset.json"
+                   },
+                   {
+                       "assetId":  "cell.plant.001",
+                       "version":  "1.0.0",
+                       "displayName":  "Plant Cell",
+                       "kind":  "model-3d",
+                       "status":  "draft",
+                       "manifest":  "cell.plant.001/1.0.0/asset.json"
+                   },
+                   {
+                       "assetId":  "cell.skeletal-muscle-fiber.001",
+                       "version":  "1.0.0",
+                       "displayName":  "Skeletal Muscle Fiber",
+                       "kind":  "model-3d",
+                       "status":  "draft",
+                       "manifest":  "cell.skeletal-muscle-fiber.001/1.0.0/asset.json"
+                   },
+                   {
+                       "assetId":  "specimen.african-monarch.001",
+                       "version":  "1.0.0",
+                       "displayName":  "African Monarch",
+                       "kind":  "model-3d",
+                       "status":  "prototype-conditional",
+                       "manifest":  "specimen.african-monarch.001/1.0.0/asset.json"
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.chicken",
+                       "version":  "1.0.0",
+                       "displayName":  "Chicken",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/chicken.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.fish",
+                       "version":  "1.0.0",
+                       "displayName":  "Fish",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/fish.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.cat",
+                       "version":  "1.0.0",
+                       "displayName":  "Cat",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/cat.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "phonics",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.dog",
+                       "version":  "1.0.0",
+                       "displayName":  "Dog",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/dog.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "phonics",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.goat",
+                       "version":  "1.0.0",
+                       "displayName":  "Goat",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/goat.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.cow",
+                       "version":  "1.0.0",
+                       "displayName":  "Cow",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/cow.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.animal.sheep",
+                       "version":  "1.0.0",
+                       "displayName":  "Sheep",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/animal/sheep.svg",
+                       "category":  "animal",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "patterns",
+                                    "matching",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.hand",
+                       "version":  "1.0.0",
+                       "displayName":  "Open Hand",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/hand.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.foot",
+                       "version":  "1.0.0",
+                       "displayName":  "Foot",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/foot.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.eye",
+                       "version":  "1.0.0",
+                       "displayName":  "Eye",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/eye.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.ear",
+                       "version":  "1.0.0",
+                       "displayName":  "Ear",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/ear.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "phonics"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.nose",
+                       "version":  "1.0.0",
+                       "displayName":  "Nose",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/nose.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.mouth",
+                       "version":  "1.0.0",
+                       "displayName":  "Smiling Mouth",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/mouth.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.teeth",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Teeth",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/teeth.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.hair",
+                       "version":  "1.0.0",
+                       "displayName":  "Curly Hair",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/hair.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.neck",
+                       "version":  "1.0.0",
+                       "displayName":  "Neck and Shoulders",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/neck.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.head",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Head",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/head.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.legs",
+                       "version":  "1.0.0",
+                       "displayName":  "Walking Legs",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/legs.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "vocabulary",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.body.child-avatar",
+                       "version":  "1.0.0",
+                       "displayName":  "Friendly Child Avatar",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/body/child-avatar.svg",
+                       "category":  "body",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "body-awareness",
+                                    "storytelling",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.pen",
+                       "version":  "1.0.0",
+                       "displayName":  "Pen",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/pen.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.pencil",
+                       "version":  "1.0.0",
+                       "displayName":  "Pencil",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/pencil.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.ruler",
+                       "version":  "1.0.0",
+                       "displayName":  "Ruler",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/ruler.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.book",
+                       "version":  "1.0.0",
+                       "displayName":  "Book",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/book.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "storytelling",
+                                    "vocabulary",
+                                    "phonics"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.school-bag",
+                       "version":  "1.0.0",
+                       "displayName":  "School Bag",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/school-bag.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "matching",
+                                    "sorting",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.classroom.chair",
+                       "version":  "1.0.0",
+                       "displayName":  "Chair",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/classroom/chair.svg",
+                       "category":  "classroom",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.red-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Red Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/red-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.yellow-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Yellow Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/yellow-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.blue-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Blue Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/blue-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.green-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Green Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/green-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.orange-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Orange Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/orange-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.colour.purple-swatch",
+                       "version":  "1.0.0",
+                       "displayName":  "Purple Swatch",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/colour/purple-swatch.svg",
+                       "category":  "colour",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "matching",
+                                    "patterns",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.bible",
+                       "version":  "1.0.0",
+                       "displayName":  "Bible",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/bible.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-cre",
+                                    "storytelling",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.cross",
+                       "version":  "1.0.0",
+                       "displayName":  "Cross",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/cross.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-cre",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.prayer-hands",
+                       "version":  "1.0.0",
+                       "displayName":  "Prayer Hands",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/prayer-hands.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-cre",
+                                    "faith-ire",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.prayer-mat",
+                       "version":  "1.0.0",
+                       "displayName":  "Prayer Mat",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/prayer-mat.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-ire",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.crescent-star",
+                       "version":  "1.0.0",
+                       "displayName":  "Crescent and Star",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/crescent-star.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-ire",
+                                    "matching",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.faith.creation-globe",
+                       "version":  "1.0.0",
+                       "displayName":  "Creation Globe",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/faith/creation-globe.svg",
+                       "category":  "faith",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "faith-cre",
+                                    "storytelling",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.carrot",
+                       "version":  "1.0.0",
+                       "displayName":  "Carrot",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/carrot.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.tomato",
+                       "version":  "1.0.0",
+                       "displayName":  "Tomato",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/tomato.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.potato",
+                       "version":  "1.0.0",
+                       "displayName":  "Potato",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/potato.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.maize",
+                       "version":  "1.0.0",
+                       "displayName":  "Maize Cob",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/maize.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.bread",
+                       "version":  "1.0.0",
+                       "displayName":  "Bread Loaf",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/bread.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.milk",
+                       "version":  "1.0.0",
+                       "displayName":  "Milk Bottle",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/milk.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.food.egg",
+                       "version":  "1.0.0",
+                       "displayName":  "Fried Egg",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/food/egg.svg",
+                       "category":  "food",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.apple",
+                       "version":  "1.0.0",
+                       "displayName":  "Apple",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/apple.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.banana",
+                       "version":  "1.0.0",
+                       "displayName":  "Banana",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/banana.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "vocabulary",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.mango",
+                       "version":  "1.0.0",
+                       "displayName":  "Mango",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/mango.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "colouring",
+                                    "vocabulary",
+                                    "sorting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.orange",
+                       "version":  "1.0.0",
+                       "displayName":  "Orange",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/orange.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "colouring",
+                                    "phonics",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.pear",
+                       "version":  "1.0.0",
+                       "displayName":  "Pear",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/pear.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "sorting",
+                                    "matching",
+                                    "colouring",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.avocado",
+                       "version":  "1.0.0",
+                       "displayName":  "Avocado",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/avocado.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.fruit.pineapple",
+                       "version":  "1.0.0",
+                       "displayName":  "Pineapple",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/fruit/pineapple.svg",
+                       "category":  "fruit",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "patterns",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.cup",
+                       "version":  "1.0.0",
+                       "displayName":  "Cup",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/cup.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.mat",
+                       "version":  "1.0.0",
+                       "displayName":  "Mat",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/mat.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "shape-learning",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.jug",
+                       "version":  "1.0.0",
+                       "displayName":  "Jug",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/jug.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.vest",
+                       "version":  "1.0.0",
+                       "displayName":  "Vest",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/vest.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.umbrella",
+                       "version":  "1.0.0",
+                       "displayName":  "Umbrella",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/umbrella.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.home.house",
+                       "version":  "1.0.0",
+                       "displayName":  "House",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/home/house.svg",
+                       "category":  "home",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-a",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase A",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/lowercase-a.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-c",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase C",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/lowercase-c.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-e",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase E",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/lowercase-e.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.lowercase-h",
+                       "version":  "1.0.0",
+                       "displayName":  "Lowercase H",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/lowercase-h.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.uppercase-b",
+                       "version":  "1.0.0",
+                       "displayName":  "Uppercase B",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/uppercase-b.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.letter.uppercase-l",
+                       "version":  "1.0.0",
+                       "displayName":  "Uppercase L",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/letter/uppercase-l.svg",
+                       "category":  "letter",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "phonics",
+                                    "matching",
+                                    "vocabulary"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.leaf",
+                       "version":  "1.0.0",
+                       "displayName":  "Leaf",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/leaf.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.flower",
+                       "version":  "1.0.0",
+                       "displayName":  "Flower",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/flower.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "colouring",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.tree",
+                       "version":  "1.0.0",
+                       "displayName":  "Tree",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/tree.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.seedling",
+                       "version":  "1.0.0",
+                       "displayName":  "Seedling",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/seedling.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.sun",
+                       "version":  "1.0.0",
+                       "displayName":  "Sun",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/sun.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.cloud",
+                       "version":  "1.0.0",
+                       "displayName":  "Cloud",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/cloud.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "shape-learning",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.nature.star",
+                       "version":  "1.0.0",
+                       "displayName":  "Star",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/nature/star.svg",
+                       "category":  "nature",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "shape-learning",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-zero",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Zero",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-zero.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-one",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit One",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-one.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "addition"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-two",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Two",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-two.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "subtraction"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-three",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Three",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-three.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-four",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Four",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-four.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "addition"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.number.digit-five",
+                       "version":  "1.0.0",
+                       "displayName":  "Digit Five",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/number/digit-five.svg",
+                       "category":  "number",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "counting",
+                                    "matching",
+                                    "subtraction"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.school",
+                       "version":  "1.0.0",
+                       "displayName":  "School",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/school.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.church",
+                       "version":  "1.0.0",
+                       "displayName":  "Church",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/church.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "faith-cre"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.mosque",
+                       "version":  "1.0.0",
+                       "displayName":  "Mosque",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/mosque.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "faith-ire"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.market",
+                       "version":  "1.0.0",
+                       "displayName":  "Market",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/market.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "counting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.clinic",
+                       "version":  "1.0.0",
+                       "displayName":  "Clinic",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/clinic.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.place.playground",
+                       "version":  "1.0.0",
+                       "displayName":  "Playground",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/place/playground.svg",
+                       "category":  "place",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "body-awareness",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.circle",
+                       "version":  "1.0.0",
+                       "displayName":  "Circle",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/circle.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "matching",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.square",
+                       "version":  "1.0.0",
+                       "displayName":  "Square",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/square.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "colouring",
+                                    "sorting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.triangle",
+                       "version":  "1.0.0",
+                       "displayName":  "Triangle",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/triangle.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "counting",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.rectangle",
+                       "version":  "1.0.0",
+                       "displayName":  "Rectangle",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/rectangle.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "matching",
+                                    "colouring",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.oval",
+                       "version":  "1.0.0",
+                       "displayName":  "Oval",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/oval.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "colouring",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.shape.star-shape",
+                       "version":  "1.0.0",
+                       "displayName":  "Star Shape",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/shape/star-shape.svg",
+                       "category":  "shape",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "counting",
+                                    "colouring",
+                                    "patterns"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.straight-line",
+                       "version":  "1.0.0",
+                       "displayName":  "Straight Line",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/straight-line.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "matching",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.curve",
+                       "version":  "1.0.0",
+                       "displayName":  "Curve",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/curve.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "vocabulary",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.zigzag",
+                       "version":  "1.0.0",
+                       "displayName":  "Zigzag",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/zigzag.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "matching",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.loop",
+                       "version":  "1.0.0",
+                       "displayName":  "Loop",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/loop.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "body-awareness",
+                                    "shape-learning"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.circle-path",
+                       "version":  "1.0.0",
+                       "displayName":  "Circle Path",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/circle-path.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "shape-learning",
+                                    "patterns",
+                                    "body-awareness"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.stroke.wave",
+                       "version":  "1.0.0",
+                       "displayName":  "Wave",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/stroke/wave.svg",
+                       "category":  "stroke",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "patterns",
+                                    "vocabulary",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.bus",
+                       "version":  "1.0.0",
+                       "displayName":  "Bus",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/bus.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "storytelling"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.bicycle",
+                       "version":  "1.0.0",
+                       "displayName":  "Bicycle",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/bicycle.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "matching"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.car",
+                       "version":  "1.0.0",
+                       "displayName":  "Car",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/car.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "sorting",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.boat",
+                       "version":  "1.0.0",
+                       "displayName":  "Boat",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/boat.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "storytelling",
+                                    "colouring"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.airplane",
+                       "version":  "1.0.0",
+                       "displayName":  "Airplane",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/airplane.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "matching",
+                                    "sorting"
+                                ]
+                   },
+                   {
+                       "assetId":  "kitabu.vector.transport.train",
+                       "version":  "1.0.0",
+                       "displayName":  "Train",
+                       "kind":  "vector",
+                       "status":  "ready",
+                       "path":  "vector-pilot/v1/transport/train.svg",
+                       "category":  "transport",
+                       "collectionId":  "kitabu.pp2-vector-pilot",
+                       "uses":  [
+                                    "vocabulary",
+                                    "counting",
+                                    "patterns"
+                                ]
+                   }
+               ],
+    "collections":  [
+                        {
+                            "id":  "kitabu.pp2-vector-pilot",
+                            "label":  "PP2 Vector Pilot",
+                            "target":  100
+                        }
+                    ]
 }

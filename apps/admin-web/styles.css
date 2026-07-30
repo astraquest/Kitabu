@@ -959,6 +959,214 @@ textarea {
 .curriculum-action.upload { color: #284367; background: #fff; }
 .curriculum-action.delete { color: #ff2639; background: #fff1f2; border-color: #ffd6dc; }
 
+.learning-assets-page {
+  gap: 18px;
+}
+
+.learning-assets-summary {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #dbeafe;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  padding: 20px 24px;
+}
+
+.learning-assets-summary > div {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+}
+
+.learning-assets-summary span,
+.learning-assets-summary small {
+  color: #526383;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.learning-assets-summary strong {
+  color: #0b1533;
+  font-size: 23px;
+  font-weight: 950;
+}
+
+.learning-assets-progress {
+  min-width: 180px;
+  padding-left: 20px;
+  border-left: 1px solid #c7d2fe;
+}
+
+.learning-assets-progress strong {
+  color: #6d28d9;
+}
+
+.learning-assets-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.learning-asset-filter {
+  min-height: 34px;
+  border: 1px solid #dbe4f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #526383;
+  padding: 0 13px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.learning-asset-filter.active {
+  border-color: #312e81;
+  background: #312e81;
+  color: #fff;
+}
+
+.learning-assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.learning-asset-card {
+  min-height: 106px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 14px;
+  text-align: left;
+  box-shadow: var(--panel-shadow);
+}
+
+.learning-asset-card:hover {
+  border-color: #a5bdf5;
+  transform: translateY(-1px);
+}
+
+.learning-asset-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 13px;
+}
+
+.learning-asset-icon.vector { color: #6d28d9; background: #f3e8ff; }
+.learning-asset-icon.model { color: #075cf0; background: #eaf2ff; }
+
+.learning-asset-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.learning-asset-copy {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 3px;
+}
+
+.learning-asset-copy strong,
+.learning-asset-copy small,
+.learning-asset-copy em {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.learning-asset-copy strong { color: #0b1533; font-size: 14px; font-weight: 900; }
+.learning-asset-copy small { color: #64748b; font-size: 11px; font-weight: 750; }
+.learning-asset-copy em { color: #7c3aed; font-size: 10px; font-style: normal; font-weight: 800; }
+
+.learning-asset-status {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 5px 8px;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.learning-asset-status.ready { background: #dcfce7; color: #15803d; }
+.learning-asset-status.draft { background: #fef3c7; color: #a16207; }
+
+.learning-assets-empty {
+  min-height: 160px;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  color: #526383;
+  text-align: center;
+}
+
+.learning-assets-empty strong { color: #0b1533; font-size: 16px; }
+
+.asset-preview-modal {
+  width: min(720px, calc(100vw - 32px));
+}
+
+.learning-asset-preview {
+  display: grid;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.learning-asset-preview > span {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+
+.learning-asset-preview-image,
+.learning-asset-preview-frame {
+  width: 100%;
+  height: min(55vh, 440px);
+  border: 1px solid #dbe4f0;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.learning-asset-preview-image { object-fit: contain; }
+.learning-asset-preview-frame { border: 0; }
+
+.learning-asset-preview small { color: #64748b; font-size: 12px; font-weight: 700; }
+
+@media (max-width: 720px) {
+  .learning-assets-summary {
+    display: grid;
+    padding: 16px;
+  }
+
+  .learning-assets-progress {
+    min-width: 0;
+    padding: 14px 0 0;
+    border-top: 1px solid #c7d2fe;
+    border-left: 0;
+  }
+
+  .learning-assets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .curriculum-editor-shell {
   position: fixed;
   inset: 0;

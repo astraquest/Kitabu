@@ -51,7 +51,6 @@ jobs:
           npx --yes @sentry/cli upload-dif \
             --org "$SENTRY_ORG" \
             --project "$SENTRY_PROJECT" \
-            --release "$SENTRY_RELEASE" \
             "$NATIVE_SYMBOLS_DIR"
       - run: npx --yes @sentry/cli releases finalize "$SENTRY_RELEASE"
         working-directory: native-app

@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] || 'android/app/build');
 const required = [
-  join(root, 'generated/assets/createBundleReleaseJsAndAssets/index.android.bundle'),
+  join(root, 'generated/assets/react/release/index.android.bundle'),
   join(root, 'generated/sourcemaps/react/release/index.android.bundle.map'),
   join(root, 'outputs/mapping/release/mapping.txt'),
 ];

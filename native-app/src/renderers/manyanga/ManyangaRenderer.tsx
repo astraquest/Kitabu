@@ -23,7 +23,7 @@ const MATATU_W = 118;
 const MATATU_H = 92;
 const COIN_SIZE = 34;
 
-const NairobiSkyline = memo(function NairobiSkyline() {
+const NairobiSkylineLayer = memo(function NairobiSkylineView() {
   return (
     <View pointerEvents="none" style={styles.skylineWrap}>
       <Svg
@@ -64,7 +64,7 @@ const NairobiSkyline = memo(function NairobiSkyline() {
   );
 });
 
-const AcaciaTree = memo(function AcaciaTree({
+const AcaciaTreeLayer = memo(function AcaciaTreeView({
   leftPct,
   topPct,
   size,
@@ -366,12 +366,12 @@ export function ManyangaRenderer({ renderState }: ManyangaRendererProps) {
   const trees = useMemo(
     () => (
       <>
-        <AcaciaTree leftPct={10} topPct={46} size={0.5} />
-        <AcaciaTree leftPct={4} topPct={62} size={0.9} />
-        <AcaciaTree leftPct={11} topPct={84} size={1.5} />
-        <AcaciaTree leftPct={90} topPct={48} size={0.55} />
-        <AcaciaTree leftPct={96} topPct={66} size={1.0} />
-        <AcaciaTree leftPct={88} topPct={88} size={1.6} />
+        <AcaciaTreeLayer leftPct={10} topPct={46} size={0.5} />
+        <AcaciaTreeLayer leftPct={4} topPct={62} size={0.9} />
+        <AcaciaTreeLayer leftPct={11} topPct={84} size={1.5} />
+        <AcaciaTreeLayer leftPct={90} topPct={48} size={0.55} />
+        <AcaciaTreeLayer leftPct={96} topPct={66} size={1.0} />
+        <AcaciaTreeLayer leftPct={88} topPct={88} size={1.6} />
       </>
     ),
     [],
@@ -390,7 +390,7 @@ export function ManyangaRenderer({ renderState }: ManyangaRendererProps) {
       <View style={styles.cloud} />
       <View style={[styles.cloud, styles.cloudTwo]} />
 
-      <NairobiSkyline />
+      <NairobiSkylineLayer />
 
       {/* Ground */}
       <LinearGradient

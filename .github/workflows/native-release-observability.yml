@@ -1,0 +1,48 @@
+name: Native release observability
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Immutable release name (for example ai.kitabu2.twa@1.2.6+126)
+        required: true
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'astra-quest' }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'react-native' }}
+      SENTRY_RELEASE: ${{ inputs.release }}
+      RELEASE_OBSERVABILITY_REQUIRED: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: native-app/package-lock.json
+      - uses: android-actions/setup-android@v3
+      - run: npm ci
+        working-directory: native-app
+      - run: chmod +x android/gradlew && NODE_ENV=production android/gradlew -p android assembleRelease --no-daemon
+        working-directory: native-app
+      - run: npm run verify:observability
+        working-directory: native-app
+      - name: Verify Sentry credentials
+        run: npx --yes @sentry/cli info
+      - run: npx --yes @sentry/cli releases new "$SENTRY_RELEASE"
+      - run: >-
+          npx --yes @sentry/cli sourcemaps upload
+          --release "$SENTRY_RELEASE"
+          --org "$SENTRY_ORG"
+          --project "$SENTRY_PROJECT"
+          android/app/build/generated/sourcemaps/react/release
+      - run: >-
+          npx --yes @sentry/cli upload-dif
+          --org "$SENTRY_ORG"
+          --project "$SENTRY_PROJECT"
+          --release "$SENTRY_RELEASE"
+          android/app/build/intermediates/stripped_native_libs/release/out/lib
+      - run: npx --yes @sentry/cli releases finalize "$SENTRY_RELEASE"

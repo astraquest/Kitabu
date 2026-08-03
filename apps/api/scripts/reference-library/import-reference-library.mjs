@@ -171,6 +171,45 @@ async function upsertAsset(client, documentId, scope, asset, pageId = null, acti
 
 async function importPayload(client, payload) {
   const contentChecksum = sha256(canonicalJson(payload));
+  const expectedActivityCount = payload.pages.reduce((total, page) => total + page.activities.length, 0);
+  const expectedAssetCount = payload.assets.length + payload.pages.reduce(
+    (total, page) => total + page.assets.length + page.activities.reduce(
+      (pageTotal, activity) => pageTotal + activity.assets.length,
+      0
+    ),
+    0
+  );
+  const existingResult = await client.query(
+    `SELECT
+       document.id,
+       document.content_checksum,
+       (SELECT COUNT(*)::int FROM reference_pages WHERE document_id = document.id) AS page_count,
+       (SELECT COUNT(*)::int
+          FROM reference_activities AS activity
+          JOIN reference_pages AS page ON page.id = activity.page_id
+         WHERE page.document_id = document.id) AS activity_count,
+       (SELECT COUNT(*)::int FROM reference_assets WHERE document_id = document.id) AS asset_count
+     FROM reference_documents AS document
+     WHERE document.document_key = $1
+     FOR UPDATE`,
+    [payload.document.documentKey]
+  );
+  const existing = existingResult.rows[0];
+  if (
+    existing &&
+    existing.content_checksum === contentChecksum &&
+    Number(existing.page_count) === payload.pages.length &&
+    Number(existing.activity_count) === expectedActivityCount &&
+    Number(existing.asset_count) === expectedAssetCount
+  ) {
+    return {
+      contentChecksum,
+      documentId: existing.id,
+      activityCount: expectedActivityCount,
+      assetCount: expectedAssetCount,
+      skipped: true
+    };
+  }
   const documentResult = await client.query(
     `INSERT INTO reference_documents (
        document_key, country_code, curriculum_code, grade_level, title,
@@ -281,7 +320,7 @@ async function importPayload(client, payload) {
     }
   }
 
-  return { contentChecksum, documentId, activityCount, assetCount };
+  return { contentChecksum, documentId, activityCount, assetCount, skipped: false };
 }
 
 export async function loadReferencePackage(filePath) {
@@ -329,11 +368,18 @@ export async function main(args = process.argv.slice(2)) {
     await client.query('BEGIN');
     const result = await importPayload(client, resolvedPayload);
     await client.query('COMMIT');
-    console.log(
-      `Imported reference document ${resolvedPayload.document.documentKey}: ${resolvedPayload.pages.length} page(s), ` +
-      `${result.activityCount} activity/activities, ${result.assetCount} asset reference(s), ` +
-      `content checksum ${result.contentChecksum}.`
-    );
+    if (result.skipped) {
+      console.log(
+        `Reference document ${resolvedPayload.document.documentKey} is already current; no writes performed. ` +
+        `Content checksum ${result.contentChecksum}.`
+      );
+    } else {
+      console.log(
+        `Imported reference document ${resolvedPayload.document.documentKey}: ${resolvedPayload.pages.length} page(s), ` +
+        `${result.activityCount} activity/activities, ${result.assetCount} asset reference(s), ` +
+        `content checksum ${result.contentChecksum}.`
+      );
+    }
   } catch (error) {
     await client.query('ROLLBACK').catch(() => {});
     throw error;

@@ -87,6 +87,11 @@ corrected derived content, activity structure, template guidance, and local
 generated-asset references. It deliberately does not invoke the curriculum PDF
 importer.
 
+Before writing, the importer compares the resolved content checksum and expected
+page, activity, and asset counts with the stored target state. An exact match is
+a zero-write skip, so rerunning an unchanged package does not churn IDs or
+timestamps.
+
 Platform administrators can retrieve this authoring-only material through:
 
 - `GET /admin/reference-library/documents`

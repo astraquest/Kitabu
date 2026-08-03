@@ -3918,6 +3918,7 @@ export function useKitabuApp() {
     refresh();
     const timer = setInterval(refresh, 30000);
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSession, adminSelectedGrade, currentView]);
 
   useEffect(() => {

@@ -117,6 +117,7 @@ import {
   getAdminSubjectEngagementAnalytics,
   getLearnerSubjectRecommendationSignals,
   getAiGenerationCacheEntry,
+  getReferenceLibraryDocumentForTemplateGeneration,
   listAdminUsers,
   listChessMatches,
   listChessMoves,
@@ -155,6 +156,7 @@ import {
   listWeeklyExamHistory,
   listCurriculumForGrade,
   listProgressiveLessonProgress,
+  listReferenceLibraryDocuments,
   markPaymentRequestFailed,
   markPaymentRequestInitiated,
   markPaymentRequestSuccessful,
@@ -1020,6 +1022,23 @@ const checkoutParamsSchema = z.object({
 
 const libraryBooksQuerySchema = z.object({
   grade: z.string().trim().min(1).max(40).optional()
+});
+
+const referenceLibraryDocumentsQuerySchema = z.object({
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
+  gradeLevel: z.string().trim().min(1).max(40).optional(),
+  limit: z.coerce.number().int().min(1).max(200).default(100)
+});
+
+const referenceLibraryDocumentQuerySchema = z.object({
+  subject: z.string().trim().min(1).max(120).optional(),
+  activityType: z.string().trim().min(1).max(120).optional(),
+  query: z.string().trim().min(1).max(240).optional()
+});
+
+const referenceLibraryDocumentParamsSchema = z.object({
+  documentKey: z.string().trim().min(1).max(160).regex(/^[a-z0-9][a-z0-9-]*$/i)
 });
 
 const queryBoolean = z.preprocess(value => {
@@ -8156,6 +8175,25 @@ Return valid JSON with this shape:
     const denied = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
     if (denied) return;
     return readAdminCurriculumCatalog();
+  });
+
+  // Reference material is internal authoring input, not learner-facing library content.
+  app.get('/admin/reference-library/documents', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const query = referenceLibraryDocumentsQuerySchema.parse(request.query);
+    return {
+      documents: await listReferenceLibraryDocuments(query)
+    };
+  });
+
+  app.get('/admin/reference-library/documents/:documentKey', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = referenceLibraryDocumentParamsSchema.parse(request.params);
+    const query = referenceLibraryDocumentQuerySchema.parse(request.query);
+    const document = await getReferenceLibraryDocumentForTemplateGeneration(params.documentKey, query);
+    return document ? { document } : reply.notFound('Reference document not found');
   });
 
   app.post('/admin/interactive-learning/bundles', async (request, reply) => {

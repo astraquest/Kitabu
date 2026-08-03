@@ -91,6 +91,7 @@ jobs:
             --exclude 'apps/api/.env' \
             --exclude 'apps/api/.env.*' \
             --exclude 'apps/api/data/books/' \
+            --exclude 'apps/api/data/reference-library/' \
             --exclude '*.pem' \
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
@@ -135,12 +136,14 @@ jobs:
             --exclude 'apps/api/.env' \
             --exclude 'apps/api/.env.*' \
             --exclude 'apps/api/data/books/' \
+            --exclude 'apps/api/data/reference-library/' \
             --exclude '*.pem' \
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
             "$release_stage/" /opt/kitabu-ai/
           git fetch origin '${{ github.ref_name }}'
           git reset --mixed '${{ github.sha }}'
+          install -d -m 750 apps/api/data/reference-library
           docker compose config --quiet
           docker compose up -d postgres redis
           docker compose build api worker

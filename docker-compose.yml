@@ -36,6 +36,7 @@ services:
       KITABU_RELEASE_SHA: ${KITABU_RELEASE_SHA:-unknown}
     volumes:
       - ./apps/api/data/books:/app/data/books:ro
+      - ./apps/api/data/reference-library:/app/data/reference-library:ro
       - ./apps/api/media/podcasts:/app/media/podcasts:ro
     depends_on:
       - postgres
@@ -56,6 +57,7 @@ services:
       KITABU_RELEASE_SHA: ${KITABU_RELEASE_SHA:-unknown}
     volumes:
       - ./apps/api/data/books:/app/data/books:ro
+      - ./apps/api/data/reference-library:/app/data/reference-library:ro
     command: ["node", "dist/worker.js"]
     healthcheck:
       disable: true

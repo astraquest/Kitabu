@@ -6748,3 +6748,336 @@ export async function createSchoolOnboardingRequest(client: MaybeClient, input: 
 export async function markSchoolOnboardingEmailDelivered(client: MaybeClient, id: string) {
   await q(client, `UPDATE school_onboarding_requests SET email_delivered = TRUE WHERE id = $1`, [id]);
 }
+
+export interface ReferenceLibraryDocumentSummary {
+  documentKey: string;
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  title: string;
+  sourceIdentity: string;
+  sourceChecksum: string | null;
+  contentChecksum: string;
+  pageCount: number;
+  activityCount: number;
+  importedAt: Date;
+  updatedAt: Date;
+}
+
+export interface ReferenceLibraryAsset {
+  relativePath: string;
+  assetType: string;
+  description: string | null;
+  contentChecksum: string;
+}
+
+export interface ReferenceLibraryActivity {
+  order: number;
+  title: string;
+  instructions: string;
+  activityType: string;
+  promptData: Record<string, unknown>;
+  skills: string[];
+  visualRequirements: string[];
+  templateGuidance: string;
+  assets: ReferenceLibraryAsset[];
+}
+
+export interface ReferenceLibraryPage {
+  pageNumber: number;
+  subject: string;
+  learningObjectives: string[];
+  activities: ReferenceLibraryActivity[];
+  assets: ReferenceLibraryAsset[];
+}
+
+export interface ReferenceLibraryDocumentBundle extends Omit<ReferenceLibraryDocumentSummary, 'pageCount' | 'activityCount'> {
+  assets: ReferenceLibraryAsset[];
+  pages: ReferenceLibraryPage[];
+}
+
+export interface ReferenceLibraryDocumentFilters {
+  countryCode?: string;
+  curriculumCode?: string;
+  gradeLevel?: string;
+  limit?: number;
+}
+
+export interface ReferenceLibraryActivityFilters {
+  subject?: string;
+  activityType?: string;
+  query?: string;
+}
+
+type ReferenceDocumentRow = {
+  id: string;
+  document_key: string;
+  country_code: string;
+  curriculum_code: string;
+  grade_level: string;
+  title: string;
+  source_identity: string;
+  source_checksum: string | null;
+  content_checksum: string;
+  page_count: number;
+  activity_count: number;
+  imported_at: Date;
+  updated_at: Date;
+};
+
+type ReferencePageRow = {
+  id: string;
+  page_number: number;
+  subject: string;
+  learning_objectives: unknown;
+};
+
+type ReferenceActivityRow = {
+  id: string;
+  page_id: string;
+  position: number;
+  title: string;
+  instructions: string;
+  activity_type: string;
+  prompt_data: unknown;
+  skills: unknown;
+  visual_requirements: unknown;
+  template_guidance: string;
+};
+
+type ReferenceAssetRow = {
+  page_id: string | null;
+  activity_id: string | null;
+  relative_path: string;
+  asset_type: string;
+  description: string | null;
+  content_checksum: string;
+};
+
+function referenceTextArray(value: unknown): string[] {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+}
+
+function referenceRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : {};
+}
+
+function referenceDocumentSummary(row: ReferenceDocumentRow): ReferenceLibraryDocumentSummary {
+  return {
+    documentKey: row.document_key,
+    countryCode: row.country_code,
+    curriculumCode: row.curriculum_code,
+    gradeLevel: row.grade_level,
+    title: row.title,
+    sourceIdentity: row.source_identity,
+    sourceChecksum: row.source_checksum,
+    contentChecksum: row.content_checksum,
+    pageCount: Number(row.page_count),
+    activityCount: Number(row.activity_count),
+    importedAt: row.imported_at,
+    updatedAt: row.updated_at
+  };
+}
+
+function nonEmptyReferenceFilter(value: string | undefined) {
+  const normalized = value?.trim();
+  return normalized ? normalized : null;
+}
+
+export async function listReferenceLibraryDocuments(
+  filters: ReferenceLibraryDocumentFilters = {}
+): Promise<ReferenceLibraryDocumentSummary[]> {
+  const values: unknown[] = [];
+  const clauses: string[] = [];
+  const addFilter = (column: string, value: string | undefined) => {
+    const normalized = nonEmptyReferenceFilter(value);
+    if (!normalized) return;
+    values.push(normalized);
+    clauses.push(`lower(${column}) = lower($${values.length})`);
+  };
+  addFilter('document.country_code', filters.countryCode);
+  addFilter('document.curriculum_code', filters.curriculumCode);
+  addFilter('document.grade_level', filters.gradeLevel);
+  const limit = Math.min(Math.max(filters.limit ?? 100, 1), 200);
+  values.push(limit);
+
+  const result = await db.query<ReferenceDocumentRow>(
+    `SELECT
+       document.id,
+       document.document_key,
+       document.country_code,
+       document.curriculum_code,
+       document.grade_level,
+       document.title,
+       document.source_identity,
+       document.source_checksum,
+       document.content_checksum,
+       COUNT(DISTINCT page.id)::int AS page_count,
+       COUNT(activity.id)::int AS activity_count,
+       document.imported_at,
+       document.updated_at
+     FROM reference_documents AS document
+     LEFT JOIN reference_pages AS page ON page.document_id = document.id
+     LEFT JOIN reference_activities AS activity ON activity.page_id = page.id
+     ${clauses.length ? `WHERE ${clauses.join(' AND ')}` : ''}
+     GROUP BY document.id
+     ORDER BY document.country_code, document.curriculum_code, document.grade_level, document.title, document.document_key
+     LIMIT $${values.length}`,
+    values
+  );
+
+  return result.rows.map(referenceDocumentSummary);
+}
+
+/**
+ * Returns only derived learning content and generated-asset references. It intentionally
+ * never reads source photographs or any camera/location metadata from local storage.
+ */
+export async function getReferenceLibraryDocumentForTemplateGeneration(
+  documentKey: string,
+  filters: ReferenceLibraryActivityFilters = {}
+): Promise<ReferenceLibraryDocumentBundle | null> {
+  const documentResult = await db.query<ReferenceDocumentRow>(
+    `SELECT
+       document.id,
+       document.document_key,
+       document.country_code,
+       document.curriculum_code,
+       document.grade_level,
+       document.title,
+       document.source_identity,
+       document.source_checksum,
+       document.content_checksum,
+       COUNT(DISTINCT page.id)::int AS page_count,
+       COUNT(activity.id)::int AS activity_count,
+       document.imported_at,
+       document.updated_at
+     FROM reference_documents AS document
+     LEFT JOIN reference_pages AS page ON page.document_id = document.id
+     LEFT JOIN reference_activities AS activity ON activity.page_id = page.id
+     WHERE document.document_key = $1
+     GROUP BY document.id`,
+    [documentKey]
+  );
+  const document = documentResult.rows[0];
+  if (!document) return null;
+
+  const pageValues: unknown[] = [document.id];
+  const pageClauses = ['document_id = $1'];
+  const subject = nonEmptyReferenceFilter(filters.subject);
+  if (subject) {
+    pageValues.push(subject);
+    pageClauses.push(`lower(subject) = lower($${pageValues.length})`);
+  }
+  const pageResult = await db.query<ReferencePageRow>(
+    `SELECT id, page_number, subject, learning_objectives
+     FROM reference_pages
+     WHERE ${pageClauses.join(' AND ')}
+     ORDER BY page_number ASC`,
+    pageValues
+  );
+
+  const pages: ReferenceLibraryPage[] = pageResult.rows.map(page => ({
+    pageNumber: page.page_number,
+    subject: page.subject,
+    learningObjectives: referenceTextArray(page.learning_objectives),
+    activities: [],
+    assets: []
+  }));
+  const pageById = new Map(pageResult.rows.map((page, index) => [page.id, pages[index]]));
+  const pageIds = pageResult.rows.map(page => page.id);
+  const activityById = new Map<string, ReferenceLibraryActivity>();
+
+  if (pageIds.length) {
+    const activityValues: unknown[] = [pageIds];
+    const activityClauses = ['page_id = ANY($1::uuid[])'];
+    const activityType = nonEmptyReferenceFilter(filters.activityType);
+    if (activityType) {
+      activityValues.push(activityType);
+      activityClauses.push(`lower(activity_type) = lower($${activityValues.length})`);
+    }
+    const query = nonEmptyReferenceFilter(filters.query);
+    if (query) {
+      activityValues.push(query);
+      activityClauses.push(
+        `to_tsvector('simple',
+           coalesce(title, '') || ' ' || coalesce(instructions, '') || ' ' ||
+           coalesce(template_guidance, '') || ' ' || coalesce(skills::text, '') || ' ' ||
+           coalesce(prompt_data::text, '')
+         ) @@ plainto_tsquery('simple', $${activityValues.length})`
+      );
+    }
+    const activityResult = await db.query<ReferenceActivityRow>(
+      `SELECT
+         id, page_id, position, title, instructions, activity_type, prompt_data,
+         skills, visual_requirements, template_guidance
+       FROM reference_activities
+       WHERE ${activityClauses.join(' AND ')}
+       ORDER BY page_id, position`,
+      activityValues
+    );
+    for (const activity of activityResult.rows) {
+      const mapped = {
+        order: activity.position,
+        title: activity.title,
+        instructions: activity.instructions,
+        activityType: activity.activity_type,
+        promptData: referenceRecord(activity.prompt_data),
+        skills: referenceTextArray(activity.skills),
+        visualRequirements: referenceTextArray(activity.visual_requirements),
+        templateGuidance: activity.template_guidance,
+        assets: [] as ReferenceLibraryAsset[]
+      };
+      pageById.get(activity.page_id)?.activities.push(mapped);
+      activityById.set(activity.id, mapped);
+    }
+  }
+
+  const activityIds = [...activityById.keys()];
+  const assetResult = await db.query<ReferenceAssetRow>(
+    `SELECT page_id, activity_id, relative_path, asset_type, description, content_checksum
+     FROM reference_assets
+     WHERE document_id = $1
+       AND (
+         (page_id IS NULL AND activity_id IS NULL)
+         OR (page_id = ANY($2::uuid[]) AND activity_id IS NULL)
+         OR activity_id = ANY($3::uuid[])
+       )
+     ORDER BY relative_path ASC`,
+    [document.id, pageIds, activityIds]
+  );
+  const documentAssets: ReferenceLibraryAsset[] = [];
+  for (const asset of assetResult.rows) {
+    const mapped = {
+      relativePath: asset.relative_path,
+      assetType: asset.asset_type,
+      description: asset.description,
+      contentChecksum: asset.content_checksum
+    };
+    if (asset.activity_id) {
+      activityById.get(asset.activity_id)?.assets.push(mapped);
+    } else if (asset.page_id) {
+      pageById.get(asset.page_id)?.assets.push(mapped);
+    } else {
+      documentAssets.push(mapped);
+    }
+  }
+
+  const summary = referenceDocumentSummary(document);
+  return {
+    documentKey: summary.documentKey,
+    countryCode: summary.countryCode,
+    curriculumCode: summary.curriculumCode,
+    gradeLevel: summary.gradeLevel,
+    title: summary.title,
+    sourceIdentity: summary.sourceIdentity,
+    sourceChecksum: summary.sourceChecksum,
+    contentChecksum: summary.contentChecksum,
+    importedAt: summary.importedAt,
+    updatedAt: summary.updatedAt,
+    assets: documentAssets,
+    pages
+  };
+}

@@ -75,6 +75,14 @@ Generated books currently live on the production server at
 containers. They are intentionally excluded from Git and rsync deploy deletion
 until they are moved to object storage.
 
+Derived reference-library packages live separately at
+`/opt/kitabu-ai/apps/api/data/reference-library`, mounted read-only into API
+and worker containers. They are also excluded from Git and deploy rsync. Copy a
+reviewed package to that directory, apply migration 070, then import it
+explicitly with `node scripts/reference-library/import-reference-library.mjs
+--file /app/data/reference-library/KEN/CBC/PP1/orion-checkpoint-vol1/reference.json`
+inside an API Compose run.
+
 ```bash
 ssh kitabu-prod
 cd /opt/kitabu-ai
@@ -109,6 +117,7 @@ Manual backup and integrity check:
 ssh kitabu-prod
 KITABU_BACKUP_DIR=/var/backups/kitabu KITABU_COMPOSE_DIR=/opt/kitabu-ai /opt/kitabu-ai/infra/backup.sh
 gzip -t /var/backups/kitabu/kitabu-api-*.sql.gz
+tar -tzf /var/backups/kitabu/kitabu-reference-library-*.tar.gz >/dev/null
 ```
 
 These backups are still on the same server. Add an encrypted off-server target

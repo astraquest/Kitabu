@@ -244,6 +244,19 @@ moved to object storage. They are ignored by Git, excluded from deploy rsync
 deletion, and mounted read-only into the API and worker containers at
 `/app/data/books`.
 
+Derived reference-library packages are also server-local under
+`apps/api/data/reference-library/`. Their `reference.json` files and generated
+assets are ignored by Git, excluded from deploy rsync deletion, mounted
+read-only at `/app/data/reference-library`, and backed up with the database.
+After copying a reviewed package to the server and applying migration 070, run
+the importer explicitly; normal deploys do not import it automatically:
+
+```bash
+docker compose run --rm -T api \
+  node scripts/reference-library/import-reference-library.mjs \
+  --file /app/data/reference-library/KEN/CBC/PP1/orion-checkpoint-vol1/reference.json
+```
+
 ```bash
 ssh kitabu-prod
 cd /opt/kitabu-ai
@@ -267,9 +280,10 @@ curl https://app.kitabu.ai/health
 ## 10. Backups
 
 This repo includes `infra/backup.sh`, which writes compressed Postgres dumps and
-keeps 14 days of backups. It uses local `pg_dump` when `KITABU_DATABASE_URL` is
-set and falls back to `docker compose exec -T postgres pg_dump` for the current
-Compose production layout.
+keeps 14 days of backups. It also archives the server-local
+`apps/api/data/reference-library/` tree when present. The script uses local
+`pg_dump` when `KITABU_DATABASE_URL` is set and falls back to `docker compose
+exec -T postgres pg_dump` for the current Compose production layout.
 
 Current local-only production cron:
 
@@ -283,6 +297,7 @@ Manual verification:
 ssh kitabu-prod
 KITABU_BACKUP_DIR=/var/backups/kitabu KITABU_COMPOSE_DIR=/opt/kitabu-ai /opt/kitabu-ai/infra/backup.sh
 gzip -t /var/backups/kitabu/kitabu-api-*.sql.gz
+tar -tzf /var/backups/kitabu/kitabu-reference-library-*.tar.gz >/dev/null
 ```
 
 For production, local backups are not enough. Send encrypted backups to Cloudflare

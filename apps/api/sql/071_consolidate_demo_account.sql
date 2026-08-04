@@ -251,6 +251,60 @@ SELECT (SELECT id FROM kitabu_demo_canonical_user), role::user_role
 FROM (VALUES ('student'), ('teacher'), ('parent')) AS required_roles(role)
 ON CONFLICT (user_id, role) DO NOTHING;
 
+-- Reconcile the partial active-subscription key before repointing legacy users.
+-- Survivor rule: keep the oldest existing canonical active row; when none exists,
+-- keep the oldest legacy active row. Ties are broken by subscription id. Cancel
+-- every other active row before changing user_id so subscription history is kept
+-- without violating uq_subscriptions_one_active_per_user.
+DO $$
+DECLARE
+  subscription_survivor_id UUID;
+BEGIN
+  SELECT subscriptions.id
+  INTO subscription_survivor_id
+  FROM subscriptions
+  WHERE subscriptions.user_id = (SELECT id FROM kitabu_demo_canonical_user)
+    AND subscriptions.status = 'active'
+  ORDER BY subscriptions.created_at, subscriptions.id
+  LIMIT 1;
+
+  IF subscription_survivor_id IS NULL THEN
+    SELECT subscriptions.id
+    INTO subscription_survivor_id
+    FROM subscriptions
+    WHERE subscriptions.user_id IN (SELECT id FROM kitabu_demo_legacy_users)
+      AND subscriptions.status = 'active'
+    ORDER BY subscriptions.created_at, subscriptions.id
+    LIMIT 1;
+  END IF;
+
+  UPDATE subscriptions
+  SET status = 'cancelled'
+  WHERE subscriptions.user_id IN (
+      SELECT id FROM kitabu_demo_legacy_users
+      UNION ALL
+      SELECT id FROM kitabu_demo_canonical_user
+    )
+    AND subscriptions.status = 'active'
+    AND (
+      subscription_survivor_id IS NULL
+      OR subscriptions.id <> subscription_survivor_id
+    );
+
+  UPDATE subscriptions
+  SET user_id = (SELECT id FROM kitabu_demo_canonical_user)
+  WHERE subscriptions.user_id IN (SELECT id FROM kitabu_demo_legacy_users);
+
+  IF (
+    SELECT COUNT(*)
+    FROM subscriptions
+    WHERE user_id = (SELECT id FROM kitabu_demo_canonical_user)
+      AND status = 'active'
+  ) > 1 THEN
+    RAISE EXCEPTION 'Demo account consolidation left multiple active subscriptions';
+  END IF;
+END $$;
+
 -- Repoint single-column user foreign keys so non-cascading audit/content rows remain valid.
 DO $$
 DECLARE

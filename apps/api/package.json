@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "test": "tsx --test src/googleAuth.test.ts src/payments.test.ts src/mufasaTelemetry.test.ts src/aiFeatures.test.ts src/generatedBooks.test.ts src/quizBank.test.ts src/curriculumScope.test.ts src/progressiveLearning.test.ts src/progressiveLearningLowerPrimary.test.ts src/progressiveLearningGrades5To8.test.ts src/progressiveLearningGrades10To11.test.ts src/curriculumCompatibilityLesson.test.ts src/grade1MathematicsContent.test.ts src/grade1MathematicsMissionContract.test.ts src/authoredContent/registry.test.ts src/interactiveLearning/lowerPrimaryClassifySortMatchPattern.test.ts src/legalPages.test.ts src/assignmentTargeting.test.ts src/mailer.test.ts src/subjectRecommendations.test.ts src/podcastMedia.test.ts src/interactiveLearning/assetCatalog.test.ts scripts/build-grade1-mathematics-content-index.test.mjs scripts/reference-library/reference-library-contract.test.mjs scripts/curriculum/import-kicd-corpus-streaming.test.mjs scripts/curriculum/repair-upper-grade-curriculum.test.mjs scripts/deployment/compose-stdin-safety.test.mjs scripts/deployment/run-data-operations.test.mjs",
     "test:integration": "tsx --test src/auth.integration.test.ts",
-    "test:integration:migrations": "node scripts/migration-069.integration.mjs",
+    "test:integration:migrations": "node scripts/migration-069.integration.mjs && node scripts/migration-071.integration.mjs",
     "check:mpesa": "node scripts/check-mpesa.mjs",
     "check:readiness": "node scripts/verify-production-readiness.mjs",
     "check:mufasa-telemetry-contract": "node scripts/validate-mufasa-telemetry-contract.mjs",

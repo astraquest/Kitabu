@@ -249,7 +249,7 @@ export function TeacherPortalScreen({
     teacherProfile.name || getTeacherDisplayName(teacherName),
   );
   const [profileEmail, setProfileEmail] = useState(
-    teacherProfile.email || teacherEmail || 'teacher@kitabu.ai',
+    teacherProfile.email || teacherEmail || 'demoaccount@kitabu.ai',
   );
   const [profilePhone, setProfilePhone] = useState(teacherProfile.phone || '');
   const [profileSchool, setProfileSchool] = useState(teacherProfile.school || '');
@@ -1562,7 +1562,7 @@ function TeacherProfileEditModal({
                 autoCapitalize="none"
                 keyboardType="email-address"
                 onChangeText={setDraftEmail}
-                placeholder="teacher@kitabu.ai"
+                placeholder="teacher@example.com"
                 style={s.profileInput}
                 value={draftEmail}
               />

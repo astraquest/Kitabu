@@ -59,7 +59,7 @@ Recommended testing deploy sequence:
 3. Deploy the API code containing the `published-for-testing` visibility gate.
 4. Restart API and worker containers.
 5. Verify `/health`.
-6. Log in as `student@kitabu.ai` and confirm the library returns 280 generated books with 280 cover URLs.
+6. Log in as `demoaccount@kitabu.ai` and confirm the library returns 280 generated books with 280 cover URLs.
 
 ## Production Publication
 
@@ -83,7 +83,7 @@ Data publication:
 Production verification:
 
 - `https://app.kitabu.ai/health` returned OK.
-- Demo account `student@kitabu.ai` returned 280 generated books with 280 cover URLs.
+- Demo account `demoaccount@kitabu.ai` returned 280 generated books with 280 cover URLs.
 - A regular Kenya CBC student profile returned 7 Grade 6 books with 7 cover URLs.
 - The same regular student profile could switch to Grade 4 and returned 7 Grade 4 books with 7 cover URLs.
 

@@ -46,7 +46,7 @@ interface LoginScreenProps {
   password: string;
   fullName: string;
   signupRole: PublicSignupRole | null;
-  lastUsedRole?: DemoAccountRole | null;
+  lastUsedRole?: RoleChoice | null;
   acceptedTerms: boolean;
   optionalPhoneNumber: string;
   error?: string | null;
@@ -59,14 +59,13 @@ interface LoginScreenProps {
   onAcceptedTermsChange: (value: boolean) => void;
   onOptionalPhoneNumberChange: (value: string) => void;
   onAuthenticated: (session: AuthSession) => void;
-  onDemoAccount: (role: DemoAccountRole) => void | Promise<void>;
   onSubmit: () => void;
 }
 
 type LegalSheet = 'terms' | 'privacy' | null;
-type DemoAccountRole = Extract<PublicSignupRole, 'student' | 'teacher' | 'parent'>;
+type RoleChoice = Extract<PublicSignupRole, 'student' | 'teacher' | 'parent'>;
 type RoleOption = {
-  role: DemoAccountRole;
+  role: RoleChoice;
   label: string;
   detail: string;
   avatar: LocalAvatarKey;
@@ -122,7 +121,6 @@ export function LoginScreen({
   onAcceptedTermsChange,
   onOptionalPhoneNumberChange,
   onAuthenticated,
-  onDemoAccount,
   onSubmit,
 }: LoginScreenProps) {
   const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
@@ -312,14 +310,6 @@ export function LoginScreen({
       return;
     }
     onSubmit();
-  }
-
-  async function handleDemoAccount() {
-    if (!selectedRole || isBusy) {
-      return;
-    }
-    setProviderState({ isSubmitting: false, message: null, error: null });
-    await onDemoAccount(selectedRole.role);
   }
 
   function handleFullNameChange(value: string) {
@@ -530,40 +520,21 @@ export function LoginScreen({
             {safeProviderError ? <Text style={styles.errorText}>{safeProviderError}</Text> : null}
             {providerState.message ? <Text style={styles.successText}>{providerState.message}</Text> : null}
 
-            <View style={mode === 'login' ? styles.loginActionRow : undefined}>
-              {mode === 'login' ? (
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel={`Use ${selectedRole?.label ?? 'selected'} demo account`}
-                  disabled={isBusy || !selectedRole}
-                  onPress={handleDemoAccount}
-                  style={({ pressed }) => [
-                    styles.demoAccountButton,
-                    styles.loginActionButton,
-                    pressed && styles.submitButtonPressed,
-                    (isBusy || !selectedRole) && styles.submitButtonDisabled,
-                  ]}>
-                  <Text style={styles.demoAccountButtonText}>Demo Account</Text>
-                </Pressable>
-              ) : null}
-
-              <Pressable
-                accessibilityLabel={submitLabel}
-                disabled={isBusy}
-                onPress={handleEmailSubmit}
-                style={({ pressed }) => [
-                  styles.submitButton,
-                  mode === 'login' && styles.loginActionButton,
-                  pressed && styles.submitButtonPressed,
-                  isBusy && styles.submitButtonDisabled,
-                ]}>
-                {isBusy ? (
-                  <ActivityIndicator color="#FFFFFF" />
-                ) : (
-                  <Text style={styles.submitButtonText}>{submitLabel}</Text>
-                )}
-              </Pressable>
-            </View>
+            <Pressable
+              accessibilityLabel={submitLabel}
+              disabled={isBusy}
+              onPress={handleEmailSubmit}
+              style={({ pressed }) => [
+                styles.submitButton,
+                pressed && styles.submitButtonPressed,
+                isBusy && styles.submitButtonDisabled,
+              ]}>
+              {isBusy ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <Text style={styles.submitButtonText}>{submitLabel}</Text>
+              )}
+            </Pressable>
           </View>
           )}
 
@@ -1190,27 +1161,6 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: '#FFFFFF',
     fontSize: 15,
-    fontWeight: '800',
-  },
-  loginActionRow: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  loginActionButton: {
-    flex: 1,
-  },
-  demoAccountButton: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    borderColor: 'rgba(255,255,255,0.48)',
-    borderRadius: 18,
-    borderWidth: 1,
-    justifyContent: 'center',
-    minHeight: 48,
-  },
-  demoAccountButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
     fontWeight: '800',
   },
   dividerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },

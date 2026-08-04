@@ -42,7 +42,6 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   onAcceptedTermsChange: jest.fn(),
   onOptionalPhoneNumberChange: jest.fn(),
   onAuthenticated: jest.fn(),
-  onDemoAccount: jest.fn(),
   onSubmit: jest.fn(),
 };
 

@@ -19,9 +19,7 @@ This repository is trimmed down to the production pieces still in use:
 5. Run the native app from `native-app/` with the standard React Native commands
 
 Seeded test users are always normalized to:
-- `student@kitabu.ai` / `Password123!`
-- `parent@kitabu.ai` / `Password123!`
-- `teacher@kitabu.ai` / `Password123!`
+- `demoaccount@kitabu.ai` / `Password123!` (student, teacher, and parent roles)
 - `admin@kitabu.ai` / `Password123!`
 
 ## Deployment

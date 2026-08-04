@@ -1005,16 +1005,10 @@ function serializeWeeklyExam(exam: WeeklyExamRecord, includeAnswers = false) {
 }
 
 const TEST_ACCOUNT_EMAILS = new Set([
-  'student@kitabu.ai',
-  'teacher@kitabu.ai',
+  'demoaccount@kitabu.ai',
   'admin@kitabu.ai'
 ]);
-const DEMO_ACCOUNT_EMAILS = new Set([
-  'student@kitabu.ai',
-  'parent@kitabu.ai',
-  'teacher@kitabu.ai'
-]);
-const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
+const DEMO_ACCOUNT_EMAIL = 'demoaccount@kitabu.ai';
 
 const checkoutParamsSchema = z.object({
   paymentRequestId: z.string().uuid()
@@ -2250,11 +2244,11 @@ export function buildServer(options: BuildServerOptions = {}) {
   }
 
   function isDemoAccountUser(user: NonNullable<FastifyRequest['user']>) {
-    return DEMO_ACCOUNT_EMAILS.has(user.email.trim().toLowerCase());
+    return user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL;
   }
 
   function isDemoStudentUser(user: NonNullable<FastifyRequest['user']>) {
-    return user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL && user.roles.includes('student');
+    return isDemoAccountUser(user) && user.roles.includes('student');
   }
 
   function resolvePromptVersion(feature: string) {

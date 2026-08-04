@@ -176,16 +176,8 @@ import {
   SchoolDiscount,
 } from '../types/app';
 
-const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
-const DEMO_PARENT_EMAIL = 'parent@kitabu.ai';
-const DEMO_TEACHER_EMAIL = 'teacher@kitabu.ai';
-const DEMO_ACCOUNT_PASSWORD = 'Password123!';
-const DEMO_ACCOUNT_EMAILS = {
-  student: DEMO_STUDENT_EMAIL,
-  parent: DEMO_PARENT_EMAIL,
-  teacher: DEMO_TEACHER_EMAIL,
-} as const;
-type LastUsedAuthRole = keyof typeof DEMO_ACCOUNT_EMAILS;
+const DEMO_ACCOUNT_EMAIL = 'demoaccount@kitabu.ai';
+type LastUsedAuthRole = 'student' | 'teacher' | 'parent';
 const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
@@ -1458,15 +1450,9 @@ export function useKitabuApp() {
   const isKnownAdminAccount = isKnownAdminEmail(authSession?.user.email);
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
   const canOpenAdminPortal = isAdminRole(roles) || isKnownAdminAccount;
-  const isDemoStudentAccount =
-    authSession?.user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL &&
-    authSession.user.roles.includes('student');
-  const isDemoAccount = Boolean(
-    authSession &&
-      Object.values(DEMO_ACCOUNT_EMAILS).some(
-        email => email === authSession.user.email.trim().toLowerCase(),
-      ),
-  );
+  const isDemoAccount =
+    authSession?.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL;
+  const isDemoStudentAccount = Boolean(isDemoAccount && roles.includes('student'));
   const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
   const hasPendingAccountOnboarding = Boolean(
@@ -1614,7 +1600,8 @@ export function useKitabuApp() {
     }
 
     const isDemoParent =
-      authSession.user.email.trim().toLowerCase() === DEMO_PARENT_EMAIL;
+      authSession.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL &&
+      authSession.user.roles.includes('parent');
     setIsLoadingParentDashboard(true);
     try {
       const payload = await getParentDashboard();
@@ -2995,14 +2982,6 @@ export function useKitabuApp() {
     await authenticateWithPassword(loginEmail, loginPassword);
   }
 
-  async function signInDemo(role: keyof typeof DEMO_ACCOUNT_EMAILS) {
-    const email = DEMO_ACCOUNT_EMAILS[role];
-    setSignupRole(role);
-    setLoginEmail(email);
-    setLoginPassword(DEMO_ACCOUNT_PASSWORD);
-    await authenticateWithPassword(email, DEMO_ACCOUNT_PASSWORD);
-  }
-
   async function signUp(input?: OnboardingSignupInput) {
     setIsAuthenticating(true);
     setAuthError(null);
@@ -4290,7 +4269,6 @@ export function useKitabuApp() {
       openStudentPreview,
       exitStudentPreview,
       signIn,
-      signInDemo,
       signUp,
       completeProviderAuthentication,
       deleteAccount,

@@ -234,7 +234,6 @@ export function KitabuApp() {
           onAcceptedTermsChange={actions.setAcceptedTerms}
           onOptionalPhoneNumberChange={actions.setOptionalPhoneNumber}
           onAuthenticated={actions.completeProviderAuthentication}
-          onDemoAccount={actions.signInDemo}
           onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
         />
       </AppSafeArea>

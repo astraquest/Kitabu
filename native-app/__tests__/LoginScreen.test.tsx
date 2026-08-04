@@ -59,7 +59,6 @@ async function renderLogin(
       onAcceptedTermsChange={jest.fn()}
       onOptionalPhoneNumberChange={jest.fn()}
       onAuthenticated={onAuthenticated}
-      onDemoAccount={jest.fn()}
       onSubmit={jest.fn()}
       {...overrides}
     />);
@@ -154,25 +153,26 @@ test('tells a verified Google user to create a Kitabu account when none exists',
   expect(renderer.root.findByProps({ children: message })).toBeTruthy();
 });
 
-test.each([
-  ['Student', 'student'],
-  ['Parent', 'parent'],
-  ['Teacher', 'teacher'],
-] as const)('starts the selected %s demo account through the normal login callback', async (label, role) => {
-  const onDemoAccount = jest.fn();
+test('submits the normal login form and has no demo quick-login control', async () => {
+  const onSubmit = jest.fn();
   const { renderer } = await renderLogin(jest.fn(), {
-    signupRole: role,
-    onDemoAccount,
+    signupRole: 'student',
+    onSubmit,
   });
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: `Continue as ${label}` }).props.onPress();
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: `Use ${label} demo account` }).props.onPress();
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' }).props.onPress();
   });
 
-  expect(onDemoAccount).toHaveBeenCalledWith(role);
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Sign in' })).toBeTruthy();
+  expect(renderer.root.findAllByProps({ children: 'Demo Account' })).toHaveLength(0);
+  expect(renderer.root.findAllByProps({ accessibilityLabel: /demo account/i })).toHaveLength(0);
+
+  await act(async () => {
+    renderer.root.findByProps({ accessibilityLabel: 'Sign in' }).props.onPress();
+  });
+
+  expect(onSubmit).toHaveBeenCalledTimes(1);
 });
 
 test('signup role choices start unselected', async () => {

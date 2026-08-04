@@ -18,7 +18,7 @@ This backlog preserves the paused review context so the next work can continue q
 
 Do not break this baseline while remediating. Phase 2 work should create new validated package versions and preserve enough rollback evidence to return to the Phase 1 testing snapshot.
 
-Some older running notes mention 176/280 cover URLs before the final cover sync. Treat the production release evidence as the current baseline: 280 manifests, 280 PDFs, and 280 cover PNGs on the server, and `student@kitabu.ai` returning 280 generated books with 280 cover URLs. Re-verify this before risky Phase 2 changes.
+Some older running notes mention 176/280 cover URLs before the final cover sync. Treat the production release evidence as the current baseline: 280 manifests, 280 PDFs, and 280 cover PNGs on the server, and `demoaccount@kitabu.ai` returning 280 generated books with 280 cover URLs. Re-verify this before risky Phase 2 changes.
 
 ## Promotion Rules
 
@@ -58,7 +58,7 @@ Generated packages are not a normal Git artifact in this phase. Before regenerat
 - Run the repo package validator before promotion. Use the strict publication gate when moving any book beyond `published-for-testing`.
 - Ensure deployment rebuilds the API image or otherwise makes repo validation scripts available wherever release checks run; the production checkout had the validator while the running API container image did not.
 - Verify after changes that `/health` passes.
-- Verify `student@kitabu.ai` still sees 280 generated books, all readable, with 280 cover URLs.
+- Verify `demoaccount@kitabu.ai` still sees 280 generated books, all readable, with 280 cover URLs.
 - Verify at least one normal scoped student sees only the selected country/curriculum/grade books and can switch grade.
 - Verify country split remains expected unless the change intentionally adds or removes generated books.
 

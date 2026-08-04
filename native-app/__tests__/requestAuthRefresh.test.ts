@@ -28,7 +28,7 @@ const saveSecureJsonMock = saveSecureJson as jest.MockedFunction<
 
 const user: AuthSession['user'] = {
   id: 'student-1',
-  email: 'student@kitabu.ai',
+  email: 'demoaccount@kitabu.ai',
   fullName: 'Test Student',
   roles: ['student'],
   emailVerified: true,

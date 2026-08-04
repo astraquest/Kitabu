@@ -68,7 +68,7 @@ function isPublishedGeneratedBook(manifest: BookManifest) {
 
 function userCanPreviewGeneratedDrafts(user: AuthenticatedUser) {
   return (
-    (user.email.trim().toLowerCase() === 'student@kitabu.ai' && user.roles.includes('student')) ||
+    (user.email.trim().toLowerCase() === 'demoaccount@kitabu.ai' && user.roles.includes('student')) ||
     hasAllGeneratedBookAccess(user)
   );
 }

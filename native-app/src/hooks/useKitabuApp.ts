@@ -449,6 +449,26 @@ export function getPrimaryHomeView(roles: AuthRole[], email?: string | null): Vi
   return 'dashboard';
 }
 
+export function getHomeViewForRequestedRole(
+  roles: AuthRole[],
+  email?: string | null,
+  requestedRole?: PublicSignupRole | null,
+): ViewState {
+  if (requestedRole === 'student' && roles.includes('student')) {
+    return 'dashboard';
+  }
+
+  if (requestedRole === 'teacher' && roles.includes('teacher')) {
+    return 'teachers_portal';
+  }
+
+  if (requestedRole === 'parent' && roles.includes('parent')) {
+    return 'parent_dashboard';
+  }
+
+  return getPrimaryHomeView(roles, email);
+}
+
 function isFocusModeBlockedView(view: ViewState) {
   return view === 'admin_portal' || view === 'teachers_portal' || view === 'parent_dashboard';
 }
@@ -619,6 +639,7 @@ export function useKitabuApp() {
   const [optionalPhoneNumber, setOptionalPhoneNumber] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const pendingAuthHomeView = useRef<{ session: AuthSession; view: ViewState } | null>(null);
   const [isSubmittingOnboarding, setIsSubmittingOnboarding] = useState(false);
   const [isCheckingDiagnostic, setIsCheckingDiagnostic] = useState(false);
   const [isDiagnosticStatusLoaded, setIsDiagnosticStatusLoaded] = useState(false);
@@ -2937,7 +2958,16 @@ export function useKitabuApp() {
     setAuthEntryScreen('intro');
   }
 
-  function completeProviderAuthentication(session: AuthSession) {
+  function completeProviderAuthentication(
+    session: AuthSession,
+    requestedRole: PublicSignupRole | null = signupRole,
+  ) {
+    const nextHomeView = getHomeViewForRequestedRole(
+      session.user.roles,
+      session.user.email,
+      requestedRole,
+    );
+    pendingAuthHomeView.current = { session, view: nextHomeView };
     setAuthSession(session);
     if (isOnboardingMascotKey(session.user.mascotKey)) {
       setOnboardingMascotKey(session.user.mascotKey);
@@ -2946,11 +2976,12 @@ export function useKitabuApp() {
     setAuthEntryScreen('auth');
     const profile = mapAuthSessionToProfile(session);
     setUserProfile(profile);
-      setCurrentGrade(profile.grade || DEFAULT_GRADE);
+    setCurrentGrade(profile.grade || DEFAULT_GRADE);
     setIsStudentPreview(false);
     setOnboardingError(null);
     setAuthError(null);
-    replaceWith(getPrimaryHomeView(session.user.roles, session.user.email));
+    setSignupRole(null);
+    replaceWith(nextHomeView);
   }
 
   function rememberAuthenticatedRole(session: AuthSession) {
@@ -2963,13 +2994,17 @@ export function useKitabuApp() {
     saveJson(STORAGE_KEYS.lastUsedAuthRole, role).catch(() => undefined);
   }
 
-  async function authenticateWithPassword(email: string, password: string) {
+  async function authenticateWithPassword(
+    email: string,
+    password: string,
+    requestedRole: PublicSignupRole | null = signupRole,
+  ) {
     setIsAuthenticating(true);
     setAuthError(null);
 
     try {
       const session = await loginWithPassword(email.trim(), password);
-      completeProviderAuthentication(session);
+      completeProviderAuthentication(session, requestedRole);
     } catch (error) {
       setAuthError(error instanceof Error ? error.message : 'Unable to sign in');
       triggerHaptic('error');
@@ -2979,7 +3014,7 @@ export function useKitabuApp() {
   }
 
   async function signIn() {
-    await authenticateWithPassword(loginEmail, loginPassword);
+    await authenticateWithPassword(loginEmail, loginPassword, signupRole);
   }
 
   async function signUp(input?: OnboardingSignupInput) {
@@ -3069,7 +3104,7 @@ export function useKitabuApp() {
         });
         authenticatedSession = session;
       }
-      completeProviderAuthentication(session);
+      completeProviderAuthentication(session, input?.role ?? signupRole);
       if (input) {
         if (input.selectedSubjectIds?.length) {
           saveDashboardSubjects(input.selectedSubjectIds);
@@ -3096,7 +3131,7 @@ export function useKitabuApp() {
       const message =
         error instanceof Error ? error.message : 'Unable to create account';
       if (authenticatedSession) {
-        completeProviderAuthentication(authenticatedSession);
+        completeProviderAuthentication(authenticatedSession, input?.role ?? signupRole);
         setOnboardingError(message);
         triggerHaptic('error');
         return;
@@ -3757,7 +3792,12 @@ export function useKitabuApp() {
       return;
     }
 
-    const homeView = getPrimaryHomeView(authSession.user.roles, authSession.user.email);
+    const requestedHomeView =
+      pendingAuthHomeView.current?.session === authSession
+        ? pendingAuthHomeView.current.view
+        : null;
+    const homeView =
+      requestedHomeView ?? getPrimaryHomeView(authSession.user.roles, authSession.user.email);
     const initialGrade = mapAuthSessionToProfile(authSession).grade || DEFAULT_GRADE;
     setNavigationHistory([
       {

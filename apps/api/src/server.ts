@@ -227,6 +227,7 @@ import { hasAnyRole, requireAuthenticated, requireRoles, requireSchoolContext } 
 import {
   buildEmailVerificationEmail,
   buildPasswordResetEmail,
+  buildWelcomeEmail,
   sendTransactionalEmail
 } from './mailer.js';
 import {
@@ -1811,6 +1812,17 @@ export function buildServer(options: BuildServerOptions = {}) {
     trustProxy: appConfig.KITABU_TRUST_PROXY,
     bodyLimit: appConfig.KITABU_BODY_LIMIT_BYTES
   });
+
+  async function deliverWelcomeEmail(request: FastifyRequest, email: string) {
+    try {
+      const delivered = await emailSender(buildWelcomeEmail({ recipientEmail: email }));
+      if (!delivered) {
+        request.log.warn('Welcome email delivery failed');
+      }
+    } catch {
+      request.log.warn('Welcome email delivery failed');
+    }
+  }
 
   registerLiveAudioStreamRoutes(app);
 
@@ -3819,6 +3831,7 @@ Requirements:
     }
 
     let user = await findUserByAuthIdentity('google', identity.subject);
+    let isNewGoogleUser = false;
     if (!user) {
       user = await findUserByEmail(identity.email);
       if (!user) {
@@ -3842,6 +3855,7 @@ Requirements:
           termsVersion: appConfig.KITABU_TERMS_VERSION,
           privacyVersion: appConfig.KITABU_PRIVACY_VERSION
         });
+        isNewGoogleUser = true;
         user = await findUserByEmail(identity.email);
       }
 
@@ -3881,6 +3895,9 @@ Requirements:
     if (!user) {
       throw new Error('Unable to load Google account');
     }
+    if (isNewGoogleUser) {
+      await deliverWelcomeEmail(request, user.email);
+    }
     return issueAuthSession(request, reply, user, 'auth.google.login.succeeded');
   });
 
@@ -3906,6 +3923,7 @@ Requirements:
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
+      await deliverWelcomeEmail(request, user.email);
 
     const refreshToken = generateRefreshToken();
     const refreshTokenHash = hashOpaqueToken(refreshToken);

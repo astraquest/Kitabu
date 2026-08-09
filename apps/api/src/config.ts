@@ -100,43 +100,12 @@ const configSchema = z.object({
   KITABU_GEMINI_API_KEY: z.string().optional(),
   KITABU_GEMINI_MODEL: z.string().default('gemini-2.5-flash'),
   KITABU_GEMINI_TTS_MODEL: z.string().default('gemini-2.5-flash-preview-tts'),
-  KITABU_GEMINI_TTS_DAILY_REQUEST_BUDGET: z.coerce.number().int().nonnegative().default(9),
-  KITABU_GEMINI_TTS_RPM_SPACING_MS: z.coerce.number().int().min(20_000).default(20_000),
-  KITABU_GEMINI_TTS_DAILY_WORKER_ENABLED: booleanish.default(true),
-  KITABU_GEMINI_TTS_DAILY_WORKER_HOUR_UTC: z.coerce.number().int().min(0).max(23).default(2),
-  KITABU_CARTESIA_API_KEY: z.string().optional(),
-  KITABU_CARTESIA_BASE_URL: z.string().url().default('https://api.cartesia.ai'),
-  KITABU_CARTESIA_VERSION: z.string().default('2026-03-01'),
-  KITABU_CARTESIA_MODEL: z.string().default('sonic-3'),
-  KITABU_CARTESIA_VOICE_MAP: z.string().default('{}'),
-  KITABU_CARTESIA_DEFAULT_VOICE: z.string().optional(),
-  KITABU_CARTESIA_OUTPUT_FORMAT: z.string().default('{"container":"wav","encoding":"pcm_s16le","sample_rate":24000}'),
-  KITABU_CARTESIA_MAX_DAILY_CHARACTERS: z.coerce.number().int().nonnegative().default(0),
-  KITABU_CARTESIA_MAX_MONTHLY_CHARACTERS: z.coerce.number().int().nonnegative().default(0),
-  KITABU_CARTESIA_MAX_CONCURRENCY: z.coerce.number().int().positive().default(2),
-  KITABU_TTS_STORAGE_BACKEND: z.enum(['local', 'http-put', 'supabase']).default('local'),
-  KITABU_TTS_STORAGE_ROOT: z.string().default('./var/tts-audio'),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT: z.string().default('./var/educational-assets'),
-  KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
-  KITABU_TTS_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND: z.enum(['local', 'http-put', 'supabase']).default('local'),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
   KITABU_TTS_WORKER_ENABLED: booleanish.default(true),
   KITABU_TTS_WORKER_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(5_000),
   KITABU_TTS_WORKER_BATCH_SIZE: z.coerce.number().int().positive().max(20).default(2),
   KITABU_TTS_WORKER_LEASE_SECONDS: z.coerce.number().int().positive().default(300),
   KITABU_TTS_MAX_ATTEMPTS: z.coerce.number().int().positive().max(10).default(3),
   KITABU_TTS_RETRY_DELAY_SECONDS: z.coerce.number().int().positive().default(60),
-  KITABU_GEMINI_API_BASE_URL: z.string().url().default('https://generativelanguage.googleapis.com'),
-  KITABU_GEMINI_TTS_BATCH_ENABLED: booleanish.default(false),
-  KITABU_TTS_STORAGE_BUCKET: z.string().trim().min(1).default('tts-audio'),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_BUCKET: z.string().trim().min(1).default('educational-assets'),
-  KITABU_SUPABASE_URL: z.string().url().optional(),
-  KITABU_SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
-  KITABU_TTS_PUBLIC_BASE_URL: z.string().url().optional(),
-  KITABU_TTS_QUEUE_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(25),
-  KITABU_TTS_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(30_000),
   KITABU_KSH_PER_USD: z.coerce.number().positive().default(129.5),
   KITABU_ADMIN_WEB_ORIGIN: z.string().default('https://admin.kitabu.ai'),
   KITABU_WEB_APP_ORIGINS: z.string().default(''),
@@ -219,23 +188,6 @@ appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL = appConfig.KITABU_NVIDIA_NEMOTRON_
 appConfig.KITABU_GEMINI_API_KEY = trimOptionalSecret(appConfig.KITABU_GEMINI_API_KEY);
 appConfig.KITABU_GEMINI_MODEL = appConfig.KITABU_GEMINI_MODEL.trim();
 appConfig.KITABU_GEMINI_TTS_MODEL = appConfig.KITABU_GEMINI_TTS_MODEL.trim();
-appConfig.KITABU_CARTESIA_API_KEY = trimOptionalSecret(appConfig.KITABU_CARTESIA_API_KEY);
-appConfig.KITABU_CARTESIA_BASE_URL = appConfig.KITABU_CARTESIA_BASE_URL.replace(/\/$/, '').trim();
-appConfig.KITABU_CARTESIA_VERSION = appConfig.KITABU_CARTESIA_VERSION.trim();
-appConfig.KITABU_CARTESIA_MODEL = appConfig.KITABU_CARTESIA_MODEL.trim();
-appConfig.KITABU_CARTESIA_DEFAULT_VOICE = trimOptional(appConfig.KITABU_CARTESIA_DEFAULT_VOICE);
-appConfig.KITABU_CARTESIA_VOICE_MAP = appConfig.KITABU_CARTESIA_VOICE_MAP.trim();
-appConfig.KITABU_CARTESIA_OUTPUT_FORMAT = appConfig.KITABU_CARTESIA_OUTPUT_FORMAT.trim();
-appConfig.KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE);
-appConfig.KITABU_TTS_STORAGE_ROOT = appConfig.KITABU_TTS_STORAGE_ROOT.trim();
-appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT = appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT.trim();
-appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL);
-appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE);
-appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL);
-appConfig.KITABU_GEMINI_API_BASE_URL = appConfig.KITABU_GEMINI_API_BASE_URL.replace(/\/$/, '').trim();
-appConfig.KITABU_SUPABASE_URL = trimOptional(appConfig.KITABU_SUPABASE_URL);
-appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY = trimOptionalSecret(appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY);
-appConfig.KITABU_TTS_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_PUBLIC_BASE_URL);
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);

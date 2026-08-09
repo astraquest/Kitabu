@@ -1,5 +1,6 @@
 import React from 'react';
 import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { createAudioPlayer } from 'expo-audio';
 import { Check, ChevronRight } from 'lucide-react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
@@ -41,7 +42,6 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   onAcceptedTermsChange: jest.fn(),
   onOptionalPhoneNumberChange: jest.fn(),
   onAuthenticated: jest.fn(),
-  onDemoLogin: jest.fn(),
   onSubmit: jest.fn(),
 };
 
@@ -435,7 +435,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-footer' })).toHaveLength(0);
   await pressAutoAdvanceChoice(renderer!.root, 'Select Kiswahili language');
 
-  expect(renderedText(renderer!.root)).not.toContain('Rafiki wako wa masomo ✨');
+  expect(renderedText(renderer!.root)).toContain('Rafiki wako wa masomo ✨');
   expect(renderedText(renderer!.root)).toContain('Chagua mwenzako!');
   expect(renderedText(renderer!.root)).toContain('Atakuwa pamoja nawe wakati wote wa masomo.');
   expect(renderedText(renderer!.root)).toContain('The Lion');
@@ -453,26 +453,6 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Rafiki the Elephant mascot' }).props.accessibilityState).toEqual({
     checked: false,
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Rafiki the Panda mascot' }).props.accessibilityState).toEqual({
-    checked: false,
-  });
-  expect(
-    [
-      'Choose Rafiki the Lion mascot',
-      'Choose Rafiki the Rabbit mascot',
-      'Choose Rafiki the Elephant mascot',
-      'Choose Rafiki the Panda mascot',
-    ].map(accessibilityLabel => renderer!.root.findByProps({ accessibilityLabel }).props.accessibilityRole),
-  ).toEqual(['radio', 'radio', 'radio', 'radio']);
-  expect(StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Mascot options' }).props.style)).toEqual(
-    expect.objectContaining({
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
-    }),
-  );
-  expect(
-    StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Choose Rafiki the Panda mascot' }).props.style),
-  ).toEqual(expect.objectContaining({ width: '48%' }));
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
@@ -499,7 +479,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   });
 
   expect(renderedText(renderer!.root)).toContain('Rafiki the Lion');
-  expect(renderedText(renderer!.root)).not.toContain('Nakuwasilisha...');
+  expect(renderedText(renderer!.root)).toContain('Nakuwasilisha...');
   expect(renderedText(renderer!.root)).toContain('Mwenzako wa masomo');
   expect(renderedText(renderer!.root)).toContain('Mimi ni Rafiki the Lion!');
   expect(renderedText(renderer!.root)).toContain('Twende pamoja!');
@@ -517,7 +497,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
-  expect(renderedText(renderer!.root)).not.toContain('Karibu! 🚀');
+  expect(renderedText(renderer!.root)).toContain('Karibu! 🚀');
   expect(renderedText(renderer!.root)).toContain('Ni nani wewe?');
   expect(renderedText(renderer!.root)).toContain('Mwanafunzi');
   expect(renderedText(renderer!.root)).toContain('Natafuta msaada');
@@ -544,27 +524,82 @@ test('onboarding full intro captures profile details before account setup', asyn
 
   await pressAutoAdvanceChoice(renderer!.root, 'Selected Mwanafunzi role');
 
-  expect(renderedText(renderer!.root)).toContain('Ruhusu matumizi ya maikrofoni');
-  expect(renderedText(renderer!.root)).toContain('Maikrofoni husaidia majibu ya kuzungumza na mafunzo ya moja kwa moja.');
-  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Tutor voice options' })).toHaveLength(0);
-  expect(renderer!.root.findAllByProps({ testID: 'voice-orb' })).toHaveLength(0);
+  expect(renderedText(renderer!.root)).toContain('Sauti 🔊');
+  expect(renderedText(renderer!.root)).toContain('Sauti ya mwalimu wako isikike vipi?');
+  expect(renderedText(renderer!.root)).toContain('Chagua sauti');
+  expect(renderedText(renderer!.root)).toContain('Gusa sauti ili kuisikiza kwanza');
+  expect(renderedText(renderer!.root)).toContain('Samora');
+  expect(renderedText(renderer!.root)).toContain('Barake');
+  expect(renderedText(renderer!.root)).toContain('Bella');
+  expect(renderedText(renderer!.root)).toContain('Judith');
+  expect(renderedText(renderer!.root)).toContain('🎙️');
+  expect(StyleSheet.flatten(renderer!.root.findByProps({ testID: 'voice-orb' }).props.style)?.backgroundColor).toBe(
+    '#FEF0D9',
+  );
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Chagua sauti');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Voice slider positions' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Samora' }).props.style).toEqual(
+    expect.arrayContaining([expect.not.objectContaining({ backgroundColor: '#E07B00' })]),
+  );
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
     now: 5,
-    text: 'Step 5 of 25, Microphone',
+    text: 'Step 5 of 25, Voice',
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.accessibilityState).toEqual({
-    disabled: false,
-    busy: false,
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Samora voice' }).props.accessibilityState).toEqual({
+    checked: false,
   });
+  // Voice step gates Continue until a voice (or text-only) is chosen.
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: true, busy: false });
+  expect(StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.style)).toEqual(
+    expect.objectContaining({
+      elevation: 0,
+      shadowOpacity: 0,
+      shadowRadius: 0,
+    }),
+  );
 
   await act(async () => {
-    await renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Barake voice' }).props.onPress();
+    await Promise.resolve();
+  });
+  expect(createAudioPlayer).toHaveBeenCalledWith(expect.anything(), { downloadFirst: false });
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Barake voice' }).props.accessibilityState,
+  ).toEqual({ checked: true });
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: false, busy: false });
+  expect(StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.style)).toEqual(
+    expect.objectContaining({
+      elevation: 4,
+      shadowColor: '#E07B00',
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.25,
+      shadowRadius: 16,
+    }),
+  );
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Barake');
+  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Barake' }).props.style).toEqual(
+    expect.arrayContaining([expect.objectContaining({ backgroundColor: '#E07B00' })]),
+  );
+
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+  });
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.accessibilityState).toEqual({
+    checked: true,
+  });
+
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
   expect(renderedText(renderer!.root)).toContain('Unahitaji nini zaidi sasa hivi?');
-  expect(renderedText(renderer!.root)).not.toContain('Ili nikujue \uD83D\uDC47');
+  expect(renderedText(renderer!.root)).toContain('Ili nikujue \uD83D\uDC47');
   expect(renderedText(renderer!.root)).toContain('Nina mtihani karibu');
   expect(renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' }).props.accessibilityLabel).toBe(
     'Rafiki the Lion mascot, think pose',
@@ -574,7 +609,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   await pressAutoAdvanceChoice(renderer!.root, 'Choose Nina mtihani karibu');
 
   expect(renderedText(renderer!.root)).toContain('Jina lako ni nani?');
-  expect(renderedText(renderer!.root)).not.toContain('Tuonane \uD83D\uDC4B');
+  expect(renderedText(renderer!.root)).toContain('Tuonane \uD83D\uDC4B');
   expect(renderedText(renderer!.root)).toContain('Mwalimu wako wa Kitabu AI atakujua kwa jina lako.');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Your name' }).props.placeholder).toBe('Andika jina lako...');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
@@ -639,7 +674,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   });
 
   expect(renderedText(renderer!.root)).toContain('Wewe ni wa jinsia gani?');
-  expect(renderedText(renderer!.root)).not.toContain('Kuhusu wewe \uD83E\uDDCD');
+  expect(renderedText(renderer!.root)).toContain('Kuhusu wewe \uD83E\uDDCD');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
@@ -752,7 +787,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   });
 
   expect(renderedText(renderer!.root)).toContain('Unasoma masomo gani?');
-  expect(renderedText(renderer!.root)).not.toContain('Masomo yako');
+  expect(renderedText(renderer!.root)).toContain('Masomo yako');
   expect(renderedText(renderer!.root)).toContain('\u2605 Masomo ya lazima');
   expect(renderedText(renderer!.root)).toContain('Masomo ya kuchagua');
   expect(renderedText(renderer!.root)).toContain('Science & Technology');
@@ -777,7 +812,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   });
 
   expect(renderedText(renderer!.root)).toContain('Usiku kabla ya mtihani wa KNEC...');
-  expect(renderedText(renderer!.root)).not.toContain('Inakujua? \uD83D\uDE2C');
+  expect(renderedText(renderer!.root)).toContain('Inakujua? \uD83D\uDE2C');
   expect(renderedText(renderer!.root)).toContain('\uD83E\uDD2F');
   expect(renderedText(renderer!.root)).toContain('BILA KITABU AI');
   expect(renderedText(renderer!.root)).toContain('Ninapata wasiwasi wakati wa mitihani');
@@ -873,7 +908,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   await pressAutoAdvanceChoice(renderer!.root, 'Choose achievement Shangilia mitihani inayokuja.');
 
   expect(renderedText(renderer!.root)).toContain('Mambo unayopenda?');
-  expect(renderedText(renderer!.root)).not.toContain('Jambo moja zaidi \uD83D\uDC4D');
+  expect(renderedText(renderer!.root)).toContain('Jambo moja zaidi \uD83D\uDC4D');
   expect(renderedText(renderer!.root)).toContain('Tutafanya maudhui ya masomo kulingana na unayopenda.');
   ['Mpira', 'Muziki', 'Gaming', 'Teknolojia', 'Filamu', 'Sanaa', 'Kupika', 'Vitabu'].forEach(label => {
     expect(renderedText(renderer!.root)).toContain(label);
@@ -931,7 +966,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
-  expect(renderedText(renderer!.root)).not.toContain('Vikumbusho \uD83D\uDD14');
+  expect(renderedText(renderer!.root)).toContain('Vikumbusho \uD83D\uDD14');
   expect(renderedText(renderer!.root)).toContain('Tutakukumbusha ustudy.');
   expect(renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' }).props.accessibilityLabel).toBe(
     'Rafiki the Lion mascot, sleep pose',
@@ -960,7 +995,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     await renderer!.root.findByProps({ accessibilityLabel: 'Allow assignment and study reminders' }).props.onPress();
   });
 
-  expect(renderedText(renderer!.root)).not.toContain('Kitabu AI');
+  expect(renderedText(renderer!.root)).toContain('Kitabu AI');
   expect(renderedText(renderer!.root)).toContain('Tunaunda uzoefu wako binafsi...');
   expect(renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' }).props.accessibilityLabel).toBe(
     'Rafiki the Lion mascot, cool pose',
@@ -1200,7 +1235,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     role: 'student',
     name: 'Nia',
     voice: '',
-    noVoice: false,
+    noVoice: true,
     need: 'exam',
     needKey: 'exam',
     displayName: 'Nia',
@@ -1253,8 +1288,11 @@ test('onboarding displays Form aliases and filters subjects by selected senior g
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
   await pressAutoAdvanceChoice(renderer!.root, 'Selected Student role');
-  await act(async () => {
-    await renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.onPress();
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
   await pressAutoAdvanceChoice(renderer!.root, 'Choose I have an exam coming up');
   await act(() => {
@@ -1370,14 +1408,16 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       renderer!.root,
       `Selected ${expectation.role === 'teacher' ? 'Teacher' : 'Parent'} role`,
     );
-    await act(async () => {
-      await renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.onPress();
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
     });
-    expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Tutor voice options' })).toHaveLength(0);
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+    });
 
     const text = renderedText(renderer!.root);
 
-    expect(text).not.toContain(expectation.needEyebrow);
+    expect(text).toContain(expectation.needEyebrow);
     expect(text).toContain(expectation.needHeading);
     expectation.labels.forEach(label => expect(text).toContain(label));
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
@@ -1390,7 +1430,7 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
     await pressAutoAdvanceChoice(renderer!.root, `Choose ${expectation.selectedNeed}`);
 
     expect(renderedText(renderer!.root)).toContain("What's your name?");
-    expect(renderedText(renderer!.root)).not.toContain(expectation.nameEyebrow);
+    expect(renderedText(renderer!.root)).toContain(expectation.nameEyebrow);
     expect(renderedText(renderer!.root)).toContain(expectation.nameSubText);
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Your name' }).props.placeholder).toBe(expectation.namePlaceholder);
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
@@ -1408,7 +1448,7 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
     });
 
     expect(renderedText(renderer!.root)).toContain('What is your gender?');
-    expect(renderedText(renderer!.root)).not.toContain('About you \uD83E\uDDCD');
+    expect(renderedText(renderer!.root)).toContain('About you \uD83E\uDDCD');
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
       max: expectation.totalSteps,
       min: 1,
@@ -1550,8 +1590,11 @@ test('onboarding role step does not expose the removed Other role', async () => 
   }
 
   await pressAutoAdvanceChoice(renderer!.root, 'Selected Other role');
-  await act(async () => {
-    await renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.onPress();
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
   expect(renderedText(renderer!.root)).toContain('So I know how to help \uD83D\uDC47');
@@ -1589,7 +1632,7 @@ test('onboarding role step does not expose the removed Other role', async () => 
   });
 
   expect(renderedText(renderer!.root)).toContain('What is your gender?');
-  expect(renderedText(renderer!.root)).not.toContain('About you \uD83E\uDDCD');
+  expect(renderedText(renderer!.root)).toContain('About you \uD83E\uDDCD');
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Select Alien from space' }).props.onPress();
   });
@@ -1678,9 +1721,9 @@ test('full intro loading and ready states use teacher and parent context', async
       need: 'Support my child\'s learning',
       needHeading: 'What do you need most right now?',
       name: 'Parent Kamau',
-      goal: 'Best in their class',
+      goal: 'Support homework at home',
       concern: 'My child is not motivated to study.',
-      achievement: 'Yes',
+      achievement: 'See their grades improve this term.',
       detailAction: async (root: ReactTestRenderer.ReactTestInstance) => {
         await act(() => {
           root.findByProps({ accessibilityLabel: 'Child name' }).props.onChangeText('Amani');
@@ -1724,7 +1767,7 @@ test('full intro loading and ready states use teacher and parent context', async
       readySocial: "You're joining millions of satisfied students.",
       readyTestimonial: 'Wanjiru - Grade 8',
       loadingTitle: 'Building Parent Kamau family dashboard',
-      loadingText: 'We are combining your mascot, progress snapshot, curriculum, reminders, child profile, and school.',
+      loadingText: 'We are combining your mascot, family goal, curriculum, reminders, child profile, and school.',
       readyTitle: 'Dashboard ready',
       readyPlanText: 'Study plans for your 2 children are ready to go.',
       readyText: '2 children · Kenya CBC',
@@ -1760,11 +1803,11 @@ test('full intro loading and ready states use teacher and parent context', async
       renderer!.root,
       `Selected ${expectation.role === 'teacher' ? 'Teacher' : 'Parent'} role`,
     );
-    expect(renderedText(renderer!.root)).toContain('Allow Microphone Access');
-    expect(renderedText(renderer!.root)).toContain('Microphone access enables spoken answers and live tutoring.');
-    expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Tutor voice options' })).toHaveLength(0);
-    await act(async () => {
-      await renderer!.root.findByProps({ accessibilityLabel: 'Allow microphone access' }).props.onPress();
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+    });
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
     });
     expect(renderedText(renderer!.root)).toContain(expectation.needHeading);
     await pressAutoAdvanceChoice(renderer!.root, `Choose ${expectation.need}`);
@@ -1808,7 +1851,7 @@ test('full intro loading and ready states use teacher and parent context', async
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
       // Subjects are captured one screen per selected grade. First screen: Grade 6.
-      expect(renderedText(renderer!.root)).not.toContain('Your subjects \uD83D\uDCD6');
+      expect(renderedText(renderer!.root)).toContain('Your subjects \uD83D\uDCD6');
       expect(renderedText(renderer!.root)).toContain('Which subjects do you teach?');
       expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject grade context' }))).toContain(
         'Grade 6',
@@ -1887,7 +1930,7 @@ test('full intro loading and ready states use teacher and parent context', async
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
-      expect(renderedText(renderer!.root)).not.toContain('Child subjects');
+      expect(renderedText(renderer!.root)).toContain('Child subjects');
       expect(renderedText(renderer!.root)).toContain('Which subjects should we track for Amani?');
       expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject child context' }))).toContain(
         'Amani',
@@ -1923,24 +1966,24 @@ test('full intro loading and ready states use teacher and parent context', async
       expect(renderedText(renderer!.root)).toContain('Interactive resources');
       expect(renderedText(renderer!.root)).toContain('Recommended');
     } else {
-      expect(renderedText(renderer!.root)).toContain('Best in their class');
-      expect(renderedText(renderer!.root)).toContain('Okay');
-      expect(renderedText(renderer!.root)).toContain('Average');
-      expect(renderedText(renderer!.root)).toContain('Far behind');
-      expect(renderedText(renderer!.root)).toContain('Poorly');
-      expect(renderedText(renderer!.root)).not.toContain('Recommended');
+      expect(renderedText(renderer!.root)).toContain('Monitor my child\'s progress');
+      expect(renderedText(renderer!.root)).toContain('Support homework at home');
+      expect(renderedText(renderer!.root)).toContain('Help them improve grades');
+      expect(renderedText(renderer!.root)).toContain('Prepare for university');
+      expect(renderedText(renderer!.root)).toContain('Know what they\'re studying');
+      expect(renderedText(renderer!.root)).toContain('Recommended');
     }
     await pressAutoAdvanceChoice(renderer!.root, `Choose goal ${expectation.goal}`);
     if (expectation.role === 'teacher') {
-      expect(renderedText(renderer!.root)).not.toContain('Your challenges \uD83D\uDCBC');
+      expect(renderedText(renderer!.root)).toContain('Your challenges \uD83D\uDCBC');
       expect(renderedText(renderer!.root)).toContain('What\'s your biggest teaching challenge?');
       expect(renderedText(renderer!.root)).toContain('Too much marking and admin work.');
       expect(renderedText(renderer!.root)).toContain('Hard to identify each student\'s weak areas.');
       expect(renderedText(renderer!.root)).toContain('Struggling to cover the full syllabus.');
       expect(renderedText(renderer!.root)).toContain('Students underperforming in exams.');
     } else {
-      expect(renderedText(renderer!.root)).not.toContain('What worries you most? \uD83D\uDC9B');
-      expect(renderedText(renderer!.root)).toContain('What matters most to you right now?');
+      expect(renderedText(renderer!.root)).toContain('What worries you most? \uD83D\uDC9B');
+      expect(renderedText(renderer!.root)).toContain('What concerns you most about your child\'s learning?');
       expect(renderedText(renderer!.root)).toContain('Too much time on phone/TV instead of studying.');
       expect(renderedText(renderer!.root)).toContain('They don\'t understand what they\'re taught.');
       expect(renderedText(renderer!.root)).toContain('Homework is a constant battle at home.');
@@ -1948,17 +1991,19 @@ test('full intro loading and ready states use teacher and parent context', async
     }
     await pressAutoAdvanceChoice(renderer!.root, `Choose concern ${expectation.concern}`);
     if (expectation.role === 'teacher') {
-      expect(renderedText(renderer!.root)).not.toContain('What will success look like? \uD83C\uDFC6');
+      expect(renderedText(renderer!.root)).toContain('What will success look like? \uD83C\uDFC6');
       expect(renderedText(renderer!.root)).toContain('What would make Kitabu AI worth it for you?');
       expect(renderedText(renderer!.root)).toContain('Save at least 3 hours per week on prep.');
       expect(renderedText(renderer!.root)).toContain('Make every lesson more engaging.');
       expect(renderedText(renderer!.root)).toContain('Identify weak students early and help them.');
       expect(renderedText(renderer!.root)).toContain('Complete the full syllabus on time.');
     } else {
-      expect(renderedText(renderer!.root)).not.toContain('What would you love to see? \uD83D\uDC9B');
-      expect(renderedText(renderer!.root)).toContain('Does Amani have their own phone?');
-      expect(renderedText(renderer!.root)).toContain('Yes');
-      expect(renderedText(renderer!.root)).toContain('No');
+      expect(renderedText(renderer!.root)).toContain('What would you love to see? \uD83D\uDC9B');
+      expect(renderedText(renderer!.root)).toContain('What do you want to see happen for your child?');
+      expect(renderedText(renderer!.root)).toContain('Build a daily study habit for them.');
+      expect(renderedText(renderer!.root)).toContain('Understand exactly where they\'re struggling.');
+      expect(renderedText(renderer!.root)).toContain('Set them up for university success.');
+      expect(renderedText(renderer!.root)).toContain('Reduce exam stress and anxiety for them.');
     }
     await pressAutoAdvanceChoice(renderer!.root, `Choose achievement ${expectation.achievement}`);
 
@@ -2000,7 +2045,7 @@ test('full intro loading and ready states use teacher and parent context', async
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
     });
 
-    expect(renderedText(renderer!.root)).not.toContain(expectation.reminderKicker);
+    expect(renderedText(renderer!.root)).toContain(expectation.reminderKicker);
     expect(renderedText(renderer!.root)).toContain(expectation.reminderQuestion);
     expect(renderedText(renderer!.root)).toContain('just now');
     expect(renderedText(renderer!.root)).toContain(expectation.reminderNotice);
@@ -2077,7 +2122,7 @@ test('full intro loading and ready states use teacher and parent context', async
         role: expectation.role,
         name: expectation.name,
         voice: '',
-        noVoice: false,
+        noVoice: true,
         county: 'Nairobi City',
         school: 'Kitabu Demo School',
         signupMethod: 'google',
@@ -2146,7 +2191,7 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
   });
 
   expect(renderedText(renderer!.root)).toContain('Step 2 of 3');
-  expect(renderedText(renderer!.root)).not.toContain('Your school \uD83C\uDFEB');
+  expect(renderedText(renderer!.root)).toContain('Your school \uD83C\uDFEB');
   expect(renderedText(renderer!.root)).toContain('Which school do you teach at?');
   // Before a county is picked the school dropdown is disabled (the searchable list lives inside it).
   expect(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.accessibilityState).toEqual({
@@ -2643,7 +2688,7 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
-  expect(renderedText(renderer!.root)).not.toContain('Your child\'s school \uD83C\uDFEB');
+  expect(renderedText(renderer!.root)).toContain('Your child\'s school \uD83C\uDFEB');
   expect(renderedText(renderer!.root)).toContain('Which school does your child attend?');
   // Before a county is picked, the school dropdown is disabled and its searchable list is closed.
   expect(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.accessibilityState).toEqual({

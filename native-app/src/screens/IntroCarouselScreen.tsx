@@ -11,7 +11,6 @@ import {
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Volume2, VolumeX } from 'lucide-react-native';
 import { buildScreenIntro, useGuidedNarration } from '../services/narrationService';
 import { useLandingSoundtrack } from '../services/landingSoundtrack';
 
@@ -72,7 +71,6 @@ export function IntroCarouselScreen({
 }: IntroCarouselScreenProps) {
   const scrollRef = useRef<ScrollView | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [narrationTrigger, setNarrationTrigger] = useState<string | null>(null);
   const isLast = activeIndex === SLIDES.length - 1;
   const ctaLabel = isLast ? 'Create account' : 'Next';
 
@@ -82,15 +80,11 @@ export function IntroCarouselScreen({
       String(activeIndex),
       SLIDES[activeIndex].titleParts.map(part => part.text).join(''),
       'Samora',
-      {
-        language: activeIndex === 3 ? 'sw' : 'en',
-        publicCueId: `intro-slide-${activeIndex + 1}`,
-      },
     ),
     [activeIndex],
   );
-  useGuidedNarration(narrationCue, true, narrationTrigger);
-  const { muted, start: startSoundtrack, toggleMuted } = useLandingSoundtrack();
+  useGuidedNarration(narrationCue);
+  useLandingSoundtrack();
 
   const progress = useMemo(
     () => SLIDES.map((_, index) => index <= activeIndex),
@@ -109,7 +103,6 @@ export function IntroCarouselScreen({
     }
 
     const nextIndex = activeIndex + 1;
-    setNarrationTrigger(`screen-intro:intro-carousel:${nextIndex}`);
     scrollRef.current?.scrollTo({ x: nextIndex * width, animated: true });
     setActiveIndex(nextIndex);
   }
@@ -119,7 +112,6 @@ export function IntroCarouselScreen({
       colors={['#04192d', '#10375f', '#1d5c4b']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
-      onTouchStart={startSoundtrack}
       style={styles.screen}>
       <View style={styles.topRow}>
         <View style={styles.brandPill}>
@@ -171,56 +163,21 @@ export function IntroCarouselScreen({
           <View style={styles.finalActionRow}>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={
-                muted ? 'Unmute landing soundtrack' : 'Mute landing soundtrack'
-              }
-              accessibilityHint="Toggles the quiet landing soundtrack"
-              onPress={toggleMuted}
-              style={styles.soundtrackToggle}>
-              {muted ? (
-                <VolumeX color="#FFFFFF" size={22} />
-              ) : (
-                <Volume2 color="#FFFFFF" size={22} />
-              )}
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={ctaLabel}
-              onPress={onCreateAccount}
+              onPress={handlePrimaryAction}
               style={[styles.primaryButton, styles.finalActionButton]}>
               <Text style={styles.primaryText}>{ctaLabel}</Text>
             </Pressable>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Sign in"
               onPress={onSignIn}
               style={[styles.signInButton, styles.finalActionButton]}>
               <Text style={styles.signInText}>Sign in</Text>
             </Pressable>
           </View>
         ) : (
-          <View style={styles.actionRow}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={
-                muted ? 'Unmute landing soundtrack' : 'Mute landing soundtrack'
-              }
-              accessibilityHint="Toggles the quiet landing soundtrack"
-              onPress={toggleMuted}
-              style={styles.soundtrackToggle}>
-              {muted ? (
-                <VolumeX color="#FFFFFF" size={22} />
-              ) : (
-                <Volume2 color="#FFFFFF" size={22} />
-              )}
-            </Pressable>
-            <Pressable
-              accessibilityLabel={ctaLabel}
-              onPress={handlePrimaryAction}
-              style={[styles.primaryButton, styles.nextButton]}>
-              <Text style={styles.primaryText}>{ctaLabel}</Text>
-            </Pressable>
-          </View>
+          <Pressable onPress={handlePrimaryAction} style={styles.primaryButton}>
+            <Text style={styles.primaryText}>{ctaLabel}</Text>
+          </Pressable>
         )}
 
         <Text style={styles.helperText}>
@@ -359,21 +316,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 58,
   },
-  nextButton: {
-    flex: 1,
-  },
   primaryText: {
     color: '#FFFFFF',
     fontSize: 17,
     fontWeight: '900',
   },
   finalActionRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 12,
-  },
-  actionRow: {
-    alignItems: 'center',
     flexDirection: 'row',
     gap: 12,
   },
@@ -384,12 +332,5 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.72)',
     fontSize: 13,
     textAlign: 'center',
-  },
-  soundtrackToggle: {
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-    height: 58,
-    justifyContent: 'center',
-    width: 58,
   },
 });

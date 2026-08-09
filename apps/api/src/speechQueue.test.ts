@@ -16,7 +16,6 @@ const {
   isReadyTtsArtifact,
   normalizeSpokenText,
   prepareOnboardingTts,
-  repairMissingOnboardingTts,
   spokenCuesFromQuestions,
   TTS_AVATAR_VOICES
 } =
@@ -29,17 +28,16 @@ test.after(async () => {
   await db.end().catch(() => undefined);
 });
 
-test('TTS identity normalizes text and is independent of provider model', () => {
-  const first = buildTtsArtifactKey({ text: '  Choose\n the   best answer. ', language: 'en', voice: 'Samora' });
-  const same = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'en', voice: 'Samora' });
-  const otherVoice = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'en', voice: 'Bella' });
-  const otherLanguage = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'sw', voice: 'Samora' });
+test('TTS identity normalizes whitespace and changes with voice or model', () => {
+  const first = buildTtsArtifactKey('  Choose\n the   best answer. ', 'Samora', 'tts-v1');
+  const same = buildTtsArtifactKey('Choose the best answer.', 'Samora', 'tts-v1');
+  const otherVoice = buildTtsArtifactKey('Choose the best answer.', 'Bella', 'tts-v1');
+  const otherModel = buildTtsArtifactKey('Choose the best answer.', 'Samora', 'tts-v2');
 
   assert.equal(first.normalizedText, 'Choose the best answer.');
   assert.equal(first.cacheKey, same.cacheKey);
   assert.notEqual(first.cacheKey, otherVoice.cacheKey);
-  assert.notEqual(first.cacheKey, otherLanguage.cacheKey);
-  assert.equal(first.cacheKey, buildTtsArtifactKey('Choose the best answer.', 'Samora', 'different-model').cacheKey);
+  assert.notEqual(first.cacheKey, otherModel.cacheKey);
   assert.equal(normalizeSpokenText('  one\t two  '), 'one two');
 });
 
@@ -60,9 +58,6 @@ test('landing and onboarding catalog contains only short semantic copy', () => {
     assert.ok(cue.text.length <= 110);
     assert.doesNotMatch(cue.text, /option\s+[a-d]|answer choices|checkbox|question\s+\d+/i);
   }
-  assert.ok(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.id === 'onboarding-role' && cue.text === 'Who are you?'));
-  assert.ok(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.id === 'onboarding-microphone' && cue.text.includes('Microphone access enables')));
-  assert.equal(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.text.includes('How should your tutor sound?')), false);
 });
 
 test('durable speech returns a ready artifact without calling Gemini, and persists misses', async () => {
@@ -89,7 +84,6 @@ test('durable speech returns a ready artifact without calling Gemini, and persis
     }
   );
   assert.equal(hit.cacheHit, true);
-  assert.ok(hit.audio);
   assert.equal(hit.audio.base64Audio, audio);
   assert.equal(syntheses, 0);
 
@@ -179,130 +173,4 @@ test('onboarding preparation reads ready artifacts before enqueueing and is idem
     mime_type: 'audio/wav',
     content_hash: 'hash'
   } as any), false);
-});
-
-test('storage repair requeues only missing English curated artifacts', async () => {
-  const targetCue = LANDING_ONBOARDING_TTS_CUES.find(cue => !cue.language)!;
-  const targetIdentity = buildTtsArtifactKey({ text: targetCue.text, language: 'en', voice: 'Barake' });
-  const unrelatedIdentity = buildTtsArtifactKey({ text: 'Legacy unrelated cue', language: 'en', voice: 'Barake' });
-  const requested: string[] = [];
-  const requeued: Array<Record<string, unknown>> = [];
-  const result = await repairMissingOnboardingTts({
-    getArtifact: async cacheKey => {
-      requested.push(cacheKey);
-      if (cacheKey === targetIdentity.cacheKey) {
-        return {
-          status: 'ready',
-          audio_data: Buffer.alloc(0),
-          storage_key: 'tts/missing.wav',
-          mime_type: 'audio/wav',
-          content_hash: 'hash'
-        } as any;
-      }
-      if (cacheKey === unrelatedIdentity.cacheKey) {
-        return {
-          status: 'ready',
-          audio_data: Buffer.alloc(0),
-          storage_key: 'tts/unrelated.wav',
-          mime_type: 'audio/wav',
-          content_hash: 'hash'
-        } as any;
-      }
-      return null;
-    },
-    storage: {
-      backend: 'local',
-      put: async () => ({ storageKey: 'unused', byteSize: 0 }),
-      read: async () => new Uint8Array(0),
-      publicUrl: () => null
-    },
-    enqueue: async input => { requeued.push(input); }
-  });
-
-  assert.equal(result.total, 84);
-  assert.equal(result.ready, 1);
-  assert.equal(result.present, 0);
-  assert.equal(result.missing, 1);
-  assert.equal(result.requeued, 1);
-  assert.equal(result.failed, 0);
-  assert.equal(requeued[0].provider, 'cartesia');
-  assert.equal(requeued[0].voice, 'Barake');
-  assert.equal(requeued[0].repairReadyMissingStorage, true);
-  assert.equal(requested.includes(unrelatedIdentity.cacheKey), false);
-});
-
-test('storage repair skips claimable pending jobs but requeues stale pending jobs', async () => {
-  const englishCues = LANDING_ONBOARDING_TTS_CUES.filter(cue => !cue.language);
-  const staleCue = englishCues[0];
-  const claimableCue = englishCues[1];
-  const staleIdentity = buildTtsArtifactKey({ text: staleCue.text, language: 'en', voice: 'Barake' });
-  const claimableIdentity = buildTtsArtifactKey({ text: claimableCue.text, language: 'en', voice: 'Barake' });
-  const jobs: string[] = [];
-  const requeued: Array<Record<string, unknown>> = [];
-  const result = await repairMissingOnboardingTts({
-    getArtifact: async cacheKey => {
-      if (cacheKey === staleIdentity.cacheKey) {
-        return { id: 'stale-pending', status: 'pending', audio_data: Buffer.alloc(0), storage_key: 'tts/stale.wav' } as any;
-      }
-      if (cacheKey === claimableIdentity.cacheKey) {
-        return { id: 'claimable-pending', status: 'pending', audio_data: Buffer.alloc(0), storage_key: 'tts/claimable.wav' } as any;
-      }
-      return null;
-    },
-    getJob: async artifactId => {
-      jobs.push(artifactId);
-      return artifactId === 'stale-pending'
-        ? { status: 'completed', available_at: new Date(0) }
-        : { status: 'pending', available_at: new Date(0) };
-    },
-    storage: {
-      backend: 'local',
-      put: async () => ({ storageKey: 'unused', byteSize: 0 }),
-      read: async () => new Uint8Array(0),
-      publicUrl: () => null
-    },
-    enqueue: async input => { requeued.push(input); }
-  });
-
-  assert.equal(result.total, 84);
-  assert.equal(result.missing, 2);
-  assert.equal(result.requeued, 1);
-  assert.deepEqual(jobs, ['stale-pending', 'claimable-pending']);
-  assert.equal(requeued[0].repairReadyMissingStorage, true);
-});
-
-test('durable speech treats a missing ready object as a miss and requests repair', async () => {
-  const readyArtifact = {
-    status: 'ready',
-    audio_data: Buffer.alloc(0),
-    storage_key: 'tts/missing.wav',
-    mime_type: 'audio/wav',
-    content_hash: 'hash',
-    gemini_model: 'tts-v1',
-    gemini_voice: 'Puck'
-  } as any;
-  let repaired = 0;
-  let synthesized = 0;
-  const result = await getOrCreateDurableSpeech(
-    { text: 'Missing storage cue', avatarVoice: 'Samora' },
-    {
-      getArtifact: async () => readyArtifact,
-      storage: {
-        backend: 'local',
-        put: async () => ({ storageKey: 'unused', byteSize: 0 }),
-        read: async () => { throw new Error('missing'); },
-        publicUrl: () => null
-      },
-      repairReadyMissingStorage: async () => { repaired += 1; },
-      synthesize: async () => {
-        synthesized += 1;
-        return { base64Audio: Buffer.from([1]).toString('base64'), mimeType: 'audio/wav', model: 'tts-v1', voice: 'Puck' };
-      },
-      persist: async () => undefined
-    }
-  );
-  assert.equal(result.cacheHit, false);
-  assert.equal(result.audio?.base64Audio, Buffer.from([1]).toString('base64'));
-  assert.equal(repaired, 1);
-  assert.equal(synthesized, 1);
 });

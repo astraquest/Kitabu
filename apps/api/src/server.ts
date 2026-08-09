@@ -58,6 +58,7 @@ import {
   type CurriculumStrandInput,
   createAdminManagedUser,
   createAiGenerationRun,
+  createAssessmentNarrationSession,
   createBannerAnnouncement,
   createTeacherAssignment,
   createSelfServiceUser,
@@ -69,6 +70,8 @@ import {
   createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
+  findQuizBankQuestionById,
+  findAssessmentNarrationSession,
   createParentTeacherMessage,
   createTeacherLessonPlan,
   createTeacherParentMessages,
@@ -116,6 +119,7 @@ import {
   getAdminOnboardingAnalytics,
   getAdminSubjectEngagementAnalytics,
   getLearnerSubjectRecommendationSignals,
+  getUserNarrationPreference,
   getAiGenerationCacheEntry,
   getReferenceLibraryDocumentForTemplateGeneration,
   listAdminUsers,
@@ -201,6 +205,7 @@ import {
   updateUserOnboarding,
   updateUserPassword,
   upsertLearnerSubjectDisplayPreferences,
+  upsertUserNarrationPreference,
   upsertPushToken,
   upsertBillingProfile,
   stageTotpSecret,
@@ -211,6 +216,14 @@ import {
   findProgressiveLessonAttemptForUser,
   withTransaction
 } from './repositories.js';
+import {
+  buildNarrationIdentity,
+  composeAssessmentQuestionNarration,
+  ensureAssessmentNarration,
+  isAssessmentTtsConfigured,
+  type NarrationProfile,
+  type NarrationSegment
+} from './tts.js';
 import {
   buildSubjectRecommendations,
   canonicalSubjectId,
@@ -816,6 +829,16 @@ const studentAssignmentSubmissionSchema = z.object({
 });
 
 const ONBOARDING_DIAGNOSTIC_SUBJECTS = ['mathematics', 'english'] as const;
+
+const ONBOARDING_NARRATION_QUESTIONS = {
+  language: { prompt: 'Which language would you like to use in Kitabu?', options: ['English', 'Kiswahili'] },
+  role: { prompt: 'How will you use Kitabu?', options: ['Student', 'Parent', 'Teacher'] },
+  need: { prompt: 'What do you need help with most?', options: ['Exams', 'Grades', 'Learning resources', 'Support'] },
+  goal: { prompt: 'What is your main learning goal?', options: ['Improve my grades', 'Prepare for exams', 'Build confidence'] },
+  concerns: { prompt: 'What would you like to improve first?', options: ['Understanding lessons', 'Remembering work', 'Answering questions'] },
+  achieve: { prompt: 'What would you like to achieve with Kitabu?', options: ['Learn consistently', 'Prepare well', 'Reach my goals'] },
+  interests: { prompt: 'Which subjects interest you?', options: ['Mathematics', 'English', 'Science', 'Social Studies'] }
+} as const;
 
 const ONBOARDING_DIAGNOSTIC_QUESTIONS = [
   { id: 'math-fractions-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'fractions', prompt: 'What is 1/2 + 1/4?', options: ['1/6', '2/6', '3/4', '1/8'], correctAnswer: '3/4', difficulty: 2 },
@@ -1537,6 +1560,18 @@ const transcribeAudioSchema = z.object({
 const synthesizeSpeechSchema = z.object({
   text: z.string().trim().min(1).max(200),
   voice: z.string().trim().min(1).max(40).optional()
+});
+
+const assessmentTtsResolveSchema = z.object({
+  descriptorId: z.string().trim().min(1).max(240),
+  segment: z.enum(['question', 'prompt', 'choice', 'feedback', 'explanation']),
+  choiceIndex: z.number().int().min(0).max(20).optional(),
+  languageCode: z.string().trim().min(2).max(20).default('en-US')
+});
+
+const narrationPreferenceSchema = z.object({
+  selectedProfile: z.enum(['Samora', 'Barake', 'Judith', 'Bella']),
+  enabled: z.boolean()
 });
 
 const curriculumItemSchema = z.object({
@@ -2462,6 +2497,108 @@ function findProgressiveDiagnosticQuestion(
   questionId: string
 ) {
   return getProgressiveDiagnosticQuestions(subjectId).find(question => question.id === questionId) ?? null;
+}
+
+function parseTrustedGeneratedQuizQuestions(value: string) {
+  try {
+    const parsed = JSON.parse(value) as { questions?: unknown };
+    if (!Array.isArray(parsed.questions) || parsed.questions.length === 0) return null;
+    const questions = parsed.questions.map((item, index) => {
+      if (!item || typeof item !== 'object') return null;
+      const question = item as Record<string, unknown>;
+      const text = typeof question.text === 'string' ? question.text.trim() : '';
+      const type = question.type;
+      if (!text || !['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY'].includes(String(type))) return null;
+      const options = Array.isArray(question.options)
+        ? question.options.filter((option): option is string => typeof option === 'string' && option.trim().length > 0)
+        : undefined;
+      return {
+        id: typeof question.id === 'number' && Number.isInteger(question.id) ? question.id : index + 1,
+        type: String(type) as 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY',
+        text,
+        options: options?.length ? options : String(type) === 'TRUE_FALSE' ? ['True', 'False'] : undefined,
+        explanation: typeof question.explanation === 'string' ? question.explanation.trim() || undefined : undefined
+      };
+    });
+    return questions.every(Boolean) ? questions as NonNullable<(typeof questions)[number]>[] : null;
+  } catch {
+    return null;
+  }
+}
+
+async function resolveAssessmentNarrationDescriptor(
+  userId: string,
+  schoolId: string | null,
+  gradeLevel: string | null | undefined,
+  descriptorId: string,
+  segment: NarrationSegment,
+  choiceIndex?: number
+) {
+  const parts = descriptorId.split(':');
+  const kind = parts.shift();
+  let content: {
+    subjectName?: string | null;
+    context?: string | null;
+    prompt?: string;
+    text?: string;
+    options?: readonly string[];
+    explanation?: string;
+  } | null = null;
+
+  if (kind === 'diagnostic' && parts.length === 1) {
+    const question = findDiagnosticQuestion(parts[0]);
+    content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options } : null;
+  } else if (kind === 'progressive' && parts.length === 2) {
+    const subjectId = parts[0] as keyof typeof PROGRESSIVE_DIAGNOSTIC_QUESTIONS;
+    if (subjectId in PROGRESSIVE_DIAGNOSTIC_QUESTIONS) {
+      const question = findProgressiveDiagnosticQuestion(subjectId, parts[1]);
+      content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options } : null;
+    }
+  } else if (kind === 'weekly' && parts.length === 1) {
+    const question = buildWeeklyExamQuestions(gradeLevel || 'Grade 8').find(item => item.id === parts[0]);
+    content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options, explanation: question.explanation } : null;
+  } else if (kind === 'quizbank' && parts.length === 1) {
+    const question = await findQuizBankQuestionById(parts[0]);
+    content = question ? { subjectName: question.subject_name, context: question.strand_title, prompt: question.prompt, options: question.options, explanation: question.explanation } : null;
+  } else if (kind === 'quizsession' && parts.length === 2) {
+    const session = await findAssessmentNarrationSession(userId, parts[0]);
+    const questionId = Number(parts[1]);
+    const question = session?.questions.find(item => item.id === questionId);
+    content = question
+      ? { subjectName: session.subject_name, context: session.context, text: question.text, options: question.options, explanation: question.explanation }
+      : null;
+  } else if (kind === 'onboarding' && parts.length === 1 && parts[0] in ONBOARDING_NARRATION_QUESTIONS) {
+    content = ONBOARDING_NARRATION_QUESTIONS[parts[0] as keyof typeof ONBOARDING_NARRATION_QUESTIONS];
+  } else if (kind === 'homework' && parts.length === 2) {
+    if (!schoolId) return null;
+    const assignment = await db.query<{ subject: string | null; questions: Array<{ id: number; type?: string; text: string; options?: string[]; explanation?: string }> }>(
+      `SELECT a.subject, a.questions FROM assignments a WHERE a.id = $1 AND a.school_id = $2
+       AND EXISTS (SELECT 1 FROM class_students cs WHERE cs.class_id = a.class_id AND cs.student_id = $3)`,
+      [parts[0], schoolId, userId]
+    );
+    const questionId = Number(parts[1]);
+    const question = assignment.rows[0]?.questions?.find(item => item.id === questionId);
+    content = question
+      ? { subjectName: assignment.rows[0]?.subject, text: question.text, options: question.options?.length ? question.options : question.type === 'TRUE_FALSE' ? ['True', 'False'] : undefined, explanation: question.explanation }
+      : null;
+  }
+
+  if (!content) return null;
+  if (segment === 'question') {
+    const prompt = content.prompt ?? content.text;
+    return prompt
+      ? composeAssessmentQuestionNarration({
+          subjectName: content.subjectName,
+          context: content.context,
+          prompt,
+          options: content.options
+        })
+      : null;
+  }
+  if (segment === 'prompt') return content.prompt ?? content.text ?? null;
+  if (segment === 'choice') return choiceIndex === undefined ? null : content.options?.[choiceIndex] ?? null;
+  if (segment === 'explanation' || segment === 'feedback') return content.explanation ?? null;
+  return null;
 }
 
 function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDiagnosticAnswers>>) {
@@ -4873,6 +5010,72 @@ Requirements:
     return { accepted: true };
   });
 
+  app.get('/me/narration-preference', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const preference = await getUserNarrationPreference(request.user!.id);
+    return {
+      selectedProfile: preference?.selected_profile ?? 'Samora',
+      enabled: preference?.enabled ?? false
+    };
+  });
+
+  app.put('/me/narration-preference', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Narration preferences are available to learner accounts only');
+    }
+    const body = narrationPreferenceSchema.parse(request.body);
+    const saved = await withTransaction(client => upsertUserNarrationPreference(client, {
+      userId: request.user!.id,
+      selectedProfile: body.selectedProfile,
+      enabled: body.enabled
+    }));
+    return { selectedProfile: saved.selected_profile, enabled: saved.enabled };
+  });
+
+  app.post('/tts/resolve', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Assessment narration is available to learner accounts only');
+    }
+
+    const body = assessmentTtsResolveSchema.parse(request.body);
+    const preference = await getUserNarrationPreference(request.user!.id);
+    const profile = (preference?.selected_profile ?? 'Samora') as NarrationProfile;
+    const descriptorText = await resolveAssessmentNarrationDescriptor(
+      request.user!.id,
+      request.user!.schoolId,
+      request.user!.grade,
+      body.descriptorId,
+      body.segment as NarrationSegment,
+      body.choiceIndex
+    );
+    if (!descriptorText) {
+      return reply.notFound('Assessment narration descriptor not found');
+    }
+    if (!preference?.enabled) {
+      return { status: 'unavailable', reason: 'narration_disabled' };
+    }
+    if (!isAssessmentTtsConfigured()) {
+      request.log.info({ state: 'unavailable', source: body.descriptorId.split(':')[0], reason: 'tts_not_configured' }, 'Assessment narration unavailable');
+      return { status: 'unavailable', reason: 'tts_not_configured' };
+    }
+
+    const identity = buildNarrationIdentity({ text: descriptorText, languageCode: body.languageCode, profile });
+    const resolution = await ensureAssessmentNarration({ text: descriptorText, languageCode: body.languageCode, profile });
+    request.log.info({ identitySha256: identity.identitySha256, state: resolution.status, source: body.descriptorId.split(':')[0] }, 'Assessment narration resolved');
+    if (resolution.status === 'ready') {
+      return { status: 'ready', url: resolution.url, durationMs: resolution.durationMs, identitySha256: resolution.identitySha256 };
+    }
+    if (resolution.status === 'pending') {
+      return { status: 'pending', identitySha256: resolution.identitySha256 };
+    }
+    return { status: 'unavailable', identitySha256: resolution.identitySha256, reason: resolution.reason };
+  });
+
   app.get('/me/subject-recommendations', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
@@ -5314,10 +5517,27 @@ Return valid JSON with this shape:
     if (!parsed.questions?.length) {
       return reply.serviceUnavailable('AI quiz generation did not return questions');
     }
+    const generatedQuestions = parsed.questions;
+
+    const narrationSession = await withTransaction(client => createAssessmentNarrationSession(client, {
+      userId: request.user!.id,
+      generationRunId: null,
+      source: 'curriculum_quiz_generation',
+      subjectName: context.subject_name,
+      context: [context.strand_title, context.sub_strand_title].filter(Boolean).join(' · ') || null,
+      questions: generatedQuestions.map((question, index) => ({
+        id: question.id ?? index + 1,
+        type: question.type,
+        text: question.text.trim(),
+        options: question.options?.length ? question.options : question.type === 'TRUE_FALSE' ? ['True', 'False'] : undefined,
+        explanation: question.explanation
+      }))
+    }));
 
     return {
       subStrandId: params.subStrandId,
       source: 'ai',
+      narrationSessionId: narrationSession.id,
       questions: (parsed.questions ?? []).map((question, index) => ({
         ...question,
         id: question.id ?? index + 1
@@ -8109,6 +8329,22 @@ Return valid JSON with this shape:
           message: 'Extra practice could not be safely prepared. Continue with the lesson activity.'
         });
       }
+    }
+
+    if (body.feature === 'quiz_generation') {
+      const questions = parseTrustedGeneratedQuizQuestions(result.text);
+      if (!questions || !result.generation?.id) {
+        return reply.status(422).send({ message: 'Generated quiz could not be safely prepared.' });
+      }
+      const session = await withTransaction(client => createAssessmentNarrationSession(client, {
+        userId: request.user!.id,
+        generationRunId: result.generation!.id,
+        source: 'quiz_generation',
+        subjectName: typeof body.context?.subjectName === 'string' ? body.context.subjectName : null,
+        context: [body.context?.topic, body.context?.subTopic].filter((item): item is string => typeof item === 'string' && item.trim().length > 0).join(' · ') || null,
+        questions
+      }));
+      return { text: result.text, generation: result.generation, narrationSessionId: session.id };
     }
 
     return { text: result.text, generation: result.generation };

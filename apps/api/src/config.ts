@@ -101,6 +101,13 @@ const configSchema = z.object({
   KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL: z.string().default('nvidia/nemotron-3-ultra-550b-a55b'),
   KITABU_GEMINI_API_KEY: z.string().optional(),
   KITABU_GEMINI_MODEL: z.string().default('gemini-2.5-flash'),
+  KITABU_GEMINI_API_BASE_URL: z.string().url().default('https://generativelanguage.googleapis.com'),
+  KITABU_TTS_STORAGE_BUCKET: z.string().trim().min(1).default('tts-audio'),
+  KITABU_SUPABASE_URL: z.string().url().optional(),
+  KITABU_SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
+  KITABU_TTS_PUBLIC_BASE_URL: z.string().url().optional(),
+  KITABU_TTS_QUEUE_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(25),
+  KITABU_TTS_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(30_000),
   KITABU_KSH_PER_USD: z.coerce.number().positive().default(129.5),
   KITABU_ADMIN_WEB_ORIGIN: z.string().default('https://admin.kitabu.ai'),
   KITABU_WEB_APP_ORIGINS: z.string().default(''),
@@ -184,6 +191,10 @@ appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL = appConfig.KITABU_NVIDIA_DEEPSEEK_
 appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL = appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL.trim();
 appConfig.KITABU_GEMINI_API_KEY = trimOptionalSecret(appConfig.KITABU_GEMINI_API_KEY);
 appConfig.KITABU_GEMINI_MODEL = appConfig.KITABU_GEMINI_MODEL.trim();
+appConfig.KITABU_GEMINI_API_BASE_URL = appConfig.KITABU_GEMINI_API_BASE_URL.replace(/\/$/, '').trim();
+appConfig.KITABU_SUPABASE_URL = trimOptional(appConfig.KITABU_SUPABASE_URL);
+appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY = trimOptionalSecret(appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY);
+appConfig.KITABU_TTS_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_PUBLIC_BASE_URL);
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);

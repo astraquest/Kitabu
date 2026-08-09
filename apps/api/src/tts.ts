@@ -3,6 +3,7 @@ import { db, redis } from './db.js';
 import { appConfig } from './config.js';
 import { buildNarrationIdentity, NARRATION_VOICES, type AssessmentNarrationInput, type NarrationProfile } from './ttsIdentity.js';
 import {
+  extractGeminiPcm,
   extractGeminiPcmFromBatch,
   extractGeminiPcmFromJsonl,
   getGeminiBatchLifecycle,
@@ -15,7 +16,9 @@ export { composeAssessmentQuestionNarration } from './ttsIdentity.js';
 export type { AssessmentNarrationInput, NarrationProfile } from './ttsIdentity.js';
 
 export const ASSESSMENT_TTS_MODEL = 'gemini-2.5-flash-preview-tts';
-export const TTS_PROVIDER = 'gemini-batch';
+export const TTS_PROVIDER = 'gemini';
+const GEMINI_BATCH_CAPABILITY_KEY = 'kitabu:tts:gemini-batch-capability:v1';
+const GEMINI_BATCH_CAPABILITY_TTL_SECONDS = 300;
 
 export type NarrationSegment = 'question' | 'prompt' | 'choice' | 'feedback' | 'explanation';
 
@@ -64,14 +67,20 @@ async function geminiRequest<T>(path: string, init: RequestInit = {}): Promise<T
     const message = parsed && typeof parsed === 'object' && 'error' in parsed
       ? String((parsed as { error?: { message?: string } }).error?.message ?? body)
       : body;
-    throw new Error(`Gemini Batch API ${response.status}: ${message.slice(0, 300)}`);
+    throw new GeminiApiError(`Gemini API ${response.status}: ${message.slice(0, 300)}`, response.status);
   }
   return parsed as T;
 }
 
-function toGeminiRequest(asset: ReturnType<typeof buildNarrationIdentity>) {
+export class GeminiApiError extends Error {
+  constructor(message: string, readonly status: number) {
+    super(message);
+    this.name = 'GeminiApiError';
+  }
+}
+
+export function toGeminiGenerateContentRequest(asset: ReturnType<typeof buildNarrationIdentity>) {
   return {
-    model: `models/${ASSESSMENT_TTS_MODEL}`,
     contents: [{ role: 'user', parts: [{ text: `[${asset.speakingSettings.style}] ${asset.canonicalText}` }] }],
     generationConfig: {
       responseModalities: ['AUDIO'],
@@ -81,6 +90,40 @@ function toGeminiRequest(asset: ReturnType<typeof buildNarrationIdentity>) {
       }
     }
   };
+}
+
+function toGeminiBatchRequest(asset: ReturnType<typeof buildNarrationIdentity>) {
+  return { model: `models/${ASSESSMENT_TTS_MODEL}`, ...toGeminiGenerateContentRequest(asset) };
+}
+
+export type GeneratedTtsAudio = {
+  pcm: Buffer;
+  metadata: { mimeType: string; provider: string; generationMode: 'generateContent' | 'batchGenerateContent' };
+};
+
+export class GeminiGenerateContentTtsProvider {
+  private readonly inFlight = new Map<string, Promise<GeneratedTtsAudio>>();
+
+  async generate(identity: ReturnType<typeof buildNarrationIdentity>): Promise<GeneratedTtsAudio> {
+    const existing = this.inFlight.get(identity.identitySha256);
+    if (existing) return existing;
+    const request = this.generateOnce(identity).finally(() => this.inFlight.delete(identity.identitySha256));
+    this.inFlight.set(identity.identitySha256, request);
+    return request;
+  }
+
+  private async generateOnce(identity: ReturnType<typeof buildNarrationIdentity>): Promise<GeneratedTtsAudio> {
+    const response = await geminiRequest<import('./ttsGemini.js').GeminiResponse>(
+      `/v1beta/models/${ASSESSMENT_TTS_MODEL}:generateContent`,
+      { method: 'POST', body: JSON.stringify(toGeminiGenerateContentRequest(identity)) }
+    );
+    const audio = extractGeminiPcm(response);
+    if (!audio) throw new Error('Gemini generateContent response did not contain inline PCM audio');
+    return {
+      pcm: audio.pcm,
+      metadata: { mimeType: audio.metadata.mimeType, provider: TTS_PROVIDER, generationMode: 'generateContent' }
+    };
+  }
 }
 
 export class GeminiBatchTtsProvider {
@@ -93,7 +136,7 @@ export class GeminiBatchTtsProvider {
           inputConfig: {
             requests: {
               requests: [{
-                request: toGeminiRequest(identity),
+                request: toGeminiBatchRequest(identity),
                 metadata: { identitySha256: identity.identitySha256, submissionToken }
               }]
             }
@@ -142,7 +185,55 @@ export class GeminiBatchTtsProvider {
   }
 }
 
-function pcmToWav(pcm: Buffer, sampleRate = 24_000, channels = 1, bitsPerSample = 16) {
+export type GeminiBatchCapabilityCache = {
+  get(key: string): Promise<string | null>;
+  set(key: string, value: string, mode: 'EX', seconds: number): Promise<unknown>;
+};
+
+export async function probeGeminiBatchCapability(options: {
+  cache?: GeminiBatchCapabilityCache;
+  fetchImpl?: typeof fetch;
+} = {}) {
+  const cache = options.cache ?? redis;
+  const fetchImpl = options.fetchImpl ?? fetch;
+  try {
+    const cached = await cache.get(GEMINI_BATCH_CAPABILITY_KEY);
+    if (cached === 'supported') return true;
+    if (cached === 'unsupported') return false;
+  } catch {
+    return false;
+  }
+
+  let supported = false;
+  try {
+    const response = await fetchImpl(
+      `${appConfig.KITABU_GEMINI_API_BASE_URL}/v1beta/models/${ASSESSMENT_TTS_MODEL}:batchGenerateContent`,
+      { method: 'OPTIONS', headers: geminiHeaders(), signal: AbortSignal.timeout(10_000) }
+    );
+    supported = response.ok;
+  } catch {
+    supported = false;
+  }
+  try {
+    await cache.set(GEMINI_BATCH_CAPABILITY_KEY, supported ? 'supported' : 'unsupported', 'EX', GEMINI_BATCH_CAPABILITY_TTL_SECONDS);
+  } catch {
+    // A failed cache write must not enable an unverified provider.
+  }
+  return supported;
+}
+
+export function selectGeminiTtsMode(batchEnabled: boolean, batchCapable: boolean): 'standard' | 'batch' {
+  return batchEnabled && batchCapable ? 'batch' : 'standard';
+}
+
+export async function createAssessmentTtsProvider() {
+  const mode = appConfig.KITABU_GEMINI_TTS_BATCH_ENABLED
+    ? selectGeminiTtsMode(true, await probeGeminiBatchCapability())
+    : 'standard';
+  return mode === 'batch' ? new GeminiBatchTtsProvider() : new GeminiGenerateContentTtsProvider();
+}
+
+export function pcmToWav(pcm: Buffer, sampleRate = 24_000, channels = 1, bitsPerSample = 16) {
   const blockAlign = channels * bitsPerSample / 8;
   const byteRate = sampleRate * blockAlign;
   const header = Buffer.alloc(44);
@@ -199,10 +290,8 @@ export async function ensureAssessmentNarration(input: AssessmentNarrationInput)
     [identity.identitySha256]
   );
   const row = existing.rows[0];
-  if (row?.status === 'ready' && row.public_url) {
-    return { status: 'ready', url: row.public_url, durationMs: row.duration_ms, identitySha256: identity.identitySha256 };
-  }
-  if (!row) {
+  return resolveCachedNarration(row, async () => {
+    if (row) return { status: 'pending', identitySha256: identity.identitySha256 };
     await db.query(
       `INSERT INTO tts_assets (
          identity_sha256, canonical_text, language_code, voice_profile, provider_voice,
@@ -221,8 +310,18 @@ export async function ensureAssessmentNarration(input: AssessmentNarrationInput)
        VALUES ($1, 10) ON CONFLICT (identity_sha256) DO NOTHING`,
       [identity.identitySha256]
     );
+    return { status: 'pending', identitySha256: identity.identitySha256 };
+  });
+}
+
+export async function resolveCachedNarration(
+  row: TtsAssetRow | undefined,
+  onMiss: () => Promise<AssessmentNarrationResolution>
+): Promise<AssessmentNarrationResolution> {
+  if (row?.status === 'ready' && row.public_url) {
+    return { status: 'ready', url: row.public_url, durationMs: row.duration_ms, identitySha256: row.identity_sha256 };
   }
-  return { status: 'pending', identitySha256: identity.identitySha256 };
+  return onMiss();
 }
 
 async function markQueueRetry(identitySha256: string, message: string) {
@@ -240,29 +339,151 @@ async function finishAsset(identitySha256: string, status: 'ready' | 'failed' | 
        duration_ms = COALESCE($5, duration_ms), byte_size = COALESCE($6, byte_size),
        provider_metadata = COALESCE($7::jsonb, provider_metadata), error_code = $8, error_message = $9,
        completed_at = CASE WHEN $2 IN ('ready', 'failed', 'unavailable') THEN NOW() ELSE completed_at END, updated_at = NOW()
-     WHERE identity_sha256 = $1`,
+     WHERE identity_sha256 = $1 AND status <> 'ready'`,
     [identitySha256, status, details.url ?? null, details.path ?? null, details.durationMs ?? null, details.bytes ?? null, details.metadata ? JSON.stringify(details.metadata) : null, details.errorCode ?? null, details.errorMessage?.slice(0, 500) ?? null]
   );
-  await db.query(`UPDATE tts_queue SET status = $2, locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, status === 'ready' ? 'done' : 'failed']);
+  await db.query(`UPDATE tts_queue SET status = $2, locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status <> 'done'`, [identitySha256, status === 'ready' ? 'done' : 'failed']);
 }
 
-async function processTtsItem(identitySha256: string, workerId: string, provider: GeminiBatchTtsProvider) {
+async function requeueNeverSubmittedJob(identitySha256: string, error: unknown) {
+  const neverSubmitted = error instanceof GeminiApiError && (error.status === 400 || error.status === 404);
+  if (!neverSubmitted) return false;
+  const message = error.message;
+  await db.query(
+    `UPDATE tts_jobs
+     SET status = 'queued', error_code = NULL, error_message = NULL,
+         provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW()
+     WHERE identity_sha256 = $1 AND provider_job_name IS NULL
+       AND status IN ('submitting', 'uncertain')`,
+    [identitySha256, JSON.stringify({ providerSubmissionState: 'never_submitted', lastProviderError: message })]
+  );
+  await db.query(
+    `UPDATE tts_assets SET status = 'queued', error_code = NULL, error_message = NULL,
+       completed_at = NULL, updated_at = NOW()
+     WHERE identity_sha256 = $1 AND status IN ('processing', 'unavailable')`,
+    [identitySha256]
+  );
+  await db.query(
+    `UPDATE tts_queue SET status = 'queued', available_at = NOW(), locked_by = NULL,
+       lease_expires_at = NULL, last_error = $2, updated_at = NOW()
+     WHERE identity_sha256 = $1`,
+    [identitySha256, message.slice(0, 300)]
+  );
+  return true;
+}
+
+async function recoverPreviouslyUnsubmittedJobs() {
+  const result = await db.query(
+    `WITH recovered_jobs AS (
+       UPDATE tts_jobs j
+       SET status = 'queued', error_code = NULL, error_message = NULL,
+           provider_metadata = j.provider_metadata || jsonb_build_object(
+             'recoveredAt', NOW(), 'recoveryReason', 'provider-job-never-created'
+           ), updated_at = NOW()
+       FROM tts_assets a
+       WHERE j.identity_sha256 = a.identity_sha256
+         AND a.status = 'unavailable'
+         AND j.status = 'uncertain'
+         AND j.provider_job_name IS NULL
+         AND (
+           j.provider_metadata->>'providerSubmissionState' = 'never_submitted'
+           OR j.error_message LIKE 'Gemini Batch API 404:%'
+         )
+       RETURNING j.identity_sha256
+     ), recovered_assets AS (
+       UPDATE tts_assets a
+       SET status = 'queued', error_code = NULL, error_message = NULL,
+           completed_at = NULL, updated_at = NOW()
+       FROM recovered_jobs j
+       WHERE a.identity_sha256 = j.identity_sha256
+       RETURNING a.identity_sha256
+     )
+     INSERT INTO tts_queue (identity_sha256, priority, status, available_at, updated_at)
+     SELECT identity_sha256, 10, 'queued', NOW(), NOW() FROM recovered_assets
+     ON CONFLICT (identity_sha256) DO UPDATE SET status = 'queued', available_at = NOW(),
+       locked_by = NULL, lease_expires_at = NULL, updated_at = NOW()`
+  );
+  return result.rowCount ?? 0;
+}
+
+type TtsJobRow = {
+  canonical_text: string; language_code: string; voice_profile: NarrationProfile; provider_voice: string;
+  speaking_settings: { pitch?: number; speakingRate?: number; style?: string }; provider_job_name: string | null;
+  provider_submission_token: string; status: string; provider_metadata: Record<string, unknown>;
+  asset_status: TtsAssetRow['status']; public_url: string | null;
+};
+
+export function shouldRecoverUncertainTtsJob(job: {
+  assetStatus: TtsAssetRow['status'];
+  jobStatus: string;
+  providerJobName: string | null;
+  providerMetadata?: Record<string, unknown>;
+  errorMessage?: string | null;
+}) {
+  return job.assetStatus === 'unavailable'
+    && job.jobStatus === 'uncertain'
+    && !job.providerJobName
+    && (job.providerMetadata?.providerSubmissionState === 'never_submitted'
+      || job.errorMessage?.startsWith('Gemini Batch API 404:') === true);
+}
+
+async function processStandardTtsItem(identitySha256: string, item: TtsJobRow, provider: GeminiGenerateContentTtsProvider) {
+  if (item.asset_status === 'ready' && item.public_url) return;
+  if (item.provider_job_name || item.status === 'submitted' || item.status === 'polling') {
+    await finishAsset(identitySha256, 'unavailable', { errorCode: 'batch_job_requires_explicit_capability', errorMessage: 'An existing Gemini Batch job requires explicit Batch capability; standard generation was not duplicated.' });
+    return;
+  }
+  if (item.status === 'uncertain' || item.status === 'submitting') {
+    await finishAsset(identitySha256, 'unavailable', { errorCode: 'submission_uncertain', errorMessage: 'Provider submission outcome is uncertain; no duplicate standard request was attempted.' });
+    return;
+  }
+  const identity = buildNarrationIdentity({
+    text: item.canonical_text,
+    languageCode: item.language_code,
+    profile: item.voice_profile,
+    speakingRate: item.speaking_settings?.speakingRate,
+    pitch: item.speaking_settings?.pitch,
+    style: item.speaking_settings?.style
+  });
+  const startedAt = new Date().toISOString();
+  await db.query(`UPDATE tts_assets SET status = 'processing', provider_metadata = provider_metadata || $2::jsonb, error_code = NULL, error_message = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status <> 'ready'`, [identitySha256, JSON.stringify({ provider: TTS_PROVIDER, generationMode: 'generateContent', requestStartedAt: startedAt })]);
+  await db.query(`UPDATE tts_jobs SET status = 'submitting', provider_metadata = provider_metadata || $2::jsonb, error_code = NULL, error_message = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status = 'queued'`, [identitySha256, JSON.stringify({ providerSubmissionState: 'started', requestStartedAt: startedAt })]);
+  try {
+    const audio = await provider.generate(identity);
+    const wav = pcmToWav(audio.pcm);
+    const storage = await uploadWav(identitySha256, wav);
+    const completedAt = new Date().toISOString();
+    await finishAsset(identitySha256, 'ready', { path: storage.storagePath, url: storage.publicUrl, durationMs: Math.round(audio.pcm.length / (24_000 * 2) * 1000), bytes: wav.length, metadata: { ...audio.metadata, model: ASSESSMENT_TTS_MODEL, responseReceivedAt: completedAt } });
+    await db.query(`UPDATE tts_jobs SET status = 'completed', provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, JSON.stringify({ providerSubmissionState: 'completed', responseReceivedAt: completedAt })]);
+  } catch (error) {
+    if (await requeueNeverSubmittedJob(identitySha256, error)) return;
+    await db.query(`UPDATE tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini generateContent failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
+    await finishAsset(identitySha256, 'unavailable', { errorCode: 'submission_uncertain', errorMessage: 'Gemini generateContent outcome is uncertain; no automatic duplicate request was attempted.' });
+  }
+}
+
+async function processTtsItem(identitySha256: string, workerId: string, provider: GeminiGenerateContentTtsProvider | GeminiBatchTtsProvider) {
   const lockKey = `kitabu:tts:lease:${identitySha256}`;
   const acquired = await redis.set(lockKey, workerId, 'PX', 120_000, 'NX');
   if (acquired !== 'OK') return;
   try {
-    const result = await db.query<{
-      canonical_text: string; language_code: string; voice_profile: NarrationProfile; provider_voice: string;
-      speaking_settings: { pitch?: number; speakingRate?: number; style?: string }; provider_job_name: string | null;
-      provider_submission_token: string; status: string; provider_metadata: Record<string, unknown>;
-    }>(
+    const result = await db.query<TtsJobRow>(
       `SELECT a.canonical_text, a.language_code, a.voice_profile, a.provider_voice, a.speaking_settings,
+              a.status AS asset_status, a.public_url,
               j.provider_job_name, j.provider_submission_token, j.status, j.provider_metadata
        FROM tts_assets a JOIN tts_jobs j ON j.identity_sha256 = a.identity_sha256
        WHERE a.identity_sha256 = $1`, [identitySha256]
     );
     const item = result.rows[0];
     if (!item) return;
+    if (item.asset_status === 'ready' && item.public_url) {
+      await db.query(`UPDATE tts_queue SET status = 'done', locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256]);
+      return;
+    }
+    if (provider instanceof GeminiGenerateContentTtsProvider) {
+      await processStandardTtsItem(identitySha256, item, provider);
+      return;
+    }
     const identity = buildNarrationIdentity({
       text: item.canonical_text,
       languageCode: item.language_code,
@@ -289,7 +510,8 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
           providerJobName = submitted.name;
           await db.query(`UPDATE tts_jobs SET provider_job_name = $2, status = 'submitted', submitted_at = NOW(), provider_metadata = $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, providerJobName, JSON.stringify(submitted.metadata)]);
         } catch (error) {
-          await db.query(`UPDATE tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini submission failed']);
+          if (await requeueNeverSubmittedJob(identitySha256, error)) return;
+          await db.query(`UPDATE tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini submission failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
           await finishAsset(identitySha256, 'unavailable', { errorCode: 'submission_uncertain', errorMessage: 'Gemini submission outcome is uncertain; no automatic duplicate submission was attempted.' });
           return;
         }
@@ -325,6 +547,7 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
 
 export async function processAssessmentTtsQueue() {
   if (!isAssessmentTtsConfigured()) return 0;
+  await recoverPreviouslyUnsubmittedJobs();
   const workerId = `tts-worker-${randomUUID()}`;
   const claimed = await db.query<{ identity_sha256: string }>(
     `WITH claim AS (
@@ -339,7 +562,7 @@ export async function processAssessmentTtsQueue() {
      RETURNING q.identity_sha256`,
     [appConfig.KITABU_TTS_QUEUE_BATCH_SIZE, workerId]
   );
-  const provider = new GeminiBatchTtsProvider();
+  const provider = await createAssessmentTtsProvider();
   await Promise.all(claimed.rows.map(row => processTtsItem(row.identity_sha256, workerId, provider)));
   return claimed.rows.length;
 }

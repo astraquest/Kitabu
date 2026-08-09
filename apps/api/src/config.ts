@@ -102,6 +102,7 @@ const configSchema = z.object({
   KITABU_GEMINI_API_KEY: z.string().optional(),
   KITABU_GEMINI_MODEL: z.string().default('gemini-2.5-flash'),
   KITABU_GEMINI_API_BASE_URL: z.string().url().default('https://generativelanguage.googleapis.com'),
+  KITABU_GEMINI_TTS_BATCH_ENABLED: booleanish.default(false),
   KITABU_TTS_STORAGE_BUCKET: z.string().trim().min(1).default('tts-audio'),
   KITABU_SUPABASE_URL: z.string().url().optional(),
   KITABU_SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),

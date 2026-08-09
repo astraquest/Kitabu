@@ -68,6 +68,8 @@ export function buildNarrationIdentity(input: AssessmentNarrationInput) {
     profile: input.profile,
     providerVoice,
     speakingSettings,
+    // Keep the original provider namespace so existing content-addressed assets
+    // remain cache hits when generation moves from Batch to generateContent.
     provider: 'gemini-batch',
     model: 'gemini-2.5-flash-preview-tts'
   });

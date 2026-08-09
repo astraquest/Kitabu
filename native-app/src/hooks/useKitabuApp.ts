@@ -329,10 +329,14 @@ function onboardingPreferencesFromSession(session: AuthSession): OnboardingPrefe
     return null;
   }
 
-  return {
-    mascotKey: personalization.mascotKey,
-    selectedSubjectIds: personalization.selectedSubjectIds,
-  };
+  const snapshot: OnboardingPreferencesSnapshot = {};
+  if (personalization.mascotKey) {
+    snapshot.mascotKey = personalization.mascotKey;
+  }
+  if (personalization.selectedSubjectIds?.length) {
+    snapshot.selectedSubjectIds = personalization.selectedSubjectIds;
+  }
+  return snapshot;
 }
 
 interface RouteSnapshot {
@@ -588,6 +592,31 @@ function mergeStoredProfileWithAuthSession(storedProfile: UserProfile, session: 
   return {
     ...authProfile,
     ...storedProfile,
+    name: session.user.onboardingPersonalization?.displayName || authProfile.name,
+    school:
+      session.user.onboardingPersonalization?.school ||
+      storedProfile.school ||
+      authProfile.school,
+    county:
+      session.user.onboardingPersonalization?.county ||
+      storedProfile.county ||
+      authProfile.county,
+    region:
+      session.user.onboardingPersonalization?.county ||
+      storedProfile.region ||
+      authProfile.region,
+    taughtGrades:
+      session.user.onboardingPersonalization?.taughtGrades ||
+      storedProfile.taughtGrades ||
+      authProfile.taughtGrades,
+    taughtSubjects:
+      session.user.onboardingPersonalization?.subjects ||
+      storedProfile.taughtSubjects ||
+      authProfile.taughtSubjects,
+    voiceName:
+      session.user.onboardingPersonalization?.voiceName ||
+      storedProfile.voiceName ||
+      authProfile.voiceName,
     role: authProfile.role,
     status: authProfile.status,
     avatar: storedProfile.avatar || authProfile.avatar,
@@ -1033,7 +1062,10 @@ export function useKitabuApp() {
       const durableOnboardingPreferences = storedSession
         ? onboardingPreferencesFromSession(storedSession)
         : null;
-      const effectiveOnboardingPreferences = durableOnboardingPreferences ?? storedOnboardingPreferences;
+      const effectiveOnboardingPreferences = {
+        ...storedOnboardingPreferences,
+        ...(durableOnboardingPreferences ?? {}),
+      };
       const storedMascotKey =
         effectiveOnboardingPreferences.mascotKey ?? effectiveOnboardingPreferences.mascot;
       const restoredMascotKey = isOnboardingMascotKey(storedMascotKey)

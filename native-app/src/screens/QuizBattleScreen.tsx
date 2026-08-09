@@ -4,22 +4,32 @@ import { ArrowLeft, Send, Swords, Trophy, UserRound, Zap } from 'lucide-react-na
 
 import { DEFAULT_GRADE } from '../constants/grades';
 import { QUIZ_BATTLE_BANK } from '../data/quizBattleBank';
+import { buildQuestionCue, useGuidedNarration } from '../services/narrationService';
+import { OnboardingVoiceName } from '../types/app';
 
 interface QuizBattleScreenProps {
   onBack: () => void;
   onAddPoints: (points: number) => void;
+  voiceName?: OnboardingVoiceName;
 }
 
 const QUESTIONS = QUIZ_BATTLE_BANK[DEFAULT_GRADE] ?? QUIZ_BATTLE_BANK['Grade 6'];
 const ONLINE_CLASSMATES: Array<{ id: string; name: string; points: number }> = [];
 
-export function QuizBattleScreen({ onBack, onAddPoints }: QuizBattleScreenProps) {
+export function QuizBattleScreen({ onBack, onAddPoints, voiceName }: QuizBattleScreenProps) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [isComplete, setIsComplete] = useState(false);
   const [battleStarted, setBattleStarted] = useState(false);
   const [opponent, setOpponent] = useState<{ id: string; name: string; points: number } | null>(null);
   const current = QUESTIONS[index];
+  const narrationCue = buildQuestionCue({
+    screen: 'quiz-battle',
+    questionId: current.id,
+    questionText: current.prompt,
+    voiceName,
+  });
+  useGuidedNarration(narrationCue, battleStarted && !isComplete);
 
   const score = useMemo(
     () => QUESTIONS.filter(question => answers[question.id] === question.answer).length,

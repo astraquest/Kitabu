@@ -18,13 +18,14 @@ import {
 } from 'lucide-react-native';
 
 import { speechPlaybackBridge } from '../services/nativeBridges';
-import { Book } from '../types/app';
+import { Book, OnboardingVoiceName } from '../types/app';
 
 interface BookReaderScreenProps {
   book: Book;
   initialPage: number;
   isSpotlightMode: boolean;
   isMuted: boolean;
+  voiceName?: OnboardingVoiceName;
   onClose: () => void;
   onToggleMute: () => void;
   onUpdateProgress: (page: number) => void;
@@ -41,6 +42,7 @@ export function BookReaderScreen({
   initialPage,
   isSpotlightMode,
   isMuted,
+  voiceName,
   onClose,
   onToggleMute,
   onUpdateProgress,
@@ -49,6 +51,7 @@ export function BookReaderScreen({
   const [theme, setTheme] = useState<ThemeMode>('light');
   const [fontSize, setFontSize] = useState<FontSize>('base');
   const [showSettings, setShowSettings] = useState(false);
+  const [isReading, setIsReading] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const totalPages = Math.max(1, book.pages?.length || TOTAL_PAGES);
@@ -73,17 +76,20 @@ export function BookReaderScreen({
   }, []);
 
   useEffect(() => {
-    const data = getPageData(book, page);
+    speechPlaybackBridge.stop().catch(() => undefined);
+    setIsReading(false);
+    return undefined;
+  }, [book.id, page]);
 
-    if (!isMuted && page > 1) {
-      speechPlaybackBridge.stop().catch(() => undefined);
-      speechPlaybackBridge.speak(data.paragraphs[0]).catch(() => undefined);
+  useEffect(() => {
+    if (!isMuted) {
       return undefined;
     }
 
     speechPlaybackBridge.stop().catch(() => undefined);
+    setIsReading(false);
     return undefined;
-  }, [book, isMuted, page]);
+  }, [isMuted]);
 
   const content = useMemo(() => getPageData(book, page), [book, page]);
 
@@ -93,6 +99,25 @@ export function BookReaderScreen({
 
   function goPrev() {
     setPage(current => Math.max(1, current - 1));
+  }
+
+  async function readCurrentPage() {
+    if (isMuted || !voiceName) {
+      return;
+    }
+
+    if (isReading) {
+      await speechPlaybackBridge.stop().catch(() => undefined);
+      setIsReading(false);
+      return;
+    }
+
+    const pageData = getPageData(book, page);
+    const pageCopy = [pageData.title, ...pageData.paragraphs].filter(Boolean).join('. ');
+    setIsReading(true);
+    await speechPlaybackBridge.stop().catch(() => undefined);
+    await speechPlaybackBridge.speak(pageCopy, { voiceName }).catch(() => undefined);
+    setIsReading(false);
   }
 
   function onTouchStartCapture(x: number) {
@@ -141,8 +166,25 @@ export function BookReaderScreen({
         </View>
 
         <View style={styles.headerRight}>
-          <Pressable onPress={onToggleMute} style={styles.headerAction}>
+          <Pressable
+            accessibilityLabel={isMuted ? 'Unmute reader' : 'Mute reader'}
+            onPress={onToggleMute}
+            style={styles.headerAction}>
             {isMuted ? (
+              <VolumeX size={20} color={theme === 'dark' ? '#E5E7EB' : '#111827'} />
+            ) : (
+              <Volume2 size={20} color={theme === 'dark' ? '#E5E7EB' : '#111827'} />
+            )}
+          </Pressable>
+
+          <Pressable
+            accessibilityLabel={isReading ? 'Stop reading page' : 'Read page aloud'}
+            disabled={isMuted || !voiceName}
+            onPress={() => {
+              readCurrentPage().catch(() => setIsReading(false));
+            }}
+            style={[styles.headerAction, (isMuted || !voiceName) && styles.disabled]}>
+            {isReading ? (
               <VolumeX size={20} color={theme === 'dark' ? '#E5E7EB' : '#111827'} />
             ) : (
               <Volume2 size={20} color={theme === 'dark' ? '#E5E7EB' : '#111827'} />

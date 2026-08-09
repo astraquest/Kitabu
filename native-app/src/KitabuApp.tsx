@@ -150,6 +150,7 @@ export function KitabuApp() {
       <AppSafeArea>
         <DiagnosticScreen
           mascotKey={state.activeMascotKey}
+          voiceName={state.activeUserProfile.voiceName}
           previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
           onComplete={() => undefined}
         />
@@ -256,6 +257,7 @@ export function KitabuApp() {
           error={state.onboardingError}
           includeIntroChoices
           externalPaymentsEnabled={state.externalPaymentsEnabled}
+          onCreateSchool={actions.createOnboardingSchool}
           onSubmit={actions.submitAccountOnboarding}
         />
       </AppSafeArea>
@@ -277,6 +279,7 @@ export function KitabuApp() {
       <AppSafeArea>
         <DiagnosticScreen
           mascotKey={state.activeMascotKey}
+          voiceName={state.activeUserProfile.voiceName}
           onComplete={actions.completeDiagnosticOnboarding}
         />
       </AppSafeArea>
@@ -288,6 +291,7 @@ export function KitabuApp() {
       <AppSafeArea>
         <DiagnosticScreen
           mascotKey={state.activeMascotKey}
+          voiceName={state.activeUserProfile.voiceName}
           mode="progressive"
           subjectId={state.progressiveDiagnosticSubject.id}
           subjectName={state.progressiveDiagnosticSubject.name}
@@ -635,6 +639,7 @@ function renderScreen(
       return state.selectedAssignment ? (
         <HomeworkQuizScreen
           assignment={state.selectedAssignment}
+          voiceName={state.activeUserProfile.voiceName}
           onClose={() => actions.openFeature('homework_list')}
           onSubmit={actions.submitAssignment}
         />
@@ -672,6 +677,7 @@ function renderScreen(
           initialPage={state.initialPage}
           isSpotlightMode={state.isSpotlightMode}
           isMuted={state.isMuted}
+          voiceName={state.activeUserProfile.voiceName}
           onClose={actions.closeBookReader}
           onToggleMute={() => actions.setIsMuted(!state.isMuted)}
           onUpdateProgress={actions.updateBookProgress}
@@ -696,6 +702,7 @@ function renderScreen(
         <QuizMeScreen
           isLoading={state.isLoading}
           mascotKey={state.activeMascotKey}
+          voiceName={state.activeUserProfile.voiceName}
           progress={state.quizGenerationProgress}
           error={state.quizGenerationError}
           subjectOptions={state.quizMeSubjectOptions}
@@ -715,6 +722,7 @@ function renderScreen(
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
           userProfile={state.activeUserProfile}
+          voiceName={state.activeUserProfile.voiceName}
           mascotKey={state.activeMascotKey}
           forceComingSoonFallback={state.liveAudioForceFallback}
           quizQuestions={state.quizSource === 'quiz_me' ? state.generatedQuizQuestions : []}
@@ -751,6 +759,7 @@ function renderScreen(
           questions={state.generatedQuizQuestions}
           narrationSessionId={state.generatedQuizNarrationSessionId}
           mascotKey={state.activeMascotKey}
+          voiceName={state.activeUserProfile.voiceName}
           onClose={() => {
             if (state.quizSource === 'quiz_me') {
               actions.openFeature('quiz_me_config');
@@ -780,6 +789,7 @@ function renderScreen(
         <QuizBattleScreen
           onAddPoints={actions.addPoints}
           onBack={() => actions.openFeature('game_zone')}
+          voiceName={state.activeUserProfile.voiceName}
         />
       );
     case 'chess_master':

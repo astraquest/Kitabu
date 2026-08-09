@@ -21,8 +21,9 @@ import {
   submitProgressiveDiagnosticAnswer,
 } from '../services/diagnosticService';
 import { triggerHaptic } from '../services/haptics';
+import { buildQuestionCue, useGuidedNarration } from '../services/narrationService';
+import { DiagnosticQuestion, DiagnosticResult, OnboardingMascotKey, OnboardingVoiceName } from '../types/app';
 import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
-import { DiagnosticQuestion, DiagnosticResult, OnboardingMascotKey } from '../types/app';
 
 const HIDDEN_CONFIDENCE_SCORE = 3;
 const MASCOT_FEEDBACK_MS = 520;
@@ -37,6 +38,7 @@ interface DiagnosticScreenProps {
   subjectId?: string;
   subjectName?: string;
   mascotKey?: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
   previewQuestions?: PreviewDiagnosticQuestion[];
   onComplete: (result: DiagnosticResult) => void;
 }
@@ -46,6 +48,7 @@ export function DiagnosticScreen({
   subjectId,
   subjectName,
   mascotKey = 'rabbit',
+  voiceName,
   previewQuestions,
   onComplete,
 }: DiagnosticScreenProps) {
@@ -67,6 +70,15 @@ export function DiagnosticScreen({
   const progress = questions.length > 0 ? (currentIndex + 1) / questions.length : 0;
   const compactLayout = height < 760 || width < 370;
   const mascotSource = LEARNING_MASCOT_SOURCES[mascotKey];
+  const narrationCue = currentQuestion
+    ? buildQuestionCue({
+        screen: `diagnostic-${mode}`,
+        questionId: currentQuestion.id,
+        questionText: currentQuestion.prompt,
+        voiceName,
+      })
+    : null;
+  useGuidedNarration(narrationCue, !isLoading && !result);
 
   useEffect(() => {
     if (previewQuestions?.length) {

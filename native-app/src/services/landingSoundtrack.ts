@@ -1,0 +1,30 @@
+import { useEffect } from 'react';
+import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
+
+const landingSoundtrackAsset = require('../assets/landing-soundtrack.mp3');
+
+export const LANDING_SOUNDTRACK_VOLUME = 0.12;
+
+export function startLandingSoundtrack() {
+  const player = createAudioPlayer(landingSoundtrackAsset, { downloadFirst: true });
+  player.volume = LANDING_SOUNDTRACK_VOLUME;
+  player.loop = true;
+  player.play();
+
+  let stopped = false;
+  return () => {
+    if (stopped) return;
+    stopped = true;
+    player.pause();
+    player.remove();
+  };
+}
+
+export function useLandingSoundtrack(enabled = true) {
+  useEffect(() => {
+    if (!enabled) return undefined;
+    return startLandingSoundtrack();
+  }, [enabled]);
+}
+
+export type LandingSoundtrackPlayer = AudioPlayer;

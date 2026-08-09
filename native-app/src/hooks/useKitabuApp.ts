@@ -49,10 +49,12 @@ import { requestGoogleIdToken } from '../services/googleAuthService';
 import { saveNarrationPreference } from '../services/assessmentNarrationService';
 import { setAssessmentSoundConsent } from '../components/AssessmentNarrationControls';
 import { areExternalPaymentsEnabled } from '../services/runtimeConfig';
+import { resetDevelopmentWebStateOnce } from '../services/developmentReset';
 import {
   createAdminAnnouncement,
   createAdminDiscount,
   createAdminSchool,
+  createOnboardingSchool as createOnboardingSchoolRequest,
   deleteAdminAnnouncement,
   deleteAdminDiscount,
   deleteAdminSchool,
@@ -170,6 +172,7 @@ import {
   OnboardingLanguageCode,
   OnboardingMascotKey,
   OnboardingNeedKey,
+  OnboardingPersonalization,
   OnboardingVoiceName,
   SubmittedAssignment,
   UserProfile,
@@ -340,6 +343,18 @@ interface OnboardingPreferencesSnapshot {
   mascot?: OnboardingMascotKey;
   mascotKey?: OnboardingMascotKey;
   selectedSubjectIds?: string[];
+}
+
+function onboardingPreferencesFromSession(session: AuthSession): OnboardingPreferencesSnapshot | null {
+  const personalization = session.user.onboardingPersonalization;
+  if (!personalization) {
+    return null;
+  }
+
+  return {
+    mascotKey: personalization.mascotKey,
+    selectedSubjectIds: personalization.selectedSubjectIds,
+  };
 }
 
 interface RouteSnapshot {
@@ -538,16 +553,17 @@ function getFocusModeErrorMessage(error: unknown) {
 
 function mapAuthSessionToProfile(session: AuthSession): UserProfile {
   const { user } = session;
+  const personalization = user.onboardingPersonalization;
   const isAdmin = isAdminRole(user.roles);
   const isTeacher = isTeacherRole(user.roles);
   const isParent = isParentRole(user.roles);
 
   return {
     ...INITIAL_USER_PROFILE,
-    name: user.fullName,
+    name: personalization?.displayName || user.fullName,
     email: user.email.endsWith('@accounts.kitabu.invalid') ? '' : user.email,
     phone: user.phoneNumber ?? '',
-    school: INITIAL_USER_PROFILE.school,
+    school: personalization?.school || INITIAL_USER_PROFILE.school,
     role: isAdmin
       ? 'Platform Admin'
       : isTeacher
@@ -561,9 +577,15 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
         ? 'Email verified'
         : 'Email not verified',
     grade: isTeacher || isAdmin ? undefined : user.grade || INITIAL_USER_PROFILE.grade,
-    country: countryNameForCode(user.countryCode),
-    countryCode: countryCodeForName(countryNameForCode(user.countryCode)),
+    country: countryNameForCode(personalization?.countryCode || user.countryCode),
+    countryCode: countryCodeForName(
+      countryNameForCode(personalization?.countryCode || user.countryCode),
+    ),
     curriculumCode: user.curriculumCode || curriculumCodeForCountry(user.countryCode),
+    county: personalization?.county,
+    region: personalization?.county,
+    taughtGrades: personalization?.taughtGrades,
+    taughtSubjects: personalization?.subjects,
     gender:
       user.gender === 'male'
         ? 'male'
@@ -575,6 +597,7 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
       : user.email.includes('admin')
         ? 'avatar-afro-girl'
         : 'avatar-afro-boy',
+    voiceName: personalization?.voiceName,
   };
 }
 
@@ -998,6 +1021,7 @@ export function useKitabuApp() {
     let mounted = true;
 
     async function bootstrap() {
+      const didResetDevelopmentWebState = await resetDevelopmentWebStateOnce();
       const [
         storedProfile,
         storedOptionalPhoneNumber,
@@ -1030,6 +1054,13 @@ export function useKitabuApp() {
         return;
       }
 
+      if (didResetDevelopmentWebState) {
+        setAuthSession(null);
+        setAuthEntryScreen('intro');
+        setAuthMode('login');
+        setCurrentView('dashboard');
+      }
+
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
       setLoginEmail(storedLoginCredentials?.email ?? '');
       // Passwords are intentionally never restored from storage.
@@ -1039,15 +1070,19 @@ export function useKitabuApp() {
         : null;
       setLastUsedAuthRole(storedRole);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
+      const durableOnboardingPreferences = storedSession
+        ? onboardingPreferencesFromSession(storedSession)
+        : null;
+      const effectiveOnboardingPreferences = durableOnboardingPreferences ?? storedOnboardingPreferences;
       const storedMascotKey =
-        storedOnboardingPreferences.mascotKey ?? storedOnboardingPreferences.mascot;
+        effectiveOnboardingPreferences.mascotKey ?? effectiveOnboardingPreferences.mascot;
       const restoredMascotKey = isOnboardingMascotKey(storedMascotKey)
         ? storedMascotKey
         : storedSession && isOnboardingMascotKey(storedSession.user.mascotKey)
           ? storedSession.user.mascotKey
           : null;
       setOnboardingMascotKey(restoredMascotKey);
-      const storedSubjectIds = storedOnboardingPreferences.selectedSubjectIds
+      const storedSubjectIds = effectiveOnboardingPreferences.selectedSubjectIds
         ?.filter(subjectId => typeof subjectId === 'string' && subjectId.length > 0)
         .slice(0, MAX_DASHBOARD_SUBJECTS);
       if (storedSubjectIds?.length) {
@@ -1620,6 +1655,17 @@ export function useKitabuApp() {
     } catch {
       setSchoolsList(INITIAL_SCHOOLS);
     }
+  }
+
+  async function createOnboardingSchool(input: { schoolName: string; county: string }) {
+    const school = await createOnboardingSchoolRequest(input);
+    if (!school) {
+      throw new Error('The school could not be added. Please try again.');
+    }
+    setSchoolsList(current =>
+      current.some(item => item.id === school.id) ? current : [...current, school],
+    );
+    return school;
   }
 
   async function refreshDashboardBanner() {
@@ -2220,12 +2266,37 @@ export function useKitabuApp() {
       const resolvedInterestKeys = interestKeys ?? input.interests;
       const resolvedSignupEmail = signupEmail ?? email;
       const resolvedSignupPhone = signupPhone ?? phone;
+      const onboardingPersonalization: OnboardingPersonalization = {
+        version: 1,
+        languageCode: resolvedLanguageCode,
+        role: input.role,
+        displayName: resolvedDisplayName,
+        mascotKey: isOnboardingMascotKey(resolvedMascotKey) ? resolvedMascotKey : undefined,
+        voiceName: resolvedVoiceName,
+        noVoice,
+        needKey: resolvedNeedKey,
+        goalKey: resolvedGoalKey,
+        concernKey: resolvedConcernKey,
+        achievementKey: resolvedAchievementKey,
+        interestKeys: resolvedInterestKeys,
+        age,
+        children: resolvedChildren,
+        taughtGrades: resolvedTeachGrades,
+        subjects: input.subjects,
+        selectedSubjectIds,
+        reminderEnabled,
+        county: input.county,
+        school: input.school,
+        countryCode,
+        curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
+      };
       const nextSession = await completeAccountOnboarding({
         ...accountOnboardingInput,
         subjectIds: selectedSubjectIds,
         mascotKey: isOnboardingMascotKey(resolvedMascotKey) ? resolvedMascotKey : undefined,
         countryCode,
         curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
+        onboardingPersonalization,
       });
       setAuthSession(nextSession);
       if (nextSession.user.roles.includes('student')) {
@@ -2252,6 +2323,7 @@ export function useKitabuApp() {
         region: input.county || selectedSchool?.location || nextProfile.region,
         taughtGrades: resolvedTeachGrades?.length ? resolvedTeachGrades : nextProfile.taughtGrades,
         taughtSubjects: input.subjects?.length ? input.subjects : nextProfile.taughtSubjects,
+        voiceName: resolvedVoiceName,
       });
       setCurrentGrade(input.grade);
       if (selectedSubjectIds?.length) {
@@ -3165,11 +3237,19 @@ export function useKitabuApp() {
         setLoginPassword(password);
       }
       authenticatedSession = session;
+      let onboardingSchoolId = input?.schoolId || null;
+      if (!onboardingSchoolId && input?.school?.trim() && input.county?.trim()) {
+        const school = await createOnboardingSchool({
+          schoolName: input.school,
+          county: input.county,
+        });
+        onboardingSchoolId = school.id;
+      }
       if (input?.gender && input.grade) {
         session = await completeAccountOnboarding({
           gender: input.gender,
           grade: input.grade,
-          schoolId: input.schoolId || null,
+          schoolId: onboardingSchoolId,
           mpesaPhoneNumber: input.mpesaPhoneNumber || null,
           school: input.school,
           county: input.county,
@@ -4439,6 +4519,7 @@ export function useKitabuApp() {
       readAllNotifications,
       completeDiagnosticOnboarding,
       completeProgressiveDiagnostic,
+      createOnboardingSchool,
       refreshAdminData,
       createSchoolRecord,
       updateSchoolRecord,

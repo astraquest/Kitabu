@@ -1,7 +1,8 @@
 import { checkRedisHealth, db } from './db.js';
-import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
-import { processAssessmentTtsQueue } from './tts.js';
 import { appConfig } from './config.js';
+import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
+import { processGeminiTtsQueue, processTtsJobs } from './ttsWorker.js';
+import { processAssessmentTtsQueue } from './tts.js';
 
 const ACCOUNT_DELETION_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
 
@@ -32,7 +33,27 @@ async function run() {
     });
   }, ACCOUNT_DELETION_SWEEP_INTERVAL_MS);
 
-  const runTtsQueue = () => {
+  if (appConfig.KITABU_TTS_WORKER_ENABLED) {
+    const processSpeechQueue = () => {
+      processTtsJobs().then(result => {
+        if (result.claimed > 0) console.info('[worker] processed TTS jobs', result);
+      }).catch(error => {
+        console.error('[worker] TTS queue poll failed', error);
+      });
+    };
+    processSpeechQueue();
+    setInterval(processSpeechQueue, appConfig.KITABU_TTS_WORKER_POLL_INTERVAL_MS);
+    console.info('[worker] TTS queue enabled', {
+      mode: 'worker-fallback',
+      pollIntervalMs: appConfig.KITABU_TTS_WORKER_POLL_INTERVAL_MS,
+      batchSize: appConfig.KITABU_TTS_WORKER_BATCH_SIZE
+    });
+  }
+  if (appConfig.KITABU_TTS_WORKER_ENABLED && appConfig.KITABU_GEMINI_TTS_DAILY_WORKER_ENABLED) {
+    scheduleDailyGeminiTtsQueue();
+  }
+
+  const runAssessmentTtsQueue = () => {
     processAssessmentTtsQueue().catch(error => {
       console.warn('[worker] assessment TTS queue failed', {
         state: 'worker_error',
@@ -40,8 +61,24 @@ async function run() {
       });
     });
   };
-  runTtsQueue();
-  setInterval(runTtsQueue, appConfig.KITABU_TTS_POLL_INTERVAL_MS);
+  runAssessmentTtsQueue();
+  setInterval(runAssessmentTtsQueue, appConfig.KITABU_TTS_POLL_INTERVAL_MS);
+}
+
+function scheduleDailyGeminiTtsQueue() {
+  const now = new Date();
+  const next = new Date(now);
+  next.setUTCHours(appConfig.KITABU_GEMINI_TTS_DAILY_WORKER_HOUR_UTC, 0, 0, 0);
+  if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
+  const delayMs = Math.max(1_000, next.getTime() - now.getTime());
+  setTimeout(() => {
+    processGeminiTtsQueue().then(result => {
+      console.info('[worker] processed daily Gemini TTS queue', result);
+    }).catch(error => {
+      console.error('[worker] daily Gemini TTS queue failed', error);
+    }).finally(scheduleDailyGeminiTtsQueue);
+  }, delayMs);
+  console.info('[worker] daily Gemini TTS queue scheduled', { at: next.toISOString(), delayMs });
 }
 
 run().catch(error => {

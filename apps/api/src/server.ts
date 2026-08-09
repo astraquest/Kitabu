@@ -26,7 +26,6 @@ import {
   generateTextWithFallback,
   resolveAiExecutionPlans,
   resolveAudioTranscriptionPlans,
-  synthesizeSpeechWithGroq,
   transcribeAudio,
   usdMicrosToKshCents
 } from './ai.js';
@@ -55,6 +54,24 @@ import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearn
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
+  findEducationalAssets,
+  readEducationalAssetForLearner,
+  readEducationalAssetForAdmin,
+  toStaffEducationalAssetReviewDetail,
+  toStaffEducationalAssetReviewSummary,
+  validateEducationalAssetReviewDecision,
+} from './educationalAssets/service.js';
+import { educationalAssetLicenseValues } from './educationalAssets/types.js';
+import { educationalAssetClassificationEditSchema, mergeEducationalAssetClassification } from './educationalAssets/classificationEdit.js';
+import {
+  enqueueSpeechCues,
+  getOrCreateDurableSpeech,
+  spokenCuesFromQuestions,
+  TTS_AVATAR_VOICES,
+  TTS_QUEUE_MODE
+} from './speechQueue.js';
+import { getLandingIntroTtsCue } from './onboardingTts.js';
+import {
   type CurriculumStrandInput,
   createAdminManagedUser,
   createAiGenerationRun,
@@ -78,6 +95,7 @@ import {
   createPaymentRequest,
   createPhoneVerificationCode,
   createEmptyCurriculumSubject,
+  createOrReuseOnboardingSchool,
   createSchool,
   createSchoolDiscount,
   deleteBannerAnnouncement,
@@ -100,6 +118,7 @@ import {
   findActiveDiagnosticSessionForSubjects,
   findCompletedDiagnosticSession,
   findDiagnosticSessionForUser,
+  findEducationalAssetForReviewById,
   findUserAuthIdentityForProvider,
   findSubscriptionPlanByCode,
   findUserByEmail,
@@ -129,6 +148,7 @@ import {
   getSubscriptionAiSpendKshCents,
   getTotpSecret,
   getUserTotpStatus,
+  type OnboardingPersonalization,
   hasSuccessfulPayments,
   invalidateEmailVerificationTokensForUser,
   invalidatePasswordResetTokensForUser,
@@ -137,6 +157,9 @@ import {
   insertRefreshToken,
   listBannerAnnouncements,
   listDiagnosticAnswers,
+  listEducationalAssetsForReview,
+  listEducationalAssetCurriculumUnitLinks,
+  replaceEducationalAssetCurriculumUnitLinks,
   listDueSpacedReviews,
   linkParentStudentByEmail,
   linkParentStudentByPhone,
@@ -159,6 +182,8 @@ import {
   listTeacherStudents,
   listWeeklyExamHistory,
   listCurriculumForGrade,
+  listEducationalAssetTaxonomyLinks,
+  listEducationalAssetTaxonomyTerms,
   listProgressiveLessonProgress,
   listReferenceLibraryDocuments,
   markPaymentRequestFailed,
@@ -195,6 +220,9 @@ import {
   submitWeeklyExamAttempt,
   consumePhoneVerificationCode,
   updateBannerAnnouncement,
+  updateEducationalAssetReviewStatus,
+  updateEducationalAssetClassification,
+  replaceEducationalAssetTaxonomyLinks,
   updateSchool,
   updateSchoolPilot,
   updateSchoolDiscount,
@@ -259,6 +287,7 @@ import {
   type SchoolBillingPlanCode
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
+import { isSupportedOnboardingCounty } from './onboardingSchool.js';
 import {
   getProgressiveLessonPrivateDefinition,
   gradeProgressiveLessonDefinitionStep,
@@ -275,6 +304,7 @@ import {
 import {
   approveInteractiveBundle,
   createInteractiveBundleDraft,
+  getInteractiveBundle,
   getInteractiveRelease,
   moveInteractiveReleasePointer,
   validatePublishableBundle,
@@ -701,6 +731,99 @@ const announcementSchema = z.object({
 const announcementParamsSchema = z.object({
   announcementId: z.string().uuid()
 });
+const educationalAssetQuerySchema = z.object({
+  query: z.string().trim().min(1).max(160).optional(),
+  subject: z.string().trim().min(1).max(120).optional(),
+  topic: z.string().trim().min(1).max(160).optional(),
+  subtopic: z.string().trim().min(1).max(160).optional(),
+  grade: z.string().trim().min(1).max(80).optional(),
+  assetType: z.enum(['image', 'audio', 'video', 'document', 'vector']).optional(),
+  visualType: z.enum(['VOCABULARY_IMAGE', 'ICON', 'PHOTO', 'ILLUSTRATION', 'SCIENTIFIC_DIAGRAM', 'MAP', 'CHEMICAL_STRUCTURE', 'UI_ICON']).optional(),
+  providerKey: z.string().trim().regex(/^[a-z0-9][a-z0-9._-]{0,99}$/).optional(),
+  license: z.enum(educationalAssetLicenseValues).optional(),
+  curriculumUnitId: z.string().uuid().optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(20),
+});
+
+const educationalAssetAdminQuerySchema = z.object({
+  query: z.string().trim().min(1).max(160).optional(),
+  productionStatus: z.enum(['draft', 'review', 'approved', 'rejected']).optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(50),
+});
+
+const educationalAssetReviewParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetReviewBodySchema = z.object({
+  productionStatus: z.enum(['approved', 'rejected', 'review']),
+  reviewReason: z.string().trim().min(1).max(500).nullable().optional(),
+}).strict();
+
+const educationalAssetCurriculumLinksParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetCurriculumLinksBodySchema = z.object({
+  links: z.array(z.object({
+    unitId: z.string().uuid(),
+    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
+  }).strict()).max(100),
+}).strict();
+
+const educationalAssetTaxonomyParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetTaxonomyBodySchema = z.object({
+  links: z.array(z.object({
+    termCode: z.string().trim().min(1).max(120).regex(/^[a-z0-9]+(?:[._-][a-z0-9]+)*$/),
+    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
+  }).strict()).max(100),
+}).strict();
+
+const onboardingPersonalizationKeySchema = z
+  .string()
+  .trim()
+  .min(1)
+  .max(80)
+  .regex(/^[a-z][a-z0-9_-]*$/, 'Personalization keys must be lowercase identifiers');
+
+const onboardingPersonalizationChildSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  age: z.string().trim().min(1).max(40),
+  grade: z.string().trim().min(1).max(40),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(12).optional()
+}).strict();
+
+const onboardingPersonalizationSchema = z.object({
+  version: z.literal(1),
+  languageCode: z.enum(['en', 'sw']).optional(),
+  role: z.enum(['student', 'teacher', 'parent', 'other']).optional(),
+  displayName: z.string().trim().min(2).max(120).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
+  voiceName: z.enum(['Samora', 'Barake', 'Bella', 'Judith']).optional(),
+  noVoice: z.boolean().optional(),
+  needKey: z.enum(['exam', 'grades', 'resources', 'results', 'support', 'progress', 'learn', 'help']).optional(),
+  goalKey: onboardingPersonalizationKeySchema.optional(),
+  concernKey: onboardingPersonalizationKeySchema.optional(),
+  achievementKey: onboardingPersonalizationKeySchema.optional(),
+  interestKeys: z.array(onboardingPersonalizationKeySchema).max(12).optional(),
+  age: z.string().trim().min(1).max(40).optional(),
+  children: z.array(onboardingPersonalizationChildSchema).max(8).optional(),
+  taughtGrades: z.array(z.string().trim().min(1).max(40)).max(24).optional(),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
+  selectedSubjectIds: z.array(z.string().trim().min(1).max(120)).max(20).optional(),
+  reminderEnabled: z.boolean().optional(),
+  county: z.string().trim().min(2).max(80).optional(),
+  school: z.string().trim().min(2).max(120).optional(),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional()
+}).strict().superRefine((value, context) => {
+  if (JSON.stringify(value).length > 16000) {
+    context.addIssue({ code: 'custom', message: 'Onboarding personalization is too large' });
+  }
+});
 
 const onboardingSchema = z.object({
   schoolId: z.string().uuid().nullable().optional(),
@@ -711,7 +834,8 @@ const onboardingSchema = z.object({
   mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
   countryCode: z.string().trim().min(2).max(10).optional(),
   curriculumCode: z.string().trim().min(2).max(40).optional(),
-  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
+  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
+  onboardingPersonalization: onboardingPersonalizationSchema.optional()
 });
 
 const subjectDisplayPreferencesSchema = z.object({
@@ -737,11 +861,24 @@ const subjectRecommendationEventsSchema = z.object({
   })).min(1).max(10)
 });
 
-const onboardingSelectionEventSchema = z.object({
+export const onboardingEventTypeSchema = z.enum([
+  'view',
+  'selection',
+  'skip',
+  'back',
+  'complete',
+  'permission_result',
+  'drop_off'
+]);
+
+export const onboardingSelectionEventSchema = z.object({
   sessionId: z.string().trim().min(8).max(160),
   stepKey: z.string().trim().min(1).max(80),
   optionKey: z.string().trim().min(1).max(160),
   optionLabel: z.string().trim().min(1).max(240),
+  eventType: onboardingEventTypeSchema.optional().default('selection'),
+  eventVersion: z.number().int().min(1).max(10).optional().default(1),
+  stepIndex: z.number().int().min(0).max(100).optional().default(0),
   role: z.string().trim().max(40).nullable().optional(),
   county: z.string().trim().max(120).nullable().optional(),
   grade: z.string().trim().max(40).nullable().optional(),
@@ -1560,8 +1697,28 @@ const transcribeAudioSchema = z.object({
 });
 
 const synthesizeSpeechSchema = z.object({
-  text: z.string().trim().min(1).max(200),
-  voice: z.string().trim().min(1).max(40).optional()
+  text: z.string().trim().min(1).max(4_000),
+  voice: z.string().trim().min(1).max(40),
+  language: z.string().trim().min(2).max(16).default('en')
+});
+
+const landingSynthesizeSpeechSchema = z.object({
+  cueId: z.string().trim().min(1).max(40),
+  voice: z.enum(TTS_AVATAR_VOICES as [string, ...string[]]),
+  language: z.enum(['en', 'sw']).default('en')
+});
+
+const onboardingSchoolSchema = z.object({
+  schoolName: z.string().trim().min(2).max(120),
+  county: z.string().trim().min(2).max(80)
+}).superRefine((value, context) => {
+  if (!isSupportedOnboardingCounty(value.county)) {
+    context.addIssue({
+      code: 'custom',
+      path: ['county'],
+      message: 'Select a supported county before adding a school'
+    });
+  }
 });
 
 const assessmentTtsResolveSchema = z.object({
@@ -1580,7 +1737,6 @@ const narrationPreferenceSchema = z.object({
   selectedProfile: z.enum(['Samora', 'Barake', 'Judith', 'Bella']),
   enabled: z.boolean()
 });
-
 const curriculumItemSchema = z.object({
   id: z.string().optional(),
   text: z.string().min(1)
@@ -1979,7 +2135,11 @@ export function buildServer(options: BuildServerOptions = {}) {
         status: 'unhealthy',
         checks: {
           database,
-          redis: redisHealth
+          redis: redisHealth,
+          tts: {
+            mode: TTS_QUEUE_MODE,
+            workerEnabled: appConfig.KITABU_TTS_WORKER_ENABLED
+          }
         }
       });
     }
@@ -1998,7 +2158,11 @@ export function buildServer(options: BuildServerOptions = {}) {
       },
       checks: {
         database,
-        redis: redisHealth
+        redis: redisHealth,
+        tts: {
+          mode: TTS_QUEUE_MODE,
+          workerEnabled: appConfig.KITABU_TTS_WORKER_ENABLED
+        }
       }
     };
   });
@@ -2146,6 +2310,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           countryCode: args.user.countryCode ?? 'KEN',
           curriculumCode: args.user.curriculumCode ?? 'CBC',
           onboardingCompleted: Boolean(args.user.onboardingCompleted),
+          onboardingPersonalization: args.user.onboardingPersonalization ?? null,
           mustRotatePassword: Boolean(args.user.mustRotatePassword),
           isBreakGlass: Boolean(args.user.isBreakGlass)
         }
@@ -2166,6 +2331,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           countryCode: args.user.country_code,
           curriculumCode: args.user.curriculum_code,
           onboardingCompleted: args.user.onboarding_completed,
+          onboardingPersonalization: args.user.onboarding_personalization,
           mustRotatePassword: args.user.must_rotate_password,
           isBreakGlass: args.user.is_break_glass
         };
@@ -2190,7 +2356,8 @@ export function buildServer(options: BuildServerOptions = {}) {
         grade: normalizedUser.grade,
         countryCode: normalizedUser.countryCode,
         curriculumCode: normalizedUser.curriculumCode,
-        onboardingCompleted: normalizedUser.onboardingCompleted
+        onboardingCompleted: normalizedUser.onboardingCompleted,
+        onboardingPersonalization: normalizedUser.onboardingPersonalization
       },
       authState: {
         mustRotatePassword: enforceProductionBreakGlassPolicy
@@ -3458,7 +3625,7 @@ Requirements:
     const feature = 'speech_synthesis';
     const promptVersion = resolvePromptVersion(feature);
     const schemaVersion = getFeatureSchemaVersion(feature);
-    const model = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL;
+    const model = appConfig.KITABU_CARTESIA_MODEL;
     const promptHash = hashStableJson({
       feature,
       promptVersion,
@@ -3468,15 +3635,26 @@ Requirements:
     const inputHash = hashStableJson({
       textHash: sha256Text(args.body.text),
       textLength: args.body.text.length,
-      voice: args.body.voice ?? null
+      voice: args.body.voice ?? null,
+      language: args.body.language
     });
 
     try {
       const startedAt = Date.now();
-      const result = await synthesizeSpeechWithGroq({
+      const durableSpeech = await getOrCreateDurableSpeech({
         text: args.body.text,
-        voice: args.body.voice
+        avatarVoice: args.body.voice,
+        language: args.body.language
       });
+      const result = durableSpeech.audio;
+      if (!result) {
+        return {
+          error: { message: 'Speech is queued for background generation. Please try again shortly.' },
+          audio: null,
+          subscription
+        };
+      }
+      const provider = result.provider === 'gemini' ? 'google' : result.provider ?? 'cartesia';
       const latencyMs = Date.now() - startedAt;
       const outputHash = sha256Text(result.base64Audio);
 
@@ -3487,7 +3665,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider: 'groq',
+          provider,
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3496,8 +3674,8 @@ Requirements:
           totalTokens: args.body.text.length,
           estimatedCostUsdMicros: 0,
           estimatedCostKshCents: 0,
-          cacheStatus: 'bypassed',
-          cacheKey: null,
+          cacheStatus: durableSpeech.cacheHit ? 'hit' : 'stored',
+          cacheKey: durableSpeech.artifactKey,
           promptHash,
           inputHash,
           outputHash
@@ -3505,7 +3683,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider: 'groq',
+          provider,
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3521,7 +3699,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider: 'groq',
+          provider,
           model: result.model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -3547,7 +3725,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider: 'groq',
+          provider: 'google',
           model,
           status: 'failed',
           latencyMs: 0,
@@ -3564,7 +3742,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider: 'groq',
+          provider: 'google',
           model,
           status: 'failed',
           latencyMs: 0,
@@ -3580,7 +3758,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider: 'groq',
+          provider: 'google',
           model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -5477,6 +5655,10 @@ Return valid JSON with this shape:
         pageCount: pages.length
       });
     });
+    void enqueueSpeechCues(
+      pages.map(page => `${page.title}. ${page.content}`),
+      'curriculum_lesson_generation'
+    ).catch(error => request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Lesson TTS enqueue failed'));
 
     return {
       subStrandId: params.subStrandId,
@@ -5568,6 +5750,11 @@ Return valid JSON with this shape:
         explanation: question.explanation
       }))
     }));
+
+    void enqueueSpeechCues(
+      spokenCuesFromQuestions(parsed.questions),
+      'curriculum_quiz_generation'
+    ).catch(error => request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Quiz TTS enqueue failed'));
 
     return {
       subStrandId: params.subStrandId,
@@ -6207,6 +6394,41 @@ Return valid JSON with this shape:
     };
   });
 
+  app.post('/onboarding/schools', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const body = onboardingSchoolSchema.parse(request.body);
+    const result = await withTransaction(async client => {
+      const school = await createOrReuseOnboardingSchool(client, {
+        name: body.schoolName,
+        county: body.county
+      });
+      await createAuditLog(
+        client,
+        request.user!.id,
+        school.schoolId,
+        'auth.onboarding.school.created',
+        { schoolName: body.schoolName, county: body.county, reused: school.reused },
+        'school',
+        school.schoolId
+      );
+      return school;
+    });
+
+    const school = await findSchoolById(result.schoolId);
+    if (!school) {
+      return reply.notFound('School could not be loaded after creation');
+    }
+
+    return reply.status(result.reused ? 200 : 201).send({
+      school: serializeSchool(school),
+      reused: result.reused
+    });
+  });
+
   app.get('/app/banner', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
@@ -6637,6 +6859,11 @@ Return valid JSON with this shape:
 
       return { assignmentId: createdAssignmentId, parentRecipients };
     });
+
+    void enqueueSpeechCues(
+      [body.title, body.description, ...spokenCuesFromQuestions(body.questions)],
+      'teacher_assignment'
+    ).catch(error => request.log.warn({ err: error }, 'Assignment TTS enqueue failed'));
 
     const dueLabel = body.dueDate
       ? ` Due ${new Date(body.dueDate).toLocaleDateString('en-KE', {
@@ -7208,6 +7435,9 @@ Return valid JSON with this shape:
         grade: body.grade || currentUser?.grade || null,
         countryCode: body.countryCode || currentUser?.countryCode || null,
         curriculumCode: body.curriculumCode || currentUser?.curriculumCode || null,
+        eventType: body.eventType,
+        eventVersion: body.eventVersion,
+        stepIndex: body.stepIndex,
         metadata: body.metadata ?? {}
       });
     });
@@ -7238,7 +7468,8 @@ Return valid JSON with this shape:
         curriculumCode: curriculumScope.curriculumCode,
         subjects: body.subjects,
         subjectIds: body.subjectIds,
-        mpesaPhoneNumber: normalizedPhone
+        mpesaPhoneNumber: normalizedPhone,
+        onboardingPersonalization: body.onboardingPersonalization as OnboardingPersonalization | undefined
       });
       await createAuditLog(client, request.user!.id, body.schoolId ?? null, 'auth.onboarding.completed', {
         grade: body.grade,
@@ -7287,7 +7518,8 @@ Return valid JSON with this shape:
         grade: refreshedUser.grade ?? null,
         countryCode: refreshedUser.countryCode ?? 'KEN',
         curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
-        onboardingCompleted: refreshedUser.onboardingCompleted
+        onboardingCompleted: refreshedUser.onboardingCompleted,
+        onboardingPersonalization: refreshedUser.onboardingPersonalization ?? null
       }
     };
   });
@@ -8366,6 +8598,18 @@ Return valid JSON with this shape:
       }
     }
 
+    if (body.feature === 'quiz_generation' || body.feature === 'quizme' || body.feature === 'curriculum_quiz_generation') {
+      try {
+        const parsed = JSON.parse(result.text) as { questions?: Array<{ text?: string }> };
+        void enqueueSpeechCues(
+          spokenCuesFromQuestions(parsed.questions ?? []),
+          body.feature
+        ).catch(error => request.log.warn({ err: error, feature: body.feature }, 'Generated quiz TTS enqueue failed'));
+      } catch {
+        request.log.debug({ feature: body.feature }, 'Generated quiz was not JSON; skipped TTS enqueue');
+      }
+    }
+
     if (body.feature === 'quiz_generation') {
       const questions = parseTrustedGeneratedQuizQuestions(result.text);
       if (!questions || !result.generation?.id) {
@@ -8425,6 +8669,37 @@ Return valid JSON with this shape:
     return result.audio;
   };
 
+  const landingSynthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+    const body = landingSynthesizeSpeechSchema.parse(request.body);
+    const cue = getLandingIntroTtsCue(body.cueId);
+    if (!cue) {
+      return reply.badRequest('Unsupported landing speech cue');
+    }
+
+    try {
+      const durableSpeech = await getOrCreateDurableSpeech({
+        text: cue.text,
+        avatarVoice: body.voice,
+        language: body.language
+      });
+      if (!durableSpeech.audio) {
+        reply.status(202);
+        return {
+          error: { message: 'Landing narration is queued for background generation.' },
+          audio: null,
+          pending: true
+        };
+      }
+
+      request.log.info({ cueId: cue.id, cacheHit: durableSpeech.cacheHit }, 'Landing narration served');
+      return durableSpeech.audio;
+    } catch (error) {
+      request.log.warn({ cueId: cue.id, err: error }, 'Landing narration unavailable');
+      reply.status(503);
+      return { error: { message: 'Landing narration is temporarily unavailable.' }, audio: null };
+    }
+  };
+
   app.post('/admin/interactive-learning/bundles/validate', async (request, reply) => {
     const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
     if (denied) return;
@@ -8468,6 +8743,233 @@ Return valid JSON with this shape:
     if (!parsed.success) return reply.badRequest('Invalid interactive learning bundle payload');
     const result = await createInteractiveBundleDraft(parsed.data as unknown as PublishableBundle, request.user!.id);
     return result.created ? reply.status(201).send(result) : reply.status(result.issues.length ? 422 : 409).send(result);
+  });
+
+  app.get('/educational-assets', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const query = educationalAssetQuerySchema.parse(request.query);
+    return { assets: await findEducationalAssets(query) };
+  });
+
+  app.get('/educational-assets/:assetId/file', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const params = z.object({ assetId: z.string().uuid() }).parse(request.params);
+    const result = await readEducationalAssetForLearner(params.assetId);
+    if (!result) return reply.notFound('Educational asset not found');
+    reply
+      .type(result.asset.mimeType)
+      .header('Content-Length', String(result.content.byteLength))
+      .header('Cache-Control', 'public, max-age=31536000, immutable');
+    return reply.send(result.content);
+  });
+
+  app.get('/admin/educational-assets', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const query = educationalAssetAdminQuerySchema.parse(request.query);
+    const assets = await listEducationalAssetsForReview(db, query);
+    return { assets: assets.map(toStaffEducationalAssetReviewSummary) };
+  });
+
+  app.get('/admin/educational-assets/taxonomy-terms', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    return { terms: await listEducationalAssetTaxonomyTerms(db) };
+  });
+
+  app.get('/admin/educational-assets/:assetId', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.get('/admin/educational-assets/:assetId/preview', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      const result = await readEducationalAssetForAdmin(params.data.assetId);
+      if (!result) return reply.notFound('Educational asset not found');
+      reply
+        .type(result.asset.file.mimeType)
+        .header('Content-Length', String(result.content.byteLength))
+        .header('Cache-Control', 'private, no-store')
+        .header('Content-Disposition', 'inline');
+      return reply.send(result.content);
+    } catch {
+      return reply.notFound('Educational asset preview unavailable');
+    }
+  });
+
+  app.patch('/admin/educational-assets/:assetId/review', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.parse(request.params);
+    const body = educationalAssetReviewBodySchema.parse(request.body);
+    let reviewReason: string | null;
+    try {
+      reviewReason = validateEducationalAssetReviewDecision(body.productionStatus, body.reviewReason);
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset review');
+    }
+    const updated = await withTransaction(async client => {
+      const changed = await updateEducationalAssetReviewStatus(client, {
+        assetId: params.assetId,
+        productionStatus: body.productionStatus,
+        reviewReason,
+      });
+      if (changed) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.reviewed', {
+          productionStatus: body.productionStatus,
+          reviewReason,
+        }, 'educational_asset', params.assetId);
+      }
+      return changed;
+    });
+    if (!updated) return reply.notFound('Educational asset not found');
+    const asset = await findEducationalAssetForReviewById(db, params.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewSummary(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.patch('/admin/educational-assets/:assetId/classification', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    const body = educationalAssetClassificationEditSchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset classification payload');
+
+    const current = await findEducationalAssetForReviewById(db, params.data.assetId);
+    if (!current) return reply.notFound('Educational asset not found');
+    let classification;
+    try {
+      classification = mergeEducationalAssetClassification({
+        visualType: current.visual_type,
+        subject: current.subject,
+        topic: current.topic,
+        subtopic: current.subtopic,
+        keywords: current.keywords,
+        synonyms: current.synonyms,
+        gradeMin: current.grade_min,
+        gradeMax: current.grade_max,
+        language: current.language,
+        containsText: current.contains_text,
+        altText: current.alt_text,
+        educationalDescription: current.educational_description,
+      }, body.data, current);
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset classification');
+    }
+
+    const updated = await withTransaction(async client => {
+      const changed = await updateEducationalAssetClassification(client, { assetId: params.data.assetId, classification });
+      if (changed) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.classification_updated', {
+          updatedFields: Object.keys(body.data).sort(),
+          visualType: classification.visualType,
+          gradeMin: classification.gradeMin,
+          gradeMax: classification.gradeMax,
+          language: classification.language,
+          containsText: classification.containsText,
+          keywordCount: classification.keywords.length,
+          synonymCount: classification.synonyms.length,
+          hasAltText: Boolean(classification.altText),
+          hasEducationalDescription: Boolean(classification.educationalDescription),
+        }, 'educational_asset', params.data.assetId);
+      }
+      return changed;
+    });
+    if (!updated) return reply.notFound('Educational asset not found');
+    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.get('/admin/educational-assets/:assetId/curriculum-links', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      return { links: await listEducationalAssetCurriculumUnitLinks(db, params.data.assetId) };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read curriculum links');
+    }
+  });
+
+  app.put('/admin/educational-assets/:assetId/curriculum-links', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
+    const body = educationalAssetCurriculumLinksBodySchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset curriculum links payload');
+    try {
+      const links = await withTransaction(async client => {
+        const replaced = await replaceEducationalAssetCurriculumUnitLinks(client, params.data.assetId, body.data.links);
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.curriculum_links_replaced', {
+          linkCount: replaced.length,
+          unitIds: replaced.map(link => link.unit_id),
+        }, 'educational_asset', params.data.assetId);
+        return replaced;
+      });
+      return { links };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace curriculum links');
+    }
+  });
+
+  app.get('/admin/educational-assets/:assetId/taxonomy', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      return { links: await listEducationalAssetTaxonomyLinks(db, params.data.assetId) };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read educational asset taxonomy');
+    }
+  });
+
+  app.put('/admin/educational-assets/:assetId/taxonomy', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
+    const body = educationalAssetTaxonomyBodySchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset taxonomy payload');
+    try {
+      const links = await withTransaction(async client => {
+        const replaced = await replaceEducationalAssetTaxonomyLinks(client, params.data.assetId, body.data.links);
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.taxonomy_replaced', {
+          linkCount: replaced.length,
+          termCodes: replaced.map(link => link.code),
+        }, 'educational_asset', params.data.assetId);
+        return replaced;
+      });
+      return { links };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace educational asset taxonomy');
+    }
+  });
+
+  app.get('/admin/interactive-learning/bundles/:bundleId/:revision', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = z.object({ bundleId: z.string().min(1).max(160), revision: z.string().min(1).max(160) }).safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid bundle identity');
+    const bundle = await getInteractiveBundle(params.data.bundleId, params.data.revision);
+    return bundle ? bundle : reply.notFound('Interactive learning bundle not found');
   });
 
   app.post('/admin/interactive-learning/bundles/:bundleId/:revision/approve', async (request, reply) => {
@@ -8573,6 +9075,7 @@ Return valid JSON with this shape:
   app.post('/ai/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
   app.post('/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
   app.post('/ai/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
+  app.post('/landing/synthesize-speech', aiGenerationRateLimit, landingSynthesizeSpeechHandler);
 
   return app;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Linking, Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { createAudioPlayer } from 'expo-audio';
 import { Check, ChevronRight } from 'lucide-react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
@@ -2900,11 +2900,10 @@ test('onboarding announces empty school search results', async () => {
   expect(emptyState.props.accessibilityLiveRegion).toBe('polite');
   expect(emptyState.props.role).toBe('status');
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Add No Such School school' })).toHaveLength(0);
-  expect(renderedText(renderer!.root)).toContain('No match yet. You can ask admin to add your school.');
+  expect(renderedText(renderer!.root)).toContain('No match yet. Add your school below.');
 });
 
-test('onboarding opens missing-school help through WhatsApp and reports failures', async () => {
-  const openUrlSpy = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
+test('onboarding adds a missing school with the selected county and enables continuation', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -2923,27 +2922,28 @@ test('onboarding opens missing-school help through WhatsApp and reports failures
   });
   await selectCounty(renderer!.root);
 
-  const helpLink = renderer!.root.findByProps({ accessibilityLabel: 'Request school on WhatsApp' });
+  const helpLink = renderer!.root.findByProps({ testID: 'missing-school-link' });
   expect(helpLink.props.accessibilityRole).toBe('button');
-  expect(helpLink.props.accessibilityHint).toBe('Opens WhatsApp to message Kitabu admin');
+  expect(helpLink.props.accessibilityHint).toContain('selected county');
 
-  await act(async () => {
-    await helpLink.props.onPress();
+  await act(() => {
+    helpLink.props.onPress();
   });
 
-  expect(openUrlSpy).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/254716175485'));
-  expect(openUrlSpy).toHaveBeenCalledWith(expect.stringContaining('Nairobi%20City'));
+  expect(renderer!.root.findByProps({ testID: 'add-school-modal' }).props.visible).toBe(true);
+  expect(renderedText(renderer!.root)).toContain('Selected county: Nairobi City');
 
-  openUrlSpy.mockRejectedValueOnce(new Error('unavailable'));
-
-  await act(async () => {
-    await renderer!.root.findByProps({ accessibilityLabel: 'Request school on WhatsApp' }).props.onPress();
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'School name' }).props.onChangeText('New Parent School');
   });
 
-  expect(renderedText(renderer!.root)).toContain('Could not open WhatsApp. Message admin at 0716175485.');
-  expect(renderer!.root.findByProps({ role: 'alert' }).props.accessibilityLiveRegion).toBe('polite');
+  await act(async () => {
+    await renderer!.root.findByProps({ accessibilityLabel: 'Save school and continue' }).props.onPress();
+  });
 
-  openUrlSpy.mockRestore();
+  expect(renderer!.root.findByProps({ testID: 'add-school-modal' }).props.visible).toBe(false);
+  expect(renderedText(renderer!.root)).toContain('New Parent School');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
 });
 
 test('onboarding clears selected school when the search query changes', async () => {

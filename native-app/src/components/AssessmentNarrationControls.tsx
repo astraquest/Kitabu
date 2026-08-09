@@ -39,6 +39,11 @@ export function AssessmentNarrationControls({
   const [resolution, setResolution] = useState<NarrationResolution | null>(null);
   const [playing, setPlaying] = useState(false);
   const [retryNonce, setRetryNonce] = useState(0);
+  const nextDescriptorIdsKey = nextDescriptorIds.join('|');
+  const nextDescriptorIdsRef = useRef(nextDescriptorIds);
+  if (nextDescriptorIdsRef.current.join('|') !== nextDescriptorIdsKey) {
+    nextDescriptorIdsRef.current = nextDescriptorIds;
+  }
 
   useEffect(() => {
     const requestId = ++requestRef.current;
@@ -76,7 +81,7 @@ export function AssessmentNarrationControls({
       }
 
       // Common assessment assets are warmed without delaying the visible question.
-      void Promise.all(nextDescriptorIds.slice(0, 2).map(nextDescriptorId =>
+      Promise.all(nextDescriptorIdsRef.current.slice(0, 2).map(nextDescriptorId =>
         resolveAssessmentNarration({ descriptorId: nextDescriptorId, segment: 'question', languageCode }).catch(error => {
           captureAppException(error, {
             source: 'assessment_narration_prefetch',
@@ -85,7 +90,7 @@ export function AssessmentNarrationControls({
           });
           return null;
         })
-      ));
+      )).catch(() => undefined);
 
       if (current.status === 'ready' && segment === 'question') {
         try {
@@ -116,7 +121,7 @@ export function AssessmentNarrationControls({
       playerRef.current?.remove();
       playerRef.current = null;
     };
-  }, [choiceIndex, descriptorId, languageCode, retryNonce, segment, nextDescriptorIds.join('|')]);
+  }, [choiceIndex, descriptorId, languageCode, retryNonce, segment, nextDescriptorIdsKey]);
 
   if (!resolution || resolution.status === 'unavailable') return null;
 

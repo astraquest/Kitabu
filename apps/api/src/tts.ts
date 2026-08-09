@@ -10,7 +10,7 @@ import {
   type GeminiBatch
 } from './ttsGemini.js';
 
-export { buildNarrationIdentity, NARRATION_VOICES, normalizeNarrationText } from './ttsIdentity.js';
+export { buildNarrationIdentity, canonicalizeAssessmentNarrationLanguage, NARRATION_VOICES, normalizeNarrationText } from './ttsIdentity.js';
 export { composeAssessmentQuestionNarration } from './ttsIdentity.js';
 export type { AssessmentNarrationInput, NarrationProfile } from './ttsIdentity.js';
 

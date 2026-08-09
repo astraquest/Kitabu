@@ -1,6 +1,15 @@
 import { createHash } from 'node:crypto';
 
 export type NarrationProfile = 'Samora' | 'Barake' | 'Judith' | 'Bella';
+export type AssessmentNarrationLanguage = 'en-US' | 'sw-KE';
+
+const ASSESSMENT_NARRATION_LANGUAGE_ALIASES: Readonly<Record<string, AssessmentNarrationLanguage>> = {
+  en: 'en-US',
+  'en-us': 'en-US',
+  'en-ke': 'en-US',
+  sw: 'sw-KE',
+  'sw-ke': 'sw-KE'
+};
 
 export const NARRATION_VOICES: Record<NarrationProfile, string> = {
   Samora: 'Sadaltager',
@@ -8,6 +17,10 @@ export const NARRATION_VOICES: Record<NarrationProfile, string> = {
   Judith: 'Gacrux',
   Bella: 'Leda'
 };
+
+export function canonicalizeAssessmentNarrationLanguage(languageCode: string): AssessmentNarrationLanguage | null {
+  return ASSESSMENT_NARRATION_LANGUAGE_ALIASES[languageCode.trim().toLowerCase()] ?? null;
+}
 
 export type AssessmentNarrationInput = {
   text: string;

@@ -218,6 +218,7 @@ import {
 } from './repositories.js';
 import {
   buildNarrationIdentity,
+  canonicalizeAssessmentNarrationLanguage,
   composeAssessmentQuestionNarration,
   ensureAssessmentNarration,
   isAssessmentTtsConfigured,
@@ -1567,7 +1568,12 @@ const assessmentTtsResolveSchema = z.object({
   descriptorId: z.string().trim().min(1).max(240),
   segment: z.enum(['question', 'prompt', 'choice', 'feedback', 'explanation']),
   choiceIndex: z.number().int().min(0).max(20).optional(),
-  languageCode: z.string().trim().min(2).max(20).default('en-US')
+  languageCode: z.string().trim().min(2).max(20)
+    .refine(languageCode => canonicalizeAssessmentNarrationLanguage(languageCode) !== null, {
+      message: 'Assessment narration language is not supported'
+    })
+    .transform(languageCode => canonicalizeAssessmentNarrationLanguage(languageCode) as NonNullable<ReturnType<typeof canonicalizeAssessmentNarrationLanguage>>)
+    .default('en-US')
 });
 
 const narrationPreferenceSchema = z.object({
@@ -5053,7 +5059,18 @@ Requirements:
     return { selectedProfile: saved.selected_profile, enabled: saved.enabled };
   });
 
-  app.post('/tts/resolve', async (request, reply) => {
+  let assessmentNarrationRateLimitHandler: ReturnType<typeof app.rateLimit> | null = null;
+  const enforceAssessmentNarrationRateLimit = async (request: FastifyRequest, reply: FastifyReply) => {
+    assessmentNarrationRateLimitHandler ??= app.rateLimit({
+      max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+      timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+      keyGenerator: currentRequest =>
+        currentRequest.user?.id ? `ai-user:${currentRequest.user.id}` : `ai-ip:${currentRequest.ip}`
+    });
+    return assessmentNarrationRateLimitHandler.call(app, request, reply);
+  };
+
+  app.post('/tts/resolve', { preHandler: enforceAssessmentNarrationRateLimit }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) return;
     if (!request.user!.roles.includes('student')) {

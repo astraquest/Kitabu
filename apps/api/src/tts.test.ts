@@ -8,10 +8,19 @@ import {
 } from './ttsGemini.js';
 import {
   buildNarrationIdentity,
+  canonicalizeAssessmentNarrationLanguage,
   composeAssessmentQuestionNarration,
   normalizeNarrationText,
   NARRATION_VOICES
 } from './ttsIdentity.js';
+
+test('canonicalizes only the supported assessment narration languages', () => {
+  assert.equal(canonicalizeAssessmentNarrationLanguage('en'), 'en-US');
+  assert.equal(canonicalizeAssessmentNarrationLanguage(' en-KE '), 'en-US');
+  assert.equal(canonicalizeAssessmentNarrationLanguage('sw'), 'sw-KE');
+  assert.equal(canonicalizeAssessmentNarrationLanguage('SW-ke'), 'sw-KE');
+  assert.equal(canonicalizeAssessmentNarrationLanguage('fr-FR'), null);
+});
 
 test('normalizes assessment narration text without changing case or punctuation', () => {
   assert.equal(normalizeNarrationText('  A\r\n\tquestion.  '), 'A question.');

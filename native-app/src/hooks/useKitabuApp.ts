@@ -2229,8 +2229,8 @@ export function useKitabuApp() {
       });
       setAuthSession(nextSession);
       if (nextSession.user.roles.includes('student')) {
-        void setAssessmentSoundConsent(Boolean(resolvedVoiceName && !noVoice)).catch(() => undefined);
-        void saveNarrationPreference({
+        setAssessmentSoundConsent(Boolean(resolvedVoiceName && !noVoice)).catch(() => undefined);
+        saveNarrationPreference({
           selectedProfile: resolvedVoiceName ?? 'Samora',
           enabled: Boolean(resolvedVoiceName && !noVoice)
         }).catch(() => undefined);

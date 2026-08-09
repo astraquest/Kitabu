@@ -6,7 +6,6 @@ export type OnboardingIntroStep =
   | 'rafiki'
   | 'role'
   | 'voice'
-  | 'microphone'
   | 'need'
   | 'name'
   | 'gender'
@@ -53,7 +52,7 @@ const SHARED_INTRO_STEPS = {
   mascot: { key: 'mascot', title: 'Mascot', progressIndex: 1 },
   rafiki: { key: 'rafiki', title: 'Rafiki', progressIndex: 2 },
   role: { key: 'role', title: 'Role', progressIndex: 3 },
-  microphone: { key: 'microphone', title: 'Microphone', progressIndex: 4 },
+  voice: { key: 'voice', title: 'Voice', progressIndex: 4 },
   need: { key: 'need', title: 'Need', progressIndex: 5 },
   name: { key: 'name', title: 'Name', progressIndex: 6 },
 } satisfies RoleFlowDefinition['introSteps'];

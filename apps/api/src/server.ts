@@ -54,34 +54,15 @@ import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearn
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
-  findEducationalAssets,
-  readEducationalAssetForLearner,
-  readEducationalAssetForAdmin,
-  toStaffEducationalAssetReviewDetail,
-  toStaffEducationalAssetReviewSummary,
-  validateEducationalAssetReviewDecision,
-} from './educationalAssets/service.js';
-import { educationalAssetLicenseValues } from './educationalAssets/types.js';
-import { educationalAssetClassificationEditSchema, mergeEducationalAssetClassification } from './educationalAssets/classificationEdit.js';
-import {
   enqueueSpeechCues,
   getOrCreateDurableSpeech,
   spokenCuesFromQuestions,
-  TTS_AVATAR_VOICES,
   TTS_QUEUE_MODE
 } from './speechQueue.js';
-import { getLandingTtsCue } from './onboardingTts.js';
-import { enqueueStudentWelcomeTts, resolveStudentWelcomeTts } from './studentWelcomeTts.js';
-import {
-  buildDailyStudentWelcomeText,
-  isStudentDailyWelcomeUser,
-  isValidLocalDateKey
-} from './dailyWelcome.js';
 import {
   type CurriculumStrandInput,
   createAdminManagedUser,
   createAiGenerationRun,
-  createAssessmentNarrationSession,
   createBannerAnnouncement,
   createTeacherAssignment,
   createSelfServiceUser,
@@ -93,8 +74,6 @@ import {
   createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
-  findQuizBankQuestionById,
-  findAssessmentNarrationSession,
   createParentTeacherMessage,
   createTeacherLessonPlan,
   createTeacherParentMessages,
@@ -124,7 +103,6 @@ import {
   findActiveDiagnosticSessionForSubjects,
   findCompletedDiagnosticSession,
   findDiagnosticSessionForUser,
-  findEducationalAssetForReviewById,
   findUserAuthIdentityForProvider,
   findSubscriptionPlanByCode,
   findUserByEmail,
@@ -144,8 +122,6 @@ import {
   getAdminOnboardingAnalytics,
   getAdminSubjectEngagementAnalytics,
   getLearnerSubjectRecommendationSignals,
-  getUserNarrationPreference,
-  findDailyStudentWelcomeDelivery,
   getAiGenerationCacheEntry,
   getReferenceLibraryDocumentForTemplateGeneration,
   listAdminUsers,
@@ -164,9 +140,6 @@ import {
   insertRefreshToken,
   listBannerAnnouncements,
   listDiagnosticAnswers,
-  listEducationalAssetsForReview,
-  listEducationalAssetCurriculumUnitLinks,
-  replaceEducationalAssetCurriculumUnitLinks,
   listDueSpacedReviews,
   linkParentStudentByEmail,
   linkParentStudentByPhone,
@@ -189,8 +162,6 @@ import {
   listTeacherStudents,
   listWeeklyExamHistory,
   listCurriculumForGrade,
-  listEducationalAssetTaxonomyLinks,
-  listEducationalAssetTaxonomyTerms,
   listProgressiveLessonProgress,
   listReferenceLibraryDocuments,
   markPaymentRequestFailed,
@@ -227,9 +198,6 @@ import {
   submitWeeklyExamAttempt,
   consumePhoneVerificationCode,
   updateBannerAnnouncement,
-  updateEducationalAssetReviewStatus,
-  updateEducationalAssetClassification,
-  replaceEducationalAssetTaxonomyLinks,
   updateSchool,
   updateSchoolPilot,
   updateSchoolDiscount,
@@ -240,8 +208,6 @@ import {
   updateUserOnboarding,
   updateUserPassword,
   upsertLearnerSubjectDisplayPreferences,
-  upsertUserNarrationPreference,
-  recordDailyStudentWelcomeDelivery,
   upsertPushToken,
   upsertBillingProfile,
   stageTotpSecret,
@@ -252,15 +218,6 @@ import {
   findProgressiveLessonAttemptForUser,
   withTransaction
 } from './repositories.js';
-import {
-  buildNarrationIdentity,
-  canonicalizeAssessmentNarrationLanguage,
-  composeAssessmentQuestionNarration,
-  ensureAssessmentNarration,
-  isAssessmentTtsConfigured,
-  type NarrationProfile,
-  type NarrationSegment
-} from './tts.js';
 import {
   buildSubjectRecommendations,
   canonicalSubjectId,
@@ -277,7 +234,6 @@ import { hasAnyRole, requireAuthenticated, requireRoles, requireSchoolContext } 
 import {
   buildEmailVerificationEmail,
   buildPasswordResetEmail,
-  buildWelcomeEmail,
   sendTransactionalEmail
 } from './mailer.js';
 import {
@@ -312,7 +268,6 @@ import {
 import {
   approveInteractiveBundle,
   createInteractiveBundleDraft,
-  getInteractiveBundle,
   getInteractiveRelease,
   moveInteractiveReleasePointer,
   validatePublishableBundle,
@@ -739,56 +694,6 @@ const announcementSchema = z.object({
 const announcementParamsSchema = z.object({
   announcementId: z.string().uuid()
 });
-const educationalAssetQuerySchema = z.object({
-  query: z.string().trim().min(1).max(160).optional(),
-  subject: z.string().trim().min(1).max(120).optional(),
-  topic: z.string().trim().min(1).max(160).optional(),
-  subtopic: z.string().trim().min(1).max(160).optional(),
-  grade: z.string().trim().min(1).max(80).optional(),
-  assetType: z.enum(['image', 'audio', 'video', 'document', 'vector']).optional(),
-  visualType: z.enum(['VOCABULARY_IMAGE', 'ICON', 'PHOTO', 'ILLUSTRATION', 'SCIENTIFIC_DIAGRAM', 'MAP', 'CHEMICAL_STRUCTURE', 'UI_ICON']).optional(),
-  providerKey: z.string().trim().regex(/^[a-z0-9][a-z0-9._-]{0,99}$/).optional(),
-  license: z.enum(educationalAssetLicenseValues).optional(),
-  curriculumUnitId: z.string().uuid().optional(),
-  limit: z.coerce.number().int().min(1).max(100).default(20),
-});
-
-const educationalAssetAdminQuerySchema = z.object({
-  query: z.string().trim().min(1).max(160).optional(),
-  productionStatus: z.enum(['draft', 'review', 'approved', 'rejected']).optional(),
-  limit: z.coerce.number().int().min(1).max(100).default(50),
-});
-
-const educationalAssetReviewParamsSchema = z.object({
-  assetId: z.string().uuid(),
-});
-
-const educationalAssetReviewBodySchema = z.object({
-  productionStatus: z.enum(['approved', 'rejected', 'review']),
-  reviewReason: z.string().trim().min(1).max(500).nullable().optional(),
-}).strict();
-
-const educationalAssetCurriculumLinksParamsSchema = z.object({
-  assetId: z.string().uuid(),
-});
-
-const educationalAssetCurriculumLinksBodySchema = z.object({
-  links: z.array(z.object({
-    unitId: z.string().uuid(),
-    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
-  }).strict()).max(100),
-}).strict();
-
-const educationalAssetTaxonomyParamsSchema = z.object({
-  assetId: z.string().uuid(),
-});
-
-const educationalAssetTaxonomyBodySchema = z.object({
-  links: z.array(z.object({
-    termCode: z.string().trim().min(1).max(120).regex(/^[a-z0-9]+(?:[._-][a-z0-9]+)*$/),
-    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
-  }).strict()).max(100),
-}).strict();
 
 const onboardingPersonalizationKeySchema = z
   .string()
@@ -869,24 +774,11 @@ const subjectRecommendationEventsSchema = z.object({
   })).min(1).max(10)
 });
 
-export const onboardingEventTypeSchema = z.enum([
-  'view',
-  'selection',
-  'skip',
-  'back',
-  'complete',
-  'permission_result',
-  'drop_off'
-]);
-
-export const onboardingSelectionEventSchema = z.object({
+const onboardingSelectionEventSchema = z.object({
   sessionId: z.string().trim().min(8).max(160),
   stepKey: z.string().trim().min(1).max(80),
   optionKey: z.string().trim().min(1).max(160),
   optionLabel: z.string().trim().min(1).max(240),
-  eventType: onboardingEventTypeSchema.optional().default('selection'),
-  eventVersion: z.number().int().min(1).max(10).optional().default(1),
-  stepIndex: z.number().int().min(0).max(100).optional().default(0),
   role: z.string().trim().max(40).nullable().optional(),
   county: z.string().trim().max(120).nullable().optional(),
   grade: z.string().trim().max(40).nullable().optional(),
@@ -976,16 +868,6 @@ const studentAssignmentSubmissionSchema = z.object({
 });
 
 const ONBOARDING_DIAGNOSTIC_SUBJECTS = ['mathematics', 'english'] as const;
-
-const ONBOARDING_NARRATION_QUESTIONS = {
-  language: { prompt: 'Which language would you like to use in Kitabu?', options: ['English', 'Kiswahili'] },
-  role: { prompt: 'How will you use Kitabu?', options: ['Student', 'Parent', 'Teacher'] },
-  need: { prompt: 'What do you need help with most?', options: ['Exams', 'Grades', 'Learning resources', 'Support'] },
-  goal: { prompt: 'What is your main learning goal?', options: ['Improve my grades', 'Prepare for exams', 'Build confidence'] },
-  concerns: { prompt: 'What would you like to improve first?', options: ['Understanding lessons', 'Remembering work', 'Answering questions'] },
-  achieve: { prompt: 'What would you like to achieve with Kitabu?', options: ['Learn consistently', 'Prepare well', 'Reach my goals'] },
-  interests: { prompt: 'Which subjects interest you?', options: ['Mathematics', 'English', 'Science', 'Social Studies'] }
-} as const;
 
 const ONBOARDING_DIAGNOSTIC_QUESTIONS = [
   { id: 'math-fractions-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'fractions', prompt: 'What is 1/2 + 1/4?', options: ['1/6', '2/6', '3/4', '1/8'], correctAnswer: '3/4', difficulty: 2 },
@@ -1706,14 +1588,7 @@ const transcribeAudioSchema = z.object({
 
 const synthesizeSpeechSchema = z.object({
   text: z.string().trim().min(1).max(4_000),
-  voice: z.string().trim().min(1).max(40),
-  language: z.string().trim().min(2).max(16).default('en')
-});
-
-const landingSynthesizeSpeechSchema = z.object({
-  cueId: z.string().trim().min(1).max(40),
-  voice: z.enum(TTS_AVATAR_VOICES as [string, ...string[]]),
-  language: z.enum(['en', 'sw']).default('en')
+  voice: z.string().trim().min(1).max(40)
 });
 
 const onboardingSchoolSchema = z.object({
@@ -1729,25 +1604,7 @@ const onboardingSchoolSchema = z.object({
   }
 });
 
-const assessmentTtsResolveSchema = z.object({
-  descriptorId: z.string().trim().min(1).max(240),
-  segment: z.enum(['question', 'prompt', 'choice', 'feedback', 'explanation']),
-  choiceIndex: z.number().int().min(0).max(20).optional(),
-  languageCode: z.string().trim().min(2).max(20)
-    .refine(languageCode => canonicalizeAssessmentNarrationLanguage(languageCode) !== null, {
-      message: 'Assessment narration language is not supported'
-    })
-    .transform(languageCode => canonicalizeAssessmentNarrationLanguage(languageCode) as NonNullable<ReturnType<typeof canonicalizeAssessmentNarrationLanguage>>)
-    .default('en-US')
-});
 
-const narrationPreferenceSchema = z.object({
-  selectedProfile: z.enum(['Samora', 'Barake', 'Judith', 'Bella']),
-  enabled: z.boolean()
-});
-const dailyStudentWelcomeSchema = z.object({
-  localDate: z.string().trim().refine(isValidLocalDateKey, 'localDate must be a valid YYYY-MM-DD calendar date')
-});
 const curriculumItemSchema = z.object({
   id: z.string().optional(),
   text: z.string().min(1)
@@ -2020,17 +1877,6 @@ export function buildServer(options: BuildServerOptions = {}) {
     trustProxy: appConfig.KITABU_TRUST_PROXY,
     bodyLimit: appConfig.KITABU_BODY_LIMIT_BYTES
   });
-
-  async function deliverWelcomeEmail(request: FastifyRequest, email: string) {
-    try {
-      const delivered = await emailSender(buildWelcomeEmail({ recipientEmail: email }));
-      if (!delivered) {
-        request.log.warn('Welcome email delivery failed');
-      }
-    } catch {
-      request.log.warn('Welcome email delivery failed');
-    }
-  }
 
   registerLiveAudioStreamRoutes(app);
 
@@ -2693,108 +2539,6 @@ function findProgressiveDiagnosticQuestion(
   questionId: string
 ) {
   return getProgressiveDiagnosticQuestions(subjectId).find(question => question.id === questionId) ?? null;
-}
-
-function parseTrustedGeneratedQuizQuestions(value: string) {
-  try {
-    const parsed = JSON.parse(value) as { questions?: unknown };
-    if (!Array.isArray(parsed.questions) || parsed.questions.length === 0) return null;
-    const questions = parsed.questions.map((item, index) => {
-      if (!item || typeof item !== 'object') return null;
-      const question = item as Record<string, unknown>;
-      const text = typeof question.text === 'string' ? question.text.trim() : '';
-      const type = question.type;
-      if (!text || !['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY'].includes(String(type))) return null;
-      const options = Array.isArray(question.options)
-        ? question.options.filter((option): option is string => typeof option === 'string' && option.trim().length > 0)
-        : undefined;
-      return {
-        id: typeof question.id === 'number' && Number.isInteger(question.id) ? question.id : index + 1,
-        type: String(type) as 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY',
-        text,
-        options: options?.length ? options : String(type) === 'TRUE_FALSE' ? ['True', 'False'] : undefined,
-        explanation: typeof question.explanation === 'string' ? question.explanation.trim() || undefined : undefined
-      };
-    });
-    return questions.every(Boolean) ? questions as NonNullable<(typeof questions)[number]>[] : null;
-  } catch {
-    return null;
-  }
-}
-
-async function resolveAssessmentNarrationDescriptor(
-  userId: string,
-  schoolId: string | null,
-  gradeLevel: string | null | undefined,
-  descriptorId: string,
-  segment: NarrationSegment,
-  choiceIndex?: number
-) {
-  const parts = descriptorId.split(':');
-  const kind = parts.shift();
-  let content: {
-    subjectName?: string | null;
-    context?: string | null;
-    prompt?: string;
-    text?: string;
-    options?: readonly string[];
-    explanation?: string;
-  } | null = null;
-
-  if (kind === 'diagnostic' && parts.length === 1) {
-    const question = findDiagnosticQuestion(parts[0]);
-    content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options } : null;
-  } else if (kind === 'progressive' && parts.length === 2) {
-    const subjectId = parts[0] as keyof typeof PROGRESSIVE_DIAGNOSTIC_QUESTIONS;
-    if (subjectId in PROGRESSIVE_DIAGNOSTIC_QUESTIONS) {
-      const question = findProgressiveDiagnosticQuestion(subjectId, parts[1]);
-      content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options } : null;
-    }
-  } else if (kind === 'weekly' && parts.length === 1) {
-    const question = buildWeeklyExamQuestions(gradeLevel || 'Grade 8').find(item => item.id === parts[0]);
-    content = question ? { subjectName: question.subjectName, context: question.subStrandKey, prompt: question.prompt, options: question.options, explanation: question.explanation } : null;
-  } else if (kind === 'quizbank' && parts.length === 1) {
-    const question = await findQuizBankQuestionById(parts[0]);
-    content = question ? { subjectName: question.subject_name, context: question.strand_title, prompt: question.prompt, options: question.options, explanation: question.explanation } : null;
-  } else if (kind === 'quizsession' && parts.length === 2) {
-    const session = await findAssessmentNarrationSession(userId, parts[0]);
-    const questionId = Number(parts[1]);
-    const question = session?.questions.find(item => item.id === questionId);
-    content = question
-      ? { subjectName: session.subject_name, context: session.context, text: question.text, options: question.options, explanation: question.explanation }
-      : null;
-  } else if (kind === 'onboarding' && parts.length === 1 && parts[0] in ONBOARDING_NARRATION_QUESTIONS) {
-    content = ONBOARDING_NARRATION_QUESTIONS[parts[0] as keyof typeof ONBOARDING_NARRATION_QUESTIONS];
-  } else if (kind === 'homework' && parts.length === 2) {
-    if (!schoolId) return null;
-    const assignment = await db.query<{ subject: string | null; questions: Array<{ id: number; type?: string; text: string; options?: string[]; explanation?: string }> }>(
-      `SELECT a.subject, a.questions FROM assignments a WHERE a.id = $1 AND a.school_id = $2
-       AND EXISTS (SELECT 1 FROM class_students cs WHERE cs.class_id = a.class_id AND cs.student_id = $3)`,
-      [parts[0], schoolId, userId]
-    );
-    const questionId = Number(parts[1]);
-    const question = assignment.rows[0]?.questions?.find(item => item.id === questionId);
-    content = question
-      ? { subjectName: assignment.rows[0]?.subject, text: question.text, options: question.options?.length ? question.options : question.type === 'TRUE_FALSE' ? ['True', 'False'] : undefined, explanation: question.explanation }
-      : null;
-  }
-
-  if (!content) return null;
-  if (segment === 'question') {
-    const prompt = content.prompt ?? content.text;
-    return prompt
-      ? composeAssessmentQuestionNarration({
-          subjectName: content.subjectName,
-          context: content.context,
-          prompt,
-          options: content.options
-        })
-      : null;
-  }
-  if (segment === 'prompt') return content.prompt ?? content.text ?? null;
-  if (segment === 'choice') return choiceIndex === undefined ? null : content.options?.[choiceIndex] ?? null;
-  if (segment === 'explanation' || segment === 'feedback') return content.explanation ?? null;
-  return null;
 }
 
 function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDiagnosticAnswers>>) {
@@ -3636,7 +3380,7 @@ Requirements:
     const feature = 'speech_synthesis';
     const promptVersion = resolvePromptVersion(feature);
     const schemaVersion = getFeatureSchemaVersion(feature);
-    const model = appConfig.KITABU_CARTESIA_MODEL;
+    const model = appConfig.KITABU_GEMINI_TTS_MODEL;
     const promptHash = hashStableJson({
       feature,
       promptVersion,
@@ -3646,26 +3390,16 @@ Requirements:
     const inputHash = hashStableJson({
       textHash: sha256Text(args.body.text),
       textLength: args.body.text.length,
-      voice: args.body.voice ?? null,
-      language: args.body.language
+      voice: args.body.voice ?? null
     });
 
     try {
       const startedAt = Date.now();
       const durableSpeech = await getOrCreateDurableSpeech({
         text: args.body.text,
-        avatarVoice: args.body.voice,
-        language: args.body.language
+        avatarVoice: args.body.voice
       });
       const result = durableSpeech.audio;
-      if (!result) {
-        return {
-          error: { message: 'Speech is queued for background generation. Please try again shortly.' },
-          audio: null,
-          subscription
-        };
-      }
-      const provider = result.provider === 'gemini' ? 'google' : result.provider ?? 'cartesia';
       const latencyMs = Date.now() - startedAt;
       const outputHash = sha256Text(result.base64Audio);
 
@@ -3676,7 +3410,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider,
+          provider: 'google',
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3694,7 +3428,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider,
+          provider: 'google',
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3710,7 +3444,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider,
+          provider: 'google',
           model: result.model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -4125,7 +3859,7 @@ Requirements:
       if (!signupDetails) {
         return reply.badRequest('Invalid or expired verification code');
       }
-      const createdUser = await createSelfServiceUser({
+      await createSelfServiceUser({
         schoolId: null,
         email: signupDetails.email,
         phoneNumber,
@@ -4138,7 +3872,6 @@ Requirements:
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
-      void enqueueStudentWelcomeTts(createdUser.id).catch(error => request.log.warn({ error, userId: createdUser.id }, 'Student welcome TTS enqueue failed'));
       user = await findUserByPhone(phoneNumber);
     }
 
@@ -4164,7 +3897,6 @@ Requirements:
     }
 
     let user = await findUserByAuthIdentity('google', identity.subject);
-    let isNewGoogleUser = false;
     if (!user) {
       user = await findUserByEmail(identity.email);
       if (!user) {
@@ -4177,7 +3909,7 @@ Requirements:
         if (body.acceptedTerms !== true) {
           return reply.badRequest('Accept the Terms and Privacy Policy to continue.');
         }
-        const createdUser = await createSelfServiceUser({
+        await createSelfServiceUser({
           schoolId: null,
           email: identity.email,
           passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
@@ -4188,8 +3920,6 @@ Requirements:
           termsVersion: appConfig.KITABU_TERMS_VERSION,
           privacyVersion: appConfig.KITABU_PRIVACY_VERSION
         });
-        isNewGoogleUser = true;
-        void enqueueStudentWelcomeTts(createdUser.id).catch(error => request.log.warn({ error, userId: createdUser.id }, 'Student welcome TTS enqueue failed'));
         user = await findUserByEmail(identity.email);
       }
 
@@ -4229,9 +3959,6 @@ Requirements:
     if (!user) {
       throw new Error('Unable to load Google account');
     }
-    if (isNewGoogleUser) {
-      await deliverWelcomeEmail(request, user.email);
-    }
     return issueAuthSession(request, reply, user, 'auth.google.login.succeeded');
   });
 
@@ -4257,8 +3984,6 @@ Requirements:
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
-      void enqueueStudentWelcomeTts(user.id).catch(error => request.log.warn({ error, userId: user.id }, 'Student welcome TTS enqueue failed'));
-      await deliverWelcomeEmail(request, user.email);
 
     const refreshToken = generateRefreshToken();
     const refreshTokenHash = hashOpaqueToken(refreshToken);
@@ -5226,161 +4951,6 @@ Requirements:
     return { accepted: true };
   });
 
-  app.get('/me/narration-preference', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    const preference = await getUserNarrationPreference(request.user!.id);
-    return {
-      selectedProfile: preference?.selected_profile ?? 'Samora',
-      enabled: preference?.enabled ?? false
-    };
-  });
-
-  app.get('/me/student-welcome-speech', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    if (!request.user!.roles.includes('student')) {
-      return reply.forbidden('Student welcome speech is available to learner accounts only');
-    }
-
-    const resolution = await resolveStudentWelcomeTts(request.user!.id);
-    reply.header('Cache-Control', 'private, no-store');
-    if (resolution.status === 'unavailable') {
-      return { status: resolution.status, audio: null, reason: resolution.reason };
-    }
-    if (resolution.status === 'pending') {
-      reply.status(202);
-      return { status: resolution.status, audio: null };
-    }
-    return { status: resolution.status, audio: resolution.audio };
-  });
-
-  app.put('/me/narration-preference', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    if (!request.user!.roles.includes('student')) {
-      return reply.forbidden('Narration preferences are available to learner accounts only');
-    }
-    const body = narrationPreferenceSchema.parse(request.body);
-    const saved = await withTransaction(client => upsertUserNarrationPreference(client, {
-      userId: request.user!.id,
-      selectedProfile: body.selectedProfile,
-      enabled: body.enabled
-    }));
-    return { selectedProfile: saved.selected_profile, enabled: saved.enabled };
-  });
-
-  app.post('/me/daily-welcome', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    if (!isStudentDailyWelcomeUser(request.user)) {
-      return reply.forbidden('Daily welcome narration is available to student accounts only');
-    }
-
-    const body = dailyStudentWelcomeSchema.parse(request.body);
-    const existing = await findDailyStudentWelcomeDelivery(request.user!.id, body.localDate);
-    if (existing) {
-      return { status: 'already_delivered' as const, text: existing.welcome_text };
-    }
-
-    const user = await findUserById(request.user!.id);
-    if (!user) {
-      return reply.unauthorized('Authenticated student account could not be loaded');
-    }
-    if (user.onboardingPersonalization?.noVoice) {
-      return { status: 'unavailable' as const, reason: 'voice_disabled' };
-    }
-
-    const sourceName = user.onboardingPersonalization?.displayName || user.fullName || request.user!.fullName;
-    const welcomeText = buildDailyStudentWelcomeText(sourceName);
-    if (!welcomeText) {
-      return { status: 'unavailable' as const, reason: 'student_name_unavailable' };
-    }
-    const preference = await getUserNarrationPreference(request.user!.id);
-    const voice = user.onboardingPersonalization?.voiceName || preference?.selected_profile || 'Samora';
-
-    try {
-      const durableSpeech = await getOrCreateDurableSpeech({
-        text: welcomeText,
-        avatarVoice: voice,
-        language: 'en'
-      });
-      if (!durableSpeech.audio) {
-        reply.status(202);
-        return { status: 'pending' as const, text: welcomeText };
-      }
-
-      const delivered = await withTransaction(client => recordDailyStudentWelcomeDelivery(client, {
-        userId: request.user!.id,
-        localDate: body.localDate,
-        welcomeText,
-        artifactKey: durableSpeech.artifactKey,
-        voice
-      }));
-      if (!delivered) {
-        return { status: 'already_delivered' as const, text: welcomeText };
-      }
-
-      return { status: 'ready' as const, text: welcomeText, audio: durableSpeech.audio };
-    } catch (error) {
-      request.log.warn({ err: error }, 'Daily student welcome narration unavailable');
-      reply.status(503);
-      return { status: 'unavailable' as const, reason: 'tts_unavailable' };
-    }
-  });
-
-  let assessmentNarrationRateLimitHandler: ReturnType<typeof app.rateLimit> | null = null;
-  const enforceAssessmentNarrationRateLimit = async (request: FastifyRequest, reply: FastifyReply) => {
-    assessmentNarrationRateLimitHandler ??= app.rateLimit({
-      max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
-      timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
-      keyGenerator: currentRequest =>
-        currentRequest.user?.id ? `ai-user:${currentRequest.user.id}` : `ai-ip:${currentRequest.ip}`
-    });
-    return assessmentNarrationRateLimitHandler.call(app, request, reply);
-  };
-
-  app.post('/tts/resolve', { preHandler: enforceAssessmentNarrationRateLimit }, async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    if (!request.user!.roles.includes('student')) {
-      return reply.forbidden('Assessment narration is available to learner accounts only');
-    }
-
-    const body = assessmentTtsResolveSchema.parse(request.body);
-    const preference = await getUserNarrationPreference(request.user!.id);
-    const profile = (preference?.selected_profile ?? 'Samora') as NarrationProfile;
-    const descriptorText = await resolveAssessmentNarrationDescriptor(
-      request.user!.id,
-      request.user!.schoolId,
-      request.user!.grade,
-      body.descriptorId,
-      body.segment as NarrationSegment,
-      body.choiceIndex
-    );
-    if (!descriptorText) {
-      return reply.notFound('Assessment narration descriptor not found');
-    }
-    if (!preference?.enabled) {
-      return { status: 'unavailable', reason: 'narration_disabled' };
-    }
-    if (!isAssessmentTtsConfigured()) {
-      request.log.info({ state: 'unavailable', source: body.descriptorId.split(':')[0], reason: 'tts_not_configured' }, 'Assessment narration unavailable');
-      return { status: 'unavailable', reason: 'tts_not_configured' };
-    }
-
-    const identity = buildNarrationIdentity({ text: descriptorText, languageCode: body.languageCode, profile });
-    const resolution = await ensureAssessmentNarration({ text: descriptorText, languageCode: body.languageCode, profile });
-    request.log.info({ identitySha256: identity.identitySha256, state: resolution.status, source: body.descriptorId.split(':')[0] }, 'Assessment narration resolved');
-    if (resolution.status === 'ready') {
-      return { status: 'ready', url: resolution.url, durationMs: resolution.durationMs, identitySha256: resolution.identitySha256 };
-    }
-    if (resolution.status === 'pending') {
-      return { status: 'pending', identitySha256: resolution.identitySha256 };
-    }
-    return { status: 'unavailable', identitySha256: resolution.identitySha256, reason: resolution.reason };
-  });
-
   app.get('/me/subject-recommendations', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
@@ -5826,22 +5396,6 @@ Return valid JSON with this shape:
     if (!parsed.questions?.length) {
       return reply.serviceUnavailable('AI quiz generation did not return questions');
     }
-    const generatedQuestions = parsed.questions;
-
-    const narrationSession = await withTransaction(client => createAssessmentNarrationSession(client, {
-      userId: request.user!.id,
-      generationRunId: null,
-      source: 'curriculum_quiz_generation',
-      subjectName: context.subject_name,
-      context: [context.strand_title, context.sub_strand_title].filter(Boolean).join(' · ') || null,
-      questions: generatedQuestions.map((question, index) => ({
-        id: question.id ?? index + 1,
-        type: question.type,
-        text: question.text.trim(),
-        options: question.options?.length ? question.options : question.type === 'TRUE_FALSE' ? ['True', 'False'] : undefined,
-        explanation: question.explanation
-      }))
-    }));
 
     void enqueueSpeechCues(
       spokenCuesFromQuestions(parsed.questions),
@@ -5851,7 +5405,6 @@ Return valid JSON with this shape:
     return {
       subStrandId: params.subStrandId,
       source: 'ai',
-      narrationSessionId: narrationSession.id,
       questions: (parsed.questions ?? []).map((question, index) => ({
         ...question,
         id: question.id ?? index + 1
@@ -7527,9 +7080,6 @@ Return valid JSON with this shape:
         grade: body.grade || currentUser?.grade || null,
         countryCode: body.countryCode || currentUser?.countryCode || null,
         curriculumCode: body.curriculumCode || currentUser?.curriculumCode || null,
-        eventType: body.eventType,
-        eventVersion: body.eventVersion,
-        stepIndex: body.stepIndex,
         metadata: body.metadata ?? {}
       });
     });
@@ -8702,22 +8252,6 @@ Return valid JSON with this shape:
       }
     }
 
-    if (body.feature === 'quiz_generation') {
-      const questions = parseTrustedGeneratedQuizQuestions(result.text);
-      if (!questions || !result.generation?.id) {
-        return reply.status(422).send({ message: 'Generated quiz could not be safely prepared.' });
-      }
-      const session = await withTransaction(client => createAssessmentNarrationSession(client, {
-        userId: request.user!.id,
-        generationRunId: result.generation!.id,
-        source: 'quiz_generation',
-        subjectName: typeof body.context?.subjectName === 'string' ? body.context.subjectName : null,
-        context: [body.context?.topic, body.context?.subTopic].filter((item): item is string => typeof item === 'string' && item.trim().length > 0).join(' · ') || null,
-        questions
-      }));
-      return { text: result.text, generation: result.generation, narrationSessionId: session.id };
-    }
-
     return { text: result.text, generation: result.generation };
   };
 
@@ -8759,38 +8293,6 @@ Return valid JSON with this shape:
     }
 
     return result.audio;
-  };
-
-  const landingSynthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-    const body = landingSynthesizeSpeechSchema.parse(request.body);
-    const cue = getLandingTtsCue(body.cueId);
-    const cueLanguage = cue?.language ?? 'en';
-    if (!cue || cueLanguage !== body.language) {
-      return reply.badRequest('Unsupported landing speech cue');
-    }
-
-    try {
-      const durableSpeech = await getOrCreateDurableSpeech({
-        text: cue.text,
-        avatarVoice: body.voice,
-        language: body.language
-      });
-      if (!durableSpeech.audio) {
-        reply.status(202);
-        return {
-          error: { message: 'Landing narration is queued for background generation.' },
-          audio: null,
-          pending: true
-        };
-      }
-
-      request.log.info({ cueId: cue.id, cacheHit: durableSpeech.cacheHit }, 'Landing narration served');
-      return durableSpeech.audio;
-    } catch (error) {
-      request.log.warn({ cueId: cue.id, err: error }, 'Landing narration unavailable');
-      reply.status(503);
-      return { error: { message: 'Landing narration is temporarily unavailable.' }, audio: null };
-    }
   };
 
   app.post('/admin/interactive-learning/bundles/validate', async (request, reply) => {
@@ -8836,233 +8338,6 @@ Return valid JSON with this shape:
     if (!parsed.success) return reply.badRequest('Invalid interactive learning bundle payload');
     const result = await createInteractiveBundleDraft(parsed.data as unknown as PublishableBundle, request.user!.id);
     return result.created ? reply.status(201).send(result) : reply.status(result.issues.length ? 422 : 409).send(result);
-  });
-
-  app.get('/educational-assets', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    const query = educationalAssetQuerySchema.parse(request.query);
-    return { assets: await findEducationalAssets(query) };
-  });
-
-  app.get('/educational-assets/:assetId/file', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) return;
-    const params = z.object({ assetId: z.string().uuid() }).parse(request.params);
-    const result = await readEducationalAssetForLearner(params.assetId);
-    if (!result) return reply.notFound('Educational asset not found');
-    reply
-      .type(result.asset.mimeType)
-      .header('Content-Length', String(result.content.byteLength))
-      .header('Cache-Control', 'public, max-age=31536000, immutable');
-    return reply.send(result.content);
-  });
-
-  app.get('/admin/educational-assets', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const query = educationalAssetAdminQuerySchema.parse(request.query);
-    const assets = await listEducationalAssetsForReview(db, query);
-    return { assets: assets.map(toStaffEducationalAssetReviewSummary) };
-  });
-
-  app.get('/admin/educational-assets/taxonomy-terms', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    return { terms: await listEducationalAssetTaxonomyTerms(db) };
-  });
-
-  app.get('/admin/educational-assets/:assetId', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
-    if (!params.success) return reply.badRequest('Invalid educational asset ID');
-    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
-    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
-  });
-
-  app.get('/admin/educational-assets/:assetId/preview', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
-    if (!params.success) return reply.badRequest('Invalid educational asset ID');
-    try {
-      const result = await readEducationalAssetForAdmin(params.data.assetId);
-      if (!result) return reply.notFound('Educational asset not found');
-      reply
-        .type(result.asset.file.mimeType)
-        .header('Content-Length', String(result.content.byteLength))
-        .header('Cache-Control', 'private, no-store')
-        .header('Content-Disposition', 'inline');
-      return reply.send(result.content);
-    } catch {
-      return reply.notFound('Educational asset preview unavailable');
-    }
-  });
-
-  app.patch('/admin/educational-assets/:assetId/review', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
-    if (denied) return;
-    const params = educationalAssetReviewParamsSchema.parse(request.params);
-    const body = educationalAssetReviewBodySchema.parse(request.body);
-    let reviewReason: string | null;
-    try {
-      reviewReason = validateEducationalAssetReviewDecision(body.productionStatus, body.reviewReason);
-    } catch (error) {
-      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset review');
-    }
-    const updated = await withTransaction(async client => {
-      const changed = await updateEducationalAssetReviewStatus(client, {
-        assetId: params.assetId,
-        productionStatus: body.productionStatus,
-        reviewReason,
-      });
-      if (changed) {
-        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.reviewed', {
-          productionStatus: body.productionStatus,
-          reviewReason,
-        }, 'educational_asset', params.assetId);
-      }
-      return changed;
-    });
-    if (!updated) return reply.notFound('Educational asset not found');
-    const asset = await findEducationalAssetForReviewById(db, params.assetId);
-    return asset ? { asset: toStaffEducationalAssetReviewSummary(asset) } : reply.notFound('Educational asset not found');
-  });
-
-  app.patch('/admin/educational-assets/:assetId/classification', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
-    if (denied) return;
-    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
-    const body = educationalAssetClassificationEditSchema.safeParse(request.body);
-    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset classification payload');
-
-    const current = await findEducationalAssetForReviewById(db, params.data.assetId);
-    if (!current) return reply.notFound('Educational asset not found');
-    let classification;
-    try {
-      classification = mergeEducationalAssetClassification({
-        visualType: current.visual_type,
-        subject: current.subject,
-        topic: current.topic,
-        subtopic: current.subtopic,
-        keywords: current.keywords,
-        synonyms: current.synonyms,
-        gradeMin: current.grade_min,
-        gradeMax: current.grade_max,
-        language: current.language,
-        containsText: current.contains_text,
-        altText: current.alt_text,
-        educationalDescription: current.educational_description,
-      }, body.data, current);
-    } catch (error) {
-      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset classification');
-    }
-
-    const updated = await withTransaction(async client => {
-      const changed = await updateEducationalAssetClassification(client, { assetId: params.data.assetId, classification });
-      if (changed) {
-        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.classification_updated', {
-          updatedFields: Object.keys(body.data).sort(),
-          visualType: classification.visualType,
-          gradeMin: classification.gradeMin,
-          gradeMax: classification.gradeMax,
-          language: classification.language,
-          containsText: classification.containsText,
-          keywordCount: classification.keywords.length,
-          synonymCount: classification.synonyms.length,
-          hasAltText: Boolean(classification.altText),
-          hasEducationalDescription: Boolean(classification.educationalDescription),
-        }, 'educational_asset', params.data.assetId);
-      }
-      return changed;
-    });
-    if (!updated) return reply.notFound('Educational asset not found');
-    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
-    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
-  });
-
-  app.get('/admin/educational-assets/:assetId/curriculum-links', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
-    if (!params.success) return reply.badRequest('Invalid educational asset ID');
-    try {
-      return { links: await listEducationalAssetCurriculumUnitLinks(db, params.data.assetId) };
-    } catch (error) {
-      return error instanceof Error && error.message === 'Educational asset not found'
-        ? reply.notFound(error.message)
-        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read curriculum links');
-    }
-  });
-
-  app.put('/admin/educational-assets/:assetId/curriculum-links', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
-    if (denied) return;
-    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
-    const body = educationalAssetCurriculumLinksBodySchema.safeParse(request.body);
-    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset curriculum links payload');
-    try {
-      const links = await withTransaction(async client => {
-        const replaced = await replaceEducationalAssetCurriculumUnitLinks(client, params.data.assetId, body.data.links);
-        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.curriculum_links_replaced', {
-          linkCount: replaced.length,
-          unitIds: replaced.map(link => link.unit_id),
-        }, 'educational_asset', params.data.assetId);
-        return replaced;
-      });
-      return { links };
-    } catch (error) {
-      return error instanceof Error && error.message === 'Educational asset not found'
-        ? reply.notFound(error.message)
-        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace curriculum links');
-    }
-  });
-
-  app.get('/admin/educational-assets/:assetId/taxonomy', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
-    if (!params.success) return reply.badRequest('Invalid educational asset ID');
-    try {
-      return { links: await listEducationalAssetTaxonomyLinks(db, params.data.assetId) };
-    } catch (error) {
-      return error instanceof Error && error.message === 'Educational asset not found'
-        ? reply.notFound(error.message)
-        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read educational asset taxonomy');
-    }
-  });
-
-  app.put('/admin/educational-assets/:assetId/taxonomy', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
-    if (denied) return;
-    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
-    const body = educationalAssetTaxonomyBodySchema.safeParse(request.body);
-    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset taxonomy payload');
-    try {
-      const links = await withTransaction(async client => {
-        const replaced = await replaceEducationalAssetTaxonomyLinks(client, params.data.assetId, body.data.links);
-        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.taxonomy_replaced', {
-          linkCount: replaced.length,
-          termCodes: replaced.map(link => link.code),
-        }, 'educational_asset', params.data.assetId);
-        return replaced;
-      });
-      return { links };
-    } catch (error) {
-      return error instanceof Error && error.message === 'Educational asset not found'
-        ? reply.notFound(error.message)
-        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace educational asset taxonomy');
-    }
-  });
-
-  app.get('/admin/interactive-learning/bundles/:bundleId/:revision', async (request, reply) => {
-    const denied = await requireRoles(request, reply, ['platform_admin']);
-    if (denied) return;
-    const params = z.object({ bundleId: z.string().min(1).max(160), revision: z.string().min(1).max(160) }).safeParse(request.params);
-    if (!params.success) return reply.badRequest('Invalid bundle identity');
-    const bundle = await getInteractiveBundle(params.data.bundleId, params.data.revision);
-    return bundle ? bundle : reply.notFound('Interactive learning bundle not found');
   });
 
   app.post('/admin/interactive-learning/bundles/:bundleId/:revision/approve', async (request, reply) => {
@@ -9168,7 +8443,6 @@ Return valid JSON with this shape:
   app.post('/ai/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
   app.post('/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
   app.post('/ai/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
-  app.post('/landing/synthesize-speech', aiGenerationRateLimit, landingSynthesizeSpeechHandler);
 
   return app;
 }

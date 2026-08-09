@@ -12,11 +12,8 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as ImagePicker from 'expo-image-picker';
 import { Linking, NativeModules, Platform } from 'react-native';
 
-import { extractCurriculumFromPdfData, synthesizePublicCueSpeech, synthesizeSpeech, transcribeAudio } from './aiService';
-import { playAudioPlayerWhenAllowed } from './audioPlayback';
-import { getStudentWelcomeSpeech } from './studentWelcomeService';
+import { extractCurriculumFromPdfData, synthesizeSpeech, transcribeAudio } from './aiService';
 import { Attachment, LearningStrand, OnboardingVoiceName } from '../types/app';
-import type { SpeechSynthesisPayload } from './aiService';
 
 export type NativeBridgeState = 'simulated' | 'expo_native';
 
@@ -51,10 +48,8 @@ export interface LiveAudioSession {
 
 export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
-  speak: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
-  speakQueued: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
-  playAudio: (speech: SpeechSynthesisPayload) => Promise<boolean>;
-  playWelcome: () => Promise<boolean>;
+  speak: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
+  speakQueued: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
 }
@@ -121,25 +116,17 @@ const speechRecordingOptions = {
 };
 
 let speechAudioPlayer: AudioPlayer | null = null;
-let cancelPendingSpeechPlay: (() => void) | null = null;
 let speechQueue: Promise<void> = Promise.resolve();
 let speechQueueGeneration = 0;
 
 async function playServerSpeech(
   text: string,
-  options: SpeechPlaybackOptions | undefined,
+  voiceName: OnboardingVoiceName | undefined,
   isCurrent: () => boolean,
-): Promise<boolean> {
-  const speech = options?.welcomeCue
-    ? (await getStudentWelcomeSpeech()).audio
-    : options?.publicCueId
-    ? await synthesizePublicCueSpeech(options.publicCueId, options.voiceName!, options.language)
-    : options?.language
-      ? await synthesizeSpeech(text, options.voiceName, options.language)
-      : await synthesizeSpeech(text, options?.voiceName);
-  if (!speech) return false;
+) {
+  const speech = await synthesizeSpeech(text, voiceName);
   if (!isCurrent()) {
-    return false;
+    return;
   }
   const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
   const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
@@ -147,37 +134,7 @@ async function playServerSpeech(
     encoding: FileSystem.EncodingType.Base64,
   });
   speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
-  cancelPendingSpeechPlay?.();
-  cancelPendingSpeechPlay = playAudioPlayerWhenAllowed(speechAudioPlayer);
-  return true;
-}
-
-async function playSpeechAudio(
-  speech: SpeechSynthesisPayload,
-  isCurrent: () => boolean,
-): Promise<boolean> {
-  if (!speech.base64Audio.trim() || !speech.mimeType.trim() || !isCurrent()) {
-    return false;
-  }
-  const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
-  const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
-  await FileSystem.writeAsStringAsync(uri, speech.base64Audio, {
-    encoding: FileSystem.EncodingType.Base64,
-  });
-  if (!isCurrent()) {
-    return false;
-  }
-  speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
-  cancelPendingSpeechPlay?.();
-  cancelPendingSpeechPlay = playAudioPlayerWhenAllowed(speechAudioPlayer);
-  return true;
-}
-
-interface SpeechPlaybackOptions {
-  voiceName?: OnboardingVoiceName;
-  language?: string;
-  publicCueId?: string;
-  welcomeCue?: boolean;
+  speechAudioPlayer.play();
 }
 
 const livePrompts = [
@@ -653,7 +610,7 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
     speechQueue = Promise.resolve();
     await this.stop();
     const generation = speechQueueGeneration;
-    await playServerSpeech(text, options, () => speechQueueGeneration === generation);
+    await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
   },
   speakQueued(text, options) {
     if (!text.trim()) {
@@ -665,29 +622,13 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
       if (generation !== speechQueueGeneration) {
         return;
       }
-      await playServerSpeech(text, options, () => speechQueueGeneration === generation);
+      await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
     });
     return speechQueue;
-  },
-  async playAudio(speech) {
-    speechQueueGeneration += 1;
-    speechQueue = Promise.resolve();
-    await this.stop();
-    const generation = speechQueueGeneration;
-    return playSpeechAudio(speech, () => speechQueueGeneration === generation);
-  },
-  async playWelcome() {
-    speechQueueGeneration += 1;
-    speechQueue = Promise.resolve();
-    await this.stop();
-    const generation = speechQueueGeneration;
-    return playServerSpeech('', { welcomeCue: true }, () => speechQueueGeneration === generation);
   },
   async stop() {
     speechQueueGeneration += 1;
     speechQueue = Promise.resolve();
-    cancelPendingSpeechPlay?.();
-    cancelPendingSpeechPlay = null;
     if (speechAudioPlayer) {
       speechAudioPlayer.pause();
       speechAudioPlayer.remove();

@@ -4,7 +4,6 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 import {
   buildPrimaryInstruction,
   buildQuestionCue,
-  getStudentEnglishOnboardingLandingCueId,
   useGuidedNarration,
 } from '../src/services/narrationService';
 import { speechPlaybackBridge } from '../src/services/nativeBridges';
@@ -81,26 +80,5 @@ test('primary instructions use server short-cue delivery', () => {
     kind: 'primary-instruction',
     delivery: 'server',
     text: 'Choose a topic.',
-  });
-});
-
-test('student English onboarding maps only static catalog cues', () => {
-  expect(getStudentEnglishOnboardingLandingCueId('role', 0, 'en')).toBe('onboarding-role');
-  expect(getStudentEnglishOnboardingLandingCueId('setup', 0, 'en')).toBe('onboarding-grade');
-  expect(getStudentEnglishOnboardingLandingCueId('setup', 1, 'en')).toBe('onboarding-subjects');
-  expect(getStudentEnglishOnboardingLandingCueId('rafiki', 0, 'en')).toBeUndefined();
-  expect(getStudentEnglishOnboardingLandingCueId('role', 0, 'sw')).toBeUndefined();
-});
-
-test('primary instruction carries the public catalog request metadata', () => {
-  expect(buildPrimaryInstruction(
-    'student-onboarding',
-    'role-0',
-    'Who are you?',
-    'Samora',
-    { language: 'en', publicCueId: 'onboarding-role' },
-  )).toMatchObject({
-    language: 'en',
-    publicCueId: 'onboarding-role',
   });
 });

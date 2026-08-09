@@ -25,14 +25,7 @@ import type {
 } from 'react-native';
 import { Asset } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
-import {
-  createAudioPlayer,
-  requestRecordingPermissionsAsync,
-  setAudioModeAsync,
-  type AudioPlayer,
-  type AudioSource,
-  type AudioStatus,
-} from 'expo-audio';
+import { createAudioPlayer, setAudioModeAsync, type AudioPlayer, type AudioSource, type AudioStatus } from 'expo-audio';
 import Svg, { Path } from 'react-native-svg';
 import {
   Check,
@@ -55,21 +48,12 @@ import {
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
-import {
-  ONBOARDING_ANALYTICS_VERSION,
-  postOnboardingSelectionEvent,
-  type OnboardingEventType,
-} from '../services/onboardingAnalyticsService';
+import { postOnboardingSelectionEvent } from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
-import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
-import {
-  buildPrimaryInstruction,
-  getStudentEnglishOnboardingLandingCueId,
-  useGuidedNarration,
-} from '../services/narrationService';
+import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
 import {
   getOnboardingStepMetadata,
   type OnboardingIntroStep,
@@ -209,7 +193,6 @@ const ONBOARDING_COLORS = {
 const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
 const simbaLionMascot = require('../assets/mascot/simba-lion.png');
 const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
-const pandaMascot = require('../assets/mascot/panda.png');
 const studentGirlUpperPhoto = require('../assets/good-news/student-girl-upper.png');
 const studentBoyUpperPhoto = require('../assets/good-news/student-boy-upper.png');
 const studentGirlJuniorPhoto = require('../assets/good-news/student-girl-junior.png');
@@ -266,7 +249,7 @@ type LanguageOption = {
 
 type NeedOption = {
   key: OnboardingNeedKey;
-  icon?: string;
+  icon: string;
   label: string;
   description: string;
 };
@@ -520,19 +503,11 @@ const MASCOT_OPTIONS: readonly OnboardingMascot[] = [
     name: 'Rafiki the Elephant',
     description: 'Wise and strong',
   },
-  {
-    key: 'panda',
-    source: pandaMascot,
-    label: 'Rafiki the Panda mascot',
-    name: 'Rafiki the Panda',
-    description: 'Calm and curious',
-  },
 ];
 const MASCOT_PICKER_COLORS: Record<OnboardingMascotKey, { color: string; lightColor: string; animalLabel: string }> = {
   lion: { color: '#D97706', lightColor: '#FEF3C7', animalLabel: 'The Lion' },
   rabbit: { color: '#0E9F6E', lightColor: '#D6F0E3', animalLabel: 'The Rabbit' },
   elephant: { color: '#2563EB', lightColor: '#DBEAFE', animalLabel: 'The Elephant' },
-  panda: { color: '#475569', lightColor: '#E2E8F0', animalLabel: 'The Panda' },
 };
 
 const VOICE_OPTIONS: readonly VoiceOption[] = [
@@ -630,11 +605,13 @@ const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   parent: [
     {
       key: 'support',
+      icon: '🤝',
       label: 'Support my child\'s learning',
       description: 'Be involved without the overwhelm.',
     },
     {
       key: 'progress',
+      icon: '📈',
       label: 'Track their progress',
       description: 'Know exactly how they are doing.',
     },
@@ -687,11 +664,13 @@ const SWAHILI_NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   parent: [
     {
       key: 'support',
+      icon: '🤝',
       label: 'Saidia masomo ya mtoto wangu',
       description: 'Kushiriki bila msongo wa mawazo.',
     },
     {
       key: 'progress',
+      icon: '📈',
       label: 'Fuatilia maendeleo yake',
       description: 'Jua jinsi wanavyoendelea.',
     },
@@ -1155,29 +1134,29 @@ const GOAL_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOption[]> = {
   ],
   parent: [
     {
-      key: 'best_in_class',
-      label: 'Best in their class',
-      description: '',
+      key: 'monitor',
+      icon: '\uD83D\uDC41\uFE0F',
+      label: 'Monitor my child\'s progress',
+      description: 'Get weekly summaries',
     },
     {
-      key: 'okay',
-      label: 'Okay',
-      description: '',
+      key: 'support',
+      icon: '\uD83E\uDD1D',
+      label: 'Support homework at home',
+      description: 'Know what they\'re studying',
+      recommended: true,
     },
     {
-      key: 'average',
-      label: 'Average',
-      description: '',
+      key: 'improve',
+      icon: '\uD83D\uDCC8',
+      label: 'Help them improve grades',
+      description: 'Structured practice',
     },
     {
-      key: 'far_behind',
-      label: 'Far behind',
-      description: '',
-    },
-    {
-      key: 'poorly',
-      label: 'Poorly',
-      description: '',
+      key: 'uni',
+      icon: '\uD83C\uDF93',
+      label: 'Prepare for university',
+      description: 'Long-term success',
     },
   ],
   other: [
@@ -1266,29 +1245,29 @@ const SWAHILI_GOAL_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOption[]
   ],
   parent: [
     {
-      key: 'best_in_class',
-      label: 'Wa kwanza darasani',
-      description: '',
+      key: 'monitor',
+      icon: '\uD83D\uDC41\uFE0F',
+      label: 'Fuatilia maendeleo ya mtoto wangu',
+      description: 'Pata muhtasari wa wiki',
     },
     {
-      key: 'okay',
-      label: 'Sawa',
-      description: '',
+      key: 'support',
+      icon: '\uD83E\uDD1D',
+      label: 'Saidia kazi za nyumbani',
+      description: 'Jua wanachosoma',
+      recommended: true,
     },
     {
-      key: 'average',
-      label: 'Kwa wastani',
-      description: '',
+      key: 'improve',
+      icon: '\uD83D\uDCC8',
+      label: 'Wasaidie kuboresha alama',
+      description: 'Mazoezi yaliyopangwa',
     },
     {
-      key: 'far_behind',
-      label: 'Yuko nyuma sana',
-      description: '',
-    },
-    {
-      key: 'poorly',
-      label: 'Vibaya',
-      description: '',
+      key: 'uni',
+      icon: '\uD83C\uDF93',
+      label: 'Jiandae kwa chuo kikuu',
+      description: 'Mafanikio ya muda mrefu',
     },
   ],
   other: [
@@ -1407,31 +1386,37 @@ const CONCERN_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOption[]> = {
   parent: [
     {
       key: 'motivation',
+      icon: '\uD83D\uDE34',
       label: 'My child is not motivated to study.',
       description: '',
     },
     {
       key: 'time',
+      icon: '\u23F3',
       label: 'Too much time on phone/TV instead of studying.',
       description: '',
     },
     {
       key: 'grades',
+      icon: '\uD83D\uDCC9',
       label: 'Their grades have been dropping.',
       description: '',
     },
     {
       key: 'understand',
+      icon: '\uD83E\uDD14',
       label: 'They don\'t understand what they\'re taught.',
       description: '',
     },
     {
       key: 'homework',
+      icon: '\uD83D\uDCDD',
       label: 'Homework is a constant battle at home.',
       description: '',
     },
     {
       key: 'involve',
+      icon: '\uD83D\uDC4B',
       label: 'I don\'t know how to help them at home.',
       description: '',
     },
@@ -1494,12 +1479,12 @@ const SWAHILI_CONCERN_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOptio
     { key: 'results', icon: '\uD83D\uDCC9', label: 'Wanafunzi wanapata matokeo mabaya katika mitihani.', description: '' },
   ],
   parent: [
-    { key: 'motivation', label: 'Mtoto wangu hana hamasa ya kustudy.', description: '' },
-    { key: 'time', label: 'Anatumia muda mwingi kwenye simu/TV badala ya kusoma.', description: '' },
-    { key: 'grades', label: 'Alama zake zimekuwa zikishuka.', description: '' },
-    { key: 'understand', label: 'Haelewi kinachofundishwa shuleni.', description: '' },
-    { key: 'homework', label: 'Kazi za nyumbani ni ugomvi wa kila siku nyumbani.', description: '' },
-    { key: 'involve', label: 'Sijui jinsi ya kumsaidia nyumbani.', description: '' },
+    { key: 'motivation', icon: '\uD83D\uDE34', label: 'Mtoto wangu hana hamasa ya kustudy.', description: '' },
+    { key: 'time', icon: '\u23F3', label: 'Anatumia muda mwingi kwenye simu/TV badala ya kusoma.', description: '' },
+    { key: 'grades', icon: '\uD83D\uDCC9', label: 'Alama zake zimekuwa zikishuka.', description: '' },
+    { key: 'understand', icon: '\uD83E\uDD14', label: 'Haelewi kinachofundishwa shuleni.', description: '' },
+    { key: 'homework', icon: '\uD83D\uDCDD', label: 'Kazi za nyumbani ni ugomvi wa kila siku nyumbani.', description: '' },
+    { key: 'involve', icon: '\uD83D\uDC4B', label: 'Sijui jinsi ya kumsaidia nyumbani.', description: '' },
   ],
   other: [
     { key: 'time', icon: '\u23F0', label: 'Sina muda wa kutosha kusoma.', description: '' },
@@ -1590,13 +1575,39 @@ const ACHIEVEMENT_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOption[]>
   ],
   parent: [
     {
-      key: 'phone_yes',
-      label: 'Yes',
+      key: 'grades',
+      icon: '\uD83D\uDCC8',
+      label: 'See their grades improve this term.',
       description: '',
     },
     {
-      key: 'phone_no',
-      label: 'No',
+      key: 'habits',
+      icon: '\uD83C\uDF31',
+      label: 'Build a daily study habit for them.',
+      description: '',
+    },
+    {
+      key: 'gap',
+      icon: '\uD83D\uDD0D',
+      label: 'Understand exactly where they\'re struggling.',
+      description: '',
+    },
+    {
+      key: 'uni',
+      icon: '\uD83C\uDF93',
+      label: 'Set them up for university success.',
+      description: '',
+    },
+    {
+      key: 'involve',
+      icon: '\uD83E\uDD1D',
+      label: 'Be more involved in their education.',
+      description: '',
+    },
+    {
+      key: 'stress',
+      icon: '\uD83D\uDE0C',
+      label: 'Reduce exam stress and anxiety for them.',
       description: '',
     },
   ],
@@ -1646,8 +1657,12 @@ const SWAHILI_ACHIEVEMENT_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceO
     { key: 'feedback', icon: '\uD83D\uDCAC', label: 'Toa maoni ya kibinafsi bora zaidi.', description: '' },
   ],
   parent: [
-    { key: 'phone_yes', label: 'Ndiyo', description: '' },
-    { key: 'phone_no', label: 'Hapana', description: '' },
+    { key: 'grades', icon: '\uD83D\uDCC8', label: 'Ona alama zake zikiboresha muhula huu.', description: '' },
+    { key: 'habits', icon: '\uD83C\uDF31', label: 'Imarisha tabia ya kustudy ya kila siku kwao.', description: '' },
+    { key: 'gap', icon: '\uD83D\uDD0D', label: 'Jua hasa wanakoshindwa.', description: '' },
+    { key: 'uni', icon: '\uD83C\uDF93', label: 'Waandae kwa mafanikio ya chuo kikuu.', description: '' },
+    { key: 'involve', icon: '\uD83E\uDD1D', label: 'Kushirikishwa zaidi katika elimu yao.', description: '' },
+    { key: 'stress', icon: '\uD83D\uDE0C', label: 'Punguza msongo wa mitihani kwao.', description: '' },
   ],
   other: [
     { key: 'understand', icon: '\uD83E\uDDE0', label: 'Elewa somo ambalo limekuwa gumu kwangu.', description: '' },
@@ -2054,8 +2069,6 @@ export function StudentOnboardingScreen({
   const [selectedInterestKeys, setSelectedInterestKeys] = useState<OnboardingInterestKey[]>([]);
   const [reminderEnabled, setReminderEnabled] = useState(!includeIntroChoices);
   const [isRequestingReminderPermission, setIsRequestingReminderPermission] = useState(false);
-  const [isRequestingMicrophonePermission, setIsRequestingMicrophonePermission] = useState(false);
-  const [narrationTrigger, setNarrationTrigger] = useState<string | null>(null);
   const [preparedMpesaPhoneNumber, setPreparedMpesaPhoneNumber] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [gender, setGender] = useState<GenderOption | null>(includeIntroChoices ? null : 'not_specified');
@@ -2090,7 +2103,6 @@ export function StudentOnboardingScreen({
   const [activeReadyTestimonialIndex, setActiveReadyTestimonialIndex] = useState(0);
   const [localError, setLocalError] = useState<string | null>(null);
   const [focusedField, setFocusedField] = useState<'school' | 'mpesa' | null>(null);
-  const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
   const { height, width } = useWindowDimensions();
   const insets = useContext(SafeAreaInsetsContext) ?? ZERO_SAFE_AREA_INSETS;
   const compactLayout = height < 860 || width < 370;
@@ -2182,13 +2194,6 @@ export function StudentOnboardingScreen({
   const voicePreviewSourceCacheRef = useRef<Record<string, AudioSource>>({});
   const voicePreviewBlobUrlsRef = useRef<string[]>([]);
   const onboardingSessionIdRef = useRef(`onboarding-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`);
-  const onboardingCompletedRef = useRef(false);
-  const activeProgressRef = useRef<{ key: string; title: string; progressIndex: number }>({
-    key: 'setup-grade',
-    title: 'Learner profile',
-    progressIndex: 0,
-  });
-  const trackedViewRef = useRef<string | null>(null);
   const progressMetadata = getOnboardingStepMetadata({
     role,
     includeIntroChoices,
@@ -2201,7 +2206,6 @@ export function StudentOnboardingScreen({
   const progressStepNumber = progressIndex + 1;
   const progressTitle = progressMetadata.title;
   const progressAnnouncement = `Step ${progressStepNumber} of ${totalStepCount}, ${progressTitle}`;
-  activeProgressRef.current = progressMetadata;
   const reminderCoachTip =
     role === 'teacher' ? 'Class nudge' : role === 'parent' ? 'Family nudge' : 'Daily nudge';
   const mascotCoachTip =
@@ -2217,8 +2221,6 @@ export function StudentOnboardingScreen({
             ? noVoice
               ? 'Text only'
               : selectedVoiceName ?? 'Choose voice'
-            : introStep === 'microphone'
-              ? 'Spoken answers'
             : introStep === 'need'
               ? 'Pick need'
               : introStep === 'name'
@@ -2301,7 +2303,6 @@ export function StudentOnboardingScreen({
     primaryParentChild,
     ...normalizedAdditionalParentChildren,
   ];
-  const parentAnswerChildName = parentChildName.trim() || (swahiliIntro ? 'mtoto wako' : 'your child');
   const currentParentSubjectChild =
     parentChildDrafts[parentSubjectChildIndex] ?? parentChildDrafts[0] ?? primaryParentChild;
   const currentParentSubjectChildKey = `child-${parentSubjectChildIndex}`;
@@ -2654,6 +2655,14 @@ export function StudentOnboardingScreen({
       : role === 'parent'
         ? `${profileOwnerName[0]?.toUpperCase() ?? 'Y'}${profileOwnerName.slice(1)} family dashboard is ready`
         : `${profileOwnerName[0]?.toUpperCase() ?? 'Y'}${profileOwnerName.slice(1)} profile is ready`;
+  const reminderKicker =
+    swahiliIntro
+      ? 'Vikumbusho \uD83D\uDD14'
+      : role === 'teacher'
+        ? 'Class reminders'
+        : role === 'parent'
+          ? 'Family reminders'
+          : 'Friendly reminders \uD83D\uDD14';
   const reminderQuestion =
     swahiliIntro
       ? 'Tutakukumbusha ustudy.'
@@ -2763,10 +2772,6 @@ export function StudentOnboardingScreen({
       return 'cool';
     }
 
-    if (introStep === 'microphone') {
-      return 'cool';
-    }
-
     if (introStep === 'need' || introStep === 'concerns') {
       return 'think';
     }
@@ -2827,6 +2832,82 @@ export function StudentOnboardingScreen({
   })();
   const mascotPoseAccessibilityLabel = `${activeMascot.label}, ${mascotPose} pose`;
   const announcedStepRef = useRef(progressStepNumber);
+  const headerEyebrow =
+    introStep === 'language'
+      ? 'Karibu Kitabu'
+      : introStep === 'mascot'
+        ? 'Pick your rafiki'
+        : introStep === 'rafiki'
+          ? 'Introducing...'
+          : introStep === 'role'
+            ? 'Karibu'
+          : introStep === 'voice'
+            ? 'Voice'
+            : introStep === 'need'
+              ? needStepCopy.eyebrow
+              : introStep === 'name'
+                ? nameStepCopy.eyebrow
+                : introStep === 'gender'
+                  ? languageCode === 'sw'
+                    ? 'Kuhusu wewe'
+                    : 'About you'
+                  : introStep === 'roleDetails'
+                  ? role === 'teacher'
+                    ? 'Your classes'
+                    : role === 'parent'
+                      ? 'Your children'
+                      : ageStepCopy.eyebrow
+                  : introStep === 'goal'
+                    ? 'Your goal'
+                  : introStep === 'goalConfirm'
+                    ? studentSwahiliIntro
+                      ? 'Lengo limewekwa'
+                      : 'Goal confirmed'
+                    : introStep === 'concerns'
+                      ? studentSwahiliIntro
+                        ? 'Niambie'
+                        : 'What feels hard'
+                      : introStep === 'achieve'
+                        ? 'Success target'
+                    : introStep === 'painBefore'
+                          ? studentSwahiliIntro
+                            ? 'Inakujua?'
+                            : 'Before Kitabu'
+                          : introStep === 'painAfter'
+                            ? studentSwahiliIntro
+                              ? 'Sasa na Kitabu AI'
+                              : 'With Kitabu'
+                              : introStep === 'socialProof'
+                                ? studentSwahiliIntro
+                                  ? 'Ni bidii'
+                                  : 'Real progress'
+                                : introStep === 'resultProof'
+                                  ? swahiliIntro
+                                    ? 'Habari njema!'
+                                    : 'Good news'
+                              : introStep === 'country'
+                                ? 'Your curriculum'
+                                : introStep === 'interests'
+                                  ? swahiliIntro
+                                    ? 'Jambo moja zaidi'
+                                    : 'Just one more thing'
+                                    : introStep === 'reminder'
+                                      ? reminderKicker
+                                      : introStep === 'loading'
+                                      ? role === 'teacher'
+                                        ? 'Building workspace'
+                                        : role === 'parent'
+                                          ? 'Building dashboard'
+                                          : 'Building profile'
+                                      : introStep === 'profileReady'
+                                        ? swahiliIntro
+                                          ? 'Mwenzako wa masomo'
+                                          : 'Profile ready'
+                                        : introStep === 'signup'
+                                          ? swahiliIntro
+                                            ? 'Hifadhi akaunti yako'
+                                            : 'Save your account'
+                  : content.eyebrow;
   const headerTitle =
     introStep === 'language'
       ? 'Choose your language'
@@ -2838,10 +2919,6 @@ export function StudentOnboardingScreen({
             ? 'Who are you?'
             : introStep === 'voice'
               ? 'How should your tutor sound?'
-            : introStep === 'microphone'
-              ? swahiliIntro
-                ? 'Ruhusu matumizi ya maikrofoni'
-                : 'Allow Microphone Access'
             : introStep === 'need'
               ? needStepCopy.heading
               : introStep === 'name'
@@ -2860,7 +2937,7 @@ export function StudentOnboardingScreen({
                     ? role === 'teacher'
                       ? 'What is your teaching goal?'
                       : role === 'parent'
-                        ? `How is ${parentAnswerChildName} performing right now?`
+                        ? 'What is your family goal?'
                         : 'What is your learning goal?'
                     : introStep === 'goalConfirm'
                       ? studentSwahiliIntro
@@ -2870,7 +2947,7 @@ export function StudentOnboardingScreen({
                       ? role === 'teacher'
                         ? 'What is your biggest classroom challenge?'
                         : role === 'parent'
-                          ? 'What matters most to you right now?'
+                          ? 'What worries you most?'
                           : studentSwahiliIntro
                             ? 'Changamoto yako kubwa zaidi shuleni ni nini?'
                             : 'What is your biggest study challenge?'
@@ -2878,7 +2955,7 @@ export function StudentOnboardingScreen({
                         ? role === 'teacher'
                           ? 'What do you want to achieve?'
                           : role === 'parent'
-                            ? `Does ${parentAnswerChildName} have their own phone?`
+                            ? 'What should Kitabu help your child achieve?'
                             : 'What do you want to achieve?'
                         : introStep === 'painBefore'
                           ? role === 'teacher'
@@ -2936,22 +3013,13 @@ export function StudentOnboardingScreen({
                                             : 'Save your account'
                   : content.title;
   const onboardingVoiceName = noVoice ? undefined : selectedVoiceName ?? 'Samora';
-  const landingCueId =
-    includeIntroChoices && role === 'student'
-      ? getStudentEnglishOnboardingLandingCueId(introStep, step, languageCode)
-      : undefined;
   const narrationCue = buildPrimaryInstruction(
     'student-onboarding',
     `${introStep}-${step}`,
     headerTitle,
     onboardingVoiceName,
-    landingCueId ? { language: 'en', publicCueId: landingCueId } : undefined,
   );
-  useGuidedNarration(
-    narrationCue,
-    Boolean(headerTitle),
-    narrationTrigger,
-  );
+  useGuidedNarration(narrationCue, Boolean(headerTitle));
   const headerBody =
     introStep === 'language'
       ? 'Start with the language that feels most natural. You can still learn across Kiswahili and English content.'
@@ -2963,10 +3031,6 @@ export function StudentOnboardingScreen({
           ? 'Your account role is set from signup so Kitabu can keep dashboards, permissions, and setup aligned.'
         : introStep === 'voice'
           ? 'Choose a tutor voice, or switch Kitabu to text-only guidance.'
-        : introStep === 'microphone'
-          ? swahiliIntro
-            ? 'Ruhusa ya maikrofoni inawezesha majibu ya kuzungumza na mafunzo ya moja kwa moja. Unaweza kuendelea hata ukikataa.'
-            : 'Microphone access enables spoken answers and live tutoring. You can continue even if you deny access.'
             : introStep === 'need'
               ? 'Choose the priority Kitabu should shape first. This mirrors the reference flow before collecting profile details.'
               : introStep === 'name'
@@ -3166,10 +3230,6 @@ export function StudentOnboardingScreen({
                   ? [{ rotate: '-1deg' }]
                   : [];
 
-      if (reduceMotionEnabled) {
-        return { transform: poseTransforms } as ViewStyle;
-      }
-
       return ({
         transform: [
           {
@@ -3188,7 +3248,7 @@ export function StudentOnboardingScreen({
         ],
       }) as unknown as ViewStyle;
     },
-    [mascotMotion, mascotPose, reduceMotionEnabled],
+    [mascotMotion, mascotPose],
   );
 
   useEffect(() => {
@@ -3202,11 +3262,8 @@ export function StudentOnboardingScreen({
     }
 
     AccessibilityInfo.isReduceMotionEnabled()
-      .then(isReduceMotionEnabled => {
-        if (mounted) {
-          setReduceMotionEnabled(isReduceMotionEnabled);
-        }
-        if (!mounted || isReduceMotionEnabled) {
+      .then(reduceMotionEnabled => {
+        if (!mounted || reduceMotionEnabled) {
           return;
         }
 
@@ -3239,43 +3296,13 @@ export function StudentOnboardingScreen({
   }, [mascotMotion, role]);
 
   useEffect(() => {
-    scrollViewRef.current?.scrollTo({ y: 0, animated: !reduceMotionEnabled });
+    scrollViewRef.current?.scrollTo({ y: 0, animated: true });
 
     if (announcedStepRef.current !== progressStepNumber) {
       AccessibilityInfo.announceForAccessibility?.(progressAnnouncement);
       announcedStepRef.current = progressStepNumber;
     }
-  }, [introStep, progressAnnouncement, progressStepNumber, reduceMotionEnabled, step]);
-
-  useEffect(() => {
-    if (!includeIntroChoices) {
-      return;
-    }
-
-    const viewKey = `${progressMetadata.key}:${progressMetadata.progressIndex}:${step}`;
-    if (trackedViewRef.current === viewKey) {
-      return;
-    }
-
-    trackedViewRef.current = viewKey;
-    trackOnboardingEvent('view', progressMetadata.key, progressMetadata.title);
-    // The tracker intentionally reads the current screen context from this render.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [includeIntroChoices, progressMetadata.key, progressMetadata.progressIndex, progressMetadata.title, step]);
-
-  useEffect(
-    () => () => {
-      if (!includeIntroChoices || onboardingCompletedRef.current) {
-        return;
-      }
-
-      const progress = activeProgressRef.current;
-      trackOnboardingEvent('drop_off', progress.key, progress.title);
-    },
-    // The tracker intentionally reads the current screen context from refs at unmount.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [includeIntroChoices],
-  );
+  }, [introStep, progressAnnouncement, progressStepNumber, step]);
 
   useEffect(() => {
     if (!includeIntroChoices) {
@@ -3290,18 +3317,6 @@ export function StudentOnboardingScreen({
 
     let doneTimer: ReturnType<typeof setTimeout> | null = null;
     setLoadingProgress(0);
-
-    if (reduceMotionEnabled) {
-      setLoadingProgress(100);
-      doneTimer = setTimeout(() => {
-        setIntroStep('profileReady');
-      }, 0);
-      return () => {
-        if (doneTimer) {
-          clearTimeout(doneTimer);
-        }
-      };
-    }
 
     const progressTimer = setInterval(() => {
       setLoadingProgress(current => {
@@ -3322,7 +3337,7 @@ export function StudentOnboardingScreen({
         clearTimeout(doneTimer);
       }
     };
-  }, [introStep, reduceMotionEnabled]);
+  }, [introStep]);
 
   useEffect(
     () => () => {
@@ -3374,7 +3389,7 @@ export function StudentOnboardingScreen({
   }, [readyTestimonials.length]);
 
   useEffect(() => {
-    if (reduceMotionEnabled || introStep !== 'profileReady' || readyTestimonials.length <= 1) {
+    if (introStep !== 'profileReady' || readyTestimonials.length <= 1) {
       return undefined;
     }
 
@@ -3383,7 +3398,7 @@ export function StudentOnboardingScreen({
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [activeReadyTestimonialIndex, introStep, readyTestimonials.length, reduceMotionEnabled]);
+  }, [activeReadyTestimonialIndex, introStep, readyTestimonials.length]);
 
 
   useEffect(() => {
@@ -3433,8 +3448,6 @@ export function StudentOnboardingScreen({
       ? roleChosen || !onRoleChange
     : introStep === 'voice'
       ? noVoice || (Boolean(selectedVoiceName) && voicePreviewedName === selectedVoiceName)
-    : introStep === 'microphone'
-      ? true
     : introStep === 'need'
       ? Boolean(selectedNeedKey)
       : introStep === 'name'
@@ -3483,16 +3496,12 @@ export function StudentOnboardingScreen({
           ? swahiliIntro
             ? 'Msalimie!'
             : 'Say hello!'
-            : introStep === 'role'
-              ? swahiliIntro
-                ? 'Endelea'
-                : 'Continue'
+          : introStep === 'role'
+            ? swahiliIntro
+              ? 'Endelea'
+              : 'Continue'
             : introStep === 'voice'
             ? 'Continue'
-            : introStep === 'microphone'
-            ? swahiliIntro
-              ? 'Ruhusu maikrofoni'
-              : 'Allow microphone access'
             : introStep === 'need'
               ? 'Continue'
               : introStep === 'name'
@@ -3581,7 +3590,6 @@ export function StudentOnboardingScreen({
     introStep === 'rafiki' ||
     introStep === 'role' ||
     introStep === 'voice' ||
-    introStep === 'microphone' ||
     introStep === 'need' ||
     introStep === 'name' ||
     introStep === 'gender' ||
@@ -3609,10 +3617,8 @@ export function StudentOnboardingScreen({
           ? 'Back to Rafiki'
         : introStep === 'voice'
           ? 'Back to role'
-        : introStep === 'microphone'
-          ? 'Back to role'
         : introStep === 'need'
-          ? 'Back to microphone'
+          ? 'Back to voice'
           : introStep === 'name'
             ? 'Back to need'
             : introStep === 'gender'
@@ -3689,10 +3695,8 @@ export function StudentOnboardingScreen({
           ? 'Returns to Rafiki introduction'
         : introStep === 'voice'
           ? 'Returns to role confirmation'
-        : introStep === 'microphone'
-          ? 'Returns to role confirmation'
         : introStep === 'need'
-          ? 'Returns to microphone access'
+          ? 'Returns to voice selection'
           : introStep === 'name'
             ? 'Returns to need selection'
             : introStep === 'gender'
@@ -3764,10 +3768,8 @@ export function StudentOnboardingScreen({
       : introStep === 'rafiki'
         ? 'Moves to role confirmation'
         : introStep === 'role'
-          ? 'Moves to microphone access'
+          ? 'Moves to voice selection'
         : introStep === 'voice'
-            ? 'Moves to priority selection'
-          : introStep === 'microphone'
             ? 'Moves to priority selection'
           : introStep === 'need' && !selectedNeedKey
             ? 'Choose what you need most before continuing'
@@ -3881,8 +3883,6 @@ export function StudentOnboardingScreen({
     normalizedMpesaPhoneNumber: string | null,
     signupMethodOverride: SignupMethod | null = null,
   ) {
-    onboardingCompletedRef.current = true;
-    trackOnboardingEvent('complete', 'complete', 'Onboarding complete');
     Keyboard.dismiss();
     setFocusedField(null);
     triggerHaptic('success');
@@ -3964,12 +3964,11 @@ export function StudentOnboardingScreen({
     }, delayMs);
   }
 
-  function trackOnboardingEvent(
-    eventType: OnboardingEventType,
+  function trackOnboardingSelection(
     stepKey: string,
+    optionKey: string,
     optionLabel: string,
     metadata?: Record<string, unknown>,
-    optionKey: string = eventType,
   ) {
     if (!includeIntroChoices) {
       return;
@@ -3980,9 +3979,6 @@ export function StudentOnboardingScreen({
       stepKey,
       optionKey,
       optionLabel,
-      eventType,
-      eventVersion: ONBOARDING_ANALYTICS_VERSION,
-      stepIndex: activeProgressRef.current.progressIndex,
       role,
       county: county || null,
       grade: grade || null,
@@ -3990,15 +3986,6 @@ export function StudentOnboardingScreen({
       curriculumCode: selectedCountry.curriculumCode,
       metadata,
     }).catch(() => undefined);
-  }
-
-  function trackOnboardingSelection(
-    stepKey: string,
-    optionKey: string,
-    optionLabel: string,
-    metadata?: Record<string, unknown>,
-  ) {
-    trackOnboardingEvent('selection', stepKey, optionLabel, metadata, optionKey);
   }
 
   function voicePreviewCacheKey(option: VoiceOption, nextLanguageCode: OnboardingLanguageCode | null) {
@@ -4079,9 +4066,6 @@ export function StudentOnboardingScreen({
 
   function triggerInvalidAgeFeedback(shakeMotion: Animated.Value) {
     triggerHaptic('error');
-    if (reduceMotionEnabled) {
-      return;
-    }
     shakeMotion.stopAnimation();
     shakeMotion.setValue(0);
     Animated.sequence([
@@ -4238,22 +4222,7 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'role') {
       triggerHaptic('impact');
-      setIntroStep('microphone');
-      return;
-    }
-
-    if (introStep === 'microphone') {
-      triggerHaptic('impact');
-      setIsRequestingMicrophonePermission(true);
-      const permission = await requestRecordingPermissionsAsync().catch(() => ({
-        status: 'error' as const,
-        granted: false,
-      }));
-      setIsRequestingMicrophonePermission(false);
-      trackOnboardingEvent('permission_result', 'microphone', permission.status ?? (permission.granted ? 'granted' : 'denied'), {
-        granted: permission.granted,
-      });
-      setIntroStep('need');
+      setIntroStep('voice');
       return;
     }
 
@@ -4389,17 +4358,9 @@ export function StudentOnboardingScreen({
       // send daily study reminders. We advance regardless of the user's choice;
       // reminderEnabled records whether the OS actually granted permission.
       setIsRequestingReminderPermission(true);
-      const permission = await requestPushPermission().catch(() => ({
-        status: 'error' as const,
-        granted: false,
-        tokenReady: false,
-      }));
+      const permission = await requestPushPermission();
       setReminderEnabled(permission.granted);
       setIsRequestingReminderPermission(false);
-      trackOnboardingEvent('permission_result', 'reminder', permission.status, {
-        granted: permission.granted,
-        tokenReady: permission.tokenReady,
-      });
       if (includeIntroChoices) {
         setIntroStep('loading');
         return;
@@ -4535,7 +4496,6 @@ export function StudentOnboardingScreen({
     const option = LANGUAGE_OPTIONS.find(item => item.code === value);
     trackOnboardingSelection('language', value, option?.label ?? value);
     if (includeIntroChoices) {
-      setNarrationTrigger('primary-instruction:student-onboarding:mascot-0');
       scheduleAutoAdvance(() => setIntroStep('mascot'));
     }
   }
@@ -4557,7 +4517,7 @@ export function StudentOnboardingScreen({
     trackOnboardingSelection('role', value, option?.label ?? value);
     onRoleChange?.(value);
     if (includeIntroChoices) {
-      scheduleAutoAdvance(() => setIntroStep('microphone'));
+      scheduleAutoAdvance(() => setIntroStep('voice'));
     }
   }
 
@@ -5192,8 +5152,8 @@ export function StudentOnboardingScreen({
       }
       setAddSchoolOpen(false);
       triggerHaptic('success');
-    } catch (createSchoolError) {
-      setAddSchoolError(createSchoolError instanceof Error ? createSchoolError.message : 'Could not add your school. Try again.');
+    } catch (error) {
+      setAddSchoolError(error instanceof Error ? error.message : 'Could not add your school. Try again.');
       triggerHaptic('error');
     } finally {
       setIsAddingSchool(false);
@@ -5201,7 +5161,6 @@ export function StudentOnboardingScreen({
   }
 
   function handleBack() {
-    trackOnboardingEvent('back', progressMetadata.key, progressMetadata.title);
     Keyboard.dismiss();
     clearAutoAdvance();
     setFocusedField(null);
@@ -5221,18 +5180,13 @@ export function StudentOnboardingScreen({
       return;
     }
 
-    if (introStep === 'microphone') {
-      setIntroStep('role');
-      return;
-    }
-
     if (introStep === 'voice') {
       setIntroStep('role');
       return;
     }
 
     if (introStep === 'need') {
-      setIntroStep('microphone');
+      setIntroStep('voice');
       return;
     }
 
@@ -5551,7 +5505,6 @@ export function StudentOnboardingScreen({
               <View
                 accessibilityLabel="Onboarding progress"
                 accessibilityRole="progressbar"
-                accessibilityLiveRegion="polite"
                 accessibilityValue={{ min: 1, max: totalStepCount, now: progressStepNumber, text: progressAnnouncement }}
                 style={styles.mascotNavProgressTrack}>
                 <LinearGradient
@@ -5628,6 +5581,7 @@ export function StudentOnboardingScreen({
           {!usesBrandLanguageStep && !usesCompactIntroNav && !usesMascotNavBar && !usesFullscreenCommitmentStep ? (
             <View style={styles.header}>
               <View style={styles.headerCopy}>
+                <Text style={[styles.eyebrow, { color: content.accent }]}>{headerEyebrow}</Text>
                 <Text style={[styles.title, compactLayout && styles.titleCompact]}>
                   {headerTitle}
                 </Text>
@@ -5743,12 +5697,6 @@ export function StudentOnboardingScreen({
               usesPreMascotPickerStep && styles.mascotPickerCard,
               usesRafikiRevealStep && styles.rafikiRevealCard,
             ]}>
-            {includeIntroChoices && ['language', 'role', 'need', 'goal', 'concerns', 'achieve', 'interests'].includes(introStep) ? (
-              <AssessmentNarrationControls
-                descriptorId={`onboarding:${introStep}`}
-                languageCode={languageCode}
-              />
-            ) : null}
             {introStep === 'language' ? (
               <>
                 <View accessibilityLabel="Kitabu AI brand" style={styles.languageBrandHeader}>
@@ -5818,7 +5766,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'mascot' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Rafiki wako wa masomo ✨' : 'Your study buddy ✨'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Chagua mwenzako!' : 'Choose your buddy!'}
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -5873,6 +5824,9 @@ export function StudentOnboardingScreen({
 
             {introStep === 'rafiki' ? (
               <>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Nakuwasilisha...' : 'Introducing...'}
+                </Text>
                 <View
                   accessibilityLabel={`${activeMascot.name} introduction`}
                   style={styles.rafikiIntroWrap}>
@@ -5915,7 +5869,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'role' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Karibu! 🚀' : 'Welcome! 🚀'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Ni nani wewe?' : 'Who are you?'}
                 </Text>
                 <View
@@ -5971,30 +5928,12 @@ export function StudentOnboardingScreen({
               </>
             ) : null}
 
-            {introStep === 'microphone' ? (
-              <View
-                accessibilityLabel="Microphone access explanation"
-                style={[
-                  styles.microphonePanel,
-                  { borderColor: `${content.accent}55` },
-                ]}>
-                <Text style={[styles.microphonePanelMainTitle, { color: content.accent }]}>
-                  {swahiliIntro ? 'Ruhusu matumizi ya maikrofoni' : 'Allow Microphone Access'}
-                </Text>
-                <Text style={[styles.microphonePanelTitle, { color: content.accent }]}>
-                  {swahiliIntro ? 'Jibu kwa sauti na ujifunze moja kwa moja' : 'Speak your answers and learn live'}
-                </Text>
-                <Text style={styles.microphonePanelText}>
-                  {swahiliIntro
-                    ? 'Maikrofoni husaidia majibu ya kuzungumza na mafunzo ya moja kwa moja. Unaweza kuendelea bila ruhusa hii.'
-                    : 'Microphone access enables spoken answers and live tutoring. You can continue without it.'}
-                </Text>
-              </View>
-            ) : null}
-
             {introStep === 'voice' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Sauti 🔊' : 'Voice 🔊'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Sauti ya mwalimu wako isikike vipi?' : 'How should your tutor sound?'}
                 </Text>
                 <View
@@ -6105,7 +6044,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'need' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {needStepCopy.eyebrow}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {needStepCopy.heading}
                 </Text>
                 <View
@@ -6133,20 +6075,13 @@ export function StudentOnboardingScreen({
                             <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
-                        {role !== 'parent' && option.icon ? (
-                          <Text style={styles.roleCardIcon}>{option.icon}</Text>
-                        ) : null}
-                        <Text
-                          style={[
-                            styles.roleCardLabel,
-                            role === 'parent' && styles.parentPillText,
-                            selected && { color: ONBOARDING_COLORS.primary },
-                          ]}>
+                        <Text style={styles.roleCardIcon}>{option.icon}</Text>
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
-                        {role !== 'parent' && option.description ? (
-                          <Text style={styles.roleCardText}>{option.description}</Text>
-                        ) : null}
+                        <Text style={styles.roleCardText}>
+                          {option.description}
+                        </Text>
                       </Pressable>
                     );
                   })}
@@ -6156,7 +6091,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'name' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {nameStepCopy.eyebrow}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Jina lako ni nani?' : 'What\'s your name?'}
                 </Text>
                 <TextInput
@@ -6186,7 +6124,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'gender' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {languageCode === 'sw' ? 'Kuhusu wewe \uD83E\uDDCD' : 'About you \uD83E\uDDCD'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {languageCode === 'sw' ? 'Wewe ni wa jinsia gani?' : 'What is your gender?'}
                 </Text>
                 <Animated.View
@@ -6247,7 +6188,10 @@ export function StudentOnboardingScreen({
               <>
                 {role === 'teacher' ? (
                   <>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text style={[styles.stepKicker, { color: content.accent }]}>
+                      {swahiliIntro ? 'Madarasa yako' : 'Your classes'}
+                    </Text>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {swahiliIntro ? 'Unafundisha madarasa gani?' : 'Which grades do you teach?'}
                     </Text>
                     <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -6299,7 +6243,10 @@ export function StudentOnboardingScreen({
                   </>
                 ) : role === 'parent' ? (
                   <>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text style={[styles.stepKicker, { color: content.accent }]}>
+                      {swahiliIntro ? 'Watoto wako' : 'Your children'} {'👨‍👧'}
+                    </Text>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {swahiliIntro
                         ? 'Niambie kuhusu mtoto/watoto wako'
                         : 'Tell me about your children'}
@@ -6487,7 +6434,8 @@ export function StudentOnboardingScreen({
                   </>
                 ) : (
                   <>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text style={[styles.stepKicker, { color: content.accent }]}>{ageStepCopy.eyebrow}</Text>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {ageStepCopy.heading(displayName.trim())}
                     </Text>
                     <Animated.View style={ageShakeStyle(learnerAgeShakeMotion)}>
@@ -6522,17 +6470,30 @@ export function StudentOnboardingScreen({
 
             {introStep === 'goal' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro
+                    ? role === 'teacher'
+                      ? 'Malengo yako ya ufundishaji 🎯'
+                      : role === 'parent'
+                        ? 'Malengo yako kwao 🤝'
+                        : 'Niambie 🧠'
+                    : role === 'teacher'
+                      ? 'Your teaching goals 🎯'
+                      : role === 'parent'
+                        ? 'Your goals 🤝'
+                        : 'So tell me 🧠'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Lengo lako kuu la ufundishaji ni nini?'
                       : role === 'parent'
-                        ? `${parentAnswerChildName} anaendeleaje kwa sasa?`
+                        ? 'Lengo lako kwa mtoto wako ni nini?'
                         : 'Lengo lako la kustudy ni nini?'
                     : role === 'teacher'
                       ? 'What is your main teaching goal?'
                       : role === 'parent'
-                        ? `How is ${parentAnswerChildName} performing right now?`
+                        ? 'What is your family goal?'
                         : 'What is your study goal?'}
                 </Text>
                 <View
@@ -6550,7 +6511,6 @@ export function StudentOnboardingScreen({
                         onPress={() => handleGoalSelect(option.key)}
                         style={[
                           styles.roleCard,
-                          role === 'parent' && styles.parentPillCard,
                           option.recommended && styles.goalChoiceRecommended,
                           selected && {
                             backgroundColor: ONBOARDING_COLORS.primaryLight,
@@ -6572,12 +6532,7 @@ export function StudentOnboardingScreen({
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text
-                          style={[
-                            styles.roleCardLabel,
-                            role === 'parent' && styles.parentPillText,
-                            selected && { color: ONBOARDING_COLORS.primary },
-                          ]}>
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
                         {option.description ? (
@@ -6624,19 +6579,32 @@ export function StudentOnboardingScreen({
 
             {introStep === 'concerns' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro
+                    ? role === 'teacher'
+                      ? 'Changamoto zako \uD83D\uDCBC'
+                      : role === 'parent'
+                        ? 'Kinachokusumbua zaidi? \uD83D\uDC9B'
+                        : 'Niambie \uD83E\uDDE0'
+                    : role === 'teacher'
+                      ? 'Your challenges \uD83D\uDCBC'
+                      : role === 'parent'
+                        ? 'What worries you most? \uD83D\uDC9B'
+                        : 'Tell me \uD83E\uDDE0'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Changamoto yako kubwa zaidi ya ufundishaji ni nini?'
                       : role === 'parent'
-                        ? 'Ni jambo gani muhimu zaidi kwako sasa hivi?'
+                        ? 'Kinachokusumbua zaidi kuhusu masomo ya mtoto wako?'
                         : role === 'other'
                           ? 'Changamoto yako kuu kwa sasa ni nini?'
                           : 'Changamoto yako kubwa zaidi shuleni ni nini?'
                     : role === 'teacher'
                       ? 'What\'s your biggest teaching challenge?'
                       : role === 'parent'
-                        ? 'What matters most to you right now?'
+                        ? 'What concerns you most about your child\'s learning?'
                         : role === 'other'
                           ? 'What\'s your main challenge right now?'
                           : 'What\'s your biggest challenge at school?'}
@@ -6656,7 +6624,6 @@ export function StudentOnboardingScreen({
                         onPress={() => handleConcernSelect(option.key)}
                         style={[
                           styles.roleCard,
-                          role === 'parent' && styles.parentPillCard,
                           selected && {
                             backgroundColor: ONBOARDING_COLORS.primaryLight,
                             borderColor: ONBOARDING_COLORS.primary,
@@ -6672,13 +6639,7 @@ export function StudentOnboardingScreen({
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text
-                          style={[
-                            styles.roleCardLabel,
-                            styles.roleCardLabelDense,
-                            role === 'parent' && styles.parentPillText,
-                            selected && { color: ONBOARDING_COLORS.primary },
-                          ]}>
+                        <Text style={[styles.roleCardLabel, styles.roleCardLabelDense, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
                       </Pressable>
@@ -6690,19 +6651,36 @@ export function StudentOnboardingScreen({
 
             {introStep === 'achieve' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro
+                    ? role === 'teacher'
+                      ? 'Mafanikio yataonekanaje? \uD83C\uDFC6'
+                      : role === 'parent'
+                        ? 'Ungependa kuona nini? \uD83D\uDC9B'
+                        : role === 'other'
+                          ? 'Unatumaini nini? \uD83E\uDD1D'
+                          : 'Malengo yako \uD83E\uDD1D'
+                    : role === 'teacher'
+                      ? 'What will success look like? \uD83C\uDFC6'
+                      : role === 'parent'
+                        ? 'What would you love to see? \uD83D\uDC9B'
+                        : role === 'other'
+                          ? 'What are you hoping for? \uD83E\uDD1D'
+                          : 'Your goals \uD83E\uDD1D'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Kitabu AI itafaa vipi kwako?'
                       : role === 'parent'
-                        ? `Je, ${parentAnswerChildName} ana simu yake mwenyewe?`
+                        ? 'Unataka nini kifanyike kwa mtoto wako?'
                         : role === 'other'
                           ? 'Unatumaini matokeo gani?'
                           : 'Unataka kufanikisha nini na Kitabu AI?'
                     : role === 'teacher'
                       ? 'What would make Kitabu AI worth it for you?'
                       : role === 'parent'
-                        ? `Does ${parentAnswerChildName} have their own phone?`
+                        ? 'What do you want to see happen for your child?'
                         : role === 'other'
                           ? 'What\'s the outcome you\'re hoping for?'
                           : 'What do you want to achieve with Kitabu AI?'}
@@ -6722,7 +6700,6 @@ export function StudentOnboardingScreen({
                         onPress={() => handleAchievementSelect(option.key)}
                         style={[
                           styles.roleCard,
-                          role === 'parent' && styles.parentPillCard,
                           selected && {
                             backgroundColor: ONBOARDING_COLORS.primaryLight,
                             borderColor: ONBOARDING_COLORS.primary,
@@ -6738,13 +6715,7 @@ export function StudentOnboardingScreen({
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text
-                          style={[
-                            styles.roleCardLabel,
-                            styles.roleCardLabelDense,
-                            role === 'parent' && styles.parentPillText,
-                            selected && { color: ONBOARDING_COLORS.primary },
-                          ]}>
+                        <Text style={[styles.roleCardLabel, styles.roleCardLabelDense, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
                       </Pressable>
@@ -6756,7 +6727,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'painBefore' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {studentSwahiliIntro ? 'Inakujua? \uD83D\uDE2C' : 'Sound familiar? \uD83D\uDE2C'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Usiku kabla ya mtihani wa KNEC...' : 'The night before an exam...'}
                 </Text>
                 <Text style={styles.storyHeroEmoji}>{'\uD83E\uDD2F'}</Text>
@@ -6789,7 +6763,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'painAfter' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {studentSwahiliIntro ? 'Sasa na Kitabu AI \uD83D\uDE0C' : 'With Kitabu AI \uD83D\uDE0C'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Usiku kabla ya mtihani wako...' : 'The night before your exam...'}
                 </Text>
                 <Text style={styles.storyHeroEmoji}>{'\uD83D\uDE0C'}</Text>
@@ -6813,7 +6790,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'socialProof' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {studentSwahiliIntro ? 'Ni bidii' : 'Real progress'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Ni bidii ya kweli!' : 'Learners improve faster with guided practice.'}
                 </Text>
                 <View style={[styles.socialProofPanel, { borderColor: `${content.accent}55` }]}>
@@ -6983,7 +6963,12 @@ export function StudentOnboardingScreen({
 
             {introStep === 'country' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro
+                    ? `Karibu, ${displayName.trim() || 'rafiki'} \uD83D\uDE4C`
+                    : `Nice to meet you, ${displayName.trim() || 'friend'} \uD83D\uDE4C`}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Unafundisha katika nchi hii?'
@@ -7071,7 +7056,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'interests' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Jambo moja zaidi \uD83D\uDC4D' : 'Just one more thing \uD83D\uDC4D'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Mambo unayopenda?' : 'What are your interests?'}
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -7116,7 +7104,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'reminder' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {reminderKicker}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {reminderQuestion}
                 </Text>
                 <View
@@ -7239,9 +7230,29 @@ export function StudentOnboardingScreen({
 
             {introStep === 'setup' && (step === 0 || (studentFullIntro && step === 1)) ? (
               <>
+                {includeIntroChoices ? (
+                  <Text style={[styles.stepKicker, { color: content.accent }]}>
+                    {swahiliIntro
+                      ? role === 'teacher'
+                        ? 'Masomo unayofundisha \uD83D\uDCD6'
+                        : role === 'parent'
+                          ? 'Masomo ya mtoto \uD83D\uDCD6'
+                        : step === 1
+                          ? 'Masomo yako \uD83D\uDCD6'
+                        : 'Darasa lako \uD83D\uDCDA'
+                      : role === 'teacher'
+                        ? 'Your subjects \uD83D\uDCD6'
+                        : role === 'parent'
+                          ? 'Child subjects \uD83D\uDCD6'
+                        : step === 1
+                          ? 'Your subjects \uD83D\uDCD6'
+                        : 'Your grade \uD83D\uDCDA'}
+                  </Text>
+                ) : null}
                 <Text
                   style={[
                     styles.stepTitle,
+                    !includeIntroChoices && styles.stepTitleNoKicker,
                     compactLayout && styles.stepTitleCompact,
                   ]}>
                   {swahiliIntro
@@ -7546,7 +7557,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'setup' && (step === 1 || (studentFullIntro && step === 2)) && !(studentFullIntro && step === 1) ? (
               <>
-                <Text style={[styles.stepTitle, schoolStepCompactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {schoolStepCopy.eyebrow}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, schoolStepCompactLayout && styles.stepTitleCompact]}>
                   {schoolStepCopy.heading}
                 </Text>
                 {!includeIntroChoices ? (
@@ -7920,7 +7934,8 @@ export function StudentOnboardingScreen({
 
             {externalPaymentsEnabled && introStep === 'setup' && step === 2 && !includeIntroChoices ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>Payments</Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   Optional M-Pesa shortcut
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -8009,7 +8024,10 @@ export function StudentOnboardingScreen({
 
             {introStep === 'loading' ? (
               <>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                  {swahiliIntro ? 'Kitabu AI' : role === 'teacher' ? 'Building workspace' : role === 'parent' ? 'Building dashboard' : 'Building profile'}
+                </Text>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {loadingHeaderTitle}
                 </Text>
                 <View style={[styles.loadingProfilePanel, { borderColor: `${content.accent}55` }]}>
@@ -8052,7 +8070,7 @@ export function StudentOnboardingScreen({
                       : role === 'teacher'
                         ? 'We are combining your mascot, teaching goal, curriculum, reminders, classes, subjects, and school.'
                         : role === 'parent'
-                          ? 'We are combining your mascot, progress snapshot, curriculum, reminders, child profile, and school.'
+                          ? 'We are combining your mascot, family goal, curriculum, reminders, child profile, and school.'
                           : 'We are combining your mascot, goal, curriculum, interests, reminders, grade, subjects, and school.'}
                   </Text>
                 </View>
@@ -8231,7 +8249,7 @@ export function StudentOnboardingScreen({
                 </View>
                 {signupStep === 'method' ? (
                   <>
-                    <Text style={[styles.stepTitle, styles.centeredText, compactLayout && styles.stepTitleCompact]}>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, styles.centeredText, compactLayout && styles.stepTitleCompact]}>
                       {swahiliIntro ? 'Hifadhi akaunti yako' : 'Save your account'}
                     </Text>
                     <Text style={[styles.stepText, styles.centeredText, compactLayout && styles.stepTextCompact]}>
@@ -8590,7 +8608,6 @@ export function StudentOnboardingScreen({
                   accessibilityLabel="Skip this step"
                   disabled={isSubmitting}
                   onPress={() => {
-                    trackOnboardingEvent('skip', progressMetadata.key, progressMetadata.title);
                     if (introStep === 'interests') {
                       setIntroStep('reminder');
                       return;
@@ -8601,19 +8618,6 @@ export function StudentOnboardingScreen({
                       return;
                     }
                     handleContinue();
-                  }}
-                  style={styles.skipGhostButton}>
-                  <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>
-                </Pressable>
-              ) : null}
-              {includeIntroChoices && introStep === 'microphone' ? (
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Skip microphone permission"
-                  disabled={isSubmitting || isRequestingMicrophonePermission}
-                  onPress={() => {
-                    trackOnboardingEvent('skip', 'microphone', 'permission');
-                    setIntroStep('need');
                   }}
                   style={styles.skipGhostButton}>
                   <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>
@@ -8641,9 +8645,7 @@ export function StudentOnboardingScreen({
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel={
-                  introStep === 'microphone'
-                    ? 'Allow microphone access'
-                    : introStep === 'reminder'
+                  introStep === 'reminder'
                     ? 'Allow assignment and study reminders'
                     : (introStep === 'setup' && step === 2 && !studentFullIntro) || introStep === 'signup'
                     ? 'Finish account setup'
@@ -8651,18 +8653,18 @@ export function StudentOnboardingScreen({
                 }
                 accessibilityHint={primaryActionHint}
                 accessibilityState={{
-                  disabled: !canContinue || isSubmitting || isRequestingReminderPermission || isRequestingMicrophonePermission,
-                  busy: isSubmitting || isRequestingReminderPermission || isRequestingMicrophonePermission,
+                  disabled: !canContinue || isSubmitting || isRequestingReminderPermission,
+                  busy: isSubmitting || isRequestingReminderPermission,
                 }}
-                disabled={!canContinue || isSubmitting || isRequestingReminderPermission || isRequestingMicrophonePermission}
+                disabled={!canContinue || isSubmitting || isRequestingReminderPermission}
                 onPress={handleContinue}
                 style={[
                   styles.primaryButton,
                   footerCompactLayout && styles.primaryButtonCompact,
                   { backgroundColor: content.accent },
-                  (!canContinue || isSubmitting || isRequestingReminderPermission || isRequestingMicrophonePermission) && styles.primaryButtonDisabled,
+                  (!canContinue || isSubmitting || isRequestingReminderPermission) && styles.primaryButtonDisabled,
                 ]}>
-                {isSubmitting || isRequestingReminderPermission || isRequestingMicrophonePermission ? (
+                {isSubmitting || isRequestingReminderPermission ? (
                   <ActivityIndicator color={ONBOARDING_COLORS.white} />
                 ) : (
                   <View style={styles.primaryButtonContent}>
@@ -8734,10 +8736,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   headerCopy: {
-    alignItems: 'center',
     flex: 1,
     gap: 8,
-    minWidth: 0,
   },
   mascotStage: {
     alignItems: 'center',
@@ -8905,14 +8905,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 4,
   },
+  eyebrow: {
+    fontSize: 12,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+  },
   title: {
     color: ONBOARDING_COLORS.textPrimary,
     fontSize: 29,
     fontWeight: '900',
     lineHeight: 34,
-    flexShrink: 1,
-    textAlign: 'center',
-    width: '100%',
   },
   titleCompact: {
     fontSize: 27,
@@ -8922,9 +8924,6 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 15,
     lineHeight: 22,
-    flexShrink: 1,
-    textAlign: 'center',
-    width: '100%',
   },
   bodyCompact: {
     fontSize: 14,
@@ -8939,22 +8938,17 @@ const styles = StyleSheet.create({
   progressHeader: {
     alignItems: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     marginBottom: 8,
   },
   progressLabel: {
     fontSize: 12,
     fontWeight: '900',
-    textAlign: 'center',
   },
   progressTitle: {
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 12,
     fontWeight: '800',
-    flexShrink: 1,
-    textAlign: 'center',
   },
   progressRow: {
     flexDirection: 'row',
@@ -9041,7 +9035,7 @@ const styles = StyleSheet.create({
     borderColor: ONBOARDING_COLORS.border,
     borderRadius: 10,
     borderWidth: 1,
-    height: 48,
+    height: 34,
     justifyContent: 'center',
     width: 34,
   },
@@ -9293,10 +9287,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: '900',
     lineHeight: 30,
-    flexShrink: 1,
-    marginTop: 0,
+    marginTop: 10,
     textAlign: 'center',
-    width: '100%',
+  },
+  stepTitleNoKicker: {
+    marginTop: 0,
   },
   stepTitleCompact: {
     fontSize: 22,
@@ -9307,14 +9302,17 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 22,
     marginTop: 8,
-    flexShrink: 1,
-    textAlign: 'center',
-    width: '100%',
   },
   stepTextCompact: {
     fontSize: 13,
     lineHeight: 19,
     marginTop: 5,
+  },
+  stepKicker: {
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
   },
   benefitRow: {
     flexDirection: 'row',
@@ -9399,17 +9397,13 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.textPrimary,
     fontSize: 20,
     fontWeight: '900',
-    flexShrink: 1,
-    textAlign: 'center',
   },
   introChoiceText: {
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 13,
     fontWeight: '700',
-    flexShrink: 1,
     lineHeight: 19,
     marginTop: 6,
-    textAlign: 'center',
   },
   introChoiceTextActive: {
     color: 'rgba(255,255,255,0.86)',
@@ -9417,8 +9411,6 @@ const styles = StyleSheet.create({
   mascotChoiceGrid: {
     flexDirection: 'row',
     gap: 10,
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
     marginTop: 16,
   },
   mascotChoice: {
@@ -9427,12 +9419,10 @@ const styles = StyleSheet.create({
     borderColor: ONBOARDING_COLORS.border,
     borderRadius: 18,
     borderWidth: 1.5,
-    flexGrow: 0,
-    flexShrink: 1,
+    flex: 1,
     minHeight: 158,
     paddingHorizontal: 8,
     paddingVertical: 12,
-    width: '48%',
   },
   mascotChoiceImage: {
     height: 64,
@@ -9602,17 +9592,13 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.textPrimary,
     fontSize: 15,
     fontWeight: '900',
-    flexShrink: 1,
-    textAlign: 'center',
   },
   voiceChoiceText: {
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 11,
     fontWeight: '700',
-    flexShrink: 1,
     lineHeight: 16,
     marginTop: 5,
-    textAlign: 'center',
   },
   textOnlyRow: {
     alignItems: 'center',
@@ -9643,14 +9629,12 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   textOnlyCopy: {
-    alignItems: 'center',
     flex: 1,
   },
   textOnlyTitle: {
     color: ONBOARDING_COLORS.textPrimary,
     fontSize: 14,
     fontWeight: '900',
-    textAlign: 'center',
   },
   textOnlyText: {
     color: ONBOARDING_COLORS.textSecondary,
@@ -9658,7 +9642,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 17,
     marginTop: 2,
-    textAlign: 'center',
   },
   textOnlySwitch: {
     backgroundColor: ONBOARDING_COLORS.border,
@@ -9822,32 +9805,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 10,
   },
-  microphonePanel: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderRadius: 22,
-    borderWidth: 1.5,
-    marginTop: 18,
-    padding: 18,
-  },
-  microphonePanelTitle: {
-    fontSize: 17,
-    fontWeight: '900',
-    marginTop: 10,
-    textAlign: 'center',
-  },
-  microphonePanelMainTitle: {
-    fontSize: 22,
-    fontWeight: '900',
-    textAlign: 'center',
-  },
-  microphonePanelText: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 14,
-    fontWeight: '600',
-    lineHeight: 21,
-    marginTop: 8,
-    textAlign: 'center',
-  },
   roleChoiceLocked: {
     opacity: 0.56,
   },
@@ -9879,19 +9836,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 10,
     width: '48%',
-  },
-  parentPillCard: {
-    borderRadius: 999,
-    elevation: 0,
-    minHeight: 54,
-    paddingHorizontal: 18,
-    paddingVertical: 14,
-    shadowOpacity: 0,
-    width: '100%',
-  },
-  parentPillText: {
-    fontSize: 14,
-    lineHeight: 18,
   },
   interestCard: {
     minHeight: 118,
@@ -9950,10 +9894,8 @@ const styles = StyleSheet.create({
   },
   gradeCellText: {
     color: ONBOARDING_COLORS.textPrimary,
-    flexShrink: 1,
     fontSize: 13,
     fontWeight: '700',
-    textAlign: 'center',
   },
   gradeCellCheck: {
     color: 'rgba(255,255,255,0.85)',
@@ -10008,7 +9950,6 @@ const styles = StyleSheet.create({
   skipGhostButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 48,
     paddingHorizontal: 18,
     paddingVertical: 17,
   },
@@ -10100,19 +10041,15 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.textPrimary,
     fontSize: 16,
     fontWeight: '900',
-    flexShrink: 1,
     lineHeight: 21,
     paddingRight: 26,
-    textAlign: 'center',
   },
   needChoiceText: {
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 13,
     fontWeight: '700',
-    flexShrink: 1,
     lineHeight: 19,
     marginTop: 8,
-    textAlign: 'center',
   },
   goalChoice: {
     paddingTop: 18,

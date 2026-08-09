@@ -18,7 +18,6 @@ interface GeneratedAssignment {
 }
 
 interface GeneratedQuizPayload {
-  narrationSessionId?: string;
   flashcards?: Array<{
     id: string;
     question: string;
@@ -37,11 +36,6 @@ interface AiProxyRequest {
   context?: Record<string, unknown>;
 }
 
-type GeneratedTextResponse = {
-  text: string | null;
-  narrationSessionId?: string;
-};
-
 interface AudioTranscriptionRequest {
   base64Audio: string;
   mimeType: string;
@@ -53,13 +47,6 @@ interface AudioTranscriptionRequest {
 interface SpeechSynthesisRequest {
   text: string;
   voice: OnboardingVoiceName;
-  language?: string;
-}
-
-interface PublicCueSpeechSynthesisRequest {
-  cueId: string;
-  voice: OnboardingVoiceName;
-  language: string;
 }
 
 interface ChatLearningContext {
@@ -210,28 +197,6 @@ function isAbortError(error: unknown) {
   return error instanceof Error && error.name === 'AbortError';
 }
 
-async function generateText(args: {
-  prompt: string;
-  systemInstruction?: string;
-  attachment?: Attachment;
-  history?: ChatMessage[];
-  responseMimeType?: 'application/json';
-  feature: string;
-  context?: Record<string, unknown>;
-  timeoutMs?: number;
-  returnMetadata: true;
-}): Promise<GeneratedTextResponse>;
-async function generateText(args: {
-  prompt: string;
-  systemInstruction?: string;
-  attachment?: Attachment;
-  history?: ChatMessage[];
-  responseMimeType?: 'application/json';
-  feature: string;
-  context?: Record<string, unknown>;
-  timeoutMs?: number;
-  returnMetadata?: false;
-}): Promise<string | null>;
 async function generateText({
   prompt,
   systemInstruction,
@@ -241,7 +206,6 @@ async function generateText({
   feature,
   context,
   timeoutMs = DEFAULT_AI_TIMEOUT_MS,
-  returnMetadata = false,
 }: {
   prompt: string;
   systemInstruction?: string;
@@ -251,8 +215,7 @@ async function generateText({
   feature: string;
   context?: Record<string, unknown>;
   timeoutMs?: number;
-  returnMetadata?: boolean;
-}): Promise<string | null | GeneratedTextResponse> {
+}) {
   const response = await fetchAiWithTimeout('/generate-text', {
     method: 'POST',
     headers: await buildKitabuRequestHeaders(),
@@ -284,12 +247,9 @@ async function generateText({
 
   const payload = await readJsonResponse<{
     text?: string;
-    narrationSessionId?: string;
   }>(response, 'Invalid AI response');
 
-  return returnMetadata
-    ? { text: payload.text ?? null, narrationSessionId: payload.narrationSessionId }
-    : payload.text ?? null;
+  return payload.text ?? null;
 }
 
 export async function askHomeworkHelper(
@@ -539,7 +499,6 @@ export async function transcribeAudio(
 export async function synthesizeSpeech(
   text: string,
   voiceName?: OnboardingVoiceName,
-  language = 'en',
 ): Promise<SpeechSynthesisPayload> {
   const normalizedText = text.trim();
   if (!normalizedText) {
@@ -555,7 +514,6 @@ export async function synthesizeSpeech(
     body: JSON.stringify({
       text: normalizedText,
       voice: voiceName,
-      language,
     } satisfies SpeechSynthesisRequest),
   });
 
@@ -564,24 +522,6 @@ export async function synthesizeSpeech(
   }
 
   return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid speech synthesis response');
-}
-
-export async function synthesizePublicCueSpeech(
-  cueId: string,
-  voiceName: OnboardingVoiceName,
-  language = 'en',
-): Promise<SpeechSynthesisPayload> {
-  const response = await fetchKitabuApi('/landing/synthesize-speech', {
-    method: 'POST',
-    headers: await buildKitabuRequestHeaders(undefined, false),
-    body: JSON.stringify({ cueId, voice: voiceName, language } satisfies PublicCueSpeechSynthesisRequest),
-  });
-
-  if (!response.ok) {
-    throw new Error('Landing speech synthesis request failed.');
-  }
-
-  return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid landing speech response');
 }
 
 export async function generateQuizData(
@@ -636,17 +576,16 @@ Return JSON with this shape:
         generationType: type,
       },
       timeoutMs: QUIZ_AI_TIMEOUT_MS,
-      returnMetadata: true,
     });
 
-    if (!response.text) {
+    if (!response) {
       throw new Error('AI service returned an empty response.');
     }
 
     onProgress?.({ percentage: 75, stage: 'Checking the generated questions' });
-    const parsed = JSON.parse(sanitizeJsonPayload(response.text)) as GeneratedQuizPayload;
+    const parsed = JSON.parse(sanitizeJsonPayload(response)) as GeneratedQuizPayload;
     onProgress?.({ percentage: 90, stage: 'Finalizing your practice set' });
-    return { ...parsed, narrationSessionId: response.narrationSessionId };
+    return parsed;
   } catch (error) {
     console.error('Error generating quiz data:', error);
     throw error;

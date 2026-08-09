@@ -7,40 +7,25 @@ import {
   useLandingSoundtrack,
 } from '../src/services/landingSoundtrack';
 
-function SoundtrackHarness({ onReady }: { onReady: (soundtrack: ReturnType<typeof useLandingSoundtrack>) => void }) {
-  const soundtrack = useLandingSoundtrack();
-  onReady(soundtrack);
+function SoundtrackHarness({ enabled = true }: { enabled?: boolean }) {
+  useLandingSoundtrack(enabled);
   return null;
 }
 
-test('landing soundtrack waits for a user gesture, loops quietly, and is removed on unmount', async () => {
+test('landing soundtrack loops quietly and is removed when the landing screen unmounts', async () => {
   const createPlayer = createAudioPlayer as jest.Mock;
   createPlayer.mockClear();
-  let soundtrack: ReturnType<typeof useLandingSoundtrack> | undefined;
 
   let renderer: ReactTestRenderer.ReactTestRenderer;
   await act(async () => {
-    renderer = ReactTestRenderer.create(<SoundtrackHarness onReady={value => { soundtrack = value; }} />);
+    renderer = ReactTestRenderer.create(<SoundtrackHarness />);
     await Promise.resolve();
   });
 
   const player = createPlayer.mock.results[0].value;
   expect(player.volume).toBe(LANDING_SOUNDTRACK_VOLUME);
   expect(player.loop).toBe(true);
-  expect(player.play).not.toHaveBeenCalled();
-
-  await act(() => {
-    soundtrack!.start();
-    soundtrack!.start();
-  });
-
   expect(player.play).toHaveBeenCalledTimes(1);
-
-  await act(() => {
-    soundtrack!.toggleMuted();
-  });
-
-  expect(player.volume).toBe(0);
 
   await act(async () => {
     renderer!.unmount();

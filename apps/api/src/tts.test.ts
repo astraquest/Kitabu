@@ -1,7 +1,5 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { appConfig } from './config.js';
-import { db, redis } from './db.js';
 import {
   extractGeminiPcmFromBatch,
   extractGeminiPcmFromJsonl,
@@ -9,6 +7,25 @@ import {
   getGeminiResponsesFile
 } from './ttsGemini.js';
 import {
+  buildNarrationIdentity,
+  canonicalizeAssessmentNarrationLanguage,
+  composeAssessmentQuestionNarration,
+  normalizeNarrationText,
+  NARRATION_VOICES
+} from './ttsIdentity.js';
+
+process.env.KITABU_RUNTIME_ENV ??= 'test';
+process.env.KITABU_NODE_ENV ??= 'test';
+process.env.KITABU_DATABASE_URL ??= 'postgresql://kitabu:kitabu@127.0.0.1:5432/kitabu_test';
+process.env.KITABU_REDIS_URL ??= 'redis://127.0.0.1:6379';
+process.env.KITABU_JWT_ISSUER ??= 'kitabu-test';
+process.env.KITABU_JWT_AUDIENCE ??= 'kitabu-test';
+process.env.KITABU_JWT_PRIVATE_KEY ??= 'test-private-key';
+process.env.KITABU_JWT_PUBLIC_KEY ??= 'test-public-key';
+
+const { appConfig } = await import('./config.js');
+const { db, redis } = await import('./db.js');
+const {
   GeminiGenerateContentTtsProvider,
   createAssessmentTtsProvider,
   pcmToWav,
@@ -16,16 +33,9 @@ import {
   resolveCachedNarration,
   selectGeminiTtsMode,
   shouldRecoverUncertainTtsJob,
-  toGeminiGenerateContentRequest,
-  type GeminiBatchCapabilityCache
-} from './tts.js';
-import {
-  buildNarrationIdentity,
-  canonicalizeAssessmentNarrationLanguage,
-  composeAssessmentQuestionNarration,
-  normalizeNarrationText,
-  NARRATION_VOICES
-} from './ttsIdentity.js';
+  toGeminiGenerateContentRequest
+} = await import('./tts.js');
+type GeminiBatchCapabilityCache = import('./tts.js').GeminiBatchCapabilityCache;
 
 test.after(async () => {
   redis.disconnect();

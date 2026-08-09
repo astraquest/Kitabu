@@ -125,6 +125,11 @@ KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL=deepseek-v4-flash
 
 KITABU_GEMINI_API_KEY=
 KITABU_GEMINI_MODEL=gemini-2.5-flash
+# Assessment narration is server-only. Keep the Supabase service key out of all clients.
+KITABU_SUPABASE_URL=
+KITABU_SUPABASE_SERVICE_ROLE_KEY=
+KITABU_TTS_STORAGE_BUCKET=tts-audio
+KITABU_TTS_PUBLIC_BASE_URL=
 KITABU_KSH_PER_USD=129.50
 
 KITABU_ADMIN_WEB_ORIGIN=https://admin.kitabu.ai

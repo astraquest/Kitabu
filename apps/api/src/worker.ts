@@ -1,5 +1,7 @@
 import { checkRedisHealth, db } from './db.js';
 import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
+import { processAssessmentTtsQueue } from './tts.js';
+import { appConfig } from './config.js';
 
 const ACCOUNT_DELETION_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
 
@@ -29,6 +31,17 @@ async function run() {
       console.error('[worker] account deletion sweep failed', error);
     });
   }, ACCOUNT_DELETION_SWEEP_INTERVAL_MS);
+
+  const runTtsQueue = () => {
+    processAssessmentTtsQueue().catch(error => {
+      console.warn('[worker] assessment TTS queue failed', {
+        state: 'worker_error',
+        error: error instanceof Error ? error.message.slice(0, 200) : 'unknown'
+      });
+    });
+  };
+  runTtsQueue();
+  setInterval(runTtsQueue, appConfig.KITABU_TTS_POLL_INTERVAL_MS);
 }
 
 run().catch(error => {

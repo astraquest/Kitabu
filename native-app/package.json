@@ -11,6 +11,8 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "security:audit": "node scripts/check-native-audit.mjs",
+    "test:security:audit": "node --test scripts/check-native-audit.test.mjs",
     "verify:observability": "node scripts/verify-native-observability.mjs"
   },
   "dependencies": {

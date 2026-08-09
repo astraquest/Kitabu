@@ -414,6 +414,9 @@ export interface OnboardingSelectionEventInput {
   stepKey: string;
   optionKey: string;
   optionLabel: string;
+  eventType?: 'view' | 'selection' | 'skip' | 'back' | 'complete' | 'permission_result' | 'drop_off';
+  eventVersion?: number;
+  stepIndex?: number;
   role?: string | null;
   county?: string | null;
   grade?: string | null;
@@ -3589,10 +3592,12 @@ export async function createOnboardingSelectionEvent(
     client,
     `INSERT INTO onboarding_selection_events (
       anonymous_session_id, user_id, school_id, step_key, option_key, option_label,
+      event_type, event_version, step_index,
       role, county, grade_level, country_code, curriculum_code, metadata
     ) VALUES (
       $1, $2, $3, $4, $5, $6,
-      $7, $8, $9, $10, $11, $12::jsonb
+      $7, $8, $9,
+      $10, $11, $12, $13, $14, $15::jsonb
     )`,
     [
       input.anonymousSessionId,
@@ -3601,6 +3606,9 @@ export async function createOnboardingSelectionEvent(
       input.stepKey,
       input.optionKey,
       input.optionLabel,
+      input.eventType ?? 'selection',
+      input.eventVersion ?? 1,
+      input.stepIndex ?? 0,
       input.role ?? null,
       input.county ?? null,
       input.grade ?? null,
@@ -3622,6 +3630,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
   }
 
   const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+  const selectionWhere = clauses.length
+    ? `${where} AND event_type = 'selection'`
+    : `WHERE event_type = 'selection'`;
 
   const summary = await db.query<{
     total_events: string;
@@ -3635,9 +3646,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS identified_users,
        MIN(created_at) AS first_event_at,
-       MAX(created_at) AS last_event_at
+     MAX(created_at) AS last_event_at
      FROM onboarding_selection_events
-     ${where}`,
+     ${selectionWhere}`,
     params
   );
 
@@ -3655,11 +3666,56 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS users,
        MIN(created_at) AS first_event_at,
-       MAX(created_at) AS last_event_at
+     MAX(created_at) AS last_event_at
      FROM onboarding_selection_events
-     ${where}
+     ${selectionWhere}
      GROUP BY step_key
      ORDER BY MIN(created_at) ASC, COUNT(DISTINCT anonymous_session_id) DESC`,
+     params
+  );
+
+  const eventTypes = await db.query<{
+    event_type: string;
+    event_version: number;
+    role: string | null;
+    events: string;
+    sessions: string;
+    users: string;
+  }>(
+    `SELECT
+       event_type,
+       event_version,
+       role,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users
+     FROM onboarding_selection_events
+     ${where}
+     GROUP BY event_type, event_version, role
+     ORDER BY event_type ASC, event_version ASC, COUNT(DISTINCT anonymous_session_id) DESC`,
+    params
+  );
+
+  const dropOffs = await db.query<{
+    step_key: string;
+    role: string | null;
+    events: string;
+    sessions: string;
+    users: string;
+    last_event_at: Date | null;
+  }>(
+    `SELECT
+       step_key,
+       role,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users,
+       MAX(created_at) AS last_event_at
+     FROM onboarding_selection_events
+     ${where ? `${where} AND event_type = 'drop_off'` : `WHERE event_type = 'drop_off'`}
+     GROUP BY step_key, role
+     ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, MAX(created_at) DESC
+     LIMIT 60`,
     params
   );
 
@@ -3679,9 +3735,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(*)::text AS events,
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS users,
-       MAX(created_at) AS last_selected_at
+     MAX(created_at) AS last_selected_at
      FROM onboarding_selection_events
-     ${where}
+     ${selectionWhere}
      GROUP BY step_key, option_key
      ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC, MAX(created_at) DESC
      LIMIT 60`,
@@ -3701,7 +3757,7 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
          COUNT(DISTINCT anonymous_session_id)::text AS sessions,
          COUNT(DISTINCT user_id)::text AS users
        FROM onboarding_selection_events
-       ${where ? `${where} AND ${column} IS NOT NULL AND ${column} <> ''` : `WHERE ${column} IS NOT NULL AND ${column} <> ''`}
+       ${selectionWhere} AND ${column} IS NOT NULL AND ${column} <> ''
        GROUP BY ${column}
        ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC
        LIMIT 15`,
@@ -3731,6 +3787,22 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
       sessions: Number(row.sessions || 0),
       users: Number(row.users || 0),
       firstEventAt: row.first_event_at?.toISOString() ?? null,
+      lastEventAt: row.last_event_at?.toISOString() ?? null
+    })),
+    eventTypes: eventTypes.rows.map(row => ({
+      eventType: row.event_type,
+      eventVersion: Number(row.event_version || 1),
+      role: row.role,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0)
+    })),
+    dropOffs: dropOffs.rows.map(row => ({
+      stepKey: row.step_key,
+      role: row.role,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0),
       lastEventAt: row.last_event_at?.toISOString() ?? null
     })),
     topOptions: topOptions.rows.map(row => ({

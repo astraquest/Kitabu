@@ -48,7 +48,11 @@ import {
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
-import { postOnboardingSelectionEvent } from '../services/onboardingAnalyticsService';
+import {
+  ONBOARDING_ANALYTICS_VERSION,
+  postOnboardingSelectionEvent,
+  type OnboardingEventType,
+} from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
@@ -2103,6 +2107,7 @@ export function StudentOnboardingScreen({
   const [activeReadyTestimonialIndex, setActiveReadyTestimonialIndex] = useState(0);
   const [localError, setLocalError] = useState<string | null>(null);
   const [focusedField, setFocusedField] = useState<'school' | 'mpesa' | null>(null);
+  const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
   const { height, width } = useWindowDimensions();
   const insets = useContext(SafeAreaInsetsContext) ?? ZERO_SAFE_AREA_INSETS;
   const compactLayout = height < 860 || width < 370;
@@ -2194,6 +2199,13 @@ export function StudentOnboardingScreen({
   const voicePreviewSourceCacheRef = useRef<Record<string, AudioSource>>({});
   const voicePreviewBlobUrlsRef = useRef<string[]>([]);
   const onboardingSessionIdRef = useRef(`onboarding-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`);
+  const onboardingCompletedRef = useRef(false);
+  const activeProgressRef = useRef<{ key: string; title: string; progressIndex: number }>({
+    key: 'setup-grade',
+    title: 'Learner profile',
+    progressIndex: 0,
+  });
+  const trackedViewRef = useRef<string | null>(null);
   const progressMetadata = getOnboardingStepMetadata({
     role,
     includeIntroChoices,
@@ -2206,6 +2218,7 @@ export function StudentOnboardingScreen({
   const progressStepNumber = progressIndex + 1;
   const progressTitle = progressMetadata.title;
   const progressAnnouncement = `Step ${progressStepNumber} of ${totalStepCount}, ${progressTitle}`;
+  activeProgressRef.current = progressMetadata;
   const reminderCoachTip =
     role === 'teacher' ? 'Class nudge' : role === 'parent' ? 'Family nudge' : 'Daily nudge';
   const mascotCoachTip =
@@ -3230,6 +3243,10 @@ export function StudentOnboardingScreen({
                   ? [{ rotate: '-1deg' }]
                   : [];
 
+      if (reduceMotionEnabled) {
+        return { transform: poseTransforms } as ViewStyle;
+      }
+
       return ({
         transform: [
           {
@@ -3248,7 +3265,7 @@ export function StudentOnboardingScreen({
         ],
       }) as unknown as ViewStyle;
     },
-    [mascotMotion, mascotPose],
+    [mascotMotion, mascotPose, reduceMotionEnabled],
   );
 
   useEffect(() => {
@@ -3263,6 +3280,9 @@ export function StudentOnboardingScreen({
 
     AccessibilityInfo.isReduceMotionEnabled()
       .then(reduceMotionEnabled => {
+        if (mounted) {
+          setReduceMotionEnabled(reduceMotionEnabled);
+        }
         if (!mounted || reduceMotionEnabled) {
           return;
         }
@@ -3296,13 +3316,43 @@ export function StudentOnboardingScreen({
   }, [mascotMotion, role]);
 
   useEffect(() => {
-    scrollViewRef.current?.scrollTo({ y: 0, animated: true });
+    scrollViewRef.current?.scrollTo({ y: 0, animated: !reduceMotionEnabled });
 
     if (announcedStepRef.current !== progressStepNumber) {
       AccessibilityInfo.announceForAccessibility?.(progressAnnouncement);
       announcedStepRef.current = progressStepNumber;
     }
-  }, [introStep, progressAnnouncement, progressStepNumber, step]);
+  }, [introStep, progressAnnouncement, progressStepNumber, reduceMotionEnabled, step]);
+
+  useEffect(() => {
+    if (!includeIntroChoices) {
+      return;
+    }
+
+    const viewKey = `${progressMetadata.key}:${progressMetadata.progressIndex}:${step}`;
+    if (trackedViewRef.current === viewKey) {
+      return;
+    }
+
+    trackedViewRef.current = viewKey;
+    trackOnboardingEvent('view', progressMetadata.key, progressMetadata.title);
+    // The tracker intentionally reads the current screen context from this render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [includeIntroChoices, progressMetadata.key, progressMetadata.progressIndex, progressMetadata.title, step]);
+
+  useEffect(
+    () => () => {
+      if (!includeIntroChoices || onboardingCompletedRef.current) {
+        return;
+      }
+
+      const progress = activeProgressRef.current;
+      trackOnboardingEvent('drop_off', progress.key, progress.title);
+    },
+    // The tracker intentionally reads the current screen context from refs at unmount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [includeIntroChoices],
+  );
 
   useEffect(() => {
     if (!includeIntroChoices) {
@@ -3317,6 +3367,18 @@ export function StudentOnboardingScreen({
 
     let doneTimer: ReturnType<typeof setTimeout> | null = null;
     setLoadingProgress(0);
+
+    if (reduceMotionEnabled) {
+      setLoadingProgress(100);
+      doneTimer = setTimeout(() => {
+        setIntroStep('profileReady');
+      }, 0);
+      return () => {
+        if (doneTimer) {
+          clearTimeout(doneTimer);
+        }
+      };
+    }
 
     const progressTimer = setInterval(() => {
       setLoadingProgress(current => {
@@ -3337,7 +3399,7 @@ export function StudentOnboardingScreen({
         clearTimeout(doneTimer);
       }
     };
-  }, [introStep]);
+  }, [introStep, reduceMotionEnabled]);
 
   useEffect(
     () => () => {
@@ -3389,7 +3451,7 @@ export function StudentOnboardingScreen({
   }, [readyTestimonials.length]);
 
   useEffect(() => {
-    if (introStep !== 'profileReady' || readyTestimonials.length <= 1) {
+    if (reduceMotionEnabled || introStep !== 'profileReady' || readyTestimonials.length <= 1) {
       return undefined;
     }
 
@@ -3398,7 +3460,7 @@ export function StudentOnboardingScreen({
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [activeReadyTestimonialIndex, introStep, readyTestimonials.length]);
+  }, [activeReadyTestimonialIndex, introStep, readyTestimonials.length, reduceMotionEnabled]);
 
 
   useEffect(() => {
@@ -3883,6 +3945,8 @@ export function StudentOnboardingScreen({
     normalizedMpesaPhoneNumber: string | null,
     signupMethodOverride: SignupMethod | null = null,
   ) {
+    onboardingCompletedRef.current = true;
+    trackOnboardingEvent('complete', 'complete', 'Onboarding complete');
     Keyboard.dismiss();
     setFocusedField(null);
     triggerHaptic('success');
@@ -3964,11 +4028,12 @@ export function StudentOnboardingScreen({
     }, delayMs);
   }
 
-  function trackOnboardingSelection(
+  function trackOnboardingEvent(
+    eventType: OnboardingEventType,
     stepKey: string,
-    optionKey: string,
     optionLabel: string,
     metadata?: Record<string, unknown>,
+    optionKey: string = eventType,
   ) {
     if (!includeIntroChoices) {
       return;
@@ -3979,6 +4044,9 @@ export function StudentOnboardingScreen({
       stepKey,
       optionKey,
       optionLabel,
+      eventType,
+      eventVersion: ONBOARDING_ANALYTICS_VERSION,
+      stepIndex: activeProgressRef.current.progressIndex,
       role,
       county: county || null,
       grade: grade || null,
@@ -3986,6 +4054,15 @@ export function StudentOnboardingScreen({
       curriculumCode: selectedCountry.curriculumCode,
       metadata,
     }).catch(() => undefined);
+  }
+
+  function trackOnboardingSelection(
+    stepKey: string,
+    optionKey: string,
+    optionLabel: string,
+    metadata?: Record<string, unknown>,
+  ) {
+    trackOnboardingEvent('selection', stepKey, optionLabel, metadata, optionKey);
   }
 
   function voicePreviewCacheKey(option: VoiceOption, nextLanguageCode: OnboardingLanguageCode | null) {
@@ -4066,6 +4143,9 @@ export function StudentOnboardingScreen({
 
   function triggerInvalidAgeFeedback(shakeMotion: Animated.Value) {
     triggerHaptic('error');
+    if (reduceMotionEnabled) {
+      return;
+    }
     shakeMotion.stopAnimation();
     shakeMotion.setValue(0);
     Animated.sequence([
@@ -4358,9 +4438,17 @@ export function StudentOnboardingScreen({
       // send daily study reminders. We advance regardless of the user's choice;
       // reminderEnabled records whether the OS actually granted permission.
       setIsRequestingReminderPermission(true);
-      const permission = await requestPushPermission();
+      const permission = await requestPushPermission().catch(() => ({
+        status: 'error' as const,
+        granted: false,
+        tokenReady: false,
+      }));
       setReminderEnabled(permission.granted);
       setIsRequestingReminderPermission(false);
+      trackOnboardingEvent('permission_result', 'reminder', permission.status, {
+        granted: permission.granted,
+        tokenReady: permission.tokenReady,
+      });
       if (includeIntroChoices) {
         setIntroStep('loading');
         return;
@@ -5161,6 +5249,7 @@ export function StudentOnboardingScreen({
   }
 
   function handleBack() {
+    trackOnboardingEvent('back', progressMetadata.key, progressMetadata.title);
     Keyboard.dismiss();
     clearAutoAdvance();
     setFocusedField(null);
@@ -5505,6 +5594,7 @@ export function StudentOnboardingScreen({
               <View
                 accessibilityLabel="Onboarding progress"
                 accessibilityRole="progressbar"
+                accessibilityLiveRegion="polite"
                 accessibilityValue={{ min: 1, max: totalStepCount, now: progressStepNumber, text: progressAnnouncement }}
                 style={styles.mascotNavProgressTrack}>
                 <LinearGradient
@@ -8608,6 +8698,7 @@ export function StudentOnboardingScreen({
                   accessibilityLabel="Skip this step"
                   disabled={isSubmitting}
                   onPress={() => {
+                    trackOnboardingEvent('skip', progressMetadata.key, progressMetadata.title);
                     if (introStep === 'interests') {
                       setIntroStep('reminder');
                       return;
@@ -9035,7 +9126,7 @@ const styles = StyleSheet.create({
     borderColor: ONBOARDING_COLORS.border,
     borderRadius: 10,
     borderWidth: 1,
-    height: 34,
+    height: 48,
     justifyContent: 'center',
     width: 34,
   },
@@ -9950,6 +10041,7 @@ const styles = StyleSheet.create({
   skipGhostButton: {
     alignItems: 'center',
     justifyContent: 'center',
+    minHeight: 48,
     paddingHorizontal: 18,
     paddingVertical: 17,
   },

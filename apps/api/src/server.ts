@@ -774,11 +774,24 @@ const subjectRecommendationEventsSchema = z.object({
   })).min(1).max(10)
 });
 
-const onboardingSelectionEventSchema = z.object({
+export const onboardingEventTypeSchema = z.enum([
+  'view',
+  'selection',
+  'skip',
+  'back',
+  'complete',
+  'permission_result',
+  'drop_off'
+]);
+
+export const onboardingSelectionEventSchema = z.object({
   sessionId: z.string().trim().min(8).max(160),
   stepKey: z.string().trim().min(1).max(80),
   optionKey: z.string().trim().min(1).max(160),
   optionLabel: z.string().trim().min(1).max(240),
+  eventType: onboardingEventTypeSchema.optional().default('selection'),
+  eventVersion: z.number().int().min(1).max(10).optional().default(1),
+  stepIndex: z.number().int().min(0).max(100).optional().default(0),
   role: z.string().trim().max(40).nullable().optional(),
   county: z.string().trim().max(120).nullable().optional(),
   grade: z.string().trim().max(40).nullable().optional(),
@@ -7080,6 +7093,9 @@ Return valid JSON with this shape:
         grade: body.grade || currentUser?.grade || null,
         countryCode: body.countryCode || currentUser?.countryCode || null,
         curriculumCode: body.curriculumCode || currentUser?.curriculumCode || null,
+        eventType: body.eventType,
+        eventVersion: body.eventVersion,
+        stepIndex: body.stepIndex,
         metadata: body.metadata ?? {}
       });
     });

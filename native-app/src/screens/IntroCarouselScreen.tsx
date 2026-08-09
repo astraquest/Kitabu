@@ -11,6 +11,8 @@ import {
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { buildScreenIntro, useGuidedNarration } from '../services/narrationService';
+import { useLandingSoundtrack } from '../services/landingSoundtrack';
 
 const { width } = Dimensions.get('window');
 
@@ -71,6 +73,18 @@ export function IntroCarouselScreen({
   const [activeIndex, setActiveIndex] = useState(0);
   const isLast = activeIndex === SLIDES.length - 1;
   const ctaLabel = isLast ? 'Create account' : 'Next';
+
+  const narrationCue = useMemo(
+    () => buildScreenIntro(
+      'intro-carousel',
+      String(activeIndex),
+      SLIDES[activeIndex].titleParts.map(part => part.text).join(''),
+      'Samora',
+    ),
+    [activeIndex],
+  );
+  useGuidedNarration(narrationCue);
+  useLandingSoundtrack();
 
   const progress = useMemo(
     () => SLIDES.map((_, index) => index <= activeIndex),

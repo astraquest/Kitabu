@@ -4,6 +4,14 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { LEARNING_MASCOT_SOURCES } from '../src/features/progressiveLearning/components/LearningMascotReaction';
 import { DiagnosticScreen, PreviewDiagnosticQuestion } from '../src/screens/DiagnosticScreen';
+import { speechPlaybackBridge } from '../src/services/nativeBridges';
+
+jest.mock('../src/services/nativeBridges', () => ({
+  speechPlaybackBridge: {
+    speak: jest.fn(() => Promise.resolve()),
+    stop: jest.fn(() => Promise.resolve()),
+  },
+}));
 
 const questions: PreviewDiagnosticQuestion[] = [
   {
@@ -65,4 +73,25 @@ test('diagnostic uses selected mascot, real logo, and a compact no-scroll questi
       .map(node => node.props.accessibilityLabel),
   );
   expect(answerLabels).toEqual(new Set(['Answer 1/6', 'Answer 2/6', 'Answer 3/4', 'Answer 1/8']));
+});
+
+test('diagnostic narration speaks the question without answer options', async () => {
+  (speechPlaybackBridge.speak as jest.Mock).mockClear();
+
+  await act(async () => {
+    ReactTestRenderer.create(
+      <DiagnosticScreen
+        voiceName="Samora"
+        previewQuestions={questions}
+        onComplete={jest.fn()}
+      />,
+    );
+    await Promise.resolve();
+  });
+
+  expect(speechPlaybackBridge.speak).toHaveBeenCalledWith(
+    'What is 1/2 + 1/4?',
+    { voiceName: 'Samora' },
+  );
+  expect((speechPlaybackBridge.speak as jest.Mock).mock.calls.flat().join(' ')).not.toContain('3/4');
 });

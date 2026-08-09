@@ -29,7 +29,8 @@ import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { LearningMascotReaction } from '../features/progressiveLearning/components/LearningMascotReaction';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
-import { OnboardingMascotKey, Question } from '../types/app';
+import { buildQuestionCue, useGuidedNarration } from '../services/narrationService';
+import { OnboardingMascotKey, OnboardingVoiceName, Question } from '../types/app';
 
 interface TakeQuizScreenProps {
   questions: Question[];
@@ -37,6 +38,7 @@ interface TakeQuizScreenProps {
   subjectName: string;
   strandName: string;
   mascotKey: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
   onClose: () => void;
   onFinish?: (result: { score: number; total: number; percentage: number }) => void;
 }
@@ -52,6 +54,7 @@ export function TakeQuizScreen({
   subjectName,
   strandName,
   mascotKey,
+  voiceName,
   onClose,
   onFinish,
 }: TakeQuizScreenProps) {
@@ -75,6 +78,15 @@ export function TakeQuizScreen({
   } | null>(null);
 
   const currentQuestion = questions[currentIndex] ?? null;
+  const narrationCue = currentQuestion
+    ? buildQuestionCue({
+        screen: 'take-quiz',
+        questionId: currentQuestion.id,
+        questionText: currentQuestion.text,
+        voiceName,
+      })
+    : null;
+  useGuidedNarration(narrationCue, viewMode === 'quiz' && !feedback);
 
   useEffect(() => {
     setCurrentIndex(0);

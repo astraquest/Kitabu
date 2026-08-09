@@ -3,6 +3,7 @@ import {
   Attachment,
   ChatMessage,
   LearningStrand,
+  OnboardingVoiceName,
   Question,
   QuizGenerationProgress,
 } from '../types/app';
@@ -45,7 +46,7 @@ interface AudioTranscriptionRequest {
 
 interface SpeechSynthesisRequest {
   text: string;
-  voice?: string;
+  voice: OnboardingVoiceName;
 }
 
 interface ChatLearningContext {
@@ -495,10 +496,16 @@ export async function transcribeAudio(
   }
 }
 
-export async function synthesizeSpeech(text: string): Promise<SpeechSynthesisPayload> {
-  const normalizedText = text.trim().slice(0, 200);
+export async function synthesizeSpeech(
+  text: string,
+  voiceName?: OnboardingVoiceName,
+): Promise<SpeechSynthesisPayload> {
+  const normalizedText = text.trim();
   if (!normalizedText) {
     throw new Error('Nothing to speak.');
+  }
+  if (!voiceName) {
+    throw new Error('No tutor voice selected.');
   }
 
   const response = await fetchKitabuApi('/synthesize-speech', {
@@ -506,6 +513,7 @@ export async function synthesizeSpeech(text: string): Promise<SpeechSynthesisPay
     headers: await buildKitabuRequestHeaders(),
     body: JSON.stringify({
       text: normalizedText,
+      voice: voiceName,
     } satisfies SpeechSynthesisRequest),
   });
 

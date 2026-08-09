@@ -86,6 +86,17 @@ export async function getSchools() {
   return payload.schools.map(mapSchool);
 }
 
+export async function createOnboardingSchool(input: { schoolName: string; county: string }): Promise<SchoolData> {
+  const payload = await apiRequest<{ school: SchoolApiResponse | null }>('/onboarding/schools', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+  if (!payload.school) {
+    throw new Error('The school could not be loaded after saving.');
+  }
+  return mapSchool(payload.school);
+}
+
 export async function getDashboardBanner() {
   return apiRequest<DashboardBanner>('/app/banner', {
     method: 'GET',

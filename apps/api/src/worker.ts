@@ -1,5 +1,7 @@
 import { checkRedisHealth, db } from './db.js';
+import { appConfig } from './config.js';
 import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
+import { processTtsJobs } from './ttsWorker.js';
 
 const ACCOUNT_DELETION_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
 
@@ -29,6 +31,23 @@ async function run() {
       console.error('[worker] account deletion sweep failed', error);
     });
   }, ACCOUNT_DELETION_SWEEP_INTERVAL_MS);
+
+  if (appConfig.KITABU_TTS_WORKER_ENABLED) {
+    const processSpeechQueue = () => {
+      processTtsJobs().then(result => {
+        if (result.claimed > 0) console.info('[worker] processed TTS jobs', result);
+      }).catch(error => {
+        console.error('[worker] TTS queue poll failed', error);
+      });
+    };
+    processSpeechQueue();
+    setInterval(processSpeechQueue, appConfig.KITABU_TTS_WORKER_POLL_INTERVAL_MS);
+    console.info('[worker] TTS queue enabled', {
+      mode: 'worker-fallback',
+      pollIntervalMs: appConfig.KITABU_TTS_WORKER_POLL_INTERVAL_MS,
+      batchSize: appConfig.KITABU_TTS_WORKER_BATCH_SIZE
+    });
+  }
 }
 
 run().catch(error => {

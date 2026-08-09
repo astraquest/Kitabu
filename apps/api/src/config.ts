@@ -92,8 +92,6 @@ const configSchema = z.object({
   KITABU_GROQ_TEXT_SMART_MODEL: z.string().default('openai/gpt-oss-120b'),
   KITABU_GROQ_STT_FAST_MODEL: z.string().default('whisper-large-v3-turbo'),
   KITABU_GROQ_STT_ACCURATE_MODEL: z.string().default('whisper-large-v3'),
-  KITABU_GROQ_TTS_ENGLISH_MODEL: z.string().default('canopylabs/orpheus-v1-english'),
-  KITABU_GROQ_TTS_ENGLISH_VOICE: z.string().default('hannah'),
   KITABU_NVIDIA_API_KEY: z.string().optional(),
   KITABU_NVIDIA_TEXT_FAST_MODEL: z.string().default('nvidia/llama-3.3-nemotron-super-49b-v1'),
   KITABU_NVIDIA_DEEPSEEK_PRO_MODEL: z.string().default('deepseek-ai/deepseek-v4-pro'),
@@ -101,6 +99,13 @@ const configSchema = z.object({
   KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL: z.string().default('nvidia/nemotron-3-ultra-550b-a55b'),
   KITABU_GEMINI_API_KEY: z.string().optional(),
   KITABU_GEMINI_MODEL: z.string().default('gemini-2.5-flash'),
+  KITABU_GEMINI_TTS_MODEL: z.string().default('gemini-2.5-flash-preview-tts'),
+  KITABU_TTS_WORKER_ENABLED: booleanish.default(true),
+  KITABU_TTS_WORKER_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(5_000),
+  KITABU_TTS_WORKER_BATCH_SIZE: z.coerce.number().int().positive().max(20).default(2),
+  KITABU_TTS_WORKER_LEASE_SECONDS: z.coerce.number().int().positive().default(300),
+  KITABU_TTS_MAX_ATTEMPTS: z.coerce.number().int().positive().max(10).default(3),
+  KITABU_TTS_RETRY_DELAY_SECONDS: z.coerce.number().int().positive().default(60),
   KITABU_KSH_PER_USD: z.coerce.number().positive().default(129.5),
   KITABU_ADMIN_WEB_ORIGIN: z.string().default('https://admin.kitabu.ai'),
   KITABU_WEB_APP_ORIGINS: z.string().default(''),
@@ -175,8 +180,6 @@ appConfig.KITABU_GROQ_TEXT_FAST_MODEL = appConfig.KITABU_GROQ_TEXT_FAST_MODEL.tr
 appConfig.KITABU_GROQ_TEXT_SMART_MODEL = appConfig.KITABU_GROQ_TEXT_SMART_MODEL.trim();
 appConfig.KITABU_GROQ_STT_FAST_MODEL = appConfig.KITABU_GROQ_STT_FAST_MODEL.trim();
 appConfig.KITABU_GROQ_STT_ACCURATE_MODEL = appConfig.KITABU_GROQ_STT_ACCURATE_MODEL.trim();
-appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL.trim();
-appConfig.KITABU_GROQ_TTS_ENGLISH_VOICE = appConfig.KITABU_GROQ_TTS_ENGLISH_VOICE.trim();
 appConfig.KITABU_NVIDIA_API_KEY = trimOptionalSecret(appConfig.KITABU_NVIDIA_API_KEY);
 appConfig.KITABU_NVIDIA_TEXT_FAST_MODEL = appConfig.KITABU_NVIDIA_TEXT_FAST_MODEL.trim();
 appConfig.KITABU_NVIDIA_DEEPSEEK_PRO_MODEL = appConfig.KITABU_NVIDIA_DEEPSEEK_PRO_MODEL.trim();
@@ -184,6 +187,7 @@ appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL = appConfig.KITABU_NVIDIA_DEEPSEEK_
 appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL = appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL.trim();
 appConfig.KITABU_GEMINI_API_KEY = trimOptionalSecret(appConfig.KITABU_GEMINI_API_KEY);
 appConfig.KITABU_GEMINI_MODEL = appConfig.KITABU_GEMINI_MODEL.trim();
+appConfig.KITABU_GEMINI_TTS_MODEL = appConfig.KITABU_GEMINI_TTS_MODEL.trim();
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);

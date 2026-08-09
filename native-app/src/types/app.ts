@@ -51,6 +51,38 @@ export type OnboardingConcernKey = string;
 export type OnboardingAchievementKey = string;
 export type OnboardingInterestKey = string;
 
+export interface OnboardingPersonalizationChild {
+  name: string;
+  age: string;
+  grade: string;
+  subjects?: string[];
+}
+
+export interface OnboardingPersonalization {
+  version: 1;
+  languageCode?: OnboardingLanguageCode;
+  role?: PublicSignupRole;
+  displayName?: string;
+  mascotKey?: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
+  noVoice?: boolean;
+  needKey?: OnboardingNeedKey;
+  goalKey?: OnboardingGoalKey;
+  concernKey?: OnboardingConcernKey;
+  achievementKey?: OnboardingAchievementKey;
+  interestKeys?: OnboardingInterestKey[];
+  age?: string;
+  children?: OnboardingPersonalizationChild[];
+  taughtGrades?: string[];
+  subjects?: string[];
+  selectedSubjectIds?: string[];
+  reminderEnabled?: boolean;
+  county?: string;
+  school?: string;
+  countryCode?: string;
+  curriculumCode?: string;
+}
+
 export interface AuthUser {
   id: string;
   schoolId: string | null;
@@ -67,6 +99,7 @@ export interface AuthUser {
   countryCode?: string;
   curriculumCode?: string;
   onboardingCompleted?: boolean;
+  onboardingPersonalization?: OnboardingPersonalization | null;
 }
 
 export interface AuthSession {
@@ -272,6 +305,7 @@ export interface UserProfile {
   lastSeen?: string;
   status?: string;
   points?: number;
+  voiceName?: OnboardingVoiceName;
 }
 
 export interface ContentPage {

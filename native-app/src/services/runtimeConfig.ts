@@ -96,6 +96,10 @@ export function getKitabuRuntimeEnvironment() {
   );
 }
 
+export function isKitabuDevelopmentWebRuntime() {
+  return __DEV__ && Platform.OS === 'web' && getKitabuRuntimeEnvironment() === 'development';
+}
+
 export function areExternalPaymentsEnabled() {
   const configured = parseBooleanFlag(
     readProcessEnv('KITABU_ENABLE_EXTERNAL_PAYMENTS') ||

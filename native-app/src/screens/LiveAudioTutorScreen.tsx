@@ -21,6 +21,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { askVoiceTutor } from '../services/aiService';
+import { sanitizeTutorResponseForDisplay } from '../services/tutorResponseFormatting';
+import { buildQuestionCue } from '../services/narrationService';
 import {
   createLiveVoiceStreamSession,
   isLiveVoiceStreamingSupported,
@@ -34,6 +36,7 @@ import {
   Assignment,
   ChatMessage,
   OnboardingMascotKey,
+  OnboardingVoiceName,
   Question,
   SubStrand,
   Subject,
@@ -53,6 +56,7 @@ interface LiveAudioTutorScreenProps {
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
   mascotKey?: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
   forceComingSoonFallback?: boolean;
   quizQuestions?: Question[];
 }
@@ -155,6 +159,7 @@ export function LiveAudioTutorScreen({
   selectedAssignment,
   userProfile,
   mascotKey = 'rabbit',
+  voiceName,
   forceComingSoonFallback = false,
   quizQuestions = [],
 }: LiveAudioTutorScreenProps) {
@@ -258,14 +263,20 @@ export function LiveAudioTutorScreen({
       queuedSpeechRef.current = queuedSpeechRef.current.slice(
         sentenceMatch[0].length,
       );
-      speechPlaybackBridge.speakQueued(sentence).catch(() => undefined);
+      const spokenSentence = sanitizeTutorResponseForDisplay(sentence);
+      if (spokenSentence && voiceName) {
+        speechPlaybackBridge.speakQueued(spokenSentence, { voiceName }).catch(() => undefined);
+      }
     }
   }
 
   function finishStreamedResponse() {
     const remainingSpeech = queuedSpeechRef.current.trim();
     if (remainingSpeech) {
-      speechPlaybackBridge.speakQueued(remainingSpeech).catch(() => undefined);
+      const spokenRemaining = sanitizeTutorResponseForDisplay(remainingSpeech);
+      if (spokenRemaining && voiceName) {
+        speechPlaybackBridge.speakQueued(spokenRemaining, { voiceName }).catch(() => undefined);
+      }
       queuedSpeechRef.current = '';
     }
 
@@ -305,6 +316,7 @@ export function LiveAudioTutorScreen({
     LIVE_AUDIO_MASCOTS[mascotKey] ?? LIVE_AUDIO_MASCOTS.rabbit;
   const isComingSoonFallback = status === 'error';
   const firstQuizQuestion = quizQuestions[0]?.text?.trim() ?? '';
+  const firstQuizQuestionId = quizQuestions[0]?.id ?? 0;
   const mascotDanceStyle = useMemo(
     () =>
       ({
@@ -389,7 +401,11 @@ export function LiveAudioTutorScreen({
       return;
     }
 
-    const intro = `Question 1. ${firstQuizQuestion}`;
+    const intro = buildQuestionCue({
+      screen: 'live-audio-quiz',
+      questionId: firstQuizQuestionId,
+      questionText: firstQuizQuestion,
+    }).text;
     setHasIntroducedQuiz(true);
     setResponseText(intro);
     setVisibleResponseText(intro);
@@ -399,8 +415,13 @@ export function LiveAudioTutorScreen({
         : [...current, { role: 'model', text: intro }],
     );
     setStatus('speaking');
+    if (!voiceName) {
+      setStatus('ready');
+      return;
+    }
+
     speechPlaybackBridge
-      .speakQueued(intro)
+      .speakQueued(intro, { voiceName })
       .catch(playbackError => {
         console.error('Live audio quiz prompt playback failed', playbackError);
       })
@@ -409,8 +430,10 @@ export function LiveAudioTutorScreen({
       });
   }, [
     firstQuizQuestion,
+    firstQuizQuestionId,
     forceComingSoonFallback,
     hasIntroducedQuiz,
+    voiceName,
     status,
   ]);
 
@@ -591,6 +614,7 @@ export function LiveAudioTutorScreen({
         ? `${contextSummary}\n\nStudent just said: ${nextTranscript}`
         : nextTranscript;
       const reply = await askVoiceTutor(voicePrompt, history);
+      const spokenReply = sanitizeTutorResponseForDisplay(reply) || reply.trim();
       const updatedHistory = [
         ...nextHistory,
         {
@@ -603,10 +627,10 @@ export function LiveAudioTutorScreen({
       setResponseText(reply);
       setTurnCount(current => current + 1);
 
-      if (speechPlaybackBridge.state === 'expo_native') {
+      if (speechPlaybackBridge.state === 'expo_native' && voiceName) {
         setStatus('speaking');
-        const streamPromise = streamResponseText(reply);
-        await speechPlaybackBridge.speak(reply, { lowLatency: true });
+        const streamPromise = streamResponseText(spokenReply);
+        await speechPlaybackBridge.speak(spokenReply, { voiceName });
         await streamPromise;
       }
 
@@ -632,14 +656,15 @@ export function LiveAudioTutorScreen({
   }
 
   async function replayLastResponse() {
-    if (!responseText.trim() || speechPlaybackBridge.state !== 'expo_native') {
+    if (!responseText.trim() || !voiceName || speechPlaybackBridge.state !== 'expo_native') {
       return;
     }
 
     setStatus('speaking');
     await speechPlaybackBridge.stop().catch(() => undefined);
-    const streamPromise = streamResponseText(responseText);
-    await speechPlaybackBridge.speak(responseText, { lowLatency: true });
+    const spokenResponse = sanitizeTutorResponseForDisplay(responseText) || responseText.trim();
+    const streamPromise = streamResponseText(spokenResponse);
+    await speechPlaybackBridge.speak(spokenResponse, { voiceName });
     await streamPromise;
     setStatus('ready');
   }

@@ -1,4 +1,11 @@
-import { AuthSession, AuthState, GenderOption, OnboardingMascotKey, PublicSignupRole } from '../types/app';
+import {
+  AuthSession,
+  AuthState,
+  GenderOption,
+  OnboardingMascotKey,
+  OnboardingPersonalization,
+  PublicSignupRole,
+} from '../types/app';
 import { apiJsonRequest } from './requestHelpers';
 import { loadSecureJson, saveSecureJson } from './storage';
 
@@ -207,6 +214,7 @@ export async function completeAccountOnboarding(input: {
   mascotKey?: OnboardingMascotKey;
   countryCode?: string;
   curriculumCode?: string;
+  onboardingPersonalization?: OnboardingPersonalization;
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {

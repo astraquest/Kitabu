@@ -6,10 +6,12 @@ import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
-import { Assignment } from '../types/app';
+import { buildQuestionCue, useGuidedNarration } from '../services/narrationService';
+import { Assignment, OnboardingVoiceName } from '../types/app';
 
 interface HomeworkQuizScreenProps {
   assignment: Assignment;
+  voiceName?: OnboardingVoiceName;
   onClose: () => void;
   onSubmit: (score: number, answers: Record<number, string>) => void;
 }
@@ -18,6 +20,7 @@ type QuizStatus = 'active' | 'scored' | 'review';
 
 export function HomeworkQuizScreen({
   assignment,
+  voiceName,
   onClose,
   onSubmit,
 }: HomeworkQuizScreenProps) {
@@ -50,6 +53,15 @@ export function HomeworkQuizScreen({
 
   const currentQuestion = assignment.questions[currentQuestionIndex];
   const totalQuestions = assignment.questions.length;
+  const narrationCue = currentQuestion
+    ? buildQuestionCue({
+        screen: 'homework-quiz',
+        questionId: currentQuestion.id,
+        questionText: currentQuestion.text,
+        voiceName,
+      })
+    : null;
+  useGuidedNarration(narrationCue, status === 'active');
 
   useEffect(() => {
     if (assignment.status === 'completed') {

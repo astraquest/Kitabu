@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import type { PoolClient, QueryResultRow } from 'pg';
 import { Chess } from 'chess.js';
 import { db } from './db.js';
@@ -11,11 +12,44 @@ import { resolveAssignmentSchoolId } from './assignmentTargeting.js';
 import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 import type { CurriculumScope } from './curriculumScope.js';
+import { normalizeOnboardingSchoolInput } from './onboardingSchool.js';
 
 type MaybeClient = PoolClient | typeof db;
 
 function q<T extends QueryResultRow>(client: MaybeClient, text: string, values: unknown[] = []) {
   return client.query<T>(text, values);
+}
+
+export interface OnboardingPersonalizationChild {
+  name: string;
+  age: string;
+  grade: string;
+  subjects?: string[];
+}
+
+export interface OnboardingPersonalization {
+  version: 1;
+  languageCode?: 'en' | 'sw';
+  role?: 'student' | 'teacher' | 'parent' | 'other';
+  displayName?: string;
+  mascotKey?: 'rabbit' | 'lion' | 'elephant';
+  voiceName?: 'Samora' | 'Barake' | 'Bella' | 'Judith';
+  noVoice?: boolean;
+  needKey?: 'exam' | 'grades' | 'resources' | 'results' | 'support' | 'progress' | 'learn' | 'help';
+  goalKey?: string;
+  concernKey?: string;
+  achievementKey?: string;
+  interestKeys?: string[];
+  age?: string;
+  children?: OnboardingPersonalizationChild[];
+  taughtGrades?: string[];
+  subjects?: string[];
+  selectedSubjectIds?: string[];
+  reminderEnabled?: boolean;
+  county?: string;
+  school?: string;
+  countryCode?: string;
+  curriculumCode?: string;
 }
 
 export interface UserRecord {
@@ -35,6 +69,7 @@ export interface UserRecord {
   country_code: string;
   curriculum_code: string;
   onboarding_completed: boolean;
+  onboarding_personalization: OnboardingPersonalization | null;
   terms_accepted_at: Date | null;
   terms_version: string | null;
   privacy_version: string | null;
@@ -674,7 +709,7 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE email = $1`,
@@ -700,7 +735,7 @@ export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord 
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE phone_number = $1`,
@@ -838,7 +873,7 @@ export async function findUserByAuthIdentity(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at,
             full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE id = $1`,
@@ -895,7 +930,9 @@ export async function linkUserAuthIdentity(
   );
 }
 
-export async function findUserById(userId: string): Promise<AuthenticatedUser | null> {
+export async function findUserById(
+  userId: string
+): Promise<(AuthenticatedUser & { onboardingPersonalization?: OnboardingPersonalization | null }) | null> {
   const userResult = await db.query<{
     id: string;
     school_id: string | null;
@@ -912,6 +949,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     country_code: string;
     curriculum_code: string;
     onboarding_completed: boolean;
+    onboarding_personalization: OnboardingPersonalization | null;
     terms_accepted_at: Date | null;
     terms_version: string | null;
     privacy_version: string | null;
@@ -920,7 +958,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
   }>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE id = $1`,
@@ -949,6 +987,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     countryCode: user.country_code,
     curriculumCode: user.curriculum_code,
     onboardingCompleted: user.onboarding_completed,
+    onboardingPersonalization: user.onboarding_personalization,
     termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
     termsVersion: user.terms_version,
     privacyVersion: user.privacy_version,
@@ -990,6 +1029,7 @@ export async function createSelfServiceUser(input: {
       country_code: string;
       curriculum_code: string;
       onboarding_completed: boolean;
+      onboarding_personalization: OnboardingPersonalization | null;
       terms_accepted_at: Date | null;
       terms_version: string | null;
       privacy_version: string | null;
@@ -999,12 +1039,12 @@ export async function createSelfServiceUser(input: {
       client,
       `INSERT INTO users (
          school_id, email, phone_number, phone_verified, phone_verified_at, password_hash, full_name,
-         gender, grade_level, mascot_key, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         gender, grade_level, mascot_key, onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version
        )
-       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, NULL, $11, $12, $13)
        RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
                  country_code, curriculum_code,
-                 onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+                 onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
                  must_rotate_password, is_break_glass`,
       [
         input.schoolId,
@@ -1045,6 +1085,7 @@ export async function createSelfServiceUser(input: {
       countryCode: user.country_code,
       curriculumCode: user.curriculum_code,
       onboardingCompleted: user.onboarding_completed,
+      onboardingPersonalization: user.onboarding_personalization,
       termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
       termsVersion: user.terms_version,
       privacyVersion: user.privacy_version,
@@ -2272,6 +2313,74 @@ export async function createSchool(
   return result.rows[0].id;
 }
 
+export async function createOrReuseOnboardingSchool(
+  client: MaybeClient,
+  input: { name: string; county: string }
+) {
+  const normalizedInput = normalizeOnboardingSchoolInput(input);
+  const normalizedName = normalizedInput.name;
+  const normalizedCounty = normalizedInput.county;
+
+  await q(
+    client,
+    `SELECT pg_advisory_xact_lock(hashtextextended(lower($1) || chr(0) || lower($2), 0))`,
+    [normalizedName, normalizedCounty]
+  );
+
+  const existing = await q<{ id: string }>(
+    client,
+    `SELECT id
+     FROM schools
+     WHERE lower(btrim(name)) = lower($1)
+       AND lower(btrim(location)) = lower($2)
+     ORDER BY created_at ASC, id ASC
+     LIMIT 1`,
+    [normalizedName, normalizedCounty]
+  );
+  if (existing.rows[0]) {
+    return { schoolId: existing.rows[0].id, reused: true };
+  }
+
+  const plan = await q<{ id: string; price_ksh_cents: string }>(
+    client,
+    `SELECT id, price_ksh_cents
+     FROM subscription_plans
+     WHERE code = 'monthly'
+     LIMIT 1`
+  );
+  const monthlyPlan = plan.rows[0];
+  if (!monthlyPlan) {
+    throw new Error('Monthly subscription package is not configured');
+  }
+
+  const slugBase = normalizedName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 70) || 'school';
+  const slug = `${slugBase}-${randomUUID().slice(0, 8)}`;
+  const created = await q<{ id: string }>(
+    client,
+    `INSERT INTO schools (
+       name, slug, location, status, school_type, available_grades,
+       available_plan_codes, plan_prices_ksh_cents, subscription_price_ksh_cents,
+       assigned_plan_id
+     )
+     VALUES (
+       $1, $2, $3, 'active', 'day_school', ARRAY[]::text[],
+       ARRAY['monthly']::text[], jsonb_build_object('monthly', $4::bigint), $4, $5
+     )
+     RETURNING id`,
+    [normalizedName, slug, normalizedCounty, monthlyPlan.price_ksh_cents, monthlyPlan.id]
+  );
+
+  if (!created.rows[0]) {
+    throw new Error('Unable to create onboarding school');
+  }
+
+  return { schoolId: created.rows[0].id, reused: false };
+}
+
 export async function updateSchool(
   client: MaybeClient,
   schoolId: string,
@@ -2530,6 +2639,7 @@ export async function updateUserOnboarding(
     mpesaPhoneNumber?: string | null;
     subjects?: string[];
     subjectIds?: string[];
+    onboardingPersonalization?: OnboardingPersonalization;
   }
 ) {
   await q(
@@ -2541,6 +2651,7 @@ export async function updateUserOnboarding(
          country_code = $5,
          curriculum_code = $6,
          mascot_key = COALESCE($7, mascot_key),
+         onboarding_personalization = COALESCE($8::jsonb, onboarding_personalization),
          onboarding_completed = TRUE,
          updated_at = NOW()
      WHERE id = $1`,
@@ -2551,7 +2662,8 @@ export async function updateUserOnboarding(
       input.grade,
       input.countryCode,
       input.curriculumCode,
-      input.mascotKey ?? null
+      input.mascotKey ?? null,
+      input.onboardingPersonalization ? JSON.stringify(input.onboardingPersonalization) : null
     ]
   );
 
@@ -3070,6 +3182,256 @@ export async function setAiGenerationCacheEntry(
     ]
   );
 
+  return result.rows[0];
+}
+
+export interface TtsArtifactRecord {
+  id: string;
+  cache_key: string;
+  normalized_text: string;
+  avatar_voice: string;
+  gemini_voice: string;
+  gemini_model: string;
+  status: 'pending' | 'processing' | 'ready' | 'failed';
+  mime_type: string | null;
+  content_hash: string | null;
+  audio_data: Buffer | null;
+  error_message: string | null;
+  retry_count: number;
+  next_retry_at: Date | null;
+  completed_at: Date | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface TtsJobRecord {
+  id: string;
+  artifact_id: string;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  attempts: number;
+  available_at: Date;
+  locked_at: Date | null;
+  locked_by: string | null;
+  last_error: string | null;
+  completed_at: Date | null;
+  normalized_text: string;
+  avatar_voice: string;
+  gemini_voice: string;
+  gemini_model: string;
+}
+
+export interface EnqueueTtsJobInput {
+  cacheKey: string;
+  normalizedText: string;
+  avatarVoice: string;
+  geminiVoice: string;
+  geminiModel: string;
+}
+
+const ttsArtifactColumns = `
+  id, cache_key, normalized_text, avatar_voice, gemini_voice, gemini_model,
+  status, mime_type, content_hash, audio_data, error_message, retry_count,
+  next_retry_at, completed_at, created_at, updated_at`;
+const ttsArtifactReturningColumns = `
+  a.id, a.cache_key, a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+  a.status, a.mime_type, a.content_hash, a.audio_data, a.error_message, a.retry_count,
+  a.next_retry_at, a.completed_at, a.created_at, a.updated_at`;
+
+export async function getTtsArtifact(client: MaybeClient, cacheKey: string): Promise<TtsArtifactRecord | null> {
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `SELECT ${ttsArtifactColumns}
+     FROM tts_artifacts
+     WHERE cache_key = $1`,
+    [cacheKey]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJobInput) {
+  const artifactResult = await q<TtsArtifactRecord>(
+    client,
+    `INSERT INTO tts_artifacts (
+       cache_key, normalized_text, avatar_voice, gemini_voice, gemini_model,
+       status, error_message, next_retry_at
+     ) VALUES ($1, $2, $3, $4, $5, 'pending', NULL, NOW())
+     ON CONFLICT (cache_key) DO UPDATE SET
+       normalized_text = EXCLUDED.normalized_text,
+       avatar_voice = EXCLUDED.avatar_voice,
+       gemini_voice = EXCLUDED.gemini_voice,
+       gemini_model = EXCLUDED.gemini_model,
+       status = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.status
+         ELSE 'pending'
+       END,
+       error_message = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.error_message
+         ELSE NULL
+       END,
+       next_retry_at = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at
+         ELSE NOW()
+       END,
+       updated_at = NOW()
+     RETURNING ${ttsArtifactColumns}`,
+    [input.cacheKey, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel]
+  );
+  const artifact = artifactResult.rows[0];
+  if (!artifact) {
+    throw new Error('Unable to create TTS artifact');
+  }
+  return artifact;
+}
+
+export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInput) {
+  const artifact = await upsertTtsArtifact(client, input);
+
+  const jobResult = await q<TtsJobRecord>(
+    client,
+    `INSERT INTO tts_jobs (artifact_id, status, available_at)
+     VALUES ($1, 'pending', NOW())
+     ON CONFLICT (artifact_id) DO UPDATE SET
+       status = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.status ELSE 'pending' END,
+       available_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.available_at ELSE NOW() END,
+       last_error = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.last_error ELSE NULL END,
+       locked_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_at ELSE NULL END,
+       locked_by = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_by ELSE NULL END,
+       updated_at = NOW()
+     RETURNING id, artifact_id, status, attempts, available_at, locked_at, locked_by,
+       last_error, completed_at,
+       $2::text AS normalized_text, $3::text AS avatar_voice,
+       $4::text AS gemini_voice, $5::text AS gemini_model`,
+    [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel]
+  );
+  return { artifact, job: jobResult.rows[0] ?? null };
+}
+
+export async function claimTtsJobs(
+  client: MaybeClient,
+  limit: number,
+  workerId: string,
+  leaseSeconds = 300
+): Promise<TtsJobRecord[]> {
+  const result = await q<TtsJobRecord>(
+    client,
+    `WITH candidates AS (
+       SELECT j.id
+       FROM tts_jobs j
+       JOIN tts_artifacts a ON a.id = j.artifact_id
+       WHERE a.status <> 'ready'
+         AND (
+           (j.status = 'pending' AND j.available_at <= NOW())
+           OR (j.status = 'processing' AND j.locked_at < NOW() - ($3::int * INTERVAL '1 second'))
+         )
+       ORDER BY j.available_at ASC, j.created_at ASC
+       LIMIT $1
+       FOR UPDATE OF j SKIP LOCKED
+     ), claimed AS (
+       UPDATE tts_jobs j
+       SET status = 'processing', attempts = j.attempts + 1,
+           locked_at = NOW(), locked_by = $2, updated_at = NOW()
+       FROM candidates c
+       WHERE j.id = c.id
+       RETURNING j.id, j.artifact_id
+     ), marked AS (
+       UPDATE tts_artifacts a
+       SET status = 'processing', error_message = NULL, updated_at = NOW()
+       FROM claimed j
+       WHERE a.id = j.artifact_id
+       RETURNING a.id
+     )
+     SELECT j.id, j.artifact_id, j.status, j.attempts, j.available_at,
+       j.locked_at, j.locked_by, j.last_error, j.completed_at,
+       a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model
+     FROM claimed c
+     JOIN tts_jobs j ON j.id = c.id
+     JOIN marked m ON m.id = j.artifact_id
+     JOIN tts_artifacts a ON a.id = m.id`,
+    [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds))]
+  );
+  return result.rows;
+}
+
+export async function completeTtsJob(
+  client: MaybeClient,
+  jobId: string,
+  audioData: Buffer,
+  mimeType: string,
+  contentHash: string,
+  workerId?: string
+) {
+  const ownership = await q<{ status: TtsJobRecord['status']; locked_by: string | null }>(
+    client,
+    `SELECT status, locked_by
+     FROM tts_jobs
+     WHERE id = $1
+     FOR UPDATE`,
+    [jobId]
+  );
+  const job = ownership.rows[0];
+  if (!job || (workerId ? job.locked_by !== workerId : job.status === 'processing')) {
+    return null;
+  }
+
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = 'ready', mime_type = $2, content_hash = $3, audio_data = $4,
+         error_message = NULL, next_retry_at = NULL, completed_at = NOW(), updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id
+       AND (
+         ($5::text IS NOT NULL AND j.locked_by = $5)
+         OR ($5::text IS NULL AND a.status <> 'processing' AND j.status <> 'processing')
+       )
+     RETURNING ${ttsArtifactReturningColumns}`,
+    [jobId, mimeType, contentHash, audioData, workerId ?? null]
+  );
+  if (!result.rows[0]) return null;
+
+  await q(
+    client,
+    `UPDATE tts_jobs
+     SET status = 'completed', locked_at = NULL, locked_by = NULL,
+         last_error = NULL, completed_at = NOW(), updated_at = NOW()
+     WHERE id = $1`,
+    [jobId]
+  );
+  return result.rows[0];
+}
+
+export async function failTtsJob(
+  client: MaybeClient,
+  jobId: string,
+  errorMessage: string,
+  maxAttempts: number,
+  retryDelaySeconds: number,
+  workerId?: string
+) {
+  const result = await q<{ attempts: number }>(
+    client,
+    `UPDATE tts_jobs
+     SET status = CASE WHEN attempts >= $2 THEN 'failed' ELSE 'pending' END,
+         available_at = CASE WHEN attempts >= $2 THEN available_at
+           ELSE NOW() + ($3::int * INTERVAL '1 second') END,
+         locked_at = NULL, locked_by = NULL, last_error = $4, updated_at = NOW()
+     WHERE id = $1 AND ($5::text IS NULL OR locked_by = $5)
+     RETURNING attempts`,
+    [jobId, Math.max(1, Math.floor(maxAttempts)), Math.max(1, Math.floor(retryDelaySeconds)), errorMessage, workerId ?? null]
+  );
+  if (!result.rows[0]) return null;
+
+  await q(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = CASE WHEN j.status = 'failed' THEN 'failed' ELSE 'pending' END,
+         error_message = $2, retry_count = j.attempts,
+         next_retry_at = CASE WHEN j.status = 'failed' THEN NULL ELSE j.available_at END,
+         updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id`,
+    [jobId, errorMessage]
+  );
   return result.rows[0];
 }
 

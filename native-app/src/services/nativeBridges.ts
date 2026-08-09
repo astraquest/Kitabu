@@ -10,11 +10,10 @@ import {
 import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as ImagePicker from 'expo-image-picker';
-import * as Speech from 'expo-speech';
 import { Linking, NativeModules, Platform } from 'react-native';
 
 import { extractCurriculumFromPdfData, synthesizeSpeech, transcribeAudio } from './aiService';
-import { Attachment, LearningStrand } from '../types/app';
+import { Attachment, LearningStrand, OnboardingVoiceName } from '../types/app';
 
 export type NativeBridgeState = 'simulated' | 'expo_native';
 
@@ -49,8 +48,8 @@ export interface LiveAudioSession {
 
 export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
-  speak: (text: string, options?: { lowLatency?: boolean }) => Promise<void>;
-  speakQueued: (text: string) => Promise<void>;
+  speak: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
+  speakQueued: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
 }
@@ -117,6 +116,26 @@ const speechRecordingOptions = {
 };
 
 let speechAudioPlayer: AudioPlayer | null = null;
+let speechQueue: Promise<void> = Promise.resolve();
+let speechQueueGeneration = 0;
+
+async function playServerSpeech(
+  text: string,
+  voiceName: OnboardingVoiceName | undefined,
+  isCurrent: () => boolean,
+) {
+  const speech = await synthesizeSpeech(text, voiceName);
+  if (!isCurrent()) {
+    return;
+  }
+  const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
+  const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
+  await FileSystem.writeAsStringAsync(uri, speech.base64Audio, {
+    encoding: FileSystem.EncodingType.Base64,
+  });
+  speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
+  speechAudioPlayer.play();
+}
 
 const livePrompts = [
   'What have you already tried so far?',
@@ -587,39 +606,34 @@ export const liveAudioBridge: LiveAudioBridge = {
 export const speechPlaybackBridge: SpeechPlaybackBridge = {
   state: 'expo_native',
   async speak(text, options) {
+    speechQueueGeneration += 1;
+    speechQueue = Promise.resolve();
     await this.stop();
-
-    if (options?.lowLatency) {
-      Speech.speak(text);
-      return;
-    }
-
-    try {
-      const speech = await synthesizeSpeech(text);
-      const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
-      const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
-      await FileSystem.writeAsStringAsync(uri, speech.base64Audio, {
-        encoding: FileSystem.EncodingType.Base64,
-      });
-      speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
-      speechAudioPlayer.play();
-    } catch (error) {
-      console.warn('Server speech synthesis failed, falling back to device speech:', error);
-      Speech.speak(text);
-    }
+    const generation = speechQueueGeneration;
+    await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
   },
-  async speakQueued(text) {
-    if (text.trim()) {
-      Speech.speak(text);
+  speakQueued(text, options) {
+    if (!text.trim()) {
+      return Promise.resolve();
     }
+
+    const generation = speechQueueGeneration;
+    speechQueue = speechQueue.then(async () => {
+      if (generation !== speechQueueGeneration) {
+        return;
+      }
+      await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
+    });
+    return speechQueue;
   },
   async stop() {
+    speechQueueGeneration += 1;
+    speechQueue = Promise.resolve();
     if (speechAudioPlayer) {
       speechAudioPlayer.pause();
       speechAudioPlayer.remove();
       speechAudioPlayer = null;
     }
-    Speech.stop();
   },
   getNarrationPulseSeed() {
     return 0.12;

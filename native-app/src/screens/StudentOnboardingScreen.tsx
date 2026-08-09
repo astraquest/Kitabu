@@ -7,7 +7,6 @@ import {
   Image,
   Keyboard,
   KeyboardAvoidingView,
-  Linking,
   Modal,
   Platform,
   Pressable,
@@ -54,6 +53,11 @@ import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
+import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
+import {
+  getOnboardingStepMetadata,
+  type OnboardingIntroStep,
+} from '../onboarding/onboardingFlowRegistry';
 import {
   COUNTRY_OPTIONS,
   REGIONS_BY_COUNTRY as SHARED_REGIONS_BY_COUNTRY,
@@ -73,7 +77,6 @@ import {
   SchoolData,
 } from '../types/app';
 
-const WHATSAPP_ADMIN_PHONE = '254716175485';
 const MPESA_PHONE_ERROR = 'Enter a valid Safaricom M-Pesa number, for example 0716175485.';
 const MAX_ONBOARDING_SUBJECTS = 5;
 const LEARNER_MIN_AGE = 4;
@@ -180,9 +183,9 @@ const ONBOARDING_COLORS = {
   pro: '#235A8C',
   proDark: '#173B5C',
   proLight: '#E7EEF5',
-  textPrimary: '#1A1207',
-  textSecondary: '#5C4A2A',
-  textMuted: '#A08C6E',
+  textPrimary: '#123F59',
+  textSecondary: '#385D68',
+  textMuted: '#789197',
   danger: '#C0392B',
   dangerLight: '#FDECEA',
   white: '#FFFFFF',
@@ -232,31 +235,7 @@ type GoodNewsPlan = {
   benefits: GoodNewsBenefit[];
 };
 
-type IntroStep =
-  | 'language'
-  | 'mascot'
-  | 'rafiki'
-  | 'role'
-  | 'voice'
-  | 'need'
-  | 'name'
-  | 'gender'
-  | 'roleDetails'
-  | 'goal'
-  | 'goalConfirm'
-  | 'concerns'
-  | 'achieve'
-  | 'painBefore'
-  | 'painAfter'
-  | 'socialProof'
-  | 'resultProof'
-  | 'country'
-  | 'interests'
-  | 'reminder'
-  | 'setup'
-  | 'loading'
-  | 'signup'
-  | 'profileReady';
+type IntroStep = OnboardingIntroStep;
 
 type SignupStep = 'method' | 'email' | 'phone' | 'verify';
 type SignupMethod = 'email' | 'phone' | 'google';
@@ -398,7 +377,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Fast revision and playful practice.',
     },
     coachTips: ['Pick grade', 'Find school', 'M-Pesa optional'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.accentLight],
+    gradient: ['#F2FFFB', '#DDF8F2', '#BFEDE7'],
   },
   other: {
     eyebrow: 'Learning setup',
@@ -427,7 +406,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Quick help for learning and practice.',
     },
     coachTips: ['Pick level', 'Find school', 'M-Pesa optional'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.accentLight],
+    gradient: ['#F2FFFB', '#DDF8F2', '#BFEDE7'],
   },
   teacher: {
     eyebrow: 'Teacher setup',
@@ -456,7 +435,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Confident class planning and reporting.',
     },
     coachTips: ['Choose class', 'Link school', 'Billing ready'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.proLight],
+    gradient: ['#F2FCFF', '#E0F7F3', '#C7EDE9'],
   },
   parent: {
     eyebrow: 'Parent setup',
@@ -485,7 +464,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Steady family support and progress tracking.',
     },
     coachTips: ['Pick grade', 'Find school', 'Pay later'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.accentLight, ONBOARDING_COLORS.bgSoft],
+    gradient: ['#F2FFFB', '#D8F7EE', '#BFE9DF'],
   },
 };
 
@@ -557,17 +536,6 @@ const VOICE_OPTIONS: readonly VoiceOption[] = [
     sw: require('../assets/Judith-Cay-Kisw.mp3'),
   },
 ];
-
-function WhatsAppGlyph({ size = 18, color = '#FFFFFF' }: { size?: number; color?: string }) {
-  return (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-      <Path
-        fill={color}
-        d="M12.04 2.5c-5.26 0-9.54 4.28-9.54 9.55 0 1.68.44 3.32 1.28 4.77L2.5 21.5l4.82-1.26a9.5 9.5 0 0 0 4.72 1.2h.01c5.26 0 9.54-4.28 9.54-9.55a9.5 9.5 0 0 0-2.79-6.75 9.46 9.46 0 0 0-6.76-2.64m0 1.6c2.12 0 4.11.83 5.61 2.33a7.9 7.9 0 0 1 2.33 5.62c0 4.38-3.56 7.94-7.95 7.94a7.9 7.9 0 0 1-4.04-1.11l-.29-.17-2.86.75.76-2.79-.19-.3a7.9 7.9 0 0 1-1.21-4.22c0-4.38 3.56-7.94 7.93-7.94m4.59 9.97c-.25-.13-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.06s.88 2.39 1 2.56c.12.16 1.74 2.66 4.21 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29"
-      />
-    </Svg>
-  );
-}
 
 const ROLE_OPTIONS: readonly OnboardingRoleOption[] = [
   {
@@ -2008,6 +1976,7 @@ interface StudentOnboardingScreenProps {
   includeIntroChoices?: boolean;
   collectSignupCredentials?: boolean;
   externalPaymentsEnabled?: boolean;
+  onCreateSchool?: (input: { schoolName: string; county: string }) => Promise<SchoolData>;
   onRoleChange?: (role: PublicSignupRole) => void;
   onSubmit: (input: {
     gender: GenderOption;
@@ -2066,6 +2035,7 @@ export function StudentOnboardingScreen({
   includeIntroChoices = false,
   collectSignupCredentials = false,
   externalPaymentsEnabled = true,
+  onCreateSchool,
   onRoleChange,
   onSubmit,
 }: StudentOnboardingScreenProps) {
@@ -2113,6 +2083,10 @@ export function StudentOnboardingScreen({
   const [county, setCounty] = useState('');
   const [schoolQuery, setSchoolQuery] = useState('');
   const [schoolId, setSchoolId] = useState('');
+  const [manualSchoolName, setManualSchoolName] = useState('');
+  const [addSchoolOpen, setAddSchoolOpen] = useState(false);
+  const [isAddingSchool, setIsAddingSchool] = useState(false);
+  const [addSchoolError, setAddSchoolError] = useState<string | null>(null);
   const [mpesaPhoneNumber, setMpesaPhoneNumber] = useState('');
   const [signupStep, setSignupStep] = useState<SignupStep>('method');
   const [signupMethod, setSignupMethod] = useState<SignupMethod | null>(null);
@@ -2220,160 +2194,17 @@ export function StudentOnboardingScreen({
   const voicePreviewSourceCacheRef = useRef<Record<string, AudioSource>>({});
   const voicePreviewBlobUrlsRef = useRef<string[]>([]);
   const onboardingSessionIdRef = useRef(`onboarding-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`);
-  const introStepCount = includeIntroChoices ? 19 : 0;
-  const postSetupStepCount = includeIntroChoices ? 2 : 0;
-  const totalStepCount = includeIntroChoices
-    ? usesLearnerFlow
-      ? 25
-      : role === 'teacher'
-        ? 20
-        : 20
-    : introStepCount + 3 + postSetupStepCount;
-  const progressIndex = (() => {
-    if (!includeIntroChoices) {
-      return introStep === 'setup' ? step : introStepCount + step;
-    }
-
-    const sharedIntroIndex: Partial<Record<IntroStep, number>> = {
-      language: 0,
-      mascot: 1,
-      rafiki: 2,
-      role: 3,
-      voice: 4,
-      need: 5,
-      name: 6,
-    };
-    const sharedIndex = sharedIntroIndex[introStep];
-    if (sharedIndex !== undefined) {
-      return sharedIndex;
-    }
-
-    if (usesLearnerFlow) {
-      // PRD order: ... gender(8) → country(9) → countySchool(10) → grade(11) → subjects(12) → painBefore(13) ...
-      const studentIndex: Partial<Record<IntroStep, number>> = {
-        roleDetails: 7,
-        gender: 8,
-        country: 9,
-        painBefore: 13,
-        painAfter: 14,
-        goal: 15,
-        goalConfirm: 16,
-        concerns: 17,
-        achieve: 18,
-        interests: 19,
-        resultProof: 20,
-        reminder: 21,
-        loading: 22,
-        profileReady: 23,
-        signup: 24,
-      };
-      if (introStep === 'setup') {
-        // Traversal order is countySchool(step 2) → grade(step 0) → subjects(step 1).
-        return step === 2 ? 10 : step === 0 ? 11 : step === 1 ? 12 : 20;
-      }
-
-      return studentIndex[introStep] ?? 0;
-    }
-
-    const roleIndex: Partial<Record<IntroStep, number>> =
-      role === 'teacher'
-        ? {
-            // Order: gender(7) → country(8) → county/school(9) → grade(10) → subjects(11)
-            //        → goal(12) → concerns(13) → achieve(14) → resultProof(15) → reminder(16) ...
-            gender: 7,
-            country: 8,
-            roleDetails: 10,
-            goal: 12,
-            concerns: 13,
-            achieve: 14,
-            resultProof: 15,
-            reminder: 16,
-            loading: 17,
-            profileReady: 18,
-            signup: 19,
-          }
-        : {
-            gender: 7,
-            country: 8,
-            roleDetails: 10,
-            goal: 12,
-            concerns: 13,
-            achieve: 14,
-            resultProof: 15,
-            reminder: 16,
-            loading: 17,
-            profileReady: 18,
-            signup: 19,
-          };
-
-    if (introStep === 'setup') {
-      // Teacher/parent: county/school(step 1) = index 9, subject loop(step 0) = index 11.
-      return role === 'teacher' || role === 'parent' ? (step === 0 ? 11 : 9) : 9;
-    }
-
-    return roleIndex[introStep] ?? 0;
-  })();
+  const progressMetadata = getOnboardingStepMetadata({
+    role,
+    includeIntroChoices,
+    introStep,
+    setupStep: step,
+    roleStepOneTitle: content.stepOneKicker,
+  });
+  const totalStepCount = progressMetadata.totalStepCount;
+  const progressIndex = progressMetadata.progressIndex;
   const progressStepNumber = progressIndex + 1;
-  const progressTitle =
-    introStep === 'language'
-      ? 'Language'
-      : introStep === 'mascot'
-        ? 'Mascot'
-        : introStep === 'rafiki'
-          ? 'Rafiki'
-          : introStep === 'role'
-            ? 'Role'
-            : introStep === 'voice'
-            ? 'Voice'
-            : introStep === 'need'
-              ? 'Need'
-              : introStep === 'name'
-                ? 'Name'
-                : introStep === 'gender'
-                  ? 'Gender'
-                  : introStep === 'roleDetails'
-                  ? role === 'teacher'
-                    ? 'Classes'
-                    : role === 'parent'
-                      ? 'Children'
-                      : 'Age'
-                  : introStep === 'goal'
-                    ? 'Goal'
-                    : introStep === 'goalConfirm'
-                      ? 'Confirm'
-                      : introStep === 'concerns'
-                        ? 'Concern'
-                        : introStep === 'achieve'
-                          ? 'Achievement'
-                          : introStep === 'painBefore'
-                            ? 'Before'
-                            : introStep === 'painAfter'
-                              ? 'After'
-                              : introStep === 'socialProof'
-                                ? 'Proof'
-                                : introStep === 'resultProof'
-                                  ? 'Social proof'
-                              : introStep === 'country'
-                                ? 'Curriculum'
-                                : introStep === 'interests'
-                                  ? 'Interests'
-                                  : introStep === 'reminder'
-                                    ? 'Reminder'
-                                    : introStep === 'loading'
-                                      ? 'Building'
-                                      : introStep === 'profileReady'
-                                        ? 'Ready'
-                                        : introStep === 'signup'
-                                          ? 'Signup'
-                  : step === 0
-                    ? role === 'parent' && includeIntroChoices
-                      ? 'Subjects'
-                      : content.stepOneKicker
-                    : step === 1 && studentFullIntro
-                      ? 'Subjects'
-                    : step === 1 || (step === 2 && studentFullIntro)
-                      ? 'School'
-                      : 'Payments';
+  const progressTitle = progressMetadata.title;
   const progressAnnouncement = `Step ${progressStepNumber} of ${totalStepCount}, ${progressTitle}`;
   const reminderCoachTip =
     role === 'teacher' ? 'Class nudge' : role === 'parent' ? 'Family nudge' : 'Daily nudge';
@@ -3181,6 +3012,14 @@ export function StudentOnboardingScreen({
                                             ? 'Hifadhi akaunti yako'
                                             : 'Save your account'
                   : content.title;
+  const onboardingVoiceName = noVoice ? undefined : selectedVoiceName ?? 'Samora';
+  const narrationCue = buildPrimaryInstruction(
+    'student-onboarding',
+    `${introStep}-${step}`,
+    headerTitle,
+    onboardingVoiceName,
+  );
+  useGuidedNarration(narrationCue, Boolean(headerTitle));
   const headerBody =
     introStep === 'language'
       ? 'Start with the language that feels most natural. You can still learn across Kiswahili and English content.'
@@ -3275,7 +3114,7 @@ export function StudentOnboardingScreen({
     () => schools.find(school => school.id === schoolId) ?? null,
     [schoolId, schools],
   );
-  const selectedSchoolName = selectedSchool?.name ?? '';
+  const selectedSchoolName = selectedSchool?.name ?? manualSchoolName;
   const hasSelectedSchool = Boolean(selectedSchoolName);
   const regionMeta = REGIONS_BY_COUNTRY[countryCode] ?? REGIONS_BY_COUNTRY.KE;
   const regionLabel = swahiliIntro ? regionMeta.labelSw : regionMeta.label;
@@ -3567,6 +3406,7 @@ export function StudentOnboardingScreen({
       setCounty('');
       setSchoolId('');
       setSchoolQuery('');
+      setManualSchoolName('');
     }
   }, [county, countyOptions]);
 
@@ -4909,6 +4749,10 @@ export function StudentOnboardingScreen({
       setLocalError(null);
     }
 
+    if (manualSchoolName && manualSchoolName !== value) {
+      setManualSchoolName('');
+    }
+
     if (!schoolId) {
       return;
     }
@@ -4926,6 +4770,7 @@ export function StudentOnboardingScreen({
     setCounty(value);
     setSchoolQuery('');
     setSchoolId('');
+    setManualSchoolName('');
     setLocalError(null);
     setFocusedField(null);
     trackOnboardingSelection('county', value, value, { countryCode });
@@ -4937,6 +4782,7 @@ export function StudentOnboardingScreen({
   function handleClearSchoolSearch() {
     setSchoolQuery('');
     setSchoolId('');
+    setManualSchoolName('');
     setLocalError(null);
     setFocusedField('school');
     triggerHaptic('selection');
@@ -4945,6 +4791,7 @@ export function StudentOnboardingScreen({
   function handleSelectSchool(school: SchoolData) {
     setSchoolId(school.id);
     setSchoolQuery(school.name);
+    setManualSchoolName('');
     trackOnboardingSelection('school', school.id, school.name, {
       county: school.location,
       totalStudents: school.totalStudents,
@@ -5228,6 +5075,7 @@ export function StudentOnboardingScreen({
     if (value !== grade && schoolId && !studentFullIntro) {
       setSchoolId('');
       setSchoolQuery('');
+      setManualSchoolName('');
       setLocalError(null);
     }
   }
@@ -5270,19 +5118,45 @@ export function StudentOnboardingScreen({
     }
   }
 
-  async function handleRequestMissingSchool() {
-    setLocalError(null);
-    const message = [
-      "I couldn't find my school on Kitabu AI App",
-      county ? `County: ${county}` : null,
-    ].filter(Boolean).join('\n');
-    const whatsappUrl = `https://wa.me/${WHATSAPP_ADMIN_PHONE}?text=${encodeURIComponent(message)}`;
+  function handleOpenAddSchool() {
+    setAddSchoolError(null);
+    setManualSchoolName(schoolQuery.trim());
+    setSchoolPickerOpen(false);
+    setAddSchoolOpen(true);
+  }
 
+  async function handleAddSchool() {
+    const schoolName = manualSchoolName.trim().replace(/\s+/g, ' ');
+    if (schoolName.length < 2) {
+      setAddSchoolError('Enter your school name to continue.');
+      return;
+    }
+    if (!county) {
+      setAddSchoolError(`Select a ${regionLabel.toLowerCase()} first.`);
+      return;
+    }
+
+    setIsAddingSchool(true);
+    setAddSchoolError(null);
     try {
-      await Linking.openURL(whatsappUrl);
-    } catch {
-      triggerHaptic('warning');
-      setLocalError('Could not open WhatsApp. Message admin at 0716175485.');
+      const school = onCreateSchool
+        ? await onCreateSchool({ schoolName, county })
+        : null;
+      if (school) {
+        handleSelectSchool(school);
+      } else {
+        setSchoolId('');
+        setSchoolQuery(schoolName);
+        setManualSchoolName(schoolName);
+        trackOnboardingSelection('school', 'manual', schoolName, { county, manual: true });
+      }
+      setAddSchoolOpen(false);
+      triggerHaptic('success');
+    } catch (error) {
+      setAddSchoolError(error instanceof Error ? error.message : 'Could not add your school. Try again.');
+      triggerHaptic('error');
+    } finally {
+      setIsAddingSchool(false);
     }
   }
 
@@ -5589,10 +5463,19 @@ export function StudentOnboardingScreen({
 
   return (
     <LinearGradient
-      colors={[ONBOARDING_COLORS.white, ONBOARDING_COLORS.white]}
+      colors={content.gradient}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.screen}>
+      <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        pointerEvents="none"
+        style={styles.decorativeShapes}>
+        <View style={[styles.decorativeShape, styles.decorativeShapeTop]} />
+        <View style={[styles.decorativeShape, styles.decorativeShapeSide]} />
+        <View style={[styles.decorativeShape, styles.decorativeShapeBottom]} />
+      </View>
       <KeyboardAvoidingView
         behavior={Platform.select({ ios: 'padding', default: undefined })}
         keyboardVerticalOffset={insets.top}
@@ -5607,6 +5490,7 @@ export function StudentOnboardingScreen({
           ]}
           keyboardDismissMode={Platform.select({ ios: 'interactive', default: 'on-drag' })}
           keyboardShouldPersistTaps="handled"
+          contentInsetAdjustmentBehavior="automatic"
           showsVerticalScrollIndicator={false}
           testID="onboarding-scroll-view">
           {usesCompactIntroNav ? (
@@ -7893,17 +7777,113 @@ export function StudentOnboardingScreen({
                     );
                   })}
                   {filteredSchools.length === 0 ? (
-                    <Text
-                      accessibilityLabel="No matching schools"
-                      accessibilityLiveRegion="polite"
-                      role="status"
-                      style={styles.emptyText}>
-                      {county
-                        ? 'No match yet. You can ask admin to add your school.'
-                        : `Choose a ${regionLabel.toLowerCase()} first to find your school.`}
-                    </Text>
+                    <>
+                      <Text
+                        accessibilityLabel="No matching schools"
+                        accessibilityLiveRegion="polite"
+                        role="status"
+                        style={styles.emptyText}>
+                        {county
+                          ? 'No match yet. Add your school below.'
+                          : `Choose a ${regionLabel.toLowerCase()} first to find your school.`}
+                      </Text>
+                      {county ? (
+                        <Pressable
+                          accessibilityLabel="Add your school"
+                          accessibilityHint="Opens a form to add your school in the selected county"
+                          accessibilityRole="button"
+                          onPress={handleOpenAddSchool}
+                          style={({ pressed }) => [styles.addSchoolButton, pressed && styles.addSchoolButtonPressed]}
+                          testID="add-school-button">
+                          <Plus color={content.accent} size={17} strokeWidth={2.8} />
+                          <Text style={[styles.addSchoolButtonText, { color: content.accent }]}>Add Your School</Text>
+                        </Pressable>
+                      ) : null}
+                    </>
                   ) : null}
                       </ScrollView>
+                    </Pressable>
+                  </Pressable>
+                </Modal>
+
+                <Modal
+                  animationType="fade"
+                  onRequestClose={() => {
+                    if (!isAddingSchool) {
+                      setAddSchoolOpen(false);
+                      setAddSchoolError(null);
+                    }
+                  }}
+                  transparent
+                  testID="add-school-modal"
+                  visible={addSchoolOpen}>
+                  <Pressable
+                    accessibilityLabel="Close add school form"
+                    style={styles.pickerBackdrop}
+                    onPress={() => {
+                      if (!isAddingSchool) {
+                        setAddSchoolOpen(false);
+                        setAddSchoolError(null);
+                      }
+                    }}>
+                    <Pressable style={styles.schoolPickerSheet} onPress={() => undefined}>
+                      <View style={styles.schoolPickerHeader}>
+                        <Text style={styles.schoolPickerTitle}>Add Your School</Text>
+                        <Pressable
+                          accessibilityLabel="Cancel add school"
+                          accessibilityRole="button"
+                          disabled={isAddingSchool}
+                          onPress={() => {
+                            setAddSchoolOpen(false);
+                            setAddSchoolError(null);
+                          }}
+                          style={styles.schoolPickerDone}>
+                          <Text style={[styles.schoolPickerDoneText, { color: content.accent }]}>Cancel</Text>
+                        </Pressable>
+                      </View>
+                      <Text style={styles.addSchoolCounty}>Selected county: {county}</Text>
+                      <Text style={styles.addSchoolDescription}>
+                        Enter your school name and we’ll save it for this county.
+                      </Text>
+                      <TextInput
+                        accessibilityLabel="School name"
+                        autoCapitalize="words"
+                        autoComplete="organization"
+                        autoCorrect={false}
+                        editable={!isAddingSchool}
+                        onChangeText={value => {
+                          setManualSchoolName(value);
+                          setAddSchoolError(null);
+                        }}
+                        onSubmitEditing={handleAddSchool}
+                        placeholder="Enter school name"
+                        placeholderTextColor={ONBOARDING_COLORS.textMuted}
+                        returnKeyType="done"
+                        selectionColor={content.accent}
+                        style={[styles.input, styles.addSchoolInput, addSchoolError && styles.addSchoolInputError]}
+                        value={manualSchoolName}
+                      />
+                      {addSchoolError ? (
+                        <Text accessibilityLiveRegion="polite" role="alert" style={styles.addSchoolError}>
+                          {addSchoolError}
+                        </Text>
+                      ) : null}
+                      <Pressable
+                        accessibilityLabel="Save school and continue"
+                        accessibilityRole="button"
+                        accessibilityState={{ busy: isAddingSchool, disabled: isAddingSchool }}
+                        disabled={isAddingSchool}
+                        onPress={handleAddSchool}
+                        style={({ pressed }) => [
+                          styles.addSchoolSubmitButton,
+                          { backgroundColor: content.accent },
+                          pressed && styles.addSchoolSubmitButtonPressed,
+                          isAddingSchool && styles.addSchoolSubmitButtonDisabled,
+                        ]}
+                        testID="save-school-button">
+                        {isAddingSchool ? <ActivityIndicator color={ONBOARDING_COLORS.white} size="small" /> : null}
+                        <Text style={styles.addSchoolSubmitText}>{isAddingSchool ? 'Saving...' : 'Save and Continue'}</Text>
+                      </Pressable>
                     </Pressable>
                   </Pressable>
                 </Modal>
@@ -7932,22 +7912,20 @@ export function StudentOnboardingScreen({
 
                 {county && !hasSelectedSchool ? (
                   <>
-                    <Text style={styles.whatsAppHelpText}>
+                    <Text style={styles.addSchoolHelpText}>
                       {swahiliIntro
                         ? 'Hujapata shule yako?'
                         : "Can't find your school?"}
                     </Text>
                     <Pressable
-                      accessibilityLabel="Request school on WhatsApp"
-                      accessibilityHint="Opens WhatsApp to message Kitabu admin"
+                      accessibilityLabel="Add your school"
+                      accessibilityHint="Opens a form to add your school in the selected county"
                       accessibilityRole="button"
-                      onPress={handleRequestMissingSchool}
-                      style={({ pressed }) => [styles.whatsAppButton, pressed && styles.whatsAppButtonPressed]}
+                      onPress={handleOpenAddSchool}
+                      style={({ pressed }) => [styles.addSchoolButton, pressed && styles.addSchoolButtonPressed]}
                       testID="missing-school-link">
-                      <WhatsAppGlyph size={18} />
-                      <Text style={styles.whatsAppButtonText}>
-                        {swahiliIntro ? 'Iombe kupitia WhatsApp' : 'Request it on WhatsApp'}
-                      </Text>
+                      <Plus color={content.accent} size={18} strokeWidth={2.8} />
+                      <Text style={[styles.addSchoolButtonText, { color: content.accent }]}>Add Your School</Text>
                     </Pressable>
                   </>
                 ) : null}
@@ -8615,7 +8593,12 @@ export function StudentOnboardingScreen({
               </Text>
             ) : null}
 
-            {!usesInlineSignupFlow && !usesAutoAdvanceChoice && introStep !== 'loading' ? (
+          </View>
+        </ScrollView>
+        {!usesInlineSignupFlow && !usesAutoAdvanceChoice && introStep !== 'loading' ? (
+          <View
+            style={[styles.footerDock, { paddingBottom: Math.max(insets.bottom, 12) }]}
+            accessibilityElementsHidden={false}>
             <View
               testID="onboarding-footer"
               style={[styles.footerRow, footerCompactLayout && styles.footerRowCompact]}>
@@ -8692,9 +8675,8 @@ export function StudentOnboardingScreen({
                 )}
               </Pressable>
             </View>
-            ) : null}
           </View>
-        </ScrollView>
+        ) : null}
       </KeyboardAvoidingView>
     </LinearGradient>
   );
@@ -8704,12 +8686,42 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
+  decorativeShapes: {
+    ...StyleSheet.absoluteFillObject,
+    overflow: 'hidden',
+  },
+  decorativeShape: {
+    borderRadius: 999,
+    opacity: 0.48,
+    position: 'absolute',
+  },
+  decorativeShapeTop: {
+    backgroundColor: '#FFFFFF',
+    height: 220,
+    right: -84,
+    top: -92,
+    width: 220,
+  },
+  decorativeShapeSide: {
+    backgroundColor: '#A9E8DE',
+    height: 190,
+    left: -126,
+    top: 280,
+    width: 190,
+  },
+  decorativeShapeBottom: {
+    backgroundColor: '#FFFFFF',
+    bottom: -118,
+    height: 230,
+    right: -84,
+    width: 230,
+  },
   keyboardWrap: {
     flex: 1,
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 18,
+    paddingBottom: 24,
     paddingHorizontal: 20,
     paddingTop: 22,
   },
@@ -9272,9 +9284,9 @@ const styles = StyleSheet.create({
   },
   stepTitle: {
     color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 23,
+    fontSize: 25,
     fontWeight: '900',
-    lineHeight: 28,
+    lineHeight: 30,
     marginTop: 10,
     textAlign: 'center',
   },
@@ -9287,9 +9299,9 @@ const styles = StyleSheet.create({
   },
   stepText: {
     color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 14,
-    lineHeight: 21,
-    marginTop: 6,
+    fontSize: 15,
+    lineHeight: 22,
+    marginTop: 8,
   },
   stepTextCompact: {
     fontSize: 13,
@@ -9337,9 +9349,14 @@ const styles = StyleSheet.create({
   introChoiceCard: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     padding: 16,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
   },
   genderChoiceGrid: {
     flexDirection: 'row',
@@ -9560,10 +9577,15 @@ const styles = StyleSheet.create({
   voiceChoice: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    elevation: 2,
     minHeight: 76,
     padding: 12,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
     width: '47%',
   },
   voiceChoiceTitle: {
@@ -9582,13 +9604,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     flexDirection: 'row',
     gap: 12,
     marginTop: 14,
     minHeight: 72,
     padding: 12,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
   },
   textOnlyIcon: {
     alignItems: 'center',
@@ -9767,11 +9794,16 @@ const styles = StyleSheet.create({
   needChoice: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     minHeight: 112,
     padding: 16,
     position: 'relative',
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
   },
   roleChoiceLocked: {
     opacity: 0.56,
@@ -9791,13 +9823,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.bgSoft,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
+    borderRadius: 22,
     borderWidth: 1.5,
+    elevation: 2,
     justifyContent: 'center',
     minHeight: 124,
     paddingHorizontal: 10,
     paddingVertical: 18,
     position: 'relative',
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
     width: '48%',
   },
   interestCard: {
@@ -11663,17 +11700,19 @@ const styles = StyleSheet.create({
     marginTop: 0,
     textAlign: 'right',
   },
-  whatsAppHelpText: {
+  addSchoolHelpText: {
     color: ONBOARDING_COLORS.textSecondary,
     fontSize: 13,
     fontWeight: '600',
     marginTop: 14,
     textAlign: 'center',
   },
-  whatsAppButton: {
+  addSchoolButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: '#25D366',
+    backgroundColor: ONBOARDING_COLORS.white,
+    borderColor: ONBOARDING_COLORS.border,
+    borderWidth: 1.5,
     borderRadius: 14,
     flexDirection: 'row',
     gap: 8,
@@ -11683,13 +11722,58 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 12,
   },
-  whatsAppButtonPressed: {
-    backgroundColor: '#1FAE54',
+  addSchoolButtonPressed: {
+    opacity: 0.78,
   },
-  whatsAppButtonText: {
-    color: ONBOARDING_COLORS.white,
+  addSchoolButtonText: {
+    color: ONBOARDING_COLORS.textPrimary,
     fontSize: 14,
     fontWeight: '800',
+  },
+  addSchoolCounty: {
+    color: ONBOARDING_COLORS.textPrimary,
+    fontSize: 14,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
+  addSchoolDescription: {
+    color: ONBOARDING_COLORS.textSecondary,
+    fontSize: 13,
+    lineHeight: 19,
+    marginBottom: 12,
+  },
+  addSchoolInput: {
+    marginTop: 0,
+  },
+  addSchoolInputError: {
+    borderColor: ONBOARDING_COLORS.danger,
+  },
+  addSchoolError: {
+    color: ONBOARDING_COLORS.danger,
+    fontSize: 12,
+    fontWeight: '700',
+    marginTop: 8,
+  },
+  addSchoolSubmitButton: {
+    alignItems: 'center',
+    borderRadius: 14,
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
+    marginTop: 16,
+    minHeight: 48,
+    paddingHorizontal: 16,
+  },
+  addSchoolSubmitButtonPressed: {
+    opacity: 0.86,
+  },
+  addSchoolSubmitButtonDisabled: {
+    opacity: 0.6,
+  },
+  addSchoolSubmitText: {
+    color: ONBOARDING_COLORS.white,
+    fontSize: 14,
+    fontWeight: '900',
   },
   errorText: {
     color: ONBOARDING_COLORS.danger,
@@ -11701,8 +11785,8 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     flexDirection: 'row',
     gap: 12,
-    marginTop: 16,
-    paddingTop: 16,
+    marginTop: 0,
+    paddingTop: 12,
     width: '100%',
   },
   footerRowCompact: {
@@ -11712,9 +11796,9 @@ const styles = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
+    borderRadius: 24,
     justifyContent: 'center',
-    minHeight: 54,
+    minHeight: 58,
     paddingHorizontal: 10,
     width: 132,
   },
@@ -11736,11 +11820,11 @@ const styles = StyleSheet.create({
   primaryButton: {
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.primary,
-    borderRadius: 18,
+    borderRadius: 24,
     elevation: 4,
     flex: 1,
     justifyContent: 'center',
-    minHeight: 54,
+    minHeight: 58,
     paddingHorizontal: 12,
     shadowColor: ONBOARDING_COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
@@ -11748,7 +11832,7 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
   },
   primaryButtonCompact: {
-    minHeight: 44,
+    minHeight: 48,
     paddingHorizontal: 10,
   },
   primaryButtonContent: {
@@ -11767,9 +11851,15 @@ const styles = StyleSheet.create({
   primaryText: {
     color: ONBOARDING_COLORS.white,
     flexShrink: 1,
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: '900',
     lineHeight: 20,
     textAlign: 'center',
+  },
+  footerDock: {
+    backgroundColor: 'rgba(242,255,251,0.9)',
+    borderTopColor: 'rgba(255,255,255,0.7)',
+    borderTopWidth: 1,
+    paddingHorizontal: 20,
   },
 });

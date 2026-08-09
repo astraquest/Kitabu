@@ -26,7 +26,6 @@ import {
   generateTextWithFallback,
   resolveAiExecutionPlans,
   resolveAudioTranscriptionPlans,
-  synthesizeSpeechWithGroq,
   transcribeAudio,
   usdMicrosToKshCents
 } from './ai.js';
@@ -55,6 +54,12 @@ import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearn
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
+  enqueueSpeechCues,
+  getOrCreateDurableSpeech,
+  spokenCuesFromQuestions,
+  TTS_QUEUE_MODE
+} from './speechQueue.js';
+import {
   type CurriculumStrandInput,
   createAdminManagedUser,
   createAiGenerationRun,
@@ -75,6 +80,7 @@ import {
   createPaymentRequest,
   createPhoneVerificationCode,
   createEmptyCurriculumSubject,
+  createOrReuseOnboardingSchool,
   createSchool,
   createSchoolDiscount,
   deleteBannerAnnouncement,
@@ -125,6 +131,7 @@ import {
   getSubscriptionAiSpendKshCents,
   getTotpSecret,
   getUserTotpStatus,
+  type OnboardingPersonalization,
   hasSuccessfulPayments,
   invalidateEmailVerificationTokensForUser,
   invalidatePasswordResetTokensForUser,
@@ -244,6 +251,7 @@ import {
   type SchoolBillingPlanCode
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
+import { isSupportedOnboardingCounty } from './onboardingSchool.js';
 import {
   getProgressiveLessonPrivateDefinition,
   gradeProgressiveLessonDefinitionStep,
@@ -687,6 +695,49 @@ const announcementParamsSchema = z.object({
   announcementId: z.string().uuid()
 });
 
+const onboardingPersonalizationKeySchema = z
+  .string()
+  .trim()
+  .min(1)
+  .max(80)
+  .regex(/^[a-z][a-z0-9_-]*$/, 'Personalization keys must be lowercase identifiers');
+
+const onboardingPersonalizationChildSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  age: z.string().trim().min(1).max(40),
+  grade: z.string().trim().min(1).max(40),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(12).optional()
+}).strict();
+
+const onboardingPersonalizationSchema = z.object({
+  version: z.literal(1),
+  languageCode: z.enum(['en', 'sw']).optional(),
+  role: z.enum(['student', 'teacher', 'parent', 'other']).optional(),
+  displayName: z.string().trim().min(2).max(120).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
+  voiceName: z.enum(['Samora', 'Barake', 'Bella', 'Judith']).optional(),
+  noVoice: z.boolean().optional(),
+  needKey: z.enum(['exam', 'grades', 'resources', 'results', 'support', 'progress', 'learn', 'help']).optional(),
+  goalKey: onboardingPersonalizationKeySchema.optional(),
+  concernKey: onboardingPersonalizationKeySchema.optional(),
+  achievementKey: onboardingPersonalizationKeySchema.optional(),
+  interestKeys: z.array(onboardingPersonalizationKeySchema).max(12).optional(),
+  age: z.string().trim().min(1).max(40).optional(),
+  children: z.array(onboardingPersonalizationChildSchema).max(8).optional(),
+  taughtGrades: z.array(z.string().trim().min(1).max(40)).max(24).optional(),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
+  selectedSubjectIds: z.array(z.string().trim().min(1).max(120)).max(20).optional(),
+  reminderEnabled: z.boolean().optional(),
+  county: z.string().trim().min(2).max(80).optional(),
+  school: z.string().trim().min(2).max(120).optional(),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional()
+}).strict().superRefine((value, context) => {
+  if (JSON.stringify(value).length > 16000) {
+    context.addIssue({ code: 'custom', message: 'Onboarding personalization is too large' });
+  }
+});
+
 const onboardingSchema = z.object({
   schoolId: z.string().uuid().nullable().optional(),
   gender: z.enum(['male', 'female', 'not_specified']),
@@ -696,7 +747,8 @@ const onboardingSchema = z.object({
   mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
   countryCode: z.string().trim().min(2).max(10).optional(),
   curriculumCode: z.string().trim().min(2).max(40).optional(),
-  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
+  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
+  onboardingPersonalization: onboardingPersonalizationSchema.optional()
 });
 
 const subjectDisplayPreferencesSchema = z.object({
@@ -1535,9 +1587,23 @@ const transcribeAudioSchema = z.object({
 });
 
 const synthesizeSpeechSchema = z.object({
-  text: z.string().trim().min(1).max(200),
-  voice: z.string().trim().min(1).max(40).optional()
+  text: z.string().trim().min(1).max(4_000),
+  voice: z.string().trim().min(1).max(40)
 });
+
+const onboardingSchoolSchema = z.object({
+  schoolName: z.string().trim().min(2).max(120),
+  county: z.string().trim().min(2).max(80)
+}).superRefine((value, context) => {
+  if (!isSupportedOnboardingCounty(value.county)) {
+    context.addIssue({
+      code: 'custom',
+      path: ['county'],
+      message: 'Select a supported county before adding a school'
+    });
+  }
+});
+
 
 const curriculumItemSchema = z.object({
   id: z.string().optional(),
@@ -1926,7 +1992,11 @@ export function buildServer(options: BuildServerOptions = {}) {
         status: 'unhealthy',
         checks: {
           database,
-          redis: redisHealth
+          redis: redisHealth,
+          tts: {
+            mode: TTS_QUEUE_MODE,
+            workerEnabled: appConfig.KITABU_TTS_WORKER_ENABLED
+          }
         }
       });
     }
@@ -1945,7 +2015,11 @@ export function buildServer(options: BuildServerOptions = {}) {
       },
       checks: {
         database,
-        redis: redisHealth
+        redis: redisHealth,
+        tts: {
+          mode: TTS_QUEUE_MODE,
+          workerEnabled: appConfig.KITABU_TTS_WORKER_ENABLED
+        }
       }
     };
   });
@@ -2093,6 +2167,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           countryCode: args.user.countryCode ?? 'KEN',
           curriculumCode: args.user.curriculumCode ?? 'CBC',
           onboardingCompleted: Boolean(args.user.onboardingCompleted),
+          onboardingPersonalization: args.user.onboardingPersonalization ?? null,
           mustRotatePassword: Boolean(args.user.mustRotatePassword),
           isBreakGlass: Boolean(args.user.isBreakGlass)
         }
@@ -2113,6 +2188,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           countryCode: args.user.country_code,
           curriculumCode: args.user.curriculum_code,
           onboardingCompleted: args.user.onboarding_completed,
+          onboardingPersonalization: args.user.onboarding_personalization,
           mustRotatePassword: args.user.must_rotate_password,
           isBreakGlass: args.user.is_break_glass
         };
@@ -2137,7 +2213,8 @@ export function buildServer(options: BuildServerOptions = {}) {
         grade: normalizedUser.grade,
         countryCode: normalizedUser.countryCode,
         curriculumCode: normalizedUser.curriculumCode,
-        onboardingCompleted: normalizedUser.onboardingCompleted
+        onboardingCompleted: normalizedUser.onboardingCompleted,
+        onboardingPersonalization: normalizedUser.onboardingPersonalization
       },
       authState: {
         mustRotatePassword: enforceProductionBreakGlassPolicy
@@ -3303,7 +3380,7 @@ Requirements:
     const feature = 'speech_synthesis';
     const promptVersion = resolvePromptVersion(feature);
     const schemaVersion = getFeatureSchemaVersion(feature);
-    const model = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL;
+    const model = appConfig.KITABU_GEMINI_TTS_MODEL;
     const promptHash = hashStableJson({
       feature,
       promptVersion,
@@ -3318,10 +3395,11 @@ Requirements:
 
     try {
       const startedAt = Date.now();
-      const result = await synthesizeSpeechWithGroq({
+      const durableSpeech = await getOrCreateDurableSpeech({
         text: args.body.text,
-        voice: args.body.voice
+        avatarVoice: args.body.voice
       });
+      const result = durableSpeech.audio;
       const latencyMs = Date.now() - startedAt;
       const outputHash = sha256Text(result.base64Audio);
 
@@ -3332,7 +3410,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider: 'groq',
+          provider: 'google',
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3341,8 +3419,8 @@ Requirements:
           totalTokens: args.body.text.length,
           estimatedCostUsdMicros: 0,
           estimatedCostKshCents: 0,
-          cacheStatus: 'bypassed',
-          cacheKey: null,
+          cacheStatus: durableSpeech.cacheHit ? 'hit' : 'stored',
+          cacheKey: durableSpeech.artifactKey,
           promptHash,
           inputHash,
           outputHash
@@ -3350,7 +3428,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider: 'groq',
+          provider: 'google',
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3366,7 +3444,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider: 'groq',
+          provider: 'google',
           model: result.model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -3392,7 +3470,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider: 'groq',
+          provider: 'google',
           model,
           status: 'failed',
           latencyMs: 0,
@@ -3409,7 +3487,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider: 'groq',
+          provider: 'google',
           model,
           status: 'failed',
           latencyMs: 0,
@@ -3425,7 +3503,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider: 'groq',
+          provider: 'google',
           model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -5239,6 +5317,10 @@ Return valid JSON with this shape:
         pageCount: pages.length
       });
     });
+    void enqueueSpeechCues(
+      pages.map(page => `${page.title}. ${page.content}`),
+      'curriculum_lesson_generation'
+    ).catch(error => request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Lesson TTS enqueue failed'));
 
     return {
       subStrandId: params.subStrandId,
@@ -5314,6 +5396,11 @@ Return valid JSON with this shape:
     if (!parsed.questions?.length) {
       return reply.serviceUnavailable('AI quiz generation did not return questions');
     }
+
+    void enqueueSpeechCues(
+      spokenCuesFromQuestions(parsed.questions),
+      'curriculum_quiz_generation'
+    ).catch(error => request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Quiz TTS enqueue failed'));
 
     return {
       subStrandId: params.subStrandId,
@@ -5952,6 +6039,41 @@ Return valid JSON with this shape:
     };
   });
 
+  app.post('/onboarding/schools', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const body = onboardingSchoolSchema.parse(request.body);
+    const result = await withTransaction(async client => {
+      const school = await createOrReuseOnboardingSchool(client, {
+        name: body.schoolName,
+        county: body.county
+      });
+      await createAuditLog(
+        client,
+        request.user!.id,
+        school.schoolId,
+        'auth.onboarding.school.created',
+        { schoolName: body.schoolName, county: body.county, reused: school.reused },
+        'school',
+        school.schoolId
+      );
+      return school;
+    });
+
+    const school = await findSchoolById(result.schoolId);
+    if (!school) {
+      return reply.notFound('School could not be loaded after creation');
+    }
+
+    return reply.status(result.reused ? 200 : 201).send({
+      school: serializeSchool(school),
+      reused: result.reused
+    });
+  });
+
   app.get('/app/banner', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
@@ -6382,6 +6504,11 @@ Return valid JSON with this shape:
 
       return { assignmentId: createdAssignmentId, parentRecipients };
     });
+
+    void enqueueSpeechCues(
+      [body.title, body.description, ...spokenCuesFromQuestions(body.questions)],
+      'teacher_assignment'
+    ).catch(error => request.log.warn({ err: error }, 'Assignment TTS enqueue failed'));
 
     const dueLabel = body.dueDate
       ? ` Due ${new Date(body.dueDate).toLocaleDateString('en-KE', {
@@ -6983,7 +7110,8 @@ Return valid JSON with this shape:
         curriculumCode: curriculumScope.curriculumCode,
         subjects: body.subjects,
         subjectIds: body.subjectIds,
-        mpesaPhoneNumber: normalizedPhone
+        mpesaPhoneNumber: normalizedPhone,
+        onboardingPersonalization: body.onboardingPersonalization as OnboardingPersonalization | undefined
       });
       await createAuditLog(client, request.user!.id, body.schoolId ?? null, 'auth.onboarding.completed', {
         grade: body.grade,
@@ -7032,7 +7160,8 @@ Return valid JSON with this shape:
         grade: refreshedUser.grade ?? null,
         countryCode: refreshedUser.countryCode ?? 'KEN',
         curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
-        onboardingCompleted: refreshedUser.onboardingCompleted
+        onboardingCompleted: refreshedUser.onboardingCompleted,
+        onboardingPersonalization: refreshedUser.onboardingPersonalization ?? null
       }
     };
   });
@@ -8108,6 +8237,18 @@ Return valid JSON with this shape:
         return reply.status(422).send({
           message: 'Extra practice could not be safely prepared. Continue with the lesson activity.'
         });
+      }
+    }
+
+    if (body.feature === 'quiz_generation' || body.feature === 'quizme' || body.feature === 'curriculum_quiz_generation') {
+      try {
+        const parsed = JSON.parse(result.text) as { questions?: Array<{ text?: string }> };
+        void enqueueSpeechCues(
+          spokenCuesFromQuestions(parsed.questions ?? []),
+          body.feature
+        ).catch(error => request.log.warn({ err: error, feature: body.feature }, 'Generated quiz TTS enqueue failed'));
+      } catch {
+        request.log.debug({ feature: body.feature }, 'Generated quiz was not JSON; skipped TTS enqueue');
       }
     }
 

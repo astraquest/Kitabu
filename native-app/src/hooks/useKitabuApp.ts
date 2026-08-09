@@ -46,6 +46,8 @@ import {
   authenticateWithGoogleToken,
 } from '../services/authService';
 import { requestGoogleIdToken } from '../services/googleAuthService';
+import { saveNarrationPreference } from '../services/assessmentNarrationService';
+import { setAssessmentSoundConsent } from '../components/AssessmentNarrationControls';
 import { areExternalPaymentsEnabled } from '../services/runtimeConfig';
 import {
   createAdminAnnouncement,
@@ -716,6 +718,7 @@ export function useKitabuApp() {
     useState<Flashcard[]>(INITIAL_FLASHCARDS);
   const [generatedQuizQuestions, setGeneratedQuizQuestions] =
     useState<Question[]>(INITIAL_QUIZ_QUESTIONS);
+  const [generatedQuizNarrationSessionId, setGeneratedQuizNarrationSessionId] = useState<string | null>(null);
   const [curriculumData, setCurriculumData] = useState<
     Record<string, LearningStrand[]>
   >(INITIAL_CURRICULUM_DATA);
@@ -2225,6 +2228,13 @@ export function useKitabuApp() {
         curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
       });
       setAuthSession(nextSession);
+      if (nextSession.user.roles.includes('student')) {
+        setAssessmentSoundConsent(Boolean(resolvedVoiceName && !noVoice)).catch(() => undefined);
+        saveNarrationPreference({
+          selectedProfile: resolvedVoiceName ?? 'Samora',
+          enabled: Boolean(resolvedVoiceName && !noVoice)
+        }).catch(() => undefined);
+      }
       if (isOnboardingMascotKey(resolvedMascotKey)) {
         setOnboardingMascotKey(resolvedMascotKey);
       }
@@ -3546,6 +3556,7 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
+    setGeneratedQuizNarrationSessionId(null);
     setQuizGenerationProgress({ percentage: 0, stage: 'Preparing your quiz' });
     setQuizSource('quiz_me');
     setActiveQuizConfig(config);
@@ -3566,6 +3577,7 @@ export function useKitabuApp() {
           }
 
           setGeneratedQuizQuestions(result.questions);
+          setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
           setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
           setMessages([
             {
@@ -3618,6 +3630,7 @@ export function useKitabuApp() {
         }
 
         setGeneratedQuizQuestions(result.questions);
+        setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
         setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
         navigateTo('take_quiz');
       })
@@ -3649,6 +3662,7 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
+    setGeneratedQuizNarrationSessionId(null);
 
     const currentStrand = selectedSubjectStrands[activeStrandIndex];
     const completedSubStrand = currentStrand?.subStrands.find(sub => sub.isCompleted);
@@ -3676,6 +3690,7 @@ export function useKitabuApp() {
       }
 
       setGeneratedQuizQuestions(result.questions);
+      setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
       setQuizSource('subject');
       navigateTo('take_quiz');
     } catch (error) {
@@ -4238,6 +4253,7 @@ export function useKitabuApp() {
       quizGenerationProgress,
       generatedFlashcards,
       generatedQuizQuestions,
+      generatedQuizNarrationSessionId,
       selectedSubjectStrands,
       hasStudied,
       curriculumData,

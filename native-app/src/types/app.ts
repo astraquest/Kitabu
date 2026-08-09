@@ -188,6 +188,7 @@ export type QuestionType = 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
 
 export interface Question {
   id: number;
+  bankId?: string;
   type: QuestionType;
   text: string;
   options?: string[];

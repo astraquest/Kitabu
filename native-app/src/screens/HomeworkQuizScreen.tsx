@@ -3,6 +3,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { Info, Mic, RotateCcw, Square, X } from 'lucide-react-native';
 
 import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
@@ -323,6 +324,12 @@ export function HomeworkQuizScreen({
         <View style={styles.questionPanel}>
           <Text style={styles.questionType}>{currentQuestion.type}</Text>
           <Text style={styles.questionText}>{currentQuestion.text}</Text>
+          <AssessmentNarrationControls
+            descriptorId={`homework:${assignment.id}:${currentQuestion.id}`}
+            nextDescriptorIds={assignment.questions.slice(currentQuestionIndex + 1, currentQuestionIndex + 3).map(question =>
+              `homework:${assignment.id}:${question.id}`
+            )}
+          />
 
           {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
             options.map((option, index) => {
@@ -444,6 +451,10 @@ export function HomeworkQuizScreen({
               </Pressable>
             </View>
             <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
+            <AssessmentNarrationControls
+              descriptorId={`homework:${assignment.id}:${currentQuestion.id}`}
+              segment="explanation"
+            />
           </View>
         ) : null}
       </ScrollView>

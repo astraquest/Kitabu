@@ -18,6 +18,7 @@ import {
 } from 'lucide-react-native';
 
 import { WeeklyExamPayload } from '../types/app';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 
 interface WeeklyExamScreenProps {
   data: WeeklyExamPayload | null;
@@ -150,6 +151,10 @@ export function WeeklyExamScreen({
       <ScrollView contentContainerStyle={styles.examContent} showsVerticalScrollIndicator={false}>
         <Text style={styles.subjectLabel}>{question.subjectName}</Text>
         <Text style={styles.questionText}>{question.prompt}</Text>
+        <AssessmentNarrationControls
+          descriptorId={`weekly:${question.id}`}
+          nextDescriptorIds={data.exam.questions.slice(questionIndex + 1, questionIndex + 3).map(item => `weekly:${item.id}`)}
+        />
         <View style={styles.options}>
           {question.options.map((option, index) => {
             const selected = answers[question.id] === option;
@@ -296,9 +301,11 @@ function ExamResults({
               <Text style={styles.reviewNumber}>Question {index + 1} · {question.subjectName}</Text>
             </View>
             <Text style={styles.reviewQuestion}>{question.prompt}</Text>
+            <AssessmentNarrationControls descriptorId={`weekly:${question.id}`} />
             <Text style={styles.reviewAnswer}>Your answer: {answer?.answer || 'No answer'}</Text>
             {!answer?.isCorrect ? <Text style={styles.correctAnswer}>Correct: {question.correctAnswer}</Text> : null}
             <Text style={styles.explanation}>{question.explanation}</Text>
+            <AssessmentNarrationControls descriptorId={`weekly:${question.id}`} segment="explanation" />
           </View>
         );
       })}

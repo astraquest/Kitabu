@@ -21,6 +21,7 @@ import {
   submitProgressiveDiagnosticAnswer,
 } from '../services/diagnosticService';
 import { triggerHaptic } from '../services/haptics';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { DiagnosticQuestion, DiagnosticResult, OnboardingMascotKey } from '../types/app';
 
 const HIDDEN_CONFIDENCE_SCORE = 3;
@@ -340,6 +341,12 @@ export function DiagnosticScreen({
             style={[styles.questionText, compactLayout && styles.questionTextCompact]}>
             {currentQuestion.prompt}
           </Text>
+          <AssessmentNarrationControls
+            descriptorId={`${mode === 'progressive' ? `progressive:${subjectId}:${currentQuestion.id}` : `diagnostic:${currentQuestion.id}`}`}
+            nextDescriptorIds={questions.slice(currentIndex + 1, currentIndex + 3).map(question =>
+              mode === 'progressive' ? `progressive:${subjectId}:${question.id}` : `diagnostic:${question.id}`
+            )}
+          />
           <View style={[styles.options, compactLayout && styles.optionsCompact]}>
             {currentQuestion.options.map(option => {
               const selected = selectedAnswer === option;

@@ -110,4 +110,4 @@ jobs:
       - run: npm run typecheck
       - run: npm test -- --runInBand --ci --forceExit
       - run: npm run lint -- --max-warnings=0
-      - run: npm audit --omit=dev --omit=optional --audit-level=high
+      - run: npm run security:audit

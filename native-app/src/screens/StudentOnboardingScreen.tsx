@@ -181,9 +181,9 @@ const ONBOARDING_COLORS = {
   pro: '#235A8C',
   proDark: '#173B5C',
   proLight: '#E7EEF5',
-  textPrimary: '#1A1207',
-  textSecondary: '#5C4A2A',
-  textMuted: '#A08C6E',
+  textPrimary: '#123F59',
+  textSecondary: '#385D68',
+  textMuted: '#789197',
   danger: '#C0392B',
   dangerLight: '#FDECEA',
   white: '#FFFFFF',
@@ -399,7 +399,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Fast revision and playful practice.',
     },
     coachTips: ['Pick grade', 'Find school', 'M-Pesa optional'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.accentLight],
+    gradient: ['#F2FFFB', '#DDF8F2', '#BFEDE7'],
   },
   other: {
     eyebrow: 'Learning setup',
@@ -428,7 +428,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Quick help for learning and practice.',
     },
     coachTips: ['Pick level', 'Find school', 'M-Pesa optional'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.accentLight],
+    gradient: ['#F2FFFB', '#DDF8F2', '#BFEDE7'],
   },
   teacher: {
     eyebrow: 'Teacher setup',
@@ -457,7 +457,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Confident class planning and reporting.',
     },
     coachTips: ['Choose class', 'Link school', 'Billing ready'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.bgSoft, ONBOARDING_COLORS.proLight],
+    gradient: ['#F2FCFF', '#E0F7F3', '#C7EDE9'],
   },
   parent: {
     eyebrow: 'Parent setup',
@@ -486,7 +486,7 @@ const ONBOARDING_CONTENT: Record<PublicSignupRole, OnboardingContent> = {
       description: 'Steady family support and progress tracking.',
     },
     coachTips: ['Pick grade', 'Find school', 'Pay later'],
-    gradient: [ONBOARDING_COLORS.bg, ONBOARDING_COLORS.accentLight, ONBOARDING_COLORS.bgSoft],
+    gradient: ['#F2FFFB', '#D8F7EE', '#BFE9DF'],
   },
 };
 
@@ -5590,10 +5590,19 @@ export function StudentOnboardingScreen({
 
   return (
     <LinearGradient
-      colors={[ONBOARDING_COLORS.white, ONBOARDING_COLORS.white]}
+      colors={content.gradient}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.screen}>
+      <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        pointerEvents="none"
+        style={styles.decorativeShapes}>
+        <View style={[styles.decorativeShape, styles.decorativeShapeTop]} />
+        <View style={[styles.decorativeShape, styles.decorativeShapeSide]} />
+        <View style={[styles.decorativeShape, styles.decorativeShapeBottom]} />
+      </View>
       <KeyboardAvoidingView
         behavior={Platform.select({ ios: 'padding', default: undefined })}
         keyboardVerticalOffset={insets.top}
@@ -5608,6 +5617,7 @@ export function StudentOnboardingScreen({
           ]}
           keyboardDismissMode={Platform.select({ ios: 'interactive', default: 'on-drag' })}
           keyboardShouldPersistTaps="handled"
+          contentInsetAdjustmentBehavior="automatic"
           showsVerticalScrollIndicator={false}
           testID="onboarding-scroll-view">
           {usesCompactIntroNav ? (
@@ -8622,7 +8632,12 @@ export function StudentOnboardingScreen({
               </Text>
             ) : null}
 
-            {!usesInlineSignupFlow && !usesAutoAdvanceChoice && introStep !== 'loading' ? (
+          </View>
+        </ScrollView>
+        {!usesInlineSignupFlow && !usesAutoAdvanceChoice && introStep !== 'loading' ? (
+          <View
+            style={[styles.footerDock, { paddingBottom: Math.max(insets.bottom, 12) }]}
+            accessibilityElementsHidden={false}>
             <View
               testID="onboarding-footer"
               style={[styles.footerRow, footerCompactLayout && styles.footerRowCompact]}>
@@ -8699,9 +8714,8 @@ export function StudentOnboardingScreen({
                 )}
               </Pressable>
             </View>
-            ) : null}
           </View>
-        </ScrollView>
+        ) : null}
       </KeyboardAvoidingView>
     </LinearGradient>
   );
@@ -8711,12 +8725,42 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
+  decorativeShapes: {
+    ...StyleSheet.absoluteFillObject,
+    overflow: 'hidden',
+  },
+  decorativeShape: {
+    borderRadius: 999,
+    opacity: 0.48,
+    position: 'absolute',
+  },
+  decorativeShapeTop: {
+    backgroundColor: '#FFFFFF',
+    height: 220,
+    right: -84,
+    top: -92,
+    width: 220,
+  },
+  decorativeShapeSide: {
+    backgroundColor: '#A9E8DE',
+    height: 190,
+    left: -126,
+    top: 280,
+    width: 190,
+  },
+  decorativeShapeBottom: {
+    backgroundColor: '#FFFFFF',
+    bottom: -118,
+    height: 230,
+    right: -84,
+    width: 230,
+  },
   keyboardWrap: {
     flex: 1,
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 18,
+    paddingBottom: 24,
     paddingHorizontal: 20,
     paddingTop: 22,
   },
@@ -9279,9 +9323,9 @@ const styles = StyleSheet.create({
   },
   stepTitle: {
     color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 23,
+    fontSize: 25,
     fontWeight: '900',
-    lineHeight: 28,
+    lineHeight: 30,
     marginTop: 10,
     textAlign: 'center',
   },
@@ -9294,9 +9338,9 @@ const styles = StyleSheet.create({
   },
   stepText: {
     color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 14,
-    lineHeight: 21,
-    marginTop: 6,
+    fontSize: 15,
+    lineHeight: 22,
+    marginTop: 8,
   },
   stepTextCompact: {
     fontSize: 13,
@@ -9344,9 +9388,14 @@ const styles = StyleSheet.create({
   introChoiceCard: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     padding: 16,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
   },
   genderChoiceGrid: {
     flexDirection: 'row',
@@ -9567,10 +9616,15 @@ const styles = StyleSheet.create({
   voiceChoice: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    elevation: 2,
     minHeight: 76,
     padding: 12,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
     width: '47%',
   },
   voiceChoiceTitle: {
@@ -9589,13 +9643,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     flexDirection: 'row',
     gap: 12,
     marginTop: 14,
     minHeight: 72,
     padding: 12,
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
   },
   textOnlyIcon: {
     alignItems: 'center',
@@ -9774,11 +9833,16 @@ const styles = StyleSheet.create({
   needChoice: {
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    elevation: 2,
     minHeight: 112,
     padding: 16,
     position: 'relative',
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
   },
   roleChoiceLocked: {
     opacity: 0.56,
@@ -9798,13 +9862,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.bgSoft,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
+    borderRadius: 22,
     borderWidth: 1.5,
+    elevation: 2,
     justifyContent: 'center',
     minHeight: 124,
     paddingHorizontal: 10,
     paddingVertical: 18,
     position: 'relative',
+    shadowColor: '#5B9E96',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
     width: '48%',
   },
   interestCard: {
@@ -11708,8 +11777,8 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     flexDirection: 'row',
     gap: 12,
-    marginTop: 16,
-    paddingTop: 16,
+    marginTop: 0,
+    paddingTop: 12,
     width: '100%',
   },
   footerRowCompact: {
@@ -11719,9 +11788,9 @@ const styles = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
+    borderRadius: 24,
     justifyContent: 'center',
-    minHeight: 54,
+    minHeight: 58,
     paddingHorizontal: 10,
     width: 132,
   },
@@ -11743,11 +11812,11 @@ const styles = StyleSheet.create({
   primaryButton: {
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.primary,
-    borderRadius: 18,
+    borderRadius: 24,
     elevation: 4,
     flex: 1,
     justifyContent: 'center',
-    minHeight: 54,
+    minHeight: 58,
     paddingHorizontal: 12,
     shadowColor: ONBOARDING_COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
@@ -11755,7 +11824,7 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
   },
   primaryButtonCompact: {
-    minHeight: 44,
+    minHeight: 48,
     paddingHorizontal: 10,
   },
   primaryButtonContent: {
@@ -11774,9 +11843,15 @@ const styles = StyleSheet.create({
   primaryText: {
     color: ONBOARDING_COLORS.white,
     flexShrink: 1,
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: '900',
     lineHeight: 20,
     textAlign: 'center',
+  },
+  footerDock: {
+    backgroundColor: 'rgba(242,255,251,0.9)',
+    borderTopColor: 'rgba(255,255,255,0.7)',
+    borderTopWidth: 1,
+    paddingHorizontal: 20,
   },
 });

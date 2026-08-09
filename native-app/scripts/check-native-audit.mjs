@@ -94,6 +94,12 @@ export function extractHighFindings(report) {
   if (!isRecord(report) || report.auditReportVersion !== 2 || !isRecord(report.vulnerabilities)) {
     throw new Error('audit output is not a valid npm audit v2 report');
   }
+  const metadataVulnerabilities = report.metadata?.vulnerabilities;
+  if (!isRecord(metadataVulnerabilities)
+    || !Number.isInteger(metadataVulnerabilities.high)
+    || !Number.isInteger(metadataVulnerabilities.critical)) {
+    throw new Error('audit output metadata is malformed');
+  }
   const findings = [];
   const highPackages = [];
   const criticalPackages = [];
@@ -105,6 +111,10 @@ export function extractHighFindings(report) {
     for (const advisory of resolveAdvisories(packageName, report.vulnerabilities)) {
       findings.push({ package: packageName, advisory });
     }
+  }
+  if (metadataVulnerabilities.high !== highPackages.length
+    || metadataVulnerabilities.critical !== criticalPackages.length) {
+    throw new Error('audit output metadata does not match vulnerability entries');
   }
   if (findings.length === 0 && highPackages.length > 0) {
     throw new Error('audit report high findings have no advisory URLs');

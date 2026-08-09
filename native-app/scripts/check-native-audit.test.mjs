@@ -32,7 +32,8 @@ function makeReport() {
         ]
       },
       'js-yaml': { severity: 'high', via: [{ name: 'js-yaml', url: jsYamlAdvisory }] }
-    }
+    },
+    metadata: { vulnerabilities: { high: 3, critical: 0 } }
   };
 }
 
@@ -57,6 +58,7 @@ test('rejects an unexpected package or advisory', () => {
     severity: 'high',
     via: [{ name: 'nanoid', url: 'https://github.com/advisories/GHSA-2v37-7h3g-55p8' }]
   };
+  changedReport.metadata.vulnerabilities.high = 4;
   assert.throws(
     () => compareAuditToBaseline(changedReport, baseline, '2026-08-09'),
     /native audit baseline mismatch.*unexpected/
@@ -66,6 +68,8 @@ test('rejects an unexpected package or advisory', () => {
 test('rejects critical findings even when the package is baselined', () => {
   const criticalReport = makeReport();
   criticalReport.vulnerabilities['image-size'].severity = 'critical';
+  criticalReport.metadata.vulnerabilities.high = 2;
+  criticalReport.metadata.vulnerabilities.critical = 1;
   assert.throws(
     () => compareAuditToBaseline(criticalReport, baseline, '2026-08-09'),
     /critical findings are not allowed/

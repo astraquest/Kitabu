@@ -12,6 +12,7 @@ export interface RemoteAsset {
   licenseEvidenceUrl: string;
   attribution?: string | null;
   creatorUrl?: string | null;
+  classification?: 'generic-ui-concept';
 }
 
 export interface DiscoveryOptions { limit: number; cursor?: string | null; }

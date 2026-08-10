@@ -5,7 +5,7 @@ const REPOSITORY = 'tabler/tabler-icons';
 const BRANCH = 'main';
 const TREE_URL = `https://api.github.com/repos/${REPOSITORY}/git/trees/${BRANCH}?recursive=1`;
 const LICENSE_URL = `https://github.com/${REPOSITORY}/blob/${BRANCH}/LICENSE`;
-const iconPath = /^icons\/(?:filled\/)?[^/]+\.svg$/i;
+const iconDirectories = ['src/_icons/', 'src/_icons-filled/'];
 
 export class TablerAdapter implements EducationalAssetAdapter {
   readonly providerKey = 'tabler-icons';
@@ -22,14 +22,13 @@ export class TablerAdapter implements EducationalAssetAdapter {
     if (tree.truncated) throw new Error('Tabler Git tree is truncated; refusing partial discovery');
     const candidates = (tree.tree ?? []).flatMap(entry => {
       const path = entry.path;
-      if (entry.type !== 'blob' || !path || !iconPath.test(path)) return [];
+      if (entry.type !== 'blob' || !path?.endsWith('.svg') || !iconDirectories.some(directory => path.startsWith(directory))) return [];
       return [{
         providerKey: this.providerKey, providerAssetId: path, title: path.split('/').pop()!.replace(/\.svg$/i, '').replace(/[-_]+/g, ' '),
         mediaType: 'vector' as const, mimeType: 'image/svg+xml',
         sourcePageUrl: `https://github.com/${REPOSITORY}/blob/${BRANCH}/${path}`,
         rawUrl: `https://raw.githubusercontent.com/${REPOSITORY}/${BRANCH}/${path}`,
         license: 'MIT' as const, licenseEvidenceUrl: LICENSE_URL, attribution: 'Tabler Icons', classification: 'generic-ui-concept' as const,
-        visualType: 'UI_ICON' as const, subject: 'GENERAL', topic: 'GENERAL', keywords: ['ui', 'icon'],
       } satisfies RemoteAsset];
     }).sort((left, right) => left.providerAssetId.localeCompare(right.providerAssetId));
     const offset = Math.max(0, Number.parseInt(options.cursor ?? '0', 10) || 0);

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import test from 'node:test';
 
+import { SupabaseEducationalAssetStorage } from './storage.js';
 import { transferLocalEducationalAssets } from './transfer.js';
 
 const sha256 = (value: string) => createHash('sha256').update(value).digest('hex');
@@ -39,4 +40,32 @@ test('asset transfer safely repeats when Supabase reports an existing object', a
     { dryRun: false },
   );
   assert.deepEqual(result, { scanned: 1, uploaded: 0, alreadyPresent: 1, dryRun: 0, hashMismatch: 0, unavailable: 0, unsafe: 0, failed: 0 });
+});
+
+test('Supabase storage treats its HTTP 400 duplicate envelope as already present', async () => {
+  const storage = new SupabaseEducationalAssetStorage(
+    'https://example.supabase.co',
+    'service-role-secret-not-used-by-test',
+    'educational-assets',
+    undefined,
+    async () => new Response(JSON.stringify({ statusCode: '409', code: 'KeyAlreadyExists' }), { status: 400 }),
+  );
+
+  const result = await storage.put('openclipart/animal.svg', Buffer.from('<svg/>'), 'image/svg+xml');
+  assert.deepEqual(result, { storageKey: 'openclipart/animal.svg', byteSize: 6, created: false });
+});
+
+test('Supabase storage keeps unrelated HTTP 400 failures fatal', async () => {
+  const storage = new SupabaseEducationalAssetStorage(
+    'https://example.supabase.co',
+    'service-role-secret-not-used-by-test',
+    'educational-assets',
+    undefined,
+    async () => new Response(JSON.stringify({ statusCode: '400', code: 'InvalidRequest' }), { status: 400 }),
+  );
+
+  await assert.rejects(
+    () => storage.put('openclipart/animal.svg', Buffer.from('<svg/>'), 'image/svg+xml'),
+    /upload failed: 400/,
+  );
 });

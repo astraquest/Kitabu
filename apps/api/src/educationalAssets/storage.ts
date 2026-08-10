@@ -192,10 +192,23 @@ export class SupabaseEducationalAssetStorage implements EducationalAssetStorage 
       },
       body: Buffer.from(content),
     });
-    if (!response.ok && response.status !== 409) {
-      throw new Error(`Educational asset Supabase Storage upload failed: ${response.status}`);
+    if (!response.ok) {
+      const body = await response.text().catch(() => '');
+      let duplicate = response.status === 409;
+      if (!duplicate && response.status === 400) {
+        try {
+          const parsed = JSON.parse(body) as { statusCode?: string; code?: string };
+          duplicate = parsed.statusCode === '409' && parsed.code === 'KeyAlreadyExists';
+        } catch {
+          duplicate = false;
+        }
+      }
+      if (!duplicate) {
+        throw new Error(`Educational asset Supabase Storage upload failed: ${response.status}`);
+      }
+      return { storageKey, byteSize: content.byteLength, created: false };
     }
-    return { storageKey, byteSize: content.byteLength, created: response.status !== 409 };
+    return { storageKey, byteSize: content.byteLength, created: true };
   }
 
   async read(storageKey: string) {

@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { appConfig } from './config.js';
 import { TtsProviderError, type TtsProvider, type TtsProviderInput, type TtsProviderResult } from './ttsProviders.js';
-import { processGeminiTtsQueue, type QueueProcessorDependencies } from './ttsWorker.js';
+import { processGeminiTtsQueue, processTtsJobs, type QueueProcessorDependencies } from './ttsWorker.js';
 
 process.env.KITABU_RUNTIME_ENV = 'test';
 process.env.KITABU_NODE_ENV = 'test';
@@ -53,18 +54,19 @@ function dependencies(overrides: Partial<QueueProcessorDependencies> = {}) {
   const released: string[] = [];
   const finalized: string[] = [];
   const reservedAt: Date[] = [];
+  const reservedInputs: Array<{ now: Date; budget: number; spacingMs: number; characters: number }> = [];
   const base: QueueProcessorDependencies = {
     claim: async limit => [job('one'), job('two')].slice(0, limit),
     synthesize: async (provider, input) => provider.synthesize(input),
     finalize: async currentJob => { finalized.push(currentJob.id); },
     release: async currentJob => { released.push(currentJob.id); },
     fail: async () => undefined,
-    reserveGemini: async input => { reservedAt.push(input.now); return { reserved: true }; },
+    reserveGemini: async input => { reservedAt.push(input.now); reservedInputs.push(input); return { reserved: true }; },
     queueDepth: async () => ({ pending: released.length, processing: 0 }),
     storage: { backend: 'local', put: async () => ({ storageKey: 'x', byteSize: 1 }), read: async () => new Uint8Array([1]), publicUrl: () => null },
     providers: { cartesia: cartesiaProvider, gemini: geminiProvider }
   };
-  return { dependencies: { ...base, ...overrides }, released, finalized, reservedAt };
+  return { dependencies: { ...base, ...overrides }, released, finalized, reservedAt, reservedInputs };
 }
 
 test('Gemini queue enforces an injected clock spacing/budget reservation and processes queued jobs', async () => {
@@ -99,4 +101,44 @@ test('Gemini quota failure is deferred without a tight provider retry', async ()
   assert.equal(result.completed, 0);
   assert.equal(result.stopped, 'quota');
   assert.deepEqual(state.released, ['one']);
+});
+
+test('regular TTS polling sends a Cartesia-deferred fallback to Gemini with budget/RPM reservation', async () => {
+  const claims: Array<'cartesia' | 'gemini'> = [];
+  const synthesizedProviders: string[] = [];
+  let cartesiaDeferred = false;
+  let geminiClaims = 0;
+  const state = dependencies({
+    claim: async (_limit, _workerId, _leaseSeconds, provider) => {
+      claims.push(provider);
+      if (provider === 'cartesia' && !cartesiaDeferred) {
+        cartesiaDeferred = true;
+        return [job('fallback')];
+      }
+      return provider === 'gemini' && cartesiaDeferred && geminiClaims++ > 0 ? [job('fallback')] : [];
+    },
+    synthesize: async (provider, input) => {
+      synthesizedProviders.push(provider.name);
+      if (provider.name === 'cartesia') {
+        throw new TtsProviderError({ provider: 'cartesia', kind: 'unavailable', message: 'Cartesia is not configured' });
+      }
+      return geminiProvider.synthesize(input);
+    }
+  });
+
+  const deferredResult = await processTtsJobs('worker-1', { limit: 1, dependencies: state.dependencies });
+  assert.equal(deferredResult.deferred, 1);
+  assert.deepEqual(state.released, ['fallback']);
+
+  const result = await processTtsJobs('worker-1', { limit: 1, dependencies: state.dependencies });
+  assert.deepEqual(claims, ['cartesia', 'gemini', 'cartesia', 'gemini']);
+  assert.deepEqual(synthesizedProviders, ['cartesia', 'gemini']);
+  assert.equal(result.claimed, 1);
+  assert.equal(result.completed, 1);
+  assert.equal(result.mode, 'cartesia-primary-with-gemini-fallback');
+  assert.deepEqual(state.finalized, ['fallback']);
+  assert.equal(state.reservedInputs.length, 1);
+  assert.equal(state.reservedInputs[0].budget, appConfig.KITABU_GEMINI_TTS_DAILY_REQUEST_BUDGET);
+  assert.equal(state.reservedInputs[0].spacingMs, appConfig.KITABU_GEMINI_TTS_RPM_SPACING_MS);
+  assert.equal(state.reservedInputs[0].characters, job('fallback').normalized_text.length);
 });

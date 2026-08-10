@@ -28,16 +28,17 @@ test.after(async () => {
   await db.end().catch(() => undefined);
 });
 
-test('TTS identity normalizes whitespace and changes with voice or model', () => {
-  const first = buildTtsArtifactKey('  Choose\n the   best answer. ', 'Samora', 'tts-v1');
-  const same = buildTtsArtifactKey('Choose the best answer.', 'Samora', 'tts-v1');
-  const otherVoice = buildTtsArtifactKey('Choose the best answer.', 'Bella', 'tts-v1');
-  const otherModel = buildTtsArtifactKey('Choose the best answer.', 'Samora', 'tts-v2');
+test('TTS identity normalizes text and is independent of provider model', () => {
+  const first = buildTtsArtifactKey({ text: '  Choose\n the   best answer. ', language: 'en', voice: 'Samora' });
+  const same = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'en', voice: 'Samora' });
+  const otherVoice = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'en', voice: 'Bella' });
+  const otherLanguage = buildTtsArtifactKey({ text: 'Choose the best answer.', language: 'sw', voice: 'Samora' });
 
   assert.equal(first.normalizedText, 'Choose the best answer.');
   assert.equal(first.cacheKey, same.cacheKey);
   assert.notEqual(first.cacheKey, otherVoice.cacheKey);
-  assert.notEqual(first.cacheKey, otherModel.cacheKey);
+  assert.notEqual(first.cacheKey, otherLanguage.cacheKey);
+  assert.equal(first.cacheKey, buildTtsArtifactKey('Choose the best answer.', 'Samora', 'different-model').cacheKey);
   assert.equal(normalizeSpokenText('  one\t two  '), 'one two');
 });
 
@@ -58,6 +59,9 @@ test('landing and onboarding catalog contains only short semantic copy', () => {
     assert.ok(cue.text.length <= 110);
     assert.doesNotMatch(cue.text, /option\s+[a-d]|answer choices|checkbox|question\s+\d+/i);
   }
+  assert.ok(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.id === 'onboarding-role' && cue.text === 'Who are you?'));
+  assert.ok(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.id === 'onboarding-microphone' && cue.text.includes('Microphone access enables')));
+  assert.equal(LANDING_ONBOARDING_TTS_CUES.some(cue => cue.text.includes('How should your tutor sound?')), false);
 });
 
 test('durable speech returns a ready artifact without calling Gemini, and persists misses', async () => {
@@ -84,6 +88,7 @@ test('durable speech returns a ready artifact without calling Gemini, and persis
     }
   );
   assert.equal(hit.cacheHit, true);
+  assert.ok(hit.audio);
   assert.equal(hit.audio.base64Audio, audio);
   assert.equal(syntheses, 0);
 

@@ -72,21 +72,7 @@ test('loads the catalogue and navigates preview scenes', async () => {
   const loadButton = renderer!.root.findByProps({ accessibilityLabel: 'Load preview' });
   await act(async () => { await loadButton.props.onPress(); });
 
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Interactive learning preview position' }).props.children).toEqual(expect.arrayContaining([
-    expect.stringContaining('Preview'),
-    1,
-    expect.stringContaining('of'),
-    2,
-    expect.stringContaining('·'),
-    'trace-construct',
-  ]));
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Interactive learning preview position' }).children.join('')).toContain('Preview 1 of 2 · trace-construct');
   await act(async () => { renderer!.root.findByProps({ accessibilityLabel: 'Next preview scene' }).props.onPress(); });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Interactive learning preview position' }).props.children).toEqual(expect.arrayContaining([
-    expect.stringContaining('Preview'),
-    2,
-    expect.stringContaining('of'),
-    2,
-    expect.stringContaining('·'),
-    'single-choice',
-  ]));
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Interactive learning preview position' }).children.join('')).toContain('Preview 2 of 2 · single-choice');
 });

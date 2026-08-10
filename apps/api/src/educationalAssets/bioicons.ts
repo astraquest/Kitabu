@@ -8,7 +8,7 @@ const TREE_URL = `https://api.github.com/repos/${REPOSITORY}/git/trees/${BRANCH}
 const AUTHORS_URL = `https://raw.githubusercontent.com/${REPOSITORY}/${BRANCH}/static/icons/authors.json`;
 const supportedLicenses: Record<string, EducationalAssetLicense> = {
   'cc-0': 'CC0-1.0', mit: 'MIT', 'cc-by-3.0': 'CC-BY-3.0', 'cc-by-4.0': 'CC-BY-4.0',
-  'cc-by-sa-3.0': 'CC-BY-SA-3.0', 'cc-by-sa-4.0': 'CC-BY-SA-4.0', bsd: 'BSD-3-Clause',
+  'cc-by-sa-3.0': 'CC-BY-SA-3.0', 'cc-by-sa-4.0': 'CC-BY-SA-4.0',
 };
 
 function creatorUrl(authors: unknown, author: string): string | null {
@@ -52,11 +52,8 @@ export class BioiconsAdapter implements EducationalAssetAdapter {
         mediaType: 'vector' as const, mimeType: 'image/svg+xml',
         sourcePageUrl: `https://github.com/${REPOSITORY}/blob/${BRANCH}/${path}`,
         rawUrl: `https://raw.githubusercontent.com/${REPOSITORY}/${BRANCH}/${path}`,
-        license, licenseEvidenceUrl: prefix === 'bsd'
-          ? `https://github.com/${REPOSITORY}/blob/${BRANCH}/static/icons/bsd/LICENSE`
-          : `https://github.com/${REPOSITORY}/tree/${BRANCH}/static/icons/${prefix}`,
-        attribution: author, creator: author, creatorUrl: creatorUrl(authors, author), visualType: 'ILLUSTRATION' as const,
-        subject: parts[3] ?? null, topic: parts.slice(3, -1).join(' ') || null, keywords: parts.slice(2, -1),
+        license, licenseEvidenceUrl: `https://github.com/${REPOSITORY}/tree/${BRANCH}/static/icons/${prefix}`,
+        attribution: author, creatorUrl: creatorUrl(authors, author),
       } satisfies RemoteAsset];
     }).sort((left, right) => left.providerAssetId.localeCompare(right.providerAssetId));
     const offset = Math.max(0, Number.parseInt(options.cursor ?? '0', 10) || 0);

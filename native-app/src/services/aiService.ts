@@ -47,6 +47,13 @@ interface AudioTranscriptionRequest {
 interface SpeechSynthesisRequest {
   text: string;
   voice: OnboardingVoiceName;
+  language?: string;
+}
+
+interface LandingSpeechSynthesisRequest {
+  cueId: string;
+  voice: OnboardingVoiceName;
+  language: string;
 }
 
 interface ChatLearningContext {
@@ -499,6 +506,7 @@ export async function transcribeAudio(
 export async function synthesizeSpeech(
   text: string,
   voiceName?: OnboardingVoiceName,
+  language = 'en',
 ): Promise<SpeechSynthesisPayload> {
   const normalizedText = text.trim();
   if (!normalizedText) {
@@ -514,6 +522,7 @@ export async function synthesizeSpeech(
     body: JSON.stringify({
       text: normalizedText,
       voice: voiceName,
+      language,
     } satisfies SpeechSynthesisRequest),
   });
 
@@ -522,6 +531,24 @@ export async function synthesizeSpeech(
   }
 
   return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid speech synthesis response');
+}
+
+export async function synthesizeLandingSpeech(
+  cueId: string,
+  voiceName: OnboardingVoiceName,
+  language = 'en',
+): Promise<SpeechSynthesisPayload> {
+  const response = await fetchKitabuApi('/landing/synthesize-speech', {
+    method: 'POST',
+    headers: await buildKitabuRequestHeaders(undefined, false),
+    body: JSON.stringify({ cueId, voice: voiceName, language } satisfies LandingSpeechSynthesisRequest),
+  });
+
+  if (!response.ok) {
+    throw new Error('Landing speech synthesis request failed.');
+  }
+
+  return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid landing speech response');
 }
 
 export async function generateQuizData(

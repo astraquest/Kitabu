@@ -7,6 +7,7 @@
 export interface OnboardingTtsCue {
   id: string;
   text: string;
+  language?: 'en' | 'sw';
 }
 
 export const LANDING_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
@@ -24,12 +25,13 @@ export const LANDING_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
   },
   {
     id: 'intro-slide-4',
-    text: 'Usingoje report form ndio ujue kuna makosa mahali. Fungua Kitabu!'
+    text: 'Usingoje report form ndio ujue kuna makosa mahali. Fungua Kitabu!',
+    language: 'sw'
   },
   { id: 'onboarding-language', text: 'Choose your language.' },
   { id: 'onboarding-learning-buddy', text: 'Choose your learning buddy.' },
   { id: 'onboarding-role', text: 'Who are you?' },
-  { id: 'onboarding-voice', text: 'How should your tutor sound?' },
+  { id: 'onboarding-microphone', text: 'Allow Microphone Access. Microphone access enables spoken answers and live tutoring.' },
   { id: 'onboarding-need', text: 'What do you need most right now?' },
   { id: 'onboarding-name', text: 'What is your name?' },
   { id: 'onboarding-age', text: 'How old are you?' },
@@ -45,3 +47,9 @@ export const LANDING_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
   { id: 'onboarding-reminder', text: 'Would you like daily reminders?' },
   { id: 'onboarding-save-account', text: 'Save your account.' }
 ] as const;
+
+export const LANDING_INTRO_TTS_CUES = LANDING_ONBOARDING_TTS_CUES.slice(0, 4);
+
+export function getLandingIntroTtsCue(cueId: string) {
+  return LANDING_INTRO_TTS_CUES.find(cue => cue.id === cueId) ?? null;
+}

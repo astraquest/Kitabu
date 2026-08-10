@@ -1,7 +1,7 @@
-import type { EducationalAssetLicense, EducationalAssetMediaType } from './types.js';
+import type { EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetUsageRestriction } from './types.js';
 
 export type EducationalAssetAcquisitionOutcome = 'imported' | 'duplicate' | 'rejected' | 'quarantined' | 'error';
-export type EducationalAssetNormalizationStatus = 'validated-original' | 'needs-normalization' | 'not-applicable';
+export type EducationalAssetNormalizationStatus = 'validated-original' | 'needs-normalization' | 'quarantined' | 'not-applicable';
 
 export interface EducationalAssetManifestEntry {
   providerAssetId: string;
@@ -12,6 +12,7 @@ export interface EducationalAssetManifestEntry {
   mediaType: EducationalAssetMediaType;
   outcome: EducationalAssetAcquisitionOutcome;
   normalizationStatus: EducationalAssetNormalizationStatus;
+  usageRestriction?: EducationalAssetUsageRestriction;
 }
 
 export interface EducationalAssetImportManifest {

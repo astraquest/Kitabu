@@ -119,7 +119,7 @@ export function useGuidedNarration(cue: NarrationCue | null, enabled = true) {
     return () => {
       speechPlaybackBridge?.stop().catch(() => undefined);
     };
-  }, [cue?.identity, cue?.text, cue?.voiceName, enabled]);
+  }, [cue?.identity, cue?.text, cue?.voiceName, cue?.landingCueId, cue?.language, enabled]);
 
   useEffect(() => () => {
     speechPlaybackBridge?.stop().catch(() => undefined);

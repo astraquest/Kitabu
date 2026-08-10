@@ -70,7 +70,8 @@ import {
   TTS_AVATAR_VOICES,
   TTS_QUEUE_MODE
 } from './speechQueue.js';
-import { getLandingIntroTtsCue } from './onboardingTts.js';
+import { getLandingTtsCue } from './onboardingTts.js';
+import { enqueueStudentWelcomeTts, resolveStudentWelcomeTts } from './studentWelcomeTts.js';
 import {
   type CurriculumStrandInput,
   createAdminManagedUser,
@@ -4114,7 +4115,7 @@ Requirements:
       if (!signupDetails) {
         return reply.badRequest('Invalid or expired verification code');
       }
-      await createSelfServiceUser({
+      const createdUser = await createSelfServiceUser({
         schoolId: null,
         email: signupDetails.email,
         phoneNumber,
@@ -4127,6 +4128,7 @@ Requirements:
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
+      void enqueueStudentWelcomeTts(createdUser.id).catch(error => request.log.warn({ error, userId: createdUser.id }, 'Student welcome TTS enqueue failed'));
       user = await findUserByPhone(phoneNumber);
     }
 
@@ -4165,7 +4167,7 @@ Requirements:
         if (body.acceptedTerms !== true) {
           return reply.badRequest('Accept the Terms and Privacy Policy to continue.');
         }
-        await createSelfServiceUser({
+        const createdUser = await createSelfServiceUser({
           schoolId: null,
           email: identity.email,
           passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
@@ -4177,6 +4179,7 @@ Requirements:
           privacyVersion: appConfig.KITABU_PRIVACY_VERSION
         });
         isNewGoogleUser = true;
+        void enqueueStudentWelcomeTts(createdUser.id).catch(error => request.log.warn({ error, userId: createdUser.id }, 'Student welcome TTS enqueue failed'));
         user = await findUserByEmail(identity.email);
       }
 
@@ -4244,6 +4247,7 @@ Requirements:
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
+      void enqueueStudentWelcomeTts(user.id).catch(error => request.log.warn({ error, userId: user.id }, 'Student welcome TTS enqueue failed'));
       await deliverWelcomeEmail(request, user.email);
 
     const refreshToken = generateRefreshToken();
@@ -5220,6 +5224,25 @@ Requirements:
       selectedProfile: preference?.selected_profile ?? 'Samora',
       enabled: preference?.enabled ?? false
     };
+  });
+
+  app.get('/me/student-welcome-speech', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Student welcome speech is available to learner accounts only');
+    }
+
+    const resolution = await resolveStudentWelcomeTts(request.user!.id);
+    reply.header('Cache-Control', 'private, no-store');
+    if (resolution.status === 'unavailable') {
+      return { status: resolution.status, audio: null, reason: resolution.reason };
+    }
+    if (resolution.status === 'pending') {
+      reply.status(202);
+      return { status: resolution.status, audio: null };
+    }
+    return { status: resolution.status, audio: resolution.audio };
   });
 
   app.put('/me/narration-preference', async (request, reply) => {
@@ -8671,8 +8694,9 @@ Return valid JSON with this shape:
 
   const landingSynthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     const body = landingSynthesizeSpeechSchema.parse(request.body);
-    const cue = getLandingIntroTtsCue(body.cueId);
-    if (!cue) {
+    const cue = getLandingTtsCue(body.cueId);
+    const cueLanguage = cue?.language ?? 'en';
+    if (!cue || cueLanguage !== body.language) {
       return reply.badRequest('Unsupported landing speech cue');
     }
 

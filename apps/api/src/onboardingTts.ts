@@ -53,3 +53,7 @@ export const LANDING_INTRO_TTS_CUES = LANDING_ONBOARDING_TTS_CUES.slice(0, 4);
 export function getLandingIntroTtsCue(cueId: string) {
   return LANDING_INTRO_TTS_CUES.find(cue => cue.id === cueId) ?? null;
 }
+
+export function getLandingTtsCue(cueId: string) {
+  return LANDING_ONBOARDING_TTS_CUES.find(cue => cue.id === cueId) ?? null;
+}

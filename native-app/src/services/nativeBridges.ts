@@ -14,6 +14,7 @@ import { Linking, NativeModules, Platform } from 'react-native';
 
 import { extractCurriculumFromPdfData, synthesizeLandingSpeech, synthesizeSpeech, transcribeAudio } from './aiService';
 import { playAudioPlayerWhenAllowed } from './audioPlayback';
+import { getStudentWelcomeSpeech } from './studentWelcomeService';
 import { Attachment, LearningStrand, OnboardingVoiceName } from '../types/app';
 
 export type NativeBridgeState = 'simulated' | 'expo_native';
@@ -51,6 +52,7 @@ export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
   speak: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
   speakQueued: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
+  playWelcome: () => Promise<boolean>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
 }
@@ -125,12 +127,15 @@ async function playServerSpeech(
   text: string,
   options: SpeechPlaybackOptions | undefined,
   isCurrent: () => boolean,
-) {
-  const speech = options?.landingCueId
+): Promise<boolean> {
+  const speech = options?.welcomeCue
+    ? (await getStudentWelcomeSpeech()).audio
+    : options?.landingCueId
     ? await synthesizeLandingSpeech(options.landingCueId, options.voiceName!, options.language)
     : await synthesizeSpeech(text, options?.voiceName, options?.language);
+  if (!speech) return false;
   if (!isCurrent()) {
-    return;
+    return false;
   }
   const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
   const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
@@ -140,12 +145,14 @@ async function playServerSpeech(
   speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
   cancelPendingSpeechPlay?.();
   cancelPendingSpeechPlay = playAudioPlayerWhenAllowed(speechAudioPlayer);
+  return true;
 }
 
 interface SpeechPlaybackOptions {
   voiceName?: OnboardingVoiceName;
   language?: string;
   landingCueId?: string;
+  welcomeCue?: boolean;
 }
 
 const livePrompts = [
@@ -636,6 +643,13 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
       await playServerSpeech(text, options, () => speechQueueGeneration === generation);
     });
     return speechQueue;
+  },
+  async playWelcome() {
+    speechQueueGeneration += 1;
+    speechQueue = Promise.resolve();
+    await this.stop();
+    const generation = speechQueueGeneration;
+    return playServerSpeech('', { welcomeCue: true }, () => speechQueueGeneration === generation);
   },
   async stop() {
     speechQueueGeneration += 1;

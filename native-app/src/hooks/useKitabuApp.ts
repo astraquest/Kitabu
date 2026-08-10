@@ -120,7 +120,12 @@ import {
   startWeeklyExam,
   submitWeeklyExam as submitWeeklyExamRequest,
 } from '../services/weeklyExamService';
-import { focusModeBridge } from '../services/nativeBridges';
+import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
+import {
+  localCalendarDay,
+  shouldPlayStudentWelcomeCue,
+  STUDENT_WELCOME_PLAYED_DAY_STORAGE_KEY,
+} from '../services/studentWelcomeCue';
 import { loadJson, saveJson } from '../services/storage';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
@@ -190,6 +195,7 @@ const STORAGE_KEYS = {
   optionalPhoneNumber: 'kitabu_optional_phone_number',
   tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
   focusMode: 'kitabu_focus_mode',
+  studentWelcomePlayedDay: STUDENT_WELCOME_PLAYED_DAY_STORAGE_KEY,
   downloadedBooks: 'kitabu_downloaded_books',
   onboardingPreferences: 'kitabu_onboarding_preferences',
 };
@@ -1218,6 +1224,58 @@ export function useKitabuApp() {
       subscription.remove();
     };
   }, [handleIncomingLink]);
+
+  useEffect(() => {
+    const userId = authSession?.user.id;
+    if (
+      !isReady ||
+      !userId ||
+      isStudentPreview ||
+      !authSession?.user.roles.includes('student')
+    ) {
+      return undefined;
+    }
+
+    let mounted = true;
+    let attemptInFlight = false;
+    const attemptWelcomeCue = async () => {
+      if (!mounted || attemptInFlight) return;
+      attemptInFlight = true;
+      try {
+        const now = new Date();
+        const today = localCalendarDay(now);
+        const playedByUser = await loadJson<Record<string, string>>(
+          STORAGE_KEYS.studentWelcomePlayedDay,
+          {},
+        );
+        if (!shouldPlayStudentWelcomeCue(playedByUser[userId], now)) return;
+
+        const played = await speechPlaybackBridge.playWelcome();
+        if (played && mounted) {
+          await saveJson(STORAGE_KEYS.studentWelcomePlayedDay, {
+            ...playedByUser,
+            [userId]: today,
+          });
+        }
+      } catch {
+        // Welcome speech is an enhancement and must never affect authentication.
+      } finally {
+        attemptInFlight = false;
+      }
+    };
+
+    if (AppState.currentState === 'active') {
+      attemptWelcomeCue().catch(() => undefined);
+    }
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') attemptWelcomeCue().catch(() => undefined);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.remove();
+    };
+  }, [authSession?.user.id, authSession?.user.roles, isReady, isStudentPreview]);
 
   useEffect(() => {
     if (isReady) {

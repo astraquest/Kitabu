@@ -301,12 +301,12 @@ export async function ensureAssessmentNarration(input: AssessmentNarrationInput)
       [identity.identitySha256, identity.canonicalText, identity.languageCode, identity.profile, identity.providerVoice, JSON.stringify(identity.speakingSettings), TTS_PROVIDER, ASSESSMENT_TTS_MODEL]
     );
     await db.query(
-      `INSERT INTO tts_jobs (identity_sha256, provider, model, provider_submission_token)
+      `INSERT INTO assessment_tts_jobs (identity_sha256, provider, model, provider_submission_token)
        VALUES ($1, $2, $3, $4) ON CONFLICT (identity_sha256) DO NOTHING`,
       [identity.identitySha256, TTS_PROVIDER, ASSESSMENT_TTS_MODEL, randomUUID()]
     );
     await db.query(
-      `INSERT INTO tts_queue (identity_sha256, priority)
+      `INSERT INTO assessment_tts_queue (identity_sha256, priority)
        VALUES ($1, 10) ON CONFLICT (identity_sha256) DO NOTHING`,
       [identity.identitySha256]
     );
@@ -326,7 +326,7 @@ export async function resolveCachedNarration(
 
 async function markQueueRetry(identitySha256: string, message: string) {
   await db.query(
-    `UPDATE tts_queue SET status = 'queued', available_at = NOW() + $2::interval,
+    `UPDATE assessment_tts_queue SET status = 'queued', available_at = NOW() + $2::interval,
        locked_by = NULL, lease_expires_at = NULL, last_error = $3, updated_at = NOW()
      WHERE identity_sha256 = $1`,
     [identitySha256, '30 seconds', message.slice(0, 300)]
@@ -342,7 +342,7 @@ async function finishAsset(identitySha256: string, status: 'ready' | 'failed' | 
      WHERE identity_sha256 = $1 AND status <> 'ready'`,
     [identitySha256, status, details.url ?? null, details.path ?? null, details.durationMs ?? null, details.bytes ?? null, details.metadata ? JSON.stringify(details.metadata) : null, details.errorCode ?? null, details.errorMessage?.slice(0, 500) ?? null]
   );
-  await db.query(`UPDATE tts_queue SET status = $2, locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status <> 'done'`, [identitySha256, status === 'ready' ? 'done' : 'failed']);
+  await db.query(`UPDATE assessment_tts_queue SET status = $2, locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status <> 'done'`, [identitySha256, status === 'ready' ? 'done' : 'failed']);
 }
 
 async function requeueNeverSubmittedJob(identitySha256: string, error: unknown) {
@@ -350,7 +350,7 @@ async function requeueNeverSubmittedJob(identitySha256: string, error: unknown) 
   if (!neverSubmitted) return false;
   const message = error.message;
   await db.query(
-    `UPDATE tts_jobs
+    `UPDATE assessment_tts_jobs
      SET status = 'queued', error_code = NULL, error_message = NULL,
          provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW()
      WHERE identity_sha256 = $1 AND provider_job_name IS NULL
@@ -364,7 +364,7 @@ async function requeueNeverSubmittedJob(identitySha256: string, error: unknown) 
     [identitySha256]
   );
   await db.query(
-    `UPDATE tts_queue SET status = 'queued', available_at = NOW(), locked_by = NULL,
+    `UPDATE assessment_tts_queue SET status = 'queued', available_at = NOW(), locked_by = NULL,
        lease_expires_at = NULL, last_error = $2, updated_at = NOW()
      WHERE identity_sha256 = $1`,
     [identitySha256, message.slice(0, 300)]
@@ -375,7 +375,7 @@ async function requeueNeverSubmittedJob(identitySha256: string, error: unknown) 
 async function recoverPreviouslyUnsubmittedJobs() {
   const result = await db.query(
     `WITH recovered_jobs AS (
-       UPDATE tts_jobs j
+       UPDATE assessment_tts_jobs j
        SET status = 'queued', error_code = NULL, error_message = NULL,
            provider_metadata = j.provider_metadata || jsonb_build_object(
              'recoveredAt', NOW(), 'recoveryReason', 'provider-job-never-created'
@@ -398,7 +398,7 @@ async function recoverPreviouslyUnsubmittedJobs() {
        WHERE a.identity_sha256 = j.identity_sha256
        RETURNING a.identity_sha256
      )
-     INSERT INTO tts_queue (identity_sha256, priority, status, available_at, updated_at)
+     INSERT INTO assessment_tts_queue (identity_sha256, priority, status, available_at, updated_at)
      SELECT identity_sha256, 10, 'queued', NOW(), NOW() FROM recovered_assets
      ON CONFLICT (identity_sha256) DO UPDATE SET status = 'queued', available_at = NOW(),
        locked_by = NULL, lease_expires_at = NULL, updated_at = NOW()`
@@ -447,17 +447,17 @@ async function processStandardTtsItem(identitySha256: string, item: TtsJobRow, p
   });
   const startedAt = new Date().toISOString();
   await db.query(`UPDATE tts_assets SET status = 'processing', provider_metadata = provider_metadata || $2::jsonb, error_code = NULL, error_message = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status <> 'ready'`, [identitySha256, JSON.stringify({ provider: TTS_PROVIDER, generationMode: 'generateContent', requestStartedAt: startedAt })]);
-  await db.query(`UPDATE tts_jobs SET status = 'submitting', provider_metadata = provider_metadata || $2::jsonb, error_code = NULL, error_message = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status = 'queued'`, [identitySha256, JSON.stringify({ providerSubmissionState: 'started', requestStartedAt: startedAt })]);
+  await db.query(`UPDATE assessment_tts_jobs SET status = 'submitting', provider_metadata = provider_metadata || $2::jsonb, error_code = NULL, error_message = NULL, updated_at = NOW() WHERE identity_sha256 = $1 AND status = 'queued'`, [identitySha256, JSON.stringify({ providerSubmissionState: 'started', requestStartedAt: startedAt })]);
   try {
     const audio = await provider.generate(identity);
     const wav = pcmToWav(audio.pcm);
     const storage = await uploadWav(identitySha256, wav);
     const completedAt = new Date().toISOString();
     await finishAsset(identitySha256, 'ready', { path: storage.storagePath, url: storage.publicUrl, durationMs: Math.round(audio.pcm.length / (24_000 * 2) * 1000), bytes: wav.length, metadata: { ...audio.metadata, model: ASSESSMENT_TTS_MODEL, responseReceivedAt: completedAt } });
-    await db.query(`UPDATE tts_jobs SET status = 'completed', provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, JSON.stringify({ providerSubmissionState: 'completed', responseReceivedAt: completedAt })]);
+    await db.query(`UPDATE assessment_tts_jobs SET status = 'completed', provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, JSON.stringify({ providerSubmissionState: 'completed', responseReceivedAt: completedAt })]);
   } catch (error) {
     if (await requeueNeverSubmittedJob(identitySha256, error)) return;
-    await db.query(`UPDATE tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini generateContent failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
+    await db.query(`UPDATE assessment_tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini generateContent failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
     await finishAsset(identitySha256, 'unavailable', { errorCode: 'submission_uncertain', errorMessage: 'Gemini generateContent outcome is uncertain; no automatic duplicate request was attempted.' });
   }
 }
@@ -471,13 +471,13 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
       `SELECT a.canonical_text, a.language_code, a.voice_profile, a.provider_voice, a.speaking_settings,
               a.status AS asset_status, a.public_url,
               j.provider_job_name, j.provider_submission_token, j.status, j.provider_metadata
-       FROM tts_assets a JOIN tts_jobs j ON j.identity_sha256 = a.identity_sha256
+       FROM tts_assets a JOIN assessment_tts_jobs j ON j.identity_sha256 = a.identity_sha256
        WHERE a.identity_sha256 = $1`, [identitySha256]
     );
     const item = result.rows[0];
     if (!item) return;
     if (item.asset_status === 'ready' && item.public_url) {
-      await db.query(`UPDATE tts_queue SET status = 'done', locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256]);
+      await db.query(`UPDATE assessment_tts_queue SET status = 'done', locked_by = NULL, lease_expires_at = NULL, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256]);
       return;
     }
     if (provider instanceof GeminiGenerateContentTtsProvider) {
@@ -502,16 +502,16 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
           return;
         }
         providerJobName = reconciled.name;
-        await db.query(`UPDATE tts_jobs SET provider_job_name = $2, status = 'submitted', provider_metadata = $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, providerJobName, JSON.stringify(reconciled.metadata)]);
+        await db.query(`UPDATE assessment_tts_jobs SET provider_job_name = $2, status = 'submitted', provider_metadata = $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, providerJobName, JSON.stringify(reconciled.metadata)]);
       } else {
-        await db.query(`UPDATE tts_jobs SET status = 'submitting', provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1 AND status = 'queued'`, [identitySha256, JSON.stringify({ submissionStartedAt: new Date().toISOString() })]);
+        await db.query(`UPDATE assessment_tts_jobs SET status = 'submitting', provider_metadata = provider_metadata || $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1 AND status = 'queued'`, [identitySha256, JSON.stringify({ submissionStartedAt: new Date().toISOString() })]);
         try {
           const submitted = await provider.submit(identity, item.provider_submission_token);
           providerJobName = submitted.name;
-          await db.query(`UPDATE tts_jobs SET provider_job_name = $2, status = 'submitted', submitted_at = NOW(), provider_metadata = $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, providerJobName, JSON.stringify(submitted.metadata)]);
+          await db.query(`UPDATE assessment_tts_jobs SET provider_job_name = $2, status = 'submitted', submitted_at = NOW(), provider_metadata = $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, providerJobName, JSON.stringify(submitted.metadata)]);
         } catch (error) {
           if (await requeueNeverSubmittedJob(identitySha256, error)) return;
-          await db.query(`UPDATE tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini submission failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
+          await db.query(`UPDATE assessment_tts_jobs SET status = 'uncertain', error_code = 'submission_uncertain', error_message = $2, provider_metadata = provider_metadata || $3::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, error instanceof Error ? error.message : 'Gemini submission failed', JSON.stringify({ providerSubmissionState: 'unknown' })]);
           await finishAsset(identitySha256, 'unavailable', { errorCode: 'submission_uncertain', errorMessage: 'Gemini submission outcome is uncertain; no automatic duplicate submission was attempted.' });
           return;
         }
@@ -519,7 +519,7 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
     }
 
     batch = await provider.poll(providerJobName);
-    await db.query(`UPDATE tts_jobs SET status = 'polling', last_polled_at = NOW(), provider_metadata = $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, JSON.stringify(batch)]);
+    await db.query(`UPDATE assessment_tts_jobs SET status = 'polling', last_polled_at = NOW(), provider_metadata = $2::jsonb, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, JSON.stringify(batch)]);
     const batchLifecycle = getGeminiBatchLifecycle(batch);
     if (batchLifecycle === 'pending') {
       await markQueueRetry(identitySha256, 'Gemini batch is still processing');
@@ -528,14 +528,14 @@ async function processTtsItem(identitySha256: string, workerId: string, provider
     if (batchLifecycle === 'failed') {
       const batchState = batch.metadata?.state ?? batch.state;
       await finishAsset(identitySha256, 'failed', { errorCode: 'gemini_batch_failed', errorMessage: batch.error?.message ?? `Gemini batch ended in ${batchState}` });
-      await db.query(`UPDATE tts_jobs SET status = 'failed', error_code = 'gemini_batch_failed', error_message = $2, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, batch.error?.message ?? `Gemini batch ended in ${batchState}`]);
+      await db.query(`UPDATE assessment_tts_jobs SET status = 'failed', error_code = 'gemini_batch_failed', error_message = $2, updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256, batch.error?.message ?? `Gemini batch ended in ${batchState}`]);
       return;
     }
     const audio = await provider.downloadAudio(batch, identitySha256);
     const wav = pcmToWav(audio.pcm);
     const storage = await uploadWav(identitySha256, wav);
     await finishAsset(identitySha256, 'ready', { path: storage.storagePath, url: storage.publicUrl, durationMs: Math.round(audio.pcm.length / (24_000 * 2) * 1000), bytes: wav.length, metadata: { ...batch, mimeType: audio.metadata.mimeType } });
-    await db.query(`UPDATE tts_jobs SET status = 'completed', updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256]);
+    await db.query(`UPDATE assessment_tts_jobs SET status = 'completed', updated_at = NOW() WHERE identity_sha256 = $1`, [identitySha256]);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'TTS worker failed';
     await markQueueRetry(identitySha256, message);
@@ -551,13 +551,13 @@ export async function processAssessmentTtsQueue() {
   const workerId = `tts-worker-${randomUUID()}`;
   const claimed = await db.query<{ identity_sha256: string }>(
     `WITH claim AS (
-       SELECT identity_sha256 FROM tts_queue
+       SELECT identity_sha256 FROM assessment_tts_queue
        WHERE (status = 'queued' AND available_at <= NOW())
           OR (status = 'processing' AND lease_expires_at < NOW())
        ORDER BY priority DESC, created_at ASC
        FOR UPDATE SKIP LOCKED LIMIT $1
      )
-     UPDATE tts_queue q SET status = 'processing', locked_by = $2, lease_expires_at = NOW() + INTERVAL '2 minutes', attempts = attempts + 1, updated_at = NOW()
+     UPDATE assessment_tts_queue q SET status = 'processing', locked_by = $2, lease_expires_at = NOW() + INTERVAL '2 minutes', attempts = attempts + 1, updated_at = NOW()
      FROM claim WHERE q.identity_sha256 = claim.identity_sha256
      RETURNING q.identity_sha256`,
     [appConfig.KITABU_TTS_QUEUE_BATCH_SIZE, workerId]

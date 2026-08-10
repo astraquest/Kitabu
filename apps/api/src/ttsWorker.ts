@@ -1,19 +1,8 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { appConfig } from './config.js';
-import { db } from './db.js';
-import {
-  claimTtsJobs,
-  completeTtsJobWithStorage,
-  failTtsJob,
-  getTtsQueueDepth,
-  releaseTtsJobPending,
-  reserveGeminiTtsDailyUsage,
-  type TtsJobRecord,
-  withTransaction
-} from './repositories.js';
+import type { TtsJobRecord } from './repositories.js';
 import { createTtsAssetStorage, type TtsAssetStorage } from './ttsStorage.js';
 import { createTtsProviders, TtsProviderError, type TtsProvider, type TtsProviderInput, type TtsProviderResult } from './ttsProviders.js';
-import { newTtsWorkerId } from './speechQueue.js';
 
 export interface QueueProcessorDependencies {
   claim: (limit: number, workerId: string, leaseSeconds: number, provider: 'cartesia' | 'gemini') => Promise<TtsJobRecord[]>;
@@ -31,12 +20,16 @@ function defaultDependencies(): QueueProcessorDependencies {
   const storage = createTtsAssetStorage();
   const providers = createTtsProviders();
   return {
-    claim: (limit, workerId, leaseSeconds, provider) => withTransaction(client => claimTtsJobs(client, limit, workerId, leaseSeconds, provider)),
+    claim: async (limit, workerId, leaseSeconds, provider) => {
+      const { claimTtsJobs, withTransaction } = await import('./repositories.js');
+      return withTransaction(client => claimTtsJobs(client, limit, workerId, leaseSeconds, provider));
+    },
     synthesize: (provider, input) => provider.synthesize(input),
     finalize: async (job, generated, workerId) => {
       const storageKey = `tts/${job.identity_key ?? job.artifact_id}.wav`;
       await storage.put(storageKey, generated.bytes);
       const contentHash = createHash('sha256').update(generated.bytes).digest('hex');
+      const { completeTtsJobWithStorage, withTransaction } = await import('./repositories.js');
       return withTransaction(client => completeTtsJobWithStorage(client, job.id, {
         mimeType: generated.mimeType,
         contentHash,
@@ -50,13 +43,29 @@ function defaultDependencies(): QueueProcessorDependencies {
         metadata: generated.metadata
       }, workerId));
     },
-    release: (job, message, delaySeconds, workerId, provider) => withTransaction(client => releaseTtsJobPending(client, job.id, message, delaySeconds, workerId, provider)),
-    fail: (job, message, workerId) => withTransaction(client => failTtsJob(client, job.id, message, appConfig.KITABU_TTS_MAX_ATTEMPTS, appConfig.KITABU_TTS_RETRY_DELAY_SECONDS, workerId)),
-    reserveGemini: input => withTransaction(client => reserveGeminiTtsDailyUsage(client, input)),
-    queueDepth: () => getTtsQueueDepth(db),
+    release: async (job, message, delaySeconds, workerId, provider) => {
+      const { releaseTtsJobPending, withTransaction } = await import('./repositories.js');
+      return withTransaction(client => releaseTtsJobPending(client, job.id, message, delaySeconds, workerId, provider));
+    },
+    fail: async (job, message, workerId) => {
+      const { failTtsJob, withTransaction } = await import('./repositories.js');
+      return withTransaction(client => failTtsJob(client, job.id, message, appConfig.KITABU_TTS_MAX_ATTEMPTS, appConfig.KITABU_TTS_RETRY_DELAY_SECONDS, workerId));
+    },
+    reserveGemini: async input => {
+      const { reserveGeminiTtsDailyUsage, withTransaction } = await import('./repositories.js');
+      return withTransaction(client => reserveGeminiTtsDailyUsage(client, input));
+    },
+    queueDepth: async () => {
+      const [{ db }, { getTtsQueueDepth }] = await Promise.all([import('./db.js'), import('./repositories.js')]);
+      return getTtsQueueDepth(db);
+    },
     storage,
     providers
   };
+}
+
+function newTtsWorkerId() {
+  return `tts-worker-${process.pid}-${randomUUID()}`;
 }
 
 function providerInput(job: TtsJobRecord): TtsProviderInput {

@@ -123,3 +123,13 @@ export async function saveJson<T>(key: string, value: T): Promise<void> {
     // Persistence errors should not break the UI flow.
   }
 }
+
+export async function removeWebStorageKey(key: string): Promise<void> {
+  memoryStore.delete(key);
+
+  try {
+    await AsyncStorage.removeItem(key);
+  } catch {
+    // The in-memory copy is already cleared when browser persistence fails.
+  }
+}

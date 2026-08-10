@@ -96,6 +96,7 @@ const MASCOT_ART: Record<OnboardingMascotKey, ReturnType<typeof require>> = {
   elephant: require('../assets/mascot/ndovu-elephant.png'),
   lion: require('../assets/mascot/simba-lion.png'),
   rabbit: require('../assets/mascot/sungura-rabbit.png'),
+  panda: require('../assets/mascot/panda.png'),
 };
 
 export function ParentDashboardScreen({

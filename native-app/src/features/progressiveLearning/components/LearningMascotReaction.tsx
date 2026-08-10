@@ -14,6 +14,7 @@ export const LEARNING_MASCOT_SOURCES: Record<OnboardingMascotKey, ImageSourcePro
   rabbit: require('../../../assets/mascot/sungura-rabbit.png'),
   lion: require('../../../assets/mascot/simba-lion.png'),
   elephant: require('../../../assets/mascot/ndovu-elephant.png'),
+  panda: require('../../../assets/mascot/panda.png'),
 };
 
 export type LearningMascotReactionKind =

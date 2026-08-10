@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -14,6 +15,7 @@ loadEnv({ path: path.resolve(apiDir, '.env') });
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
+const enqueueTts = args.includes('--enqueue-tts');
 const manifestFlagIndex = args.indexOf('--manifest');
 const fileFlagIndex = args.indexOf('--file');
 const manifestPath = manifestFlagIndex >= 0 ? path.resolve(args[manifestFlagIndex + 1]) : path.resolve(apiDir, 'data/quiz-bank/KEN/CBC/manifest.json');
@@ -77,6 +79,50 @@ function validatePayload(manifest, payload, filePath) {
   if (errors.length > 0) throw new Error(errors.join('\n'));
 }
 
+const ttsVoices = {
+  Samora: 'Puck',
+  Barake: 'Charon',
+  Bella: 'Kore',
+  Judith: 'Aoede'
+};
+const ttsModel = process.env.KITABU_GEMINI_TTS_MODEL || 'gemini-2.5-flash-preview-tts';
+
+function ttsIdentity(text, avatarVoice) {
+  const normalizedText = text.trim().replace(/\s+/g, ' ');
+  const cacheKey = createHash('sha256')
+    .update(JSON.stringify({ normalizedText, selectedVoice: avatarVoice, model: ttsModel }))
+    .digest('hex');
+  return { cacheKey, normalizedText };
+}
+
+async function enqueueQuestionTts(client, question) {
+  if (!enqueueTts) return;
+  for (const [avatarVoice, geminiVoice] of Object.entries(ttsVoices)) {
+    const identity = ttsIdentity(question.prompt, avatarVoice);
+    const artifact = await client.query(
+      `INSERT INTO tts_artifacts (
+         cache_key, normalized_text, avatar_voice, gemini_voice, gemini_model,
+         status, next_retry_at
+       ) VALUES ($1, $2, $3, $4, $5, 'pending', NOW())
+       ON CONFLICT (cache_key) DO UPDATE SET
+         status = CASE WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.status ELSE 'pending' END,
+         next_retry_at = CASE WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at ELSE NOW() END,
+         updated_at = NOW()
+       RETURNING id`,
+      [identity.cacheKey, identity.normalizedText, avatarVoice, geminiVoice, ttsModel]
+    );
+    await client.query(
+      `INSERT INTO tts_jobs (artifact_id, status, available_at)
+       VALUES ($1, 'pending', NOW())
+       ON CONFLICT (artifact_id) DO UPDATE SET
+         status = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.status ELSE 'pending' END,
+         available_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.available_at ELSE NOW() END,
+         updated_at = NOW()`,
+      [artifact.rows[0].id]
+    );
+  }
+}
+
 async function importFile(client, manifest, filePath) {
   const payload = readJson(filePath);
   validatePayload(manifest, payload, filePath);
@@ -126,6 +172,7 @@ async function importFile(client, manifest, filePath) {
         'quizbank-json'
       ]
     );
+    await enqueueQuestionTts(client, question);
   }
   return payload.questions.length;
 }
@@ -194,7 +241,8 @@ try {
   for (const file of files) total += await importFile(client, manifest, file);
   await client.query('COMMIT');
   const pruneLabel = explicitFile ? '' : ` Pruned ${pruned} out-of-manifest row(s).`;
-  console.log(`Imported ${total} QuizBank question(s) from ${files.length} file(s).${pruneLabel}`);
+  const ttsLabel = enqueueTts ? ' TTS jobs were enqueued for all supported avatar voices.' : '';
+  console.log(`Imported ${total} QuizBank question(s) from ${files.length} file(s).${pruneLabel}${ttsLabel}`);
 } catch (error) {
   await client.query('ROLLBACK').catch(() => {});
   console.error('QuizBank import failed.');

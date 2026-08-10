@@ -56,6 +56,7 @@ export interface AudioTranscriptionInput {
 export interface TextToSpeechInput {
   text: string;
   voice?: string;
+  language?: string;
   responseFormat?: 'wav';
 }
 
@@ -64,6 +65,9 @@ export interface TextToSpeechResult {
   mimeType: string;
   model: string;
   voice: string;
+  provider?: 'cartesia' | 'gemini';
+  durationMs?: number | null;
+  metadata?: Record<string, unknown>;
 }
 
 export type AiProvider = 'openai' | 'deepseek' | 'google' | 'groq' | 'nvidia';
@@ -1008,37 +1012,95 @@ export async function transcribeAudio(
   throw new Error(`All transcription providers failed: ${errors.map(error => error.message).join(' | ')}`);
 }
 
-export async function synthesizeSpeechWithGroq(input: TextToSpeechInput): Promise<TextToSpeechResult> {
-  if (!appConfig.KITABU_GROQ_API_KEY) {
-    throw new Error('KITABU_GROQ_API_KEY is not configured');
+/** Avatar names are product-facing; Gemini requires its prebuilt voice names. */
+export const GEMINI_TTS_VOICE_BY_AVATAR: Record<string, string> = {
+  Samora: 'Puck',
+  Barake: 'Charon',
+  Bella: 'Kore',
+  Judith: 'Aoede'
+};
+
+function pcm16ToWav(pcm: Buffer, sampleRate = 24_000, channels = 1) {
+  const header = Buffer.alloc(44);
+  const byteRate = sampleRate * channels * 2;
+  header.write('RIFF', 0);
+  header.writeUInt32LE(36 + pcm.length, 4);
+  header.write('WAVE', 8);
+  header.write('fmt ', 12);
+  header.writeUInt32LE(16, 16);
+  header.writeUInt16LE(1, 20);
+  header.writeUInt16LE(channels, 22);
+  header.writeUInt32LE(sampleRate, 24);
+  header.writeUInt32LE(byteRate, 28);
+  header.writeUInt16LE(channels * 2, 32);
+  header.writeUInt16LE(16, 34);
+  header.write('data', 36);
+  header.writeUInt32LE(pcm.length, 40);
+  return Buffer.concat([header, pcm]);
+}
+
+export async function synthesizeSpeechWithGemini(input: TextToSpeechInput): Promise<TextToSpeechResult> {
+  if (!appConfig.KITABU_GEMINI_API_KEY) {
+    throw new Error('KITABU_GEMINI_API_KEY is not configured');
   }
 
-  const voice = input.voice?.trim() || appConfig.KITABU_GROQ_TTS_ENGLISH_VOICE;
-  const responseFormat = input.responseFormat ?? 'wav';
-  const response = await fetch('https://api.groq.com/openai/v1/audio/speech', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${appConfig.KITABU_GROQ_API_KEY}`
-    },
-    body: JSON.stringify({
-      model: appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL,
-      input: input.text,
-      voice,
-      response_format: responseFormat
-    })
-  });
+  const avatarVoice = input.voice?.trim();
+  if (!avatarVoice) {
+    throw new Error('A selected avatar voice is required for speech synthesis');
+  }
+
+  const geminiVoice = GEMINI_TTS_VOICE_BY_AVATAR[avatarVoice];
+  if (!geminiVoice) {
+    throw new Error(`Unsupported avatar voice: ${avatarVoice}`);
+  }
+
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${appConfig.KITABU_GEMINI_TTS_MODEL}:generateContent?key=${appConfig.KITABU_GEMINI_API_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: input.text }]}],
+        generationConfig: {
+          responseModalities: ['AUDIO'],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: { voiceName: geminiVoice }
+            },
+            ...(input.language ? { languageCode: input.language } : {})
+          }
+        }
+      })
+    }
+  );
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Groq speech synthesis failed: ${response.status} ${body}`);
+    throw new Error(`Gemini speech synthesis failed: ${response.status} ${body}`);
   }
 
-  const audio = Buffer.from(await response.arrayBuffer());
+  const payload = await response.json() as {
+    candidates?: Array<{
+      content?: {
+        parts?: Array<{
+          inlineData?: { data?: string; mimeType?: string };
+        }>;
+      };
+    }>;
+  };
+  const inlineData = payload.candidates?.[0]?.content?.parts?.find(part => part.inlineData?.data)?.inlineData;
+  if (!inlineData?.data) {
+    throw new Error('Gemini speech synthesis returned no audio');
+  }
+
+  const audio = inlineData.mimeType?.toLowerCase().startsWith('audio/wav')
+    ? Buffer.from(inlineData.data, 'base64')
+    : pcm16ToWav(Buffer.from(inlineData.data, 'base64'));
+
   return {
     base64Audio: audio.toString('base64'),
     mimeType: 'audio/wav',
-    model: appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL,
-    voice
+    model: appConfig.KITABU_GEMINI_TTS_MODEL,
+    voice: geminiVoice
   };
 }

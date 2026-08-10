@@ -5,6 +5,11 @@ import type {
 import type { RankedListSceneProps } from './rankedList/types';
 import type { TraceConstructSceneProps } from './traceConstruct';
 import type { AuthoredInteractionSceneProps } from './authoredInteraction';
+import {
+  GENERIC_SAMPLE_COMPONENT_IDS,
+  type GenericSampleOption,
+  type GenericSampleSceneProps,
+} from './genericSample/types';
 
 export interface StructuredResponseRendererInput {
   rendererId: 'structured-response/native';
@@ -34,11 +39,19 @@ export interface AuthoredInteractionRendererInput {
   props: AuthoredInteractionSceneProps;
 }
 
+export interface GenericSampleRendererInput {
+  rendererId: 'generic-sample/native';
+  sceneId: string;
+  prompt: StructuredResponseLocalizedText;
+  props: GenericSampleSceneProps;
+}
+
 export type NativeSceneRendererInput =
   | StructuredResponseRendererInput
   | RankedListRendererInput
   | TraceConstructRendererInput
-  | AuthoredInteractionRendererInput;
+  | AuthoredInteractionRendererInput
+  | GenericSampleRendererInput;
 
 export type SceneAdapterFailureCode =
   | 'invalid-scene'
@@ -199,6 +212,90 @@ function isAuthoredInteractionProps(value: unknown): value is AuthoredInteractio
   return true;
 }
 
+const GENERIC_SAMPLE_COMPONENT_ID_SET = new Set<string>(GENERIC_SAMPLE_COMPONENT_IDS);
+const UNSAFE_URL_PATTERN = /(?:https?|javascript|data|file):\/\/|\bwww\./i;
+
+function isSafeGenericText(value: unknown, maxLength: number): value is string {
+  return typeof value === 'string' && value.length > 0 && value.length <= maxLength && !UNSAFE_URL_PATTERN.test(value);
+}
+
+function isGenericSampleOption(value: unknown): value is GenericSampleOption {
+  if (!isRecord(value) || !hasOnlyKeys(value, ['id', 'label', 'description'])) return false;
+  return isSafeGenericText(value.id, 80) && isSafeGenericText(value.label, 180) &&
+    (value.description === undefined || isSafeGenericText(value.description, 240));
+}
+
+function isGenericSampleHint(value: unknown): value is { label: string; description?: string } {
+  return isRecord(value) && hasOnlyKeys(value, ['label', 'description']) &&
+    isSafeGenericText(value.label, 160) &&
+    (value.description === undefined || isSafeGenericText(value.description, 240));
+}
+
+export function isGenericSampleProps(value: unknown): value is GenericSampleSceneProps {
+  if (!isRecord(value) || !hasOnlyKeys(value, [
+    'title', 'instructions', 'body', 'steps', 'options', 'items', 'inputKind',
+    'inputLabel', 'inputPlaceholder', 'inputMaxLength', 'list', 'table', 'presentation', 'events',
+  ])) return false;
+  if (!isSafeGenericText(value.title, 180) || !isSafeGenericText(value.instructions, 500)) return false;
+  if (value.body !== undefined && !isSafeGenericText(value.body, 2_000)) return false;
+  if (value.inputKind !== 'none' && value.inputKind !== 'text' && value.inputKind !== 'numeric' && value.inputKind !== 'choice') return false;
+
+  for (const key of ['steps', 'list'] as const) {
+    const entries = value[key];
+    if (entries !== undefined && (!Array.isArray(entries) || entries.length < 1 || entries.length > 20 ||
+      !entries.every(entry => isSafeGenericText(entry, key === 'steps' ? 300 : 240)))) return false;
+  }
+
+  const optionIds = new Set<string>();
+  for (const key of ['options', 'items'] as const) {
+    const entries = value[key];
+    if (entries === undefined) continue;
+    if (!Array.isArray(entries) || entries.length < 1 || entries.length > 20) return false;
+    for (const entry of entries) {
+      if (!isGenericSampleOption(entry) || optionIds.has(entry.id)) return false;
+      optionIds.add(entry.id);
+    }
+  }
+  if (value.inputKind === 'choice' && optionIds.size === 0) return false;
+  if (value.inputLabel !== undefined && !isSafeGenericText(value.inputLabel, 160)) return false;
+  if (value.inputPlaceholder !== undefined && !isSafeGenericText(value.inputPlaceholder, 160)) return false;
+  if (value.inputMaxLength !== undefined && (
+    typeof value.inputMaxLength !== 'number' ||
+    !Number.isInteger(value.inputMaxLength) ||
+    value.inputMaxLength < 1 ||
+    value.inputMaxLength > 500
+  )) return false;
+
+  if (value.table !== undefined) {
+    if (!isRecord(value.table) || !hasOnlyKeys(value.table, ['columns', 'rows'])) return false;
+    const columns = value.table.columns;
+    const rows = value.table.rows;
+    if (!Array.isArray(columns) || columns.length < 1 || columns.length > 8 ||
+      !columns.every(column => isSafeGenericText(column, 120)) ||
+      !Array.isArray(rows) || rows.length > 20) return false;
+    if (!rows.every(row => Array.isArray(row) && row.length === columns.length &&
+      row.every(cell => isSafeGenericText(cell, 160)))) return false;
+  }
+
+  if (value.presentation !== undefined) {
+    if (!isRecord(value.presentation) || !hasOnlyKeys(value.presentation, ['canvas', 'model', 'map'])) return false;
+    for (const key of ['canvas', 'model', 'map'] as const) {
+      if (value.presentation[key] !== undefined && !isGenericSampleHint(value.presentation[key])) return false;
+    }
+  }
+
+  if (value.events !== undefined) {
+    if (!Array.isArray(value.events) || value.events.length > 12) return false;
+    for (const event of value.events) {
+      if (!isRecord(event) || !hasOnlyKeys(event, ['type', 'targetId', 'label']) ||
+        !['select', 'input', 'submit', 'step'].includes(String(event.type))) return false;
+      if (event.targetId !== undefined && !isSafeGenericText(event.targetId, 80)) return false;
+      if (event.label !== undefined && !isSafeGenericText(event.label, 160)) return false;
+    }
+  }
+  return true;
+}
+
 /** Converts an untrusted API componentScene into input for a renderer installed in this app build. */
 export function adaptComponentScene(componentScene: unknown): SceneAdapterResult {
   if (!isRecord(componentScene) || !isRecord(componentScene.identity) || !isRecord(componentScene.component)) {
@@ -229,6 +326,19 @@ export function adaptComponentScene(componentScene: unknown): SceneAdapterResult
   if (componentId === 'authored-interaction') {
     if (!isAuthoredInteractionProps(componentScene.props)) return { ok: false, code: 'invalid-renderer-props' };
     return { ok: true, input: { rendererId: 'authored-interaction/native', sceneId, prompt: { ...componentScene.prompt }, props: componentScene.props } };
+  }
+
+  if (typeof componentId === 'string' && GENERIC_SAMPLE_COMPONENT_ID_SET.has(componentId)) {
+    if (!isGenericSampleProps(componentScene.props)) return { ok: false, code: 'invalid-renderer-props' };
+    return {
+      ok: true,
+      input: {
+        rendererId: 'generic-sample/native',
+        sceneId,
+        prompt: { ...componentScene.prompt },
+        props: componentScene.props,
+      },
+    };
   }
 
   if (componentId !== 'structured-response') return { ok: false, code: 'renderer-not-installed' };

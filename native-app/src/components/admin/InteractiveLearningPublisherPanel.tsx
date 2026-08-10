@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { approveInteractiveBundle, moveInteractiveRelease, saveInteractiveBundleDraft, validateInteractiveBundle, type InteractiveBundleDraft } from '../../services/interactiveLearningAdminService';
+import { approveInteractiveBundle, getInteractiveBundle, moveInteractiveRelease, saveInteractiveBundleDraft, validateInteractiveBundle, type InteractiveBundleDraft } from '../../services/interactiveLearningAdminService';
 import { InteractiveSceneHost } from '../../features/interactiveLearning/InteractiveSceneHost';
 import { adaptComponentScene, type NativeSceneRendererInput } from '../../features/interactiveLearning/sceneAdapter';
+
+type PreviewScene = { input: NativeSceneRendererInput; componentId: string };
+
+export function adaptPreviewScenes(scenes: unknown[]): PreviewScene[] {
+  return scenes.map((scene, index) => {
+    const componentId = (scene as { component?: { componentId?: unknown } })?.component?.componentId;
+    if (typeof componentId !== 'string') throw new Error(`Preview scene ${index + 1} has no component ID.`);
+    const adapted = adaptComponentScene(scene);
+    if (!adapted.ok) {
+      throw new Error(`Preview unavailable for scene ${index + 1}: ${'code' in adapted ? adapted.code : 'invalid-scene'}`);
+    }
+    return { input: adapted.input, componentId };
+  });
+}
 
 export function InteractiveLearningPublisherPanel({ styles }: { styles: Record<string, any> }) {
   const [source, setSource] = useState('');
   const [message, setMessage] = useState('Paste a complete validated bundle package to begin.');
   const [busy, setBusy] = useState(false);
-  const [preview, setPreview] = useState<NativeSceneRendererInput | null>(null);
+  const [previewScenes, setPreviewScenes] = useState<PreviewScene[]>([]);
+  const [previewIndex, setPreviewIndex] = useState(0);
 
   function parse(): { bundle: InteractiveBundleDraft; bundleId: string; revision: string; channel: string } {
     const bundle = JSON.parse(source) as InteractiveBundleDraft;
@@ -18,15 +33,22 @@ export function InteractiveLearningPublisherPanel({ styles }: { styles: Record<s
     return { bundle, bundleId: manifest.bundleId, revision: manifest.revision, channel: manifest.release.channel };
   }
 
-  async function run(action: 'validate' | 'preview' | 'draft' | 'approve' | 'publish' | 'rollback') {
+  async function run(action: 'load' | 'validate' | 'preview' | 'draft' | 'approve' | 'publish' | 'rollback') {
     setBusy(true);
     try {
+      if (action === 'load') {
+        const bundle = await getInteractiveBundle('ken-cbc-generative-ui-catalogue', '2026-08-10.1');
+        setSource(JSON.stringify(bundle.payload, null, 2));
+        setPreviewScenes(adaptPreviewScenes(bundle.payload.scenes));
+        setPreviewIndex(0);
+        setMessage(`Generative UI catalogue ${bundle.release_id} loaded from the database.`);
+        return;
+      }
       const parsed = parse();
       if (action === 'preview') {
-        const adapted = adaptComponentScene(parsed.bundle.scenes[0]);
-        if (!adapted.ok) throw new Error(`Preview unavailable: ${'code' in adapted ? adapted.code : 'invalid-scene'}`);
-        setPreview(adapted.input);
-        setMessage('Local preview loaded with the installed renderer.');
+        setPreviewScenes(adaptPreviewScenes(parsed.bundle.scenes));
+        setPreviewIndex(0);
+        setMessage(`Local preview loaded with the installed renderer (${parsed.bundle.scenes.length} scenes).`);
       } else if (action === 'validate') {
         const result = await validateInteractiveBundle(parsed.bundle);
         setMessage(result.valid ? 'Validation passed.' : result.issues.map(issue => `${issue.path}: ${issue.message}`).join('\n'));
@@ -54,13 +76,28 @@ export function InteractiveLearningPublisherPanel({ styles }: { styles: Record<s
       <TextInput accessibilityLabel="Interactive learning bundle JSON" editable={!busy} multiline onChangeText={setSource} placeholder="Paste bundle package JSON" style={[styles.input, localStyles.source]} value={source} />
       <Text accessibilityLiveRegion="polite" style={styles.panelTextSmall}>{message}</Text>
       <View style={styles.actionRow}>
-        {(['validate', 'preview', 'draft', 'approve', 'publish', 'rollback'] as const).map(action => (
-          <Pressable accessibilityRole="button" disabled={busy || !source.trim()} key={action} onPress={() => run(action)} style={action === 'publish' ? styles.blueBtn : styles.ghostBtn}>
-            <Text style={action === 'publish' ? styles.blueBtnText : styles.ghostText}>{action === 'draft' ? 'Save draft' : action[0].toUpperCase() + action.slice(1)}</Text>
+        {(['load', 'validate', 'preview', 'draft', 'approve', 'publish', 'rollback'] as const).map(action => (
+          <Pressable accessibilityLabel={action === 'load' ? 'Load preview' : action === 'draft' ? 'Save draft' : action[0].toUpperCase() + action.slice(1)} accessibilityRole="button" disabled={busy || (action !== 'load' && !source.trim())} key={action} onPress={() => run(action)} style={action === 'publish' ? styles.blueBtn : styles.ghostBtn}>
+            <Text style={action === 'publish' ? styles.blueBtnText : styles.ghostText}>{action === 'draft' ? 'Save draft' : action === 'load' ? 'Load preview' : action[0].toUpperCase() + action.slice(1)}</Text>
           </Pressable>
         ))}
       </View>
-      {preview ? <InteractiveSceneHost onResponseChange={() => undefined} scene={preview} /> : null}
+      {previewScenes.length > 0 ? (
+        <>
+          <Text accessibilityLabel="Interactive learning preview position" style={styles.panelTextSmall}>
+            Preview {previewIndex + 1} of {previewScenes.length} · {previewScenes[previewIndex].componentId}
+          </Text>
+          <View style={styles.actionRow}>
+            <Pressable accessibilityLabel="Previous preview scene" accessibilityRole="button" disabled={busy || previewIndex === 0} onPress={() => setPreviewIndex(index => Math.max(0, index - 1))} style={styles.ghostBtn}>
+              <Text style={styles.ghostText}>Previous</Text>
+            </Pressable>
+            <Pressable accessibilityLabel="Next preview scene" accessibilityRole="button" disabled={busy || previewIndex === previewScenes.length - 1} onPress={() => setPreviewIndex(index => Math.min(previewScenes.length - 1, index + 1))} style={styles.ghostBtn}>
+              <Text style={styles.ghostText}>Next</Text>
+            </Pressable>
+          </View>
+          <InteractiveSceneHost onResponseChange={() => undefined} scene={previewScenes[previewIndex].input} />
+        </>
+      ) : null}
     </View>
   );
 }

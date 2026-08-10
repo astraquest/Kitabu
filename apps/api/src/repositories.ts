@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import type { PoolClient, QueryResultRow } from 'pg';
 import { Chess } from 'chess.js';
 import { db } from './db.js';
@@ -11,11 +12,59 @@ import { resolveAssignmentSchoolId } from './assignmentTargeting.js';
 import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 import type { CurriculumScope } from './curriculumScope.js';
+import { normalizeOnboardingSchoolInput } from './onboardingSchool.js';
+import type { EducationalAssetImportRunStatus, EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetProductionStatus, EducationalAssetUsageRestriction } from './educationalAssets/types.js';
+import type { EducationalAssetNormalizationStatus, EducationalVisualType } from './educationalAssets/classification.js';
+import { deriveEducationalAssetAltText } from './educationalAssets/classification.js';
+import type { EducationalAssetClassification } from './educationalAssets/classificationEdit.js';
+import { normalizeEducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
+import type { EducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
+import {
+  normalizeEducationalAssetCurriculumUnitIds,
+  serializeEducationalAssetRelationshipMetadata,
+  type EducationalAssetCurriculumLinkInput,
+} from './educationalAssets/curriculumLinks.js';
+import {
+  normalizeEducationalAssetTaxonomyLinks,
+  type EducationalAssetTaxonomyLinkInput,
+} from './educationalAssets/taxonomy.js';
 
 type MaybeClient = PoolClient | typeof db;
 
 function q<T extends QueryResultRow>(client: MaybeClient, text: string, values: unknown[] = []) {
   return client.query<T>(text, values);
+}
+
+export interface OnboardingPersonalizationChild {
+  name: string;
+  age: string;
+  grade: string;
+  subjects?: string[];
+}
+
+export interface OnboardingPersonalization {
+  version: 1;
+  languageCode?: 'en' | 'sw';
+  role?: 'student' | 'teacher' | 'parent' | 'other';
+  displayName?: string;
+  mascotKey?: 'rabbit' | 'lion' | 'elephant';
+  voiceName?: 'Samora' | 'Barake' | 'Bella' | 'Judith';
+  noVoice?: boolean;
+  needKey?: 'exam' | 'grades' | 'resources' | 'results' | 'support' | 'progress' | 'learn' | 'help';
+  goalKey?: string;
+  concernKey?: string;
+  achievementKey?: string;
+  interestKeys?: string[];
+  age?: string;
+  children?: OnboardingPersonalizationChild[];
+  taughtGrades?: string[];
+  subjects?: string[];
+  selectedSubjectIds?: string[];
+  reminderEnabled?: boolean;
+  county?: string;
+  school?: string;
+  countryCode?: string;
+  curriculumCode?: string;
 }
 
 export interface UserRecord {
@@ -35,6 +84,7 @@ export interface UserRecord {
   country_code: string;
   curriculum_code: string;
   onboarding_completed: boolean;
+  onboarding_personalization: OnboardingPersonalization | null;
   terms_accepted_at: Date | null;
   terms_version: string | null;
   privacy_version: string | null;
@@ -379,6 +429,9 @@ export interface OnboardingSelectionEventInput {
   stepKey: string;
   optionKey: string;
   optionLabel: string;
+  eventType?: 'view' | 'selection' | 'skip' | 'back' | 'complete' | 'permission_result' | 'drop_off';
+  eventVersion?: number;
+  stepIndex?: number;
   role?: string | null;
   county?: string | null;
   grade?: string | null;
@@ -674,7 +727,7 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE email = $1`,
@@ -700,7 +753,7 @@ export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord 
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE phone_number = $1`,
@@ -838,7 +891,7 @@ export async function findUserByAuthIdentity(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at,
             full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE id = $1`,
@@ -895,7 +948,9 @@ export async function linkUserAuthIdentity(
   );
 }
 
-export async function findUserById(userId: string): Promise<AuthenticatedUser | null> {
+export async function findUserById(
+  userId: string
+): Promise<(AuthenticatedUser & { onboardingPersonalization?: OnboardingPersonalization | null }) | null> {
   const userResult = await db.query<{
     id: string;
     school_id: string | null;
@@ -912,6 +967,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     country_code: string;
     curriculum_code: string;
     onboarding_completed: boolean;
+    onboarding_personalization: OnboardingPersonalization | null;
     terms_accepted_at: Date | null;
     terms_version: string | null;
     privacy_version: string | null;
@@ -920,7 +976,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
   }>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
-            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
      WHERE id = $1`,
@@ -949,6 +1005,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     countryCode: user.country_code,
     curriculumCode: user.curriculum_code,
     onboardingCompleted: user.onboarding_completed,
+    onboardingPersonalization: user.onboarding_personalization,
     termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
     termsVersion: user.terms_version,
     privacyVersion: user.privacy_version,
@@ -990,6 +1047,7 @@ export async function createSelfServiceUser(input: {
       country_code: string;
       curriculum_code: string;
       onboarding_completed: boolean;
+      onboarding_personalization: OnboardingPersonalization | null;
       terms_accepted_at: Date | null;
       terms_version: string | null;
       privacy_version: string | null;
@@ -999,12 +1057,12 @@ export async function createSelfServiceUser(input: {
       client,
       `INSERT INTO users (
          school_id, email, phone_number, phone_verified, phone_verified_at, password_hash, full_name,
-         gender, grade_level, mascot_key, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         gender, grade_level, mascot_key, onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version
        )
-       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, NULL, $11, $12, $13)
        RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
                  country_code, curriculum_code,
-                 onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+                 onboarding_completed, onboarding_personalization, terms_accepted_at, terms_version, privacy_version,
                  must_rotate_password, is_break_glass`,
       [
         input.schoolId,
@@ -1045,6 +1103,7 @@ export async function createSelfServiceUser(input: {
       countryCode: user.country_code,
       curriculumCode: user.curriculum_code,
       onboardingCompleted: user.onboarding_completed,
+      onboardingPersonalization: user.onboarding_personalization,
       termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
       termsVersion: user.terms_version,
       privacyVersion: user.privacy_version,
@@ -2272,6 +2331,74 @@ export async function createSchool(
   return result.rows[0].id;
 }
 
+export async function createOrReuseOnboardingSchool(
+  client: MaybeClient,
+  input: { name: string; county: string }
+) {
+  const normalizedInput = normalizeOnboardingSchoolInput(input);
+  const normalizedName = normalizedInput.name;
+  const normalizedCounty = normalizedInput.county;
+
+  await q(
+    client,
+    `SELECT pg_advisory_xact_lock(hashtextextended(lower($1) || chr(0) || lower($2), 0))`,
+    [normalizedName, normalizedCounty]
+  );
+
+  const existing = await q<{ id: string }>(
+    client,
+    `SELECT id
+     FROM schools
+     WHERE lower(btrim(name)) = lower($1)
+       AND lower(btrim(location)) = lower($2)
+     ORDER BY created_at ASC, id ASC
+     LIMIT 1`,
+    [normalizedName, normalizedCounty]
+  );
+  if (existing.rows[0]) {
+    return { schoolId: existing.rows[0].id, reused: true };
+  }
+
+  const plan = await q<{ id: string; price_ksh_cents: string }>(
+    client,
+    `SELECT id, price_ksh_cents
+     FROM subscription_plans
+     WHERE code = 'monthly'
+     LIMIT 1`
+  );
+  const monthlyPlan = plan.rows[0];
+  if (!monthlyPlan) {
+    throw new Error('Monthly subscription package is not configured');
+  }
+
+  const slugBase = normalizedName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 70) || 'school';
+  const slug = `${slugBase}-${randomUUID().slice(0, 8)}`;
+  const created = await q<{ id: string }>(
+    client,
+    `INSERT INTO schools (
+       name, slug, location, status, school_type, available_grades,
+       available_plan_codes, plan_prices_ksh_cents, subscription_price_ksh_cents,
+       assigned_plan_id
+     )
+     VALUES (
+       $1, $2, $3, 'active', 'day_school', ARRAY[]::text[],
+       ARRAY['monthly']::text[], jsonb_build_object('monthly', $4::bigint), $4, $5
+     )
+     RETURNING id`,
+    [normalizedName, slug, normalizedCounty, monthlyPlan.price_ksh_cents, monthlyPlan.id]
+  );
+
+  if (!created.rows[0]) {
+    throw new Error('Unable to create onboarding school');
+  }
+
+  return { schoolId: created.rows[0].id, reused: false };
+}
+
 export async function updateSchool(
   client: MaybeClient,
   schoolId: string,
@@ -2530,6 +2657,7 @@ export async function updateUserOnboarding(
     mpesaPhoneNumber?: string | null;
     subjects?: string[];
     subjectIds?: string[];
+    onboardingPersonalization?: OnboardingPersonalization;
   }
 ) {
   await q(
@@ -2541,6 +2669,7 @@ export async function updateUserOnboarding(
          country_code = $5,
          curriculum_code = $6,
          mascot_key = COALESCE($7, mascot_key),
+         onboarding_personalization = COALESCE($8::jsonb, onboarding_personalization),
          onboarding_completed = TRUE,
          updated_at = NOW()
      WHERE id = $1`,
@@ -2551,7 +2680,8 @@ export async function updateUserOnboarding(
       input.grade,
       input.countryCode,
       input.curriculumCode,
-      input.mascotKey ?? null
+      input.mascotKey ?? null,
+      input.onboardingPersonalization ? JSON.stringify(input.onboardingPersonalization) : null
     ]
   );
 
@@ -3073,6 +3203,1291 @@ export async function setAiGenerationCacheEntry(
   return result.rows[0];
 }
 
+export interface EducationalAssetRepositoryRecord {
+  id: string;
+  title: string;
+  description: string | null;
+  metadata?: Record<string, unknown>;
+  source_url: string;
+  source_name: string;
+  source_license: EducationalAssetLicense;
+  source_license_url: string | null;
+  original_filename: string | null;
+  creator: string | null;
+  creator_url: string | null;
+  license_version: string | null;
+  license_evidence: string | null;
+  provider_key: string | null;
+  provider_asset_id: string | null;
+  source_raw_url: string | null;
+  attribution: string | null;
+  retrieved_at: Date;
+  content_sha256: string;
+  byte_size: number;
+  storage_backend: 'local' | 'http-put';
+  storage_key: string;
+  production_status: EducationalAssetProductionStatus;
+  usage_restriction: EducationalAssetUsageRestriction;
+  media_type: EducationalAssetMediaType;
+  mime_type: string;
+  subject: string | null;
+  topic: string | null;
+  grade_level: string | null;
+  visual_type: EducationalVisualType;
+  subtopic: string | null;
+  keywords: string[];
+  synonyms: string[];
+  grade_min: number | null;
+  grade_max: number | null;
+  language: string;
+  contains_text: boolean;
+  alt_text: string | null;
+  educational_description: string | null;
+  normalization_status: EducationalAssetNormalizationStatus;
+  width: number | null;
+  height: number | null;
+  aspect_ratio: number | null;
+  visual_hash: string | null;
+  review_reason: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface EducationalAssetOfflineReferenceRecord {
+  id: string;
+  mime_type: string;
+  byte_size: number;
+  content_sha256: string;
+  title: string;
+  alt_text: string | null;
+  source_license: EducationalAssetLicense;
+  provider_key: string | null;
+  source_name: string;
+  attribution: string | null;
+  usage_restriction?: EducationalAssetUsageRestriction;
+}
+
+export interface EducationalAssetAttributionRecord {
+  asset_id: string;
+  source_name: string;
+  source_license: EducationalAssetLicense;
+  attribution: string | null;
+  original_filename: string | null;
+  creator: string | null;
+  creator_url: string | null;
+  license_version: string | null;
+  license_evidence: string | null;
+}
+
+export interface EducationalAssetCurriculumUnitLinkRecord {
+  asset_id: string;
+  unit_id: string;
+  unit_title: string;
+  unit_code: string | null;
+  canonical_unit_type: string;
+  relationship_metadata: Record<string, unknown>;
+  created_at: Date;
+}
+
+export interface EducationalAssetTaxonomyTermRecord {
+  id: string;
+  code: string;
+  display_name: string;
+  parent_term_id: string | null;
+  parent_code: string | null;
+  sort_order: number;
+  is_active: boolean;
+}
+
+export interface EducationalAssetTaxonomyLinkRecord {
+  asset_id: string;
+  term_id: string;
+  code: string;
+  display_name: string;
+  parent_term_id: string | null;
+  parent_code: string | null;
+  relationship_metadata: Record<string, unknown>;
+  created_at: Date;
+}
+
+export interface EducationalAssetProviderRecord {
+  provider_key: string;
+  display_name: string;
+  homepage_url: string;
+  enabled: boolean;
+  metadata: Record<string, unknown>;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface UpsertEducationalAssetProviderInput {
+  providerKey: string;
+  displayName: string;
+  homepageUrl: string;
+  enabled?: boolean;
+  metadata?: Record<string, unknown>;
+}
+
+export interface EducationalAssetImportRunRecord {
+  id: string;
+  provider_key: string;
+  importer_key: string;
+  status: EducationalAssetImportRunStatus;
+  started_at: Date | null;
+  completed_at: Date | null;
+  discovered_count: string;
+  downloaded_count: string;
+  imported_count: string;
+  duplicate_count: string;
+  restricted_count: string;
+  rejected_count: string;
+  quarantined_count: string;
+  error_count: string;
+  checkpoint: Record<string, unknown>;
+  cursor: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface CreateEducationalAssetImportRunInput {
+  providerKey: string;
+  importerKey: string;
+  checkpoint?: Record<string, unknown>;
+  cursor?: string | null;
+}
+
+export interface UpdateEducationalAssetImportRunInput {
+  status?: EducationalAssetImportRunStatus;
+  discoveredCount?: number;
+  downloadedCount?: number;
+  importedCount?: number;
+  duplicateCount?: number;
+  restrictedCount?: number;
+  rejectedCount?: number;
+  quarantinedCount?: number;
+  errorCount?: number;
+  completedAt?: Date | null;
+}
+
+const educationalAssetImportRunColumns = `
+  id, provider_key, importer_key, status, started_at, completed_at,
+  discovered_count, downloaded_count, imported_count, duplicate_count,
+  restricted_count, rejected_count, quarantined_count, error_count, checkpoint, cursor, created_at, updated_at`;
+
+export async function upsertEducationalAssetProvider(
+  client: MaybeClient,
+  input: UpsertEducationalAssetProviderInput,
+): Promise<EducationalAssetProviderRecord> {
+  const result = await q<EducationalAssetProviderRecord>(
+    client,
+    `INSERT INTO educational_asset_providers (provider_key, display_name, homepage_url, enabled, metadata)
+     VALUES ($1, $2, $3, $4, $5::jsonb)
+     ON CONFLICT (provider_key) DO UPDATE SET
+       display_name = EXCLUDED.display_name,
+       homepage_url = EXCLUDED.homepage_url,
+       enabled = EXCLUDED.enabled,
+       metadata = EXCLUDED.metadata,
+       updated_at = NOW()
+     RETURNING provider_key, display_name, homepage_url, enabled, metadata, created_at, updated_at`,
+    [input.providerKey, input.displayName, input.homepageUrl, input.enabled ?? true, JSON.stringify(input.metadata ?? {})],
+  );
+  if (!result.rows[0]) throw new Error('Unable to upsert educational asset provider');
+  return result.rows[0];
+}
+
+export async function getEducationalAssetProvider(
+  client: MaybeClient,
+  providerKey: string,
+): Promise<EducationalAssetProviderRecord | null> {
+  const result = await q<EducationalAssetProviderRecord>(
+    client,
+    `SELECT provider_key, display_name, homepage_url, enabled, metadata, created_at, updated_at
+     FROM educational_asset_providers
+     WHERE provider_key = $1`,
+    [providerKey],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function createEducationalAssetImportRun(
+  client: MaybeClient,
+  input: CreateEducationalAssetImportRunInput,
+): Promise<EducationalAssetImportRunRecord> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `INSERT INTO educational_asset_import_runs (provider_key, importer_key, status, started_at, checkpoint, cursor)
+     VALUES ($1, $2, 'running', NOW(), $3::jsonb, $4)
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [input.providerKey, input.importerKey, JSON.stringify(input.checkpoint ?? {}), input.cursor ?? null],
+  );
+  if (!result.rows[0]) throw new Error('Unable to create educational asset import run');
+  return result.rows[0];
+}
+
+export async function updateEducationalAssetImportRun(
+  client: MaybeClient,
+  runId: string,
+  input: UpdateEducationalAssetImportRunInput,
+): Promise<EducationalAssetImportRunRecord | null> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `UPDATE educational_asset_import_runs
+     SET status = COALESCE($2, status),
+         discovered_count = COALESCE($3, discovered_count),
+         downloaded_count = COALESCE($4, downloaded_count),
+         imported_count = COALESCE($5, imported_count),
+         duplicate_count = COALESCE($6, duplicate_count),
+         restricted_count = COALESCE($7, restricted_count),
+         rejected_count = COALESCE($8, rejected_count),
+         quarantined_count = COALESCE($9, quarantined_count),
+         error_count = COALESCE($10, error_count),
+         completed_at = COALESCE($11, completed_at),
+         updated_at = NOW()
+     WHERE id = $1
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [runId, input.status ?? null, input.discoveredCount ?? null, input.downloadedCount ?? null,
+      input.importedCount ?? null, input.duplicateCount ?? null, input.restrictedCount ?? null,
+      input.rejectedCount ?? null, input.quarantinedCount ?? null, input.errorCount ?? null, input.completedAt ?? null],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function checkpointEducationalAssetImportRun(
+  client: MaybeClient,
+  runId: string,
+  checkpoint: Record<string, unknown>,
+  cursor?: string | null,
+): Promise<EducationalAssetImportRunRecord | null> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `UPDATE educational_asset_import_runs
+     SET checkpoint = $2::jsonb, cursor = $3, updated_at = NOW()
+     WHERE id = $1
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [runId, JSON.stringify(checkpoint), cursor ?? null],
+  );
+  return result.rows[0] ?? null;
+}
+
+export interface CreateEducationalAssetInput extends EducationalAssetProvenanceMetadata {
+  title: string;
+  description?: string | null;
+  metadata?: Record<string, unknown>;
+  mediaType: EducationalAssetMediaType;
+  mimeType: string;
+  contentSha256: string;
+  byteSize: number;
+  storageBackend?: 'local' | 'http-put';
+  storageKey: string;
+  productionStatus?: EducationalAssetProductionStatus;
+  usageRestriction?: EducationalAssetUsageRestriction;
+  subject?: string | null;
+  topic?: string | null;
+  gradeLevel?: string | null;
+  visualType?: EducationalVisualType;
+  subtopic?: string | null;
+  keywords?: string[];
+  synonyms?: string[];
+  gradeMin?: number | null;
+  gradeMax?: number | null;
+  language?: string;
+  containsText?: boolean;
+  altText?: string | null;
+  educationalDescription?: string | null;
+  normalizationStatus?: EducationalAssetNormalizationStatus;
+  width?: number | null;
+  height?: number | null;
+  aspectRatio?: number | null;
+  visualHash?: string | null;
+  sourceUrl: string;
+  sourceName: string;
+  sourceLicense: EducationalAssetLicense;
+  sourceLicenseUrl?: string | null;
+  providerKey?: string | null;
+  providerAssetId?: string | null;
+  sourceRawUrl?: string | null;
+  attribution?: string | null;
+  retrievedAt?: Date;
+}
+
+export interface AppendEducationalAssetProvenanceInput extends EducationalAssetProvenanceMetadata {
+  sourceUrl: string;
+  sourceName: string;
+  sourceLicense: EducationalAssetLicense;
+  sourceLicenseUrl?: string | null;
+  providerKey?: string | null;
+  providerAssetId?: string | null;
+  sourceRawUrl?: string | null;
+  attribution?: string | null;
+  retrievedAt?: Date;
+}
+
+const educationalAssetColumns = `
+  a.id, a.title, a.description, a.metadata, a.media_type, a.mime_type, a.content_sha256, a.byte_size,
+  a.storage_backend, a.storage_key, a.production_status, a.usage_restriction, a.created_at, a.updated_at,
+  a.subject, a.topic, a.grade_level, a.visual_type, a.subtopic, a.keywords, a.synonyms,
+  a.grade_min, a.grade_max, a.language, a.contains_text, a.alt_text, a.educational_description, a.normalization_status,
+  a.width, a.height, a.aspect_ratio, a.visual_hash, a.review_reason,
+  p.source_url, p.source_name, p.source_license, p.source_license_url,
+  p.original_filename, p.creator, p.creator_url, p.license_version, p.license_evidence,
+  p.provider_key,
+  p.provider_asset_id, p.source_raw_url, p.attribution, p.retrieved_at`;
+const canonicalEducationalAssetProvenanceJoin = `
+  JOIN LATERAL (
+    SELECT * FROM educational_asset_provenance p
+    WHERE p.asset_id = a.id
+    ORDER BY
+      CASE WHEN p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0') THEN 0 ELSE 1 END,
+      p.retrieved_at DESC,
+      p.id ASC
+    LIMIT 1
+  ) p ON TRUE`;
+
+export function serializeEducationalAssetMetadata(metadata?: Record<string, unknown>): string {
+  if (metadata === undefined) return '{}';
+  if (metadata === null || typeof metadata !== 'object' || Array.isArray(metadata)) {
+    throw new Error('Educational asset metadata must be a JSON object');
+  }
+  let serialized: string;
+  try {
+    serialized = JSON.stringify(metadata);
+  } catch {
+    throw new Error('Educational asset metadata must be JSON serializable');
+  }
+  if (!serialized.startsWith('{') || !serialized.endsWith('}')) {
+    throw new Error('Educational asset metadata must be a JSON object');
+  }
+  return serialized;
+}
+
+export async function findEducationalAssetByContentSha256(
+  client: MaybeClient,
+  contentSha256: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.content_sha256 = $1`,
+    [contentSha256],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findEducationalAssetByVisualHash(
+  client: MaybeClient,
+  visualHash: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.visual_hash = $1`,
+    [visualHash],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findEducationalAssetByProviderIdentity(
+  client: MaybeClient,
+  providerKey: string,
+  providerAssetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     WHERE p.provider_key = $1 AND p.provider_asset_id = $2
+     ORDER BY p.retrieved_at DESC, p.id ASC
+     LIMIT 1`,
+    [providerKey, providerAssetId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function getAttributionsForAssets(
+  client: MaybeClient,
+  assetIds: string[],
+): Promise<EducationalAssetAttributionRecord[]> {
+  if (!assetIds.length) return [];
+  const result = await q<EducationalAssetAttributionRecord>(
+    client,
+    `SELECT asset_id, source_name, source_license, attribution,
+            original_filename, creator, creator_url, license_version, license_evidence
+     FROM educational_asset_provenance
+     WHERE asset_id = ANY($1::uuid[])
+     ORDER BY asset_id ASC, source_name ASC, source_license ASC, id ASC`,
+    [assetIds],
+  );
+  return result.rows;
+}
+
+export async function appendEducationalAssetProvenance(
+  client: MaybeClient,
+  existingAssetId: string,
+  input: AppendEducationalAssetProvenanceInput,
+): Promise<void> {
+  const provenance = normalizeEducationalAssetProvenanceMetadata(input);
+  await q(
+    client,
+    `INSERT INTO educational_asset_provenance (
+       asset_id, source_url, source_name, source_license, source_license_url,
+       original_filename, creator, creator_url, license_version, license_evidence,
+       provider_key, provider_asset_id, source_raw_url, attribution, retrieved_at
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+     ON CONFLICT (provider_key, provider_asset_id) WHERE provider_key IS NOT NULL AND provider_asset_id IS NOT NULL DO NOTHING`,
+    [
+      existingAssetId, input.sourceUrl, input.sourceName, input.sourceLicense, input.sourceLicenseUrl ?? null,
+      provenance.originalFilename, provenance.creator, provenance.creatorUrl, provenance.licenseVersion,
+      provenance.licenseEvidence, input.providerKey ?? null, input.providerAssetId ?? null,
+      input.sourceRawUrl ?? null, input.attribution ?? null, input.retrievedAt ?? new Date(),
+    ],
+  );
+}
+
+const educationalAssetCurriculumUuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+async function validateEducationalAssetCurriculumLinkTargets(
+  client: MaybeClient,
+  assetId: string,
+  unitIds: readonly string[],
+): Promise<string[]> {
+  const normalizedUnitIds = normalizeEducationalAssetCurriculumUnitIds(unitIds);
+  if (!educationalAssetCurriculumUuidPattern.test(assetId)) {
+    throw new Error('Educational asset ID must be a valid UUID');
+  }
+  const asset = await q<{ id: string }>(
+    client,
+    'SELECT id FROM educational_assets WHERE id = $1::uuid',
+    [assetId],
+  );
+  if (!asset.rows[0]) throw new Error('Educational asset not found');
+  if (!normalizedUnitIds.length) return normalizedUnitIds;
+  const units = await q<{ id: string }>(
+    client,
+    'SELECT id FROM curriculum_units WHERE id = ANY($1::uuid[])',
+    [normalizedUnitIds],
+  );
+  if (units.rowCount !== normalizedUnitIds.length) throw new Error('One or more curriculum units were not found');
+  return normalizedUnitIds;
+}
+
+export async function listEducationalAssetCurriculumUnitLinks(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetCurriculumUnitLinkRecord[]> {
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, []);
+  const result = await q<EducationalAssetCurriculumUnitLinkRecord>(
+    client,
+    `SELECT ecu.asset_id, ecu.unit_id, cu.title AS unit_title, cu.local_code AS unit_code,
+            cu.canonical_unit_type, ecu.relationship_metadata, ecu.created_at
+     FROM educational_asset_curriculum_units ecu
+     JOIN curriculum_units cu ON cu.id = ecu.unit_id
+     WHERE ecu.asset_id = $1::uuid
+     ORDER BY cu.sequence ASC, cu.title ASC, ecu.unit_id ASC`,
+    [assetId],
+  );
+  return result.rows;
+}
+
+export async function addEducationalAssetCurriculumUnitLink(
+  client: MaybeClient,
+  assetId: string,
+  input: EducationalAssetCurriculumLinkInput,
+): Promise<EducationalAssetCurriculumUnitLinkRecord> {
+  const [unitId] = await validateEducationalAssetCurriculumLinkTargets(client, assetId, [input.unitId]);
+  const relationshipMetadata = serializeEducationalAssetRelationshipMetadata(input.relationshipMetadata);
+  await q(
+    client,
+    `INSERT INTO educational_asset_curriculum_units (asset_id, unit_id, relationship_metadata)
+     VALUES ($1::uuid, $2::uuid, $3::jsonb)
+     ON CONFLICT (asset_id, unit_id) DO UPDATE SET relationship_metadata = EXCLUDED.relationship_metadata`,
+    [assetId, unitId, relationshipMetadata],
+  );
+  const links = await listEducationalAssetCurriculumUnitLinks(client, assetId);
+  const link = links.find(candidate => candidate.unit_id === unitId);
+  if (!link) throw new Error('Educational asset curriculum link was not created');
+  return link;
+}
+
+export async function replaceEducationalAssetCurriculumUnitLinks(
+  client: MaybeClient,
+  assetId: string,
+  inputs: readonly EducationalAssetCurriculumLinkInput[],
+): Promise<EducationalAssetCurriculumUnitLinkRecord[]> {
+  const unitIds = normalizeEducationalAssetCurriculumUnitIds(inputs.map(input => input.unitId));
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, unitIds);
+  const metadataByUnitId = new Map(inputs.map(input => [
+    input.unitId.trim().toLowerCase(),
+    serializeEducationalAssetRelationshipMetadata(input.relationshipMetadata),
+  ]));
+  await q(client, 'DELETE FROM educational_asset_curriculum_units WHERE asset_id = $1::uuid', [assetId]);
+  for (const unitId of unitIds) {
+    await q(
+      client,
+      `INSERT INTO educational_asset_curriculum_units (asset_id, unit_id, relationship_metadata)
+       VALUES ($1::uuid, $2::uuid, $3::jsonb)`,
+      [assetId, unitId, metadataByUnitId.get(unitId) ?? '{}'],
+    );
+  }
+  return listEducationalAssetCurriculumUnitLinks(client, assetId);
+}
+
+export async function removeEducationalAssetCurriculumUnitLink(
+  client: MaybeClient,
+  assetId: string,
+  unitId: string,
+): Promise<boolean> {
+  const [normalizedUnitId] = normalizeEducationalAssetCurriculumUnitIds([unitId]);
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, [normalizedUnitId]);
+  const result = await q(
+    client,
+    'DELETE FROM educational_asset_curriculum_units WHERE asset_id = $1::uuid AND unit_id = $2::uuid',
+    [assetId, normalizedUnitId],
+  );
+  return result.rowCount === 1;
+}
+
+async function validateEducationalAssetTaxonomyAsset(
+  client: MaybeClient,
+  assetId: string,
+): Promise<void> {
+  if (!educationalAssetCurriculumUuidPattern.test(assetId)) {
+    throw new Error('Educational asset ID must be a valid UUID');
+  }
+  const result = await q<{ id: string }>(
+    client,
+    'SELECT id FROM educational_assets WHERE id = $1::uuid',
+    [assetId],
+  );
+  if (!result.rows[0]) throw new Error('Educational asset not found');
+}
+
+export async function listEducationalAssetTaxonomyTerms(
+  client: MaybeClient,
+): Promise<EducationalAssetTaxonomyTermRecord[]> {
+  const result = await q<EducationalAssetTaxonomyTermRecord>(
+    client,
+    `SELECT term.id, term.code, term.display_name, term.parent_term_id,
+            parent.code AS parent_code, term.sort_order, term.is_active
+     FROM educational_asset_taxonomy_terms term
+     LEFT JOIN educational_asset_taxonomy_terms parent ON parent.id = term.parent_term_id
+     WHERE term.is_active = TRUE
+     ORDER BY COALESCE(parent.sort_order, term.sort_order), term.sort_order, term.code`,
+  );
+  return result.rows;
+}
+
+export async function listEducationalAssetTaxonomyLinks(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetTaxonomyLinkRecord[]> {
+  await validateEducationalAssetTaxonomyAsset(client, assetId);
+  const result = await q<EducationalAssetTaxonomyLinkRecord>(
+    client,
+    `SELECT link.asset_id, link.term_id, term.code, term.display_name,
+            term.parent_term_id, parent.code AS parent_code,
+            link.relationship_metadata, link.created_at
+     FROM educational_asset_taxonomy_links link
+     JOIN educational_asset_taxonomy_terms term ON term.id = link.term_id
+     LEFT JOIN educational_asset_taxonomy_terms parent ON parent.id = term.parent_term_id
+     WHERE link.asset_id = $1::uuid
+     ORDER BY term.code ASC, link.term_id ASC`,
+    [assetId],
+  );
+  return result.rows;
+}
+
+export async function replaceEducationalAssetTaxonomyLinks(
+  client: MaybeClient,
+  assetId: string,
+  inputs: readonly EducationalAssetTaxonomyLinkInput[],
+): Promise<EducationalAssetTaxonomyLinkRecord[]> {
+  const normalized = normalizeEducationalAssetTaxonomyLinks(inputs);
+  await validateEducationalAssetTaxonomyAsset(client, assetId);
+
+  const termCodes = normalized.map(link => link.termCode);
+  const terms = termCodes.length
+    ? await q<{ id: string; code: string }>(
+      client,
+      `SELECT id, code
+       FROM educational_asset_taxonomy_terms
+       WHERE is_active = TRUE AND code = ANY($1::text[])`,
+      [termCodes],
+    )
+    : { rows: [] as { id: string; code: string }[] };
+  if (terms.rows.length !== termCodes.length) {
+    const known = new Set(terms.rows.map(term => term.code));
+    const missing = termCodes.find(code => !known.has(code));
+    throw new Error(`Educational asset taxonomy term was not found: ${missing ?? 'unknown'}`);
+  }
+  const termIds = new Map(terms.rows.map(term => [term.code, term.id]));
+
+  await q(client, 'DELETE FROM educational_asset_taxonomy_links WHERE asset_id = $1::uuid', [assetId]);
+  for (const link of normalized) {
+    await q(
+      client,
+      `INSERT INTO educational_asset_taxonomy_links (asset_id, term_id, relationship_metadata)
+       VALUES ($1::uuid, $2::uuid, $3::jsonb)`,
+      [assetId, termIds.get(link.termCode), link.relationshipMetadata],
+    );
+  }
+  return listEducationalAssetTaxonomyLinks(client, assetId);
+}
+
+export async function listEducationalAssetsForReview(
+  client: MaybeClient,
+  filters: { query?: string; productionStatus?: EducationalAssetProductionStatus; limit?: number } = {},
+): Promise<EducationalAssetRepositoryRecord[]> {
+  const values: unknown[] = [];
+  const clauses: string[] = [];
+  if (filters.productionStatus) {
+    values.push(filters.productionStatus);
+    clauses.push(`a.production_status = $${values.length}`);
+  }
+  if (filters.query?.trim()) {
+    values.push(`%${filters.query.trim()}%`);
+    clauses.push(`(a.title ILIKE $${values.length} OR a.subject ILIKE $${values.length} OR a.topic ILIKE $${values.length})`);
+  }
+  values.push(Math.min(Math.max(filters.limit ?? 50, 1), 100));
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     ${clauses.length ? `WHERE ${clauses.join(' AND ')}` : ''}
+     ORDER BY a.updated_at DESC, a.id ASC
+     LIMIT $${values.length}`,
+    values,
+  );
+  return result.rows;
+}
+
+export async function findEducationalAssetForReviewById(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.id = $1`,
+    [assetId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function updateEducationalAssetReviewStatus(
+  client: MaybeClient,
+  input: { assetId: string; productionStatus: EducationalAssetProductionStatus; reviewReason: string | null },
+): Promise<boolean> {
+  const result = await q<{ id: string }>(
+    client,
+    `UPDATE educational_assets
+     SET production_status = $2, review_reason = $3, updated_at = NOW()
+     WHERE id = $1
+     RETURNING id`,
+    [input.assetId, input.productionStatus, input.reviewReason],
+  );
+  return result.rowCount === 1;
+}
+
+export async function updateEducationalAssetClassification(
+  client: MaybeClient,
+  input: { assetId: string; classification: EducationalAssetClassification },
+): Promise<boolean> {
+  const { classification } = input;
+  const result = await q<{ id: string }>(
+    client,
+    `UPDATE educational_assets
+     SET visual_type = $2, subject = $3, topic = $4, subtopic = $5, keywords = $6,
+         synonyms = $7, grade_min = $8, grade_max = $9, language = $10, contains_text = $11,
+         alt_text = $12, educational_description = $13, updated_at = NOW()
+     WHERE id = $1
+     RETURNING id`,
+    [
+      input.assetId, classification.visualType, classification.subject, classification.topic, classification.subtopic,
+      classification.keywords, classification.synonyms, classification.gradeMin, classification.gradeMax,
+      classification.language, classification.containsText, classification.altText, classification.educationalDescription,
+    ],
+  );
+  return result.rowCount === 1;
+}
+
+export async function getProductionEligibleEducationalAssetOfflineReferences(
+  client: MaybeClient,
+  assetIds: string[],
+): Promise<EducationalAssetOfflineReferenceRecord[]> {
+  if (!assetIds.length) return [];
+  const result = await q<EducationalAssetOfflineReferenceRecord>(
+    client,
+    `SELECT a.id, a.mime_type, a.byte_size, a.content_sha256, a.title, a.alt_text,
+            p.source_license, p.provider_key, p.source_name, p.attribution,
+            a.usage_restriction
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.id = ANY($1::uuid[])
+       AND a.production_status = 'approved'
+       AND a.usage_restriction = 'none'
+       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')
+     ORDER BY a.id ASC`,
+    [assetIds],
+  );
+  return result.rows;
+}
+
+export async function createEducationalAsset(
+  client: MaybeClient,
+  input: CreateEducationalAssetInput,
+): Promise<EducationalAssetRepositoryRecord> {
+  const asset = await q<{ id: string }>(
+    client,
+    `INSERT INTO educational_assets (
+       title, description, metadata, media_type, mime_type, content_sha256, byte_size,
+       storage_backend, storage_key, production_status, subject, topic, grade_level, visual_type, subtopic,
+       keywords, synonyms, grade_min, grade_max, language, contains_text, alt_text, educational_description, normalization_status,
+       width, height, aspect_ratio, visual_hash, usage_restriction
+     ) VALUES ($1, $2, $3::jsonb, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29)
+     ON CONFLICT (content_sha256) DO NOTHING
+     RETURNING id`,
+    [
+      input.title, input.description ?? null, serializeEducationalAssetMetadata(input.metadata), input.mediaType, input.mimeType, input.contentSha256,
+      input.byteSize, input.storageBackend ?? 'local', input.storageKey, input.productionStatus ?? 'draft', input.subject ?? null,
+      input.topic ?? null, input.gradeLevel ?? null, input.visualType ?? 'ILLUSTRATION', input.subtopic ?? null,
+      input.keywords ?? [], input.synonyms ?? [], input.gradeMin ?? null, input.gradeMax ?? null,
+      input.language ?? 'en', input.containsText ?? false, deriveEducationalAssetAltText({ altText: input.altText, description: input.description, title: input.title }),
+      input.educationalDescription ?? null, input.normalizationStatus ?? 'original-only',
+      input.width ?? null, input.height ?? null, input.aspectRatio ?? null, input.visualHash ?? null,
+      input.usageRestriction ?? 'none',
+    ],
+  );
+  let assetId = asset.rows[0]?.id;
+  if (!assetId) {
+    const existing = await findEducationalAssetByContentSha256(client, input.contentSha256);
+    if (!existing) throw new Error('Unable to create or find educational asset');
+    assetId = existing.id;
+  }
+  await appendEducationalAssetProvenance(client, assetId, input);
+  const created = await findEducationalAssetByContentSha256(client, input.contentSha256);
+  if (!created) throw new Error('Educational asset was created without provenance');
+  return created;
+}
+
+export async function listProductionEligibleEducationalAssets(
+  client: MaybeClient,
+  filters: {
+    query?: string;
+    subject?: string;
+    topic?: string;
+    subtopic?: string;
+    grade?: string;
+    assetType?: EducationalAssetMediaType;
+    visualType?: EducationalVisualType;
+    providerKey?: string;
+    license?: EducationalAssetLicense;
+    curriculumUnitId?: string;
+    limit?: number;
+  } = {},
+): Promise<EducationalAssetRepositoryRecord[]> {
+  const values: unknown[] = [];
+  const clauses = [
+    "a.production_status = 'approved'",
+    "a.usage_restriction = 'none'",
+    "p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')",
+  ];
+  const exactFilters: Array<[string | undefined, string]> = [
+    [filters.subject, 'a.subject'], [filters.topic, 'a.topic'], [filters.subtopic, 'a.subtopic'],
+    [filters.assetType, 'a.media_type'], [filters.visualType, 'a.visual_type'], [filters.providerKey, 'p.provider_key'],
+  ];
+  for (const [value, column] of exactFilters) {
+    if (!value?.trim()) continue;
+    values.push(value.trim());
+    clauses.push(`lower(${column}) = lower($${values.length})`);
+  }
+  if (filters.license) {
+    values.push(filters.license);
+    clauses.push(`p.source_license = $${values.length}`);
+  }
+  const grade = filters.grade?.match(/\d+/)?.[0];
+  if (grade) {
+    values.push(Number(grade));
+    clauses.push(`(a.grade_min IS NULL OR a.grade_min <= $${values.length}) AND (a.grade_max IS NULL OR a.grade_max >= $${values.length})`);
+  }
+  if (filters.curriculumUnitId) {
+    values.push(filters.curriculumUnitId);
+    clauses.push(`EXISTS (SELECT 1 FROM educational_asset_curriculum_units ecu WHERE ecu.asset_id = a.id AND ecu.unit_id = $${values.length}::uuid)`);
+  }
+  const searchQuery = filters.query?.trim();
+  if (searchQuery) {
+    values.push(searchQuery);
+    clauses.push(`to_tsvector('simple',
+      coalesce(a.title, '') || ' ' || coalesce(a.topic, '') || ' ' ||
+      coalesce(a.subject, '') || ' ' || coalesce(a.subtopic, '') || ' ' ||
+      coalesce(array_to_string(a.keywords, ' '), '') || ' ' || coalesce(array_to_string(a.synonyms, ' '), '') || ' ' ||
+      coalesce(a.visual_type, '') || ' ' || coalesce(p.provider_key, '') || ' ' ||
+      coalesce(p.source_license, '') || ' ' || coalesce(a.description, '')
+    ) @@ plainto_tsquery('simple', $${values.length})`);
+  }
+  const orderBy = searchQuery
+    ? `CASE
+         WHEN lower(a.title) = lower($${values.length}) THEN 0
+         WHEN lower(a.topic) = lower($${values.length}) THEN 1
+         WHEN lower(a.title) LIKE lower($${values.length}) || '%' THEN 2
+         WHEN lower(a.topic) LIKE lower($${values.length}) || '%' THEN 3
+         ELSE 4
+       END, a.title ASC, a.id ASC`
+    : 'a.title ASC, a.id ASC';
+  values.push(Math.max(1, Math.min(filters.limit ?? 20, 100)));
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE ${clauses.join(' AND ')}
+     ORDER BY ${orderBy}
+     LIMIT $${values.length}`,
+    values,
+  );
+  return result.rows;
+}
+
+export async function findProductionEligibleEducationalAssetById(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.id = $1
+      AND a.production_status = 'approved'
+       AND a.usage_restriction = 'none'
+       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')`,
+    [assetId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export interface TtsArtifactRecord {
+  id: string;
+  cache_key: string;
+  identity_key: string;
+  language: string;
+  provider: 'cartesia' | 'gemini' | null;
+  model: string | null;
+  voice: string | null;
+  normalized_text: string;
+  avatar_voice: string;
+  gemini_voice: string;
+  gemini_model: string;
+  status: 'pending' | 'processing' | 'ready' | 'failed';
+  mime_type: string | null;
+  content_hash: string | null;
+  audio_data: Buffer | null;
+  duration_ms: number | null;
+  storage_backend: 'local' | 'http-put' | null;
+  storage_key: string | null;
+  storage_url: string | null;
+  metadata: Record<string, unknown>;
+  generated_at: Date | null;
+  learner_needed: boolean;
+  priority: number;
+  error_message: string | null;
+  retry_count: number;
+  next_retry_at: Date | null;
+  completed_at: Date | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface TtsJobRecord {
+  id: string;
+  artifact_id: string;
+  identity_key: string;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  attempts: number;
+  available_at: Date;
+  locked_at: Date | null;
+  locked_by: string | null;
+  last_error: string | null;
+  completed_at: Date | null;
+  normalized_text: string;
+  avatar_voice: string;
+  gemini_voice: string;
+  gemini_model: string;
+  provider: 'cartesia' | 'gemini' | null;
+  language: string;
+  learner_needed: boolean;
+  priority: number;
+  metadata: Record<string, unknown>;
+}
+
+export interface EnqueueTtsJobInput {
+  cacheKey: string;
+  normalizedText: string;
+  avatarVoice: string;
+  geminiVoice: string;
+  geminiModel: string;
+  identityKey?: string;
+  language?: string;
+  provider?: 'cartesia' | 'gemini';
+  model?: string;
+  voice?: string;
+  learnerNeeded?: boolean;
+  priority?: number;
+  metadata?: Record<string, unknown>;
+}
+
+const ttsArtifactColumns = `
+  id, cache_key, identity_key, language, provider, model, voice,
+  normalized_text, avatar_voice, gemini_voice, gemini_model,
+  status, mime_type, content_hash, audio_data, error_message, retry_count,
+  next_retry_at, completed_at, duration_ms, storage_backend, storage_key, storage_url,
+  metadata, generated_at, learner_needed, priority, created_at, updated_at`;
+const ttsArtifactReturningColumns = `
+  a.id, a.cache_key, a.identity_key, a.language, a.provider, a.model, a.voice,
+  a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+  a.status, a.mime_type, a.content_hash, a.audio_data, a.error_message, a.retry_count,
+  a.next_retry_at, a.completed_at, a.duration_ms, a.storage_backend, a.storage_key, a.storage_url,
+  a.metadata, a.generated_at, a.learner_needed, a.priority, a.created_at, a.updated_at`;
+
+export async function getTtsArtifact(client: MaybeClient, cacheKey: string): Promise<TtsArtifactRecord | null> {
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `SELECT ${ttsArtifactColumns}
+     FROM tts_artifacts
+     WHERE cache_key = $1`,
+    [cacheKey]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJobInput) {
+  const identityKey = input.identityKey ?? input.cacheKey;
+  const language = input.language ?? 'en';
+  const provider = input.provider ?? 'gemini';
+  const model = input.model ?? input.geminiModel;
+  const voice = input.voice ?? input.geminiVoice;
+  const artifactResult = await q<TtsArtifactRecord>(
+    client,
+    `INSERT INTO tts_artifacts (
+       cache_key, identity_key, language, provider, model, voice,
+       normalized_text, avatar_voice, gemini_voice, gemini_model,
+       status, error_message, next_retry_at, learner_needed, priority, metadata
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'pending', NULL, NOW(), $11, $12, $13::jsonb)
+     ON CONFLICT (cache_key) DO UPDATE SET
+       identity_key = EXCLUDED.identity_key,
+       language = EXCLUDED.language,
+       provider = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing')
+           OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
+           THEN tts_artifacts.provider
+         ELSE EXCLUDED.provider
+       END,
+       model = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing')
+           OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
+           THEN tts_artifacts.model
+         ELSE EXCLUDED.model
+       END,
+       voice = EXCLUDED.voice,
+       normalized_text = EXCLUDED.normalized_text,
+       avatar_voice = EXCLUDED.avatar_voice,
+       gemini_voice = EXCLUDED.gemini_voice,
+       gemini_model = EXCLUDED.gemini_model,
+       status = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.status
+         ELSE 'pending'
+       END,
+       error_message = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.error_message
+         ELSE NULL
+       END,
+       next_retry_at = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at
+         ELSE NOW()
+       END,
+       learner_needed = EXCLUDED.learner_needed,
+       priority = EXCLUDED.priority,
+       metadata = EXCLUDED.metadata,
+       updated_at = NOW()
+     RETURNING ${ttsArtifactColumns}`,
+    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {})]
+  );
+  const artifact = artifactResult.rows[0];
+  if (!artifact) {
+    throw new Error('Unable to create TTS artifact');
+  }
+  return artifact;
+}
+
+export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInput) {
+  const artifact = await upsertTtsArtifact(client, input);
+
+  const jobResult = await q<TtsJobRecord>(
+    client,
+    `INSERT INTO tts_jobs (artifact_id, status, available_at, learner_needed, priority, metadata)
+     VALUES ($1, 'pending', NOW(), $6, $7, $8::jsonb)
+     ON CONFLICT (artifact_id) DO UPDATE SET
+       status = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.status ELSE 'pending' END,
+       available_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.available_at ELSE NOW() END,
+       last_error = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.last_error ELSE NULL END,
+       locked_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_at ELSE NULL END,
+       locked_by = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_by ELSE NULL END,
+       learner_needed = EXCLUDED.learner_needed,
+       priority = EXCLUDED.priority,
+       metadata = EXCLUDED.metadata,
+       updated_at = NOW()
+     RETURNING id, artifact_id, status, attempts, available_at, locked_at, locked_by,
+       last_error, completed_at,
+       $2::text AS normalized_text, $3::text AS avatar_voice,
+       $4::text AS gemini_voice, $5::text AS gemini_model,
+       $9::text AS provider, $10::text AS language,
+       $6::boolean AS learner_needed, $7::int AS priority, $8::jsonb AS metadata`,
+    [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel,
+      input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}),
+      input.provider ?? 'gemini', input.language ?? 'en']
+  );
+  return { artifact, job: jobResult.rows[0] ?? null };
+}
+
+export async function claimTtsJobs(
+  client: MaybeClient,
+  limit: number,
+  workerId: string,
+  leaseSeconds = 300,
+  provider?: 'cartesia' | 'gemini'
+): Promise<TtsJobRecord[]> {
+  const result = await q<TtsJobRecord>(
+    client,
+    `WITH candidates AS (
+       SELECT j.id
+       FROM tts_jobs j
+       JOIN tts_artifacts a ON a.id = j.artifact_id
+       WHERE a.status <> 'ready'
+         AND ($4::text IS NULL OR COALESCE(a.provider, 'gemini') = $4)
+         AND (
+           (j.status = 'pending' AND j.available_at <= NOW())
+           OR (j.status = 'processing' AND j.locked_at < NOW() - ($3::int * INTERVAL '1 second'))
+         )
+       ORDER BY j.learner_needed DESC, j.priority DESC, j.available_at ASC, j.created_at ASC
+       LIMIT $1
+       FOR UPDATE OF j SKIP LOCKED
+     ), claimed AS (
+       UPDATE tts_jobs j
+       SET status = 'processing', attempts = j.attempts + 1,
+           locked_at = NOW(), locked_by = $2, updated_at = NOW()
+       FROM candidates c
+       WHERE j.id = c.id
+       RETURNING j.id, j.artifact_id
+     ), marked AS (
+       UPDATE tts_artifacts a
+       SET status = 'processing', error_message = NULL, updated_at = NOW()
+       FROM claimed j
+       WHERE a.id = j.artifact_id
+       RETURNING a.id
+     )
+     SELECT j.id, j.artifact_id, a.identity_key, j.status, j.attempts, j.available_at,
+       j.locked_at, j.locked_by, j.last_error, j.completed_at,
+       a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+       a.provider, a.language, j.learner_needed, j.priority, j.metadata
+     FROM claimed c
+     JOIN tts_jobs j ON j.id = c.id
+     JOIN marked m ON m.id = j.artifact_id
+     JOIN tts_artifacts a ON a.id = m.id`,
+    [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds)), provider ?? null]
+  );
+  return result.rows;
+}
+
+export async function completeTtsJob(
+  client: MaybeClient,
+  jobId: string,
+  audioData: Buffer,
+  mimeType: string,
+  contentHash: string,
+  workerId?: string
+) {
+  const ownership = await q<{ status: TtsJobRecord['status']; locked_by: string | null }>(
+    client,
+    `SELECT status, locked_by
+     FROM tts_jobs
+     WHERE id = $1
+     FOR UPDATE`,
+    [jobId]
+  );
+  const job = ownership.rows[0];
+  if (!job || (workerId ? job.locked_by !== workerId : job.status === 'processing')) {
+    return null;
+  }
+
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = 'ready', mime_type = $2, content_hash = $3, audio_data = $4,
+         error_message = NULL, next_retry_at = NULL, completed_at = NOW(), updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id
+       AND (
+         ($5::text IS NOT NULL AND j.locked_by = $5)
+         OR ($5::text IS NULL AND a.status <> 'processing' AND j.status <> 'processing')
+       )
+     RETURNING ${ttsArtifactReturningColumns}`,
+    [jobId, mimeType, contentHash, audioData, workerId ?? null]
+  );
+  if (!result.rows[0]) return null;
+
+  await q(
+    client,
+    `UPDATE tts_jobs
+     SET status = 'completed', locked_at = NULL, locked_by = NULL,
+         last_error = NULL, completed_at = NOW(), updated_at = NOW()
+     WHERE id = $1`,
+    [jobId]
+  );
+  return result.rows[0];
+}
+
+export interface FinalizeTtsJobInput {
+  mimeType: string;
+  contentHash: string;
+  provider: 'cartesia' | 'gemini';
+  model: string;
+  voice: string;
+  durationMs?: number | null;
+  storageBackend: 'local' | 'http-put';
+  storageKey: string;
+  storageUrl?: string | null;
+  metadata?: Record<string, unknown>;
+}
+
+export async function completeTtsJobWithStorage(
+  client: MaybeClient,
+  jobId: string,
+  input: FinalizeTtsJobInput,
+  workerId: string
+) {
+  const ownership = await q<{ status: TtsJobRecord['status']; locked_by: string | null }>(
+    client,
+    `SELECT status, locked_by FROM tts_jobs WHERE id = $1 FOR UPDATE`,
+    [jobId]
+  );
+  const job = ownership.rows[0];
+  if (!job || job.status !== 'processing' || job.locked_by !== workerId) return null;
+
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = 'ready', provider = $2, model = $3, voice = $4,
+         mime_type = $5, content_hash = $6, duration_ms = $7,
+         storage_backend = $8, storage_key = $9, storage_url = $10,
+         metadata = $11::jsonb, audio_data = NULL, error_message = NULL,
+         next_retry_at = NULL, generated_at = NOW(), completed_at = NOW(), updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id AND j.status = 'processing' AND j.locked_by = $12
+     RETURNING ${ttsArtifactReturningColumns}`,
+    [jobId, input.provider, input.model, input.voice, input.mimeType, input.contentHash,
+      input.durationMs ?? null, input.storageBackend, input.storageKey, input.storageUrl ?? null,
+      JSON.stringify(input.metadata ?? {}), workerId]
+  );
+  if (!result.rows[0]) return null;
+  await q(client, `UPDATE tts_jobs SET status = 'completed', locked_at = NULL, locked_by = NULL, last_error = NULL, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND locked_by = $2`, [jobId, workerId]);
+  return result.rows[0];
+}
+
+export async function releaseTtsJobPending(
+  client: MaybeClient,
+  jobId: string,
+  errorMessage: string,
+  delaySeconds: number,
+  workerId: string,
+  provider: 'cartesia' | 'gemini' = 'gemini'
+) {
+  const result = await q<{ attempts: number }>(
+    client,
+    `UPDATE tts_jobs j
+     SET status = 'pending', available_at = NOW() + ($3::int * INTERVAL '1 second'),
+         locked_at = NULL, locked_by = NULL, last_error = $2, updated_at = NOW()
+     FROM tts_artifacts a
+     WHERE j.id = $1 AND j.artifact_id = a.id AND j.locked_by = $4
+     RETURNING j.attempts`,
+    [jobId, errorMessage, Math.max(1, Math.floor(delaySeconds)), workerId]
+  );
+  if (!result.rows[0]) return null;
+  await q(client, `UPDATE tts_artifacts a SET status = 'pending', provider = $2, error_message = $3, next_retry_at = NOW() + ($4::int * INTERVAL '1 second'), updated_at = NOW() FROM tts_jobs j WHERE j.id = $1 AND j.artifact_id = a.id`, [jobId, provider, errorMessage, Math.max(1, Math.floor(delaySeconds))]);
+  return result.rows[0];
+}
+
+export async function reserveGeminiTtsDailyUsage(
+  client: MaybeClient,
+  input: { now: Date; budget: number; spacingMs: number; characters: number }
+) {
+  const result = await q<{ request_count: number; character_count: number; last_request_at: Date }>(
+    client,
+    `INSERT INTO tts_provider_usage_daily (provider, usage_date, request_count, character_count, last_request_at)
+     VALUES ('gemini', $1::date, 1, $2, $3)
+     ON CONFLICT (provider, usage_date) DO UPDATE SET
+       request_count = tts_provider_usage_daily.request_count + 1,
+       character_count = tts_provider_usage_daily.character_count + EXCLUDED.character_count,
+       last_request_at = EXCLUDED.last_request_at,
+       updated_at = NOW()
+     WHERE tts_provider_usage_daily.request_count < $4
+       AND (tts_provider_usage_daily.last_request_at IS NULL OR tts_provider_usage_daily.last_request_at <= $3::timestamptz - ($5::bigint * INTERVAL '1 millisecond'))
+     RETURNING request_count, character_count, last_request_at`,
+    [input.now.toISOString().slice(0, 10), Math.max(0, Math.floor(input.characters)), input.now.toISOString(), Math.max(0, Math.floor(input.budget)), Math.max(0, Math.floor(input.spacingMs))]
+  );
+  return result.rows[0] ? { reserved: true, ...result.rows[0] } : { reserved: false };
+}
+
+export async function getTtsQueueDepth(client: MaybeClient) {
+  const result = await q<{ pending: number; processing: number }>(
+    client,
+    `SELECT COUNT(*) FILTER (WHERE j.status = 'pending')::int AS pending, COUNT(*) FILTER (WHERE j.status = 'processing')::int AS processing FROM tts_jobs j JOIN tts_artifacts a ON a.id = j.artifact_id WHERE a.status <> 'ready'`,
+    []
+  );
+  return result.rows[0] ?? { pending: 0, processing: 0 };
+}
+
+export async function failTtsJob(
+  client: MaybeClient,
+  jobId: string,
+  errorMessage: string,
+  maxAttempts: number,
+  retryDelaySeconds: number,
+  workerId?: string
+) {
+  const result = await q<{ attempts: number }>(
+    client,
+    `UPDATE tts_jobs
+     SET status = CASE WHEN attempts >= $2 THEN 'failed' ELSE 'pending' END,
+         available_at = CASE WHEN attempts >= $2 THEN available_at
+           ELSE NOW() + ($3::int * INTERVAL '1 second') END,
+         locked_at = NULL, locked_by = NULL, last_error = $4, updated_at = NOW()
+     WHERE id = $1 AND ($5::text IS NULL OR locked_by = $5)
+     RETURNING attempts`,
+    [jobId, Math.max(1, Math.floor(maxAttempts)), Math.max(1, Math.floor(retryDelaySeconds)), errorMessage, workerId ?? null]
+  );
+  if (!result.rows[0]) return null;
+
+  await q(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = CASE WHEN j.status = 'failed' THEN 'failed' ELSE 'pending' END,
+         error_message = $2, retry_count = j.attempts,
+         next_retry_at = CASE WHEN j.status = 'failed' THEN NULL ELSE j.available_at END,
+         updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id`,
+    [jobId, errorMessage]
+  );
+  return result.rows[0];
+}
+
 export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   const schoolScoped = !user.roles.includes('platform_admin');
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
@@ -3227,10 +4642,12 @@ export async function createOnboardingSelectionEvent(
     client,
     `INSERT INTO onboarding_selection_events (
       anonymous_session_id, user_id, school_id, step_key, option_key, option_label,
+      event_type, event_version, step_index,
       role, county, grade_level, country_code, curriculum_code, metadata
     ) VALUES (
       $1, $2, $3, $4, $5, $6,
-      $7, $8, $9, $10, $11, $12::jsonb
+      $7, $8, $9,
+      $10, $11, $12, $13, $14, $15::jsonb
     )`,
     [
       input.anonymousSessionId,
@@ -3239,6 +4656,9 @@ export async function createOnboardingSelectionEvent(
       input.stepKey,
       input.optionKey,
       input.optionLabel,
+      input.eventType ?? 'selection',
+      input.eventVersion ?? 1,
+      input.stepIndex ?? 0,
       input.role ?? null,
       input.county ?? null,
       input.grade ?? null,
@@ -3260,6 +4680,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
   }
 
   const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+  const selectionWhere = clauses.length
+    ? `${where} AND event_type = 'selection'`
+    : `WHERE event_type = 'selection'`;
 
   const summary = await db.query<{
     total_events: string;
@@ -3273,9 +4696,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS identified_users,
        MIN(created_at) AS first_event_at,
-       MAX(created_at) AS last_event_at
+     MAX(created_at) AS last_event_at
      FROM onboarding_selection_events
-     ${where}`,
+     ${selectionWhere}`,
     params
   );
 
@@ -3293,11 +4716,56 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS users,
        MIN(created_at) AS first_event_at,
-       MAX(created_at) AS last_event_at
+     MAX(created_at) AS last_event_at
      FROM onboarding_selection_events
-     ${where}
+     ${selectionWhere}
      GROUP BY step_key
      ORDER BY MIN(created_at) ASC, COUNT(DISTINCT anonymous_session_id) DESC`,
+     params
+  );
+
+  const eventTypes = await db.query<{
+    event_type: string;
+    event_version: number;
+    role: string | null;
+    events: string;
+    sessions: string;
+    users: string;
+  }>(
+    `SELECT
+       event_type,
+       event_version,
+       role,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users
+     FROM onboarding_selection_events
+     ${where}
+     GROUP BY event_type, event_version, role
+     ORDER BY event_type ASC, event_version ASC, COUNT(DISTINCT anonymous_session_id) DESC`,
+    params
+  );
+
+  const dropOffs = await db.query<{
+    step_key: string;
+    role: string | null;
+    events: string;
+    sessions: string;
+    users: string;
+    last_event_at: Date | null;
+  }>(
+    `SELECT
+       step_key,
+       role,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users,
+       MAX(created_at) AS last_event_at
+     FROM onboarding_selection_events
+     ${where ? `${where} AND event_type = 'drop_off'` : `WHERE event_type = 'drop_off'`}
+     GROUP BY step_key, role
+     ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, MAX(created_at) DESC
+     LIMIT 60`,
     params
   );
 
@@ -3317,9 +4785,9 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
        COUNT(*)::text AS events,
        COUNT(DISTINCT anonymous_session_id)::text AS sessions,
        COUNT(DISTINCT user_id)::text AS users,
-       MAX(created_at) AS last_selected_at
+     MAX(created_at) AS last_selected_at
      FROM onboarding_selection_events
-     ${where}
+     ${selectionWhere}
      GROUP BY step_key, option_key
      ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC, MAX(created_at) DESC
      LIMIT 60`,
@@ -3339,7 +4807,7 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
          COUNT(DISTINCT anonymous_session_id)::text AS sessions,
          COUNT(DISTINCT user_id)::text AS users
        FROM onboarding_selection_events
-       ${where ? `${where} AND ${column} IS NOT NULL AND ${column} <> ''` : `WHERE ${column} IS NOT NULL AND ${column} <> ''`}
+       ${selectionWhere} AND ${column} IS NOT NULL AND ${column} <> ''
        GROUP BY ${column}
        ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC
        LIMIT 15`,
@@ -3369,6 +4837,22 @@ export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
       sessions: Number(row.sessions || 0),
       users: Number(row.users || 0),
       firstEventAt: row.first_event_at?.toISOString() ?? null,
+      lastEventAt: row.last_event_at?.toISOString() ?? null
+    })),
+    eventTypes: eventTypes.rows.map(row => ({
+      eventType: row.event_type,
+      eventVersion: Number(row.event_version || 1),
+      role: row.role,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0)
+    })),
+    dropOffs: dropOffs.rows.map(row => ({
+      stepKey: row.step_key,
+      role: row.role,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0),
       lastEventAt: row.last_event_at?.toISOString() ?? null
     })),
     topOptions: topOptions.rows.map(row => ({

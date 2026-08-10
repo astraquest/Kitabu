@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS tts_assets (
   completed_at TIMESTAMPTZ
 );
 
-CREATE TABLE IF NOT EXISTS tts_jobs (
+CREATE TABLE IF NOT EXISTS assessment_tts_jobs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   identity_sha256 TEXT NOT NULL UNIQUE REFERENCES tts_assets(identity_sha256) ON DELETE CASCADE,
   provider TEXT NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS tts_jobs (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS tts_queue (
+CREATE TABLE IF NOT EXISTS assessment_tts_queue (
   identity_sha256 TEXT PRIMARY KEY REFERENCES tts_assets(identity_sha256) ON DELETE CASCADE,
   priority INTEGER NOT NULL DEFAULT 0,
   available_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -53,10 +53,10 @@ CREATE TABLE IF NOT EXISTS tts_queue (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS idx_tts_queue_claim
-  ON tts_queue (status, available_at, priority DESC, created_at ASC);
-CREATE INDEX IF NOT EXISTS idx_tts_jobs_poll
-  ON tts_jobs (status, last_polled_at, updated_at);
+CREATE INDEX IF NOT EXISTS idx_assessment_tts_queue_claim
+  ON assessment_tts_queue (status, available_at, priority DESC, created_at ASC);
+CREATE INDEX IF NOT EXISTS idx_assessment_tts_jobs_poll
+  ON assessment_tts_jobs (status, last_polled_at, updated_at);
 
 -- Server-authored generated quiz descriptors. Clients receive only the opaque
 -- session id; narration resolution never accepts the generated text itself.

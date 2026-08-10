@@ -18,17 +18,20 @@ import {
   Sparkles,
 } from 'lucide-react-native';
 
-import { CurriculumSelectorOption, OnboardingMascotKey, QuizConfig, QuizGenerationProgress } from '../types/app';
+import { CurriculumSelectorOption, OnboardingMascotKey, OnboardingVoiceName, QuizConfig, QuizGenerationProgress } from '../types/app';
+import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
 
 const QUIZ_MASCOT_SOURCES = {
   rabbit: require('../assets/mascot/sungura-rabbit-quiz.png'),
   lion: require('../assets/mascot/simba-lion-quiz.png'),
   elephant: require('../assets/mascot/ndovu-elephant-quiz.png'),
+  panda: require('../assets/mascot/panda.png'),
 } satisfies Record<OnboardingMascotKey, number>;
 
 interface QuizMeScreenProps {
   isLoading: boolean;
   mascotKey: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
   progress: QuizGenerationProgress;
   error?: string | null;
   subjectOptions?: CurriculumSelectorOption[];
@@ -49,6 +52,7 @@ function selectorLabel(option?: CurriculumSelectorOption) {
 export function QuizMeScreen({
   isLoading,
   mascotKey,
+  voiceName,
   progress,
   error,
   subjectOptions: loadedSubjectOptions = [],
@@ -81,6 +85,15 @@ export function QuizMeScreen({
     () => (config.strandId ? subStrandsByStrand[config.strandId] || [] : []),
     [config.strandId, subStrandsByStrand],
   );
+  const narrationCue = useMemo(
+    () => isLoading
+      ? buildPrimaryInstruction('quiz-me', 'loading', 'Your quiz is being prepared.', voiceName)
+      : step === 1
+        ? buildPrimaryInstruction('quiz-me', 'topic', 'Choose a subject, strand, and sub-strand.', voiceName)
+        : buildPrimaryInstruction('quiz-me', 'format', 'Choose how you would like to practice today.', voiceName),
+    [isLoading, step, voiceName],
+  );
+  useGuidedNarration(narrationCue);
 
   if (isLoading) {
     return (

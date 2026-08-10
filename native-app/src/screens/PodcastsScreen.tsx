@@ -25,6 +25,7 @@ import { OnboardingMascotKey, Podcast } from '../types/app';
 const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
 const simbaLionMascot = require('../assets/mascot/simba-lion.png');
 const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
+const pandaMascot = require('../assets/mascot/panda.png');
 
 type MascotTheme = {
   source: ImageSourcePropType;
@@ -51,6 +52,12 @@ const MASCOT_THEMES: Record<OnboardingMascotKey, MascotTheme> = {
     label: 'Rafiki the Elephant',
     accent: '#2563EB',
     soft: '#DBEAFE',
+  },
+  panda: {
+    source: pandaMascot,
+    label: 'Rafiki the Panda',
+    accent: '#475569',
+    soft: '#E2E8F0',
   },
 };
 

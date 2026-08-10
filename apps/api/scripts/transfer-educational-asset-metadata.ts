@@ -5,7 +5,7 @@ import path from 'node:path';
 import type { PoolClient } from 'pg';
 
 import { appConfig } from '../dist/config.js';
-import { db } from '../dist/db.js';
+import { db, redis } from '../dist/db.js';
 import { assertSafeEducationalAssetStorageKey } from '../dist/educationalAssets/storage.js';
 import {
   assertEducationalAssetMetadataBundle,
@@ -313,4 +313,5 @@ try {
   process.exitCode = 1;
 } finally {
   await db.end().catch(() => undefined);
+  await redis.quit().catch(() => undefined);
 }

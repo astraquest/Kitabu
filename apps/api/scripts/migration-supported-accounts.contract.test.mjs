@@ -12,9 +12,11 @@ const historicalMigrationSql = new Set([
   '015_phone_google_auth.sql',
   '023_expand_supported_grades.sql',
   '038_seed_school_county_distribution.sql',
+  '045_remove_production_demo_data.sql',
   '071_consolidate_demo_account.sql',
 ]);
 const archivalOnlyFixtures = new Set([
+  'migration-045.contract.test.mjs',
   'migration-071.integration.mjs',
 ]);
 const accountPattern = /['"]([a-z0-9._%+-]+@kitabu\.ai)['"]/gi;

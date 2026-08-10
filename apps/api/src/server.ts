@@ -53,7 +53,16 @@ import { readAdminCurriculumCatalog } from './curriculumCatalog.js';
 import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearningAssetRuntimeFile } from './interactiveLearning/assetCatalog.js';
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
-import { findEducationalAssets, readEducationalAssetForLearner } from './educationalAssets/service.js';
+import {
+  findEducationalAssets,
+  readEducationalAssetForLearner,
+  readEducationalAssetForAdmin,
+  toStaffEducationalAssetReviewDetail,
+  toStaffEducationalAssetReviewSummary,
+  validateEducationalAssetReviewDecision,
+} from './educationalAssets/service.js';
+import { educationalAssetLicenseValues } from './educationalAssets/types.js';
+import { educationalAssetClassificationEditSchema, mergeEducationalAssetClassification } from './educationalAssets/classificationEdit.js';
 import {
   enqueueSpeechCues,
   getOrCreateDurableSpeech,
@@ -106,6 +115,7 @@ import {
   findActiveDiagnosticSessionForSubjects,
   findCompletedDiagnosticSession,
   findDiagnosticSessionForUser,
+  findEducationalAssetForReviewById,
   findUserAuthIdentityForProvider,
   findSubscriptionPlanByCode,
   findUserByEmail,
@@ -143,6 +153,9 @@ import {
   insertRefreshToken,
   listBannerAnnouncements,
   listDiagnosticAnswers,
+  listEducationalAssetsForReview,
+  listEducationalAssetCurriculumUnitLinks,
+  replaceEducationalAssetCurriculumUnitLinks,
   listDueSpacedReviews,
   linkParentStudentByEmail,
   linkParentStudentByPhone,
@@ -165,6 +178,8 @@ import {
   listTeacherStudents,
   listWeeklyExamHistory,
   listCurriculumForGrade,
+  listEducationalAssetTaxonomyLinks,
+  listEducationalAssetTaxonomyTerms,
   listProgressiveLessonProgress,
   listReferenceLibraryDocuments,
   markPaymentRequestFailed,
@@ -201,6 +216,9 @@ import {
   submitWeeklyExamAttempt,
   consumePhoneVerificationCode,
   updateBannerAnnouncement,
+  updateEducationalAssetReviewStatus,
+  updateEducationalAssetClassification,
+  replaceEducationalAssetTaxonomyLinks,
   updateSchool,
   updateSchoolPilot,
   updateSchoolDiscount,
@@ -702,10 +720,52 @@ const educationalAssetQuerySchema = z.object({
   query: z.string().trim().min(1).max(160).optional(),
   subject: z.string().trim().min(1).max(120).optional(),
   topic: z.string().trim().min(1).max(160).optional(),
+  subtopic: z.string().trim().min(1).max(160).optional(),
   grade: z.string().trim().min(1).max(80).optional(),
   assetType: z.enum(['image', 'audio', 'video', 'document', 'vector']).optional(),
+  visualType: z.enum(['VOCABULARY_IMAGE', 'ICON', 'PHOTO', 'ILLUSTRATION', 'SCIENTIFIC_DIAGRAM', 'MAP', 'CHEMICAL_STRUCTURE', 'UI_ICON']).optional(),
+  providerKey: z.string().trim().regex(/^[a-z0-9][a-z0-9._-]{0,99}$/).optional(),
+  license: z.enum(educationalAssetLicenseValues).optional(),
+  curriculumUnitId: z.string().uuid().optional(),
   limit: z.coerce.number().int().min(1).max(100).default(20),
 });
+
+const educationalAssetAdminQuerySchema = z.object({
+  query: z.string().trim().min(1).max(160).optional(),
+  productionStatus: z.enum(['draft', 'review', 'approved', 'rejected']).optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(50),
+});
+
+const educationalAssetReviewParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetReviewBodySchema = z.object({
+  productionStatus: z.enum(['approved', 'rejected', 'review']),
+  reviewReason: z.string().trim().min(1).max(500).nullable().optional(),
+}).strict();
+
+const educationalAssetCurriculumLinksParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetCurriculumLinksBodySchema = z.object({
+  links: z.array(z.object({
+    unitId: z.string().uuid(),
+    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
+  }).strict()).max(100),
+}).strict();
+
+const educationalAssetTaxonomyParamsSchema = z.object({
+  assetId: z.string().uuid(),
+});
+
+const educationalAssetTaxonomyBodySchema = z.object({
+  links: z.array(z.object({
+    termCode: z.string().trim().min(1).max(120).regex(/^[a-z0-9]+(?:[._-][a-z0-9]+)*$/),
+    relationshipMetadata: z.record(z.string(), z.unknown()).optional().default({}),
+  }).strict()).max(100),
+}).strict();
 
 const onboardingPersonalizationKeySchema = z
   .string()
@@ -8432,8 +8492,206 @@ Return valid JSON with this shape:
     reply
       .type(result.asset.mimeType)
       .header('Content-Length', String(result.content.byteLength))
-      .header('Cache-Control', 'private, max-age=3600');
+      .header('Cache-Control', 'public, max-age=31536000, immutable');
     return reply.send(result.content);
+  });
+
+  app.get('/admin/educational-assets', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const query = educationalAssetAdminQuerySchema.parse(request.query);
+    const assets = await listEducationalAssetsForReview(db, query);
+    return { assets: assets.map(toStaffEducationalAssetReviewSummary) };
+  });
+
+  app.get('/admin/educational-assets/taxonomy-terms', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    return { terms: await listEducationalAssetTaxonomyTerms(db) };
+  });
+
+  app.get('/admin/educational-assets/:assetId', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.get('/admin/educational-assets/:assetId/preview', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      const result = await readEducationalAssetForAdmin(params.data.assetId);
+      if (!result) return reply.notFound('Educational asset not found');
+      reply
+        .type(result.asset.file.mimeType)
+        .header('Content-Length', String(result.content.byteLength))
+        .header('Cache-Control', 'private, no-store')
+        .header('Content-Disposition', 'inline');
+      return reply.send(result.content);
+    } catch {
+      return reply.notFound('Educational asset preview unavailable');
+    }
+  });
+
+  app.patch('/admin/educational-assets/:assetId/review', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.parse(request.params);
+    const body = educationalAssetReviewBodySchema.parse(request.body);
+    let reviewReason: string | null;
+    try {
+      reviewReason = validateEducationalAssetReviewDecision(body.productionStatus, body.reviewReason);
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset review');
+    }
+    const updated = await withTransaction(async client => {
+      const changed = await updateEducationalAssetReviewStatus(client, {
+        assetId: params.assetId,
+        productionStatus: body.productionStatus,
+        reviewReason,
+      });
+      if (changed) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.reviewed', {
+          productionStatus: body.productionStatus,
+          reviewReason,
+        }, 'educational_asset', params.assetId);
+      }
+      return changed;
+    });
+    if (!updated) return reply.notFound('Educational asset not found');
+    const asset = await findEducationalAssetForReviewById(db, params.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewSummary(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.patch('/admin/educational-assets/:assetId/classification', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetReviewParamsSchema.safeParse(request.params);
+    const body = educationalAssetClassificationEditSchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset classification payload');
+
+    const current = await findEducationalAssetForReviewById(db, params.data.assetId);
+    if (!current) return reply.notFound('Educational asset not found');
+    let classification;
+    try {
+      classification = mergeEducationalAssetClassification({
+        visualType: current.visual_type,
+        subject: current.subject,
+        topic: current.topic,
+        subtopic: current.subtopic,
+        keywords: current.keywords,
+        synonyms: current.synonyms,
+        gradeMin: current.grade_min,
+        gradeMax: current.grade_max,
+        language: current.language,
+        containsText: current.contains_text,
+        altText: current.alt_text,
+        educationalDescription: current.educational_description,
+      }, body.data, current);
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Invalid educational asset classification');
+    }
+
+    const updated = await withTransaction(async client => {
+      const changed = await updateEducationalAssetClassification(client, { assetId: params.data.assetId, classification });
+      if (changed) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.classification_updated', {
+          updatedFields: Object.keys(body.data).sort(),
+          visualType: classification.visualType,
+          gradeMin: classification.gradeMin,
+          gradeMax: classification.gradeMax,
+          language: classification.language,
+          containsText: classification.containsText,
+          keywordCount: classification.keywords.length,
+          synonymCount: classification.synonyms.length,
+          hasAltText: Boolean(classification.altText),
+          hasEducationalDescription: Boolean(classification.educationalDescription),
+        }, 'educational_asset', params.data.assetId);
+      }
+      return changed;
+    });
+    if (!updated) return reply.notFound('Educational asset not found');
+    const asset = await findEducationalAssetForReviewById(db, params.data.assetId);
+    return asset ? { asset: toStaffEducationalAssetReviewDetail(asset) } : reply.notFound('Educational asset not found');
+  });
+
+  app.get('/admin/educational-assets/:assetId/curriculum-links', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      return { links: await listEducationalAssetCurriculumUnitLinks(db, params.data.assetId) };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read curriculum links');
+    }
+  });
+
+  app.put('/admin/educational-assets/:assetId/curriculum-links', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetCurriculumLinksParamsSchema.safeParse(request.params);
+    const body = educationalAssetCurriculumLinksBodySchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset curriculum links payload');
+    try {
+      const links = await withTransaction(async client => {
+        const replaced = await replaceEducationalAssetCurriculumUnitLinks(client, params.data.assetId, body.data.links);
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.curriculum_links_replaced', {
+          linkCount: replaced.length,
+          unitIds: replaced.map(link => link.unit_id),
+        }, 'educational_asset', params.data.assetId);
+        return replaced;
+      });
+      return { links };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace curriculum links');
+    }
+  });
+
+  app.get('/admin/educational-assets/:assetId/taxonomy', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid educational asset ID');
+    try {
+      return { links: await listEducationalAssetTaxonomyLinks(db, params.data.assetId) };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to read educational asset taxonomy');
+    }
+  });
+
+  app.put('/admin/educational-assets/:assetId/taxonomy', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
+    if (denied) return;
+    const params = educationalAssetTaxonomyParamsSchema.safeParse(request.params);
+    const body = educationalAssetTaxonomyBodySchema.safeParse(request.body);
+    if (!params.success || !body.success) return reply.badRequest('Invalid educational asset taxonomy payload');
+    try {
+      const links = await withTransaction(async client => {
+        const replaced = await replaceEducationalAssetTaxonomyLinks(client, params.data.assetId, body.data.links);
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'educational_asset.taxonomy_replaced', {
+          linkCount: replaced.length,
+          termCodes: replaced.map(link => link.code),
+        }, 'educational_asset', params.data.assetId);
+        return replaced;
+      });
+      return { links };
+    } catch (error) {
+      return error instanceof Error && error.message === 'Educational asset not found'
+        ? reply.notFound(error.message)
+        : reply.badRequest(error instanceof Error ? error.message : 'Unable to replace educational asset taxonomy');
+    }
   });
 
   app.get('/admin/interactive-learning/bundles/:bundleId/:revision', async (request, reply) => {

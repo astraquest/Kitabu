@@ -13,7 +13,21 @@ import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 import type { CurriculumScope } from './curriculumScope.js';
 import { normalizeOnboardingSchoolInput } from './onboardingSchool.js';
-import type { EducationalAssetImportRunStatus, EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetProductionStatus } from './educationalAssets/types.js';
+import type { EducationalAssetImportRunStatus, EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetProductionStatus, EducationalAssetUsageRestriction } from './educationalAssets/types.js';
+import type { EducationalAssetNormalizationStatus, EducationalVisualType } from './educationalAssets/classification.js';
+import { deriveEducationalAssetAltText } from './educationalAssets/classification.js';
+import type { EducationalAssetClassification } from './educationalAssets/classificationEdit.js';
+import { normalizeEducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
+import type { EducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
+import {
+  normalizeEducationalAssetCurriculumUnitIds,
+  serializeEducationalAssetRelationshipMetadata,
+  type EducationalAssetCurriculumLinkInput,
+} from './educationalAssets/curriculumLinks.js';
+import {
+  normalizeEducationalAssetTaxonomyLinks,
+  type EducationalAssetTaxonomyLinkInput,
+} from './educationalAssets/taxonomy.js';
 
 type MaybeClient = PoolClient | typeof db;
 
@@ -3193,10 +3207,16 @@ export interface EducationalAssetRepositoryRecord {
   id: string;
   title: string;
   description: string | null;
+  metadata?: Record<string, unknown>;
   source_url: string;
   source_name: string;
   source_license: EducationalAssetLicense;
   source_license_url: string | null;
+  original_filename: string | null;
+  creator: string | null;
+  creator_url: string | null;
+  license_version: string | null;
+  license_evidence: string | null;
   provider_key: string | null;
   provider_asset_id: string | null;
   source_raw_url: string | null;
@@ -3204,16 +3224,90 @@ export interface EducationalAssetRepositoryRecord {
   retrieved_at: Date;
   content_sha256: string;
   byte_size: number;
-  storage_backend: 'local';
+  storage_backend: 'local' | 'http-put';
   storage_key: string;
   production_status: EducationalAssetProductionStatus;
+  usage_restriction: EducationalAssetUsageRestriction;
   media_type: EducationalAssetMediaType;
   mime_type: string;
   subject: string | null;
   topic: string | null;
   grade_level: string | null;
+  visual_type: EducationalVisualType;
+  subtopic: string | null;
+  keywords: string[];
+  synonyms: string[];
+  grade_min: number | null;
+  grade_max: number | null;
+  language: string;
+  contains_text: boolean;
+  alt_text: string | null;
+  educational_description: string | null;
+  normalization_status: EducationalAssetNormalizationStatus;
+  width: number | null;
+  height: number | null;
+  aspect_ratio: number | null;
+  visual_hash: string | null;
+  review_reason: string | null;
   created_at: Date;
   updated_at: Date;
+}
+
+export interface EducationalAssetOfflineReferenceRecord {
+  id: string;
+  mime_type: string;
+  byte_size: number;
+  content_sha256: string;
+  title: string;
+  alt_text: string | null;
+  source_license: EducationalAssetLicense;
+  provider_key: string | null;
+  source_name: string;
+  attribution: string | null;
+  usage_restriction?: EducationalAssetUsageRestriction;
+}
+
+export interface EducationalAssetAttributionRecord {
+  asset_id: string;
+  source_name: string;
+  source_license: EducationalAssetLicense;
+  attribution: string | null;
+  original_filename: string | null;
+  creator: string | null;
+  creator_url: string | null;
+  license_version: string | null;
+  license_evidence: string | null;
+}
+
+export interface EducationalAssetCurriculumUnitLinkRecord {
+  asset_id: string;
+  unit_id: string;
+  unit_title: string;
+  unit_code: string | null;
+  canonical_unit_type: string;
+  relationship_metadata: Record<string, unknown>;
+  created_at: Date;
+}
+
+export interface EducationalAssetTaxonomyTermRecord {
+  id: string;
+  code: string;
+  display_name: string;
+  parent_term_id: string | null;
+  parent_code: string | null;
+  sort_order: number;
+  is_active: boolean;
+}
+
+export interface EducationalAssetTaxonomyLinkRecord {
+  asset_id: string;
+  term_id: string;
+  code: string;
+  display_name: string;
+  parent_term_id: string | null;
+  parent_code: string | null;
+  relationship_metadata: Record<string, unknown>;
+  created_at: Date;
 }
 
 export interface EducationalAssetProviderRecord {
@@ -3245,6 +3339,7 @@ export interface EducationalAssetImportRunRecord {
   downloaded_count: string;
   imported_count: string;
   duplicate_count: string;
+  restricted_count: string;
   rejected_count: string;
   quarantined_count: string;
   error_count: string;
@@ -3267,6 +3362,7 @@ export interface UpdateEducationalAssetImportRunInput {
   downloadedCount?: number;
   importedCount?: number;
   duplicateCount?: number;
+  restrictedCount?: number;
   rejectedCount?: number;
   quarantinedCount?: number;
   errorCount?: number;
@@ -3276,7 +3372,7 @@ export interface UpdateEducationalAssetImportRunInput {
 const educationalAssetImportRunColumns = `
   id, provider_key, importer_key, status, started_at, completed_at,
   discovered_count, downloaded_count, imported_count, duplicate_count,
-  rejected_count, quarantined_count, error_count, checkpoint, cursor, created_at, updated_at`;
+  restricted_count, rejected_count, quarantined_count, error_count, checkpoint, cursor, created_at, updated_at`;
 
 export async function upsertEducationalAssetProvider(
   client: MaybeClient,
@@ -3341,16 +3437,17 @@ export async function updateEducationalAssetImportRun(
          downloaded_count = COALESCE($4, downloaded_count),
          imported_count = COALESCE($5, imported_count),
          duplicate_count = COALESCE($6, duplicate_count),
-         rejected_count = COALESCE($7, rejected_count),
-         quarantined_count = COALESCE($8, quarantined_count),
-         error_count = COALESCE($9, error_count),
-         completed_at = COALESCE($10, completed_at),
+         restricted_count = COALESCE($7, restricted_count),
+         rejected_count = COALESCE($8, rejected_count),
+         quarantined_count = COALESCE($9, quarantined_count),
+         error_count = COALESCE($10, error_count),
+         completed_at = COALESCE($11, completed_at),
          updated_at = NOW()
      WHERE id = $1
      RETURNING ${educationalAssetImportRunColumns}`,
     [runId, input.status ?? null, input.discoveredCount ?? null, input.downloadedCount ?? null,
-      input.importedCount ?? null, input.duplicateCount ?? null, input.rejectedCount ?? null,
-      input.quarantinedCount ?? null, input.errorCount ?? null, input.completedAt ?? null],
+      input.importedCount ?? null, input.duplicateCount ?? null, input.restrictedCount ?? null,
+      input.rejectedCount ?? null, input.quarantinedCount ?? null, input.errorCount ?? null, input.completedAt ?? null],
   );
   return result.rows[0] ?? null;
 }
@@ -3372,18 +3469,48 @@ export async function checkpointEducationalAssetImportRun(
   return result.rows[0] ?? null;
 }
 
-export interface CreateEducationalAssetInput {
+export interface CreateEducationalAssetInput extends EducationalAssetProvenanceMetadata {
   title: string;
   description?: string | null;
+  metadata?: Record<string, unknown>;
   mediaType: EducationalAssetMediaType;
   mimeType: string;
   contentSha256: string;
   byteSize: number;
+  storageBackend?: 'local' | 'http-put';
   storageKey: string;
   productionStatus?: EducationalAssetProductionStatus;
+  usageRestriction?: EducationalAssetUsageRestriction;
   subject?: string | null;
   topic?: string | null;
   gradeLevel?: string | null;
+  visualType?: EducationalVisualType;
+  subtopic?: string | null;
+  keywords?: string[];
+  synonyms?: string[];
+  gradeMin?: number | null;
+  gradeMax?: number | null;
+  language?: string;
+  containsText?: boolean;
+  altText?: string | null;
+  educationalDescription?: string | null;
+  normalizationStatus?: EducationalAssetNormalizationStatus;
+  width?: number | null;
+  height?: number | null;
+  aspectRatio?: number | null;
+  visualHash?: string | null;
+  sourceUrl: string;
+  sourceName: string;
+  sourceLicense: EducationalAssetLicense;
+  sourceLicenseUrl?: string | null;
+  providerKey?: string | null;
+  providerAssetId?: string | null;
+  sourceRawUrl?: string | null;
+  attribution?: string | null;
+  retrievedAt?: Date;
+}
+
+export interface AppendEducationalAssetProvenanceInput extends EducationalAssetProvenanceMetadata {
   sourceUrl: string;
   sourceName: string;
   sourceLicense: EducationalAssetLicense;
@@ -3396,11 +3523,42 @@ export interface CreateEducationalAssetInput {
 }
 
 const educationalAssetColumns = `
-  a.id, a.title, a.description, a.media_type, a.mime_type, a.content_sha256, a.byte_size,
-  a.storage_backend, a.storage_key, a.production_status, a.created_at, a.updated_at,
-  a.subject, a.topic, a.grade_level,
-  p.source_url, p.source_name, p.source_license, p.source_license_url, p.provider_key,
+  a.id, a.title, a.description, a.metadata, a.media_type, a.mime_type, a.content_sha256, a.byte_size,
+  a.storage_backend, a.storage_key, a.production_status, a.usage_restriction, a.created_at, a.updated_at,
+  a.subject, a.topic, a.grade_level, a.visual_type, a.subtopic, a.keywords, a.synonyms,
+  a.grade_min, a.grade_max, a.language, a.contains_text, a.alt_text, a.educational_description, a.normalization_status,
+  a.width, a.height, a.aspect_ratio, a.visual_hash, a.review_reason,
+  p.source_url, p.source_name, p.source_license, p.source_license_url,
+  p.original_filename, p.creator, p.creator_url, p.license_version, p.license_evidence,
+  p.provider_key,
   p.provider_asset_id, p.source_raw_url, p.attribution, p.retrieved_at`;
+const canonicalEducationalAssetProvenanceJoin = `
+  JOIN LATERAL (
+    SELECT * FROM educational_asset_provenance p
+    WHERE p.asset_id = a.id
+    ORDER BY
+      CASE WHEN p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0') THEN 0 ELSE 1 END,
+      p.retrieved_at DESC,
+      p.id ASC
+    LIMIT 1
+  ) p ON TRUE`;
+
+export function serializeEducationalAssetMetadata(metadata?: Record<string, unknown>): string {
+  if (metadata === undefined) return '{}';
+  if (metadata === null || typeof metadata !== 'object' || Array.isArray(metadata)) {
+    throw new Error('Educational asset metadata must be a JSON object');
+  }
+  let serialized: string;
+  try {
+    serialized = JSON.stringify(metadata);
+  } catch {
+    throw new Error('Educational asset metadata must be JSON serializable');
+  }
+  if (!serialized.startsWith('{') || !serialized.endsWith('}')) {
+    throw new Error('Educational asset metadata must be a JSON object');
+  }
+  return serialized;
+}
 
 export async function findEducationalAssetByContentSha256(
   client: MaybeClient,
@@ -3410,9 +3568,24 @@ export async function findEducationalAssetByContentSha256(
     client,
     `SELECT ${educationalAssetColumns}
      FROM educational_assets a
-     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     ${canonicalEducationalAssetProvenanceJoin}
      WHERE a.content_sha256 = $1`,
     [contentSha256],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findEducationalAssetByVisualHash(
+  client: MaybeClient,
+  visualHash: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.visual_hash = $1`,
+    [visualHash],
   );
   return result.rows[0] ?? null;
 }
@@ -3427,10 +3600,344 @@ export async function findEducationalAssetByProviderIdentity(
     `SELECT ${educationalAssetColumns}
      FROM educational_assets a
      JOIN educational_asset_provenance p ON p.asset_id = a.id
-     WHERE p.provider_key = $1 AND p.provider_asset_id = $2`,
+     WHERE p.provider_key = $1 AND p.provider_asset_id = $2
+     ORDER BY p.retrieved_at DESC, p.id ASC
+     LIMIT 1`,
     [providerKey, providerAssetId],
   );
   return result.rows[0] ?? null;
+}
+
+export async function getAttributionsForAssets(
+  client: MaybeClient,
+  assetIds: string[],
+): Promise<EducationalAssetAttributionRecord[]> {
+  if (!assetIds.length) return [];
+  const result = await q<EducationalAssetAttributionRecord>(
+    client,
+    `SELECT asset_id, source_name, source_license, attribution,
+            original_filename, creator, creator_url, license_version, license_evidence
+     FROM educational_asset_provenance
+     WHERE asset_id = ANY($1::uuid[])
+     ORDER BY asset_id ASC, source_name ASC, source_license ASC, id ASC`,
+    [assetIds],
+  );
+  return result.rows;
+}
+
+export async function appendEducationalAssetProvenance(
+  client: MaybeClient,
+  existingAssetId: string,
+  input: AppendEducationalAssetProvenanceInput,
+): Promise<void> {
+  const provenance = normalizeEducationalAssetProvenanceMetadata(input);
+  await q(
+    client,
+    `INSERT INTO educational_asset_provenance (
+       asset_id, source_url, source_name, source_license, source_license_url,
+       original_filename, creator, creator_url, license_version, license_evidence,
+       provider_key, provider_asset_id, source_raw_url, attribution, retrieved_at
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+     ON CONFLICT (provider_key, provider_asset_id) WHERE provider_key IS NOT NULL AND provider_asset_id IS NOT NULL DO NOTHING`,
+    [
+      existingAssetId, input.sourceUrl, input.sourceName, input.sourceLicense, input.sourceLicenseUrl ?? null,
+      provenance.originalFilename, provenance.creator, provenance.creatorUrl, provenance.licenseVersion,
+      provenance.licenseEvidence, input.providerKey ?? null, input.providerAssetId ?? null,
+      input.sourceRawUrl ?? null, input.attribution ?? null, input.retrievedAt ?? new Date(),
+    ],
+  );
+}
+
+const educationalAssetCurriculumUuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+async function validateEducationalAssetCurriculumLinkTargets(
+  client: MaybeClient,
+  assetId: string,
+  unitIds: readonly string[],
+): Promise<string[]> {
+  const normalizedUnitIds = normalizeEducationalAssetCurriculumUnitIds(unitIds);
+  if (!educationalAssetCurriculumUuidPattern.test(assetId)) {
+    throw new Error('Educational asset ID must be a valid UUID');
+  }
+  const asset = await q<{ id: string }>(
+    client,
+    'SELECT id FROM educational_assets WHERE id = $1::uuid',
+    [assetId],
+  );
+  if (!asset.rows[0]) throw new Error('Educational asset not found');
+  if (!normalizedUnitIds.length) return normalizedUnitIds;
+  const units = await q<{ id: string }>(
+    client,
+    'SELECT id FROM curriculum_units WHERE id = ANY($1::uuid[])',
+    [normalizedUnitIds],
+  );
+  if (units.rowCount !== normalizedUnitIds.length) throw new Error('One or more curriculum units were not found');
+  return normalizedUnitIds;
+}
+
+export async function listEducationalAssetCurriculumUnitLinks(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetCurriculumUnitLinkRecord[]> {
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, []);
+  const result = await q<EducationalAssetCurriculumUnitLinkRecord>(
+    client,
+    `SELECT ecu.asset_id, ecu.unit_id, cu.title AS unit_title, cu.local_code AS unit_code,
+            cu.canonical_unit_type, ecu.relationship_metadata, ecu.created_at
+     FROM educational_asset_curriculum_units ecu
+     JOIN curriculum_units cu ON cu.id = ecu.unit_id
+     WHERE ecu.asset_id = $1::uuid
+     ORDER BY cu.sequence ASC, cu.title ASC, ecu.unit_id ASC`,
+    [assetId],
+  );
+  return result.rows;
+}
+
+export async function addEducationalAssetCurriculumUnitLink(
+  client: MaybeClient,
+  assetId: string,
+  input: EducationalAssetCurriculumLinkInput,
+): Promise<EducationalAssetCurriculumUnitLinkRecord> {
+  const [unitId] = await validateEducationalAssetCurriculumLinkTargets(client, assetId, [input.unitId]);
+  const relationshipMetadata = serializeEducationalAssetRelationshipMetadata(input.relationshipMetadata);
+  await q(
+    client,
+    `INSERT INTO educational_asset_curriculum_units (asset_id, unit_id, relationship_metadata)
+     VALUES ($1::uuid, $2::uuid, $3::jsonb)
+     ON CONFLICT (asset_id, unit_id) DO UPDATE SET relationship_metadata = EXCLUDED.relationship_metadata`,
+    [assetId, unitId, relationshipMetadata],
+  );
+  const links = await listEducationalAssetCurriculumUnitLinks(client, assetId);
+  const link = links.find(candidate => candidate.unit_id === unitId);
+  if (!link) throw new Error('Educational asset curriculum link was not created');
+  return link;
+}
+
+export async function replaceEducationalAssetCurriculumUnitLinks(
+  client: MaybeClient,
+  assetId: string,
+  inputs: readonly EducationalAssetCurriculumLinkInput[],
+): Promise<EducationalAssetCurriculumUnitLinkRecord[]> {
+  const unitIds = normalizeEducationalAssetCurriculumUnitIds(inputs.map(input => input.unitId));
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, unitIds);
+  const metadataByUnitId = new Map(inputs.map(input => [
+    input.unitId.trim().toLowerCase(),
+    serializeEducationalAssetRelationshipMetadata(input.relationshipMetadata),
+  ]));
+  await q(client, 'DELETE FROM educational_asset_curriculum_units WHERE asset_id = $1::uuid', [assetId]);
+  for (const unitId of unitIds) {
+    await q(
+      client,
+      `INSERT INTO educational_asset_curriculum_units (asset_id, unit_id, relationship_metadata)
+       VALUES ($1::uuid, $2::uuid, $3::jsonb)`,
+      [assetId, unitId, metadataByUnitId.get(unitId) ?? '{}'],
+    );
+  }
+  return listEducationalAssetCurriculumUnitLinks(client, assetId);
+}
+
+export async function removeEducationalAssetCurriculumUnitLink(
+  client: MaybeClient,
+  assetId: string,
+  unitId: string,
+): Promise<boolean> {
+  const [normalizedUnitId] = normalizeEducationalAssetCurriculumUnitIds([unitId]);
+  await validateEducationalAssetCurriculumLinkTargets(client, assetId, [normalizedUnitId]);
+  const result = await q(
+    client,
+    'DELETE FROM educational_asset_curriculum_units WHERE asset_id = $1::uuid AND unit_id = $2::uuid',
+    [assetId, normalizedUnitId],
+  );
+  return result.rowCount === 1;
+}
+
+async function validateEducationalAssetTaxonomyAsset(
+  client: MaybeClient,
+  assetId: string,
+): Promise<void> {
+  if (!educationalAssetCurriculumUuidPattern.test(assetId)) {
+    throw new Error('Educational asset ID must be a valid UUID');
+  }
+  const result = await q<{ id: string }>(
+    client,
+    'SELECT id FROM educational_assets WHERE id = $1::uuid',
+    [assetId],
+  );
+  if (!result.rows[0]) throw new Error('Educational asset not found');
+}
+
+export async function listEducationalAssetTaxonomyTerms(
+  client: MaybeClient,
+): Promise<EducationalAssetTaxonomyTermRecord[]> {
+  const result = await q<EducationalAssetTaxonomyTermRecord>(
+    client,
+    `SELECT term.id, term.code, term.display_name, term.parent_term_id,
+            parent.code AS parent_code, term.sort_order, term.is_active
+     FROM educational_asset_taxonomy_terms term
+     LEFT JOIN educational_asset_taxonomy_terms parent ON parent.id = term.parent_term_id
+     WHERE term.is_active = TRUE
+     ORDER BY COALESCE(parent.sort_order, term.sort_order), term.sort_order, term.code`,
+  );
+  return result.rows;
+}
+
+export async function listEducationalAssetTaxonomyLinks(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetTaxonomyLinkRecord[]> {
+  await validateEducationalAssetTaxonomyAsset(client, assetId);
+  const result = await q<EducationalAssetTaxonomyLinkRecord>(
+    client,
+    `SELECT link.asset_id, link.term_id, term.code, term.display_name,
+            term.parent_term_id, parent.code AS parent_code,
+            link.relationship_metadata, link.created_at
+     FROM educational_asset_taxonomy_links link
+     JOIN educational_asset_taxonomy_terms term ON term.id = link.term_id
+     LEFT JOIN educational_asset_taxonomy_terms parent ON parent.id = term.parent_term_id
+     WHERE link.asset_id = $1::uuid
+     ORDER BY term.code ASC, link.term_id ASC`,
+    [assetId],
+  );
+  return result.rows;
+}
+
+export async function replaceEducationalAssetTaxonomyLinks(
+  client: MaybeClient,
+  assetId: string,
+  inputs: readonly EducationalAssetTaxonomyLinkInput[],
+): Promise<EducationalAssetTaxonomyLinkRecord[]> {
+  const normalized = normalizeEducationalAssetTaxonomyLinks(inputs);
+  await validateEducationalAssetTaxonomyAsset(client, assetId);
+
+  const termCodes = normalized.map(link => link.termCode);
+  const terms = termCodes.length
+    ? await q<{ id: string; code: string }>(
+      client,
+      `SELECT id, code
+       FROM educational_asset_taxonomy_terms
+       WHERE is_active = TRUE AND code = ANY($1::text[])`,
+      [termCodes],
+    )
+    : { rows: [] as { id: string; code: string }[] };
+  if (terms.rows.length !== termCodes.length) {
+    const known = new Set(terms.rows.map(term => term.code));
+    const missing = termCodes.find(code => !known.has(code));
+    throw new Error(`Educational asset taxonomy term was not found: ${missing ?? 'unknown'}`);
+  }
+  const termIds = new Map(terms.rows.map(term => [term.code, term.id]));
+
+  await q(client, 'DELETE FROM educational_asset_taxonomy_links WHERE asset_id = $1::uuid', [assetId]);
+  for (const link of normalized) {
+    await q(
+      client,
+      `INSERT INTO educational_asset_taxonomy_links (asset_id, term_id, relationship_metadata)
+       VALUES ($1::uuid, $2::uuid, $3::jsonb)`,
+      [assetId, termIds.get(link.termCode), link.relationshipMetadata],
+    );
+  }
+  return listEducationalAssetTaxonomyLinks(client, assetId);
+}
+
+export async function listEducationalAssetsForReview(
+  client: MaybeClient,
+  filters: { query?: string; productionStatus?: EducationalAssetProductionStatus; limit?: number } = {},
+): Promise<EducationalAssetRepositoryRecord[]> {
+  const values: unknown[] = [];
+  const clauses: string[] = [];
+  if (filters.productionStatus) {
+    values.push(filters.productionStatus);
+    clauses.push(`a.production_status = $${values.length}`);
+  }
+  if (filters.query?.trim()) {
+    values.push(`%${filters.query.trim()}%`);
+    clauses.push(`(a.title ILIKE $${values.length} OR a.subject ILIKE $${values.length} OR a.topic ILIKE $${values.length})`);
+  }
+  values.push(Math.min(Math.max(filters.limit ?? 50, 1), 100));
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     ${clauses.length ? `WHERE ${clauses.join(' AND ')}` : ''}
+     ORDER BY a.updated_at DESC, a.id ASC
+     LIMIT $${values.length}`,
+    values,
+  );
+  return result.rows;
+}
+
+export async function findEducationalAssetForReviewById(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.id = $1`,
+    [assetId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function updateEducationalAssetReviewStatus(
+  client: MaybeClient,
+  input: { assetId: string; productionStatus: EducationalAssetProductionStatus; reviewReason: string | null },
+): Promise<boolean> {
+  const result = await q<{ id: string }>(
+    client,
+    `UPDATE educational_assets
+     SET production_status = $2, review_reason = $3, updated_at = NOW()
+     WHERE id = $1
+     RETURNING id`,
+    [input.assetId, input.productionStatus, input.reviewReason],
+  );
+  return result.rowCount === 1;
+}
+
+export async function updateEducationalAssetClassification(
+  client: MaybeClient,
+  input: { assetId: string; classification: EducationalAssetClassification },
+): Promise<boolean> {
+  const { classification } = input;
+  const result = await q<{ id: string }>(
+    client,
+    `UPDATE educational_assets
+     SET visual_type = $2, subject = $3, topic = $4, subtopic = $5, keywords = $6,
+         synonyms = $7, grade_min = $8, grade_max = $9, language = $10, contains_text = $11,
+         alt_text = $12, educational_description = $13, updated_at = NOW()
+     WHERE id = $1
+     RETURNING id`,
+    [
+      input.assetId, classification.visualType, classification.subject, classification.topic, classification.subtopic,
+      classification.keywords, classification.synonyms, classification.gradeMin, classification.gradeMax,
+      classification.language, classification.containsText, classification.altText, classification.educationalDescription,
+    ],
+  );
+  return result.rowCount === 1;
+}
+
+export async function getProductionEligibleEducationalAssetOfflineReferences(
+  client: MaybeClient,
+  assetIds: string[],
+): Promise<EducationalAssetOfflineReferenceRecord[]> {
+  if (!assetIds.length) return [];
+  const result = await q<EducationalAssetOfflineReferenceRecord>(
+    client,
+    `SELECT a.id, a.mime_type, a.byte_size, a.content_sha256, a.title, a.alt_text,
+            p.source_license, p.provider_key, p.source_name, p.attribution,
+            a.usage_restriction
+     FROM educational_assets a
+     ${canonicalEducationalAssetProvenanceJoin}
+     WHERE a.id = ANY($1::uuid[])
+       AND a.production_status = 'approved'
+       AND a.usage_restriction = 'none'
+       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')
+     ORDER BY a.id ASC`,
+    [assetIds],
+  );
+  return result.rows;
 }
 
 export async function createEducationalAsset(
@@ -3440,35 +3947,31 @@ export async function createEducationalAsset(
   const asset = await q<{ id: string }>(
     client,
     `INSERT INTO educational_assets (
-       title, description, media_type, mime_type, content_sha256, byte_size,
-       storage_backend, storage_key, production_status, subject, topic, grade_level
-     ) VALUES ($1, $2, $3, $4, $5, $6, 'local', $7, $8, $9, $10, $11)
+       title, description, metadata, media_type, mime_type, content_sha256, byte_size,
+       storage_backend, storage_key, production_status, subject, topic, grade_level, visual_type, subtopic,
+       keywords, synonyms, grade_min, grade_max, language, contains_text, alt_text, educational_description, normalization_status,
+       width, height, aspect_ratio, visual_hash, usage_restriction
+     ) VALUES ($1, $2, $3::jsonb, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29)
      ON CONFLICT (content_sha256) DO NOTHING
      RETURNING id`,
     [
-      input.title, input.description ?? null, input.mediaType, input.mimeType, input.contentSha256,
-      input.byteSize, input.storageKey, input.productionStatus ?? 'draft', input.subject ?? null,
-      input.topic ?? null, input.gradeLevel ?? null,
+      input.title, input.description ?? null, serializeEducationalAssetMetadata(input.metadata), input.mediaType, input.mimeType, input.contentSha256,
+      input.byteSize, input.storageBackend ?? 'local', input.storageKey, input.productionStatus ?? 'draft', input.subject ?? null,
+      input.topic ?? null, input.gradeLevel ?? null, input.visualType ?? 'ILLUSTRATION', input.subtopic ?? null,
+      input.keywords ?? [], input.synonyms ?? [], input.gradeMin ?? null, input.gradeMax ?? null,
+      input.language ?? 'en', input.containsText ?? false, deriveEducationalAssetAltText({ altText: input.altText, description: input.description, title: input.title }),
+      input.educationalDescription ?? null, input.normalizationStatus ?? 'original-only',
+      input.width ?? null, input.height ?? null, input.aspectRatio ?? null, input.visualHash ?? null,
+      input.usageRestriction ?? 'none',
     ],
   );
-  const assetId = asset.rows[0]?.id;
+  let assetId = asset.rows[0]?.id;
   if (!assetId) {
     const existing = await findEducationalAssetByContentSha256(client, input.contentSha256);
     if (!existing) throw new Error('Unable to create or find educational asset');
-    return existing;
+    assetId = existing.id;
   }
-  await q(
-    client,
-    `INSERT INTO educational_asset_provenance (
-       asset_id, source_url, source_name, source_license, source_license_url, provider_key,
-       provider_asset_id, source_raw_url, attribution, retrieved_at
-     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
-    [
-      assetId, input.sourceUrl, input.sourceName, input.sourceLicense, input.sourceLicenseUrl ?? null,
-      input.providerKey ?? null, input.providerAssetId ?? null, input.sourceRawUrl ?? null,
-      input.attribution ?? null, input.retrievedAt ?? new Date(),
-    ],
-  );
+  await appendEducationalAssetProvenance(client, assetId, input);
   const created = await findEducationalAssetByContentSha256(client, input.contentSha256);
   if (!created) throw new Error('Educational asset was created without provenance');
   return created;
@@ -3480,30 +3983,53 @@ export async function listProductionEligibleEducationalAssets(
     query?: string;
     subject?: string;
     topic?: string;
+    subtopic?: string;
     grade?: string;
     assetType?: EducationalAssetMediaType;
+    visualType?: EducationalVisualType;
+    providerKey?: string;
+    license?: EducationalAssetLicense;
+    curriculumUnitId?: string;
     limit?: number;
   } = {},
 ): Promise<EducationalAssetRepositoryRecord[]> {
   const values: unknown[] = [];
   const clauses = [
     "a.production_status = 'approved'",
-    "p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'CC-BY-3.0', 'CC-BY-4.0')",
+    "a.usage_restriction = 'none'",
+    "p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')",
   ];
   const exactFilters: Array<[string | undefined, string]> = [
-    [filters.subject, 'a.subject'], [filters.topic, 'a.topic'], [filters.grade, 'a.grade_level'], [filters.assetType, 'a.media_type'],
+    [filters.subject, 'a.subject'], [filters.topic, 'a.topic'], [filters.subtopic, 'a.subtopic'],
+    [filters.assetType, 'a.media_type'], [filters.visualType, 'a.visual_type'], [filters.providerKey, 'p.provider_key'],
   ];
   for (const [value, column] of exactFilters) {
     if (!value?.trim()) continue;
     values.push(value.trim());
     clauses.push(`lower(${column}) = lower($${values.length})`);
   }
+  if (filters.license) {
+    values.push(filters.license);
+    clauses.push(`p.source_license = $${values.length}`);
+  }
+  const grade = filters.grade?.match(/\d+/)?.[0];
+  if (grade) {
+    values.push(Number(grade));
+    clauses.push(`(a.grade_min IS NULL OR a.grade_min <= $${values.length}) AND (a.grade_max IS NULL OR a.grade_max >= $${values.length})`);
+  }
+  if (filters.curriculumUnitId) {
+    values.push(filters.curriculumUnitId);
+    clauses.push(`EXISTS (SELECT 1 FROM educational_asset_curriculum_units ecu WHERE ecu.asset_id = a.id AND ecu.unit_id = $${values.length}::uuid)`);
+  }
   const searchQuery = filters.query?.trim();
   if (searchQuery) {
     values.push(searchQuery);
     clauses.push(`to_tsvector('simple',
       coalesce(a.title, '') || ' ' || coalesce(a.topic, '') || ' ' ||
-      coalesce(a.subject, '') || ' ' || coalesce(a.description, '')
+      coalesce(a.subject, '') || ' ' || coalesce(a.subtopic, '') || ' ' ||
+      coalesce(array_to_string(a.keywords, ' '), '') || ' ' || coalesce(array_to_string(a.synonyms, ' '), '') || ' ' ||
+      coalesce(a.visual_type, '') || ' ' || coalesce(p.provider_key, '') || ' ' ||
+      coalesce(p.source_license, '') || ' ' || coalesce(a.description, '')
     ) @@ plainto_tsquery('simple', $${values.length})`);
   }
   const orderBy = searchQuery
@@ -3520,7 +4046,7 @@ export async function listProductionEligibleEducationalAssets(
     client,
     `SELECT ${educationalAssetColumns}
      FROM educational_assets a
-     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     ${canonicalEducationalAssetProvenanceJoin}
      WHERE ${clauses.join(' AND ')}
      ORDER BY ${orderBy}
      LIMIT $${values.length}`,
@@ -3537,10 +4063,11 @@ export async function findProductionEligibleEducationalAssetById(
     client,
     `SELECT ${educationalAssetColumns}
      FROM educational_assets a
-     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     ${canonicalEducationalAssetProvenanceJoin}
      WHERE a.id = $1
-       AND a.production_status = 'approved'
-       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'CC-BY-3.0', 'CC-BY-4.0')`,
+      AND a.production_status = 'approved'
+       AND a.usage_restriction = 'none'
+       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0')`,
     [assetId],
   );
   return result.rows[0] ?? null;

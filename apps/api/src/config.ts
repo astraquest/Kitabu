@@ -119,6 +119,9 @@ const configSchema = z.object({
   KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT: z.string().default('./var/educational-assets'),
   KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
   KITABU_TTS_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
+  KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND: z.enum(['local', 'http-put']).default('local'),
+  KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
+  KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
   KITABU_TTS_WORKER_ENABLED: booleanish.default(true),
   KITABU_TTS_WORKER_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(5_000),
   KITABU_TTS_WORKER_BATCH_SIZE: z.coerce.number().int().positive().max(20).default(2),
@@ -218,6 +221,8 @@ appConfig.KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU
 appConfig.KITABU_TTS_STORAGE_ROOT = appConfig.KITABU_TTS_STORAGE_ROOT.trim();
 appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT = appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT.trim();
 appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL);
+appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE);
+appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL);
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);

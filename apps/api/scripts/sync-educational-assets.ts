@@ -1,4 +1,5 @@
 import { HealthIconsAdapter } from '../src/educationalAssets/healthIcons.js';
+import { TablerAdapter } from '../src/educationalAssets/tabler.js';
 import { runEducationalAssetSync } from '../src/educationalAssets/runner.js';
 
 function option(name: string) { const index = process.argv.indexOf(name); return index >= 0 ? process.argv[index + 1] : undefined; }
@@ -6,9 +7,9 @@ const provider = option('--provider') ?? 'health-icons';
 const dryRun = process.argv.includes('--dry-run');
 const limit = Math.max(1, Math.min(Number.parseInt(option('--limit') ?? '10', 10) || 10, 100));
 const resumeCursor = option('--resume') ?? null;
-if (provider !== 'health-icons') throw new Error(`Unsupported educational asset provider: ${provider}`);
-
-const adapter = new HealthIconsAdapter();
+const adapter = provider === 'health-icons' ? new HealthIconsAdapter()
+  : provider === 'tabler-icons' ? new TablerAdapter()
+    : (() => { throw new Error(`Unsupported educational asset provider: ${provider}`); })();
 if (dryRun) {
   const result = await runEducationalAssetSync(adapter, {} as never, { limit, dryRun: true, resumeCursor });
   console.log(JSON.stringify(result, null, 2));
@@ -26,7 +27,7 @@ if (dryRun) {
   try {
     const result = await runEducationalAssetSync(adapter, {
       ensureProvider: async item => { await upsertEducationalAssetProvider(db, { providerKey: item.providerKey, displayName: item.displayName, homepageUrl: item.homepageUrl, metadata: { capabilities: item.capabilities } }); },
-      createRun: async (item, cursor) => createEducationalAssetImportRun(db, { providerKey: item.providerKey, importerKey: 'health-icons-v1', cursor }),
+      createRun: async (item, cursor) => createEducationalAssetImportRun(db, { providerKey: item.providerKey, importerKey: `${item.providerKey}-v1`, cursor }),
       checkpoint: async (id, checkpoint, cursor) => { await checkpointEducationalAssetImportRun(db, id, checkpoint, cursor); },
       finish: async (id, counters) => { await updateEducationalAssetImportRun(db, id, { status: 'completed', completedAt: new Date(), discoveredCount: counters.discovered, downloadedCount: counters.downloaded, importedCount: counters.imported, duplicateCount: counters.duplicates, rejectedCount: counters.rejected, quarantinedCount: counters.quarantined, errorCount: counters.errors }); },
       findByContentHash: async hash => Boolean(await findEducationalAssetByContentSha256(db, hash)),
@@ -37,7 +38,7 @@ if (dryRun) {
         const created = await createEducationalAsset(db, { title: item.title, mediaType: item.mediaType, mimeType: item.mimeType, contentSha256: hash, byteSize: content.byteLength, storageKey: key, productionStatus: 'review', sourceUrl: item.sourcePageUrl, sourceRawUrl: item.rawUrl, sourceName: item.providerKey, sourceLicense: item.license, sourceLicenseUrl: item.licenseEvidenceUrl, providerKey: item.providerKey, providerAssetId: item.providerAssetId, attribution });
         return { assetId: created.id };
       },
-    }, { limit, dryRun: false, resumeCursor, revision: 'health-icons-v1', writeManifest: async manifest => {
+    }, { limit, dryRun: false, resumeCursor, revision: `${adapter.providerKey}-v1`, writeManifest: async manifest => {
       await storage.writeJsonAtomic(educationalAssetManifestStorageKey(manifest.providerKey, manifest.importRunId ?? Date.now().toString()), manifest);
     } });
     console.log(JSON.stringify(result, null, 2));

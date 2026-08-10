@@ -30,6 +30,7 @@ export class HealthIconsAdapter implements EducationalAssetAdapter {
           mediaType: extension === 'svg' ? 'vector' as const : 'image' as const, mimeType: extension === 'svg' ? 'image/svg+xml' : 'image/png',
           sourcePageUrl: `https://github.com/${REPOSITORY}/blob/${BRANCH}/${path}`, rawUrl,
           license: 'CC0-1.0' as const, licenseEvidenceUrl: LICENSE_URL, attribution: null,
+          visualType: 'ICON' as const, subject: 'HEALTH', topic: 'GENERAL', keywords: ['health', 'icon'],
         } satisfies RemoteAsset];
       })
       .sort((left, right) => left.providerAssetId.localeCompare(right.providerAssetId));

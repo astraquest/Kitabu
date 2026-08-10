@@ -128,7 +128,9 @@ async function playServerSpeech(
 ) {
   const speech = options?.landingCueId
     ? await synthesizeLandingSpeech(options.landingCueId, options.voiceName!, options.language)
-    : await synthesizeSpeech(text, options?.voiceName, options?.language);
+    : options?.language
+      ? await synthesizeSpeech(text, options.voiceName, options.language)
+      : await synthesizeSpeech(text, options?.voiceName);
   if (!isCurrent()) {
     return;
   }

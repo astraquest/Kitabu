@@ -459,7 +459,7 @@ function isParentRole(roles: AuthRole[]) {
 }
 
 function isOnboardingMascotKey(value: unknown): value is OnboardingMascotKey {
-  return value === 'lion' || value === 'rabbit' || value === 'elephant';
+  return value === 'lion' || value === 'rabbit' || value === 'elephant' || value === 'panda';
 }
 
 function getDefaultMascotKeyForRoles(roles: AuthRole[]): OnboardingMascotKey {

@@ -80,6 +80,10 @@ export function IntroCarouselScreen({
       String(activeIndex),
       SLIDES[activeIndex].titleParts.map(part => part.text).join(''),
       'Samora',
+      {
+        language: activeIndex === 3 ? 'sw' : 'en',
+        landingCueId: `intro-slide-${activeIndex + 1}`,
+      },
     ),
     [activeIndex],
   );

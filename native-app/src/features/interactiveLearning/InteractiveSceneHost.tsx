@@ -6,6 +6,7 @@ import { StructuredResponseView } from './structuredResponse/StructuredResponseV
 import { RankedListView } from './rankedList/RankedListView';
 import { TraceConstructView } from './traceConstruct';
 import { AuthoredInteractionView } from './authoredInteraction';
+import { GenericSampleView } from './genericSample/GenericSampleView';
 import { loadResponseSnapshot, saveResponseSnapshot } from './responseSnapshotStore';
 
 export interface InteractiveSceneHostProps {
@@ -90,6 +91,17 @@ export function InteractiveSceneHost({
         props={scene.props}
         restoredResponse={response || undefined}
         sceneId={scene.sceneId}
+      />
+    );
+  }
+
+  if (scene.rendererId === 'generic-sample/native') {
+    return (
+      <GenericSampleView
+        disabled={disabled}
+        onResponseChange={updateResponse}
+        props={scene.props}
+        value={response}
       />
     );
   }

@@ -13,6 +13,7 @@ import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 import type { CurriculumScope } from './curriculumScope.js';
 import { normalizeOnboardingSchoolInput } from './onboardingSchool.js';
+import type { EducationalAssetImportRunStatus, EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetProductionStatus } from './educationalAssets/types.js';
 
 type MaybeClient = PoolClient | typeof db;
 
@@ -3188,9 +3189,371 @@ export async function setAiGenerationCacheEntry(
   return result.rows[0];
 }
 
+export interface EducationalAssetRepositoryRecord {
+  id: string;
+  title: string;
+  description: string | null;
+  source_url: string;
+  source_name: string;
+  source_license: EducationalAssetLicense;
+  source_license_url: string | null;
+  provider_key: string | null;
+  provider_asset_id: string | null;
+  source_raw_url: string | null;
+  attribution: string | null;
+  retrieved_at: Date;
+  content_sha256: string;
+  byte_size: number;
+  storage_backend: 'local';
+  storage_key: string;
+  production_status: EducationalAssetProductionStatus;
+  media_type: EducationalAssetMediaType;
+  mime_type: string;
+  subject: string | null;
+  topic: string | null;
+  grade_level: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface EducationalAssetProviderRecord {
+  provider_key: string;
+  display_name: string;
+  homepage_url: string;
+  enabled: boolean;
+  metadata: Record<string, unknown>;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface UpsertEducationalAssetProviderInput {
+  providerKey: string;
+  displayName: string;
+  homepageUrl: string;
+  enabled?: boolean;
+  metadata?: Record<string, unknown>;
+}
+
+export interface EducationalAssetImportRunRecord {
+  id: string;
+  provider_key: string;
+  importer_key: string;
+  status: EducationalAssetImportRunStatus;
+  started_at: Date | null;
+  completed_at: Date | null;
+  discovered_count: string;
+  downloaded_count: string;
+  imported_count: string;
+  duplicate_count: string;
+  rejected_count: string;
+  quarantined_count: string;
+  error_count: string;
+  checkpoint: Record<string, unknown>;
+  cursor: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface CreateEducationalAssetImportRunInput {
+  providerKey: string;
+  importerKey: string;
+  checkpoint?: Record<string, unknown>;
+  cursor?: string | null;
+}
+
+export interface UpdateEducationalAssetImportRunInput {
+  status?: EducationalAssetImportRunStatus;
+  discoveredCount?: number;
+  downloadedCount?: number;
+  importedCount?: number;
+  duplicateCount?: number;
+  rejectedCount?: number;
+  quarantinedCount?: number;
+  errorCount?: number;
+  completedAt?: Date | null;
+}
+
+const educationalAssetImportRunColumns = `
+  id, provider_key, importer_key, status, started_at, completed_at,
+  discovered_count, downloaded_count, imported_count, duplicate_count,
+  rejected_count, quarantined_count, error_count, checkpoint, cursor, created_at, updated_at`;
+
+export async function upsertEducationalAssetProvider(
+  client: MaybeClient,
+  input: UpsertEducationalAssetProviderInput,
+): Promise<EducationalAssetProviderRecord> {
+  const result = await q<EducationalAssetProviderRecord>(
+    client,
+    `INSERT INTO educational_asset_providers (provider_key, display_name, homepage_url, enabled, metadata)
+     VALUES ($1, $2, $3, $4, $5::jsonb)
+     ON CONFLICT (provider_key) DO UPDATE SET
+       display_name = EXCLUDED.display_name,
+       homepage_url = EXCLUDED.homepage_url,
+       enabled = EXCLUDED.enabled,
+       metadata = EXCLUDED.metadata,
+       updated_at = NOW()
+     RETURNING provider_key, display_name, homepage_url, enabled, metadata, created_at, updated_at`,
+    [input.providerKey, input.displayName, input.homepageUrl, input.enabled ?? true, JSON.stringify(input.metadata ?? {})],
+  );
+  if (!result.rows[0]) throw new Error('Unable to upsert educational asset provider');
+  return result.rows[0];
+}
+
+export async function getEducationalAssetProvider(
+  client: MaybeClient,
+  providerKey: string,
+): Promise<EducationalAssetProviderRecord | null> {
+  const result = await q<EducationalAssetProviderRecord>(
+    client,
+    `SELECT provider_key, display_name, homepage_url, enabled, metadata, created_at, updated_at
+     FROM educational_asset_providers
+     WHERE provider_key = $1`,
+    [providerKey],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function createEducationalAssetImportRun(
+  client: MaybeClient,
+  input: CreateEducationalAssetImportRunInput,
+): Promise<EducationalAssetImportRunRecord> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `INSERT INTO educational_asset_import_runs (provider_key, importer_key, status, started_at, checkpoint, cursor)
+     VALUES ($1, $2, 'running', NOW(), $3::jsonb, $4)
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [input.providerKey, input.importerKey, JSON.stringify(input.checkpoint ?? {}), input.cursor ?? null],
+  );
+  if (!result.rows[0]) throw new Error('Unable to create educational asset import run');
+  return result.rows[0];
+}
+
+export async function updateEducationalAssetImportRun(
+  client: MaybeClient,
+  runId: string,
+  input: UpdateEducationalAssetImportRunInput,
+): Promise<EducationalAssetImportRunRecord | null> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `UPDATE educational_asset_import_runs
+     SET status = COALESCE($2, status),
+         discovered_count = COALESCE($3, discovered_count),
+         downloaded_count = COALESCE($4, downloaded_count),
+         imported_count = COALESCE($5, imported_count),
+         duplicate_count = COALESCE($6, duplicate_count),
+         rejected_count = COALESCE($7, rejected_count),
+         quarantined_count = COALESCE($8, quarantined_count),
+         error_count = COALESCE($9, error_count),
+         completed_at = COALESCE($10, completed_at),
+         updated_at = NOW()
+     WHERE id = $1
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [runId, input.status ?? null, input.discoveredCount ?? null, input.downloadedCount ?? null,
+      input.importedCount ?? null, input.duplicateCount ?? null, input.rejectedCount ?? null,
+      input.quarantinedCount ?? null, input.errorCount ?? null, input.completedAt ?? null],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function checkpointEducationalAssetImportRun(
+  client: MaybeClient,
+  runId: string,
+  checkpoint: Record<string, unknown>,
+  cursor?: string | null,
+): Promise<EducationalAssetImportRunRecord | null> {
+  const result = await q<EducationalAssetImportRunRecord>(
+    client,
+    `UPDATE educational_asset_import_runs
+     SET checkpoint = $2::jsonb, cursor = $3, updated_at = NOW()
+     WHERE id = $1
+     RETURNING ${educationalAssetImportRunColumns}`,
+    [runId, JSON.stringify(checkpoint), cursor ?? null],
+  );
+  return result.rows[0] ?? null;
+}
+
+export interface CreateEducationalAssetInput {
+  title: string;
+  description?: string | null;
+  mediaType: EducationalAssetMediaType;
+  mimeType: string;
+  contentSha256: string;
+  byteSize: number;
+  storageKey: string;
+  productionStatus?: EducationalAssetProductionStatus;
+  subject?: string | null;
+  topic?: string | null;
+  gradeLevel?: string | null;
+  sourceUrl: string;
+  sourceName: string;
+  sourceLicense: EducationalAssetLicense;
+  sourceLicenseUrl?: string | null;
+  providerKey?: string | null;
+  providerAssetId?: string | null;
+  sourceRawUrl?: string | null;
+  attribution?: string | null;
+  retrievedAt?: Date;
+}
+
+const educationalAssetColumns = `
+  a.id, a.title, a.description, a.media_type, a.mime_type, a.content_sha256, a.byte_size,
+  a.storage_backend, a.storage_key, a.production_status, a.created_at, a.updated_at,
+  a.subject, a.topic, a.grade_level,
+  p.source_url, p.source_name, p.source_license, p.source_license_url, p.provider_key,
+  p.provider_asset_id, p.source_raw_url, p.attribution, p.retrieved_at`;
+
+export async function findEducationalAssetByContentSha256(
+  client: MaybeClient,
+  contentSha256: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     WHERE a.content_sha256 = $1`,
+    [contentSha256],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findEducationalAssetByProviderIdentity(
+  client: MaybeClient,
+  providerKey: string,
+  providerAssetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     WHERE p.provider_key = $1 AND p.provider_asset_id = $2`,
+    [providerKey, providerAssetId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function createEducationalAsset(
+  client: MaybeClient,
+  input: CreateEducationalAssetInput,
+): Promise<EducationalAssetRepositoryRecord> {
+  const asset = await q<{ id: string }>(
+    client,
+    `INSERT INTO educational_assets (
+       title, description, media_type, mime_type, content_sha256, byte_size,
+       storage_backend, storage_key, production_status, subject, topic, grade_level
+     ) VALUES ($1, $2, $3, $4, $5, $6, 'local', $7, $8, $9, $10, $11)
+     ON CONFLICT (content_sha256) DO NOTHING
+     RETURNING id`,
+    [
+      input.title, input.description ?? null, input.mediaType, input.mimeType, input.contentSha256,
+      input.byteSize, input.storageKey, input.productionStatus ?? 'draft', input.subject ?? null,
+      input.topic ?? null, input.gradeLevel ?? null,
+    ],
+  );
+  const assetId = asset.rows[0]?.id;
+  if (!assetId) {
+    const existing = await findEducationalAssetByContentSha256(client, input.contentSha256);
+    if (!existing) throw new Error('Unable to create or find educational asset');
+    return existing;
+  }
+  await q(
+    client,
+    `INSERT INTO educational_asset_provenance (
+       asset_id, source_url, source_name, source_license, source_license_url, provider_key,
+       provider_asset_id, source_raw_url, attribution, retrieved_at
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+    [
+      assetId, input.sourceUrl, input.sourceName, input.sourceLicense, input.sourceLicenseUrl ?? null,
+      input.providerKey ?? null, input.providerAssetId ?? null, input.sourceRawUrl ?? null,
+      input.attribution ?? null, input.retrievedAt ?? new Date(),
+    ],
+  );
+  const created = await findEducationalAssetByContentSha256(client, input.contentSha256);
+  if (!created) throw new Error('Educational asset was created without provenance');
+  return created;
+}
+
+export async function listProductionEligibleEducationalAssets(
+  client: MaybeClient,
+  filters: {
+    query?: string;
+    subject?: string;
+    topic?: string;
+    grade?: string;
+    assetType?: EducationalAssetMediaType;
+    limit?: number;
+  } = {},
+): Promise<EducationalAssetRepositoryRecord[]> {
+  const values: unknown[] = [];
+  const clauses = [
+    "a.production_status = 'approved'",
+    "p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'CC-BY-3.0', 'CC-BY-4.0')",
+  ];
+  const exactFilters: Array<[string | undefined, string]> = [
+    [filters.subject, 'a.subject'], [filters.topic, 'a.topic'], [filters.grade, 'a.grade_level'], [filters.assetType, 'a.media_type'],
+  ];
+  for (const [value, column] of exactFilters) {
+    if (!value?.trim()) continue;
+    values.push(value.trim());
+    clauses.push(`lower(${column}) = lower($${values.length})`);
+  }
+  const searchQuery = filters.query?.trim();
+  if (searchQuery) {
+    values.push(searchQuery);
+    clauses.push(`to_tsvector('simple',
+      coalesce(a.title, '') || ' ' || coalesce(a.topic, '') || ' ' ||
+      coalesce(a.subject, '') || ' ' || coalesce(a.description, '')
+    ) @@ plainto_tsquery('simple', $${values.length})`);
+  }
+  const orderBy = searchQuery
+    ? `CASE
+         WHEN lower(a.title) = lower($${values.length}) THEN 0
+         WHEN lower(a.topic) = lower($${values.length}) THEN 1
+         WHEN lower(a.title) LIKE lower($${values.length}) || '%' THEN 2
+         WHEN lower(a.topic) LIKE lower($${values.length}) || '%' THEN 3
+         ELSE 4
+       END, a.title ASC, a.id ASC`
+    : 'a.title ASC, a.id ASC';
+  values.push(Math.max(1, Math.min(filters.limit ?? 20, 100)));
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     WHERE ${clauses.join(' AND ')}
+     ORDER BY ${orderBy}
+     LIMIT $${values.length}`,
+    values,
+  );
+  return result.rows;
+}
+
+export async function findProductionEligibleEducationalAssetById(
+  client: MaybeClient,
+  assetId: string,
+): Promise<EducationalAssetRepositoryRecord | null> {
+  const result = await q<EducationalAssetRepositoryRecord>(
+    client,
+    `SELECT ${educationalAssetColumns}
+     FROM educational_assets a
+     JOIN educational_asset_provenance p ON p.asset_id = a.id
+     WHERE a.id = $1
+       AND a.production_status = 'approved'
+       AND p.source_license IN ('CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'CC-BY-3.0', 'CC-BY-4.0')`,
+    [assetId],
+  );
+  return result.rows[0] ?? null;
+}
+
 export interface TtsArtifactRecord {
   id: string;
   cache_key: string;
+  identity_key: string;
+  language: string;
+  provider: 'cartesia' | 'gemini' | null;
+  model: string | null;
+  voice: string | null;
   normalized_text: string;
   avatar_voice: string;
   gemini_voice: string;
@@ -3199,6 +3562,14 @@ export interface TtsArtifactRecord {
   mime_type: string | null;
   content_hash: string | null;
   audio_data: Buffer | null;
+  duration_ms: number | null;
+  storage_backend: 'local' | 'http-put' | null;
+  storage_key: string | null;
+  storage_url: string | null;
+  metadata: Record<string, unknown>;
+  generated_at: Date | null;
+  learner_needed: boolean;
+  priority: number;
   error_message: string | null;
   retry_count: number;
   next_retry_at: Date | null;
@@ -3210,6 +3581,7 @@ export interface TtsArtifactRecord {
 export interface TtsJobRecord {
   id: string;
   artifact_id: string;
+  identity_key: string;
   status: 'pending' | 'processing' | 'completed' | 'failed';
   attempts: number;
   available_at: Date;
@@ -3221,6 +3593,11 @@ export interface TtsJobRecord {
   avatar_voice: string;
   gemini_voice: string;
   gemini_model: string;
+  provider: 'cartesia' | 'gemini' | null;
+  language: string;
+  learner_needed: boolean;
+  priority: number;
+  metadata: Record<string, unknown>;
 }
 
 export interface EnqueueTtsJobInput {
@@ -3229,16 +3606,28 @@ export interface EnqueueTtsJobInput {
   avatarVoice: string;
   geminiVoice: string;
   geminiModel: string;
+  identityKey?: string;
+  language?: string;
+  provider?: 'cartesia' | 'gemini';
+  model?: string;
+  voice?: string;
+  learnerNeeded?: boolean;
+  priority?: number;
+  metadata?: Record<string, unknown>;
 }
 
 const ttsArtifactColumns = `
-  id, cache_key, normalized_text, avatar_voice, gemini_voice, gemini_model,
+  id, cache_key, identity_key, language, provider, model, voice,
+  normalized_text, avatar_voice, gemini_voice, gemini_model,
   status, mime_type, content_hash, audio_data, error_message, retry_count,
-  next_retry_at, completed_at, created_at, updated_at`;
+  next_retry_at, completed_at, duration_ms, storage_backend, storage_key, storage_url,
+  metadata, generated_at, learner_needed, priority, created_at, updated_at`;
 const ttsArtifactReturningColumns = `
-  a.id, a.cache_key, a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+  a.id, a.cache_key, a.identity_key, a.language, a.provider, a.model, a.voice,
+  a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
   a.status, a.mime_type, a.content_hash, a.audio_data, a.error_message, a.retry_count,
-  a.next_retry_at, a.completed_at, a.created_at, a.updated_at`;
+  a.next_retry_at, a.completed_at, a.duration_ms, a.storage_backend, a.storage_key, a.storage_url,
+  a.metadata, a.generated_at, a.learner_needed, a.priority, a.created_at, a.updated_at`;
 
 export async function getTtsArtifact(client: MaybeClient, cacheKey: string): Promise<TtsArtifactRecord | null> {
   const result = await q<TtsArtifactRecord>(
@@ -3252,13 +3641,34 @@ export async function getTtsArtifact(client: MaybeClient, cacheKey: string): Pro
 }
 
 export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJobInput) {
+  const identityKey = input.identityKey ?? input.cacheKey;
+  const language = input.language ?? 'en';
+  const provider = input.provider ?? 'gemini';
+  const model = input.model ?? input.geminiModel;
+  const voice = input.voice ?? input.geminiVoice;
   const artifactResult = await q<TtsArtifactRecord>(
     client,
     `INSERT INTO tts_artifacts (
-       cache_key, normalized_text, avatar_voice, gemini_voice, gemini_model,
-       status, error_message, next_retry_at
-     ) VALUES ($1, $2, $3, $4, $5, 'pending', NULL, NOW())
+       cache_key, identity_key, language, provider, model, voice,
+       normalized_text, avatar_voice, gemini_voice, gemini_model,
+       status, error_message, next_retry_at, learner_needed, priority, metadata
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'pending', NULL, NOW(), $11, $12, $13::jsonb)
      ON CONFLICT (cache_key) DO UPDATE SET
+       identity_key = EXCLUDED.identity_key,
+       language = EXCLUDED.language,
+       provider = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing')
+           OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
+           THEN tts_artifacts.provider
+         ELSE EXCLUDED.provider
+       END,
+       model = CASE
+         WHEN tts_artifacts.status IN ('ready', 'processing')
+           OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
+           THEN tts_artifacts.model
+         ELSE EXCLUDED.model
+       END,
+       voice = EXCLUDED.voice,
        normalized_text = EXCLUDED.normalized_text,
        avatar_voice = EXCLUDED.avatar_voice,
        gemini_voice = EXCLUDED.gemini_voice,
@@ -3275,9 +3685,12 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at
          ELSE NOW()
        END,
+       learner_needed = EXCLUDED.learner_needed,
+       priority = EXCLUDED.priority,
+       metadata = EXCLUDED.metadata,
        updated_at = NOW()
      RETURNING ${ttsArtifactColumns}`,
-    [input.cacheKey, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel]
+    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {})]
   );
   const artifact = artifactResult.rows[0];
   if (!artifact) {
@@ -3291,20 +3704,27 @@ export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInp
 
   const jobResult = await q<TtsJobRecord>(
     client,
-    `INSERT INTO tts_jobs (artifact_id, status, available_at)
-     VALUES ($1, 'pending', NOW())
+    `INSERT INTO tts_jobs (artifact_id, status, available_at, learner_needed, priority, metadata)
+     VALUES ($1, 'pending', NOW(), $6, $7, $8::jsonb)
      ON CONFLICT (artifact_id) DO UPDATE SET
        status = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.status ELSE 'pending' END,
        available_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.available_at ELSE NOW() END,
        last_error = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.last_error ELSE NULL END,
        locked_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_at ELSE NULL END,
        locked_by = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_by ELSE NULL END,
+       learner_needed = EXCLUDED.learner_needed,
+       priority = EXCLUDED.priority,
+       metadata = EXCLUDED.metadata,
        updated_at = NOW()
      RETURNING id, artifact_id, status, attempts, available_at, locked_at, locked_by,
        last_error, completed_at,
        $2::text AS normalized_text, $3::text AS avatar_voice,
-       $4::text AS gemini_voice, $5::text AS gemini_model`,
-    [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel]
+       $4::text AS gemini_voice, $5::text AS gemini_model,
+       $9::text AS provider, $10::text AS language,
+       $6::boolean AS learner_needed, $7::int AS priority, $8::jsonb AS metadata`,
+    [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel,
+      input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}),
+      input.provider ?? 'gemini', input.language ?? 'en']
   );
   return { artifact, job: jobResult.rows[0] ?? null };
 }
@@ -3313,7 +3733,8 @@ export async function claimTtsJobs(
   client: MaybeClient,
   limit: number,
   workerId: string,
-  leaseSeconds = 300
+  leaseSeconds = 300,
+  provider?: 'cartesia' | 'gemini'
 ): Promise<TtsJobRecord[]> {
   const result = await q<TtsJobRecord>(
     client,
@@ -3322,11 +3743,12 @@ export async function claimTtsJobs(
        FROM tts_jobs j
        JOIN tts_artifacts a ON a.id = j.artifact_id
        WHERE a.status <> 'ready'
+         AND ($4::text IS NULL OR COALESCE(a.provider, 'gemini') = $4)
          AND (
            (j.status = 'pending' AND j.available_at <= NOW())
            OR (j.status = 'processing' AND j.locked_at < NOW() - ($3::int * INTERVAL '1 second'))
          )
-       ORDER BY j.available_at ASC, j.created_at ASC
+       ORDER BY j.learner_needed DESC, j.priority DESC, j.available_at ASC, j.created_at ASC
        LIMIT $1
        FOR UPDATE OF j SKIP LOCKED
      ), claimed AS (
@@ -3343,14 +3765,15 @@ export async function claimTtsJobs(
        WHERE a.id = j.artifact_id
        RETURNING a.id
      )
-     SELECT j.id, j.artifact_id, j.status, j.attempts, j.available_at,
+     SELECT j.id, j.artifact_id, a.identity_key, j.status, j.attempts, j.available_at,
        j.locked_at, j.locked_by, j.last_error, j.completed_at,
-       a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model
+       a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+       a.provider, a.language, j.learner_needed, j.priority, j.metadata
      FROM claimed c
      JOIN tts_jobs j ON j.id = c.id
      JOIN marked m ON m.id = j.artifact_id
      JOIN tts_artifacts a ON a.id = m.id`,
-    [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds))]
+    [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds)), provider ?? null]
   );
   return result.rows;
 }
@@ -3401,6 +3824,106 @@ export async function completeTtsJob(
     [jobId]
   );
   return result.rows[0];
+}
+
+export interface FinalizeTtsJobInput {
+  mimeType: string;
+  contentHash: string;
+  provider: 'cartesia' | 'gemini';
+  model: string;
+  voice: string;
+  durationMs?: number | null;
+  storageBackend: 'local' | 'http-put';
+  storageKey: string;
+  storageUrl?: string | null;
+  metadata?: Record<string, unknown>;
+}
+
+export async function completeTtsJobWithStorage(
+  client: MaybeClient,
+  jobId: string,
+  input: FinalizeTtsJobInput,
+  workerId: string
+) {
+  const ownership = await q<{ status: TtsJobRecord['status']; locked_by: string | null }>(
+    client,
+    `SELECT status, locked_by FROM tts_jobs WHERE id = $1 FOR UPDATE`,
+    [jobId]
+  );
+  const job = ownership.rows[0];
+  if (!job || job.status !== 'processing' || job.locked_by !== workerId) return null;
+
+  const result = await q<TtsArtifactRecord>(
+    client,
+    `UPDATE tts_artifacts a
+     SET status = 'ready', provider = $2, model = $3, voice = $4,
+         mime_type = $5, content_hash = $6, duration_ms = $7,
+         storage_backend = $8, storage_key = $9, storage_url = $10,
+         metadata = $11::jsonb, audio_data = NULL, error_message = NULL,
+         next_retry_at = NULL, generated_at = NOW(), completed_at = NOW(), updated_at = NOW()
+     FROM tts_jobs j
+     WHERE j.id = $1 AND j.artifact_id = a.id AND j.status = 'processing' AND j.locked_by = $12
+     RETURNING ${ttsArtifactReturningColumns}`,
+    [jobId, input.provider, input.model, input.voice, input.mimeType, input.contentHash,
+      input.durationMs ?? null, input.storageBackend, input.storageKey, input.storageUrl ?? null,
+      JSON.stringify(input.metadata ?? {}), workerId]
+  );
+  if (!result.rows[0]) return null;
+  await q(client, `UPDATE tts_jobs SET status = 'completed', locked_at = NULL, locked_by = NULL, last_error = NULL, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND locked_by = $2`, [jobId, workerId]);
+  return result.rows[0];
+}
+
+export async function releaseTtsJobPending(
+  client: MaybeClient,
+  jobId: string,
+  errorMessage: string,
+  delaySeconds: number,
+  workerId: string,
+  provider: 'cartesia' | 'gemini' = 'gemini'
+) {
+  const result = await q<{ attempts: number }>(
+    client,
+    `UPDATE tts_jobs j
+     SET status = 'pending', available_at = NOW() + ($3::int * INTERVAL '1 second'),
+         locked_at = NULL, locked_by = NULL, last_error = $2, updated_at = NOW()
+     FROM tts_artifacts a
+     WHERE j.id = $1 AND j.artifact_id = a.id AND j.locked_by = $4
+     RETURNING j.attempts`,
+    [jobId, errorMessage, Math.max(1, Math.floor(delaySeconds)), workerId]
+  );
+  if (!result.rows[0]) return null;
+  await q(client, `UPDATE tts_artifacts a SET status = 'pending', provider = $2, error_message = $3, next_retry_at = NOW() + ($4::int * INTERVAL '1 second'), updated_at = NOW() FROM tts_jobs j WHERE j.id = $1 AND j.artifact_id = a.id`, [jobId, provider, errorMessage, Math.max(1, Math.floor(delaySeconds))]);
+  return result.rows[0];
+}
+
+export async function reserveGeminiTtsDailyUsage(
+  client: MaybeClient,
+  input: { now: Date; budget: number; spacingMs: number; characters: number }
+) {
+  const result = await q<{ request_count: number; character_count: number; last_request_at: Date }>(
+    client,
+    `INSERT INTO tts_provider_usage_daily (provider, usage_date, request_count, character_count, last_request_at)
+     VALUES ('gemini', $1::date, 1, $2, $3)
+     ON CONFLICT (provider, usage_date) DO UPDATE SET
+       request_count = tts_provider_usage_daily.request_count + 1,
+       character_count = tts_provider_usage_daily.character_count + EXCLUDED.character_count,
+       last_request_at = EXCLUDED.last_request_at,
+       updated_at = NOW()
+     WHERE tts_provider_usage_daily.request_count < $4
+       AND (tts_provider_usage_daily.last_request_at IS NULL OR tts_provider_usage_daily.last_request_at <= $3::timestamptz - ($5::bigint * INTERVAL '1 millisecond'))
+     RETURNING request_count, character_count, last_request_at`,
+    [input.now.toISOString().slice(0, 10), Math.max(0, Math.floor(input.characters)), input.now.toISOString(), Math.max(0, Math.floor(input.budget)), Math.max(0, Math.floor(input.spacingMs))]
+  );
+  return result.rows[0] ? { reserved: true, ...result.rows[0] } : { reserved: false };
+}
+
+export async function getTtsQueueDepth(client: MaybeClient) {
+  const result = await q<{ pending: number; processing: number }>(
+    client,
+    `SELECT COUNT(*) FILTER (WHERE j.status = 'pending')::int AS pending, COUNT(*) FILTER (WHERE j.status = 'processing')::int AS processing FROM tts_jobs j JOIN tts_artifacts a ON a.id = j.artifact_id WHERE a.status <> 'ready'`,
+    []
+  );
+  return result.rows[0] ?? { pending: 0, processing: 0 };
 }
 
 export async function failTtsJob(

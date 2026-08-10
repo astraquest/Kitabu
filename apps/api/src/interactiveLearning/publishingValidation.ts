@@ -1,10 +1,14 @@
 import { checkBundleCompatibility, type BundleReleaseChannel, type InteractiveLearningBundleManifest } from '@kitabu/runtime-contracts';
+import { GENERIC_SAMPLE_COMPONENT_IDS } from './genericSampleScene.js';
 
 export type PublishableBundle = { manifest: InteractiveLearningBundleManifest; scenes: unknown[]; assetManifest: unknown };
 
 const components = [
+  { componentId: 'trace-construct', componentVersion: '1.0.0' as const },
+  { componentId: 'authored-interaction', componentVersion: '1.0.0' as const },
   { componentId: 'structured-response', componentVersion: '1.0.0' as const },
   { componentId: 'classify-sort-match-rank', componentVersion: '1.0.0' as const },
+  ...GENERIC_SAMPLE_COMPONENT_IDS.map(componentId => ({ componentId, componentVersion: '1.0.0' as const })),
 ];
 const graders = [
   { graderId: 'kitabu.sealed-numeric-answer', graderVersion: '1.0.0' as const },

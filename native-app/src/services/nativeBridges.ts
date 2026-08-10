@@ -12,7 +12,8 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as ImagePicker from 'expo-image-picker';
 import { Linking, NativeModules, Platform } from 'react-native';
 
-import { extractCurriculumFromPdfData, synthesizeSpeech, transcribeAudio } from './aiService';
+import { extractCurriculumFromPdfData, synthesizeLandingSpeech, synthesizeSpeech, transcribeAudio } from './aiService';
+import { playAudioPlayerWhenAllowed } from './audioPlayback';
 import { Attachment, LearningStrand, OnboardingVoiceName } from '../types/app';
 
 export type NativeBridgeState = 'simulated' | 'expo_native';
@@ -48,8 +49,8 @@ export interface LiveAudioSession {
 
 export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
-  speak: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
-  speakQueued: (text: string, options?: { voiceName?: OnboardingVoiceName }) => Promise<void>;
+  speak: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
+  speakQueued: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
 }
@@ -116,15 +117,18 @@ const speechRecordingOptions = {
 };
 
 let speechAudioPlayer: AudioPlayer | null = null;
+let cancelPendingSpeechPlay: (() => void) | null = null;
 let speechQueue: Promise<void> = Promise.resolve();
 let speechQueueGeneration = 0;
 
 async function playServerSpeech(
   text: string,
-  voiceName: OnboardingVoiceName | undefined,
+  options: SpeechPlaybackOptions | undefined,
   isCurrent: () => boolean,
 ) {
-  const speech = await synthesizeSpeech(text, voiceName);
+  const speech = options?.landingCueId
+    ? await synthesizeLandingSpeech(options.landingCueId, options.voiceName!, options.language)
+    : await synthesizeSpeech(text, options?.voiceName, options?.language);
   if (!isCurrent()) {
     return;
   }
@@ -134,7 +138,14 @@ async function playServerSpeech(
     encoding: FileSystem.EncodingType.Base64,
   });
   speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
-  speechAudioPlayer.play();
+  cancelPendingSpeechPlay?.();
+  cancelPendingSpeechPlay = playAudioPlayerWhenAllowed(speechAudioPlayer);
+}
+
+interface SpeechPlaybackOptions {
+  voiceName?: OnboardingVoiceName;
+  language?: string;
+  landingCueId?: string;
 }
 
 const livePrompts = [
@@ -610,7 +621,7 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
     speechQueue = Promise.resolve();
     await this.stop();
     const generation = speechQueueGeneration;
-    await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
+    await playServerSpeech(text, options, () => speechQueueGeneration === generation);
   },
   speakQueued(text, options) {
     if (!text.trim()) {
@@ -622,13 +633,15 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
       if (generation !== speechQueueGeneration) {
         return;
       }
-      await playServerSpeech(text, options?.voiceName, () => speechQueueGeneration === generation);
+      await playServerSpeech(text, options, () => speechQueueGeneration === generation);
     });
     return speechQueue;
   },
   async stop() {
     speechQueueGeneration += 1;
     speechQueue = Promise.resolve();
+    cancelPendingSpeechPlay?.();
+    cancelPendingSpeechPlay = null;
     if (speechAudioPlayer) {
       speechAudioPlayer.pause();
       speechAudioPlayer.remove();

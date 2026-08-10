@@ -25,6 +25,7 @@ const QUIZ_MASCOT_SOURCES = {
   rabbit: require('../assets/mascot/sungura-rabbit-quiz.png'),
   lion: require('../assets/mascot/simba-lion-quiz.png'),
   elephant: require('../assets/mascot/ndovu-elephant-quiz.png'),
+  panda: require('../assets/mascot/panda.png'),
 } satisfies Record<OnboardingMascotKey, number>;
 
 interface QuizMeScreenProps {

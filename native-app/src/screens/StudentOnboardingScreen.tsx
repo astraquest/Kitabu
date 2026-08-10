@@ -3188,11 +3188,11 @@ export function StudentOnboardingScreen({
     }
 
     AccessibilityInfo.isReduceMotionEnabled()
-      .then(reduceMotionEnabled => {
+      .then(isReduceMotionEnabled => {
         if (mounted) {
-          setReduceMotionEnabled(reduceMotionEnabled);
+          setReduceMotionEnabled(isReduceMotionEnabled);
         }
-        if (!mounted || reduceMotionEnabled) {
+        if (!mounted || isReduceMotionEnabled) {
           return;
         }
 
@@ -5177,8 +5177,8 @@ export function StudentOnboardingScreen({
       }
       setAddSchoolOpen(false);
       triggerHaptic('success');
-    } catch (error) {
-      setAddSchoolError(error instanceof Error ? error.message : 'Could not add your school. Try again.');
+    } catch (createSchoolError) {
+      setAddSchoolError(createSchoolError instanceof Error ? createSchoolError.message : 'Could not add your school. Try again.');
       triggerHaptic('error');
     } finally {
       setIsAddingSchool(false);

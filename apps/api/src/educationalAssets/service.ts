@@ -104,7 +104,7 @@ export interface StaffEducationalAssetReviewDetail {
     mimeType: string;
     byteSize: number;
     sha256: string;
-    storageBackend: 'local' | 'http-put';
+    storageBackend: 'local' | 'http-put' | 'supabase';
     width: number | null;
     height: number | null;
     aspectRatio: number | null;

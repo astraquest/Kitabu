@@ -92,6 +92,7 @@ jobs:
             --exclude 'apps/api/.env.*' \
             --exclude 'apps/api/data/books/' \
             --exclude 'apps/api/data/reference-library/' \
+            --exclude 'apps/api/var/educational-assets/' \
             --exclude '*.pem' \
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
@@ -137,6 +138,7 @@ jobs:
             --exclude 'apps/api/.env.*' \
             --exclude 'apps/api/data/books/' \
             --exclude 'apps/api/data/reference-library/' \
+            --exclude 'apps/api/var/educational-assets/' \
             --exclude '*.pem' \
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \

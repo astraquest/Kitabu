@@ -1,3 +1,28 @@
+-- Preserve the applied assessment narration queue before introducing the general TTS queue.
+DO $$
+BEGIN
+  IF to_regclass('public.tts_jobs') IS NOT NULL
+     AND to_regclass('public.assessment_tts_jobs') IS NULL THEN
+    ALTER TABLE tts_jobs RENAME TO assessment_tts_jobs;
+  END IF;
+
+  IF to_regclass('public.tts_queue') IS NOT NULL
+     AND to_regclass('public.assessment_tts_queue') IS NULL THEN
+    ALTER TABLE tts_queue RENAME TO assessment_tts_queue;
+  END IF;
+
+  IF to_regclass('public.idx_tts_jobs_poll') IS NOT NULL
+     AND to_regclass('public.idx_assessment_tts_jobs_poll') IS NULL THEN
+    ALTER INDEX idx_tts_jobs_poll RENAME TO idx_assessment_tts_jobs_poll;
+  END IF;
+
+  IF to_regclass('public.idx_tts_queue_claim') IS NOT NULL
+     AND to_regclass('public.idx_assessment_tts_queue_claim') IS NULL THEN
+    ALTER INDEX idx_tts_queue_claim RENAME TO idx_assessment_tts_queue_claim;
+  END IF;
+END $$;
+
+-- General durable TTS artifacts and jobs are separate from assessment narration.
 CREATE TABLE IF NOT EXISTS tts_artifacts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   cache_key TEXT NOT NULL UNIQUE,

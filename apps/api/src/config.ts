@@ -106,7 +106,7 @@ const configSchema = z.object({
   KITABU_GEMINI_TTS_DAILY_WORKER_HOUR_UTC: z.coerce.number().int().min(0).max(23).default(2),
   KITABU_CARTESIA_API_KEY: z.string().optional(),
   KITABU_CARTESIA_BASE_URL: z.string().url().default('https://api.cartesia.ai'),
-  KITABU_CARTESIA_VERSION: z.string().default('2025-04-16'),
+  KITABU_CARTESIA_VERSION: z.string().default('2026-03-01'),
   KITABU_CARTESIA_MODEL: z.string().default('sonic-3'),
   KITABU_CARTESIA_VOICE_MAP: z.string().default('{}'),
   KITABU_CARTESIA_DEFAULT_VOICE: z.string().optional(),

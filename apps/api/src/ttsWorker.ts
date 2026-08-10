@@ -172,5 +172,16 @@ export async function processTtsJobs(
   workerId = newTtsWorkerId(),
   options: { limit?: number; dependencies?: QueueProcessorDependencies } = {}
 ) {
-  return processCartesiaQueue({ workerId, limit: options.limit, dependencies: options.dependencies });
+  const limit = options.limit ?? appConfig.KITABU_TTS_WORKER_BATCH_SIZE;
+  const cartesia = await processCartesiaQueue({ workerId, limit, dependencies: options.dependencies });
+  const gemini = await processGeminiTtsQueue({ workerId, limit, dependencies: options.dependencies });
+  return {
+    claimed: cartesia.claimed + gemini.claimed,
+    completed: cartesia.completed + gemini.completed,
+    deferred: cartesia.deferred + gemini.deferred,
+    failed: cartesia.failed + gemini.failed,
+    stopped: gemini.stopped,
+    queueDepth: gemini.queueDepth,
+    mode: 'cartesia-primary-with-gemini-fallback' as const
+  };
 }

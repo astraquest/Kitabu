@@ -65,7 +65,11 @@ import { AvatarArt } from '../components/AvatarArt';
 import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
-import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
+import {
+  buildPrimaryInstruction,
+  getStudentEnglishOnboardingLandingCueId,
+  useGuidedNarration,
+} from '../services/narrationService';
 import {
   getOnboardingStepMetadata,
   type OnboardingIntroStep,
@@ -2931,11 +2935,16 @@ export function StudentOnboardingScreen({
                                             : 'Save your account'
                   : content.title;
   const onboardingVoiceName = noVoice ? undefined : selectedVoiceName ?? 'Samora';
+  const landingCueId =
+    includeIntroChoices && role === 'student'
+      ? getStudentEnglishOnboardingLandingCueId(introStep, step, languageCode)
+      : undefined;
   const narrationCue = buildPrimaryInstruction(
     'student-onboarding',
     `${introStep}-${step}`,
     headerTitle,
     onboardingVoiceName,
+    landingCueId ? { language: 'en', landingCueId } : undefined,
   );
   useGuidedNarration(narrationCue, Boolean(headerTitle));
   const headerBody =

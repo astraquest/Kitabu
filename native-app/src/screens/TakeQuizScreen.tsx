@@ -26,6 +26,7 @@ import {
 } from 'lucide-react-native';
 
 import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { LearningMascotReaction } from '../features/progressiveLearning/components/LearningMascotReaction';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
@@ -37,6 +38,7 @@ interface TakeQuizScreenProps {
   grade: string;
   subjectName: string;
   strandName: string;
+  narrationSessionId?: string | null;
   mascotKey: OnboardingMascotKey;
   voiceName?: OnboardingVoiceName;
   onClose: () => void;
@@ -53,6 +55,7 @@ export function TakeQuizScreen({
   grade,
   subjectName,
   strandName,
+  narrationSessionId,
   mascotKey,
   voiceName,
   onClose,
@@ -585,6 +588,14 @@ export function TakeQuizScreen({
             QUESTION {currentIndex + 1} OF {questions.length}
           </Text>
           <Text style={styles.questionText}>{currentQuestion.text}</Text>
+          <AssessmentNarrationControls
+            descriptorId={narrationSessionId
+              ? `quizsession:${narrationSessionId}:${currentQuestion.id}`
+              : `quizbank:${currentQuestion.bankId ?? currentQuestion.id}`}
+            nextDescriptorIds={questions.slice(currentIndex + 1, currentIndex + 3).map(question =>
+              `quizbank:${question.bankId ?? question.id}`
+            )}
+          />
           <ReportAiContentSheet
             accessibilityLabel="Report generated quiz question"
             buttonLabel="Report question"
@@ -743,6 +754,12 @@ export function TakeQuizScreen({
                 </Pressable>
               </View>
               <Text style={styles.feedbackText}>{currentQuestion.explanation}</Text>
+            <AssessmentNarrationControls
+              descriptorId={narrationSessionId
+                ? `quizsession:${narrationSessionId}:${currentQuestion.id}`
+                : `quizbank:${currentQuestion.bankId ?? currentQuestion.id}`}
+              segment="explanation"
+            />
               <Text style={styles.autoAdvanceText}>Next question in a moment…</Text>
             </View>
           ) : null}

@@ -17,7 +17,7 @@ process.env.KITABU_JWT_PUBLIC_KEY = testJwtKeys.publicKey
   .export({ format: 'pem', type: 'spki' })
   .toString();
 
-const { buildEmailVerificationEmail, buildPasswordResetEmail } = await import('./mailer.js');
+const { buildEmailVerificationEmail, buildPasswordResetEmail, buildWelcomeEmail } = await import('./mailer.js');
 
 test('authentication emails remain transactional and free of marketing metadata', () => {
   const messages = [
@@ -64,4 +64,18 @@ test('verification email uses the selected mascot and recipient first name', () 
   assert.match(message.html, /Hi Amina/);
   assert.match(message.html, /simba-lion\.png/);
   assert.doesNotMatch(message.html, /sungura-rabbit\.png/);
+});
+
+test('welcome email preserves the early-access message and Android app link', () => {
+  const message = buildWelcomeEmail({ recipientEmail: 'parent@example.com' });
+
+  assert.equal(message.kind, 'notification');
+  assert.equal(message.to, 'parent@example.com');
+  assert.equal(message.subject, "You're in! 🥳");
+  assert.match(message.text, /one of the first kids in the country/);
+  assert.match(message.text, /If you’re using an Apple device, we are coming soon\./);
+  assert.match(message.text, /https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu2\.twa/);
+  assert.match(message.html, /href="https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu2\.twa"/);
+  assert.match(message.html, /Get Kitabu on Android/);
+  assert.doesNotMatch(`${message.text}\n${message.html}`, /unsubscribe/i);
 });

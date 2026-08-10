@@ -335,6 +335,14 @@ function repairCurriculumArtifact(value, fallback) {
   const text = normalizeText(value);
   if (!text) return fallback;
   const lowered = text.toLowerCase();
+  if (/^strand$/i.test(text)) return fallback;
+  if (/^(Reading|Listening|Speaking|Writing)\s+\d+(?:\.\d+)+$/i.test(text)) {
+    return `${text.match(/^(Reading|Listening|Speaking|Writing)/i)[1]} Practice`;
+  }
+  if (/^(Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)\s+\d+(?:\.\d+)+$/i.test(text)) {
+    return text.match(/^(Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)/i)[1];
+  }
+  if (/^Grammar in uses?$/i.test(text)) return 'Grammar Practice';
   if (/^explain and apply\s+(english|kiswahili)\s+topic\b/i.test(text)) return fallback;
   if (/^topic\s+\d+$/i.test(text)) return fallback;
   if (/^direct$/i.test(text)) return fallback;
@@ -439,14 +447,36 @@ function normalizeKiswahiliHeading(value) {
   return text.replace(/\b(Wa|Ya|Za|Na|Kwa|Katika|Hiki|Huu|Haya|Hii|Hiyo|Vya|Cha|La)\b/g, word => word.toLowerCase());
 }
 
+function languageSkillLabel(subjectTitle, skill) {
+  const normalized = String(skill || '').toLowerCase();
+  if (subjectTitle === 'Kiswahili') {
+    if (/kusoma|reading/.test(normalized)) return 'Kusoma';
+    if (/kuandika|writing/.test(normalized)) return 'Uandishi';
+    if (/kusikiliza|listening/.test(normalized)) return 'Kusikiliza';
+    if (/kuzungumza|speaking/.test(normalized)) return 'Kuzungumza';
+    if (/sarufi|grammar/.test(normalized)) return 'Sarufi';
+    return 'Stadi za Lugha';
+  }
+  if (/reading|kusoma/.test(normalized)) return 'Reading Practice';
+  if (/writing|kuandika/.test(normalized)) return 'Writing Practice';
+  if (/listening|kusikiliza/.test(normalized)) return 'Listening Practice';
+  if (/speaking|kuzungumza/.test(normalized)) return 'Speaking Practice';
+  if (/grammar|sarufi/.test(normalized)) return 'Grammar Practice';
+  return 'Language Practice';
+}
+
 function languageUnitTitle(subjectTitle, value, fallback = 'Language Skills') {
   let text = cleanDisplayText(stripEmbeddedOutcomeTail(value), fallback)
-    .replace(/\bWriting\s+\d+(?:\.\d+)+\b/gi, subjectTitle === 'Kiswahili' ? 'Uandishi' : 'Writing Practice')
+    .replace(/^\d+([A-Z])/g, '$1')
+    .replace(/\b(Reading|Listening|Speaking|Writing|Grammar)\s+\d+(?:\.\d+)+\s*/gi, (_match, skill) => `${languageSkillLabel(subjectTitle, skill)} `)
+    .replace(/\b(Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)\s+\d+(?:\.\d+)+\s*/gi, (_match, skill) => `${languageSkillLabel(subjectTitle, skill)} `)
     .replace(/\bGrammar in uses?\b/gi, subjectTitle === 'Kiswahili' ? 'Sarufi katika Matumizi' : 'Grammar Practice')
+    .replace(/\bGrammar in Use\b/gi, subjectTitle === 'Kiswahili' ? 'Sarufi katika Matumizi' : 'Grammar Practice')
     .replace(/\bStrand\s+\d+\b/gi, '')
     .replace(/\bKiswahili Chapter\b/gi, 'Sura ya Kiswahili')
     .replace(/\bEnglish Topic\b/gi, 'English Practice')
     .replace(/\bKiswahili Topic\b/gi, 'Mazoezi ya Kiswahili')
+    .replace(/\s*:\s*/g, ' - ')
     .trim();
 
   if ((text.match(/:/g) || []).length >= 2) {
@@ -461,7 +491,25 @@ function languageUnitTitle(subjectTitle, value, fallback = 'Language Skills') {
   if (text.length > 72) {
     text = trimDanglingConnector(text.split(/\s+/).slice(0, 9).join(' ')) || fallback;
   }
+  if (text.length > 72) {
+    text = trimDanglingConnector(text.slice(0, 72).replace(/\s+\S*$/, '')) || fallback;
+  }
   return subjectTitle === 'Kiswahili' ? normalizeKiswahiliHeading(text) : text;
+}
+
+function languageTopicDetail(subjectTitle, outcomes, fallbackTitle) {
+  const raw = shortOutcomeLabel(outcomes, fallbackTitle || '');
+  let detail = languageUnitTitle(subjectTitle, raw, '');
+  detail = detail
+    .replace(/\bcorrectly\b/gi, '')
+    .replace(/\beffective\b/gi, '')
+    .replace(/\bcommunication\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!detail || isGenericTopicTitle(detail) || isMalformedDisplayText(detail)) return '';
+  if (/^(Reading|Writing|Listening|Speaking|Grammar) Practice$/i.test(detail)) return '';
+  if (/^(Kusoma|Uandishi|Kusikiliza|Kuzungumza|Sarufi|Stadi za Lugha)$/i.test(detail)) return '';
+  return detail.split(/\s+/).slice(0, 6).join(' ');
 }
 
 function learnerTitle(subjectTitle, value, fallback = 'Learning Skills') {
@@ -469,6 +517,21 @@ function learnerTitle(subjectTitle, value, fallback = 'Learning Skills') {
     return languageUnitTitle(subjectTitle, value, fallback);
   }
   return cleanDisplayText(value, fallback);
+}
+
+function learnerPhrase(subjectTitle, value, fallback = 'this skill') {
+  return learnerTitle(subjectTitle, value, fallback).toLowerCase();
+}
+
+function topicFocusLine(subjectTitle, topic, outcomes = [], questions = []) {
+  const firstOutcome = outcomes.find(outcome => outcome?.text)?.text || topic?.learningOutcomes?.find(outcome => outcome?.text)?.text || '';
+  const firstQuestion = questions.find(Boolean) || topic?.inquiryQuestions?.find(Boolean) || '';
+  const source = firstOutcome || firstQuestion || topic?.unitTitle || '';
+  const cleaned = cleanLanguageOutcomeText(subjectTitle, source, learnerPhrase(subjectTitle, topic?.unitTitle || '', 'this skill'));
+  const words = cleaned.split(/\s+/).slice(0, 14).join(' ');
+  const topicNumber = String(topic?.topicId || '').match(/(\d+)$/)?.[1]?.replace(/^0+/, '') || '';
+  if (subjectTitle === 'Kiswahili') return `Lengo la somo${topicNumber ? ` ${topicNumber}` : ''}: ${words}.`;
+  return `Lesson focus${topicNumber ? ` ${topicNumber}` : ''}: ${words}.`;
 }
 
 function cleanOutcomeText(value, fallback) {
@@ -481,6 +544,22 @@ function cleanOutcomeText(value, fallback) {
   if (!cleaned || cleaned.length < 8) return fallback;
   if (isGenericTopicTitle(cleaned) || isMalformedDisplayText(cleaned)) return fallback;
   return trimDanglingConnector(cleaned) || fallback;
+}
+
+function cleanLanguageOutcomeText(subjectTitle, value, fallback) {
+  if (!isLanguageSubject(subjectTitle)) return cleanOutcomeText(value, fallback);
+  const languageFallback = learnerPhrase(subjectTitle, fallback, 'this language skill');
+  const cleaned = cleanOutcomeText(value, languageFallback)
+    .replace(/\b(Reading|Listening|Speaking|Writing|Grammar)\s+\d+(?:\.\d+)+\s*/gi, (_match, skill) => `${languageSkillLabel(subjectTitle, skill)} `)
+    .replace(/\b(Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)\s+\d+(?:\.\d+)+\s*/gi, (_match, skill) => `${languageSkillLabel(subjectTitle, skill)} `)
+    .replace(/\bGrammar in uses?\b/gi, subjectTitle === 'Kiswahili' ? 'Sarufi katika Matumizi' : 'Grammar Practice')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const safe = trimDanglingConnector(cleaned) || languageFallback;
+  if (/\b(?:Reading|Listening|Speaking|Writing|Grammar|Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)\s+\d+(?:\.\d+)+\b/i.test(safe)) {
+    return languageFallback;
+  }
+  return safe;
 }
 
 function cleanQuestionText(value) {
@@ -866,9 +945,22 @@ function practiceBlockFor(subjectTitle, unitTitle, unitOutcomes, topic, compactM
   const outcomes = unitOutcomes.slice(0, compactMode ? 3 : 5);
   const criteria = (topic.successCriteria || successCriteriaFor(subjectTitle)).map(item => `- ${item}`).join('\n');
   const prompts = outcomes.map((outcome, i) => practicePrompt(subjectTitle, unitTitle, outcome.text, i + 1, topic)).join('\n');
+  const variant = parseInt(crypto.createHash('sha1').update(`${topic.topicId || ''}:${unitTitle}`).digest('hex').slice(0, 2), 16) % 4;
+  const englishRoutines = [
+    'Plan first: name the language skill, decide the audience, write or speak clearly, then improve one sentence after feedback.',
+    'Read the task twice, underline the purpose, use one example or piece of evidence, and check punctuation before you finish.',
+    'Move from idea to response: choose your point, add a detail, organise it for the listener or reader, then edit for meaning.',
+    'Practise like a writer: draft a short response, test whether it fits the audience, replace one weak word, and read it aloud.'
+  ];
+  const kiswahiliRoutines = [
+    'Panga kwanza: tambua stadi ya lugha, chagua hadhira, andika au zungumza kwa uwazi, kisha boresha sentensi moja.',
+    'Soma kazi mara mbili, pigia mstari kusudi, tumia mfano mmoja, kisha hakiki tahajia na uakifishaji kabla ya kumaliza.',
+    'Anza na wazo kuu, ongeza maelezo, panga jibu kwa msomaji au msikilizaji, kisha rekebisha maana.',
+    'Fanya mazoezi kama mwandishi: andika rasimu fupi, hakiki hadhira, badili neno dhaifu, kisha soma jibu kwa sauti.'
+  ];
 
   if (subjectTitle === 'Kiswahili') {
-    return `${compactMode ? `Shughuli ya ${unitTitle}: Chagua swali moja la uchunguzi katika mada hii. Jadili na mwenzako, kisha andika jibu kwa Kiswahili sanifu ukitumia mfano kutoka somoni.\n\n` : `Mazoezi ya ${unitTitle}:\n\n`}${prompts || `1. Andika mambo matatu uliyojifunza kuhusu ${unitTitle}.\n2. Toa mfano mmoja unaofaa.\n3. Tunga swali moja kwa mwanafunzi mwenzako.`}\n\nUkaguzi wa marekebisho:\n${criteria}\n\nTafakuri: Nini kilikuwa rahisi? Ni sehemu gani inahitaji mazoezi zaidi? Utamuuliza mwalimu au mwenzako swali gani?\n\nKiungo cha nyumbani: Uliza mtu wa nyumbani mfano unaohusiana na ${unitTitle.toLowerCase()} kisha andika sentensi mbili kwa Kiswahili.`;
+    return `${compactMode ? `Shughuli ya ${unitTitle}: ${kiswahiliRoutines[variant]}\n\n` : `Mazoezi ya ${unitTitle}:\n\n${kiswahiliRoutines[variant]}\n\n`}${prompts || `1. Andika mambo matatu uliyojifunza kuhusu ${unitTitle}.\n2. Toa mfano mmoja unaofaa.\n3. Tunga swali moja kwa mwanafunzi mwenzako.`}\n\nUkaguzi wa marekebisho:\n${criteria}\n\nTafakuri: Nini kilikuwa rahisi? Ni sehemu gani inahitaji mazoezi zaidi? Utamuuliza mwalimu au mwenzako swali gani?\n\nKiungo cha nyumbani: Uliza mtu wa nyumbani mfano unaohusiana na ${unitTitle.toLowerCase()} kisha andika sentensi mbili kwa Kiswahili.`;
   }
 
   if (subjectTitle === 'Mathematics') {
@@ -880,7 +972,7 @@ function practiceBlockFor(subjectTitle, unitTitle, unitOutcomes, topic, compactM
   }
 
   if (subjectTitle === 'English') {
-    return `${compactMode ? `Activity for ${unitTitle}: Complete the listening, reading, grammar, writing, or speaking task named in the outcomes below, then improve one answer after feedback.\n\n` : `Practice for ${unitTitle}:\n\n`}Use this routine for every answer: identify the exact language skill, state the audience or purpose, use evidence or an example, organise the response, and edit one sentence.\n\n${prompts || `1. Write a short paragraph, dialogue, notice, report, or response about ${unitTitle}.\n2. Underline the clearest sentence and improve one weak sentence.\n3. Explain how your word choice fits the audience.`}\n\nCorrection check:\n${criteria}\n\nReflection: What meaning became clearer after editing? Which sentence still needs work?\n\nHome link: Ask someone at home for a short story, instruction, opinion, or example linked to ${unitTitle.toLowerCase()}. Write four clear sentences about it.`;
+    return `${compactMode ? `Activity for ${unitTitle}: ${englishRoutines[variant]}\n\n` : `Practice for ${unitTitle}:\n\n${englishRoutines[variant]}\n\n`}${prompts || `1. Write a short paragraph, dialogue, notice, report, or response about ${unitTitle}.\n2. Underline the clearest sentence and improve one weak sentence.\n3. Explain how your word choice fits the audience.`}\n\nCorrection check:\n${criteria}\n\nReflection: What meaning became clearer after editing? Which sentence still needs work?\n\nHome link: Ask someone at home for a short story, instruction, opinion, or example linked to ${unitTitle.toLowerCase()}. Write four clear sentences about it.`;
   }
 
   return `${compactMode ? `Activity for ${unitTitle}: Choose one inquiry question from this unit. Discuss it with a partner, then write a clear response using examples from the lesson.\n\n` : `Practice for ${unitTitle}:\n\n`}${prompts || `1. Write three things you learned about ${unitTitle}.\n2. Give one real-life example.\n3. Create one question for a classmate.`}\n\nCorrection check:\n${criteria}\n\nReflection: What was easy? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for an example related to ${unitTitle.toLowerCase()} and write two useful sentences about it.`;
@@ -1078,7 +1170,7 @@ function isGenericTopicTitle(value) {
     || /^(english|kiswahili|social studies|agriculture|creative arts|mathematics|science and technology)\s+topic(?:\s+\d+)?$/.test(text)
     || /^explain and apply\s+(english|kiswahili|social studies|agriculture|creative arts|mathematics|science and technology)\s+topic$/i.test(text)
     || /^part\s+\d+$/.test(text)
-    || ['selected', 'general', 'activity', 'lesson', 'unit', 'good', 'importance'].includes(text);
+    || ['selected', 'general', 'activity', 'lesson', 'unit', 'strand', 'good', 'importance'].includes(text);
 }
 
 function isMalformedDisplayText(value) {
@@ -1158,7 +1250,7 @@ function safeUnitTitle(candidate, fallback) {
 }
 
 function outcomeFallbackFor(subjectTitle, unitTitle) {
-  const safeTitle = cleanDisplayText(unitTitle, '');
+  const safeTitle = learnerTitle(subjectTitle, unitTitle, subjectTitle);
   if (subjectTitle === 'English') return `use ${safeTitle.toLowerCase()} in clear listening, speaking, reading, writing, or grammar tasks`;
   if (subjectTitle === 'Kiswahili') return `kutumia ${safeTitle.toLowerCase()} katika kusoma, kuandika, kuzungumza, au sarufi kwa usahihi`;
   if (subjectTitle === 'Mathematics') return `solve problems about ${safeTitle.toLowerCase()} using clear working and checks`;
@@ -1171,9 +1263,13 @@ function topicTitleFor(subjectTitle, unitTitle, outcomes, partIndex, totalParts,
   const outcomeLabel = cleanDisplayText(shortOutcomeLabel(outcomes, fallbackTitle || `Part ${partIndex + 1}`), fallbackTitle || 'Learning Skills');
   if (isLanguageSubject(subjectTitle)) {
     const label = languageUnitTitle(subjectTitle, base, outcomeLabel);
-    if (totalParts <= 1) return label;
+    const detail = languageTopicDetail(subjectTitle, outcomes, fallbackTitle);
+    const distinctLabel = detail && detail.toLowerCase() !== label.toLowerCase()
+      ? languageUnitTitle(subjectTitle, `${label} - ${detail}`, label)
+      : label;
+    if (totalParts <= 1) return distinctLabel;
     const partLabel = subjectTitle === 'Kiswahili' ? `Sehemu ${partIndex + 1}` : `Part ${partIndex + 1}`;
-    return `${label} - ${partLabel}`;
+    return `${distinctLabel} - ${partLabel}`;
   }
   if (isGenericTopicTitle(base) || isMalformedDisplayText(base)) {
     return outcomeLabel;
@@ -1194,11 +1290,11 @@ function isBadGlossaryTerm(value) {
   return false;
 }
 
-function keyVocabularyFor(unitTitle, baseUnitTitle) {
+function keyVocabularyFor(unitTitle, baseUnitTitle, subjectTitle = '') {
   const rawTerms = [unitTitle, baseUnitTitle, ...unitTitle.split(/\s+/).filter(word => word.length > 4)];
   const terms = [];
   for (const raw of rawTerms) {
-    const term = cleanDisplayText(raw, '');
+    const term = isLanguageSubject(subjectTitle) ? learnerTitle(subjectTitle, raw, '') : cleanDisplayText(raw, '');
     if (!term || isGenericTopicTitle(term) || isMalformedDisplayText(term)) continue;
     if (/^(English|Kiswahili|Social Studies|Agriculture|Creative Arts|Mathematics|Science and Technology)$/i.test(term)) continue;
     if (/^(katika|kwa|na|ya|wa|kuhusu|hali|vya|vya|wenye|kwenye|kama|au)$/i.test(term)) continue;
@@ -1273,7 +1369,7 @@ function buildBookPlan(snapshot, grade, subject) {
     const baseUnitTitle = safeUnitTitle(row.sub_strand_title || row.strand_title, fallbackTitle);
     const outcomes = (Array.isArray(row.outcomes) ? row.outcomes : []).map((outcome, i) => ({
       id: outcome.id || `${row.sub_strand_id}-outcome-${i + 1}`,
-      text: cleanOutcomeText(outcome.text || outcome.statement || String(outcome), outcomeFallbackFor(subject.title, baseUnitTitle))
+      text: cleanLanguageOutcomeText(subject.title, outcome.text || outcome.statement || String(outcome), outcomeFallbackFor(subject.title, baseUnitTitle))
     })).filter(outcome => outcome.text && outcome.text !== '[object Object]');
     const chunks = chunkArray(outcomes, topicChunkSize(subject.title));
 
@@ -1299,7 +1395,7 @@ function buildBookPlan(snapshot, grade, subject) {
           `Recall everyday examples connected to ${baseUnitTitle}.`,
           `Review vocabulary from the previous ${subject.title} lesson before starting.`
         ],
-        keyVocabulary: keyVocabularyFor(unitTitle, baseUnitTitle),
+        keyVocabulary: keyVocabularyFor(unitTitle, baseUnitTitle, subject.title),
         misconceptions: [commonMisconceptions(subject.title, unitTitle)],
         localContext: localContextFor(subject.title, unitTitle),
         explanationSequence: [
@@ -2092,7 +2188,13 @@ function bookLabels(subjectTitle) {
 
 function pageTitleFor(subjectTitle, unitTitle, key) {
   const labels = bookLabels(subjectTitle);
-  const safeUnitTitle = unitTitle ? learnerTitle(subjectTitle, unitTitle, labels[key] || 'Topic') : unitTitle;
+  let safeUnitTitle = unitTitle ? learnerTitle(subjectTitle, unitTitle, labels[key] || 'Topic') : unitTitle;
+  if (safeUnitTitle && isLanguageSubject(subjectTitle)) {
+    const maxTitleLength = Math.max(36, 94 - String(labels[key] || '').length);
+    if (safeUnitTitle.length > maxTitleLength) {
+      safeUnitTitle = trimDanglingConnector(safeUnitTitle.slice(0, maxTitleLength).replace(/\s+\S*$/, '')) || safeUnitTitle.slice(0, maxTitleLength);
+    }
+  }
   if (key === 'chapter') return `${labels.chapter}: ${safeUnitTitle}`;
   if (key === 'chapterReview') return `${safeUnitTitle}: ${labels.chapterReview}`;
   if (key === 'titlePage' || key === 'howToUse' || key === 'learningSkills' || key === 'toc' || key === 'glossary' || key === 'answerNotes' || key === 'finalProject') {
@@ -2250,7 +2352,7 @@ function buildPages(snapshot, grade, subject, bookPlan) {
       const fallbackUnitTitle = cleanDisplayText(row.sub_strand_title || row.strand_title, subject.title);
       const fallbackOutcomes = (Array.isArray(row.outcomes) ? row.outcomes : []).map((outcome, i) => ({
         id: outcome.id || `${row.sub_strand_id}-outcome-${i + 1}`,
-        text: cleanOutcomeText(outcome.text || outcome.statement || String(outcome), `explain and apply ${fallbackUnitTitle.toLowerCase()}`)
+        text: cleanLanguageOutcomeText(subject.title, outcome.text || outcome.statement || String(outcome), `explain and apply ${fallbackUnitTitle.toLowerCase()}`)
       })).filter(outcome => outcome.text && outcome.text !== '[object Object]');
       const fallbackQuestions = (Array.isArray(row.inquiry_questions) ? row.inquiry_questions : []).map(question => cleanQuestionText(question.text || question.question || String(question))).filter(Boolean);
       const topicsToRender = topicsByParentUnitId.get(row.sub_strand_id) || [{
@@ -2266,12 +2368,19 @@ function buildPages(snapshot, grade, subject, bookPlan) {
       }];
 
       for (const topic of topicsToRender) {
-        const unitTitle = cleanDisplayText(topic.unitTitle || fallbackUnitTitle, fallbackUnitTitle);
+        const unitTitle = learnerTitle(subject.title, topic.unitTitle || fallbackUnitTitle, fallbackUnitTitle);
+        const renderTopic = {
+          ...topic,
+          unitTitle,
+          localContext: localContextFor(subject.title, unitTitle),
+          keyVocabulary: keyVocabularyFor(unitTitle, unitTitle, subject.title)
+        };
         const unitOutcomes = (Array.isArray(topic.learningOutcomes) ? topic.learningOutcomes : []).map((outcome, i) => ({
           id: outcome.id || `${topic.subStrandId || row.sub_strand_id}-outcome-${i + 1}`,
-          text: cleanOutcomeText(outcome.text || outcome.statement || String(outcome), `explain and apply ${unitTitle.toLowerCase()}`)
+          text: cleanLanguageOutcomeText(subject.title, outcome.text || outcome.statement || String(outcome), `explain and apply ${unitTitle.toLowerCase()}`)
         })).filter(outcome => outcome.text && outcome.text !== '[object Object]');
         const questions = Array.isArray(topic.inquiryQuestions) && topic.inquiryQuestions.length ? topic.inquiryQuestions : fallbackQuestions;
+        const focusLine = topicFocusLine(subject.title, renderTopic, unitOutcomes, questions);
         const refs = {
           strandIds: [row.strand_id],
           unitIds: [topic.subStrandId || row.sub_strand_id],
@@ -2284,29 +2393,29 @@ function buildPages(snapshot, grade, subject, bookPlan) {
         add(
           pageTitleFor(subject.title, unitTitle, 'lessonOpener'),
           subject.title === 'Kiswahili'
-            ? `Somo hili linaanza na ${topic.localContext || localContextFor(subject.title, unitTitle)}.\n\nUtajifunza ${unitTitle.toLowerCase()} kwa kusoma, kujadiliana, kuandika, na kurekebisha kazi yako.\n\nUnapaswa kuweza:\n${unitOutcomes.map(outcome => `- ${outcome.text}`).join('\n') || '- Eleza na tumia wazo kuu katika mada hii.'}\n\nFikiria maswali haya unaposoma:\n${questions.map(question => `- ${question}`).join('\n') || '- Unaweza kutazama, kuuliza, au kujaribu nini kabla ya kujifunza wazo jipya?'}\n\nAndika jambo moja unalolijua tayari na swali moja unalotaka somo hili lijibu.`
-            : `This lesson begins with ${topic.localContext || localContextFor(subject.title, unitTitle)}.\n\nYou will practise ${unitTitle.toLowerCase()} through reading, discussion, writing, and correction.\n\nWhat you should be able to do:\n${unitOutcomes.map(outcome => `- ${outcome.text}`).join('\n') || '- Explain and apply the main idea in this unit.'}\n\nThink about these questions as you read:\n${questions.map(question => `- ${question}`).join('\n') || '- What can you observe, ask, or try before learning the new idea?'}\n\nWrite one thing you already know and one question you want this lesson to answer.`,
+            ? `${focusLine}\n\nSomo hili linaanza na ${localContextFor(subject.title, unitTitle)}.\n\nUtajifunza ${learnerPhrase(subject.title, unitTitle, 'stadi hii')} kwa kusoma, kujadiliana, kuandika, na kurekebisha kazi yako.\n\nUnapaswa kuweza:\n${unitOutcomes.map(outcome => `- ${outcome.text}`).join('\n') || '- Eleza na tumia wazo kuu katika mada hii.'}\n\nFikiria maswali haya unaposoma:\n${questions.map(question => `- ${question}`).join('\n') || '- Unaweza kutazama, kuuliza, au kujaribu nini kabla ya kujifunza wazo jipya?'}\n\nAndika jambo moja unalolijua tayari na swali moja unalotaka somo hili lijibu.`
+            : `${focusLine}\n\nThis lesson begins with ${localContextFor(subject.title, unitTitle)}.\n\nYou will practise ${learnerPhrase(subject.title, unitTitle, 'this skill')} through reading, discussion, writing, and correction.\n\nWhat you should be able to do:\n${unitOutcomes.map(outcome => `- ${outcome.text}`).join('\n') || '- Explain and apply the main idea in this unit.'}\n\nThink about these questions as you read:\n${questions.map(question => `- ${question}`).join('\n') || '- What can you observe, ask, or try before learning the new idea?'}\n\nWrite one thing you already know and one question you want this lesson to answer.`,
           { ...refs, pageType: 'lesson-opener', difficulty: 'support' }
         );
 
         if (ultraCompactMode) {
           add(
             pageTitleFor(subject.title, unitTitle, 'learnAndExample'),
-            `${explainTopic(subject.title, grade, topic)}\n\n${inlineVisualFor(subject.title, topic)}\n\n${workedExampleFor(subject.title, grade, topic)}\n\n${subject.title === 'Kiswahili' ? 'Msamiati muhimu' : 'Key words'}:\n${(topic.keyVocabulary || [unitTitle, 'evidence', 'example', 'practice', 'reflection']).map(term => `- ${term}`).join('\n')}`,
+            `${focusLine}\n\n${explainTopic(subject.title, grade, renderTopic)}\n\n${inlineVisualFor(subject.title, renderTopic)}\n\n${workedExampleFor(subject.title, grade, renderTopic)}\n\n${subject.title === 'Kiswahili' ? 'Msamiati muhimu' : 'Key words'}:\n${(renderTopic.keyVocabulary || [unitTitle, 'evidence', 'example', 'practice', 'reflection']).map(term => `- ${term}`).join('\n')}`,
             { ...refs, pageType: 'learn-example', difficulty: 'core' }
           );
         } else {
           add(
             pageTitleFor(subject.title, unitTitle, 'learn'),
             subject.title === 'Kiswahili'
-              ? `${explainTopic(subject.title, grade, topic)}\n\n${inlineVisualFor(subject.title, topic)}\n\nMbinu ya Kiswahili: ${subjectMethod(subject.title)}\n\nMsamiati muhimu:\n${(topic.keyVocabulary || [unitTitle, 'ushahidi', 'mfano', 'mazoezi', 'tafakuri']).map(term => `- ${term}`).join('\n')}\n\nEleza wazo kwa maneno yako kabla ya kufanya shughuli.`
-              : `${explainTopic(subject.title, grade, topic)}\n\n${inlineVisualFor(subject.title, topic)}\n\nMethod for ${subject.title}: ${subjectMethod(subject.title)}\n\nKey words:\n${(topic.keyVocabulary || [unitTitle, 'evidence', 'example', 'practice', 'reflection']).map(term => `- ${term}`).join('\n')}\n\nExplain the idea in your own words before attempting the activities.`,
+              ? `${focusLine}\n\n${explainTopic(subject.title, grade, renderTopic)}\n\n${inlineVisualFor(subject.title, renderTopic)}\n\nMbinu ya Kiswahili: ${subjectMethod(subject.title)}\n\nMsamiati muhimu:\n${(renderTopic.keyVocabulary || [unitTitle, 'ushahidi', 'mfano', 'mazoezi', 'tafakuri']).map(term => `- ${term}`).join('\n')}\n\nEleza wazo kwa maneno yako kabla ya kufanya shughuli.`
+              : `${focusLine}\n\n${explainTopic(subject.title, grade, renderTopic)}\n\n${inlineVisualFor(subject.title, renderTopic)}\n\nMethod for ${subject.title}: ${subjectMethod(subject.title)}\n\nKey words:\n${(renderTopic.keyVocabulary || [unitTitle, 'evidence', 'example', 'practice', 'reflection']).map(term => `- ${term}`).join('\n')}\n\nExplain the idea in your own words before attempting the activities.`,
             { ...refs, pageType: 'explanation', difficulty: 'core' }
           );
 
           add(
             pageTitleFor(subject.title, unitTitle, 'workedExample'),
-            workedExampleFor(subject.title, grade, topic),
+            `${focusLine}\n\n${workedExampleFor(subject.title, grade, renderTopic)}`,
             { ...refs, pageType: 'worked-example', difficulty: 'guided' }
           );
         }
@@ -2314,14 +2423,14 @@ function buildPages(snapshot, grade, subject, bookPlan) {
         if (!compactMode) {
           add(
             pageTitleFor(subject.title, unitTitle, 'activity'),
-            activityFor(subject.title, grade, topic, questions),
+            `${focusLine}\n\n${activityFor(subject.title, grade, renderTopic, questions)}`,
             { ...refs, pageType: 'activity', difficulty: 'guided' }
           );
         }
 
         add(
           pageTitleFor(subject.title, unitTitle, 'activityPractice'),
-          practiceBlockFor(subject.title, unitTitle, unitOutcomes, topic, compactMode),
+          `${focusLine}\n\n${practiceBlockFor(subject.title, unitTitle, unitOutcomes, renderTopic, compactMode)}`,
           { ...refs, pageType: 'practice', difficulty: 'guided' }
         );
 
@@ -2337,11 +2446,14 @@ function buildPages(snapshot, grade, subject, bookPlan) {
     }
 
     if (!compactMode) {
+      const reviewTitle = learnerTitle(subject.title, strand.strand_title, subject.title);
+      const reviewCode = normalizeText(strand.strand_number || '').replace(/\s+/g, ' ');
+      const reviewFocus = reviewCode ? `${reviewCode} ${reviewTitle}` : reviewTitle;
       add(
         pageTitleFor(subject.title, strand.strand_title, 'chapterReview'),
         subject.title === 'Kiswahili'
-          ? `Rudia sura kwa makini.\n\n1. Andika maneno matano muhimu kutoka sura hii na ueleze maana yake.\n2. Chagua mada mbili na ulinganishe ulichojifunza.\n3. Tengeneza bango, mazungumzo, jedwali, kifungu, au mpango wa uwasilishaji unaofundisha sura hii.\n4. Jibu tena swali moja la uchunguzi. Boresha jibu lako la kwanza kwa kutumia msamiati na ushahidi mpya.\n5. Pima ujasiri wako: juu, wastani, au nahitaji mazoezi zaidi.`
-          : `Review the chapter carefully.\n\n1. Write five key words from this chapter and explain each one.\n2. Choose two units and compare what you learned.\n3. Create one poster, chart, dialogue, model, map, or worked solution that teaches this chapter.\n4. Answer one inquiry question again. Improve your first answer using what you now know.\n5. Rate your confidence: high, medium, or needs practice.`,
+          ? `Marudio ya sura: ${reviewFocus}.\n\n1. Andika maneno matano muhimu kutoka sura hii na ueleze maana yake.\n2. Chagua mada mbili na ulinganishe ulichojifunza.\n3. Tengeneza bango, mazungumzo, jedwali, kifungu, au mpango wa uwasilishaji unaofundisha sura hii.\n4. Jibu tena swali moja la uchunguzi. Boresha jibu lako la kwanza kwa kutumia msamiati na ushahidi mpya.\n5. Pima ujasiri wako: juu, wastani, au nahitaji mazoezi zaidi.`
+          : `Chapter review focus: ${reviewFocus}.\n\n1. Write five key words from this chapter and explain each one.\n2. Choose two units and compare what you learned.\n3. Create one poster, chart, dialogue, model, map, or worked solution that teaches this chapter.\n4. Answer one inquiry question again. Improve your first answer using what you now know.\n5. Rate your confidence: high, medium, or needs practice.`,
         { strandIds: [strand.strand_id], pageType: 'review', difficulty: 'independent' }
       );
     }
@@ -2432,7 +2544,7 @@ function glossaryTermFor(row, subjectTitle) {
     fallbackUnitTitle(subjectTitle, row, [], 0)
   ];
   for (const candidate of candidates) {
-    const term = cleanDisplayText(candidate, '');
+    const term = isLanguageSubject(subjectTitle) ? learnerTitle(subjectTitle, candidate, '') : cleanDisplayText(candidate, '');
     if (term && !isBadGlossaryTerm(term)) return term;
   }
   return '';

@@ -128,6 +128,14 @@ const configSchema = z.object({
   KITABU_TTS_WORKER_LEASE_SECONDS: z.coerce.number().int().positive().default(300),
   KITABU_TTS_MAX_ATTEMPTS: z.coerce.number().int().positive().max(10).default(3),
   KITABU_TTS_RETRY_DELAY_SECONDS: z.coerce.number().int().positive().default(60),
+  KITABU_GEMINI_API_BASE_URL: z.string().url().default('https://generativelanguage.googleapis.com'),
+  KITABU_GEMINI_TTS_BATCH_ENABLED: booleanish.default(false),
+  KITABU_TTS_STORAGE_BUCKET: z.string().trim().min(1).default('tts-audio'),
+  KITABU_SUPABASE_URL: z.string().url().optional(),
+  KITABU_SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
+  KITABU_TTS_PUBLIC_BASE_URL: z.string().url().optional(),
+  KITABU_TTS_QUEUE_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(25),
+  KITABU_TTS_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(30_000),
   KITABU_KSH_PER_USD: z.coerce.number().positive().default(129.5),
   KITABU_ADMIN_WEB_ORIGIN: z.string().default('https://admin.kitabu.ai'),
   KITABU_WEB_APP_ORIGINS: z.string().default(''),
@@ -223,6 +231,10 @@ appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT = appConfig.KITABU_EDUCATIONAL_A
 appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL);
 appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE);
 appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL);
+appConfig.KITABU_GEMINI_API_BASE_URL = appConfig.KITABU_GEMINI_API_BASE_URL.replace(/\/$/, '').trim();
+appConfig.KITABU_SUPABASE_URL = trimOptional(appConfig.KITABU_SUPABASE_URL);
+appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY = trimOptionalSecret(appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY);
+appConfig.KITABU_TTS_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_PUBLIC_BASE_URL);
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);

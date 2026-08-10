@@ -260,10 +260,10 @@ jobs:
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/bricolage-grotesque-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/plus-jakarta-sans-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           assert_url_contains 'https://kitabu.ai/?deploy=${{ github.sha }}' 'https://kitabu.ai/favicon.svg' --fail --silent --show-error
-          assert_url_contains 'https://kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '#ffb11b' --fail --silent --show-error
+          assert_url_contains 'https://kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '<title>Kitabu AI</title>' --fail --silent --show-error
           assert_url_contains https://admin.kitabu.ai/app.js '/curriculum/import/pdf' --fail --silent --show-error
           assert_url_contains https://admin.kitabu.ai/app.js '/ai/generate-text' --fail --silent --show-error
-          assert_url_contains 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '#ffb11b' --fail --silent --show-error
+          assert_url_contains 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' '<title>Kitabu AI</title>' --fail --silent --show-error
           if [ "$data_mutates" = true ]; then
             post_backup="$(
               KITABU_BACKUP_DIR=/var/backups/kitabu \

@@ -6518,6 +6518,101 @@ export async function listQuizBankQuestions(input: {
   return result.rows;
 }
 
+export async function findQuizBankQuestionById(questionId: string) {
+  const result = await db.query<QuizBankQuestionRecord>(
+    `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
+            strand_title, sub_strand_title, learning_outcome, question_number, type,
+            prompt, options, correct_answer, explanation, difficulty, cognitive_level, feature_tags
+     FROM quiz_bank_questions
+     WHERE id = $1`,
+    [questionId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export type AssessmentNarrationQuestionRecord = {
+  id: number;
+  type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
+  text: string;
+  options?: string[];
+  explanation?: string;
+};
+
+export async function createAssessmentNarrationSession(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    generationRunId?: string | null;
+    source: 'quiz_generation' | 'curriculum_quiz_generation';
+    subjectName?: string | null;
+    context?: string | null;
+    questions: AssessmentNarrationQuestionRecord[];
+  }
+) {
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO assessment_narration_sessions
+      (user_id, generation_run_id, source, subject_name, context, questions)
+     VALUES ($1, $2, $3, $4, $5, $6::jsonb)
+     RETURNING id`,
+    [
+      input.userId,
+      input.generationRunId ?? null,
+      input.source,
+      input.subjectName ?? null,
+      input.context ?? null,
+      JSON.stringify(input.questions)
+    ]
+  );
+  return result.rows[0];
+}
+
+export async function findAssessmentNarrationSession(userId: string, sessionId: string) {
+  const result = await db.query<{
+    id: string;
+    subject_name: string | null;
+    context: string | null;
+    questions: AssessmentNarrationQuestionRecord[];
+  }>(
+    `SELECT id, subject_name, context, questions
+     FROM assessment_narration_sessions
+     WHERE id = $1 AND user_id = $2 AND expires_at > NOW()`,
+    [sessionId, userId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export interface UserNarrationPreferenceRecord {
+  user_id: string;
+  selected_profile: 'Samora' | 'Barake' | 'Judith' | 'Bella';
+  enabled: boolean;
+  updated_at: Date;
+}
+
+export async function getUserNarrationPreference(userId: string) {
+  const result = await db.query<UserNarrationPreferenceRecord>(
+    `SELECT user_id, selected_profile, enabled, updated_at
+     FROM user_narration_preferences WHERE user_id = $1`,
+    [userId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function upsertUserNarrationPreference(
+  client: MaybeClient,
+  input: { userId: string; selectedProfile: UserNarrationPreferenceRecord['selected_profile']; enabled: boolean }
+) {
+  const result = await q<UserNarrationPreferenceRecord>(
+    client,
+    `INSERT INTO user_narration_preferences (user_id, selected_profile, enabled, updated_at)
+     VALUES ($1, $2, $3, NOW())
+     ON CONFLICT (user_id) DO UPDATE SET selected_profile = EXCLUDED.selected_profile, enabled = EXCLUDED.enabled, updated_at = NOW()
+     RETURNING user_id, selected_profile, enabled, updated_at`,
+    [input.userId, input.selectedProfile, input.enabled]
+  );
+  return result.rows[0];
+}
+
 export async function findWeeklyExamAttempt(examId: string, userId: string) {
   const result = await db.query<WeeklyExamAttemptRecord>(
     `SELECT id, exam_id, user_id, status, answers, score::text AS score,

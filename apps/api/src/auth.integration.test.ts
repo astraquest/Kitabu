@@ -4,8 +4,13 @@ import { buildServer } from './server.js';
 import { db, redis } from './db.js';
 import { signAccessToken } from './auth.js';
 
+const sentEmails: Array<{ to: string; subject: string; text: string; html: string; kind?: string }> = [];
+let emailDeliveryResult = true;
 const app = buildServer({
-  emailSender: async () => false,
+  emailSender: async message => {
+    sentEmails.push(message);
+    return emailDeliveryResult;
+  },
   googleTokenVerifier: async idToken => ({
     subject: idToken,
     email: `${idToken}@example.com`,
@@ -146,6 +151,7 @@ test('phone login accepts only the latest requested OTP', async () => {
 test('phone signup requires OTP and rejects duplicate signup', async () => {
   const suffix = Date.now().toString().slice(-7);
   const phoneNumber = `071${suffix}`.slice(0, 10);
+  sentEmails.length = 0;
   const requestCode = await app.inject({
     method: 'POST',
     url: '/auth/phone/request',
@@ -172,6 +178,7 @@ test('phone signup requires OTP and rejects duplicate signup', async () => {
   const session = verifyCode.json();
   assert.equal(session.user.phoneVerified, true);
   assert.deepEqual(session.user.roles, ['parent']);
+  assert.equal(sentEmails.length, 0);
 
   const duplicate = await app.inject({
     method: 'POST',
@@ -607,6 +614,7 @@ test('teacher-parent message reports notify admins without moderating all messag
 test('email signup immediately creates an authenticated product session', async () => {
   const suffix = Date.now().toString();
   const email = `email-verification-parent-${suffix}@example.com`;
+  sentEmails.length = 0;
   const signup = await app.inject({
     method: 'POST',
     url: '/auth/signup',
@@ -621,6 +629,23 @@ test('email signup immediately creates an authenticated product session', async 
   assert.equal(signup.statusCode, 201);
   const signupSession = signup.json();
   assert.equal(signupSession.user.emailVerified, false);
+  assert.equal(sentEmails.length, 1);
+  assert.equal(sentEmails[0].to, email);
+  assert.equal(sentEmails[0].subject, "You're in! 🥳");
+
+  const duplicate = await app.inject({
+    method: 'POST',
+    url: '/auth/signup',
+    payload: {
+      fullName: 'Email Verification Parent',
+      email,
+      password: 'ParentPass123!',
+      role: 'parent',
+      acceptedTerms: true
+    }
+  });
+  assert.equal(duplicate.statusCode, 409);
+  assert.equal(sentEmails.length, 1);
 
   const protectedRoute = await app.inject({
     method: 'GET',
@@ -646,6 +671,40 @@ test('email signup immediately creates an authenticated product session', async 
   });
   assert.equal(deletion.statusCode, 200);
   assert.equal(deletion.json().deletionRequested, true);
+});
+
+test('email signup succeeds when welcome email delivery fails', async () => {
+  const email = `email-delivery-failure-${Date.now()}@example.com`;
+  sentEmails.length = 0;
+  emailDeliveryResult = false;
+  let accessToken: string | undefined;
+
+  try {
+    const signup = await app.inject({
+      method: 'POST',
+      url: '/auth/signup',
+      payload: {
+        fullName: 'Email Delivery Failure Parent',
+        email,
+        password: 'ParentPass123!',
+        role: 'parent',
+        acceptedTerms: true
+      }
+    });
+    assert.equal(signup.statusCode, 201);
+    accessToken = signup.json().accessToken;
+    assert.equal(sentEmails.length, 1);
+  } finally {
+    emailDeliveryResult = true;
+    if (accessToken) {
+      await app.inject({
+        method: 'DELETE',
+        url: '/me/account',
+        headers: { authorization: `Bearer ${accessToken}` },
+        payload: { confirmationText: 'DELETE MY ACCOUNT' }
+      });
+    }
+  }
 });
 
 test('parent links multiple verified students by email and phone and sees real dashboard stats', async () => {
@@ -859,6 +918,7 @@ test('parent links multiple verified students by email and phone and sees real d
 
 test('Google signup links a verified identity and supports subsequent login', async () => {
   const idToken = `google-${Date.now()}-${'x'.repeat(100)}`;
+  sentEmails.length = 0;
   const signup = await app.inject({
     method: 'POST',
     url: '/auth/google',
@@ -868,7 +928,10 @@ test('Google signup links a verified identity and supports subsequent login', as
   const firstSession = signup.json();
   assert.equal(firstSession.user.emailVerified, true);
   assert.deepEqual(firstSession.user.roles, ['parent']);
+  assert.equal(sentEmails.length, 1);
+  assert.equal(sentEmails[0].to, `${idToken}@example.com`);
 
+  sentEmails.length = 0;
   const login = await app.inject({
     method: 'POST',
     url: '/auth/google',
@@ -876,6 +939,7 @@ test('Google signup links a verified identity and supports subsequent login', as
   });
   assert.equal(login.statusCode, 200);
   assert.equal(login.json().user.id, firstSession.user.id);
+  assert.equal(sentEmails.length, 0);
 
   const deletion = await app.inject({
     method: 'DELETE',
@@ -932,6 +996,7 @@ test('Google login links an existing email account and satisfies verification ga
   const suffix = Date.now();
   const idToken = `google-existing-${suffix}-${'x'.repeat(100)}`;
   const email = `${idToken}@example.com`;
+  sentEmails.length = 0;
   const created = await db.query<{ id: string }>(
     `WITH user_row AS (
        INSERT INTO users (
@@ -955,6 +1020,7 @@ test('Google login links an existing email account and satisfies verification ga
     payload: { idToken, role: 'student', acceptedTerms: true }
   });
   assert.equal(login.statusCode, 200);
+  assert.equal(sentEmails.length, 0);
   const session = login.json();
   assert.equal(session.user.id, created.rows[0].id);
   assert.equal(session.user.emailVerified, true);
@@ -991,6 +1057,7 @@ test('Google login cannot replace an existing Google identity on the same email 
   const originalToken = `google-original-${suffix}-${'x'.repeat(100)}`;
   const replacementToken = `google-replacement-${suffix}-${'x'.repeat(100)}`;
   const email = `${replacementToken}@example.com`;
+  sentEmails.length = 0;
   const created = await db.query<{ id: string }>(
     `WITH user_row AS (
        INSERT INTO users (
@@ -1018,6 +1085,7 @@ test('Google login cannot replace an existing Google identity on the same email 
     payload: { idToken: replacementToken }
   });
   assert.equal(replacement.statusCode, 409);
+  assert.equal(sentEmails.length, 0);
   assert.match(replacement.json().message, /already linked/);
 
   const original = await app.inject({

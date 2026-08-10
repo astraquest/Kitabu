@@ -2,6 +2,7 @@ import { checkRedisHealth, db } from './db.js';
 import { appConfig } from './config.js';
 import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
 import { processGeminiTtsQueue, processTtsJobs } from './ttsWorker.js';
+import { processAssessmentTtsQueue } from './tts.js';
 
 const ACCOUNT_DELETION_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
 
@@ -51,6 +52,17 @@ async function run() {
   if (appConfig.KITABU_TTS_WORKER_ENABLED && appConfig.KITABU_GEMINI_TTS_DAILY_WORKER_ENABLED) {
     scheduleDailyGeminiTtsQueue();
   }
+
+  const runAssessmentTtsQueue = () => {
+    processAssessmentTtsQueue().catch(error => {
+      console.warn('[worker] assessment TTS queue failed', {
+        state: 'worker_error',
+        error: error instanceof Error ? error.message.slice(0, 200) : 'unknown'
+      });
+    });
+  };
+  runAssessmentTtsQueue();
+  setInterval(runAssessmentTtsQueue, appConfig.KITABU_TTS_POLL_INTERVAL_MS);
 }
 
 function scheduleDailyGeminiTtsQueue() {

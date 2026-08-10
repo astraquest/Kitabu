@@ -62,6 +62,7 @@ import {
 } from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
 import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
@@ -5727,6 +5728,12 @@ export function StudentOnboardingScreen({
               usesPreMascotPickerStep && styles.mascotPickerCard,
               usesRafikiRevealStep && styles.rafikiRevealCard,
             ]}>
+            {includeIntroChoices && ['language', 'role', 'need', 'goal', 'concerns', 'achieve', 'interests'].includes(introStep) ? (
+              <AssessmentNarrationControls
+                descriptorId={`onboarding:${introStep}`}
+                languageCode={languageCode}
+              />
+            ) : null}
             {introStep === 'language' ? (
               <>
                 <View accessibilityLabel="Kitabu AI brand" style={styles.languageBrandHeader}>
@@ -9262,6 +9269,10 @@ const styles = StyleSheet.create({
     marginTop: 0,
     textAlign: 'center',
     width: '100%',
+  },
+  stepTitleNoKicker: {
+    marginTop: 10,
+    textAlign: 'center',
   },
   stepTitleCompact: {
     fontSize: 22,

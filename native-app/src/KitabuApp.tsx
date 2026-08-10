@@ -757,6 +757,7 @@ function renderScreen(
           subjectName={state.activeQuizConfig?.subject || state.selectedSubject?.name || 'QuizMe'}
           strandName={state.activeQuizConfig?.strand || state.selectedSubStrand?.title || 'General Review'}
           questions={state.generatedQuizQuestions}
+          narrationSessionId={state.generatedQuizNarrationSessionId}
           mascotKey={state.activeMascotKey}
           voiceName={state.activeUserProfile.voiceName}
           onClose={() => {

@@ -17,6 +17,12 @@ npm.cmd run migrate -w apps/api
 
 Run migrations before deploying API code that depends on new tables or columns.
 
+Migration 045 is a transactionally executed cleanup that preserves only the supported operational
+test accounts `demoaccount@kitabu.ai` and `admin@kitabu.ai`; it fails closed if that two-account
+baseline is not present. Historical applied migrations can retain legacy test identities as audit
+evidence. In particular, the migration 071 integration fixture retains them solely to test historical
+account consolidation; they are not current runtime allowlist entries.
+
 ## Deployment
 
 ### Legal-page acceptance

@@ -6,10 +6,12 @@ import { LANGUAGE_SOCIAL_DIGITAL_SAMPLES } from './generativeSamples/languageSoc
 import { LOWER_PRIMARY_MATH_SCIENCE_SAMPLES } from './generativeSamples/lowerPrimaryMathScience.js';
 import { buildLowerPrimaryFirstWaveSampleBundle } from './lowerPrimaryFirstWaveSample.js';
 import type { PublishableBundle } from './publishingValidation.js';
+import type { ComponentScenePayload } from './types.js';
 
 const COMPONENT_VERSION = '1.0.0' as const;
 const SCENE_VERSION = '1.0.0' as const;
 const ASSET_MANIFEST = { manifestVersion: 1, assets: [] } as const;
+type CatalogueScene = ComponentScenePayload;
 
 function sha256(value: string): string {
   return createHash('sha256').update(value, 'utf8').digest('hex');
@@ -33,7 +35,7 @@ export function buildGenerativeUiCatalogueSampleBundle(): PublishableBundle {
     ...LANGUAGE_SOCIAL_DIGITAL_SAMPLES,
     ...BUSINESS_LIFE_SKILLS_SAMPLES,
   ].map(buildGenericSampleScene);
-  const scenes = [...firstWave.scenes, ...genericScenes]
+  const scenes = [...(firstWave.scenes as CatalogueScene[]), ...genericScenes]
     .map((scene, index) => ({ scene, index }))
     .sort((left, right) => gradeRank(left.scene.identity.sceneId) - gradeRank(right.scene.identity.sceneId) || left.index - right.index)
     .map(({ scene }) => scene);

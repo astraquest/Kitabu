@@ -56,6 +56,7 @@ export interface AudioTranscriptionInput {
 export interface TextToSpeechInput {
   text: string;
   voice?: string;
+  language?: string;
   responseFormat?: 'wav';
 }
 
@@ -64,6 +65,9 @@ export interface TextToSpeechResult {
   mimeType: string;
   model: string;
   voice: string;
+  provider?: 'cartesia' | 'gemini';
+  durationMs?: number | null;
+  metadata?: Record<string, unknown>;
 }
 
 export type AiProvider = 'openai' | 'deepseek' | 'google' | 'groq' | 'nvidia';
@@ -1062,7 +1066,8 @@ export async function synthesizeSpeechWithGemini(input: TextToSpeechInput): Prom
           speechConfig: {
             voiceConfig: {
               prebuiltVoiceConfig: { voiceName: geminiVoice }
-            }
+            },
+            ...(input.language ? { languageCode: input.language } : {})
           }
         }
       })

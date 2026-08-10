@@ -13,3 +13,6 @@ export const approveInteractiveBundle = (bundleId: string, revision: string) =>
 
 export const moveInteractiveRelease = (action: 'publish' | 'rollback', input: { channel: string; bundleId: string; revision: string }) =>
   apiJsonRequest(`/admin/interactive-learning/releases/${action}`, { method: 'POST', body: JSON.stringify(input) });
+
+export const getInteractiveBundle = (bundleId: string, revision: string) =>
+  apiJsonRequest<{ release_id: string; payload: InteractiveBundleDraft }>(`/admin/interactive-learning/bundles/${encodeURIComponent(bundleId)}/${encodeURIComponent(revision)}`);

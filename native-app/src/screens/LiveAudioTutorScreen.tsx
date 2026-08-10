@@ -46,6 +46,7 @@ import {
 const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
 const simbaLionMascot = require('../assets/mascot/simba-lion.png');
 const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
+const pandaMascot = require('../assets/mascot/panda.png');
 
 interface LiveAudioTutorScreenProps {
   onClose: () => void;
@@ -102,6 +103,12 @@ const LIVE_AUDIO_MASCOTS: Record<OnboardingMascotKey, LiveAudioMascotTheme> = {
     label: 'Rafiki the Elephant',
     accent: '#60A5FA',
     soft: 'rgba(96,165,250,0.18)',
+  },
+  panda: {
+    source: pandaMascot,
+    label: 'Rafiki the Panda',
+    accent: '#94A3B8',
+    soft: 'rgba(148,163,184,0.18)',
   },
 };
 

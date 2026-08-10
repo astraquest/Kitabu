@@ -73,3 +73,12 @@ export async function getInteractiveRelease(channel: BundleReleaseChannel) {
   );
   return result.rows[0] ?? null;
 }
+export async function getInteractiveBundle(bundleId: string, revision: string) {
+  const result = await db.query(
+    `SELECT bundle_id,revision,release_id,channel,manifest,payload
+     FROM interactive_learning_bundles
+     WHERE bundle_id=$1 AND revision=$2`,
+    [bundleId, revision]
+  );
+  return result.rows[0] ?? null;
+}

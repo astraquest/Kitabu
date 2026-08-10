@@ -47,6 +47,7 @@ const PENDING_MASCOT_SOURCES = {
   rabbit: require('../../../assets/mascot/sungura-rabbit-quiz.png'),
   lion: require('../../../assets/mascot/simba-lion-quiz.png'),
   elephant: require('../../../assets/mascot/ndovu-elephant-quiz.png'),
+  panda: require('../../../assets/mascot/panda.png'),
 };
 
 interface SubjectLearningPathScreenProps {
@@ -313,6 +314,8 @@ function ContentPendingPage({
     ? 'Simba'
     : mascotKey === 'elephant'
       ? 'Ndovu'
+      : mascotKey === 'panda'
+        ? 'Panda'
       : 'Sungura';
 
   return (

@@ -3224,7 +3224,7 @@ export interface EducationalAssetRepositoryRecord {
   retrieved_at: Date;
   content_sha256: string;
   byte_size: number;
-  storage_backend: 'local' | 'http-put';
+  storage_backend: 'local' | 'http-put' | 'supabase';
   storage_key: string;
   production_status: EducationalAssetProductionStatus;
   usage_restriction: EducationalAssetUsageRestriction;
@@ -3477,7 +3477,7 @@ export interface CreateEducationalAssetInput extends EducationalAssetProvenanceM
   mimeType: string;
   contentSha256: string;
   byteSize: number;
-  storageBackend?: 'local' | 'http-put';
+  storageBackend?: 'local' | 'http-put' | 'supabase';
   storageKey: string;
   productionStatus?: EducationalAssetProductionStatus;
   usageRestriction?: EducationalAssetUsageRestriction;

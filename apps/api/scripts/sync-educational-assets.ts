@@ -5,6 +5,7 @@ import { GameIconsAdapter } from '../src/educationalAssets/gameIcons.js';
 import { BioiconsAdapter } from '../src/educationalAssets/bioicons.js';
 import { WikimediaCommonsAdapter } from '../src/educationalAssets/wikimedia.js';
 import { PhyloPicAdapter } from '../src/educationalAssets/phyloPic.js';
+import { OpenclipartAdapter } from '../src/educationalAssets/openclipart.js';
 import { runEducationalAssetSync } from '../src/educationalAssets/runner.js';
 
 function option(name: string) { const index = process.argv.indexOf(name); return index >= 0 ? process.argv[index + 1] : undefined; }
@@ -17,6 +18,7 @@ const query = option('--query');
 const node = option('--node');
 if (provider === 'wikimedia' && !category?.trim()) throw new Error('Wikimedia Commons requires --category; refusing a broad crawl');
 if (provider === 'phylopic' && Boolean(query?.trim()) === Boolean(node?.trim())) throw new Error('PhyloPic requires exactly one of --query or --node; refusing a broad crawl');
+if (provider === 'openclipart' && !query?.trim()) throw new Error('Openclipart requires --query; refusing a broad crawl');
 const adapter = provider === 'health-icons' ? new HealthIconsAdapter()
   : provider === 'tabler-icons' ? new TablerAdapter()
     : provider === 'openmoji' ? new OpenMojiAdapter()
@@ -24,7 +26,8 @@ const adapter = provider === 'health-icons' ? new HealthIconsAdapter()
           : provider === 'bioicons' ? new BioiconsAdapter()
             : provider === 'wikimedia' ? new WikimediaCommonsAdapter(category!)
               : provider === 'phylopic' ? new PhyloPicAdapter({ query, nodeUuid: node })
-          : (() => { throw new Error(`Unsupported educational asset provider: ${provider}`); })();
+                : provider === 'openclipart' ? new OpenclipartAdapter(query!)
+                  : (() => { throw new Error(`Unsupported educational asset provider: ${provider}`); })();
 if (dryRun) {
   const result = await runEducationalAssetSync(adapter, {} as never, { limit, dryRun: true, resumeCursor, onEvent: event => console.error(JSON.stringify(event)) });
   console.log(JSON.stringify(result, null, 2));

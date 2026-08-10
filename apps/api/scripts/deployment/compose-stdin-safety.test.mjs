@@ -26,3 +26,12 @@ test('Compose one-off commands used by the SSH deployment cannot consume its scr
     'deployment smoke checks must not let grep -q close a producer pipe under pipefail',
   );
 });
+
+test('deployment preserves server-local educational assets', async () => {
+  const workflow = await readFile(path.join(repositoryRoot, '.github', 'workflows', 'deploy-api.yml'), 'utf8');
+  assert.equal(
+    (workflow.match(/--exclude 'apps\/api\/var\/educational-assets\/'/g) ?? []).length,
+    2,
+    'both release-staging and production activation rsync commands must preserve runtime educational assets',
+  );
+});

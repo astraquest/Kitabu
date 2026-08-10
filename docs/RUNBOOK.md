@@ -22,6 +22,9 @@ test accounts `demoaccount@kitabu.ai` and `admin@kitabu.ai`; it fails closed if 
 baseline is not present. Historical applied migrations can retain legacy test identities as audit
 evidence. In particular, the migration 071 integration fixture retains them solely to test historical
 account consolidation; they are not current runtime allowlist entries.
+The `test:integration:migrations` CI command runs an account-policy contract that blocks unsupported
+`@kitabu.ai` identities in current migration SQL and migration contract checks. Its explicit archival-only
+allowlist is limited to the applied historical migrations and the migration 071 consolidation fixture.
 
 ## Deployment
 

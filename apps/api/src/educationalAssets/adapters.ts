@@ -1,4 +1,4 @@
-import type { EducationalAssetLicense, EducationalAssetMediaType, EducationalAssetUsageRestriction, EducationalVisualType } from './types.js';
+import type { EducationalAssetLicense, EducationalAssetMediaType } from './types.js';
 
 export interface RemoteAsset {
   providerKey: string;
@@ -6,26 +6,12 @@ export interface RemoteAsset {
   title: string;
   mediaType: EducationalAssetMediaType;
   mimeType: string;
-  description?: string | null;
-  metadata?: Record<string, unknown>;
-  width?: number | null;
-  height?: number | null;
   sourcePageUrl: string;
   rawUrl: string;
   license: EducationalAssetLicense;
   licenseEvidenceUrl: string;
-  licenseVersion?: string | null;
-  licenseEvidence?: string | null;
-  usageRestriction?: EducationalAssetUsageRestriction;
   attribution?: string | null;
-  originalFilename?: string | null;
-  creator?: string | null;
   creatorUrl?: string | null;
-  classification?: 'generic-ui-concept';
-  visualType?: EducationalVisualType;
-  subject?: string | null;
-  topic?: string | null;
-  keywords?: string[];
 }
 
 export interface DiscoveryOptions { limit: number; cursor?: string | null; }

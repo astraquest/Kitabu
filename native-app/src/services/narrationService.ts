@@ -16,6 +16,8 @@ export interface NarrationCue {
   text: string;
   delivery: 'server';
   voiceName?: OnboardingVoiceName;
+  language?: string;
+  landingCueId?: string;
 }
 
 function normalizeSpokenCopy(text: string) {
@@ -27,6 +29,7 @@ export function buildScreenIntro(
   identity: string,
   text: string,
   voiceName?: OnboardingVoiceName,
+  options?: { language?: string; landingCueId?: string },
 ): NarrationCue {
   return {
     identity: `screen-intro:${screen}:${identity}`,
@@ -34,6 +37,8 @@ export function buildScreenIntro(
     text: normalizeSpokenCopy(text),
     delivery: 'server',
     voiceName,
+    language: options?.language,
+    landingCueId: options?.landingCueId,
   };
 }
 
@@ -104,7 +109,11 @@ export function useGuidedNarration(cue: NarrationCue | null, enabled = true) {
     }
 
     spokenIdentityRef.current = cue.identity;
-    const speak = speechPlaybackBridge?.speak(cue.text, { voiceName: cue.voiceName });
+    const speak = speechPlaybackBridge?.speak(cue.text, {
+      voiceName: cue.voiceName,
+      ...(cue.language ? { language: cue.language } : {}),
+      ...(cue.landingCueId ? { landingCueId: cue.landingCueId } : {}),
+    });
     speak?.catch(() => undefined);
 
     return () => {

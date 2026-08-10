@@ -37,6 +37,18 @@ describe('onboarding flow registry', () => {
     });
   });
 
+  test.each(['student', 'teacher', 'parent', 'other'] as const)(
+    'uses microphone in the shared %s intro slot and exposes no normal voice step',
+    role => {
+      expect(ONBOARDING_FLOW_REGISTRY[role].introSteps.microphone).toMatchObject({
+        key: 'microphone',
+        title: 'Microphone',
+        progressIndex: 4,
+      });
+      expect(ONBOARDING_FLOW_REGISTRY[role].introSteps.voice).toBeUndefined();
+    },
+  );
+
   test.each([
     ['teacher', 'Classes'],
     ['parent', 'Children'],

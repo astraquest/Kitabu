@@ -50,6 +50,8 @@ test('enqueue uses deterministic artifact/job conflict paths for idempotent retr
 
   assert.equal(client.queries.length, 4);
   assert.match(client.queries[0].text, /ON CONFLICT \(cache_key\)/);
+  assert.match(client.queries[0].text, /status = 'pending' AND tts_artifacts\.provider IS NOT NULL/);
+  assert.match(client.queries[0].text, /THEN tts_artifacts\.provider/);
   assert.match(client.queries[1].text, /ON CONFLICT \(artifact_id\)/);
 });
 

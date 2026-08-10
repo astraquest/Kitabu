@@ -31,9 +31,6 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_tts_artifacts_identity_key
   ON tts_artifacts (identity_key);
 
 ALTER TABLE tts_artifacts DROP CONSTRAINT IF EXISTS tts_artifacts_audio_check;
--- Migration 092 may have already installed this named replacement constraint.
--- Recreating it validates the required definition against every existing row.
-ALTER TABLE tts_artifacts DROP CONSTRAINT IF EXISTS tts_artifacts_ready_storage_check;
 ALTER TABLE tts_artifacts ADD CONSTRAINT tts_artifacts_ready_storage_check CHECK (
   status <> 'ready'
   OR (

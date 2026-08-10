@@ -15,7 +15,7 @@ test('creates a machine-readable manifest with a contained storage key', () => {
 });
 
 test('reports counters, licenses, providers, and media types deterministically', () => {
-  const report = createEducationalAssetImportReport({ discovered: 2, downloaded: 1, imported: 1, duplicates: 0, restricted: 0, rejected: 1, quarantined: 0, errors: 0 }, 'health-icons', [
+  const report = createEducationalAssetImportReport({ discovered: 2, downloaded: 1, imported: 1, duplicates: 0, rejected: 1, quarantined: 0, errors: 0 }, 'health-icons', [
     { providerAssetId: 'a', sourcePath: 'a', sha256: 'a'.repeat(64), license: 'CC0-1.0', databaseAssetId: 'asset-1', mediaType: 'image', outcome: 'imported', normalizationStatus: 'needs-normalization' },
     { providerAssetId: 'b', sourcePath: 'b', sha256: null, license: 'PROPRIETARY', databaseAssetId: null, mediaType: 'vector', outcome: 'rejected', normalizationStatus: 'not-applicable' },
   ]);

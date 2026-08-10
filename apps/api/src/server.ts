@@ -53,12 +53,15 @@ import { readAdminCurriculumCatalog } from './curriculumCatalog.js';
 import { readLearningAssetCatalog, resolveLearningAssetPreviewFile, resolveLearningAssetRuntimeFile } from './interactiveLearning/assetCatalog.js';
 import { parseLowerPrimaryPracticeVariant } from './lowerPrimaryAi.js';
 import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
+import { findEducationalAssets, readEducationalAssetForLearner } from './educationalAssets/service.js';
 import {
   enqueueSpeechCues,
   getOrCreateDurableSpeech,
   spokenCuesFromQuestions,
+  TTS_AVATAR_VOICES,
   TTS_QUEUE_MODE
 } from './speechQueue.js';
+import { getLandingIntroTtsCue } from './onboardingTts.js';
 import {
   type CurriculumStrandInput,
   createAdminManagedUser,
@@ -268,6 +271,7 @@ import {
 import {
   approveInteractiveBundle,
   createInteractiveBundleDraft,
+  getInteractiveBundle,
   getInteractiveRelease,
   moveInteractiveReleasePointer,
   validatePublishableBundle,
@@ -693,6 +697,14 @@ const announcementSchema = z.object({
 
 const announcementParamsSchema = z.object({
   announcementId: z.string().uuid()
+});
+const educationalAssetQuerySchema = z.object({
+  query: z.string().trim().min(1).max(160).optional(),
+  subject: z.string().trim().min(1).max(120).optional(),
+  topic: z.string().trim().min(1).max(160).optional(),
+  grade: z.string().trim().min(1).max(80).optional(),
+  assetType: z.enum(['image', 'audio', 'video', 'document', 'vector']).optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(20),
 });
 
 const onboardingPersonalizationKeySchema = z
@@ -1601,7 +1613,14 @@ const transcribeAudioSchema = z.object({
 
 const synthesizeSpeechSchema = z.object({
   text: z.string().trim().min(1).max(4_000),
-  voice: z.string().trim().min(1).max(40)
+  voice: z.string().trim().min(1).max(40),
+  language: z.string().trim().min(2).max(16).default('en')
+});
+
+const landingSynthesizeSpeechSchema = z.object({
+  cueId: z.string().trim().min(1).max(40),
+  voice: z.enum(TTS_AVATAR_VOICES as [string, ...string[]]),
+  language: z.enum(['en', 'sw']).default('en')
 });
 
 const onboardingSchoolSchema = z.object({
@@ -3393,7 +3412,7 @@ Requirements:
     const feature = 'speech_synthesis';
     const promptVersion = resolvePromptVersion(feature);
     const schemaVersion = getFeatureSchemaVersion(feature);
-    const model = appConfig.KITABU_GEMINI_TTS_MODEL;
+    const model = appConfig.KITABU_CARTESIA_MODEL;
     const promptHash = hashStableJson({
       feature,
       promptVersion,
@@ -3403,16 +3422,26 @@ Requirements:
     const inputHash = hashStableJson({
       textHash: sha256Text(args.body.text),
       textLength: args.body.text.length,
-      voice: args.body.voice ?? null
+      voice: args.body.voice ?? null,
+      language: args.body.language
     });
 
     try {
       const startedAt = Date.now();
       const durableSpeech = await getOrCreateDurableSpeech({
         text: args.body.text,
-        avatarVoice: args.body.voice
+        avatarVoice: args.body.voice,
+        language: args.body.language
       });
       const result = durableSpeech.audio;
+      if (!result) {
+        return {
+          error: { message: 'Speech is queued for background generation. Please try again shortly.' },
+          audio: null,
+          subscription
+        };
+      }
+      const provider = result.provider === 'gemini' ? 'google' : result.provider ?? 'cartesia';
       const latencyMs = Date.now() - startedAt;
       const outputHash = sha256Text(result.base64Audio);
 
@@ -3423,7 +3452,7 @@ Requirements:
           subscriptionId: subscription?.id ?? null,
           feature,
           promptVersion,
-          provider: 'google',
+          provider,
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3441,7 +3470,7 @@ Requirements:
         await recordAiGenerationAttempt(client, {
           runId: generationRun.id,
           attemptNumber: 1,
-          provider: 'google',
+          provider,
           model: result.model,
           status: 'completed',
           latencyMs,
@@ -3457,7 +3486,7 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
           feature,
-          provider: 'google',
+          provider,
           model: result.model,
           promptTokens: args.body.text.length,
           completionTokens: 0,
@@ -8311,6 +8340,37 @@ Return valid JSON with this shape:
     return result.audio;
   };
 
+  const landingSynthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+    const body = landingSynthesizeSpeechSchema.parse(request.body);
+    const cue = getLandingIntroTtsCue(body.cueId);
+    if (!cue) {
+      return reply.badRequest('Unsupported landing speech cue');
+    }
+
+    try {
+      const durableSpeech = await getOrCreateDurableSpeech({
+        text: cue.text,
+        avatarVoice: body.voice,
+        language: body.language
+      });
+      if (!durableSpeech.audio) {
+        reply.status(202);
+        return {
+          error: { message: 'Landing narration is queued for background generation.' },
+          audio: null,
+          pending: true
+        };
+      }
+
+      request.log.info({ cueId: cue.id, cacheHit: durableSpeech.cacheHit }, 'Landing narration served');
+      return durableSpeech.audio;
+    } catch (error) {
+      request.log.warn({ cueId: cue.id, err: error }, 'Landing narration unavailable');
+      reply.status(503);
+      return { error: { message: 'Landing narration is temporarily unavailable.' }, audio: null };
+    }
+  };
+
   app.post('/admin/interactive-learning/bundles/validate', async (request, reply) => {
     const denied = await requireRoles(request, reply, ['platform_admin'], { requireStepUp: true });
     if (denied) return;
@@ -8354,6 +8414,35 @@ Return valid JSON with this shape:
     if (!parsed.success) return reply.badRequest('Invalid interactive learning bundle payload');
     const result = await createInteractiveBundleDraft(parsed.data as unknown as PublishableBundle, request.user!.id);
     return result.created ? reply.status(201).send(result) : reply.status(result.issues.length ? 422 : 409).send(result);
+  });
+
+  app.get('/educational-assets', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const query = educationalAssetQuerySchema.parse(request.query);
+    return { assets: await findEducationalAssets(query) };
+  });
+
+  app.get('/educational-assets/:assetId/file', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const params = z.object({ assetId: z.string().uuid() }).parse(request.params);
+    const result = await readEducationalAssetForLearner(params.assetId);
+    if (!result) return reply.notFound('Educational asset not found');
+    reply
+      .type(result.asset.mimeType)
+      .header('Content-Length', String(result.content.byteLength))
+      .header('Cache-Control', 'private, max-age=3600');
+    return reply.send(result.content);
+  });
+
+  app.get('/admin/interactive-learning/bundles/:bundleId/:revision', async (request, reply) => {
+    const denied = await requireRoles(request, reply, ['platform_admin']);
+    if (denied) return;
+    const params = z.object({ bundleId: z.string().min(1).max(160), revision: z.string().min(1).max(160) }).safeParse(request.params);
+    if (!params.success) return reply.badRequest('Invalid bundle identity');
+    const bundle = await getInteractiveBundle(params.data.bundleId, params.data.revision);
+    return bundle ? bundle : reply.notFound('Interactive learning bundle not found');
   });
 
   app.post('/admin/interactive-learning/bundles/:bundleId/:revision/approve', async (request, reply) => {
@@ -8459,6 +8548,7 @@ Return valid JSON with this shape:
   app.post('/ai/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
   app.post('/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
   app.post('/ai/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
+  app.post('/landing/synthesize-speech', aiGenerationRateLimit, landingSynthesizeSpeechHandler);
 
   return app;
 }

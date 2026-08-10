@@ -6,7 +6,7 @@ const paths = [
   'static/icons/cc-0/alice/zero.svg', 'static/icons/mit/bob/mit.svg',
   'static/icons/cc-by-3.0/cara/by3.svg', 'static/icons/cc-by-4.0/dan/by4.svg',
   'static/icons/cc-by-sa-3.0/erin/sa3.svg', 'static/icons/cc-by-sa-4.0/fred/sa4.svg',
-  'static/icons/bsd/grace/excluded.svg', 'static/icons/mit/bob/not-an-icon.png', 'README.md',
+  'static/icons/bsd/grace/three-clause.svg', 'static/icons/unknown/ignored.svg', 'static/icons/mit/bob/not-an-icon.png', 'README.md',
 ];
 
 test('Bioicons maps supported per-directory licenses and creator metadata', async () => {
@@ -18,10 +18,14 @@ test('Bioicons maps supported per-directory licenses and creator metadata', asyn
       : new Response(JSON.stringify({ alice: 'https://alice.example', bob: { url: 'https://bob.example' } }));
   });
   const discovered = await adapter.discover({ limit: 20 });
-  assert.deepEqual(discovered.assets.map(asset => asset.license), ['CC0-1.0', 'CC-BY-3.0', 'CC-BY-4.0', 'CC-BY-SA-3.0', 'CC-BY-SA-4.0', 'MIT']);
+  assert.deepEqual(discovered.assets.map(asset => asset.license), ['BSD-3-Clause', 'CC0-1.0', 'CC-BY-3.0', 'CC-BY-4.0', 'CC-BY-SA-3.0', 'CC-BY-SA-4.0', 'MIT']);
+  assert.equal(discovered.assets.find(asset => asset.attribution === 'alice')?.creator, 'alice');
   assert.equal(discovered.assets.find(asset => asset.attribution === 'alice')?.creatorUrl, 'https://alice.example');
+  assert.equal(discovered.assets.find(asset => asset.attribution === 'bob')?.creator, 'bob');
   assert.equal(discovered.assets.find(asset => asset.attribution === 'bob')?.creatorUrl, 'https://bob.example');
-  assert.equal(discovered.assets.some(asset => asset.providerAssetId.includes('/bsd/')), false);
+  const bsd = discovered.assets.find(asset => asset.providerAssetId.includes('/bsd/'));
+  assert.equal(bsd?.license, 'BSD-3-Clause');
+  assert.match(bsd?.licenseEvidenceUrl ?? '', /static\/icons\/bsd\/LICENSE$/);
   assert.match(discovered.assets[0]?.sourcePageUrl ?? '', /github\.com\/duerrsimon\/bioicons\/blob\/main/);
   assert.match(discovered.assets[0]?.rawUrl ?? '', /raw\.githubusercontent\.com\/duerrsimon\/bioicons\/main/);
 });

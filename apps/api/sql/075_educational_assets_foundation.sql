@@ -55,19 +55,27 @@ CREATE TABLE IF NOT EXISTS educational_assets (
 );
 
 CREATE TABLE IF NOT EXISTS educational_asset_provenance (
-  asset_id UUID PRIMARY KEY REFERENCES educational_assets(id) ON DELETE RESTRICT,
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  asset_id UUID NOT NULL REFERENCES educational_assets(id) ON DELETE RESTRICT,
   source_url TEXT NOT NULL CHECK (btrim(source_url) <> ''),
   source_name TEXT NOT NULL CHECK (btrim(source_name) <> ''),
   source_license TEXT NOT NULL CHECK (source_license IN (
-    'CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'CC-BY-3.0', 'CC-BY-4.0', 'CC-BY-SA-3.0', 'CC-BY-SA-4.0',
+    'CC0-1.0', 'PUBLIC-DOMAIN', 'MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'CC-BY-3.0', 'CC-BY-4.0', 'CC-BY-SA-3.0', 'CC-BY-SA-4.0',
     'CC-BY-NC-4.0', 'CC-BY-NC-SA-4.0', 'CC-BY-ND-4.0', 'CC-BY-NC-ND-4.0',
     'ALL-RIGHTS-RESERVED', 'PROPRIETARY', 'UNKNOWN'
   )),
   source_license_url TEXT,
+  provider_key TEXT REFERENCES educational_asset_providers(provider_key) ON DELETE RESTRICT,
+  provider_asset_id TEXT,
+  source_raw_url TEXT,
   attribution TEXT,
   retrieved_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_educational_asset_provenance_provider_identity
+  ON educational_asset_provenance (provider_key, provider_asset_id)
+  WHERE provider_key IS NOT NULL AND provider_asset_id IS NOT NULL;
 
 CREATE INDEX IF NOT EXISTS idx_educational_assets_production
   ON educational_assets (production_status, media_type, created_at DESC);

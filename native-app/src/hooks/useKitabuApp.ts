@@ -179,8 +179,13 @@ import {
   SchoolDiscount,
 } from '../types/app';
 
-const DEMO_ACCOUNT_EMAIL = 'demoaccount@kitabu.ai';
-type LastUsedAuthRole = 'student' | 'teacher' | 'parent';
+const DEMO_ACCOUNT_PASSWORD = 'Password123!';
+const DEMO_ACCOUNT_EMAILS = {
+  student: 'student@kitabu.ai',
+  teacher: 'teacher@kitabu.ai',
+  parent: 'parent@kitabu.ai',
+} as const;
+type LastUsedAuthRole = keyof typeof DEMO_ACCOUNT_EMAILS;
 const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
@@ -1539,7 +1544,12 @@ export function useKitabuApp() {
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
   const canOpenAdminPortal = isAdminRole(roles) || isKnownAdminAccount;
   const isDemoAccount =
-    authSession?.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL;
+    Boolean(
+      authSession &&
+        Object.values(DEMO_ACCOUNT_EMAILS).includes(
+          authSession.user.email.trim().toLowerCase() as typeof DEMO_ACCOUNT_EMAILS[LastUsedAuthRole],
+        ),
+    );
   const isDemoStudentAccount = Boolean(isDemoAccount && roles.includes('student'));
   const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
@@ -1699,7 +1709,7 @@ export function useKitabuApp() {
     }
 
     const isDemoParent =
-      authSession.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL &&
+      authSession.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAILS.parent &&
       authSession.user.roles.includes('parent');
     setIsLoadingParentDashboard(true);
     try {
@@ -3121,6 +3131,17 @@ export function useKitabuApp() {
     await authenticateWithPassword(loginEmail, loginPassword, signupRole);
   }
 
+  async function signInDemo(role?: LastUsedAuthRole) {
+    const selectedRole = role ?? (
+      isLastUsedAuthRole(signupRole) ? signupRole : lastUsedAuthRole ?? 'student'
+    );
+    const email = DEMO_ACCOUNT_EMAILS[selectedRole];
+    setSignupRole(selectedRole);
+    setLoginEmail(email);
+    setLoginPassword(DEMO_ACCOUNT_PASSWORD);
+    await authenticateWithPassword(email, DEMO_ACCOUNT_PASSWORD, selectedRole);
+  }
+
   async function signUp(input?: OnboardingSignupInput) {
     setIsAuthenticating(true);
     setAuthError(null);
@@ -4421,6 +4442,7 @@ export function useKitabuApp() {
       openStudentPreview,
       exitStudentPreview,
       signIn,
+      signInDemo,
       signUp,
       completeProviderAuthentication,
       deleteAccount,

@@ -25,6 +25,8 @@ const ASSET_JS = '/site-20260704.js';
 const WA = (tag) => `https://wa.me/254716175485?text=I%27m%20interested%20in%20Kitabu%20AI%20%5B${tag}%5D`;
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa&amp;pcampaignid=web_share';
 const BRAND_ICON_URL = '/assets/kitabu-icon-bold-192.png?v=20260710';
+const ASTRA_QUEST_ASSET_PATH = '/assets/astra-quest';
+const astraQuestAsset = (filename) => `${ASTRA_QUEST_ASSET_PATH}/${filename}`;
 
 const storeBadges = (source, centered = false) => `
           <div class="store-badges${centered ? ' store-badges-centered' : ''}" aria-label="Get Kitabu AI">
@@ -48,6 +50,17 @@ const ORG_SCHEMA = {
   parentOrganization: { '@type': 'Organization', name: 'Jambo AI Studio' },
   email: 'hello@kitabu.ai',
   description: 'Kitabu AI is a patient personal tutor for Kenyan learners in Grade 4–10, built for the CBC (CBE) syllabus in English and Kiswahili, with a parent progress window.'
+};
+
+const ASTRA_QUEST_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Astra Quest LTD',
+  alternateName: 'Astra Quest',
+  url: 'https://kitabu.ai/about/astra-quest',
+  areaServed: 'East Africa',
+  knowsAbout: ['AI technology', 'automation services'],
+  description: 'A technology company providing AI technology and automation services, with products built for learning, entertainment, operations, and language.'
 };
 
 const breadcrumb = (items) => ({
@@ -132,6 +145,7 @@ const footer = () => `    <footer class="site-footer">
             <span>Kitabu AI</span>
           </a>
           <p class="footer-tagline">Kitabu AI — Mwalimu wa nyumbani. A personal tutor for every Kenyan child.</p>
+          <p class="footer-attribution">Kitabu AI is a product of <a href="/about/astra-quest/">Astra Quest LTD</a>.</p>
           <a href="${WA('site_footer')}">WhatsApp: +254 716 175 485</a>
           <a href="mailto:hello@kitabu.ai">hello@kitabu.ai</a>
         </div>
@@ -156,6 +170,7 @@ const footer = () => `    <footer class="site-footer">
         <div>
           <h3>Company</h3>
           <a href="/about/">About Kitabu AI</a>
+          <a href="/about/astra-quest/">Astra Quest LTD</a>
           <a href="/about/founder/">Founder</a>
           <a href="/safety/">Safety</a>
           <a href="/terms/">Terms</a>
@@ -717,6 +732,108 @@ pages.push({
         </div>
       </section>
 ${ctaSection('Meet your child’s mwalimu wa nyumbani.', 'about')}`
+});
+
+/* ---- /about/astra-quest ---- */
+pages.push({
+  path: 'about/astra-quest/index.html',
+  url: '/about/astra-quest',
+  crumbs: [['About', '/about'], ['Astra Quest LTD', '/about/astra-quest']],
+  title: 'Astra Quest LTD — Practical AI and Automation for East Africa',
+  desc: 'Astra Quest LTD is a technology company providing AI technology and automation services, with products including Kitabu AI, Ndiziflix, Mufasa OS, and Endabasia.',
+  kicker: 'Astra Quest LTD',
+  h1: 'Practical AI and automation for East Africa.',
+  lede: 'Astra Quest LTD is a technology company providing AI technology and automation services. We build products that make learning, entertainment, operations, and language technology more useful in everyday life.',
+  extraSchema: [ASTRA_QUEST_SCHEMA],
+  content: `
+      <section class="section section-tint-green">
+        <div class="container narrow">
+          <p class="section-kicker" data-reveal>What Astra Quest builds</p>
+          <h2 data-split>Useful technology, grounded in the people it serves.</h2>
+          <p data-reveal>Our work spans consumer products and internal systems, with a focus on practical AI, thoughtful automation, and services that fit East African contexts. Each product has a specific job: help a learner understand, help an audience find African stories, help a team operate with clarity, or help a language thrive in the age of AI.</p>
+        </div>
+      </section>
+      <section class="section section-stack">
+        <div class="container">
+          <div class="section-head center">
+            <p class="section-kicker" data-reveal>Our products</p>
+            <h2 data-split>Four products, four practical directions.</h2>
+          </div>
+          <div class="astra-products">
+            <article class="astra-product-card" data-reveal>
+              <div class="astra-product-artwork">
+                <img src="${astraQuestAsset('kitabu-product-artwork.png')}" alt="A Kenyan learner exploring a lesson on a tablet with a notebook open" width="1024" height="1536" loading="lazy" decoding="async" />
+              </div>
+              <div class="astra-product-copy">
+                <div class="astra-product-heading">
+                  <div class="astra-product-marks" aria-label="Kitabu brand marks">
+                    <img class="astra-product-logo" src="${astraQuestAsset('kitabu-logo.png')}" alt="Kitabu logo" width="64" height="64" loading="lazy" decoding="async" />
+                    <img class="astra-product-mascot" src="${astraQuestAsset('kitabu-learning-mascot-fox.png')}" alt="Kitabu learning mascot, a friendly orange fox" width="64" height="64" loading="lazy" decoding="async" />
+                  </div>
+                  <div>
+                    <p class="astra-product-type">Learning</p>
+                    <h3>Kitabu AI</h3>
+                  </div>
+                </div>
+                <p>Our AI-assisted CBC tutor for Kenyan learners in Grades 4–10. Kitabu supports lessons, quizzes, homework help, revision games, parent progress visibility, teacher workflows, and school support in English and Kiswahili, with M-Pesa subscriptions.</p>
+              </div>
+            </article>
+            <article class="astra-product-card" data-reveal style="--reveal-delay: 0.08s">
+              <div class="astra-product-artwork">
+                <img src="${astraQuestAsset('ndiziflix-product-artwork.png')}" alt="A Kenyan family watching an African film together at home" width="1024" height="1536" loading="lazy" decoding="async" />
+              </div>
+              <div class="astra-product-copy">
+                <div class="astra-product-heading">
+                  <img class="astra-product-logo" src="${astraQuestAsset('ndiziflix-logo.png')}" alt="Ndiziflix logo" width="64" height="64" loading="lazy" decoding="async" />
+                  <div>
+                    <p class="astra-product-type">Entertainment</p>
+                    <h3>Ndiziflix</h3>
+                  </div>
+                </div>
+                <p>An African movie and series streaming app for the Kenyan market. Ndiziflix covers movies and series from season to episode, trailers and voting, rental and full-series unlock flows, and M-Pesa-oriented payments.</p>
+              </div>
+            </article>
+            <article class="astra-product-card" data-reveal style="--reveal-delay: 0.16s">
+              <div class="astra-product-artwork">
+                <img src="${astraQuestAsset('mufasa-os-product-artwork.png')}" alt="A connected intelligence operations hub overlooking the African landscape" width="1024" height="1536" loading="lazy" decoding="async" />
+              </div>
+              <div class="astra-product-copy">
+                <div class="astra-product-heading">
+                  <div>
+                    <p class="astra-product-type">Operations</p>
+                    <h3>Mufasa OS</h3>
+                  </div>
+                </div>
+                <p>A personal intelligence OS and AI chief-of-staff for Jambo AI Studio. Its operations surfaces include briefs, approvals, CRM and acquisition, finance, integrations, governance, local-first intelligence, and auditable automation. Its production mission is Kitabu-focused, with product write-back intentionally frozen and read-only.</p>
+              </div>
+            </article>
+            <article class="astra-product-card" data-reveal style="--reveal-delay: 0.24s">
+              <div class="astra-product-artwork">
+                <img src="${astraQuestAsset('endabasia-product-artwork.png')}" alt="A community sharing stories and language around an open book" width="1024" height="1536" loading="lazy" decoding="async" />
+              </div>
+              <div class="astra-product-copy">
+                <div class="astra-product-heading">
+                  <div>
+                    <p class="astra-product-type">Language · In development</p>
+                    <h3>Endabasia</h3>
+                  </div>
+                </div>
+                <p>An Ekegusii language AI initiative and product family in development, built around a language model and corpus for translation and chat, alongside dictionary and cultural knowledge. Word games, book translation, content tools, and community-aware data stewardship are part of the planned direction, not claims about features already shipped.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section-dark section-stack">
+        <div class="container final-panel">
+          <h2 data-split>Building something practical with AI?</h2>
+          <p data-reveal>For questions about Kitabu AI, Astra Quest, or our technology and automation work, contact the team directly.</p>
+          <div class="hero-actions" style="justify-content: center" data-reveal>
+            <a class="button" href="mailto:hello@kitabu.ai">Email the team →</a>
+            <a class="button button-quiet" href="${WA('astra_quest')}">WhatsApp us →</a>
+          </div>
+        </div>
+      </section>`
 });
 
 /* ---- /about/founder ---- */

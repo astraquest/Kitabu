@@ -56,7 +56,7 @@ interface SpeechSynthesisRequest {
   language?: string;
 }
 
-interface LandingSpeechSynthesisRequest {
+interface PublicCueSpeechSynthesisRequest {
   cueId: string;
   voice: OnboardingVoiceName;
   language: string;
@@ -566,7 +566,7 @@ export async function synthesizeSpeech(
   return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid speech synthesis response');
 }
 
-export async function synthesizeLandingSpeech(
+export async function synthesizePublicCueSpeech(
   cueId: string,
   voiceName: OnboardingVoiceName,
   language = 'en',
@@ -574,7 +574,7 @@ export async function synthesizeLandingSpeech(
   const response = await fetchKitabuApi('/landing/synthesize-speech', {
     method: 'POST',
     headers: await buildKitabuRequestHeaders(undefined, false),
-    body: JSON.stringify({ cueId, voice: voiceName, language } satisfies LandingSpeechSynthesisRequest),
+    body: JSON.stringify({ cueId, voice: voiceName, language } satisfies PublicCueSpeechSynthesisRequest),
   });
 
   if (!response.ok) {

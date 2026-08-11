@@ -59,6 +59,7 @@ interface LoginScreenProps {
   onAcceptedTermsChange: (value: boolean) => void;
   onOptionalPhoneNumberChange: (value: string) => void;
   onAuthenticated: (session: AuthSession) => void;
+  onDemoLogin?: () => void | Promise<void>;
   onSubmit: () => void;
 }
 
@@ -121,6 +122,7 @@ export function LoginScreen({
   onAcceptedTermsChange,
   onOptionalPhoneNumberChange,
   onAuthenticated,
+  onDemoLogin: _onDemoLogin,
   onSubmit,
 }: LoginScreenProps) {
   const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
@@ -520,21 +522,24 @@ export function LoginScreen({
             {safeProviderError ? <Text style={styles.errorText}>{safeProviderError}</Text> : null}
             {providerState.message ? <Text style={styles.successText}>{providerState.message}</Text> : null}
 
-            <Pressable
-              accessibilityLabel={submitLabel}
-              disabled={isBusy}
-              onPress={handleEmailSubmit}
-              style={({ pressed }) => [
-                styles.submitButton,
-                pressed && styles.submitButtonPressed,
-                isBusy && styles.submitButtonDisabled,
-              ]}>
-              {isBusy ? (
-                <ActivityIndicator color="#FFFFFF" />
-              ) : (
-                <Text style={styles.submitButtonText}>{submitLabel}</Text>
-              )}
-            </Pressable>
+            <View style={styles.submitRow}>
+              <Pressable
+                accessibilityLabel={submitLabel}
+                disabled={isBusy}
+                onPress={handleEmailSubmit}
+                style={({ pressed }) => [
+                  styles.submitButton,
+                  mode === 'login' && styles.submitButtonInRow,
+                  pressed && styles.submitButtonPressed,
+                  isBusy && styles.submitButtonDisabled,
+                ]}>
+                {isBusy ? (
+                  <ActivityIndicator color="#FFFFFF" />
+                ) : (
+                  <Text style={styles.submitButtonText}>{submitLabel}</Text>
+                )}
+              </Pressable>
+            </View>
           </View>
           )}
 
@@ -1144,12 +1149,34 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 18,
   },
+  submitRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  demoButton: {
+    flex: 1,
+    minHeight: 48,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255,255,255,0.16)',
+    borderColor: 'rgba(255,255,255,0.38)',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  demoButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '800',
+  },
   submitButton: {
     minHeight: 48,
     borderRadius: 18,
     backgroundColor: '#0F172A',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  submitButtonInRow: {
+    flex: 1,
   },
   submitButtonPressed: {
     opacity: 0.9,

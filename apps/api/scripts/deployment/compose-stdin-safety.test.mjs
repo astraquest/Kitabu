@@ -26,3 +26,31 @@ test('Compose one-off commands used by the SSH deployment cannot consume its scr
     'deployment smoke checks must not let grep -q close a producer pipe under pipefail',
   );
 });
+
+test('deployment preserves server-local educational assets', async () => {
+  const workflow = await readFile(path.join(repositoryRoot, '.github', 'workflows', 'deploy-api.yml'), 'utf8');
+  assert.equal(
+    (workflow.match(/--exclude 'apps\/api\/var\/educational-assets\/'/g) ?? []).length,
+    2,
+    'both release-staging and production activation rsync commands must preserve runtime educational assets',
+  );
+});
+
+test('API and worker share the persistent local TTS volume', async () => {
+  const compose = await readFile(path.join(repositoryRoot, 'docker-compose.yml'), 'utf8');
+  const lines = compose.split(/\r?\n/);
+
+  const serviceBlock = serviceName => {
+    const start = lines.indexOf(`  ${serviceName}:`);
+    assert.notEqual(start, -1, `Compose must define the ${serviceName} service`);
+    const end = lines.findIndex((line, index) => index > start && /^  [a-zA-Z0-9_-]+:$/.test(line));
+    return lines.slice(start, end === -1 ? lines.length : end).join('\n');
+  };
+
+  const apiMount = serviceBlock('api').match(/^      - ([a-zA-Z0-9_-]+):\/app\/var\/tts-audio$/m);
+  const workerMount = serviceBlock('worker').match(/^      - ([a-zA-Z0-9_-]+):\/app\/var\/tts-audio$/m);
+  assert.ok(apiMount, 'API must mount TTS storage at /app/var/tts-audio');
+  assert.ok(workerMount, 'worker must mount TTS storage at /app/var/tts-audio');
+  assert.equal(apiMount[1], workerMount[1], 'API and worker must use the same TTS volume');
+  assert.match(compose, new RegExp(`^  ${apiMount[1]}:$`, 'm'), 'TTS volume must be declared at the Compose top level');
+});

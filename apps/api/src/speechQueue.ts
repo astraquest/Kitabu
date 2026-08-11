@@ -10,8 +10,10 @@ import {
   completeTtsJobWithStorage,
   enqueueTtsJob,
   getTtsArtifact,
+  getTtsJobForArtifact,
   releaseTtsJobPending,
   type TtsArtifactRecord,
+  type TtsJobRecord,
   withTransaction
 } from './repositories.js';
 import { LANDING_ONBOARDING_TTS_CUES } from './onboardingTts.js';
@@ -122,11 +124,47 @@ export interface OnboardingTtsPreparationDependencies {
   }) => Promise<unknown>;
 }
 
+export interface OnboardingTtsRepairDependencies {
+  getArtifact: (cacheKey: string) => Promise<TtsArtifactRecord | null>;
+  storage: TtsAssetStorage;
+  getJob?: (artifactId: string) => Promise<Pick<TtsJobRecord, 'status' | 'available_at'> | null>;
+  enqueue: (input: {
+    cacheKey: string;
+    normalizedText: string;
+    avatarVoice: string;
+    geminiVoice: string;
+    geminiModel: string;
+    language?: string;
+    provider?: 'cartesia' | 'gemini';
+    model?: string;
+    voice?: string;
+    repairReadyMissingStorage?: boolean;
+  }) => Promise<unknown>;
+}
+
 export interface OnboardingTtsPreparationResult {
   total: number;
   ready: number;
   enqueued: number;
   failed: number;
+}
+
+export interface OnboardingTtsRepairDependencies {
+  getArtifact: (cacheKey: string) => Promise<TtsArtifactRecord | null>;
+  storage: TtsAssetStorage;
+  getJob?: (artifactId: string) => Promise<Pick<TtsJobRecord, 'status' | 'available_at'> | null>;
+  enqueue: (input: {
+    cacheKey: string;
+    normalizedText: string;
+    avatarVoice: string;
+    geminiVoice: string;
+    geminiModel: string;
+    language?: string;
+    provider?: 'cartesia' | 'gemini';
+    model?: string;
+    voice?: string;
+    repairReadyMissingStorage?: boolean;
+  }) => Promise<unknown>;
 }
 
 export async function prepareOnboardingTts(
@@ -169,6 +207,87 @@ export async function prepareOnboardingTts(
   return result;
 }
 
+export interface OnboardingTtsRepairResult {
+  total: number;
+  ready: number;
+  present: number;
+  missing: number;
+  requeued: number;
+  failed: number;
+}
+
+function isClaimableTtsJob(job: Pick<TtsJobRecord, 'status' | 'available_at'> | null) {
+  return Boolean(
+    job?.status === 'pending' &&
+    new Date(job.available_at).getTime() <= Date.now()
+  );
+}
+
+/** Repair only missing storage-backed artifacts in the curated English catalog. */
+export async function repairMissingOnboardingTts(
+  dependencies: OnboardingTtsRepairDependencies = {
+    getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
+    storage: createTtsAssetStorage(),
+    getJob: artifactId => getTtsJobForArtifact(db, artifactId),
+    enqueue: input => withTransaction(client => enqueueTtsJob(client, input))
+  }
+): Promise<OnboardingTtsRepairResult> {
+  const result: OnboardingTtsRepairResult = { total: 0, ready: 0, present: 0, missing: 0, requeued: 0, failed: 0 };
+  for (const cue of LANDING_ONBOARDING_TTS_CUES) {
+    if ((cue.language ?? 'en') !== 'en') continue;
+    for (const avatarVoice of TTS_AVATAR_VOICES) {
+      result.total += 1;
+      const identity = buildTtsArtifactKey({ text: cue.text, language: 'en', voice: avatarVoice });
+      const existing = await dependencies.getArtifact(identity.cacheKey);
+      if (existing?.status !== 'ready' && existing?.status !== 'pending') continue;
+      if (existing.status === 'ready') result.ready += 1;
+
+      if (existing.audio_data?.length) {
+        result.present += 1;
+        continue;
+      }
+
+      const storageKey = existing.storage_key?.trim();
+      if (!storageKey) continue;
+      let storagePresent = false;
+      try {
+        storagePresent = (await dependencies.storage.read(storageKey)).byteLength > 0;
+      } catch {
+        storagePresent = false;
+      }
+      if (storagePresent) {
+        result.present += 1;
+        continue;
+      }
+
+      result.missing += 1;
+      if (existing.status === 'pending') {
+        const job = dependencies.getJob ? await dependencies.getJob(existing.id) : null;
+        if (isClaimableTtsJob(job) || job?.status === 'processing') continue;
+      }
+
+      try {
+        await dependencies.enqueue({
+          cacheKey: identity.cacheKey,
+          normalizedText: identity.normalizedText,
+          avatarVoice: identity.avatarVoice,
+          geminiVoice: GEMINI_TTS_VOICE_BY_AVATAR[avatarVoice],
+          geminiModel: appConfig.KITABU_GEMINI_TTS_MODEL,
+          language: 'en',
+          provider: 'cartesia',
+          model: appConfig.KITABU_CARTESIA_MODEL,
+          voice: avatarVoice,
+          repairReadyMissingStorage: true
+        });
+        result.requeued += 1;
+      } catch {
+        result.failed += 1;
+      }
+    }
+  }
+  return result;
+}
+
 export async function enqueueSpeechCues(
   texts: string[],
   source: string,
@@ -205,17 +324,23 @@ export interface DurableSpeechDependencies {
   getArtifact: (cacheKey: string) => Promise<TtsArtifactRecord | null>;
   synthesize: (input: { text: string; voice: string; language: string }) => Promise<TextToSpeechResult>;
   persist: (identity: TtsIdentity, generated: TextToSpeechResult) => Promise<void>;
+  storage?: TtsAssetStorage;
+  providers?: ReturnType<typeof createTtsProviders>;
+  repairReadyMissingStorage?: (identity: TtsIdentity) => Promise<void>;
 }
 
 async function readySpeechFromArtifact(artifact: TtsArtifactRecord | null, storage: TtsAssetStorage) {
-  if (!isReadyTtsArtifact(artifact)) return null;
-  const audio = artifact.audio_data?.length
-    ? artifact.audio_data
-    : artifact.storage_key
-      ? Buffer.from(await storage.read(artifact.storage_key))
-      : null;
-  if (!audio?.length) return null;
-  return {
+  if (!isReadyTtsArtifact(artifact)) return { audio: null, storageMissing: false };
+  let audio = artifact.audio_data?.length ? artifact.audio_data : null;
+  if (!audio && artifact.storage_key) {
+    try {
+      audio = Buffer.from(await storage.read(artifact.storage_key));
+    } catch {
+      return { audio: null, storageMissing: true };
+    }
+  }
+  if (!audio?.length) return { audio: null, storageMissing: Boolean(artifact.storage_key) };
+  return { audio: {
     base64Audio: audio.toString('base64'),
     mimeType: artifact.mime_type,
     model: artifact.model ?? artifact.gemini_model,
@@ -223,7 +348,7 @@ async function readySpeechFromArtifact(artifact: TtsArtifactRecord | null, stora
     provider: artifact.provider ?? 'gemini',
     durationMs: artifact.duration_ms,
     metadata: artifact.metadata
-  } satisfies TextToSpeechResult;
+  } satisfies TextToSpeechResult, storageMissing: false };
 }
 
 export type DurableSpeechResult = {
@@ -255,22 +380,44 @@ export async function getOrCreateDurableSpeech(
     pronunciationSettings: input.pronunciationSettings
   });
   const getArtifact = dependencies?.getArtifact ?? (cacheKey => getTtsArtifact(db, cacheKey));
-  const { storage, providers } = await getDefaultSpeechDependencies();
+  const defaults = await getDefaultSpeechDependencies();
+  const storage = dependencies?.storage ?? defaults.storage;
+  const providers = dependencies?.providers ?? defaults.providers;
   let existing = await getArtifact(identity.cacheKey);
-  let cachedAudio = await readySpeechFromArtifact(existing, storage);
-  if (cachedAudio) {
-    console.info('[tts] cache hit', { artifactKey: identity.cacheKey, provider: cachedAudio.provider ?? 'unknown' });
-    return { cacheHit: true, artifactKey: identity.cacheKey, audio: cachedAudio };
+  let readySpeech = await readySpeechFromArtifact(existing, storage);
+  if (readySpeech.audio) {
+    console.info('[tts] cache hit', { artifactKey: identity.cacheKey, provider: readySpeech.audio.provider ?? 'unknown' });
+    return { cacheHit: true, artifactKey: identity.cacheKey, audio: readySpeech.audio };
   }
 
   if (existing?.status === 'processing') {
     for (let attempt = 0; attempt < 5; attempt += 1) {
       await new Promise(resolve => setTimeout(resolve, 100));
       existing = await getArtifact(identity.cacheKey);
-      cachedAudio = await readySpeechFromArtifact(existing, storage);
-      if (cachedAudio) return { cacheHit: true, artifactKey: identity.cacheKey, audio: cachedAudio };
+      readySpeech = await readySpeechFromArtifact(existing, storage);
+      if (readySpeech.audio) return { cacheHit: true, artifactKey: identity.cacheKey, audio: readySpeech.audio };
     }
     return { cacheHit: false, artifactKey: identity.cacheKey, audio: null, pending: true };
+  }
+
+  if (existing?.status === 'ready' && readySpeech.storageMissing) {
+    if (dependencies?.repairReadyMissingStorage) {
+      await dependencies.repairReadyMissingStorage(identity);
+    } else {
+      await withTransaction(client => enqueueTtsJob(client, {
+        cacheKey: identity.cacheKey,
+        identityKey: identity.identityKey,
+        normalizedText: identity.normalizedText,
+        avatarVoice: identity.avatarVoice,
+        geminiVoice: GEMINI_TTS_VOICE_BY_AVATAR[identity.avatarVoice] ?? identity.avatarVoice,
+        geminiModel: appConfig.KITABU_GEMINI_TTS_MODEL,
+        language: identity.language,
+        provider: 'cartesia',
+        model: appConfig.KITABU_CARTESIA_MODEL,
+        voice: identity.avatarVoice,
+        repairReadyMissingStorage: true
+      }));
+    }
   }
 
   if (dependencies?.synthesize) {

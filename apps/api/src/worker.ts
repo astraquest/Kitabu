@@ -3,8 +3,10 @@ import { appConfig } from './config.js';
 import { fulfillDueAccountDeletionRequests, withTransaction } from './repositories.js';
 import { processGeminiTtsQueue, processTtsJobs } from './ttsWorker.js';
 import { processAssessmentTtsQueue } from './tts.js';
+import { repairMissingOnboardingTts } from './speechQueue.js';
 
 const ACCOUNT_DELETION_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
+const ONBOARDING_TTS_REPAIR_INTERVAL_MS = 15 * 60 * 1000;
 
 async function sweepDueAccountDeletions() {
   const deletedCount = await withTransaction(client => fulfillDueAccountDeletionRequests(client));
@@ -34,6 +36,24 @@ async function run() {
   }, ACCOUNT_DELETION_SWEEP_INTERVAL_MS);
 
   if (appConfig.KITABU_TTS_WORKER_ENABLED) {
+    const repairOnboardingTts = () => {
+      repairMissingOnboardingTts().then(result => {
+        console.info('[worker] checked curated onboarding TTS storage', result);
+      }).catch(error => {
+        console.error('[worker] curated onboarding TTS storage repair failed', {
+          message: error instanceof Error ? error.message : 'unknown'
+        });
+      });
+    };
+    await repairMissingOnboardingTts().then(result => {
+      console.info('[worker] checked curated onboarding TTS storage', result);
+    }).catch(error => {
+      console.error('[worker] curated onboarding TTS storage repair failed', {
+        message: error instanceof Error ? error.message : 'unknown'
+      });
+    });
+    setInterval(repairOnboardingTts, ONBOARDING_TTS_REPAIR_INTERVAL_MS);
+
     const processSpeechQueue = () => {
       processTtsJobs().then(result => {
         if (result.claimed > 0) console.info('[worker] processed TTS jobs', result);

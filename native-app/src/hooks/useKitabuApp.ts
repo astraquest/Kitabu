@@ -120,7 +120,8 @@ import {
   startWeeklyExam,
   submitWeeklyExam as submitWeeklyExamRequest,
 } from '../services/weeklyExamService';
-import { focusModeBridge } from '../services/nativeBridges';
+import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
+import { getLocalCalendarDateKey, requestDailyStudentWelcome } from '../services/dailyWelcomeService';
 import { loadJson, saveJson } from '../services/storage';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
@@ -706,6 +707,7 @@ export function useKitabuApp() {
   const externalPaymentsEnabled = areExternalPaymentsEnabled();
   const [isReady, setIsReady] = useState(false);
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
+  const authSessionRef = useRef<AuthSession | null>(null);
   const [authEntryScreen, setAuthEntryScreen] = useState<'intro' | 'auth'>('intro');
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [loginEmail, setLoginEmail] = useState('');
@@ -1024,12 +1026,19 @@ export function useKitabuApp() {
   }, [authSession, isStudentPreview, lastUsedAuthRole, replaceWith]);
 
   useEffect(() => {
+    authSessionRef.current = authSession;
+  }, [authSession]);
+
+  useEffect(() => {
     return subscribeToAuthSessionUpdates(session => {
       if (session) {
         setAuthSession(session);
         return;
       }
 
+      if (!authSessionRef.current) {
+        return;
+      }
       setAuthSession(null);
       setAuthEntryScreen('auth');
       setAuthMode('login');
@@ -1218,6 +1227,60 @@ export function useKitabuApp() {
       subscription.remove();
     };
   }, [handleIncomingLink]);
+
+  useEffect(() => {
+    const userId = authSession?.user.id;
+    if (
+      !isReady ||
+      !userId ||
+      isStudentPreview ||
+      !authSession?.user.roles.includes('student')
+    ) {
+      return undefined;
+    }
+
+    let mounted = true;
+    let attemptInFlight = false;
+    let pendingRetryCount = 0;
+    let scheduledRetry: ReturnType<typeof setTimeout> | undefined;
+    let completedForDate: string | null = null;
+    const attemptWelcomeCue = async () => {
+      const localDate = getLocalCalendarDateKey();
+      if (!mounted || attemptInFlight || completedForDate === localDate) return;
+      attemptInFlight = true;
+      try {
+        const welcome = await requestDailyStudentWelcome(localDate);
+        if (!mounted) return;
+        if (welcome.status === 'ready') {
+          await speechPlaybackBridge.playAudio(welcome.audio);
+          completedForDate = localDate;
+        } else if (welcome.status === 'pending' && pendingRetryCount < 2) {
+          pendingRetryCount += 1;
+          scheduledRetry = setTimeout(() => {
+            scheduledRetry = undefined;
+            attemptWelcomeCue().catch(() => undefined);
+          }, 1_000);
+        } else {
+          completedForDate = localDate;
+        }
+      } catch {
+        // Welcome speech is an enhancement and must never affect authentication.
+      } finally {
+        attemptInFlight = false;
+      }
+    };
+
+    attemptWelcomeCue().catch(() => undefined);
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') attemptWelcomeCue().catch(() => undefined);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.remove();
+      if (scheduledRetry) clearTimeout(scheduledRetry);
+    };
+  }, [authSession?.user.id, authSession?.user.roles, isReady, isStudentPreview]);
 
   useEffect(() => {
     if (isReady) {

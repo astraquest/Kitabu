@@ -3224,7 +3224,7 @@ export interface EducationalAssetRepositoryRecord {
   retrieved_at: Date;
   content_sha256: string;
   byte_size: number;
-  storage_backend: 'local' | 'http-put';
+  storage_backend: 'local' | 'http-put' | 'supabase';
   storage_key: string;
   production_status: EducationalAssetProductionStatus;
   usage_restriction: EducationalAssetUsageRestriction;
@@ -3477,7 +3477,7 @@ export interface CreateEducationalAssetInput extends EducationalAssetProvenanceM
   mimeType: string;
   contentSha256: string;
   byteSize: number;
-  storageBackend?: 'local' | 'http-put';
+  storageBackend?: 'local' | 'http-put' | 'supabase';
   storageKey: string;
   productionStatus?: EducationalAssetProductionStatus;
   usageRestriction?: EducationalAssetUsageRestriction;
@@ -4141,6 +4141,8 @@ export interface EnqueueTtsJobInput {
   learnerNeeded?: boolean;
   priority?: number;
   metadata?: Record<string, unknown>;
+  /** Reset only a ready storage-backed artifact after the caller verified its object is missing. */
+  repairReadyMissingStorage?: boolean;
 }
 
 const ttsArtifactColumns = `
@@ -4167,6 +4169,20 @@ export async function getTtsArtifact(client: MaybeClient, cacheKey: string): Pro
   return result.rows[0] ?? null;
 }
 
+export async function getTtsJobForArtifact(
+  client: MaybeClient,
+  artifactId: string
+): Promise<Pick<TtsJobRecord, 'status' | 'available_at'> | null> {
+  const result = await q<Pick<TtsJobRecord, 'status' | 'available_at'>>(
+    client,
+    `SELECT status, available_at
+     FROM tts_jobs
+     WHERE artifact_id = $1`,
+    [artifactId]
+  );
+  return result.rows[0] ?? null;
+}
+
 export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJobInput) {
   const identityKey = input.identityKey ?? input.cacheKey;
   const language = input.language ?? 'en';
@@ -4184,12 +4200,20 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        identity_key = EXCLUDED.identity_key,
        language = EXCLUDED.language,
        provider = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN EXCLUDED.provider
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
            THEN tts_artifacts.provider
          ELSE EXCLUDED.provider
        END,
        model = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN EXCLUDED.model
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
            THEN tts_artifacts.model
@@ -4201,14 +4225,26 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        gemini_voice = EXCLUDED.gemini_voice,
        gemini_model = EXCLUDED.gemini_model,
        status = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN 'pending'
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.status
          ELSE 'pending'
        END,
        error_message = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN NULL
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.error_message
          ELSE NULL
        END,
        next_retry_at = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN NOW()
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at
          ELSE NOW()
        END,
@@ -4217,7 +4253,7 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        metadata = EXCLUDED.metadata,
        updated_at = NOW()
      RETURNING ${ttsArtifactColumns}`,
-    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {})]
+    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}), input.repairReadyMissingStorage === true]
   );
   const artifact = artifactResult.rows[0];
   if (!artifact) {
@@ -4234,11 +4270,36 @@ export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInp
     `INSERT INTO tts_jobs (artifact_id, status, available_at, learner_needed, priority, metadata)
      VALUES ($1, 'pending', NOW(), $6, $7, $8::jsonb)
      ON CONFLICT (artifact_id) DO UPDATE SET
-       status = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.status ELSE 'pending' END,
-       available_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.available_at ELSE NOW() END,
-       last_error = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.last_error ELSE NULL END,
-       locked_at = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_at ELSE NULL END,
-       locked_by = CASE WHEN tts_jobs.status IN ('completed', 'processing') THEN tts_jobs.locked_by ELSE NULL END,
+       status = CASE
+         WHEN tts_jobs.status = 'processing' THEN tts_jobs.status
+         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN 'pending'
+         WHEN tts_jobs.status = 'completed' THEN tts_jobs.status
+         ELSE 'pending'
+       END,
+       available_at = CASE
+         WHEN tts_jobs.status = 'processing' THEN tts_jobs.available_at
+         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NOW()
+         WHEN tts_jobs.status = 'completed' THEN tts_jobs.available_at
+         ELSE NOW()
+       END,
+       last_error = CASE
+         WHEN tts_jobs.status = 'processing' THEN tts_jobs.last_error
+         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN tts_jobs.status = 'completed' THEN tts_jobs.last_error
+         ELSE NULL
+       END,
+       locked_at = CASE
+         WHEN tts_jobs.status = 'processing' THEN tts_jobs.locked_at
+         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN tts_jobs.status = 'completed' THEN tts_jobs.locked_at
+         ELSE NULL
+       END,
+       locked_by = CASE
+         WHEN tts_jobs.status = 'processing' THEN tts_jobs.locked_by
+         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN tts_jobs.status = 'completed' THEN tts_jobs.locked_by
+         ELSE NULL
+       END,
        learner_needed = EXCLUDED.learner_needed,
        priority = EXCLUDED.priority,
        metadata = EXCLUDED.metadata,
@@ -4251,7 +4312,7 @@ export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInp
        $6::boolean AS learner_needed, $7::int AS priority, $8::jsonb AS metadata`,
     [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel,
       input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}),
-      input.provider ?? 'gemini', input.language ?? 'en']
+      input.provider ?? 'gemini', input.language ?? 'en', input.repairReadyMissingStorage === true]
   );
   return { artifact, job: jobResult.rows[0] ?? null };
 }
@@ -6587,6 +6648,47 @@ export interface UserNarrationPreferenceRecord {
   selected_profile: 'Samora' | 'Barake' | 'Judith' | 'Bella';
   enabled: boolean;
   updated_at: Date;
+}
+
+export interface DailyStudentWelcomeDeliveryRecord {
+  user_id: string;
+  local_date: string;
+  welcome_text: string;
+  artifact_key: string;
+  voice: string;
+  delivered_at: Date;
+}
+
+export async function findDailyStudentWelcomeDelivery(userId: string, localDate: string) {
+  const result = await db.query<DailyStudentWelcomeDeliveryRecord>(
+    `SELECT user_id, local_date::text AS local_date, welcome_text, artifact_key, voice, delivered_at
+     FROM daily_student_welcome_deliveries
+     WHERE user_id = $1 AND local_date = $2::date`,
+    [userId, localDate]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function recordDailyStudentWelcomeDelivery(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    localDate: string;
+    welcomeText: string;
+    artifactKey: string;
+    voice: string;
+  }
+): Promise<boolean> {
+  const result = await q<{ user_id: string }>(
+    client,
+    `INSERT INTO daily_student_welcome_deliveries
+       (user_id, local_date, welcome_text, artifact_key, voice)
+     VALUES ($1, $2::date, $3, $4, $5)
+     ON CONFLICT (user_id, local_date) DO NOTHING
+     RETURNING user_id`,
+    [input.userId, input.localDate, input.welcomeText, input.artifactKey, input.voice]
+  );
+  return result.rowCount === 1;
 }
 
 export async function getUserNarrationPreference(userId: string) {

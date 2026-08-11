@@ -52,7 +52,42 @@ test('enqueue uses deterministic artifact/job conflict paths for idempotent retr
   assert.match(client.queries[0].text, /ON CONFLICT \(cache_key\)/);
   assert.match(client.queries[0].text, /status = 'pending' AND tts_artifacts\.provider IS NOT NULL/);
   assert.match(client.queries[0].text, /THEN tts_artifacts\.provider/);
+  assert.equal(client.queries[1].values.at(-1), false);
   assert.match(client.queries[1].text, /ON CONFLICT \(artifact_id\)/);
+});
+
+test('repair reset is guarded while normal enqueue preserves completed jobs', async () => {
+  const client = fakeClient(text => {
+    if (text.includes('INSERT INTO tts_artifacts')) {
+      return [{ id: 'artifact-1', status: 'pending' }];
+    }
+    return [{ id: 'job-1', artifact_id: 'artifact-1', status: 'pending' }];
+  });
+
+  await enqueueTtsJob(client, {
+    cacheKey: 'key-1', normalizedText: 'Prompt', avatarVoice: 'Barake', geminiVoice: 'Charon', geminiModel: 'tts-v1',
+    repairReadyMissingStorage: true
+  });
+  await enqueueTtsJob(client, {
+    cacheKey: 'key-1', normalizedText: 'Prompt', avatarVoice: 'Barake', geminiVoice: 'Charon', geminiModel: 'tts-v1'
+  });
+
+  const repairArtifactQuery = client.queries[0];
+  const repairJobQuery = client.queries[1];
+  const normalArtifactQuery = client.queries[2];
+  const normalJobQuery = client.queries[3];
+  for (const query of [repairArtifactQuery, normalArtifactQuery]) {
+    assert.match(query.text, /WHEN \$14::boolean AND tts_artifacts\.status = 'ready'/);
+  }
+  assert.equal(repairArtifactQuery.values.at(-1), true);
+  assert.equal(normalArtifactQuery.values.at(-1), false);
+  for (const query of [repairJobQuery, normalJobQuery]) {
+    assert.match(query.text, /WHEN \$11::boolean AND tts_jobs\.status IN \('completed', 'failed'\) THEN 'pending'/);
+    assert.match(query.text, /WHEN tts_jobs\.status = 'processing' THEN tts_jobs\.locked_by/);
+  }
+  assert.equal(repairJobQuery.values.at(-1), true);
+  assert.equal(normalJobQuery.values.at(-1), false);
+  assert.match(normalJobQuery.text, /WHEN tts_jobs\.status = 'completed' THEN tts_jobs\.status/);
 });
 
 test('claim, completion, and bounded failure use leases and retry timestamps', async () => {

@@ -21,6 +21,7 @@ supabase/.temp/
 
 apps/api/data/books/**
 apps/api/data/reference-library/**
+apps/api/var/educational-assets/
 
 *.log
 *.out.log
@@ -35,6 +36,9 @@ apps/api/data/reference-library/**
 !apps/web/assets/kitabu-icon-bold-512.png
 !apps/web/assets/kitabu-touch-icon-bold.png
 !apps/web/assets/google-play-badge.png
+!apps/web/assets/astra-quest/*.png
+!apps/web/assets/team/
+!apps/web/assets/team/*.png
 !native-app/src/assets/logo.png
 !native-app/src/assets/splashscreen.png
 !native-app/src/assets/mascot/

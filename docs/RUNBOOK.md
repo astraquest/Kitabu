@@ -17,6 +17,32 @@ npm.cmd run migrate -w apps/api
 
 Run migrations before deploying API code that depends on new tables or columns.
 
+### Assessment narration TTS migration boundary
+
+`072_tts_artifacts_jobs.sql` is the applied legacy TTS schema and remains immutable: its
+`tts_artifacts` and `tts_jobs` tables are owned by the legacy artifact worker. Assessment
+narration uses the shared `tts_assets` cache with its own `assessment_tts_jobs` and
+`assessment_tts_queue` tables; do not point assessment code or indexes at legacy `tts_jobs`.
+
+This repository changes `072_assessment_tts_cache.sql` in place only because the known local
+environment has not recorded that filename in `schema_migrations`. Before rollout, verify the
+target environment also has no `schema_migrations` entry for `072_assessment_tts_cache.sql` and
+that `072_tts_artifacts_jobs.sql` is recorded. If the assessment filename is already recorded,
+stop: do not alter its checksum or rename it; prepare a reviewed forward migration instead.
+
+Roll out in this order: verify the migration ledger prerequisite, apply the migration, verify
+`tts_assets`, `assessment_tts_jobs`, and `assessment_tts_queue`, then deploy the assessment
+narration API/worker code. The legacy artifact API and worker remain compatible throughout.
+
+Migration 045 is a transactionally executed cleanup that preserves only the supported operational
+test accounts `demoaccount@kitabu.ai` and `admin@kitabu.ai`; it fails closed if that two-account
+baseline is not present. Historical applied migrations can retain legacy test identities as audit
+evidence. In particular, the migration 071 integration fixture retains them solely to test historical
+account consolidation; they are not current runtime allowlist entries.
+The `test:integration:migrations` CI command runs an account-policy contract that blocks unsupported
+`@kitabu.ai` identities in current migration SQL and migration contract checks. Its explicit archival-only
+allowlist is limited to the applied historical migrations and the migration 071 consolidation fixture.
+
 ## Deployment
 
 ### Legal-page acceptance

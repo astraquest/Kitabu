@@ -69,6 +69,7 @@ const GENDER_OPTIONS: UserProfile['gender'][] = [
   'male',
   'female',
 ];
+const TEACHER_PORTAL_PROFILE_UI_ENABLED = false;
 
 type EditableField = 'grade' | 'gender' | 'school';
 
@@ -939,17 +940,12 @@ export function ProfileModal({
                   </Text>
                 </View>
               </Pressable>
-              <FocusModeProfileCard
-                active={focusModeActive}
-                isStarting={isStartingFocusMode}
-                onOpen={openLockModal}
-              />
             </View>
           </View>
 
-          {showTeacherPortalButton || showAdminPortalButton ? (
+          {showAdminPortalButton ? (
             <View style={styles.portalRow}>
-              {showTeacherPortalButton ? (
+              {TEACHER_PORTAL_PROFILE_UI_ENABLED && showTeacherPortalButton ? (
                 <Pressable
                   onPress={onOpenTeacher}
                   style={[styles.portalButton, styles.teacherPortalButton]}
@@ -1912,6 +1908,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   profileQuickActions: {
+    alignSelf: 'stretch',
     flexDirection: 'row',
     gap: 8,
   },

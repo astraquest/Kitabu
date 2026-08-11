@@ -114,20 +114,42 @@ afterEach(() => {
   });
 });
 
-test('shows Lock Phone controls in the student profile', () => {
+test('hides Lock Phone and Teachers Portal while keeping subscription available', () => {
   const onStartFocusMode = jest.fn();
   const onOpenFocusModeSettings = jest.fn();
-  const root = renderProfileModal({ onStartFocusMode, onOpenFocusModeSettings });
+  const onManageSubscription = jest.fn();
+  const root = renderProfileModal({
+    onStartFocusMode,
+    onOpenFocusModeSettings,
+    onManageSubscription,
+    showTeacherPortalButton: true,
+  });
 
-  expect(hasText(root, 'Lock Phone')).toBe(true);
+  expect(hasText(root, 'Lock Phone')).toBe(false);
+  expect(hasText(root, 'Teachers Portal')).toBe(false);
+  expect(hasText(root, 'Subscription Inactive')).toBe(true);
 
-  ReactTestRenderer.act(() => pressableWithText(root, 'Lock Phone').props.onPress());
-  expect(hasText(root, 'Set up phone lock')).toBe(true);
-  expect(hasTextContaining(root, 'Turn on Android App Pinning')).toBe(true);
-
-  ReactTestRenderer.act(() => pressableWithText(root, 'Open Settings').props.onPress());
-  expect(onOpenFocusModeSettings).toHaveBeenCalledTimes(1);
+  ReactTestRenderer.act(() =>
+    root.findByProps({ accessibilityLabel: 'Manage subscription' }).props.onPress(),
+  );
+  expect(onManageSubscription).toHaveBeenCalledTimes(1);
+  expect(onOpenFocusModeSettings).not.toHaveBeenCalled();
   expect(onStartFocusMode).not.toHaveBeenCalled();
+});
+
+test('keeps the Admin portal available without rendering Teachers Portal', () => {
+  const onOpenAdmin = jest.fn();
+  const root = renderProfileModal({
+    onOpenAdmin,
+    showAdminPortalButton: true,
+    showTeacherPortalButton: true,
+  });
+
+  expect(hasText(root, 'Teachers Portal')).toBe(false);
+  expect(hasText(root, 'Admin')).toBe(true);
+
+  ReactTestRenderer.act(() => pressableWithText(root, 'Admin').props.onPress());
+  expect(onOpenAdmin).toHaveBeenCalledTimes(1);
 });
 
 test('requires typed confirmation before requesting account deletion', async () => {

@@ -6,6 +6,8 @@ import { KitabuApp } from '../src/KitabuApp';
 import type { PublicSignupRole } from '../src/types/app';
 
 const mockUseKitabuApp = jest.fn();
+const mockIntroCarouselScreen = jest.fn((_props: unknown) => <Text>intro carousel</Text>);
+const mockLoginScreen = jest.fn((_props: unknown) => <Text>login screen</Text>);
 const mockStudentOnboardingScreen = jest.fn((_props: unknown) => <Text>onboarding signup</Text>);
 const runtimeGlobal = globalThis as typeof globalThis & {
   __DEV__?: boolean;
@@ -17,8 +19,16 @@ jest.mock('../src/hooks/useKitabuApp', () => ({
   useKitabuApp: () => mockUseKitabuApp(),
 }));
 
+jest.mock('../src/screens/IntroCarouselScreen', () => ({
+  IntroCarouselScreen: (props: unknown) => mockIntroCarouselScreen(props),
+}));
+
 jest.mock('../src/screens/StudentOnboardingScreen', () => ({
   StudentOnboardingScreen: (props: unknown) => mockStudentOnboardingScreen(props),
+}));
+
+jest.mock('../src/screens/LoginScreen', () => ({
+  LoginScreen: (props: unknown) => mockLoginScreen(props),
 }));
 
 function makeState(role: PublicSignupRole | null = null) {
@@ -27,7 +37,13 @@ function makeState(role: PublicSignupRole | null = null) {
     authSession: null,
     authEntryScreen: 'auth',
     authMode: 'signup',
+    loginEmail: '',
+    loginPassword: '',
+    signupFullName: '',
     signupRole: role,
+    lastUsedAuthRole: null,
+    acceptedTerms: false,
+    optionalPhoneNumber: '',
     isAuthenticating: false,
     authError: null,
     schoolsList: [],
@@ -49,6 +65,8 @@ function makeActions() {
     setAcceptedTerms: jest.fn(),
     setOptionalPhoneNumber: jest.fn(),
     completeProviderAuthentication: jest.fn(),
+    signIn: jest.fn(),
+    signInDemo: jest.fn(),
     submitAccountOnboarding: jest.fn(),
   };
 }
@@ -124,6 +142,59 @@ describe('KitabuApp signup onboarding wiring', () => {
         role: 'student',
         includeIntroChoices: true,
         collectSignupCredentials: true,
+      }),
+    );
+  });
+
+  test('routes the landing Create account CTA to signup while Sign in remains login', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({
+      state: {
+        ...makeState(null),
+        authEntryScreen: 'intro',
+        authMode: 'login',
+      },
+      actions,
+    });
+
+    await act(() => {
+      ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    const introProps = mockIntroCarouselScreen.mock.calls.at(-1)?.[0] as {
+      onCreateAccount: () => void;
+      onSignIn: () => void;
+    };
+    await act(() => {
+      introProps.onCreateAccount();
+    });
+    expect(actions.openSignupEntry).toHaveBeenCalledTimes(1);
+    expect(actions.openSignInEntry).not.toHaveBeenCalled();
+
+    await act(() => {
+      introProps.onSignIn();
+    });
+    expect(actions.openSignInEntry).toHaveBeenCalledTimes(1);
+  });
+
+  test('wires the demo login callback alongside the normal sign-in action', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({
+      state: {
+        ...makeState('teacher'),
+        authMode: 'login',
+      },
+      actions,
+    });
+
+    await act(() => {
+      ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockLoginScreen).toHaveBeenCalledWith(
+      expect.objectContaining({
+        onDemoLogin: actions.signInDemo,
+        onSubmit: actions.signIn,
       }),
     );
   });

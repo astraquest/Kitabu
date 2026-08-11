@@ -59,6 +59,7 @@ async function renderLogin(
       onAcceptedTermsChange={jest.fn()}
       onOptionalPhoneNumberChange={jest.fn()}
       onAuthenticated={onAuthenticated}
+      onDemoLogin={jest.fn()}
       onSubmit={jest.fn()}
       {...overrides}
     />);
@@ -153,10 +154,12 @@ test('tells a verified Google user to create a Kitabu account when none exists',
   expect(renderer.root.findByProps({ children: message })).toBeTruthy();
 });
 
-test('submits the normal login form and has no demo quick-login control', async () => {
+test('submits the normal login form and demo quick-login callback in login mode', async () => {
   const onSubmit = jest.fn();
+  const onDemoLogin = jest.fn();
   const { renderer } = await renderLogin(jest.fn(), {
     signupRole: 'student',
+    onDemoLogin,
     onSubmit,
   });
 
@@ -165,14 +168,31 @@ test('submits the normal login form and has no demo quick-login control', async 
   });
 
   expect(renderer.root.findByProps({ accessibilityLabel: 'Sign in' })).toBeTruthy();
-  expect(renderer.root.findAllByProps({ children: 'Demo Account' })).toHaveLength(0);
-  expect(renderer.root.findAllByProps({ accessibilityLabel: /demo account/i })).toHaveLength(0);
+  const demoButton = renderer.root.findByProps({ accessibilityLabel: 'Demo Account' });
+  expect(demoButton.props.disabled).toBe(false);
+
+  await act(async () => {
+    await demoButton.props.onPress();
+  });
+
+  expect(onDemoLogin).toHaveBeenCalledTimes(1);
 
   await act(async () => {
     renderer.root.findByProps({ accessibilityLabel: 'Sign in' }).props.onPress();
   });
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
+});
+
+test('does not show the demo quick-login control while signing up', async () => {
+  const { renderer } = await renderLogin(jest.fn(), {
+    mode: 'signup',
+    signupRole: 'parent',
+  });
+
+  await continueAsParent(renderer);
+
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Demo Account' })).toHaveLength(0);
 });
 
 test('signup role choices start unselected', async () => {

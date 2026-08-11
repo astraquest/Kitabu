@@ -1,32 +1,49 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
-import { playAudioPlayerWhenAllowed } from './audioPlayback';
 
 const landingSoundtrackAsset = require('../assets/landing-soundtrack.mp3');
 
 export const LANDING_SOUNDTRACK_VOLUME = 0.12;
 
-export function startLandingSoundtrack() {
+export function createLandingSoundtrack() {
   const player = createAudioPlayer(landingSoundtrackAsset, { downloadFirst: true });
   player.volume = LANDING_SOUNDTRACK_VOLUME;
   player.loop = true;
-  const cancelPendingPlay = playAudioPlayerWhenAllowed(player);
-
-  let stopped = false;
-  return () => {
-    if (stopped) return;
-    stopped = true;
-    cancelPendingPlay();
-    player.pause();
-    player.remove();
-  };
+  return player;
 }
 
-export function useLandingSoundtrack(enabled = true) {
+export function useLandingSoundtrack() {
+  const playerRef = useRef<AudioPlayer | null>(null);
+  const startedRef = useRef(false);
+  const [muted, setMuted] = useState(false);
+
   useEffect(() => {
-    if (!enabled) return undefined;
-    return startLandingSoundtrack();
-  }, [enabled]);
+    const player = createLandingSoundtrack();
+    playerRef.current = player;
+
+    return () => {
+      player.pause();
+      player.remove();
+      playerRef.current = null;
+    };
+  }, []);
+
+  const start = useCallback(() => {
+    if (startedRef.current || !playerRef.current) return;
+    startedRef.current = true;
+    playerRef.current.play();
+  }, []);
+
+  const toggleMuted = useCallback(() => {
+    setMuted(currentMuted => {
+      if (playerRef.current) {
+        playerRef.current.volume = currentMuted ? LANDING_SOUNDTRACK_VOLUME : 0;
+      }
+      return !currentMuted;
+    });
+  }, []);
+
+  return { muted, start, toggleMuted };
 }
 
 export type LandingSoundtrackPlayer = AudioPlayer;

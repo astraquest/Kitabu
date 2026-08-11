@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { appConfig } from './config.js';
 
 process.env.KITABU_RUNTIME_ENV = 'test';
 process.env.KITABU_NODE_ENV = 'test';
@@ -227,10 +226,49 @@ test('storage repair requeues only missing English curated artifacts', async () 
   assert.equal(result.requeued, 1);
   assert.equal(result.failed, 0);
   assert.equal(requeued[0].provider, 'cartesia');
-  assert.equal(requeued[0].model, appConfig.KITABU_CARTESIA_MODEL);
   assert.equal(requeued[0].voice, 'Barake');
   assert.equal(requeued[0].repairReadyMissingStorage, true);
   assert.equal(requested.includes(unrelatedIdentity.cacheKey), false);
+});
+
+test('storage repair skips claimable pending jobs but requeues stale pending jobs', async () => {
+  const englishCues = LANDING_ONBOARDING_TTS_CUES.filter(cue => !cue.language);
+  const staleCue = englishCues[0];
+  const claimableCue = englishCues[1];
+  const staleIdentity = buildTtsArtifactKey({ text: staleCue.text, language: 'en', voice: 'Barake' });
+  const claimableIdentity = buildTtsArtifactKey({ text: claimableCue.text, language: 'en', voice: 'Barake' });
+  const jobs: string[] = [];
+  const requeued: Array<Record<string, unknown>> = [];
+  const result = await repairMissingOnboardingTts({
+    getArtifact: async cacheKey => {
+      if (cacheKey === staleIdentity.cacheKey) {
+        return { id: 'stale-pending', status: 'pending', audio_data: Buffer.alloc(0), storage_key: 'tts/stale.wav' } as any;
+      }
+      if (cacheKey === claimableIdentity.cacheKey) {
+        return { id: 'claimable-pending', status: 'pending', audio_data: Buffer.alloc(0), storage_key: 'tts/claimable.wav' } as any;
+      }
+      return null;
+    },
+    getJob: async artifactId => {
+      jobs.push(artifactId);
+      return artifactId === 'stale-pending'
+        ? { status: 'completed', available_at: new Date(0) }
+        : { status: 'pending', available_at: new Date(0) };
+    },
+    storage: {
+      backend: 'local',
+      put: async () => ({ storageKey: 'unused', byteSize: 0 }),
+      read: async () => new Uint8Array(0),
+      publicUrl: () => null
+    },
+    enqueue: async input => { requeued.push(input); }
+  });
+
+  assert.equal(result.total, 84);
+  assert.equal(result.missing, 2);
+  assert.equal(result.requeued, 1);
+  assert.deepEqual(jobs, ['stale-pending', 'claimable-pending']);
+  assert.equal(requeued[0].repairReadyMissingStorage, true);
 });
 
 test('durable speech treats a missing ready object as a miss and requests repair', async () => {

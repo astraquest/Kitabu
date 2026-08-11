@@ -10,8 +10,10 @@ import {
   completeTtsJobWithStorage,
   enqueueTtsJob,
   getTtsArtifact,
+  getTtsJobForArtifact,
   releaseTtsJobPending,
   type TtsArtifactRecord,
+  type TtsJobRecord,
   withTransaction
 } from './repositories.js';
 import { LANDING_ONBOARDING_TTS_CUES } from './onboardingTts.js';
@@ -125,6 +127,7 @@ export interface OnboardingTtsPreparationDependencies {
 export interface OnboardingTtsRepairDependencies {
   getArtifact: (cacheKey: string) => Promise<TtsArtifactRecord | null>;
   storage: TtsAssetStorage;
+  getJob?: (artifactId: string) => Promise<Pick<TtsJobRecord, 'status' | 'available_at'> | null>;
   enqueue: (input: {
     cacheKey: string;
     normalizedText: string;
@@ -195,15 +198,19 @@ export interface OnboardingTtsRepairResult {
   failed: number;
 }
 
-/**
- * Repair only ready English landing/onboarding artifacts whose storage object
- * has been verified missing. Pending and non-storage-backed rows remain under
- * the normal preparation/worker paths.
- */
+function isClaimableTtsJob(job: Pick<TtsJobRecord, 'status' | 'available_at'> | null) {
+  return Boolean(
+    job?.status === 'pending' &&
+    new Date(job.available_at).getTime() <= Date.now()
+  );
+}
+
+/** Repair only missing storage-backed artifacts in the curated English catalog. */
 export async function repairMissingOnboardingTts(
   dependencies: OnboardingTtsRepairDependencies = {
     getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
     storage: createTtsAssetStorage(),
+    getJob: artifactId => getTtsJobForArtifact(db, artifactId),
     enqueue: input => withTransaction(client => enqueueTtsJob(client, input))
   }
 ): Promise<OnboardingTtsRepairResult> {
@@ -214,8 +221,8 @@ export async function repairMissingOnboardingTts(
       result.total += 1;
       const identity = buildTtsArtifactKey({ text: cue.text, language: 'en', voice: avatarVoice });
       const existing = await dependencies.getArtifact(identity.cacheKey);
-      if (existing?.status !== 'ready') continue;
-      result.ready += 1;
+      if (existing?.status !== 'ready' && existing?.status !== 'pending') continue;
+      if (existing.status === 'ready') result.ready += 1;
 
       if (existing.audio_data?.length) {
         result.present += 1;
@@ -236,6 +243,11 @@ export async function repairMissingOnboardingTts(
       }
 
       result.missing += 1;
+      if (existing.status === 'pending') {
+        const job = dependencies.getJob ? await dependencies.getJob(existing.id) : null;
+        if (isClaimableTtsJob(job) || job?.status === 'processing') continue;
+      }
+
       try {
         await dependencies.enqueue({
           cacheKey: identity.cacheKey,

@@ -52,7 +52,32 @@ test('enqueue uses deterministic artifact/job conflict paths for idempotent retr
   assert.match(client.queries[0].text, /ON CONFLICT \(cache_key\)/);
   assert.match(client.queries[0].text, /status = 'pending' AND tts_artifacts\.provider IS NOT NULL/);
   assert.match(client.queries[0].text, /THEN tts_artifacts\.provider/);
+  assert.equal(client.queries[0].values.at(-1), false);
   assert.match(client.queries[1].text, /ON CONFLICT \(artifact_id\)/);
+});
+
+test('ready-storage repair is guarded and updates only a verified missing storage-backed row', async () => {
+  const client = fakeClient(text => text.includes('INSERT INTO tts_artifacts')
+    ? [{ id: 'artifact-1', status: 'pending' }]
+    : [{ id: 'job-1', artifact_id: 'artifact-1', status: 'pending' }]);
+
+  await enqueueTtsJob(client, {
+    cacheKey: 'key-1',
+    normalizedText: 'Prompt',
+    avatarVoice: 'Barake',
+    geminiVoice: 'Charon',
+    geminiModel: 'gemini-v1',
+    provider: 'cartesia',
+    model: 'sonic-3',
+    voice: 'Barake',
+    repairReadyMissingStorage: true
+  });
+
+  const artifactQuery = client.queries[0];
+  assert.match(artifactQuery.text, /status = 'ready'/);
+  assert.match(artifactQuery.text, /octet_length\(tts_artifacts\.audio_data\)/);
+  assert.match(artifactQuery.text, /storage_key\), ''\) IS NOT NULL/);
+  assert.equal(artifactQuery.values.at(-1), true);
 });
 
 test('claim, completion, and bounded failure use leases and retry timestamps', async () => {

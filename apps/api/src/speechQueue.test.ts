@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { appConfig } from './config.js';
 
 process.env.KITABU_RUNTIME_ENV = 'test';
 process.env.KITABU_NODE_ENV = 'test';
@@ -16,6 +17,7 @@ const {
   isReadyTtsArtifact,
   normalizeSpokenText,
   prepareOnboardingTts,
+  repairMissingOnboardingTts,
   spokenCuesFromQuestions,
   TTS_AVATAR_VOICES
 } =
@@ -178,4 +180,91 @@ test('onboarding preparation reads ready artifacts before enqueueing and is idem
     mime_type: 'audio/wav',
     content_hash: 'hash'
   } as any), false);
+});
+
+test('storage repair requeues only missing English curated artifacts', async () => {
+  const targetCue = LANDING_ONBOARDING_TTS_CUES.find(cue => !cue.language)!;
+  const targetIdentity = buildTtsArtifactKey({ text: targetCue.text, language: 'en', voice: 'Barake' });
+  const unrelatedIdentity = buildTtsArtifactKey({ text: 'Legacy unrelated cue', language: 'en', voice: 'Barake' });
+  const requested: string[] = [];
+  const requeued: Array<Record<string, unknown>> = [];
+  const result = await repairMissingOnboardingTts({
+    getArtifact: async cacheKey => {
+      requested.push(cacheKey);
+      if (cacheKey === targetIdentity.cacheKey) {
+        return {
+          status: 'ready',
+          audio_data: Buffer.alloc(0),
+          storage_key: 'tts/missing.wav',
+          mime_type: 'audio/wav',
+          content_hash: 'hash'
+        } as any;
+      }
+      if (cacheKey === unrelatedIdentity.cacheKey) {
+        return {
+          status: 'ready',
+          audio_data: Buffer.alloc(0),
+          storage_key: 'tts/unrelated.wav',
+          mime_type: 'audio/wav',
+          content_hash: 'hash'
+        } as any;
+      }
+      return null;
+    },
+    storage: {
+      backend: 'local',
+      put: async () => ({ storageKey: 'unused', byteSize: 0 }),
+      read: async () => new Uint8Array(0),
+      publicUrl: () => null
+    },
+    enqueue: async input => { requeued.push(input); }
+  });
+
+  assert.equal(result.total, 84);
+  assert.equal(result.ready, 1);
+  assert.equal(result.present, 0);
+  assert.equal(result.missing, 1);
+  assert.equal(result.requeued, 1);
+  assert.equal(result.failed, 0);
+  assert.equal(requeued[0].provider, 'cartesia');
+  assert.equal(requeued[0].model, appConfig.KITABU_CARTESIA_MODEL);
+  assert.equal(requeued[0].voice, 'Barake');
+  assert.equal(requeued[0].repairReadyMissingStorage, true);
+  assert.equal(requested.includes(unrelatedIdentity.cacheKey), false);
+});
+
+test('durable speech treats a missing ready object as a miss and requests repair', async () => {
+  const readyArtifact = {
+    status: 'ready',
+    audio_data: Buffer.alloc(0),
+    storage_key: 'tts/missing.wav',
+    mime_type: 'audio/wav',
+    content_hash: 'hash',
+    gemini_model: 'tts-v1',
+    gemini_voice: 'Puck'
+  } as any;
+  let repaired = 0;
+  let synthesized = 0;
+  const result = await getOrCreateDurableSpeech(
+    { text: 'Missing storage cue', avatarVoice: 'Samora' },
+    {
+      getArtifact: async () => readyArtifact,
+      storage: {
+        backend: 'local',
+        put: async () => ({ storageKey: 'unused', byteSize: 0 }),
+        read: async () => { throw new Error('missing'); },
+        publicUrl: () => null
+      },
+      repairReadyMissingStorage: async () => { repaired += 1; },
+      synthesize: async () => {
+        synthesized += 1;
+        return { base64Audio: Buffer.from([1]).toString('base64'), mimeType: 'audio/wav', model: 'tts-v1', voice: 'Puck' };
+      },
+      persist: async () => undefined
+    }
+  );
+  assert.equal(result.cacheHit, false);
+  assert.equal(result.audio?.base64Audio, Buffer.from([1]).toString('base64'));
+  assert.equal(repaired, 1);
+  assert.equal(synthesized, 1);
 });

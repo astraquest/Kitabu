@@ -4141,6 +4141,8 @@ export interface EnqueueTtsJobInput {
   learnerNeeded?: boolean;
   priority?: number;
   metadata?: Record<string, unknown>;
+  /** Reset only a ready storage-backed artifact after the caller verified its object is missing. */
+  repairReadyMissingStorage?: boolean;
 }
 
 const ttsArtifactColumns = `
@@ -4184,12 +4186,20 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        identity_key = EXCLUDED.identity_key,
        language = EXCLUDED.language,
        provider = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN EXCLUDED.provider
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
            THEN tts_artifacts.provider
          ELSE EXCLUDED.provider
        END,
        model = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN EXCLUDED.model
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
            THEN tts_artifacts.model
@@ -4201,14 +4211,26 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        gemini_voice = EXCLUDED.gemini_voice,
        gemini_model = EXCLUDED.gemini_model,
        status = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN 'pending'
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.status
          ELSE 'pending'
        END,
        error_message = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN NULL
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.error_message
          ELSE NULL
        END,
        next_retry_at = CASE
+         WHEN $14::boolean AND tts_artifacts.status = 'ready'
+           AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
+           AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN NOW()
          WHEN tts_artifacts.status IN ('ready', 'processing') THEN tts_artifacts.next_retry_at
          ELSE NOW()
        END,
@@ -4217,7 +4239,7 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        metadata = EXCLUDED.metadata,
        updated_at = NOW()
      RETURNING ${ttsArtifactColumns}`,
-    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {})]
+    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}), input.repairReadyMissingStorage === true]
   );
   const artifact = artifactResult.rows[0];
   if (!artifact) {

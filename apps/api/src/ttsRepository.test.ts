@@ -72,8 +72,15 @@ test('repair reset is guarded while normal enqueue preserves completed jobs', as
     cacheKey: 'key-1', normalizedText: 'Prompt', avatarVoice: 'Barake', geminiVoice: 'Charon', geminiModel: 'tts-v1'
   });
 
+  const repairArtifactQuery = client.queries[0];
   const repairJobQuery = client.queries[1];
+  const normalArtifactQuery = client.queries[2];
   const normalJobQuery = client.queries[3];
+  for (const query of [repairArtifactQuery, normalArtifactQuery]) {
+    assert.match(query.text, /WHEN \$14::boolean AND tts_artifacts\.status = 'ready'/);
+  }
+  assert.equal(repairArtifactQuery.values.at(-1), true);
+  assert.equal(normalArtifactQuery.values.at(-1), false);
   for (const query of [repairJobQuery, normalJobQuery]) {
     assert.match(query.text, /WHEN \$11::boolean AND tts_jobs\.status IN \('completed', 'failed'\) THEN 'pending'/);
     assert.match(query.text, /WHEN tts_jobs\.status = 'processing' THEN tts_jobs\.locked_by/);

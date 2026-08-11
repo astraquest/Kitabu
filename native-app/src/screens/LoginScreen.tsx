@@ -59,7 +59,7 @@ interface LoginScreenProps {
   onAcceptedTermsChange: (value: boolean) => void;
   onOptionalPhoneNumberChange: (value: string) => void;
   onAuthenticated: (session: AuthSession) => void;
-  onDemoLogin?: () => void | Promise<void>;
+  onDemoLogin: () => void | Promise<void>;
   onSubmit: () => void;
 }
 
@@ -122,7 +122,7 @@ export function LoginScreen({
   onAcceptedTermsChange,
   onOptionalPhoneNumberChange,
   onAuthenticated,
-  onDemoLogin: _onDemoLogin,
+  onDemoLogin,
   onSubmit,
 }: LoginScreenProps) {
   const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
@@ -523,6 +523,21 @@ export function LoginScreen({
             {providerState.message ? <Text style={styles.successText}>{providerState.message}</Text> : null}
 
             <View style={styles.submitRow}>
+              {mode === 'login' ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Demo Account"
+                  disabled={isBusy}
+                  onPress={onDemoLogin}
+                  style={({ pressed }) => [
+                    styles.demoButton,
+                    pressed && styles.submitButtonPressed,
+                    isBusy && styles.submitButtonDisabled,
+                  ]}>
+                  <Text style={styles.demoButtonText}>Demo Account</Text>
+                </Pressable>
+              ) : null}
+
               <Pressable
                 accessibilityLabel={submitLabel}
                 disabled={isBusy}

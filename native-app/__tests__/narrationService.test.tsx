@@ -98,9 +98,9 @@ test('primary instruction carries the public catalog request metadata', () => {
     'role-0',
     'Who are you?',
     'Samora',
-    { language: 'en', landingCueId: 'onboarding-role' },
+    { language: 'en', publicCueId: 'onboarding-role' },
   )).toMatchObject({
     language: 'en',
-    landingCueId: 'onboarding-role',
+    publicCueId: 'onboarding-role',
   });
 });

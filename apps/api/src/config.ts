@@ -114,7 +114,7 @@ const configSchema = z.object({
   KITABU_CARTESIA_MAX_DAILY_CHARACTERS: z.coerce.number().int().nonnegative().default(0),
   KITABU_CARTESIA_MAX_MONTHLY_CHARACTERS: z.coerce.number().int().nonnegative().default(0),
   KITABU_CARTESIA_MAX_CONCURRENCY: z.coerce.number().int().positive().default(2),
-  KITABU_TTS_STORAGE_BACKEND: z.enum(['local', 'http-put']).default('local'),
+  KITABU_TTS_STORAGE_BACKEND: z.enum(['local', 'http-put', 'supabase']).default('local'),
   KITABU_TTS_STORAGE_ROOT: z.string().default('./var/tts-audio'),
   KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT: z.string().default('./var/educational-assets'),
   KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),

@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const WEB = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ASSET_CSS = '/styles-20260710.css';
+const ASSET_CSS = '/styles-20260811.css';
 const ASSET_JS = '/site-20260704.js';
 const WA = (tag) => `https://wa.me/254716175485?text=I%27m%20interested%20in%20Kitabu%20AI%20%5B${tag}%5D`;
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa&amp;pcampaignid=web_share';
@@ -729,6 +729,40 @@ pages.push({
           <h2>What we believe</h2>
           <p>Every child deserves a teacher who never gets tired of explaining. One teacher with 50 children cannot give every child the second, patient explanation they sometimes need — and no parent should discover a problem for the first time on a report card. Kitabu exists to close both gaps.</p>
           <p class="article-meta">Last updated 10 July 2026</p>
+        </div>
+      </section>
+
+      <section class="section section-tint-green team-section" aria-labelledby="team-heading">
+        <div class="container">
+          <div class="section-head team-section-head">
+            <p class="section-kicker" data-reveal>The people behind Kitabu</p>
+            <h2 id="team-heading" data-split>The Team</h2>
+            <p data-reveal>Kitabu is led by people building for Kenyan learners and families with care, clarity, and a close eye on the work.</p>
+          </div>
+          <div class="team-grid">
+            <article class="team-card" data-reveal>
+              <figure class="team-portrait">
+                <img src="/assets/team/jeremiah-barake.png" alt="Portrait of Jeremiah Barake, CEO of Kitabu" width="640" height="640" loading="lazy" decoding="async" />
+              </figure>
+              <div class="team-card-body">
+                <p class="team-role">CEO, Kitabu</p>
+                <h3>Jeremiah Barake</h3>
+                <p>Jeremiah leads Kitabu as its CEO. He is also identified publicly as the Founder &amp; CEO of BAFA Services &amp; Engineering.</p>
+                <a class="team-source" href="https://bafaservices.co.ke/?page_id=2266" target="_blank" rel="noopener noreferrer">Background <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="team-card" data-reveal>
+              <figure class="team-portrait">
+                <img src="/assets/team/samora-kibagendi.png" alt="Portrait of Samora Kibagendi, CTO of Kitabu" width="1280" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="team-card-body">
+                <p class="team-role">CTO, Kitabu</p>
+                <h3>Samora Kibagendi</h3>
+                <p>Samora is the founder of Kitabu AI and Jambo AI Studio. He is a Kenyan filmmaker and technology entrepreneur whose work includes <em>Hadisi</em> and earlier 254 Films/NDIZI TV work.</p>
+                <a class="team-source" href="https://meetthetalent.wordpress.com/2016/11/04/meet-samora-kibagendi/" target="_blank" rel="noopener noreferrer">Background <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 ${ctaSection('Meet your child’s mwalimu wa nyumbani.', 'about')}`

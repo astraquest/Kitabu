@@ -2055,6 +2055,7 @@ export function StudentOnboardingScreen({
   const [reminderEnabled, setReminderEnabled] = useState(!includeIntroChoices);
   const [isRequestingReminderPermission, setIsRequestingReminderPermission] = useState(false);
   const [isRequestingMicrophonePermission, setIsRequestingMicrophonePermission] = useState(false);
+  const [narrationTrigger, setNarrationTrigger] = useState<string | null>(null);
   const [preparedMpesaPhoneNumber, setPreparedMpesaPhoneNumber] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [gender, setGender] = useState<GenderOption | null>(includeIntroChoices ? null : 'not_specified');
@@ -2944,9 +2945,13 @@ export function StudentOnboardingScreen({
     `${introStep}-${step}`,
     headerTitle,
     onboardingVoiceName,
-    landingCueId ? { language: 'en', landingCueId } : undefined,
+    landingCueId ? { language: 'en', publicCueId: landingCueId } : undefined,
   );
-  useGuidedNarration(narrationCue, Boolean(headerTitle));
+  useGuidedNarration(
+    narrationCue,
+    Boolean(headerTitle),
+    narrationTrigger,
+  );
   const headerBody =
     introStep === 'language'
       ? 'Start with the language that feels most natural. You can still learn across Kiswahili and English content.'
@@ -4530,6 +4535,7 @@ export function StudentOnboardingScreen({
     const option = LANGUAGE_OPTIONS.find(item => item.code === value);
     trackOnboardingSelection('language', value, option?.label ?? value);
     if (includeIntroChoices) {
+      setNarrationTrigger('primary-instruction:student-onboarding:mascot-0');
       scheduleAutoAdvance(() => setIntroStep('mascot'));
     }
   }
@@ -8595,6 +8601,19 @@ export function StudentOnboardingScreen({
                       return;
                     }
                     handleContinue();
+                  }}
+                  style={styles.skipGhostButton}>
+                  <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>
+                </Pressable>
+              ) : null}
+              {includeIntroChoices && introStep === 'microphone' ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Skip microphone permission"
+                  disabled={isSubmitting || isRequestingMicrophonePermission}
+                  onPress={() => {
+                    trackOnboardingEvent('skip', 'microphone', 'permission');
+                    setIntroStep('need');
                   }}
                   style={styles.skipGhostButton}>
                   <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>

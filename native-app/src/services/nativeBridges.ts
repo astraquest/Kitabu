@@ -12,10 +12,11 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as ImagePicker from 'expo-image-picker';
 import { Linking, NativeModules, Platform } from 'react-native';
 
-import { extractCurriculumFromPdfData, synthesizeLandingSpeech, synthesizeSpeech, transcribeAudio } from './aiService';
+import { extractCurriculumFromPdfData, synthesizePublicCueSpeech, synthesizeSpeech, transcribeAudio } from './aiService';
 import { playAudioPlayerWhenAllowed } from './audioPlayback';
 import { getStudentWelcomeSpeech } from './studentWelcomeService';
 import { Attachment, LearningStrand, OnboardingVoiceName } from '../types/app';
+import type { SpeechSynthesisPayload } from './aiService';
 
 export type NativeBridgeState = 'simulated' | 'expo_native';
 
@@ -52,6 +53,7 @@ export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
   speak: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
   speakQueued: (text: string, options?: SpeechPlaybackOptions) => Promise<void>;
+  playAudio: (speech: SpeechSynthesisPayload) => Promise<boolean>;
   playWelcome: () => Promise<boolean>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
@@ -130,8 +132,8 @@ async function playServerSpeech(
 ): Promise<boolean> {
   const speech = options?.welcomeCue
     ? (await getStudentWelcomeSpeech()).audio
-    : options?.landingCueId
-    ? await synthesizeLandingSpeech(options.landingCueId, options.voiceName!, options.language)
+    : options?.publicCueId
+    ? await synthesizePublicCueSpeech(options.publicCueId, options.voiceName!, options.language)
     : options?.language
       ? await synthesizeSpeech(text, options.voiceName, options.language)
       : await synthesizeSpeech(text, options?.voiceName);
@@ -150,10 +152,31 @@ async function playServerSpeech(
   return true;
 }
 
+async function playSpeechAudio(
+  speech: SpeechSynthesisPayload,
+  isCurrent: () => boolean,
+): Promise<boolean> {
+  if (!speech.base64Audio.trim() || !speech.mimeType.trim() || !isCurrent()) {
+    return false;
+  }
+  const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
+  const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
+  await FileSystem.writeAsStringAsync(uri, speech.base64Audio, {
+    encoding: FileSystem.EncodingType.Base64,
+  });
+  if (!isCurrent()) {
+    return false;
+  }
+  speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
+  cancelPendingSpeechPlay?.();
+  cancelPendingSpeechPlay = playAudioPlayerWhenAllowed(speechAudioPlayer);
+  return true;
+}
+
 interface SpeechPlaybackOptions {
   voiceName?: OnboardingVoiceName;
   language?: string;
-  landingCueId?: string;
+  publicCueId?: string;
   welcomeCue?: boolean;
 }
 
@@ -645,6 +668,13 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
       await playServerSpeech(text, options, () => speechQueueGeneration === generation);
     });
     return speechQueue;
+  },
+  async playAudio(speech) {
+    speechQueueGeneration += 1;
+    speechQueue = Promise.resolve();
+    await this.stop();
+    const generation = speechQueueGeneration;
+    return playSpeechAudio(speech, () => speechQueueGeneration === generation);
   },
   async playWelcome() {
     speechQueueGeneration += 1;

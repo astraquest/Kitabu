@@ -121,11 +121,7 @@ import {
   submitWeeklyExam as submitWeeklyExamRequest,
 } from '../services/weeklyExamService';
 import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
-import {
-  localCalendarDay,
-  shouldPlayStudentWelcomeCue,
-  STUDENT_WELCOME_PLAYED_DAY_STORAGE_KEY,
-} from '../services/studentWelcomeCue';
+import { getLocalCalendarDateKey, requestDailyStudentWelcome } from '../services/dailyWelcomeService';
 import { loadJson, saveJson } from '../services/storage';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
@@ -186,8 +182,13 @@ import {
   SchoolDiscount,
 } from '../types/app';
 
-const DEMO_ACCOUNT_EMAIL = 'demoaccount@kitabu.ai';
-type LastUsedAuthRole = 'student' | 'teacher' | 'parent';
+const DEMO_ACCOUNT_PASSWORD = 'Password123!';
+const DEMO_ACCOUNT_EMAILS = {
+  student: 'student@kitabu.ai',
+  teacher: 'teacher@kitabu.ai',
+  parent: 'parent@kitabu.ai',
+} as const;
+type LastUsedAuthRole = keyof typeof DEMO_ACCOUNT_EMAILS;
 const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
@@ -195,7 +196,6 @@ const STORAGE_KEYS = {
   optionalPhoneNumber: 'kitabu_optional_phone_number',
   tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
   focusMode: 'kitabu_focus_mode',
-  studentWelcomePlayedDay: STUDENT_WELCOME_PLAYED_DAY_STORAGE_KEY,
   downloadedBooks: 'kitabu_downloaded_books',
   onboardingPreferences: 'kitabu_onboarding_preferences',
 };
@@ -712,6 +712,7 @@ export function useKitabuApp() {
   const externalPaymentsEnabled = areExternalPaymentsEnabled();
   const [isReady, setIsReady] = useState(false);
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
+  const authSessionRef = useRef<AuthSession | null>(null);
   const [authEntryScreen, setAuthEntryScreen] = useState<'intro' | 'auth'>('intro');
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [loginEmail, setLoginEmail] = useState('');
@@ -1030,12 +1031,19 @@ export function useKitabuApp() {
   }, [authSession, isStudentPreview, lastUsedAuthRole, replaceWith]);
 
   useEffect(() => {
+    authSessionRef.current = authSession;
+  }, [authSession]);
+
+  useEffect(() => {
     return subscribeToAuthSessionUpdates(session => {
       if (session) {
         setAuthSession(session);
         return;
       }
 
+      if (!authSessionRef.current) {
+        return;
+      }
       setAuthSession(null);
       setAuthEntryScreen('auth');
       setAuthMode('login');
@@ -1238,24 +1246,27 @@ export function useKitabuApp() {
 
     let mounted = true;
     let attemptInFlight = false;
+    let pendingRetryCount = 0;
+    let scheduledRetry: ReturnType<typeof setTimeout> | undefined;
+    let completedForDate: string | null = null;
     const attemptWelcomeCue = async () => {
-      if (!mounted || attemptInFlight) return;
+      const localDate = getLocalCalendarDateKey();
+      if (!mounted || attemptInFlight || completedForDate === localDate) return;
       attemptInFlight = true;
       try {
-        const now = new Date();
-        const today = localCalendarDay(now);
-        const playedByUser = await loadJson<Record<string, string>>(
-          STORAGE_KEYS.studentWelcomePlayedDay,
-          {},
-        );
-        if (!shouldPlayStudentWelcomeCue(playedByUser[userId], now)) return;
-
-        const played = await speechPlaybackBridge.playWelcome();
-        if (played && mounted) {
-          await saveJson(STORAGE_KEYS.studentWelcomePlayedDay, {
-            ...playedByUser,
-            [userId]: today,
-          });
+        const welcome = await requestDailyStudentWelcome(localDate);
+        if (!mounted) return;
+        if (welcome.status === 'ready') {
+          await speechPlaybackBridge.playAudio(welcome.audio);
+          completedForDate = localDate;
+        } else if (welcome.status === 'pending' && pendingRetryCount < 2) {
+          pendingRetryCount += 1;
+          scheduledRetry = setTimeout(() => {
+            scheduledRetry = undefined;
+            attemptWelcomeCue().catch(() => undefined);
+          }, 1_000);
+        } else {
+          completedForDate = localDate;
         }
       } catch {
         // Welcome speech is an enhancement and must never affect authentication.
@@ -1264,9 +1275,7 @@ export function useKitabuApp() {
       }
     };
 
-    if (AppState.currentState === 'active') {
-      attemptWelcomeCue().catch(() => undefined);
-    }
+    attemptWelcomeCue().catch(() => undefined);
     const subscription = AppState.addEventListener('change', nextState => {
       if (nextState === 'active') attemptWelcomeCue().catch(() => undefined);
     });
@@ -1274,6 +1283,7 @@ export function useKitabuApp() {
     return () => {
       mounted = false;
       subscription.remove();
+      if (scheduledRetry) clearTimeout(scheduledRetry);
     };
   }, [authSession?.user.id, authSession?.user.roles, isReady, isStudentPreview]);
 
@@ -1646,7 +1656,12 @@ export function useKitabuApp() {
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
   const canOpenAdminPortal = isAdminRole(roles) || isKnownAdminAccount;
   const isDemoAccount =
-    authSession?.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL;
+    Boolean(
+      authSession &&
+        Object.values(DEMO_ACCOUNT_EMAILS).includes(
+          authSession.user.email.trim().toLowerCase() as typeof DEMO_ACCOUNT_EMAILS[LastUsedAuthRole],
+        ),
+    );
   const isDemoStudentAccount = Boolean(isDemoAccount && roles.includes('student'));
   const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
   const selectedHomeView = getHomeViewForRequestedRole(
@@ -1811,7 +1826,7 @@ export function useKitabuApp() {
     }
 
     const isDemoParent =
-      authSession.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAIL &&
+      authSession.user.email.trim().toLowerCase() === DEMO_ACCOUNT_EMAILS.parent &&
       authSession.user.roles.includes('parent');
     setIsLoadingParentDashboard(true);
     try {
@@ -3256,6 +3271,17 @@ export function useKitabuApp() {
     await authenticateWithPassword(loginEmail, loginPassword, signupRole);
   }
 
+  async function signInDemo(role?: LastUsedAuthRole) {
+    const selectedRole = role ?? (
+      isLastUsedAuthRole(signupRole) ? signupRole : lastUsedAuthRole ?? 'student'
+    );
+    const email = DEMO_ACCOUNT_EMAILS[selectedRole];
+    setSignupRole(selectedRole);
+    setLoginEmail(email);
+    setLoginPassword(DEMO_ACCOUNT_PASSWORD);
+    await authenticateWithPassword(email, DEMO_ACCOUNT_PASSWORD, selectedRole);
+  }
+
   async function signUp(input?: OnboardingSignupInput) {
     setIsAuthenticating(true);
     setAuthError(null);
@@ -4567,6 +4593,7 @@ export function useKitabuApp() {
       openStudentPreview,
       exitStudentPreview,
       signIn,
+      signInDemo,
       signUp,
       completeProviderAuthentication,
       deleteAccount,

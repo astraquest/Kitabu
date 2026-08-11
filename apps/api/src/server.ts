@@ -73,6 +73,11 @@ import {
 import { getLandingTtsCue } from './onboardingTts.js';
 import { enqueueStudentWelcomeTts, resolveStudentWelcomeTts } from './studentWelcomeTts.js';
 import {
+  buildDailyStudentWelcomeText,
+  isStudentDailyWelcomeUser,
+  isValidLocalDateKey
+} from './dailyWelcome.js';
+import {
   type CurriculumStrandInput,
   createAdminManagedUser,
   createAiGenerationRun,
@@ -140,6 +145,7 @@ import {
   getAdminSubjectEngagementAnalytics,
   getLearnerSubjectRecommendationSignals,
   getUserNarrationPreference,
+  findDailyStudentWelcomeDelivery,
   getAiGenerationCacheEntry,
   getReferenceLibraryDocumentForTemplateGeneration,
   listAdminUsers,
@@ -235,6 +241,7 @@ import {
   updateUserPassword,
   upsertLearnerSubjectDisplayPreferences,
   upsertUserNarrationPreference,
+  recordDailyStudentWelcomeDelivery,
   upsertPushToken,
   upsertBillingProfile,
   stageTotpSecret,
@@ -1737,6 +1744,9 @@ const assessmentTtsResolveSchema = z.object({
 const narrationPreferenceSchema = z.object({
   selectedProfile: z.enum(['Samora', 'Barake', 'Judith', 'Bella']),
   enabled: z.boolean()
+});
+const dailyStudentWelcomeSchema = z.object({
+  localDate: z.string().trim().refine(isValidLocalDateKey, 'localDate must be a valid YYYY-MM-DD calendar date')
 });
 const curriculumItemSchema = z.object({
   id: z.string().optional(),
@@ -5258,6 +5268,65 @@ Requirements:
       enabled: body.enabled
     }));
     return { selectedProfile: saved.selected_profile, enabled: saved.enabled };
+  });
+
+  app.post('/me/daily-welcome', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    if (!isStudentDailyWelcomeUser(request.user)) {
+      return reply.forbidden('Daily welcome narration is available to student accounts only');
+    }
+
+    const body = dailyStudentWelcomeSchema.parse(request.body);
+    const existing = await findDailyStudentWelcomeDelivery(request.user!.id, body.localDate);
+    if (existing) {
+      return { status: 'already_delivered' as const, text: existing.welcome_text };
+    }
+
+    const user = await findUserById(request.user!.id);
+    if (!user) {
+      return reply.unauthorized('Authenticated student account could not be loaded');
+    }
+    if (user.onboardingPersonalization?.noVoice) {
+      return { status: 'unavailable' as const, reason: 'voice_disabled' };
+    }
+
+    const sourceName = user.onboardingPersonalization?.displayName || user.fullName || request.user!.fullName;
+    const welcomeText = buildDailyStudentWelcomeText(sourceName);
+    if (!welcomeText) {
+      return { status: 'unavailable' as const, reason: 'student_name_unavailable' };
+    }
+    const preference = await getUserNarrationPreference(request.user!.id);
+    const voice = user.onboardingPersonalization?.voiceName || preference?.selected_profile || 'Samora';
+
+    try {
+      const durableSpeech = await getOrCreateDurableSpeech({
+        text: welcomeText,
+        avatarVoice: voice,
+        language: 'en'
+      });
+      if (!durableSpeech.audio) {
+        reply.status(202);
+        return { status: 'pending' as const, text: welcomeText };
+      }
+
+      const delivered = await withTransaction(client => recordDailyStudentWelcomeDelivery(client, {
+        userId: request.user!.id,
+        localDate: body.localDate,
+        welcomeText,
+        artifactKey: durableSpeech.artifactKey,
+        voice
+      }));
+      if (!delivered) {
+        return { status: 'already_delivered' as const, text: welcomeText };
+      }
+
+      return { status: 'ready' as const, text: welcomeText, audio: durableSpeech.audio };
+    } catch (error) {
+      request.log.warn({ err: error }, 'Daily student welcome narration unavailable');
+      reply.status(503);
+      return { status: 'unavailable' as const, reason: 'tts_unavailable' };
+    }
   });
 
   let assessmentNarrationRateLimitHandler: ReturnType<typeof app.rateLimit> | null = null;

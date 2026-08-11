@@ -6650,6 +6650,47 @@ export interface UserNarrationPreferenceRecord {
   updated_at: Date;
 }
 
+export interface DailyStudentWelcomeDeliveryRecord {
+  user_id: string;
+  local_date: string;
+  welcome_text: string;
+  artifact_key: string;
+  voice: string;
+  delivered_at: Date;
+}
+
+export async function findDailyStudentWelcomeDelivery(userId: string, localDate: string) {
+  const result = await db.query<DailyStudentWelcomeDeliveryRecord>(
+    `SELECT user_id, local_date::text AS local_date, welcome_text, artifact_key, voice, delivered_at
+     FROM daily_student_welcome_deliveries
+     WHERE user_id = $1 AND local_date = $2::date`,
+    [userId, localDate]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function recordDailyStudentWelcomeDelivery(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    localDate: string;
+    welcomeText: string;
+    artifactKey: string;
+    voice: string;
+  }
+): Promise<boolean> {
+  const result = await q<{ user_id: string }>(
+    client,
+    `INSERT INTO daily_student_welcome_deliveries
+       (user_id, local_date, welcome_text, artifact_key, voice)
+     VALUES ($1, $2::date, $3, $4, $5)
+     ON CONFLICT (user_id, local_date) DO NOTHING
+     RETURNING user_id`,
+    [input.userId, input.localDate, input.welcomeText, input.artifactKey, input.voice]
+  );
+  return result.rowCount === 1;
+}
+
 export async function getUserNarrationPreference(userId: string) {
   const result = await db.query<UserNarrationPreferenceRecord>(
     `SELECT user_id, selected_profile, enabled, updated_at

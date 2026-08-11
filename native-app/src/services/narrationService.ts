@@ -18,7 +18,7 @@ export interface NarrationCue {
   delivery: 'server';
   voiceName?: OnboardingVoiceName;
   language?: string;
-  landingCueId?: string;
+  publicCueId?: string;
 }
 
 function normalizeSpokenCopy(text: string) {
@@ -66,7 +66,7 @@ export function buildScreenIntro(
   identity: string,
   text: string,
   voiceName?: OnboardingVoiceName,
-  options?: { language?: string; landingCueId?: string },
+  options?: { language?: string; publicCueId?: string; landingCueId?: string },
 ): NarrationCue {
   return {
     identity: `screen-intro:${screen}:${identity}`,
@@ -75,7 +75,7 @@ export function buildScreenIntro(
     delivery: 'server',
     voiceName,
     language: options?.language,
-    landingCueId: options?.landingCueId,
+    publicCueId: options?.publicCueId ?? options?.landingCueId,
   };
 }
 
@@ -84,7 +84,7 @@ export function buildPrimaryInstruction(
   identity: string,
   text: string,
   voiceName?: OnboardingVoiceName,
-  options?: { language?: string; landingCueId?: string },
+  options?: { language?: string; publicCueId?: string; landingCueId?: string },
 ): NarrationCue {
   return {
     identity: `primary-instruction:${screen}:${identity}`,
@@ -93,7 +93,7 @@ export function buildPrimaryInstruction(
     delivery: 'server',
     voiceName,
     language: options?.language,
-    landingCueId: options?.landingCueId,
+    publicCueId: options?.publicCueId ?? options?.landingCueId,
   };
 }
 
@@ -136,7 +136,7 @@ export function buildNextStepCue(screen: string, identity: string, text: string,
  * Speaks semantic guidance independently from the text exposed to VoiceOver/TalkBack.
  * A cue identity is spoken once per mounted flow, even if the screen rerenders.
  */
-export function useGuidedNarration(cue: NarrationCue | null, enabled = true) {
+export function useGuidedNarration(cue: NarrationCue | null, enabled = true, retriggerIdentity: string | null = null) {
   const spokenIdentityRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -152,14 +152,14 @@ export function useGuidedNarration(cue: NarrationCue | null, enabled = true) {
     const speak = speechPlaybackBridge?.speak(cue.text, {
       voiceName: cue.voiceName,
       ...(cue.language ? { language: cue.language } : {}),
-      ...(cue.landingCueId ? { landingCueId: cue.landingCueId } : {}),
+      ...(cue.publicCueId ? { publicCueId: cue.publicCueId } : {}),
     });
     speak?.catch(() => undefined);
 
     return () => {
       speechPlaybackBridge?.stop().catch(() => undefined);
     };
-  }, [cue?.identity, cue?.text, cue?.voiceName, cue?.language, cue?.landingCueId, enabled]);
+  }, [cue?.identity, cue?.text, cue?.voiceName, cue?.language, cue?.publicCueId, enabled, retriggerIdentity]);
 
   useEffect(() => () => {
     speechPlaybackBridge?.stop().catch(() => undefined);

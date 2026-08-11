@@ -36,7 +36,6 @@ describe('authenticated home routing', () => {
 
     expect(getHomeViewForRequestedRole(roles, 'demoaccount@kitabu.ai')).toBe('teachers_portal');
   });
-
   test('records the requested role instead of the teacher-first role', () => {
     expect(resolveAuthenticatedRole(multiRoleAccountRoles, 'student', 'teacher')).toBe('student');
     expect(resolveAuthenticatedRole(multiRoleAccountRoles, 'parent', 'teacher')).toBe('parent');

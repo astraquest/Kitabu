@@ -149,6 +149,24 @@ export interface OnboardingTtsPreparationResult {
   failed: number;
 }
 
+export interface OnboardingTtsRepairDependencies {
+  getArtifact: (cacheKey: string) => Promise<TtsArtifactRecord | null>;
+  storage: TtsAssetStorage;
+  getJob?: (artifactId: string) => Promise<Pick<TtsJobRecord, 'status' | 'available_at'> | null>;
+  enqueue: (input: {
+    cacheKey: string;
+    normalizedText: string;
+    avatarVoice: string;
+    geminiVoice: string;
+    geminiModel: string;
+    language?: string;
+    provider?: 'cartesia' | 'gemini';
+    model?: string;
+    voice?: string;
+    repairReadyMissingStorage?: boolean;
+  }) => Promise<unknown>;
+}
+
 export async function prepareOnboardingTts(
   dependencies: OnboardingTtsPreparationDependencies = {
     getArtifact: cacheKey => getTtsArtifact(db, cacheKey),

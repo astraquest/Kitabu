@@ -38,6 +38,7 @@ services:
       - ./apps/api/data/books:/app/data/books:ro
       - ./apps/api/data/reference-library:/app/data/reference-library:ro
       - ./apps/api/media/podcasts:/app/media/podcasts:ro
+      - tts-audio:/app/var/tts-audio
     depends_on:
       - postgres
       - redis
@@ -58,6 +59,7 @@ services:
     volumes:
       - ./apps/api/data/books:/app/data/books:ro
       - ./apps/api/data/reference-library:/app/data/reference-library:ro
+      - tts-audio:/app/var/tts-audio
     command: ["node", "dist/worker.js"]
     healthcheck:
       disable: true
@@ -84,3 +86,5 @@ volumes:
   redis-data:
   caddy-data:
   caddy-config:
+  tts-audio:
+    name: kitabu-ai_tts-audio

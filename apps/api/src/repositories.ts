@@ -4090,7 +4090,7 @@ export interface TtsArtifactRecord {
   content_hash: string | null;
   audio_data: Buffer | null;
   duration_ms: number | null;
-  storage_backend: 'local' | 'http-put' | null;
+  storage_backend: 'local' | 'http-put' | 'supabase' | null;
   storage_key: string | null;
   storage_url: string | null;
   metadata: Record<string, unknown>;
@@ -4360,7 +4360,7 @@ export interface FinalizeTtsJobInput {
   model: string;
   voice: string;
   durationMs?: number | null;
-  storageBackend: 'local' | 'http-put';
+  storageBackend: 'local' | 'http-put' | 'supabase';
   storageKey: string;
   storageUrl?: string | null;
   metadata?: Record<string, unknown>;

@@ -586,16 +586,6 @@ export function ProfileModal({
     setSwapCandidate(null);
   }
 
-  function openLockModal() {
-    lockModalProgress.setValue(0);
-    setLockModalVisible(true);
-    Animated.timing(lockModalProgress, {
-      toValue: 1,
-      duration: 220,
-      useNativeDriver: true,
-    }).start();
-  }
-
   function closeLockModal() {
     Animated.timing(lockModalProgress, {
       toValue: 0,
@@ -1754,44 +1744,6 @@ function SubjectSwapPanel({
         ))}
       </View>
     </View>
-  );
-}
-
-function FocusModeProfileCard({
-  active,
-  isStarting,
-  onOpen,
-}: {
-  active: boolean;
-  isStarting: boolean;
-  onOpen: () => void;
-}) {
-  return (
-    <Pressable
-      disabled={isStarting}
-      onPress={onOpen}
-      accessibilityRole="button"
-      accessibilityState={{ busy: isStarting, selected: active }}
-      style={({ pressed }) => [
-        styles.lockPhoneButton,
-        active && styles.lockPhoneButtonActive,
-        pressed && styles.optionChipPressed,
-      ]}
-    >
-      {isStarting ? (
-        <ActivityIndicator color="#FFFFFF" size="small" />
-      ) : (
-        <ShieldCheck color="#FFFFFF" size={16} strokeWidth={2.5} />
-      )}
-      <Text
-        style={styles.lockPhoneButtonText}
-        numberOfLines={1}
-        adjustsFontSizeToFit
-        minimumFontScale={0.82}
-      >
-        Lock Phone
-      </Text>
-    </Pressable>
   );
 }
 

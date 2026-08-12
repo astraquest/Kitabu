@@ -4,6 +4,7 @@ export const GENERIC_SAMPLE_COMPONENT_IDS = [
   'fill-gap', 'worked-example', 'number-line', 'fraction-manipulative', 'measurement-lab',
   'equation-builder', 'data-table-chart', 'labelled-science-diagram', 'observation-table',
   'virtual-lab', 'glb-3d-model-viewer', 'specimen-3d-explorer', 'comprehension-questions',
+  'labelled-cell-3d',
   'scribble-sign-doodle-canvas', 'draw-annotate-canvas', 'map-explorer', 'history-timeline',
   'primary-source-analysis', 'hardware-labeling', 'block-code-trace', 'digital-citizenship-scenario',
   'budget-planner', 'accounting-ledger', 'crop-life-cycle', 'nutrition-plate-builder',
@@ -32,6 +33,14 @@ export interface GenericSampleSceneProps {
   inputLabel?: string;
   inputPlaceholder?: string;
   inputMaxLength?: number;
+  modelUrl?: string;
+  modelFallback?: string;
+  markers?: Array<{
+    id: string;
+    label: string;
+    position: [number, number, number];
+  }>;
+  activeMarker?: string;
   list?: string[];
   table?: { columns: string[]; rows: string[][] };
   presentation?: {

@@ -231,10 +231,21 @@ function isGenericSampleHint(value: unknown): value is { label: string; descript
     (value.description === undefined || isSafeGenericText(value.description, 240));
 }
 
+function isModelUrl(value: unknown): value is string {
+  if (typeof value !== 'string' || value.length === 0 || value.length > 500) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password && !url.hash;
+  } catch {
+    return false;
+  }
+}
+
 export function isGenericSampleProps(value: unknown): value is GenericSampleSceneProps {
   if (!isRecord(value) || !hasOnlyKeys(value, [
     'title', 'instructions', 'body', 'steps', 'options', 'items', 'inputKind',
-    'inputLabel', 'inputPlaceholder', 'inputMaxLength', 'list', 'table', 'presentation', 'events',
+    'inputLabel', 'inputPlaceholder', 'inputMaxLength', 'modelUrl', 'modelFallback', 'markers',
+    'activeMarker', 'list', 'table', 'presentation', 'events',
   ])) return false;
   if (!isSafeGenericText(value.title, 180) || !isSafeGenericText(value.instructions, 500)) return false;
   if (value.body !== undefined && !isSafeGenericText(value.body, 2_000)) return false;
@@ -265,6 +276,23 @@ export function isGenericSampleProps(value: unknown): value is GenericSampleScen
     value.inputMaxLength < 1 ||
     value.inputMaxLength > 500
   )) return false;
+
+  if (value.modelUrl !== undefined || value.markers !== undefined || value.modelFallback !== undefined || value.activeMarker !== undefined) {
+    if (!isModelUrl(value.modelUrl) || !isSafeGenericText(value.modelFallback, 500) ||
+      !Array.isArray(value.markers) || value.markers.length !== 5) return false;
+    const markerIds = new Set<string>();
+    for (const marker of value.markers) {
+      if (!isRecord(marker) || !hasOnlyKeys(marker, ['id', 'label', 'position']) ||
+        !isSafeGenericText(marker.id, 80) || markerIds.has(marker.id) ||
+        !isSafeGenericText(marker.label, 120) || !Array.isArray(marker.position) ||
+        marker.position.length !== 3 || !marker.position.every(item => typeof item === 'number' && Number.isFinite(item))) {
+        return false;
+      }
+      markerIds.add(marker.id);
+    }
+    if (value.activeMarker !== undefined &&
+      (typeof value.activeMarker !== 'string' || !markerIds.has(value.activeMarker))) return false;
+  }
 
   if (value.table !== undefined) {
     if (!isRecord(value.table) || !hasOnlyKeys(value.table, ['columns', 'rows'])) return false;

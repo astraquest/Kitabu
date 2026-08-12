@@ -43,3 +43,28 @@ test('rejects unsafe generic props and unknown component IDs', () => {
     component: { componentId: 'remote-renderer', componentVersion: '1.0.0' },
   })).toEqual({ ok: false, code: 'renderer-not-installed' });
 });
+
+test('adapts the labelled-cell scene with its remote model URL and five markers', () => {
+  const scene = {
+    ...baseScene,
+    component: { componentId: 'labelled-cell-3d', componentVersion: '1.0.0' },
+    props: {
+      ...baseScene.props,
+      modelUrl: 'https://dkudchritxmpummaeoq.supabase.co/storage/v1/object/public/educational-3d/3D%20files/v1/human-cell-1-4b4d7dd88c72.glb',
+      modelFallback: 'Use the accessible choices below.',
+      markers: [1, 2, 3, 4, 5].map(index => ({
+        id: `marker-${index}`,
+        label: `Part ${index}`,
+        position: [0, index / 10, 0] as [number, number, number],
+      })),
+      activeMarker: 'marker-3',
+    },
+  };
+  const result = adaptComponentScene(scene);
+  expect(result.ok).toBe(true);
+  if (result.ok && result.input.rendererId === 'generic-sample/native') {
+    expect(result.input.props.modelUrl).toBe(scene.props.modelUrl);
+    expect(result.input.props.markers).toHaveLength(5);
+    expect(result.input.props.activeMarker).toBe('marker-3');
+  }
+});

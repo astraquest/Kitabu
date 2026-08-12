@@ -4,6 +4,7 @@ import {
 } from './progressiveLearningCurriculum.js';
 import { GRADE_6_WHOLE_NUMBERS_SCENE } from './interactiveLearning/grade6WholeNumbersScene.js';
 import { GRADE_6_WHOLE_NUMBERS_RANK_SCENE } from './interactiveLearning/grade6WholeNumbersRankScene.js';
+import { humanCellLessonSeeds } from './progressiveLearningGrade6HumanCell.js';
 
 type Question = CurriculumChapterSource['questions'][number];
 
@@ -418,7 +419,8 @@ const chapters: CurriculumChapterSource[] = [
   }
 ];
 
-export const grade6LessonSeeds = defineCurriculumChapters(chapters).map(lesson => {
+export const grade6LessonSeeds = [
+  ...defineCurriculumChapters(chapters).map(lesson => {
   if (lesson.key !== 'math-g6-whole-numbers') return lesson;
 
   const [opening, second, third, ordering, fifth] = lesson.steps;
@@ -444,4 +446,6 @@ export const grade6LessonSeeds = defineCurriculumChapters(chapters).map(lesson =
       fifth
     ]
   };
-});
+  }),
+  ...humanCellLessonSeeds,
+];

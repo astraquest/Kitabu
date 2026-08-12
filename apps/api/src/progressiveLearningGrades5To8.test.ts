@@ -3,6 +3,7 @@ import test from 'node:test';
 
 import {
   buildProgressiveLearningPath,
+  getProgressiveLessonDefinition,
   gradeProgressiveLessonStep,
   hasProgressiveLearningPath,
   listProgressiveLessonDefinitions,
@@ -191,6 +192,45 @@ test('supports manifest subject aliases for the new progressive paths', () => {
   assert.equal(buildProgressiveLearningPath('creative_arts_sports', [], 'Grade 8').subjectId, 'creative_arts');
   assert.equal(buildProgressiveLearningPath('social_studies', [], 'Grade 8').subjectId, 'social');
   assert.equal(buildProgressiveLearningPath('cre_ire_hre', [], 'Grade 7').subjectId, 'religious_education');
+});
+
+test('publishes the Grade 6 human-cell labelled 3D MCQ lesson', () => {
+  const lesson = listProgressiveLessonDefinitions({ grade: 'Grade 6', subjectId: 'science' })
+    .find(candidate => candidate.lessonKey === 'science-g6-human-cell');
+  assert.ok(lesson);
+  assert.equal(lesson.steps.length, 5);
+  assert.ok(lesson.steps.every(step => step.options.length === 4));
+  assert.ok(lesson.steps.every(step => new Set(step.options).size === 4));
+
+  const modelUrl = 'https://dkudchritxmpummaeoq.supabase.co/storage/v1/object/public/educational-3d/3D%20files/v1/human-cell-1-4b4d7dd88c72.glb';
+  for (const [index, step] of lesson.steps.entries()) {
+    const scene = step.componentScene as {
+      component?: { componentId?: string };
+      props?: { modelUrl?: string; markers?: unknown[]; options?: unknown[]; activeMarker?: string };
+    };
+    assert.equal(scene.component?.componentId, 'labelled-cell-3d');
+    assert.equal(scene.props?.modelUrl, modelUrl);
+    assert.equal(scene.props?.markers?.length, 5);
+    assert.equal(scene.props?.options?.length, 4);
+    assert.equal(scene.props?.activeMarker, ['membrane', 'cytoplasm', 'nucleus', 'mitochondrion', 'golgi'][index]);
+  }
+
+  const privateLesson = getProgressiveLessonDefinition('science-g6-human-cell');
+  assert.ok(privateLesson);
+  assert.doesNotMatch(JSON.stringify(privateLesson), /"answer"\s*:/);
+  const publishedPath = buildProgressiveLearningPath('science', [], 'Grade 6');
+  const pathNode = publishedPath.nodes.find(node => node.lessonKey === 'science-g6-human-cell');
+  assert.ok(pathNode);
+  assert.equal(pathNode?.availability, 'published');
+
+  const authored = lesson.steps.map(step => step.options.find(option =>
+    gradeProgressiveLessonStep(lesson.lessonKey, step.id, option)?.isCorrect
+  ));
+  assert.deepEqual(authored, ['Cell membrane', 'Cytoplasm', 'Nucleus', 'Mitochondrion', 'Golgi apparatus']);
+  assert.ok(lesson.steps.every((step, index) =>
+    gradeProgressiveLessonStep(lesson.lessonKey, step.id, authored[index]!)?.isCorrect
+  ));
+  assert.equal(gradeProgressiveLessonStep(lesson.lessonKey, lesson.steps[0].id, 'Nucleus')?.isCorrect, false);
 });
 
 test('keeps the three Grade 7 curriculum chapters before the six equation extensions', () => {

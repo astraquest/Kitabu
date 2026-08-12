@@ -22,6 +22,7 @@ export const GENERIC_SAMPLE_COMPONENT_IDS = [
   'virtual-lab',
   'glb-3d-model-viewer',
   'specimen-3d-explorer',
+  'labelled-cell-3d',
   'comprehension-questions',
   'scribble-sign-doodle-canvas',
   'draw-annotate-canvas',
@@ -88,6 +89,14 @@ export interface GenericSampleSceneProps {
   inputLabel?: string;
   inputPlaceholder?: string;
   inputMaxLength?: number;
+  modelUrl?: string;
+  modelFallback?: string;
+  markers?: Array<{
+    id: string;
+    label: string;
+    position: [number, number, number];
+  }>;
+  activeMarker?: string;
   list?: string[];
   table?: GenericSampleTable;
   presentation?: {

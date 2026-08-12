@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import type { GenericSampleSceneProps } from './types';
+import { LabelledCellModelView } from './LabelledCellModelView';
 
 type Props = {
   props: GenericSampleSceneProps;
@@ -67,7 +68,14 @@ export function GenericSampleView({ props, value, onResponseChange, disabled = f
       ) : null}
 
       {props.presentation?.canvas ? <HintCard kind="Canvas" hint={props.presentation.canvas} /> : null}
-      {props.presentation?.model ? <HintCard kind="Model" hint={props.presentation.model} /> : null}
+      {props.modelUrl && props.modelFallback && props.markers ? (
+        <LabelledCellModelView
+          activeMarker={props.activeMarker}
+          fallback={props.modelFallback}
+          markers={props.markers}
+          url={props.modelUrl}
+        />
+      ) : props.presentation?.model ? <HintCard kind="Model" hint={props.presentation.model} /> : null}
       {props.presentation?.map ? <HintCard kind="Map" hint={props.presentation.map} /> : null}
 
       {props.inputKind === 'choice' ? (

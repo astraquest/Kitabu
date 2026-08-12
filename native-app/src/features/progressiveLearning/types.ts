@@ -50,14 +50,18 @@ export type LearningVisualSpec =
     }
   | {
       kind: 'picture_word';
-      object: Extract<LearningObjectKind, 'chair' | 'cat' | 'sun' | 'pen' | 'hat' | 'book' | 'table' | 'pencil'>;
+      object: LearningObjectKind;
       wordPattern: string;
       caption: string;
+      imageKey?: string;
+      imageUrl?: string;
     }
   | {
       kind: 'picture_choice';
       object: LearningObjectKind;
       caption: string;
+      imageKey?: string;
+      imageUrl?: string;
     }
   | {
       kind: 'balance';

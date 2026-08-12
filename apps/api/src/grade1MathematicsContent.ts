@@ -214,11 +214,18 @@ function baseStep(
   answer: string,
 ): Omit<StepInput, 'options'> {
   const prompt = text(interaction.prompt, 'Try this mathematics activity.');
+  const imageKey = /apple/i.test(prompt)
+    ? 'image-library/v1/apple.png'
+    : /banana/i.test(prompt)
+      ? 'image-library/v1/banana.png'
+      : /ball/i.test(prompt)
+        ? 'image-library/v1/ball.png'
+        : undefined;
   return {
     phase: authoredPhase(interaction.phase, index),
     prompt,
     answer,
-    visual: { kind: 'picture_choice', object: 'lion', caption: prompt },
+    visual: { kind: 'picture_choice', object: 'lion', caption: prompt, imageKey },
     hint: text(interaction.retryHint, 'Look carefully and try again.'),
     successMessage: text(interaction.feedback, 'Well done!'),
     misconception: `G1_${missionId.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}_STEP_${index + 1}`,

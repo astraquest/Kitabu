@@ -86,3 +86,14 @@ test('shows automatic correct and incorrect feedback', async () => {
 
   await act(async () => renderer.unmount());
 });
+
+test('renders a remote API image when the lesson includes one', async () => {
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(<PictureChoiceChallengeScene choices={choices} disabled={false} mascotKey="rabbit" onSelect={jest.fn()} prompt="Name this plant part." reduceMotion selectedAnswer={null} spec={{ ...spec, imageKey: 'image-library/v1/leaf.png', imageUrl: 'https://assets.example.test/leaf.png' }} status="idle" />);
+  });
+  expect(renderer.root.findByProps({ testID: 'picture-choice-remote-image' })).toBeTruthy();
+  await act(async () => renderer.root.findByProps({ testID: 'picture-choice-remote-image' }).props.onError());
+  expect(() => renderer.root.findByProps({ testID: 'picture-choice-remote-image' })).toThrow();
+  await act(async () => renderer.unmount());
+});

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { Check, X } from 'lucide-react-native';
 
 import type { OnboardingMascotKey } from '../../../../types/app';
@@ -38,6 +38,7 @@ export function PictureChoiceChallengeScene({
   feedbackMessage,
   retryHint,
 }: PictureChoiceChallengeSceneProps) {
+  const [remoteImageFailed, setRemoteImageFailed] = React.useState(false);
   const feedbackText =
     status === 'correct'
       ? feedbackMessage ?? 'Well done!'
@@ -78,7 +79,11 @@ export function PictureChoiceChallengeScene({
         accessibilityRole="image"
         style={styles.pictureStage}
       >
-        <ObjectIllustration kind={spec.object} size={150} />
+        {spec.imageUrl && !remoteImageFailed ? (
+          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-choice-remote-image" />
+        ) : (
+          <ObjectIllustration kind={spec.object} size={150} />
+        )}
       </View>
 
       <View
@@ -194,6 +199,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   prompt: { color: '#082B4A', fontSize: 22, fontWeight: '900', lineHeight: 27, textAlign: 'center' },
+  remoteImage: { height: 150, resizeMode: 'contain', width: 150 },
   resultBadge: {
     alignItems: 'center',
     borderRadius: 999,

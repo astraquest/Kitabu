@@ -250,7 +250,8 @@ function question(
 
 const GRADE_ONE_ENGLISH_CHALLENGES: Record<string, readonly CurriculumQuestionSource[]> = {
   'attentive-listening': [
-    question(
+    {
+      ...question(
       'Teacher says, “Point to the door.” What should you do?',
       optionTuple('Point to the door.', 'Clap your hands.', 'Open your bag.', 'Close your eyes.'),
       'Point to the door.',
@@ -258,7 +259,9 @@ const GRADE_ONE_ENGLISH_CHALLENGES: Record<string, readonly CurriculumQuestionSo
       'Listen for the action word and the object named in the instruction.',
       'The learner may act on a familiar classroom object instead of the instruction heard.',
       'recall'
-    ),
+      ),
+      visual: { kind: 'picture_choice', object: 'book', caption: 'a classroom instruction', imageKey: 'image-library/v1/teacher.png' }
+    },
     question(
       'Amina is speaking. What should Kamau do?',
       optionTuple('Listen and wait for his turn.', 'Speak at the same time.', 'Turn his back.', 'Walk away.'),
@@ -299,15 +302,15 @@ const GRADE_ONE_ENGLISH_CHALLENGES: Record<string, readonly CurriculumQuestionSo
   'pronunciation-vocabulary': [
     {
       ...question(
-        'Which letter completes CH _ IR?',
-        optionTuple('A', 'E', 'I', 'O'),
-        'A',
-        'The letter A completes CH-A-IR, making the word CHAIR.',
-        'Look at the picture, say chair slowly, and listen for the missing sound.',
-        'The learner may choose a vowel without connecting the picture to the spoken word.',
+        'Which letter completes APP _ E?',
+        optionTuple('L', 'R', 'M', 'N'),
+        'L',
+        'The letter L completes APP-L-E, making the word APPLE.',
+        'Look at the picture, say apple slowly, and listen for the missing sound.',
+        'The learner may choose a consonant without connecting the picture to the spoken word.',
         'apply'
       ),
-      visual: { kind: 'picture_word', object: 'chair', wordPattern: 'CH _ IR', caption: 'chair' }
+      visual: { kind: 'picture_word', object: 'mango', wordPattern: 'APP _ E', caption: 'apple', imageKey: 'image-library/v1/apple.png' }
     },
     {
       ...question(
@@ -319,31 +322,31 @@ const GRADE_ONE_ENGLISH_CHALLENGES: Record<string, readonly CurriculumQuestionSo
         'The learner may choose a vowel by its name instead of its sound in the word.',
         'apply'
       ),
-      visual: { kind: 'picture_word', object: 'cat', wordPattern: 'C _ T', caption: 'cat' }
+      visual: { kind: 'picture_word', object: 'cat', wordPattern: 'C _ T', caption: 'cat', imageKey: 'image-library/v1/cat.png' }
     },
     {
       ...question(
-        'Which letter completes S _ N?',
-        optionTuple('U', 'A', 'E', 'I'),
-        'U',
-        'The letter U completes S-U-N, making the word SUN.',
-        'Look at the picture, say sun slowly, and listen for the middle sound.',
+        'Which letter completes B _ NANA?',
+        optionTuple('A', 'E', 'I', 'O'),
+        'A',
+        'The letter A completes B-A-NANA, making the word BANANA.',
+        'Look at the picture, say banana slowly, and listen for the missing sound.',
         'The learner may use a familiar vowel without checking the complete word.',
         'apply'
       ),
-      visual: { kind: 'picture_word', object: 'sun', wordPattern: 'S _ N', caption: 'sun' }
+      visual: { kind: 'picture_word', object: 'banana', wordPattern: 'B _ NANA', caption: 'banana', imageKey: 'image-library/v1/banana.png' }
     },
     {
       ...question(
-        'Which letter completes P _ N?',
-        optionTuple('E', 'A', 'I', 'O'),
-        'E',
-        'The letter E completes P-E-N, making the word PEN.',
-        'Look at the picture, say pen slowly, and listen for the middle sound.',
-        'The learner may confuse the short E sound with another vowel sound.',
+        'Which letter completes D _ G?',
+        optionTuple('A', 'E', 'I', 'O'),
+        'O',
+        'The letter O completes D-O-G, making the word DOG.',
+        'Look at the picture, say dog slowly, and listen for the middle sound.',
+        'The learner may confuse the short O sound with another vowel sound.',
         'apply'
       ),
-      visual: { kind: 'picture_word', object: 'pen', wordPattern: 'P _ N', caption: 'pen' }
+      visual: { kind: 'picture_word', object: 'mystery', wordPattern: 'D _ G', caption: 'dog', imageKey: 'image-library/v1/dog.png' }
     },
     {
       ...question(
@@ -355,7 +358,7 @@ const GRADE_ONE_ENGLISH_CHALLENGES: Record<string, readonly CurriculumQuestionSo
         'The learner may select a familiar letter pair without sounding out the pictured word.',
         'apply'
       ),
-      visual: { kind: 'picture_word', object: 'book', wordPattern: 'B __ K', caption: 'book' }
+      visual: { kind: 'picture_word', object: 'book', wordPattern: 'B __ K', caption: 'book', imageKey: 'image-library/v1/book.png' }
     }
   ],
   'language-structures': [

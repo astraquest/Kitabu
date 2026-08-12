@@ -91,6 +91,17 @@ test('shows clear correct and incorrect selection states', async () => {
   await act(async () => renderer.unmount());
 });
 
+test('renders an API image URL while preserving the illustration fallback contract', async () => {
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(<PictureWordChallengeScene choices={choices} disabled={false} mascotKey="rabbit" onSelect={jest.fn()} reduceMotion selectedAnswer={null} spec={{ ...spec, imageKey: 'image-library/v1/cat.png', imageUrl: 'https://assets.example.test/cat.png' }} status="idle" />);
+  });
+  expect(renderer.root.findByProps({ testID: 'picture-word-remote-image' })).toBeTruthy();
+  await act(async () => renderer.root.findByProps({ testID: 'picture-word-remote-image' }).props.onError());
+  expect(() => renderer.root.findByProps({ testID: 'picture-word-remote-image' })).toThrow();
+  await act(async () => renderer.unmount());
+});
+
 test('localizes picture challenge feedback and controls for Kiswahili', async () => {
   let renderer!: ReactTestRenderer.ReactTestRenderer;
 

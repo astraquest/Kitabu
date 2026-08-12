@@ -104,10 +104,10 @@ test('uses short curriculum-aligned literacy challenges for Grade 1 English', ()
   assert.deepEqual(
     vocabulary.steps.map(step => step.prompt),
     [
-      'Which letter completes CH _ IR?',
+      'Which letter completes APP _ E?',
       'Which letter completes C _ T?',
-      'Which letter completes S _ N?',
-      'Which letter completes P _ N?',
+      'Which letter completes B _ NANA?',
+      'Which letter completes D _ G?',
       'Which letters complete B __ K?'
     ]
   );
@@ -121,15 +121,21 @@ test('uses short curriculum-aligned literacy challenges for Grade 1 English', ()
       'Complete the greeting: Good __!'
     ]
   );
-  assert.equal(gradeProgressiveLessonStep(vocabulary.lessonKey, vocabulary.steps[0].id, 'A')?.isCorrect, true);
+  assert.equal(gradeProgressiveLessonStep(vocabulary.lessonKey, vocabulary.steps[0].id, 'L')?.isCorrect, true);
   assert.equal(gradeProgressiveLessonStep(vocabulary.lessonKey, vocabulary.steps[0].id, 'E')?.isCorrect, false);
   assert.deepEqual(vocabulary.steps.map(step => step.visual.kind), Array(5).fill('picture_word'));
   assert.deepEqual(
     vocabulary.steps.map(step =>
       step.visual.kind === 'picture_word' ? step.visual.caption : null
     ),
-    ['chair', 'cat', 'sun', 'pen', 'book']
+    ['apple', 'cat', 'banana', 'dog', 'book']
   );
+  assert.deepEqual(
+    vocabulary.steps.map(step => step.visual.kind === 'picture_word' ? step.visual.imageKey : null),
+    ['image-library/v1/apple.png', 'image-library/v1/cat.png', 'image-library/v1/banana.png', 'image-library/v1/dog.png', 'image-library/v1/book.png']
+  );
+  assert.equal(listening.steps[0].visual.kind, 'picture_choice');
+  assert.equal(listening.steps[0].visual.kind === 'picture_choice' && listening.steps[0].visual.imageKey, 'image-library/v1/teacher.png');
   assert.equal(gradeProgressiveLessonStep(structures.lessonKey, structures.steps[0].id, 'am')?.isCorrect, true);
   assert.equal(gradeProgressiveLessonStep(structures.lessonKey, structures.steps[0].id, 'is')?.isCorrect, false);
   assert.doesNotMatch(

@@ -12,6 +12,11 @@ test('loads every compiled Grade 1 Mathematics outcome mission', () => {
   assert.ok(lessons.every(lesson => lesson.steps.length === 6));
   assert.equal(new Set(lessons.map(lesson => lesson.curriculumLocationKey)).size, 53);
   assert.equal(lessons.flatMap(lesson => lesson.steps).length, 318);
+  const imageKeys = lessons.flatMap(lesson => lesson.steps)
+    .map(step => step.visual.kind === 'picture_choice' ? step.visual.imageKey : undefined)
+    .filter((key): key is string => Boolean(key));
+  assert.ok(imageKeys.includes('image-library/v1/banana.png'));
+  assert.ok(imageKeys.includes('image-library/v1/ball.png'));
 });
 
 test('maps all authored activities without placeholders or public grading data', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { Check, X } from 'lucide-react-native';
 
 import type { OnboardingMascotKey } from '../../../../types/app';
@@ -43,6 +43,7 @@ export function PictureWordChallengeScene({
   spec,
   status,
 }: PictureWordChallengeSceneProps) {
+  const [remoteImageFailed, setRemoteImageFailed] = React.useState(false);
   const feedbackText =
     status === 'correct'
       ? language === 'sw'
@@ -89,7 +90,11 @@ export function PictureWordChallengeScene({
         accessibilityRole="image"
         style={styles.pictureStage}
       >
-        <ObjectIllustration kind={spec.object} size={148} />
+        {spec.imageUrl && !remoteImageFailed ? (
+          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-word-remote-image" />
+        ) : (
+          <ObjectIllustration kind={spec.object} size={148} />
+        )}
       </View>
 
       <Text accessibilityRole="header" style={styles.wordPattern}>
@@ -219,6 +224,7 @@ const styles = StyleSheet.create({
     top: -3,
     width: 22,
   },
+  remoteImage: { height: 148, resizeMode: 'contain', width: 148 },
   wordPattern: {
     color: '#082B4A',
     fontSize: 38,

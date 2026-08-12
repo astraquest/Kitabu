@@ -10,6 +10,7 @@ import { grade6LessonSeeds } from './progressiveLearningGrade6.js';
 import { grade7LessonSeeds } from './progressiveLearningGrade7.js';
 import { grade8LessonSeeds } from './progressiveLearningGrade8.js';
 import { grade10LessonSeeds, grade11LessonSeeds } from './progressiveLearningSenior.js';
+import { imageLibraryRenderUrl } from './educationalAssets/imageLibrary.js';
 
 export type LearningObjectKind =
   | 'elephant'
@@ -69,14 +70,18 @@ export type LearningVisualSpec =
     }
   | {
       kind: 'picture_word';
-      object: Extract<LearningObjectKind, 'chair' | 'cat' | 'sun' | 'pen' | 'hat' | 'book' | 'table' | 'pencil'>;
+      object: LearningObjectKind;
       wordPattern: string;
       caption: string;
+      imageKey?: string;
+      imageUrl?: string;
     }
   | {
       kind: 'picture_choice';
       object: LearningObjectKind;
       caption: string;
+      imageKey?: string;
+      imageUrl?: string;
     }
   | {
       kind: 'balance';
@@ -310,7 +315,17 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
       lowerPrimaryInteraction: _lowerPrimaryInteraction,
       ...publicStep
     } = step;
-    return { id, ...publicStep };
+    const visual = (publicStep.visual.kind === 'picture_word' || publicStep.visual.kind === 'picture_choice') && publicStep.visual.imageKey
+      ? {
+          ...publicStep.visual,
+          imageUrl: publicStep.visual.imageUrl ?? imageLibraryRenderUrl(
+            process.env.KITABU_SUPABASE_URL,
+            'question-images',
+            publicStep.visual.imageKey,
+          ),
+        }
+      : publicStep.visual;
+    return { id, ...publicStep, visual };
   });
 
   return {

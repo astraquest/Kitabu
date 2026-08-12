@@ -257,7 +257,7 @@ export function buildCurriculumAuthoredPath(
       id: topic?.id ?? subStrand.id,
       lessonKey,
       lessonVersion: authoredLesson?.lessonVersion ?? null,
-      title: subStrand.title,
+      title: authoredLesson?.title ?? subStrand.title,
       objective: authoredLesson?.objective ?? 'Richly authored learning content is being prepared for this curriculum topic.',
       estimatedMinutes: authoredLesson?.estimatedMinutes ?? 0,
       position,

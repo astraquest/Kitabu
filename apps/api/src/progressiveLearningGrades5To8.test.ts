@@ -10,6 +10,7 @@ import {
   serializeProgressiveChoiceAnswer,
   serializeProgressiveClassifyAnswer
 } from './progressiveLearning.js';
+import { buildCurriculumAuthoredPath } from './curriculumCompatibilityLesson.js';
 
 const EXPECTED_FIRST_THREE: Record<string, Record<string, string[]>> = {
   'Grade 5': {
@@ -231,6 +232,44 @@ test('publishes the Grade 6 human-cell labelled 3D MCQ lesson', () => {
     gradeProgressiveLessonStep(lesson.lessonKey, step.id, authored[index]!)?.isCorrect
   ));
   assert.equal(gradeProgressiveLessonStep(lesson.lessonKey, lesson.steps[0].id, 'Nucleus')?.isCorrect, false);
+});
+
+test('binds the Grade 6 human-cell mission to the first Science curriculum topic', () => {
+  const lesson = listProgressiveLessonDefinitions({ grade: 'Grade 6', subjectId: 'science' })
+    .find(candidate => candidate.lessonKey === 'science-g6-human-cell');
+  assert.ok(lesson);
+  assert.equal(lesson.curriculumTopicCode, '1.1');
+  assert.equal(lesson.strand, 'Science - Core Concepts');
+  assert.equal(lesson.subStrand, 'Foundations');
+
+  const path = buildCurriculumAuthoredPath({
+    subjectId: 'science',
+    subjectCode: 'science',
+    subjectName: 'Science',
+    subjectOfficialName: 'Science',
+    subjectDisplayName: 'Science',
+    strands: [{
+      id: 'science-core-concepts',
+      number: '1.0',
+      title: 'Science - Core Concepts',
+      subStrands: [{
+        id: 'science-foundations',
+        number: '1.1',
+        title: 'Foundations',
+        topics: [{ id: 'science-topic-1-1', code: '1.1', title: 'Foundations' }],
+        isCompleted: false,
+        needsRemediation: false,
+      }],
+    }],
+  }, [], 'Grade 6', [lesson]);
+
+  assert.equal(path.nodes[0]?.lessonKey, 'science-g6-human-cell');
+  assert.equal(path.nodes[0]?.availability, 'published');
+  assert.equal(path.nodes[0]?.status, 'current');
+  assert.equal(path.nodes[0]?.title, 'Human Cell Marker Mission');
+  assert.equal(path.nodes[0]?.strandNumber, '1.0');
+  assert.equal(path.nodes[0]?.subStrandNumber, '1.1');
+  assert.equal(path.nodes[0]?.curriculumTopicId, 'science-topic-1-1');
 });
 
 test('keeps the three Grade 7 curriculum chapters before the six equation extensions', () => {

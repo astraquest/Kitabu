@@ -29,6 +29,7 @@ export function LearningVisual({
   switch (spec.kind) {
     case 'picture_word':
     case 'picture_choice':
+    case 'picture_group':
       return null;
     case 'arithmetic':
       return arithmeticChallenge ? (

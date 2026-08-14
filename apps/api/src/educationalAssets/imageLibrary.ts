@@ -3,6 +3,19 @@ import { createHash } from 'node:crypto';
 export const IMAGE_LIBRARY_VERSION = 'v1';
 export const IMAGE_LIBRARY_CACHE_CONTROL = 'public, max-age=31536000, immutable';
 export const IMAGE_LIBRARY_CONTENT_DISPOSITION = 'inline';
+export const GRADE1_IMAGE_LIBRARY_KEYS = new Set([
+  'image-library/v1/apple.png',
+  'image-library/v1/banana.png',
+  'image-library/v1/ball.png',
+  'image-library/v1/book.png',
+  'image-library/v1/cat.png',
+  'image-library/v1/dog.png',
+  'image-library/v1/teacher.png',
+]);
+
+export function isKnownImageLibraryKey(value: unknown): value is string {
+  return typeof value === 'string' && GRADE1_IMAGE_LIBRARY_KEYS.has(value);
+}
 
 export type ImageLibraryEntry = {
   sourceName: string;

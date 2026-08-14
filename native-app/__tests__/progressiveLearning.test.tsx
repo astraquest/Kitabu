@@ -293,7 +293,8 @@ test('fallback path blocks progression at the first unauthored topic', () => {
   expect(initial.nodes.every(node => node.lessonKey === null)).toBe(true);
 });
 
-test('subject page keeps the curriculum path visible when a live refresh fails', async () => {
+test('subject page visibly reports a failed live refresh while showing the curriculum fallback', async () => {
+  const onRetry = jest.fn();
   let renderer!: ReactTestRenderer.ReactTestRenderer;
   await act(() => {
     renderer = ReactTestRenderer.create(
@@ -306,7 +307,7 @@ test('subject page keeps the curriculum path visible when a live refresh fails',
         isLoading={false}
         error="Please sign in again to continue."
         onBack={jest.fn()}
-        onRetry={jest.fn()}
+        onRetry={onRetry}
         onOpenNode={jest.fn()}
       />,
     );
@@ -314,7 +315,7 @@ test('subject page keeps the curriculum path visible when a live refresh fails',
 
   expect(
     renderer.root.findByProps({
-      accessibilityLabel: 'See update: Linear Equations',
+      accessibilityLabel: 'Retry live path: Linear Equations',
     }),
   ).toBeTruthy();
   expect(
@@ -324,11 +325,85 @@ test('subject page keeps the curriculum path visible when a live refresh fails',
     renderer.root.findAllByProps({
       children: 'Please sign in again to continue.',
     }),
+  ).toHaveLength(1);
+  expect(
+    renderer.root.findByProps({
+      children: 'Live learning path unavailable',
+    }),
+  ).toBeTruthy();
+  await act(async () => {
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Retry live learning path' })
+      .props.onPress();
+  });
+  expect(onRetry).toHaveBeenCalledTimes(1);
+  await act(async () => {
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Retry live path: Linear Equations' })
+      .props.onPress();
+  });
+  expect(onRetry).toHaveBeenCalledTimes(2);
+  expect(
+    renderer.root.findAllByProps({ children: 'Come back tomorrow!' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findByProps({ children: 'Retry to check the live path' }),
+  ).toBeTruthy();
+  renderer.unmount();
+});
+
+test('retry replaces a failed-fetch fallback with the authoritative live path', async () => {
+  function PathRetryHarness() {
+    const [livePath, setLivePath] = React.useState<SubjectLearningPath | null>(null);
+    const [error, setError] = React.useState('We could not reach Kitabu right now.');
+    return (
+      <SubjectLearningPathScreen
+        subject={subject}
+        strands={strands}
+        grade="Grade 7"
+        path={livePath}
+        mascotKey="rabbit"
+        isLoading={false}
+        error={error}
+        onBack={jest.fn()}
+        onRetry={() => {
+          setLivePath(path);
+          setError(null);
+        }}
+        onOpenNode={jest.fn()}
+      />
+    );
+  }
+
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(<PathRetryHarness />);
+  });
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Retry live learning path' }),
+  ).toBeTruthy();
+
+  await act(async () => {
+    renderer.root
+      .findByProps({ accessibilityLabel: 'Retry live learning path' })
+      .props.onPress();
+  });
+
+  expect(
+    renderer.root.findAllByProps({ children: 'Live learning path unavailable' }),
+  ).toHaveLength(0);
+  expect(
+    renderer.root.findAllByProps({ children: 'Equality as balance' }).length,
+  ).toBeGreaterThan(0);
+  expect(
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Retry live path: Linear Equations',
+    }),
   ).toHaveLength(0);
   renderer.unmount();
 });
 
-test('subject page renders one learning path without the retired feature menu', async () => {
+test('subject page renders authoritative live-path nodes without the retired feature menu', async () => {
   let renderer!: ReactTestRenderer.ReactTestRenderer;
   await act(() => {
     renderer = ReactTestRenderer.create(

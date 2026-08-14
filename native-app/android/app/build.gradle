@@ -167,6 +167,11 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 127
         versionName "1.2.7"
+        externalNativeBuild {
+            cmake {
+                arguments "-DCMAKE_OBJECT_PATH_MAX=128"
+            }
+        }
         buildConfigField "String", "GOOGLE_WEB_CLIENT_ID", "\"${googleWebClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
         buildConfigField "String", "GOOGLE_ANDROID_CLIENT_ID", "\"${googleAndroidClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
     }

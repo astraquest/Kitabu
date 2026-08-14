@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { curriculumLocationKey } from './authoredContent/schema.js';
+import { grade1QuizBankLessonQuestions, type Grade1QuizBankQuestion } from './grade1QuizBankContent.js';
 import type { LowerPrimaryInteractionDefinition } from './interactiveLearning/lowerPrimaryClassifySortMatchPattern.js';
 import type { ProgressiveLessonSeed, StepInput } from './progressiveLearning.js';
 
@@ -614,12 +615,56 @@ export function loadGrade1AuthoredLessonSeeds(config: Grade1AuthoredSubjectConfi
 
 /** Backward-compatible Mathematics entry point. */
 export function loadGrade1MathematicsLessonSeeds(): Grade1MathematicsLessonSeed[] {
-  return loadGrade1AuthoredLessonSeeds({
+  const lessons = loadGrade1AuthoredLessonSeeds({
     contentDirectory: 'mathematics',
     runtimeSubjectId: 'math',
     runtimeSubjectName: 'Mathematics',
     curriculumSubjectId: 'mathematics',
   });
+  const questions = grade1QuizBankLessonQuestions('mathematics', 'Number Concept', 6);
+  return lessons.map((lesson, index) => index === 0 ? {
+    ...lesson,
+    curriculumTopicCode: '1.1',
+    steps: questions.map((question, stepIndex) =>
+      quizBankChoiceStep(lesson.key, question, lesson.steps[stepIndex].phase)),
+  } : lesson);
+}
+
+function quizBankVisual(question: Grade1QuizBankQuestion): StepInput['visual'] {
+  const { imageKey, prompt } = question;
+  const label = imageKey.split('/').at(-1)?.replace(/\.png$/i, '').replace(/-/g, ' ') ?? 'object';
+  const object = label === 'banana' || label === 'book' || label === 'cat' ? label : 'mystery';
+  if (question.visual?.kind === 'picture_group') {
+    return {
+      kind: 'picture_group', object, caption: question.visual.equation, equation: question.visual.equation,
+      imageKey, groups: question.visual.groups,
+    };
+  }
+  return {
+    kind: 'picture_choice',
+    object,
+    caption: `Picture: ${label}. ${prompt}`,
+    imageKey,
+  };
+}
+
+function quizBankChoiceStep(
+  missionId: string,
+  question: Grade1QuizBankQuestion,
+  phase: StepInput['phase'],
+): StepInput {
+  return {
+    phase,
+    prompt: question.visual?.kind === 'picture_group' ? 'Solve this question' : question.prompt,
+    supportText: question.visual?.kind === 'picture_group' ? question.prompt : undefined,
+    options: question.options,
+    answer: question.correctAnswer,
+    visual: quizBankVisual(question),
+    hint: question.visual?.kind === 'picture_group' ? 'Count the two groups, then add them together.' : 'Read the question and count carefully.',
+    successMessage: question.explanation,
+    misconception: `G1_${missionId.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}_QUIZ_BANK_1`,
+    incorrectMessage: 'Count one more counter and try again.',
+  };
 }
 
 export function loadGrade1EnglishLessonSeeds(): Grade1MathematicsLessonSeed[] {

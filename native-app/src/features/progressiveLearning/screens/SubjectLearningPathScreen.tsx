@@ -84,6 +84,7 @@ export function SubjectLearningPathScreen({
     [fallbackPath, path],
   );
   const hasCurriculumFallback = !path && fallbackPath.nodes.length > 0;
+  const isLivePathUnavailable = Boolean(error && !path);
   const displayedProgressPercent = useMemo(() => {
     const practisedCount = resolvedPath.nodes.filter(
       node =>
@@ -228,19 +229,20 @@ export function SubjectLearningPathScreen({
 
           {isLoading && !path && !hasCurriculumFallback ? <PathSkeleton /> : null}
 
-          {error && !hasCurriculumFallback ? (
+          {isLivePathUnavailable ? (
             <View style={styles.noticeCard}>
               <Text style={styles.noticeTitle}>
-                Using your saved curriculum
+                Live learning path unavailable
               </Text>
               <Text style={styles.noticeText}>{error}</Text>
               <Pressable
+                accessibilityLabel="Retry live learning path"
                 accessibilityRole="button"
                 onPress={onRetry}
                 style={styles.retryButton}
               >
                 <RefreshCw color="#0F766E" size={16} />
-                <Text style={styles.retryText}>Refresh path</Text>
+                <Text style={styles.retryText}>Retry live path</Text>
               </Pressable>
             </View>
           ) : null}
@@ -275,10 +277,15 @@ export function SubjectLearningPathScreen({
                   ) : null}
                   <PathNode
                     index={index}
+                    isLivePathUnavailable={isLivePathUnavailable}
                     isLast={index === visibleNodes.length - 1}
                     node={node}
                     onOpen={() => {
                       if (node.status === 'content_pending') {
+                        if (isLivePathUnavailable) {
+                          onRetry();
+                          return;
+                        }
                         setPendingNode(node);
                         return;
                       }
@@ -512,12 +519,14 @@ function PathNode({
   isLast,
   index,
   reduceMotion,
+  isLivePathUnavailable,
 }: {
   node: LearningPathNode;
   onOpen: () => void;
   isLast: boolean;
   index: number;
   reduceMotion: boolean;
+  isLivePathUnavailable: boolean;
 }) {
   const isLocked = node.status === 'locked';
   const isCurrent =
@@ -530,7 +539,9 @@ function PathNode({
     node.status === 'needs_practice'
       ? 'Practise again'
       : isContentPending
-        ? 'See update'
+        ? isLivePathUnavailable
+          ? 'Retry live path'
+          : 'See update'
         : 'Start lesson';
 
   useEffect(() => {
@@ -639,7 +650,9 @@ function PathNode({
                 <Text style={styles.currentPill}>CURRENT</Text>
               ) : null}
               {isContentPending ? (
-                <Text style={styles.pendingPill}>SOON</Text>
+                <Text style={styles.pendingPill}>
+                  {isLivePathUnavailable ? 'CHECK LIVE PATH' : 'SOON'}
+                </Text>
               ) : null}
               {isComplete ? (
                 <Text style={styles.completePill}>DONE</Text>
@@ -650,11 +663,13 @@ function PathNode({
               <Text
                 style={[styles.nodeMeta, isLocked && styles.nodeTextLocked]}
               >
-                {isContentPending
-                  ? 'Come back tomorrow'
-                  : isUnpublished
-                    ? 'Content coming soon'
-                    : `${node.estimatedMinutes} min`}
+                {isLivePathUnavailable && (isContentPending || isUnpublished)
+                  ? 'Retry to check the live path'
+                  : isContentPending
+                    ? 'Come back tomorrow'
+                    : isUnpublished
+                      ? 'Content coming soon'
+                      : `${node.estimatedMinutes} min`}
               </Text>
               {node.bestScore !== null ? (
                 <View style={styles.scoreWrap}>

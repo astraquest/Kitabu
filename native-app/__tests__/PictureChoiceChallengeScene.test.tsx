@@ -97,3 +97,15 @@ test('renders a remote API image when the lesson includes one', async () => {
   expect(() => renderer.root.findByProps({ testID: 'picture-choice-remote-image' })).toThrow();
   await act(async () => renderer.unmount());
 });
+
+test('renders each operand as a compact repeated remote image group', async () => {
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  await act(async () => {
+    renderer = ReactTestRenderer.create(<PictureChoiceChallengeScene choices={choices} disabled={false} mascotKey="rabbit" onSelect={jest.fn()} prompt="Solve this question" reduceMotion selectedAnswer={null} spec={{ kind: 'picture_group', object: 'book', caption: '3 + 2', equation: '3 + 2', imageKey: 'image-library/v1/book.png', imageUrl: 'https://assets.example.test/book.png', groups: [{ count: 3 }, { count: 2 }] }} status="idle" />);
+  });
+  expect(renderer.root.findByProps({ testID: 'picture-choice-picture-group' })).toBeTruthy();
+  ['0-0', '0-1', '0-2', '1-0', '1-1'].forEach(key => {
+    expect(renderer.root.findByProps({ testID: `picture-choice-remote-group-image-${key}` })).toBeTruthy();
+  });
+  await act(async () => renderer.unmount());
+});

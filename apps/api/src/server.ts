@@ -62,6 +62,7 @@ import {
   validateEducationalAssetReviewDecision,
 } from './educationalAssets/service.js';
 import { educationalAssetLicenseValues } from './educationalAssets/types.js';
+import { imageLibraryRenderUrl, isKnownImageLibraryKey } from './educationalAssets/imageLibrary.js';
 import { educationalAssetClassificationEditSchema, mergeEducationalAssetClassification } from './educationalAssets/classificationEdit.js';
 import {
   enqueueSpeechCues,
@@ -2614,7 +2615,11 @@ function serializeQuizBankQuestion(
     explanation: question.explanation,
     difficulty: question.difficulty,
     cognitiveLevel: question.cognitive_level,
-    featureTags: question.feature_tags
+    featureTags: question.feature_tags,
+    ...(isKnownImageLibraryKey(question.image_key) ? {
+      imageKey: question.image_key,
+      imageUrl: imageLibraryRenderUrl(process.env.KITABU_SUPABASE_URL, 'question-images', question.image_key)
+    } : {})
   };
 }
 

@@ -84,6 +84,15 @@ export type LearningVisualSpec =
       imageUrl?: string;
     }
   | {
+      kind: 'picture_group';
+      object: LearningObjectKind;
+      caption: string;
+      equation: string;
+      imageKey: string;
+      imageUrl?: string;
+      groups: Array<{ count: number }>;
+    }
+  | {
       kind: 'balance';
       left: Array<{ object: LearningObjectKind; count: number; label?: string }>;
       right: Array<{ object: LearningObjectKind; count: number; label?: string }>;
@@ -315,7 +324,7 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
       lowerPrimaryInteraction: _lowerPrimaryInteraction,
       ...publicStep
     } = step;
-    const visual = (publicStep.visual.kind === 'picture_word' || publicStep.visual.kind === 'picture_choice') && publicStep.visual.imageKey
+    const visual = (publicStep.visual.kind === 'picture_word' || publicStep.visual.kind === 'picture_choice' || publicStep.visual.kind === 'picture_group') && publicStep.visual.imageKey
       ? {
           ...publicStep.visual,
           imageUrl: publicStep.visual.imageUrl ?? imageLibraryRenderUrl(

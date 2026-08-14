@@ -715,7 +715,7 @@ export function ProgressiveLessonScreen({
                 snapshotKey={attemptId ? `${attemptId}:${step.id}` : undefined}
               />
             ) : usesPictureChoiceChallenge &&
-              step.visual.kind === 'picture_choice' ? (
+              (step.visual.kind === 'picture_choice' || step.visual.kind === 'picture_group') ? (
               <PictureChoiceChallengeScene
                 choices={lowerPrimaryChoices}
                 disabled={Boolean(feedback?.isCorrect) || isChecking}

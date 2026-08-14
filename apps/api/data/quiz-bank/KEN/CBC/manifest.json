@@ -10,6 +10,15 @@
   "cognitiveLevels": ["recall", "understand", "apply", "analyze", "create"],
   "gradeBands": [
     {
+      "id": "lower",
+      "label": "Lower Primary",
+      "grades": ["Grade 1"],
+      "subjects": [
+        { "id": "english", "name": "English" },
+        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] }
+      ]
+    },
+    {
       "id": "upper",
       "label": "Upper Primary",
       "grades": ["Grade 4", "Grade 5", "Grade 6"],

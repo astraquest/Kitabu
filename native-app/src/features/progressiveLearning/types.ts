@@ -64,6 +64,15 @@ export type LearningVisualSpec =
       imageUrl?: string;
     }
   | {
+      kind: 'picture_group';
+      object: LearningObjectKind;
+      caption: string;
+      equation: string;
+      imageKey: string;
+      imageUrl?: string;
+      groups: Array<{ count: number }>;
+    }
+  | {
       kind: 'balance';
       left: Array<{
         object: LearningObjectKind;

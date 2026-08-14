@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { IMAGE_LIBRARY_CACHE_CONTROL, imageLibraryPublicUrl, imageLibraryRenderUrl, imageLibraryStorageKey, inventoryImageLibraryEntry, normalizeImageLibrarySlug } from './imageLibrary.js';
+import { IMAGE_LIBRARY_CACHE_CONTROL, imageLibraryPublicUrl, imageLibraryRenderUrl, imageLibraryStorageKey, inventoryImageLibraryEntry, isKnownImageLibraryKey, normalizeImageLibrarySlug } from './imageLibrary.js';
 
 function png(width: number, height: number) {
   const bytes = Buffer.alloc(24);
@@ -26,4 +26,6 @@ test('normalizes immutable image-library keys and inventories PNG metadata deter
   assert.equal(imageLibraryPublicUrl('https://assets.example.test/public/', entry.storageKey), 'https://assets.example.test/public/image-library/v1/animal-cell.png');
   assert.equal(imageLibraryRenderUrl('https://assets.example.test', 'question-images', entry.storageKey), 'https://assets.example.test/storage/v1/render/image/public/question-images/image-library/v1/animal-cell.png?width=1024&quality=90');
   assert.match(IMAGE_LIBRARY_CACHE_CONTROL, /immutable/);
+  assert.equal(isKnownImageLibraryKey('image-library/v1/apple.png'), true);
+  assert.equal(isKnownImageLibraryKey('image-library/v1/unreviewed.png'), false);
 });

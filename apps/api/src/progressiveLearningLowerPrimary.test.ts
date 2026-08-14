@@ -5,8 +5,11 @@ import {
   buildProgressiveLearningPath,
   gradeProgressiveLessonStep,
   hasProgressiveLearningPath,
+  getProgressiveLessonPrivateDefinition,
   listProgressiveLessonDefinitions
 } from './progressiveLearning.js';
+import { buildCurriculumAuthoredPath } from './curriculumCompatibilityLesson.js';
+import { grade1QuizBankLessonQuestions } from './grade1QuizBankContent.js';
 
 const GRADES = ['Grade 1', 'Grade 2', 'Grade 3'] as const;
 const SUBJECTS = [
@@ -83,65 +86,76 @@ test('builds independent sequential paths for lower-primary subjects and math al
 test('uses short curriculum-aligned literacy challenges for Grade 1 English', () => {
   const lessons = listProgressiveLessonDefinitions({ grade: 'Grade 1', subjectId: 'english' });
   const bySubStrand = new Map(lessons.map(lesson => [lesson.subStrand, lesson]));
-  const listening = bySubStrand.get('Attentive Listening');
-  const vocabulary = bySubStrand.get('Pronunciation and Vocabulary');
-  const structures = bySubStrand.get('Language Structures');
+  const listening = bySubStrand.get('Attentive Listening')!;
+  const vocabulary = bySubStrand.get('Pronunciation and Vocabulary')!;
+  const structures = bySubStrand.get('Language Structures')!;
 
   assert.ok(listening);
   assert.ok(vocabulary);
   assert.ok(structures);
   assert.ok(lessons.every(lesson => lesson.lessonVersion === 3));
-  assert.deepEqual(
-    listening.steps.map(step => step.prompt),
-    [
-      'Teacher says, “Point to the door.” What should you do?',
-      'Amina is speaking. What should Kamau do?',
-      'Teacher says, “Stand up.” Which action matches?',
-      'You hear, “Touch your head.” What should you touch?',
-      'Which learner is listening well?'
-    ]
-  );
-  assert.deepEqual(
-    vocabulary.steps.map(step => step.prompt),
-    [
-      'Which letter completes APP _ E?',
-      'Which letter completes C _ T?',
-      'Which letter completes B _ NANA?',
-      'Which letter completes D _ G?',
-      'Which letters complete B __ K?'
-    ]
-  );
-  assert.deepEqual(
-    structures.steps.map(step => step.prompt),
-    [
-      'Complete the sentence: I __ Amina.',
-      'Complete the sentence: This __ a book.',
-      'Complete the sentence: We __ happy.',
-      'Asha is my sister. __ is kind.',
-      'Complete the greeting: Good __!'
-    ]
-  );
-  assert.equal(gradeProgressiveLessonStep(vocabulary.lessonKey, vocabulary.steps[0].id, 'L')?.isCorrect, true);
-  assert.equal(gradeProgressiveLessonStep(vocabulary.lessonKey, vocabulary.steps[0].id, 'E')?.isCorrect, false);
-  assert.deepEqual(vocabulary.steps.map(step => step.visual.kind), Array(5).fill('picture_word'));
-  assert.deepEqual(
-    vocabulary.steps.map(step =>
-      step.visual.kind === 'picture_word' ? step.visual.caption : null
-    ),
-    ['apple', 'cat', 'banana', 'dog', 'book']
-  );
-  assert.deepEqual(
-    vocabulary.steps.map(step => step.visual.kind === 'picture_word' ? step.visual.imageKey : null),
-    ['image-library/v1/apple.png', 'image-library/v1/cat.png', 'image-library/v1/banana.png', 'image-library/v1/dog.png', 'image-library/v1/book.png']
-  );
-  assert.equal(listening.steps[0].visual.kind, 'picture_choice');
-  assert.equal(listening.steps[0].visual.kind === 'picture_choice' && listening.steps[0].visual.imageKey, 'image-library/v1/teacher.png');
-  assert.equal(gradeProgressiveLessonStep(structures.lessonKey, structures.steps[0].id, 'am')?.isCorrect, true);
-  assert.equal(gradeProgressiveLessonStep(structures.lessonKey, structures.steps[0].id, 'is')?.isCorrect, false);
+  for (const [lesson, subStrand] of [[listening, 'Attentive Listening'], [vocabulary, 'Pronunciation and Vocabulary'], [structures, 'Language Structures']] as const) {
+    const source = grade1QuizBankLessonQuestions('english', subStrand, 5);
+    assert.deepEqual(lesson.steps.map(step => step.prompt), source.map(question => question.prompt));
+    assert.deepEqual(lesson.steps.map(step => [...step.options].sort()), source.map(question => [...question.options].sort()));
+    assert.deepEqual(lesson.steps.map(step => step.visual.kind), Array(5).fill('picture_choice'));
+    assert.deepEqual(lesson.steps.map(step => step.visual.kind === 'picture_choice' ? step.visual.imageKey : undefined), source.map(question => question.imageKey));
+    assert.equal(gradeProgressiveLessonStep(lesson.lessonKey, lesson.steps[0].id, source[0].correctAnswer)?.isCorrect, true);
+  }
   assert.doesNotMatch(
     lessons.flatMap(lesson => lesson.steps.map(step => step.prompt)).join(' '),
     /best demonstrates|recommended practice|best shows understanding/i
   );
+});
+
+test('publishes and starts Grade 1 English lessons through their curriculum topic identities', () => {
+  const lessons = listProgressiveLessonDefinitions({ grade: 'Grade 1', subjectId: 'english' });
+  assert.deepEqual(
+    lessons.map(lesson => [lesson.subStrand, lesson.curriculumTopicCode]),
+    [
+      ['Attentive Listening', '1.1'],
+      ['Pronunciation and Vocabulary', '2.1'],
+      ['Language Structures', '3.1'],
+    ]
+  );
+
+  const subject = {
+    subjectId: 'english',
+    subjectCode: 'english',
+    subjectName: 'English',
+    strands: lessons.map((lesson, position) => ({
+      id: `english-strand-${position + 1}`,
+      number: `${position + 1}.0`,
+      title: `Official English strand ${position + 1}`,
+      subStrands: [{
+        id: `english-sub-strand-${position + 1}`,
+        number: lesson.curriculumTopicCode,
+        title: `Official English topic ${position + 1}`,
+        topics: [{
+          id: `english-topic-${position + 1}`,
+          code: lesson.curriculumTopicCode,
+          title: `Official English topic ${position + 1}`,
+        }],
+        isCompleted: false,
+        needsRemediation: false,
+      }],
+    })),
+  };
+  const path = buildCurriculumAuthoredPath(subject, [], 'Grade 1', lessons);
+
+  assert.deepEqual(path.nodes.map(node => node.availability), ['published', 'published', 'published']);
+  assert.deepEqual(path.nodes.map(node => node.status), ['current', 'locked', 'locked']);
+  assert.deepEqual(path.nodes.map(node => node.curriculumTopicId), [
+    'english-topic-1',
+    'english-topic-2',
+    'english-topic-3',
+  ]);
+  for (const node of path.nodes) {
+    assert.ok(node.lessonKey);
+    assert.ok(node.lessonVersion);
+    assert.ok(node.curriculumTopicId);
+    assert.ok(getProgressiveLessonPrivateDefinition(node.lessonKey));
+  }
 });
 
 test('uses the simplified English presentation pattern for Grade 1 Kiswahili', () => {

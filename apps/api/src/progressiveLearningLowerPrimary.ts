@@ -3,6 +3,7 @@ import {
   type CurriculumChapterSource,
   type CurriculumQuestionSource
 } from './progressiveLearningCurriculum.js';
+import { grade1QuizBankLessonQuestions } from './grade1QuizBankContent.js';
 
 type LowerPrimaryGrade = 'Grade 1' | 'Grade 2' | 'Grade 3';
 type Topic = readonly [
@@ -696,7 +697,20 @@ function arithmeticQuestion(sample: ArithmeticSample): CurriculumQuestionSource 
 function questionsFor(grade: LowerPrimaryGrade, subjectId: string, subjectName: string, topic: Topic): CurriculumQuestionSource[] {
   const [slug, , subStrand, , practice, benefit, misconception] = topic;
   if (grade === 'Grade 1' && subjectId === 'english') {
-    return [...GRADE_ONE_ENGLISH_CHALLENGES[slug]];
+    return grade1QuizBankLessonQuestions('english', subStrand, 5).map(item => ({
+      prompt: item.prompt,
+      options: item.options,
+      answer: item.correctAnswer,
+      explanation: item.explanation,
+      hint: 'Look at the picture and read every choice before answering.',
+      misconception: 'The learner may choose a familiar word without checking the picture and question.',
+      cognitiveLevel: item.cognitiveLevel === 'analyze'
+        ? 'analyse'
+        : item.cognitiveLevel === 'create'
+          ? 'apply'
+          : item.cognitiveLevel,
+      visual: { kind: 'picture_choice', object: 'book', caption: item.prompt, imageKey: item.imageKey }
+    }));
   }
   if (grade === 'Grade 1' && subjectId === 'kiswahili') {
     return [...GRADE_ONE_KISWAHILI_CHALLENGES[slug]];
@@ -766,6 +780,13 @@ const chapters: CurriculumChapterSource[] = curriculum.flatMap(subject =>
   subject.topics.map((topic, index) => {
     const [slug, strand, subStrand, objective, practice] = topic;
     const gradeNumber = subject.grade.slice(-1);
+    const curriculumTopicCode = subject.grade === 'Grade 1' && subject.subjectId === 'english'
+      ? ({
+          'attentive-listening': '1.1',
+          'pronunciation-vocabulary': '2.1',
+          'language-structures': '3.1',
+        } as const)[slug]
+      : undefined;
     return {
       key: `${subject.subjectId}-g${gradeNumber}-${slug}`,
       lessonVersion:
@@ -781,6 +802,7 @@ const chapters: CurriculumChapterSource[] = curriculum.flatMap(subject =>
       grade: subject.grade,
       strand,
       subStrand,
+      curriculumTopicCode,
       title: subStrand,
       shortTitle: subStrand.length <= 28 ? subStrand : `${subStrand.slice(0, 25).trim()}...`,
       objective,

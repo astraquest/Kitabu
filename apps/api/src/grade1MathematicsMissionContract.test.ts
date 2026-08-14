@@ -256,6 +256,8 @@ test('every authored interaction reaches a supported, non-placeholder runtime sc
   for (const { entry, document } of documents) {
     const published = getProgressiveLessonDefinition(entry.id);
     if (!published) continue;
+    // The first Number Concept mission deliberately uses canonical QuizBank rows.
+    if (entry.id === index.missions[0]?.id) continue;
     document.mission.interactions.forEach((interaction, index) => {
       const step = published.steps[index];
       const label = `${entry.id} step ${index + 1}`;

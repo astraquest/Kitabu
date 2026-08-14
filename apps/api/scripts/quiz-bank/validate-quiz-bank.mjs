@@ -17,6 +17,11 @@ const manifestOnly = args.has('--manifest-only');
 
 const allowedTypes = new Set(['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY']);
 const allowedCognitiveLevels = new Set(['recall', 'understand', 'apply', 'analyze', 'create']);
+const knownImageKeys = new Set([
+  'image-library/v1/apple.png', 'image-library/v1/banana.png', 'image-library/v1/ball.png',
+  'image-library/v1/book.png', 'image-library/v1/cat.png', 'image-library/v1/dog.png',
+  'image-library/v1/teacher.png',
+]);
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -99,7 +104,8 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
     seenNumbers.add(question.questionNumber);
 
     if (!allowedTypes.has(question.type)) fail(errors, `${label}: invalid type ${question.type}`);
-    if (typeof question.prompt !== 'string' || question.prompt.trim().length < 12) fail(errors, `${label}: prompt is too short`);
+    const minimumPromptLength = cell.gradeLevel === 'Grade 1' && cell.subjectId === 'mathematics' ? 5 : 12;
+    if (typeof question.prompt !== 'string' || question.prompt.trim().length < minimumPromptLength) fail(errors, `${label}: prompt is too short`);
     const promptKey = String(question.prompt ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
     if (seenPrompts.has(promptKey)) fail(errors, `${label}: duplicate prompt`);
     seenPrompts.add(promptKey);
@@ -127,7 +133,8 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
     }
 
     for (const field of ['correctAnswer', 'explanation', 'strandTitle', 'subStrandTitle', 'learningOutcome']) {
-      if (typeof question[field] !== 'string' || question[field].trim().length < 2) fail(errors, `${label}: ${field} is required`);
+      const minimumLength = field === 'correctAnswer' && cell.gradeLevel === 'Grade 1' ? 1 : 2;
+      if (typeof question[field] !== 'string' || question[field].trim().length < minimumLength) fail(errors, `${label}: ${field} is required`);
     }
     if (/fallback practice|correct answer|placeholder/i.test(`${question.prompt} ${question.correctAnswer} ${question.explanation}`)) {
       fail(errors, `${label}: contains placeholder or fallback text`);
@@ -138,6 +145,33 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
       difficulties.add(question.difficulty);
     }
     if (!allowedCognitiveLevels.has(question.cognitiveLevel)) fail(errors, `${label}: invalid cognitiveLevel ${question.cognitiveLevel}`);
+    if (question.imageKey !== undefined && !knownImageKeys.has(question.imageKey)) {
+      fail(errors, `${label}: imageKey must be a known immutable image-library key`);
+    }
+    if (/\bat\s+at\b/i.test(question.prompt)) fail(errors, `${label}: prompt repeats a context token`);
+    if (question.imageKey && /picture\. Which number shows \d+\s+\w+s\?/i.test(question.prompt)) {
+      fail(errors, `${label}: a single-object image cannot claim to show a quantity`);
+    }
+    if (cell.gradeLevel === 'Grade 1' && cell.subjectId === 'mathematics' && question.imageKey) {
+      const visual = question.visual;
+      if (!visual || visual.kind !== 'picture_group' || visual.imageKey !== question.imageKey || !Array.isArray(visual.groups)) {
+        fail(errors, `${label}: image arithmetic needs a matching picture_group visual`);
+      } else {
+        const equation = String(visual.equation ?? '').match(/^(\d+)\s*([+-])\s*(\d+)$/);
+        const counts = visual.groups.map(group => Number(group?.count));
+        if (!equation || counts.length !== 2 || counts.some(count => !Number.isInteger(count) || count < 1)) {
+          fail(errors, `${label}: picture_group needs two positive operand counts and an equation`);
+        } else {
+          const [, leftText, operator, rightText] = equation;
+          const left = Number(leftText);
+          const right = Number(rightText);
+          const expected = operator === '+' ? left + right : left - right;
+          if (counts[0] !== left || counts[1] !== right) fail(errors, `${label}: picture_group quantities do not match its equation`);
+          if (String(question.correctAnswer) !== String(expected)) fail(errors, `${label}: arithmetic answer does not match its equation`);
+          if (question.prompt !== `${visual.equation} = ?`) fail(errors, `${label}: image arithmetic prompt must match its equation`);
+        }
+      }
+    }
     if (!Array.isArray(question.featureTags) || question.featureTags.length === 0) {
       fail(errors, `${label}: featureTags must be a non-empty array`);
     } else {

@@ -132,9 +132,9 @@ async function importFile(client, manifest, filePath) {
          country_code, curriculum_code, grade_level, subject_id, subject_name,
          strand_title, sub_strand_title, learning_outcome, question_number, type,
          prompt, options, correct_answer, explanation, difficulty, cognitive_level,
-         feature_tags, source
+         feature_tags, image_key, source
        )
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12::jsonb, $13, $14, $15, $16, $17::jsonb, $18)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12::jsonb, $13, $14, $15, $16, $17::jsonb, $18, $19)
        ON CONFLICT (country_code, curriculum_code, grade_level, subject_id, question_number)
        DO UPDATE SET
          subject_name = EXCLUDED.subject_name,
@@ -149,6 +149,7 @@ async function importFile(client, manifest, filePath) {
          difficulty = EXCLUDED.difficulty,
          cognitive_level = EXCLUDED.cognitive_level,
          feature_tags = EXCLUDED.feature_tags,
+         image_key = EXCLUDED.image_key,
          source = EXCLUDED.source,
          updated_at = NOW()`,
       [
@@ -169,6 +170,7 @@ async function importFile(client, manifest, filePath) {
         question.difficulty,
         question.cognitiveLevel,
         JSON.stringify(question.featureTags ?? []),
+        question.imageKey ?? null,
         'quizbank-json'
       ]
     );

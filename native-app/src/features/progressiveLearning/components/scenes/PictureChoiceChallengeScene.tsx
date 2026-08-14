@@ -8,7 +8,7 @@ import { LearningMascotReaction } from '../LearningMascotReaction';
 import { SquishPressable } from '../SquishPressable';
 import { ObjectIllustration } from './ObjectIllustration';
 
-type PictureChoiceSpec = Extract<LearningVisualSpec, { kind: 'picture_choice' }>;
+type PictureChoiceSpec = Extract<LearningVisualSpec, { kind: 'picture_choice' | 'picture_group' }>;
 
 type PictureChoiceChallengeSceneProps = {
   choices: Array<{ label: string; value: string }>;
@@ -79,7 +79,20 @@ export function PictureChoiceChallengeScene({
         accessibilityRole="image"
         style={styles.pictureStage}
       >
-        {spec.imageUrl && !remoteImageFailed ? (
+        {spec.kind === 'picture_group' ? (
+          <View accessibilityLabel={`${spec.equation}: ${spec.groups.map(group => group.count).join(' plus ')}`} style={styles.groupEquation} testID="picture-choice-picture-group">
+            {spec.groups.map((group, groupIndex) => (
+              <React.Fragment key={`${groupIndex}-${group.count}`}>
+                {groupIndex > 0 ? <Text style={styles.operator}>+</Text> : null}
+                <View style={styles.imageGroup}>
+                  {Array.from({ length: group.count }, (_, imageIndex) => spec.imageUrl && !remoteImageFailed ? (
+                    <Image accessibilityLabel={`Picture ${imageIndex + 1} of group ${groupIndex + 1}`} key={imageIndex} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.groupImage} testID={`picture-choice-remote-group-image-${groupIndex}-${imageIndex}`} />
+                  ) : <ObjectIllustration key={imageIndex} kind={spec.object} size={42} />)}
+                </View>
+              </React.Fragment>
+            ))}
+          </View>
+        ) : spec.imageUrl && !remoteImageFailed ? (
           <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-choice-remote-image" />
         ) : (
           <ObjectIllustration kind={spec.object} size={150} />
@@ -198,6 +211,10 @@ const styles = StyleSheet.create({
     marginTop: 14,
     width: '100%',
   },
+  groupEquation: { alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '100%', paddingHorizontal: 8 },
+  groupImage: { height: 42, resizeMode: 'contain', width: 42 },
+  imageGroup: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '42%' },
+  operator: { color: '#082B4A', fontSize: 28, fontWeight: '900', marginHorizontal: 6 },
   prompt: { color: '#082B4A', fontSize: 22, fontWeight: '900', lineHeight: 27, textAlign: 'center' },
   remoteImage: { height: 150, resizeMode: 'contain', width: 150 },
   resultBadge: {

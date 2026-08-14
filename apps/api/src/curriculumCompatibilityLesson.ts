@@ -101,6 +101,20 @@ function uniqueLocationMap(lessons: AuthoredCurriculumLesson[]) {
   return result;
 }
 
+function uniqueExplicitOutcomeCodeMatch(
+  lessons: AuthoredCurriculumLesson[],
+  subStrandNumber: string | undefined,
+  outcomeId: string | undefined,
+) {
+  if (!subStrandNumber || !outcomeId) return undefined;
+  const matches = lessons.filter(lesson =>
+    lesson.curriculumTopicCode &&
+    normalizeLabel(lesson.curriculumTopicCode) === normalizeLabel(subStrandNumber) &&
+    lesson.curriculumOutcomeId === outcomeId,
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
 export function buildCurriculumAuthoredPath(
   subject: CurriculumPathSubject,
   progress: ProgressiveLessonProgressRecord[],
@@ -140,7 +154,11 @@ export function buildCurriculumAuthoredPath(
             strand: mission.strand.title,
             subStrand: mission.subStrand.title,
             outcomeId: mission.outcome.id,
-          }))
+          })) ?? uniqueExplicitOutcomeCodeMatch(
+            authoredLessons,
+            mission.subStrand.number,
+            mission.outcome.id,
+          )
         : undefined;
       const lessonProgress = matchedLesson
         ? progressByLesson.get(matchedLesson.lessonKey)

@@ -10,7 +10,7 @@ export interface AuthenticatedUser {
   phoneVerified?: boolean;
   fullName: string;
   emailVerified: boolean;
-  mascotKey?: 'rabbit' | 'lion' | 'elephant';
+  mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
   roles: AppRole[];
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;

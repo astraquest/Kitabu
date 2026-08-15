@@ -25,6 +25,14 @@ export async function unlinkParentChild(studentId: string) {
   });
 }
 
+export async function startParentChildSession(studentId: string) {
+  return apiJsonRequest<{
+    accessToken: string;
+    refreshToken: string;
+    user: import('../types/app').AuthSession['user'];
+  }>(`/parent/children/${encodeURIComponent(studentId)}/session`, { method: 'POST' });
+}
+
 export async function getParentTeacherMessages() {
   const payload = await apiJsonRequest<{ messages: TeacherParentMessage[] }>('/parent/messages');
   return payload.messages;

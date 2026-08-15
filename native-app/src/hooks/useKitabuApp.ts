@@ -46,6 +46,8 @@ import {
   authenticateWithGoogleToken,
 } from '../services/authService';
 import { requestGoogleIdToken } from '../services/googleAuthService';
+import { saveNarrationPreference } from '../services/assessmentNarrationService';
+import { setAssessmentSoundConsent } from '../components/AssessmentNarrationControls';
 import { areExternalPaymentsEnabled } from '../services/runtimeConfig';
 import { resetDevelopmentWebStateOnce } from '../services/developmentReset';
 import {
@@ -111,6 +113,7 @@ import { completeReview as completeSpacedReview, getDueReviews } from '../servic
 import {
   getParentDashboard,
   linkParentChild,
+  startParentChildSession,
   unlinkParentChild,
 } from '../services/parentService';
 import {
@@ -118,7 +121,8 @@ import {
   startWeeklyExam,
   submitWeeklyExam as submitWeeklyExamRequest,
 } from '../services/weeklyExamService';
-import { focusModeBridge } from '../services/nativeBridges';
+import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
+import { getLocalCalendarDateKey, requestDailyStudentWelcome } from '../services/dailyWelcomeService';
 import { loadJson, saveJson } from '../services/storage';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
@@ -206,6 +210,26 @@ function resolveLastUsedAuthRole(roles: AuthRole[]): LastUsedAuthRole | null {
   if (roles.includes('parent')) return 'parent';
   if (roles.includes('student')) return 'student';
   return null;
+}
+
+export function getValidStoredAuthRole(
+  roles: AuthRole[],
+  storedRole?: LastUsedAuthRole | null,
+): LastUsedAuthRole | null {
+  return storedRole && roles.includes(storedRole) ? storedRole : null;
+}
+
+export function resolveAuthenticatedRole(
+  roles: AuthRole[],
+  requestedRole: PublicSignupRole | null | undefined,
+  storedRole: LastUsedAuthRole | null,
+): LastUsedAuthRole | null {
+  if (requestedRole != null) {
+    return getValidStoredAuthRole(roles, isLastUsedAuthRole(requestedRole) ? requestedRole : null)
+      ?? resolveLastUsedAuthRole(roles);
+  }
+
+  return getValidStoredAuthRole(roles, storedRole) ?? resolveLastUsedAuthRole(roles);
 }
 const MAX_DASHBOARD_SUBJECTS = 5;
 const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
@@ -302,6 +326,23 @@ type OnboardingSignupInput = {
   mascotKey?: OnboardingMascotKey;
   subjects?: string[];
   selectedSubjectIds?: string[];
+  children?: Array<{
+    name: string;
+    age: string;
+    gender?: GenderOption;
+    county?: string;
+    schoolId?: string | null;
+    school?: string;
+    grade: string;
+    performance?: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
+    subjects?: string[];
+    commitmentAccepted?: boolean;
+    commitmentMinutes?: number;
+  }>;
+  parentChildren?: OnboardingSignupInput['children'];
+  referralSource?: string;
+  voiceName?: OnboardingVoiceName;
+  reminderEnabled?: boolean;
   teachGrades?: string[];
   teacherGradeIds?: string[];
   mpesaPhoneNumber?: string;
@@ -467,7 +508,7 @@ export function getPrimaryHomeView(roles: AuthRole[], email?: string | null): Vi
   }
 
   if (isParentRole(roles)) {
-    return 'parent_dashboard';
+    return 'profile_chooser';
   }
 
   return 'dashboard';
@@ -478,6 +519,10 @@ export function getHomeViewForRequestedRole(
   email?: string | null,
   requestedRole?: PublicSignupRole | null,
 ): ViewState {
+  if (isAdminRole(roles) || isKnownAdminEmail(email)) {
+    return getPrimaryHomeView(roles, email);
+  }
+
   if (requestedRole === 'student' && roles.includes('student')) {
     return 'dashboard';
   }
@@ -487,7 +532,7 @@ export function getHomeViewForRequestedRole(
   }
 
   if (requestedRole === 'parent' && roles.includes('parent')) {
-    return 'parent_dashboard';
+    return 'profile_chooser';
   }
 
   return getPrimaryHomeView(roles, email);
@@ -685,6 +730,7 @@ export function useKitabuApp() {
   const externalPaymentsEnabled = areExternalPaymentsEnabled();
   const [isReady, setIsReady] = useState(false);
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
+  const authSessionRef = useRef<AuthSession | null>(null);
   const [authEntryScreen, setAuthEntryScreen] = useState<'intro' | 'auth'>('intro');
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [loginEmail, setLoginEmail] = useState('');
@@ -702,6 +748,8 @@ export function useKitabuApp() {
   const [isDiagnosticStatusLoaded, setIsDiagnosticStatusLoaded] = useState(false);
   const [onboardingDiagnosticCompleted, setOnboardingDiagnosticCompleted] = useState(false);
   const [onboardingError, setOnboardingError] = useState<string | null>(null);
+  const [parentHouseholdOnboardingRequested, setParentHouseholdOnboardingRequested] = useState(false);
+  const parentSessionRef = useRef<AuthSession | null>(null);
   const [currentView, setCurrentView] = useState<ViewState>('dashboard');
   const [liveAudioReturnView, setLiveAudioReturnView] =
     useState<ViewState>('dashboard');
@@ -749,6 +797,7 @@ export function useKitabuApp() {
     useState<Flashcard[]>(INITIAL_FLASHCARDS);
   const [generatedQuizQuestions, setGeneratedQuizQuestions] =
     useState<Question[]>(INITIAL_QUIZ_QUESTIONS);
+  const [generatedQuizNarrationSessionId, setGeneratedQuizNarrationSessionId] = useState<string | null>(null);
   const [curriculumData, setCurriculumData] = useState<
     Record<string, LearningStrand[]>
   >(INITIAL_CURRICULUM_DATA);
@@ -898,7 +947,11 @@ export function useKitabuApp() {
     const nextHomeView =
       isStudentPreview || !authSession
         ? 'dashboard'
-        : getPrimaryHomeView(authSession.user.roles, authSession.user.email);
+        : getHomeViewForRequestedRole(
+            authSession.user.roles,
+            authSession.user.email,
+            lastUsedAuthRole,
+          );
 
     if (link.kind === 'email-verification-token') {
       try {
@@ -923,7 +976,13 @@ export function useKitabuApp() {
           setAuthError(null);
           setAuthMode('login');
           setAuthEntryScreen('auth');
-          replaceWith(getPrimaryHomeView(nextSession.user.roles, nextSession.user.email));
+          replaceWith(
+            getHomeViewForRequestedRole(
+              nextSession.user.roles,
+              nextSession.user.email,
+              lastUsedAuthRole,
+            ),
+          );
           return;
         }
 
@@ -989,7 +1048,11 @@ export function useKitabuApp() {
       await persistAuthSession(null);
       setCurrentView('dashboard');
     }
-  }, [authSession, isStudentPreview, replaceWith]);
+  }, [authSession, isStudentPreview, lastUsedAuthRole, replaceWith]);
+
+  useEffect(() => {
+    authSessionRef.current = authSession;
+  }, [authSession]);
 
   useEffect(() => {
     return subscribeToAuthSessionUpdates(session => {
@@ -998,6 +1061,9 @@ export function useKitabuApp() {
         return;
       }
 
+      if (!authSessionRef.current) {
+        return;
+      }
       setAuthSession(null);
       setAuthEntryScreen('auth');
       setAuthMode('login');
@@ -1062,7 +1128,10 @@ export function useKitabuApp() {
       setLoginEmail(storedLoginCredentials?.email ?? '');
       // Passwords are intentionally never restored from storage.
       setLoginPassword('');
-      setLastUsedAuthRole(isLastUsedAuthRole(storedLastUsedAuthRole) ? storedLastUsedAuthRole : null);
+      const storedRole = isLastUsedAuthRole(storedLastUsedAuthRole)
+        ? storedLastUsedAuthRole
+        : null;
+      setLastUsedAuthRole(storedRole);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
       const durableOnboardingPreferences = storedSession
         ? onboardingPreferencesFromSession(storedSession)
@@ -1106,11 +1175,20 @@ export function useKitabuApp() {
       );
 
       if (storedSession) {
-        const nextHomeView = getPrimaryHomeView(storedSession.user.roles, storedSession.user.email);
+        const restoredRole = resolveAuthenticatedRole(
+          storedSession.user.roles,
+          null,
+          getValidStoredAuthRole(storedSession.user.roles, storedRole),
+        );
+        const nextHomeView = getHomeViewForRequestedRole(
+          storedSession.user.roles,
+          storedSession.user.email,
+          restoredRole,
+        );
         const nextProfile = mergeStoredProfileWithAuthSession(storedProfile, storedSession);
         const nextGrade = nextProfile.grade || DEFAULT_GRADE;
         setAuthSession(storedSession);
-        rememberAuthenticatedRole(storedSession);
+        rememberAuthenticatedRole(storedSession, restoredRole);
         setUserProfile(nextProfile);
         setCurrentGrade(nextGrade);
         setIsStudentPreview(false);
@@ -1174,6 +1252,60 @@ export function useKitabuApp() {
       subscription.remove();
     };
   }, [handleIncomingLink]);
+
+  useEffect(() => {
+    const userId = authSession?.user.id;
+    if (
+      !isReady ||
+      !userId ||
+      isStudentPreview ||
+      !authSession?.user.roles.includes('student')
+    ) {
+      return undefined;
+    }
+
+    let mounted = true;
+    let attemptInFlight = false;
+    let pendingRetryCount = 0;
+    let scheduledRetry: ReturnType<typeof setTimeout> | undefined;
+    let completedForDate: string | null = null;
+    const attemptWelcomeCue = async () => {
+      const localDate = getLocalCalendarDateKey();
+      if (!mounted || attemptInFlight || completedForDate === localDate) return;
+      attemptInFlight = true;
+      try {
+        const welcome = await requestDailyStudentWelcome(localDate);
+        if (!mounted) return;
+        if (welcome.status === 'ready') {
+          await speechPlaybackBridge.playAudio(welcome.audio);
+          completedForDate = localDate;
+        } else if (welcome.status === 'pending' && pendingRetryCount < 2) {
+          pendingRetryCount += 1;
+          scheduledRetry = setTimeout(() => {
+            scheduledRetry = undefined;
+            attemptWelcomeCue().catch(() => undefined);
+          }, 1_000);
+        } else {
+          completedForDate = localDate;
+        }
+      } catch {
+        // Welcome speech is an enhancement and must never affect authentication.
+      } finally {
+        attemptInFlight = false;
+      }
+    };
+
+    attemptWelcomeCue().catch(() => undefined);
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') attemptWelcomeCue().catch(() => undefined);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.remove();
+      if (scheduledRetry) clearTimeout(scheduledRetry);
+    };
+  }, [authSession?.user.id, authSession?.user.roles, isReady, isStudentPreview]);
 
   useEffect(() => {
     if (isReady) {
@@ -1552,12 +1684,18 @@ export function useKitabuApp() {
     );
   const isDemoStudentAccount = Boolean(isDemoAccount && roles.includes('student'));
   const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
-  const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
+  const selectedHomeView = getHomeViewForRequestedRole(
+    roles,
+    authSession?.user.email,
+    lastUsedAuthRole,
+  );
+  const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : selectedHomeView;
   const hasPendingAccountOnboarding = Boolean(
-    authSession &&
+    (authSession &&
       !isKnownAdminAccount &&
       authSession.user.roles.some(role => role === 'student' || role === 'teacher' || role === 'parent' || role === 'other') &&
-      !authSession.user.onboardingCompleted,
+      !authSession.user.onboardingCompleted) ||
+    parentHouseholdOnboardingRequested,
   );
   const hasPendingStudentDiagnostic = Boolean(
     authSession?.user.roles.includes('student') &&
@@ -1740,6 +1878,39 @@ export function useKitabuApp() {
     } finally {
       setIsLoadingParentDashboard(false);
     }
+  }
+
+  function openParentDashboard() {
+    replaceWith('parent_dashboard');
+  }
+
+  async function openParentChildDashboard(childId: string) {
+    if (!authSession?.user.roles.includes('parent')) {
+      return;
+    }
+    try {
+      parentSessionRef.current = parentSessionRef.current ?? authSession;
+      const payload = await startParentChildSession(childId);
+      const childSession: AuthSession = {
+        accessToken: payload.accessToken,
+        refreshToken: payload.refreshToken,
+        user: payload.user,
+      };
+      await persistAuthSession(childSession);
+      setAuthSession(childSession);
+      setCurrentGrade(childSession.user.grade || DEFAULT_GRADE);
+      setIsStudentPreview(false);
+      setSelectedParentChildId(childId);
+      replaceWith('dashboard');
+    } catch (error) {
+      setParentDashboardError(error instanceof Error ? error.message : 'Unable to open that child dashboard');
+      triggerHaptic('error');
+    }
+  }
+
+  function startParentHouseholdOnboarding() {
+    setParentHouseholdOnboardingRequested(true);
+    setOnboardingError(null);
   }
 
   async function linkParentChildAccount() {
@@ -2198,6 +2369,7 @@ export function useKitabuApp() {
     interests?: OnboardingInterestKey[];
     interestKeys?: OnboardingInterestKey[];
     reminderEnabled?: boolean;
+    referralSource?: string;
     countryCode?: string;
     curriculumCode?: string;
     signupMethod?: 'email' | 'phone' | 'google';
@@ -2230,6 +2402,7 @@ export function useKitabuApp() {
         achievementKey,
         interestKeys,
         reminderEnabled,
+        referralSource,
         countryCode,
         curriculumCode,
         signupMethod,
@@ -2277,6 +2450,7 @@ export function useKitabuApp() {
         school: input.school,
         countryCode,
         curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
+        referralSource,
       };
       const nextSession = await completeAccountOnboarding({
         ...accountOnboardingInput,
@@ -2287,6 +2461,14 @@ export function useKitabuApp() {
         onboardingPersonalization,
       });
       setAuthSession(nextSession);
+      setParentHouseholdOnboardingRequested(false);
+      if (nextSession.user.roles.includes('student')) {
+        setAssessmentSoundConsent(Boolean(resolvedVoiceName && !noVoice)).catch(() => undefined);
+        saveNarrationPreference({
+          selectedProfile: resolvedVoiceName ?? 'Samora',
+          enabled: Boolean(resolvedVoiceName && !noVoice)
+        }).catch(() => undefined);
+      }
       if (isOnboardingMascotKey(resolvedMascotKey)) {
         setOnboardingMascotKey(resolvedMascotKey);
       }
@@ -2371,7 +2553,13 @@ export function useKitabuApp() {
         setOnboardingDiagnosticCompleted(false);
         setIsDiagnosticStatusLoaded(false);
       }
-      replaceWith(getPrimaryHomeView(nextSession.user.roles, nextSession.user.email));
+      replaceWith(
+        getHomeViewForRequestedRole(
+          nextSession.user.roles,
+          nextSession.user.email,
+          lastUsedAuthRole,
+        ),
+      );
       triggerHaptic('success');
       await Promise.all([refreshBillingState(), refreshDashboardBanner()]);
     } catch (error) {
@@ -2613,7 +2801,7 @@ export function useKitabuApp() {
     if (
       authSession?.user.roles.includes('student') &&
       !isStudentPreview &&
-      ['science', 'kiswahili', 'social', 'ai_education'].includes(subject.id)
+      subject.id.length > 0
     ) {
       try {
         const status = await getProgressiveDiagnosticStatus(subject.id);
@@ -3076,17 +3264,22 @@ export function useKitabuApp() {
     session: AuthSession,
     requestedRole: PublicSignupRole | null = signupRole,
   ) {
+    const selectedRole = resolveAuthenticatedRole(
+      session.user.roles,
+      requestedRole,
+      lastUsedAuthRole,
+    );
     const nextHomeView = getHomeViewForRequestedRole(
       session.user.roles,
       session.user.email,
-      requestedRole,
+      selectedRole,
     );
     pendingAuthHomeView.current = { session, view: nextHomeView };
     setAuthSession(session);
     if (isOnboardingMascotKey(session.user.mascotKey)) {
       setOnboardingMascotKey(session.user.mascotKey);
     }
-    rememberAuthenticatedRole(session);
+    rememberAuthenticatedRole(session, selectedRole);
     setAuthEntryScreen('auth');
     const profile = mapAuthSessionToProfile(session);
     setUserProfile(profile);
@@ -3098,9 +3291,14 @@ export function useKitabuApp() {
     replaceWith(nextHomeView);
   }
 
-  function rememberAuthenticatedRole(session: AuthSession) {
-    const role = resolveLastUsedAuthRole(session.user.roles);
+  function rememberAuthenticatedRole(
+    session: AuthSession,
+    selectedRole?: LastUsedAuthRole | null,
+  ) {
+    const role = selectedRole ?? resolveLastUsedAuthRole(session.user.roles);
     if (!role) {
+      setLastUsedAuthRole(null);
+      saveJson(STORAGE_KEYS.lastUsedAuthRole, null).catch(() => undefined);
       return;
     }
 
@@ -3234,6 +3432,19 @@ export function useKitabuApp() {
           mascotKey: input.mascotKey ?? input.mascot,
           countryCode: input.countryCode,
           curriculumCode: curriculumCodeForCountry(input.countryCode),
+          onboardingPersonalization: {
+            version: 1,
+            role,
+            displayName: fullName,
+            mascotKey: input.mascotKey ?? input.mascot,
+            voiceName: input.voiceName,
+            children: input.children ?? input.parentChildren,
+            selectedSubjectIds: input.selectedSubjectIds,
+            reminderEnabled: input.reminderEnabled,
+            referralSource: input.referralSource,
+            countryCode: input.countryCode,
+            curriculumCode: curriculumCodeForCountry(input.countryCode),
+          },
         });
         authenticatedSession = session;
       }
@@ -3612,6 +3823,7 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
+    setGeneratedQuizNarrationSessionId(null);
     setQuizGenerationProgress({ percentage: 0, stage: 'Preparing your quiz' });
     setQuizSource('quiz_me');
     setActiveQuizConfig(config);
@@ -3632,6 +3844,7 @@ export function useKitabuApp() {
           }
 
           setGeneratedQuizQuestions(result.questions);
+          setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
           setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
           setMessages([
             {
@@ -3684,6 +3897,7 @@ export function useKitabuApp() {
         }
 
         setGeneratedQuizQuestions(result.questions);
+        setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
         setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
         navigateTo('take_quiz');
       })
@@ -3715,6 +3929,7 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
+    setGeneratedQuizNarrationSessionId(null);
 
     const currentStrand = selectedSubjectStrands[activeStrandIndex];
     const completedSubStrand = currentStrand?.subStrands.find(sub => sub.isCompleted);
@@ -3742,6 +3957,7 @@ export function useKitabuApp() {
       }
 
       setGeneratedQuizQuestions(result.questions);
+      setGeneratedQuizNarrationSessionId(result.narrationSessionId ?? null);
       setQuizSource('subject');
       navigateTo('take_quiz');
     } catch (error) {
@@ -3930,7 +4146,12 @@ export function useKitabuApp() {
         ? pendingAuthHomeView.current.view
         : null;
     const homeView =
-      requestedHomeView ?? getPrimaryHomeView(authSession.user.roles, authSession.user.email);
+      requestedHomeView ??
+      getHomeViewForRequestedRole(
+        authSession.user.roles,
+        authSession.user.email,
+        lastUsedAuthRole,
+      );
     const initialGrade = mapAuthSessionToProfile(authSession).grade || DEFAULT_GRADE;
     setNavigationHistory([
       {
@@ -3951,7 +4172,7 @@ export function useKitabuApp() {
       },
     ]);
     setNavigationIndex(0);
-  }, [authSession]);
+  }, [authSession, lastUsedAuthRole]);
 
   useEffect(() => {
     if (!authSession) {
@@ -4299,6 +4520,7 @@ export function useKitabuApp() {
       quizGenerationProgress,
       generatedFlashcards,
       generatedQuizQuestions,
+      generatedQuizNarrationSessionId,
       selectedSubjectStrands,
       hasStudied,
       curriculumData,
@@ -4359,6 +4581,7 @@ export function useKitabuApp() {
       hasActiveSubscription,
       externalPaymentsEnabled,
       hasPendingAccountOnboarding,
+      parentHouseholdOnboardingRequested,
       hasPendingStudentDiagnostic,
       hasPendingProgressiveDiagnostic,
       isCheckoutOpen,
@@ -4404,6 +4627,9 @@ export function useKitabuApp() {
       setProfileOpen,
       setNotificationsOpen,
       setSelectedParentChildId,
+      openParentDashboard,
+      openParentChildDashboard,
+      startParentHouseholdOnboarding,
       setParentChildIdentifier,
       setParentChildLinkMethod: (method: 'email' | 'phone') => {
         setParentChildLinkMethod(method);

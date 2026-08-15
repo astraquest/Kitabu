@@ -93,6 +93,7 @@ const ROLE_OPTIONS: RoleOption[] = [
     avatar: 'avatar-afro-girl',
   },
 ];
+const SIGNUP_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'teacher' || option.role === 'parent');
 
 function sanitizePersonName(value: string) {
   return value.replace(/\d/g, '');
@@ -386,7 +387,7 @@ export function LoginScreen({
             <View style={styles.roleStep}>
               <View style={styles.rolePanel}>
                 <View style={styles.roleGrid}>
-                  {ROLE_OPTIONS.map(option => (
+                  {(mode === 'signup' ? SIGNUP_ROLE_OPTIONS : ROLE_OPTIONS).map(option => (
                     <RoleChoice
                       key={option.role}
                       option={option}

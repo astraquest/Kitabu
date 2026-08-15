@@ -8,6 +8,7 @@ import type { PublicSignupRole } from '../src/types/app';
 const mockUseKitabuApp = jest.fn();
 const mockIntroCarouselScreen = jest.fn((_props: unknown) => <Text>intro carousel</Text>);
 const mockLoginScreen = jest.fn((_props: unknown) => <Text>login screen</Text>);
+const mockParentHouseholdOnboardingScreen = jest.fn((_props: unknown) => <Text>parent household onboarding</Text>);
 const mockStudentOnboardingScreen = jest.fn((_props: unknown) => <Text>onboarding signup</Text>);
 const runtimeGlobal = globalThis as typeof globalThis & {
   __DEV__?: boolean;
@@ -29,6 +30,10 @@ jest.mock('../src/screens/StudentOnboardingScreen', () => ({
 
 jest.mock('../src/screens/LoginScreen', () => ({
   LoginScreen: (props: unknown) => mockLoginScreen(props),
+}));
+
+jest.mock('../src/screens/ParentHouseholdOnboardingScreen', () => ({
+  ParentHouseholdOnboardingScreen: (props: unknown) => mockParentHouseholdOnboardingScreen(props),
 }));
 
 function makeState(role: PublicSignupRole | null = null) {
@@ -107,8 +112,8 @@ describe('KitabuApp signup onboarding wiring', () => {
     });
   });
 
-  test.each<PublicSignupRole>(['student', 'teacher', 'parent', 'other'])(
-    'routes %s signups through full onboarding with inline credentials',
+  test.each<PublicSignupRole>(['student', 'teacher', 'other'])(
+    'routes legacy %s signups through the existing onboarding path',
     async role => {
       const actions = makeActions();
       mockUseKitabuApp.mockReturnValue({ state: makeState(role), actions });
@@ -120,7 +125,7 @@ describe('KitabuApp signup onboarding wiring', () => {
       expect(mockStudentOnboardingScreen).toHaveBeenCalledWith(
         expect.objectContaining({
           role,
-          includeIntroChoices: true,
+          includeIntroChoices: role !== 'teacher',
           collectSignupCredentials: true,
           onRoleChange: actions.setSignupRole,
           onSubmit: actions.signUp,
@@ -129,7 +134,24 @@ describe('KitabuApp signup onboarding wiring', () => {
     },
   );
 
-  test('defaults new signup onboarding to student until a role is selected', async () => {
+  test('routes parent signups through the household onboarding path', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({ state: makeState('parent'), actions });
+
+    await act(() => {
+      ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockParentHouseholdOnboardingScreen).toHaveBeenCalledWith(
+      expect.objectContaining({
+        collectSignupCredentials: true,
+        onRoleChange: actions.setSignupRole,
+        onSubmit: actions.signUp,
+      }),
+    );
+  });
+
+  test('shows the parent/teacher gateway for a new public signup without exposing student', async () => {
     const actions = makeActions();
     mockUseKitabuApp.mockReturnValue({ state: makeState(null), actions });
 
@@ -137,13 +159,12 @@ describe('KitabuApp signup onboarding wiring', () => {
       ReactTestRenderer.create(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).toHaveBeenCalledWith(
+    expect(mockParentHouseholdOnboardingScreen).toHaveBeenCalledWith(
       expect.objectContaining({
-        role: 'student',
-        includeIntroChoices: true,
         collectSignupCredentials: true,
       }),
     );
+    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
   });
 
   test('routes the landing Create account CTA to signup while Sign in remains login', async () => {
@@ -226,12 +247,13 @@ describe('KitabuApp signup onboarding wiring', () => {
       ReactTestRenderer.create(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).toHaveBeenCalledWith(
-      expect.objectContaining({
-        role: 'parent',
-        onSubmit: actions.submitAccountOnboarding,
-      }),
-    );
+    const householdProps = mockParentHouseholdOnboardingScreen.mock.calls.at(-1)?.[0] as {
+      onSubmit: (input: unknown) => void;
+    };
+    expect(householdProps.onSubmit).toEqual(expect.any(Function));
+    const onboardingInput = { children: [{ name: 'Amina' }] };
+    householdProps.onSubmit(onboardingInput);
+    expect(actions.submitAccountOnboarding).toHaveBeenCalledWith(onboardingInput);
   });
 
   test('consumes preview onboarding URL so reload returns to the intro carousel', async () => {

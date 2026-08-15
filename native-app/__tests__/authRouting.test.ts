@@ -12,7 +12,7 @@ describe('authenticated home routing', () => {
   test.each([
     ['student', 'dashboard'],
     ['teacher', 'teachers_portal'],
-    ['parent', 'parent_dashboard'],
+    ['parent', 'profile_chooser'],
   ] as const)('honors a freshly selected %s role', (requestedRole, expectedView) => {
     expect(
       getHomeViewForRequestedRole(
@@ -47,7 +47,7 @@ describe('authenticated home routing', () => {
     expect(resolveAuthenticatedRole(['student', 'parent'], null, 'teacher')).toBe('parent');
     expect(
       getHomeViewForRequestedRole(['student', 'parent'], 'learner@kitabu.ai', 'parent'),
-    ).toBe('parent_dashboard');
+    ).toBe('profile_chooser');
   });
 
   test('keeps admin priority even when a public role is selected', () => {

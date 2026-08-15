@@ -70,12 +70,13 @@ export async function sendTransactionalEmail(message: TransactionalEmail) {
   return true;
 }
 
-type MascotKey = 'rabbit' | 'lion' | 'elephant';
+type MascotKey = 'rabbit' | 'lion' | 'elephant' | 'panda';
 
 const MASCOT_EMAIL_CONTENT: Record<MascotKey, { file: string; name: string }> = {
   rabbit: { file: 'sungura-rabbit.png', name: 'Rafiki the Rabbit' },
   lion: { file: 'simba-lion.png', name: 'Rafiki the Lion' },
   elephant: { file: 'ndovu-elephant.png', name: 'Rafiki the Elephant' },
+  panda: { file: 'panda.png', name: 'Rafiki the Panda' },
 };
 
 function escapeHtml(value: string) {

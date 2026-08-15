@@ -591,7 +591,10 @@ const ROLE_OPTIONS: readonly OnboardingRoleOption[] = [
     swDescription: '',
   },
 ];
-const PUBLIC_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role !== 'other');
+// Signup is parent-led now. Student accounts remain supported for legacy and
+// school-managed paths, but a new public signup must start with a parent or teacher.
+const PUBLIC_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'parent' || option.role === 'teacher');
+const INTERNAL_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role !== 'other');
 
 const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   student: [
@@ -2089,6 +2092,9 @@ export function StudentOnboardingScreen({
   const insets = useContext(SafeAreaInsetsContext) ?? ZERO_SAFE_AREA_INSETS;
   const compactLayout = height < 860 || width < 370;
   const content = ONBOARDING_CONTENT[role];
+  const roleOptions = (collectSignupCredentials && Boolean(onRoleChange))
+    ? PUBLIC_ROLE_OPTIONS
+    : INTERNAL_ROLE_OPTIONS;
   const fullIntro = includeIntroChoices;
   const swahiliIntro = fullIntro && languageCode === 'sw';
   const usesLearnerFlow = role === 'student' || role === 'other';
@@ -4537,7 +4543,7 @@ export function StudentOnboardingScreen({
   function handleRoleSelect(value: PublicSignupRole) {
     triggerHaptic('selection');
     setRoleChosen(true);
-    const option = PUBLIC_ROLE_OPTIONS.find(item => item.role === value);
+    const option = roleOptions.find(item => item.role === value);
     trackOnboardingSelection('role', value, option?.label ?? value);
     onRoleChange?.(value);
     if (includeIntroChoices) {
@@ -5900,7 +5906,7 @@ export function StudentOnboardingScreen({
                   accessibilityLabel="Account role options"
                   accessibilityRole="radiogroup"
                   style={styles.roleGrid}>
-                  {PUBLIC_ROLE_OPTIONS.map(option => {
+                  {roleOptions.map(option => {
                     const canChangeRole = Boolean(onRoleChange);
                     // Don't pre-select the default role when the user is free to change it —
                     // they must tap a role first. A locked role (no onRoleChange) stays selected.

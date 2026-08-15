@@ -79,6 +79,7 @@ import {
   createBannerAnnouncement,
   createTeacherAssignment,
   createSelfServiceUser,
+  createParentHouseholdChildren,
   createAiUsageEvent,
   createAuditLog,
   createContentReport,
@@ -207,6 +208,7 @@ import {
   replaceTeacherTeachingScopes,
   replaceUserSubjectPreferences,
   unlinkParentStudent,
+  parentOwnsStudent,
   completeDiagnosticSession,
   saveCurriculumSubStrandPages,
   startProgressiveLessonAttempt,
@@ -561,7 +563,7 @@ const signupSchema = z.object({
   grade: z.string().trim().min(2).max(40).nullable().optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
   onboardingCompleted: z.boolean().optional(),
-  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional()
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant', 'panda']).optional()
 });
 
 const totpSchema = z.object({
@@ -779,6 +781,16 @@ const onboardingPersonalizationChildSchema = z.object({
   name: z.string().trim().min(1).max(120),
   age: z.string().trim().min(1).max(40),
   grade: z.string().trim().min(1).max(40),
+  gender: z.enum(['male', 'female', 'not_specified']).optional(),
+  county: z.string().trim().min(2).max(80).optional(),
+  schoolId: z.string().uuid().nullable().optional(),
+  school: z.string().trim().min(2).max(120).optional(),
+  performance: z.enum(['far_behind', 'behind', 'at_grade_level', 'ahead', 'far_ahead', 'not_sure']).optional(),
+  commitmentAccepted: z.boolean().optional(),
+  commitmentSignature: z.string().trim().min(1).max(120).optional(),
+  commitmentMinutes: z.number().int().min(20).max(20).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant', 'panda']).optional(),
+  voiceName: z.enum(['Samora', 'Barake', 'Bella', 'Judith']).optional(),
   subjects: z.array(z.string().trim().min(1).max(80)).max(12).optional()
 }).strict();
 
@@ -787,7 +799,7 @@ const onboardingPersonalizationSchema = z.object({
   languageCode: z.enum(['en', 'sw']).optional(),
   role: z.enum(['student', 'teacher', 'parent', 'other']).optional(),
   displayName: z.string().trim().min(2).max(120).optional(),
-  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant', 'panda']).optional(),
   voiceName: z.enum(['Samora', 'Barake', 'Bella', 'Judith']).optional(),
   noVoice: z.boolean().optional(),
   needKey: z.enum(['exam', 'grades', 'resources', 'results', 'support', 'progress', 'learn', 'help']).optional(),
@@ -804,7 +816,8 @@ const onboardingPersonalizationSchema = z.object({
   county: z.string().trim().min(2).max(80).optional(),
   school: z.string().trim().min(2).max(120).optional(),
   countryCode: z.string().trim().min(2).max(10).optional(),
-  curriculumCode: z.string().trim().min(2).max(40).optional()
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
+  referralSource: z.string().trim().min(1).max(120).optional()
 }).strict().superRefine((value, context) => {
   if (JSON.stringify(value).length > 16000) {
     context.addIssue({ code: 'custom', message: 'Onboarding personalization is too large' });
@@ -817,7 +830,7 @@ const onboardingSchema = z.object({
   grade: z.string().trim().min(2).max(40),
   subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
   subjectIds: z.array(z.string().trim().min(1).max(120)).max(20).optional(),
-  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant', 'panda']).optional(),
   countryCode: z.string().trim().min(2).max(10).optional(),
   curriculumCode: z.string().trim().min(2).max(40).optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
@@ -6458,6 +6471,27 @@ Return valid JSON with this shape:
     return { children };
   });
 
+  app.post('/parent/children/:studentId/session', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const params = parentChildParamsSchema.parse(request.params);
+    if (!(await parentOwnsStudent(request.user!.id, params.studentId))) {
+      return reply.forbidden('That student is not linked to this parent account');
+    }
+    const child = await findUserById(params.studentId);
+    if (!child || !child.roles.includes('student')) {
+      return reply.notFound('Student account not found');
+    }
+    const authUser = await findUserByEmail(child.email);
+    if (!authUser) {
+      return reply.notFound('Student account not found');
+    }
+    return issueAuthSession(request, reply, authUser, 'parent.child.session.started');
+  });
+
   app.post('/parent/children/link', async (request, reply) => {
     const precondition = await requireRoles(request, reply, ['parent']);
     if (precondition) {
@@ -7223,6 +7257,18 @@ Return valid JSON with this shape:
         mpesaPhoneNumber: normalizedPhone,
         onboardingPersonalization: body.onboardingPersonalization as OnboardingPersonalization | undefined
       });
+      if (request.user!.roles.includes('parent') && body.onboardingPersonalization?.children?.length) {
+        await createParentHouseholdChildren(client, {
+          parentUserId: request.user!.id,
+          countryCode: curriculumScope.countryCode,
+          curriculumCode: curriculumScope.curriculumCode,
+          mascotKey: body.mascotKey,
+          children: await Promise.all(body.onboardingPersonalization.children.map(async child => ({
+            ...child,
+            passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
+          }))),
+        });
+      }
       await createAuditLog(client, request.user!.id, body.schoolId ?? null, 'auth.onboarding.completed', {
         grade: body.grade,
         countryCode: curriculumScope.countryCode,

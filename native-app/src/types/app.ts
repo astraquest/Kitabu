@@ -1,6 +1,7 @@
 import React from 'react';
 
 export type BaseViewState =
+  | 'profile_chooser'
   | 'dashboard'
   | 'subject'
   | 'homework_list'
@@ -55,6 +56,16 @@ export interface OnboardingPersonalizationChild {
   name: string;
   age: string;
   grade: string;
+  gender?: GenderOption;
+  county?: string;
+  schoolId?: string | null;
+  school?: string;
+  performance?: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
+  commitmentAccepted?: boolean;
+  commitmentSignature?: string;
+  commitmentMinutes?: number;
+  mascotKey?: OnboardingMascotKey;
+  voiceName?: OnboardingVoiceName;
   subjects?: string[];
 }
 
@@ -81,6 +92,7 @@ export interface OnboardingPersonalization {
   school?: string;
   countryCode?: string;
   curriculumCode?: string;
+  referralSource?: string;
 }
 
 export interface AuthUser {

@@ -87,6 +87,41 @@ describe('StudentOnboardingScreen narration transitions', () => {
     expect(renderer.root.findByProps({ accessibilityLabel: 'Need options' })).toBeTruthy();
   });
 
+  test('hides Student only on the public credential-collecting role step', async () => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+
+    await act(() => {
+      renderer = ReactTestRenderer.create(
+        <StudentOnboardingScreen
+          role="student"
+          schools={[]}
+          isSubmitting={false}
+          includeIntroChoices
+          collectSignupCredentials
+          onRoleChange={jest.fn()}
+          onSubmit={jest.fn()}
+        />,
+      );
+    });
+
+    jest.useFakeTimers();
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Select English language' }).props.onPress();
+      jest.advanceTimersByTime(250);
+    });
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Choose Rafiki the Rabbit mascot' }).props.onPress();
+      jest.advanceTimersByTime(250);
+    });
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+    });
+
+    expect(renderer!.root.findAll(node => node.props.accessibilityLabel === 'Choose Student role')).toHaveLength(0);
+    expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Parent role' })).toBeTruthy();
+    expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Teacher role' })).toBeTruthy();
+  });
+
   test('English selection arms only its known auto-advance target cue', async () => {
     let renderer: ReactTestRenderer.ReactTestRenderer;
 

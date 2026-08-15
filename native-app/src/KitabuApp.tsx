@@ -39,6 +39,8 @@ import { QuizBattleScreen } from './screens/QuizBattleScreen';
 import { QuizMeScreen } from './screens/QuizMeScreen';
 import { ReviewSessionScreen } from './screens/ReviewSessionScreen';
 import { StudentOnboardingScreen } from './screens/StudentOnboardingScreen';
+import { ParentHouseholdOnboardingScreen } from './screens/ParentHouseholdOnboardingScreen';
+import { ProfileChooserScreen } from './screens/ProfileChooserScreen';
 import { TakeQuizScreen } from './screens/TakeQuizScreen';
 import { TeacherPortalScreen } from './screens/TeacherPortalScreen';
 import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
@@ -199,17 +201,29 @@ export function KitabuApp() {
     if (state.authMode === 'signup') {
       return (
         <AppSafeArea>
-          <StudentOnboardingScreen
-            role={state.signupRole ?? 'student'}
-            schools={state.schoolsList}
-            isSubmitting={state.isAuthenticating}
-            error={state.authError}
-            includeIntroChoices
-            collectSignupCredentials
-            externalPaymentsEnabled={state.externalPaymentsEnabled}
-            onRoleChange={actions.setSignupRole}
-            onSubmit={actions.signUp}
-          />
+          {state.signupRole === 'parent' || !state.signupRole ? (
+            <ParentHouseholdOnboardingScreen
+              schools={state.schoolsList}
+              isSubmitting={state.isAuthenticating}
+              error={state.authError}
+              collectSignupCredentials
+              onRoleChange={actions.setSignupRole}
+              onSubmit={actions.signUp}
+              onCreateSchool={actions.createOnboardingSchool}
+            />
+          ) : (
+            <StudentOnboardingScreen
+              role={state.signupRole}
+              schools={state.schoolsList}
+              isSubmitting={state.isAuthenticating}
+              error={state.authError}
+              includeIntroChoices={state.signupRole !== 'teacher'}
+              collectSignupCredentials
+              externalPaymentsEnabled={state.externalPaymentsEnabled}
+              onRoleChange={actions.setSignupRole}
+              onSubmit={actions.signUp}
+            />
+          )}
         </AppSafeArea>
       );
     }
@@ -245,44 +259,35 @@ export function KitabuApp() {
   if (state.hasPendingAccountOnboarding) {
     return (
       <AppSafeArea>
-        <StudentOnboardingScreen
-          role={
-            state.authSession.user.roles.includes('teacher')
-              ? 'teacher'
-              : state.authSession.user.roles.includes('parent')
-                ? 'parent'
+        {state.authSession.user.roles.includes('parent') ? (
+          <ParentHouseholdOnboardingScreen
+            schools={state.schoolsList}
+            isSubmitting={state.isSubmittingOnboarding}
+            error={state.onboardingError}
+            collectSignupCredentials={false}
+            initialParentName={state.authSession.user.fullName}
+            initialCountryCode={state.userProfile?.countryCode || state.authSession.user.countryCode}
+            skipHouseholdSetup={state.parentHouseholdOnboardingRequested}
+            onCreateSchool={actions.createOnboardingSchool}
+            onRoleChange={() => undefined}
+            onSubmit={input => actions.submitAccountOnboarding(input)}
+          />
+        ) : (
+          <StudentOnboardingScreen
+            role={
+              state.authSession.user.roles.includes('teacher')
+                ? 'teacher'
                 : 'student'
-          }
-          schools={state.schoolsList}
-          isSubmitting={state.isSubmittingOnboarding}
-          error={state.onboardingError}
-          includeIntroChoices
-          externalPaymentsEnabled={state.externalPaymentsEnabled}
-          onCreateSchool={actions.createOnboardingSchool}
-          onSubmit={actions.submitAccountOnboarding}
-        />
-      </AppSafeArea>
-    );
-  }
-
-  if (state.isCheckingDiagnostic) {
-    return (
-      <AppSafeArea>
-        <View style={styles.bootstrapWrap}>
-          <Image source={splashImage} style={styles.bootstrapSplash} resizeMode="cover" />
-        </View>
-      </AppSafeArea>
-    );
-  }
-
-  if (state.hasPendingStudentDiagnostic) {
-    return (
-      <AppSafeArea>
-        <DiagnosticScreen
-          mascotKey={state.activeMascotKey}
-          voiceName={state.activeUserProfile.voiceName}
-          onComplete={actions.completeDiagnosticOnboarding}
-        />
+            }
+            schools={state.schoolsList}
+            isSubmitting={state.isSubmittingOnboarding}
+            error={state.onboardingError}
+            includeIntroChoices
+            externalPaymentsEnabled={state.externalPaymentsEnabled}
+            onCreateSchool={actions.createOnboardingSchool}
+            onSubmit={actions.submitAccountOnboarding}
+          />
+        )}
       </AppSafeArea>
     );
   }
@@ -884,7 +889,7 @@ function renderScreen(
           focusModeSecondsRemaining={state.focusModeSecondsRemaining}
           dailyLimitSeconds={state.dailyLimitSeconds}
           isStartingFocusMode={state.isStartingFocusMode}
-          onSelectChild={actions.setSelectedParentChildId}
+          onSelectChild={actions.openParentChildDashboard}
           onLinkIdentifierChange={actions.setParentChildIdentifier}
           onLinkMethodChange={actions.setParentChildLinkMethod}
           onLinkChild={actions.linkParentChildAccount}
@@ -903,6 +908,18 @@ function renderScreen(
           }
           onRefresh={actions.refreshParentDashboard}
           onSignOut={actions.signOut}
+          onAddChild={actions.startParentHouseholdOnboarding}
+        />
+      );
+    case 'profile_chooser':
+      return (
+        <ProfileChooserScreen
+          parentName={state.userProfile.name || state.authSession.user.fullName}
+          mascotKey={state.activeMascotKey}
+          children={state.parentChildren}
+          onParent={actions.openParentDashboard}
+          onChild={actions.openParentChildDashboard}
+          onAddChild={actions.startParentHouseholdOnboarding}
         />
       );
     case 'weekly_exam':

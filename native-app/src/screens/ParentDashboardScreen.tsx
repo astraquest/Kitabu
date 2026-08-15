@@ -71,6 +71,7 @@ interface ParentDashboardScreenProps {
   dailyLimitSeconds: number;
   isStartingFocusMode: boolean;
   onSelectChild: (childId: string) => void;
+  onAddChild?: () => void;
   onLinkIdentifierChange: (value: string) => void;
   onLinkMethodChange: (method: 'email' | 'phone') => void;
   onLinkChild: () => void;
@@ -120,6 +121,7 @@ export function ParentDashboardScreen({
   dailyLimitSeconds,
   isStartingFocusMode,
   onSelectChild,
+  onAddChild,
   onLinkIdentifierChange,
   onLinkMethodChange,
   onLinkChild,
@@ -293,6 +295,7 @@ export function ParentDashboardScreen({
                 setIsChildMenuOpen(false);
                 setConfirmRemoveId(null);
               }}
+              onAddChild={onAddChild}
               onUnlinkChild={onUnlinkChild}
             />
           ) : null}
@@ -705,6 +708,7 @@ function ChildManagerPanel({
   onLinkIdentifierChange,
   onLinkMethodChange,
   onSelectChild,
+  onAddChild,
   onUnlinkChild,
 }: {
   childrenList: ParentChildSummary[];
@@ -719,6 +723,7 @@ function ChildManagerPanel({
   onLinkIdentifierChange: (value: string) => void;
   onLinkMethodChange: (method: 'email' | 'phone') => void;
   onSelectChild: (childId: string) => void;
+  onAddChild?: () => void;
   onUnlinkChild: (childId: string) => void;
 }) {
   return (
@@ -750,6 +755,11 @@ function ChildManagerPanel({
       })}
 
       <Text style={styles.childManagerLabel}>Add another child</Text>
+      {onAddChild ? (
+        <Pressable onPress={onAddChild} style={styles.addChildFlowButton}>
+          <Text style={styles.addChildFlowText}>Add through family setup</Text>
+        </Pressable>
+      ) : null}
       <View style={styles.methodRow}>
         {(['email', 'phone'] as const).map(method => (
           <Pressable
@@ -2233,6 +2243,8 @@ const styles = StyleSheet.create({
   },
   childRemoveText: { color: '#DC2626', fontSize: 11, fontWeight: '800' },
   childManagerLabel: { color: INK, fontSize: 13.5, fontWeight: '800', marginBottom: 8, marginTop: 12 },
+  addChildFlowButton: { alignItems: 'center', borderColor: '#F97316', borderRadius: 12, borderWidth: 1, marginBottom: 10, padding: 10 },
+  addChildFlowText: { color: '#C2410C', fontSize: 12.5, fontWeight: '800' },
   accountOverlayLayer: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 30,

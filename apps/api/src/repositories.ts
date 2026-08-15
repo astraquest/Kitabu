@@ -39,6 +39,16 @@ export interface OnboardingPersonalizationChild {
   name: string;
   age: string;
   grade: string;
+  gender?: 'male' | 'female' | 'not_specified';
+  county?: string;
+  schoolId?: string | null;
+  school?: string;
+  performance?: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
+  commitmentAccepted?: boolean;
+  commitmentSignature?: string;
+  commitmentMinutes?: number;
+  mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
+  voiceName?: 'Samora' | 'Barake' | 'Bella' | 'Judith';
   subjects?: string[];
 }
 
@@ -47,7 +57,7 @@ export interface OnboardingPersonalization {
   languageCode?: 'en' | 'sw';
   role?: 'student' | 'teacher' | 'parent' | 'other';
   displayName?: string;
-  mascotKey?: 'rabbit' | 'lion' | 'elephant';
+  mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
   voiceName?: 'Samora' | 'Barake' | 'Bella' | 'Judith';
   noVoice?: boolean;
   needKey?: 'exam' | 'grades' | 'resources' | 'results' | 'support' | 'progress' | 'learn' | 'help';
@@ -65,6 +75,7 @@ export interface OnboardingPersonalization {
   school?: string;
   countryCode?: string;
   curriculumCode?: string;
+  referralSource?: string;
 }
 
 export interface UserRecord {
@@ -78,7 +89,7 @@ export interface UserRecord {
   full_name: string;
   password_hash: string;
   email_verified: boolean;
-  mascot_key: 'rabbit' | 'lion' | 'elephant';
+  mascot_key: 'rabbit' | 'lion' | 'elephant' | 'panda';
   gender: 'male' | 'female' | 'not_specified';
   grade_level: string | null;
   country_code: string;
@@ -962,7 +973,7 @@ export async function findUserById(
     phone_verified_at: Date | null;
     full_name: string;
     email_verified: boolean;
-    mascot_key: 'rabbit' | 'lion' | 'elephant';
+    mascot_key: 'rabbit' | 'lion' | 'elephant' | 'panda';
     gender: 'male' | 'female' | 'not_specified';
     grade_level: string | null;
     country_code: string;
@@ -1026,7 +1037,7 @@ export async function createSelfServiceUser(input: {
   role: 'student' | 'teacher' | 'parent';
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
-  mascotKey?: 'rabbit' | 'lion' | 'elephant';
+  mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
   onboardingCompleted?: boolean;
   termsAcceptedAt: Date;
   termsVersion: string;
@@ -1042,7 +1053,7 @@ export async function createSelfServiceUser(input: {
       phone_verified_at: Date | null;
       full_name: string;
       email_verified: boolean;
-      mascot_key: 'rabbit' | 'lion' | 'elephant';
+      mascot_key: 'rabbit' | 'lion' | 'elephant' | 'panda';
       gender: 'male' | 'female' | 'not_specified';
       grade_level: string | null;
       country_code: string;
@@ -2652,7 +2663,7 @@ export async function updateUserOnboarding(
     schoolId?: string | null;
     gender: 'male' | 'female' | 'not_specified';
     grade: string;
-    mascotKey?: 'rabbit' | 'lion' | 'elephant';
+    mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
     countryCode: string;
     curriculumCode: string;
     mpesaPhoneNumber?: string | null;
@@ -2701,6 +2712,73 @@ export async function updateUserOnboarding(
       onboardingSubjectIds: input.subjectIds,
       manualSubjectIds: []
     });
+  }
+}
+
+export async function createParentHouseholdChildren(
+  client: MaybeClient,
+  input: {
+    parentUserId: string;
+    countryCode: string;
+    curriculumCode: string;
+    mascotKey?: 'rabbit' | 'lion' | 'elephant' | 'panda';
+    children: Array<OnboardingPersonalizationChild & { schoolId?: string | null; passwordHash: string }>;
+  }
+) {
+  for (const [index, child] of input.children.entries()) {
+    const email = `child-${input.parentUserId}-${index + 1}@students.kitabu.invalid`;
+    const personalization: OnboardingPersonalization = {
+      version: 1,
+      role: 'student',
+      displayName: child.name,
+      age: child.age,
+      children: [child],
+      subjects: child.subjects,
+      selectedSubjectIds: child.subjects,
+      county: child.county,
+      school: child.school,
+      countryCode: input.countryCode,
+      curriculumCode: input.curriculumCode,
+      mascotKey: child.mascotKey ?? input.mascotKey,
+    };
+    const result = await q<{ id: string }>(
+      client,
+      `INSERT INTO users (
+         school_id, email, password_hash, full_name, gender, grade_level,
+         country_code, curriculum_code, mascot_key, onboarding_completed,
+         onboarding_personalization, email_verified
+       ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, TRUE, $10::jsonb, TRUE)
+       ON CONFLICT (email) DO UPDATE SET
+         school_id = EXCLUDED.school_id,
+         full_name = EXCLUDED.full_name,
+         gender = EXCLUDED.gender,
+         grade_level = EXCLUDED.grade_level,
+         country_code = EXCLUDED.country_code,
+         curriculum_code = EXCLUDED.curriculum_code,
+         onboarding_personalization = EXCLUDED.onboarding_personalization,
+         updated_at = NOW()
+       RETURNING id`,
+      [
+        child.schoolId ?? null,
+        email,
+        child.passwordHash,
+        child.name,
+        child.gender ?? 'not_specified',
+        child.grade,
+        input.countryCode,
+        input.curriculumCode,
+        child.mascotKey ?? input.mascotKey ?? 'rabbit',
+        JSON.stringify(personalization),
+      ],
+    );
+    const childId = result.rows[0].id;
+    await q(client, `INSERT INTO user_roles (user_id, role) VALUES ($1, 'student') ON CONFLICT DO NOTHING`, [childId]);
+    await q(
+      client,
+      `INSERT INTO parent_students (parent_user_id, student_user_id, relationship)
+       VALUES ($1, $2, 'guardian') ON CONFLICT (parent_user_id, student_user_id) DO NOTHING`,
+      [input.parentUserId, childId],
+    );
   }
 }
 
@@ -6233,6 +6311,17 @@ export async function unlinkParentStudent(
      WHERE parent_user_id = $1 AND student_user_id = $2`,
     [parentUserId, studentUserId]
   );
+}
+
+export async function parentOwnsStudent(parentUserId: string, studentUserId: string) {
+  const result = await db.query<{ exists: boolean }>(
+    `SELECT EXISTS(
+       SELECT 1 FROM parent_students
+       WHERE parent_user_id = $1 AND student_user_id = $2
+     ) AS exists`,
+    [parentUserId, studentUserId],
+  );
+  return Boolean(result.rows[0]?.exists);
 }
 
 export async function listParentChildrenDashboard(

@@ -202,9 +202,7 @@ test('signup role choices start unselected', async () => {
   });
 
   expect(renderer.root.findByProps({ children: 'Choose your role' })).toBeTruthy();
-  expect(
-    renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' }).props.accessibilityState,
-  ).toEqual({ selected: false });
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Student' })).toHaveLength(0);
   expect(
     renderer.root.findByProps({ accessibilityLabel: 'Continue as Teacher' }).props.accessibilityState,
   ).toEqual({ selected: false });

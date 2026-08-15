@@ -1,4 +1,5 @@
 import { shuffleOptions, stableShuffledOptions } from '../src/utils/onboardingOptionOrder';
+import { orderByLocalAggregate, recordParentOnboardingSelection } from '../src/utils/parentOnboardingOrdering';
 
 describe('onboarding option order', () => {
   test('shuffles a copy without mutating the canonical options', () => {
@@ -27,5 +28,20 @@ describe('onboarding option order', () => {
 
     expect(cache.size).toBe(2);
     expect(parentConcerns).not.toBe(studentGoals);
+  });
+
+  test('puts locally selected parent choices first with deterministic fallback', () => {
+    const options = [{ value: 'friend', label: 'Friend' }, { value: 'church', label: 'Church' }, { value: 'search', label: 'Search' }];
+    const counts = { church: 3 };
+
+    expect(orderByLocalAggregate(options, counts).map(option => option.value)).toEqual(['church', 'friend', 'search']);
+  });
+
+  test('records parent selections without requiring a backend table', () => {
+    const state = { referral: {}, subject: {} };
+    const next = recordParentOnboardingSelection(state, 'referral', 'church');
+
+    expect(next.referral).toEqual({ church: 1 });
+    expect(state.referral).toEqual({});
   });
 });

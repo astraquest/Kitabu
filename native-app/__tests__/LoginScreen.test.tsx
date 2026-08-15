@@ -69,7 +69,9 @@ async function renderLogin(
 
 async function continueAsParent(renderer: ReactTestRenderer.ReactTestRenderer) {
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent' }).props.onPress();
+    const gatewayAction = renderer.root.findAllByProps({ accessibilityLabel: 'Sign in' })[0]
+      ?? renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent' });
+    gatewayAction.props.onPress();
   });
 }
 
@@ -109,16 +111,69 @@ test('shows Google before email and keeps phone as an optional saved field', asy
   expect(onOptionalPhoneNumberChange).toHaveBeenCalledWith('0716000000');
 });
 
-test('marks only the previously authenticated role as last used on sign in', async () => {
+test('marks only the previously authenticated named profile as last used on sign in', async () => {
   const { renderer } = await renderLogin(jest.fn(), {
     mode: 'login',
     lastUsedRole: 'parent',
+    knownProfiles: [
+      {
+        id: 'parent-1',
+        displayName: 'Parent One',
+        role: 'parent',
+        avatarKey: 'avatar-afro-girl',
+      },
+      {
+        id: 'student-1',
+        displayName: 'Student One',
+        role: 'student',
+        avatarKey: 'avatar-afro-boy',
+      },
+    ],
   });
 
   expect(renderer.root.findByProps({ children: 'Last used' })).toBeTruthy();
-  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent, last used' })).toBeTruthy();
-  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' })).toBeTruthy();
-  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Teacher' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent One, last used' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Student One' })).toBeTruthy();
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Teacher' })).toHaveLength(0);
+});
+
+test('login chooser shows the exact names of a known parent and linked child', async () => {
+  const onSignupRoleChange = jest.fn();
+  const { renderer } = await renderLogin(jest.fn(), {
+    signupRole: null,
+    onSignupRoleChange,
+    knownProfile: {
+      name: 'Njeri Wambui',
+      role: 'Parent Account',
+      avatar: 'avatar-afro-girl',
+    },
+    knownChildren: [{ id: 'child-1', name: 'Amani Wambui', grade: 'Grade 4' }],
+  });
+
+  expect(renderer.root.findByProps({ children: "Who's using Kitabu?" })).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'Njeri Wambui' })).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'Amani Wambui' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: '+ Add account' })).toBeTruthy();
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Teacher' })).toHaveLength(0);
+
+  await act(async () => {
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Amani Wambui' }).props.onPress();
+  });
+
+  expect(onSignupRoleChange).toHaveBeenCalledWith('student');
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' })).toBeTruthy();
+});
+
+test('empty login gateway offers sign in and create account without inventing names', async () => {
+  const { renderer } = await renderLogin(jest.fn(), { signupRole: null });
+
+  expect(renderer.root.findByProps({ children: "Who's using Kitabu?" })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Sign in' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Create account' })).toBeTruthy();
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Student' })).toHaveLength(0);
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Parent' })).toHaveLength(0);
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Continue as Teacher' })).toHaveLength(0);
+  expect(renderer.root.findAllByProps({ children: 'Kitabu User' })).toHaveLength(0);
 });
 
 test('does not show the last-used badge while creating an account', async () => {
@@ -164,7 +219,7 @@ test('submits the normal login form and demo quick-login callback in login mode'
   });
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' }).props.onPress();
+    renderer.root.findByProps({ accessibilityLabel: 'Sign in' }).props.onPress();
   });
 
   expect(renderer.root.findByProps({ accessibilityLabel: 'Sign in' })).toBeTruthy();

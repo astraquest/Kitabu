@@ -32,8 +32,14 @@ import {
 } from '../services/authService';
 import { requestGoogleIdToken } from '../services/googleAuthService';
 import { getUserFacingApiError } from '../services/requestHelpers';
-import { AuthSession, PublicSignupRole } from '../types/app';
+import { AuthSession, ParentChildSummary, PublicSignupRole, UserProfile } from '../types/app';
 import { AvatarArt, LocalAvatarKey } from '../components/AvatarArt';
+import {
+  AccountChoice,
+  AccountChoiceGrid,
+  AccountChoiceRole,
+} from '../components/AccountChoiceGrid';
+import type { LocalProfileIndexEntry } from '../services/profileIndexService';
 import { GoogleLogo } from '../components/GoogleLogo';
 import {
   PRIVACY_POLICY_SECTIONS,
@@ -47,6 +53,9 @@ interface LoginScreenProps {
   fullName: string;
   signupRole: PublicSignupRole | null;
   lastUsedRole?: RoleChoice | null;
+  knownProfiles?: LocalProfileIndexEntry[];
+  knownProfile?: Pick<UserProfile, 'name' | 'role' | 'avatar'> | null;
+  knownChildren?: Array<Pick<ParentChildSummary, 'id' | 'name' | 'grade'>>;
   acceptedTerms: boolean;
   optionalPhoneNumber: string;
   error?: string | null;
@@ -94,6 +103,7 @@ const ROLE_OPTIONS: RoleOption[] = [
   },
 ];
 const SIGNUP_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'teacher' || option.role === 'parent');
+const LOGIN_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'student' || option.role === 'parent');
 
 function sanitizePersonName(value: string) {
   return value.replace(/\d/g, '');
@@ -104,6 +114,66 @@ function isValidPersonName(value: string) {
   return trimmed.length >= 2 && /[A-Za-z]/.test(trimmed) && !/\d/.test(trimmed);
 }
 
+function getKnownRole(role?: string): AccountChoiceRole | null {
+  const normalized = role?.toLowerCase() ?? '';
+  if (normalized.includes('parent')) return 'parent';
+  if (normalized.includes('student')) return 'student';
+  return null;
+}
+
+function buildLoginChoices(
+  knownProfiles: LocalProfileIndexEntry[] = [],
+  knownProfile?: Pick<UserProfile, 'name' | 'role' | 'avatar'> | null,
+  knownChildren: Array<Pick<ParentChildSummary, 'id' | 'name' | 'grade'>> = [],
+): AccountChoice[] {
+  const choices: AccountChoice[] = [];
+  knownProfiles.forEach(profile => {
+    if (profile.role !== 'student' && profile.role !== 'parent') {
+      return;
+    }
+
+    choices.push({
+      id: `known-${profile.id}`,
+      role: profile.role,
+      name: profile.displayName,
+      detail: profile.role === 'parent' ? 'Parent account' : 'Student account',
+      avatar: profile.avatarKey,
+    });
+  });
+
+  if (knownProfiles.length > 0) {
+    return choices;
+  }
+
+  const profileName = knownProfile?.name?.trim();
+  const profileRole = getKnownRole(knownProfile?.role);
+
+  if (profileName && profileName !== 'Kitabu User' && profileRole) {
+    const option = LOGIN_ROLE_OPTIONS.find(item => item.role === profileRole)!;
+    choices.push({
+      id: `known-${profileRole}`,
+      role: profileRole,
+      name: profileName,
+      detail: profileRole === 'parent' ? 'Parent account' : 'Student account',
+      avatar: knownProfile?.avatar === 'avatar-afro-girl' ? 'avatar-afro-girl' : option.avatar,
+    });
+  }
+
+  knownChildren.forEach(child => {
+    const name = child.name.trim();
+    if (!name) return;
+    choices.push({
+      id: `child-${child.id}`,
+      role: 'student',
+      name,
+      detail: child.grade ? `${child.grade} · Student profile` : 'Student profile',
+      avatar: 'avatar-afro-boy',
+    });
+  });
+
+  return choices;
+}
+
 export function LoginScreen({
   mode,
   email,
@@ -111,6 +181,9 @@ export function LoginScreen({
   fullName,
   signupRole,
   lastUsedRole = null,
+  knownProfiles = [],
+  knownProfile = null,
+  knownChildren = [],
   acceptedTerms,
   optionalPhoneNumber,
   error,
@@ -126,7 +199,8 @@ export function LoginScreen({
   onDemoLogin,
   onSubmit,
 }: LoginScreenProps) {
-  const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
+  const [authStep, setAuthStep] = useState<'gateway' | 'details'>('gateway');
+  const [selectedChoiceId, setSelectedChoiceId] = useState<string | null>(null);
   const [providerState, setProviderState] = useState({
     isSubmitting: false,
     message: null as string | null,
@@ -155,6 +229,11 @@ export function LoginScreen({
   const submitLabel = mode === 'login' ? 'Sign in' : 'Create account';
   const isBusy = isSubmitting || providerState.isSubmitting;
   const selectedRole = ROLE_OPTIONS.find(option => option.role === signupRole) ?? null;
+  const loginChoices = useMemo(
+    () => buildLoginChoices(knownProfiles, knownProfile, knownChildren),
+    [knownChildren, knownProfile, knownProfiles],
+  );
+  const hasKnownProfiles = loginChoices.length > 0;
   const safeError = error ? getUserFacingApiError({ message: error }) : null;
   const safeProviderError = providerState.error
     ? getUserFacingApiError({ message: providerState.error })
@@ -178,7 +257,8 @@ export function LoginScreen({
   );
 
   useEffect(() => {
-    setAuthStep('role');
+    setAuthStep('gateway');
+    setSelectedChoiceId(null);
   }, [mode]);
 
   useEffect(() => {
@@ -278,6 +358,28 @@ export function LoginScreen({
     setAuthStep('details');
   }
 
+  function selectChoice(choice: AccountChoice) {
+    setSelectedChoiceId(choice.id);
+    selectRole(choice.role);
+  }
+
+  function openLoginDetails() {
+    setSelectedChoiceId(null);
+    onSignupRoleChange(null);
+    setProviderState({ isSubmitting: false, message: null, error: null });
+    setAuthStep('details');
+  }
+
+  function startAddAccount() {
+    openLoginDetails();
+  }
+
+  function startSignup() {
+    onSignupRoleChange(null);
+    onModeChange('signup');
+    setProviderState({ isSubmitting: false, message: null, error: null });
+  }
+
   function handleEmailSubmit() {
     setProviderState({ isSubmitting: false, message: null, error: null });
     if (mode === 'signup' && !signupRole) {
@@ -374,29 +476,68 @@ export function LoginScreen({
             </View>
 
             <View style={styles.stepHeader}>
-              <Text style={styles.title}>{authStep === 'role' ? 'Choose your role' : title}</Text>
+              <Text style={styles.title}>
+                {authStep === 'gateway' ? (mode === 'login' ? "Who's using Kitabu?" : 'Choose your role') : title}
+              </Text>
               <Text style={styles.stepCopy}>
-                {authStep === 'role'
-                  ? 'Select how you use Kitabu AI.'
+                {authStep === 'gateway'
+                  ? mode === 'login'
+                    ? hasKnownProfiles
+                      ? 'Choose a profile to continue securely.'
+                      : 'Sign in or create an account to continue securely.'
+                    : 'Select how you use Kitabu AI.'
                   : `${selectedRole?.label ?? 'Account'} details`}
               </Text>
             </View>
           </LinearGradient>
 
-          {authStep === 'role' ? (
+          {authStep === 'gateway' ? (
             <View style={styles.roleStep}>
               <View style={styles.rolePanel}>
-                <View style={styles.roleGrid}>
-                  {(mode === 'signup' ? SIGNUP_ROLE_OPTIONS : ROLE_OPTIONS).map(option => (
-                    <RoleChoice
-                      key={option.role}
-                      option={option}
-                      active={signupRole === option.role}
-                      lastUsed={mode === 'login' && lastUsedRole === option.role}
-                      onPress={() => selectRole(option.role)}
-                    />
-                  ))}
-                </View>
+                {mode === 'signup' || hasKnownProfiles ? (
+                  <AccountChoiceGrid
+                    choices={mode === 'signup'
+                      ? SIGNUP_ROLE_OPTIONS.map(option => ({
+                          id: `role-${option.role}`,
+                          role: option.role,
+                          name: option.label,
+                          detail: option.detail,
+                          avatar: option.avatar,
+                        }))
+                      : loginChoices}
+                    lastUsedRole={mode === 'login' ? lastUsedRole : null}
+                    onSelect={selectChoice}
+                    selectedId={selectedChoiceId}
+                  />
+                ) : (
+                  <View style={styles.gatewayActions}>
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel="Sign in"
+                      onPress={openLoginDetails}
+                      style={styles.gatewayButton}>
+                      <Text style={styles.gatewayButtonText}>Sign in</Text>
+                    </Pressable>
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel="Create account"
+                      onPress={startSignup}
+                      style={[styles.gatewayButton, styles.gatewayButtonSecondary]}>
+                      <Text style={[styles.gatewayButtonText, styles.gatewayButtonSecondaryText]}>
+                        Create account
+                      </Text>
+                    </Pressable>
+                  </View>
+                )}
+                {mode === 'login' && hasKnownProfiles ? (
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="+ Add account"
+                    onPress={startAddAccount}
+                    style={styles.addAccountButton}>
+                    <Text style={styles.addAccountText}>+ Add account</Text>
+                  </Pressable>
+                ) : null}
               </View>
             </View>
           ) : (
@@ -414,7 +555,7 @@ export function LoginScreen({
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel="Change role"
-                onPress={() => setAuthStep('role')}
+                onPress={() => setAuthStep('gateway')}
                 style={styles.changeRoleButton}>
                 <Text style={styles.changeRoleText}>Change</Text>
               </Pressable>
@@ -730,48 +871,6 @@ function FieldShell({
   );
 }
 
-function RoleChoice({
-  option,
-  active,
-  lastUsed,
-  onPress,
-}: {
-  option: RoleOption;
-  active: boolean;
-  lastUsed: boolean;
-  onPress: () => void;
-}) {
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityLabel={`Continue as ${option.label}${lastUsed ? ', last used' : ''}`}
-      accessibilityState={{ selected: active }}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.roleCard,
-        active && styles.roleCardActive,
-        pressed && styles.roleCardPressed,
-      ]}>
-      <View style={styles.lastUsedBadgeSlot}>
-        {lastUsed ? (
-          <View style={styles.lastUsedBadge}>
-            <Text style={styles.lastUsedBadgeText}>Last used</Text>
-          </View>
-        ) : null}
-      </View>
-      <View style={[styles.roleAvatarFrame, active && styles.roleAvatarFrameActive]}>
-        <AvatarArt avatarKey={option.avatar} size={46} />
-      </View>
-      <Text style={[styles.roleCardTitle, active && styles.roleCardTitleActive]}>
-        {option.label}
-      </Text>
-      <Text style={[styles.roleCardDetail, active && styles.roleCardDetailActive]}>
-        {option.detail}
-      </Text>
-    </Pressable>
-  );
-}
-
 function GlassSheet({
   open,
   title,
@@ -918,6 +1017,46 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 12,
   },
+  gatewayActions: {
+    gap: 10,
+  },
+  gatewayButton: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FFFFFF',
+    borderRadius: 14,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 52,
+    paddingHorizontal: 16,
+  },
+  gatewayButtonSecondary: {
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    borderColor: 'rgba(255,255,255,0.36)',
+  },
+  gatewayButtonText: {
+    color: '#0F172A',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  gatewayButtonSecondaryText: {
+    color: '#FFFFFF',
+  },
+  addAccountButton: {
+    alignItems: 'center',
+    borderColor: 'rgba(255,255,255,0.42)',
+    borderRadius: 14,
+    borderWidth: 1,
+    justifyContent: 'center',
+    marginTop: 10,
+    minHeight: 48,
+    paddingHorizontal: 16,
+  },
+  addAccountText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
+  },
   rolePanelTitle: {
     color: '#E2E8F0',
     fontSize: 12,
@@ -925,77 +1064,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
     textTransform: 'uppercase',
-  },
-  roleGrid: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  roleCard: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    borderColor: 'rgba(255,255,255,0.18)',
-    borderRadius: 16,
-    borderWidth: 1,
-    flex: 1,
-    minHeight: 136,
-    paddingHorizontal: 7,
-    paddingVertical: 10,
-  },
-  roleCardActive: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#FFFFFF',
-  },
-  roleCardPressed: {
-    opacity: 0.9,
-    transform: [{ scale: 0.99 }],
-  },
-  lastUsedBadgeSlot: {
-    alignItems: 'center',
-    height: 20,
-    justifyContent: 'center',
-    width: '100%',
-  },
-  lastUsedBadge: {
-    backgroundColor: '#FEF3C7',
-    borderColor: '#F59E0B',
-    borderRadius: 999,
-    borderWidth: 1,
-    paddingHorizontal: 7,
-    paddingVertical: 2,
-  },
-  lastUsedBadgeText: {
-    color: '#92400E',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 0.2,
-  },
-  roleAvatarFrame: {
-    backgroundColor: 'rgba(255,255,255,0.18)',
-    borderRadius: 999,
-    padding: 4,
-  },
-  roleAvatarFrameActive: {
-    backgroundColor: '#DBEAFE',
-  },
-  roleCardTitle: {
-    color: '#FFFFFF',
-    fontSize: 13,
-    fontWeight: '900',
-    marginTop: 8,
-  },
-  roleCardTitleActive: {
-    color: '#0F172A',
-  },
-  roleCardDetail: {
-    color: '#CBD5E1',
-    fontSize: 10,
-    fontWeight: '700',
-    lineHeight: 13,
-    marginTop: 4,
-    textAlign: 'center',
-  },
-  roleCardDetailActive: {
-    color: '#475569',
   },
   form: {
     gap: 10,

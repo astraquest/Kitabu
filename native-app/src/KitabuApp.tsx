@@ -237,6 +237,7 @@ export function KitabuApp() {
           fullName={state.signupFullName}
           signupRole={state.signupRole}
           lastUsedRole={state.lastUsedAuthRole}
+          knownProfiles={state.profileIndex}
           acceptedTerms={state.acceptedTerms}
           optionalPhoneNumber={state.optionalPhoneNumber}
           error={state.authError}
@@ -919,7 +920,7 @@ function renderScreen(
           children={state.parentChildren}
           onParent={actions.openParentDashboard}
           onChild={actions.openParentChildDashboard}
-          onAddChild={actions.startParentHouseholdOnboarding}
+          onAddAccount={actions.openAddAccountFlow}
         />
       );
     case 'weekly_exam':

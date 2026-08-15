@@ -124,6 +124,13 @@ import {
 import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
 import { getLocalCalendarDateKey, requestDailyStudentWelcome } from '../services/dailyWelcomeService';
 import { loadJson, saveJson } from '../services/storage';
+import {
+  loadProfileIndex,
+  normalizeProfileIndex,
+  saveProfileIndex,
+  LocalProfileIndexEntry,
+  ProfileIndexRole,
+} from '../services/profileIndexService';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
 import {
@@ -629,6 +636,79 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
   };
 }
 
+function profileIndexRoleForSession(
+  session: AuthSession,
+  preferredRole?: PublicSignupRole | null,
+): ProfileIndexRole {
+  if (preferredRole && ['student', 'teacher', 'parent', 'other'].includes(preferredRole)) {
+    if (session.user.roles.includes(preferredRole as AuthRole)) {
+      return preferredRole as ProfileIndexRole;
+    }
+  }
+
+  if (session.user.roles.includes('parent')) return 'parent';
+  if (session.user.roles.includes('teacher')) return 'teacher';
+  if (session.user.roles.includes('student')) return 'student';
+  return 'other';
+}
+
+function profileIndexEntryFromAuthSession(
+  session: AuthSession,
+  preferredRole?: PublicSignupRole | null,
+): LocalProfileIndexEntry {
+  const role = profileIndexRoleForSession(session, preferredRole);
+  const displayName =
+    session.user.onboardingPersonalization?.displayName?.trim() || session.user.fullName.trim();
+  const email = session.user.email.trim().toLowerCase();
+
+  return {
+    id: session.user.id,
+    displayName,
+    role,
+    avatarKey: role === 'parent' || role === 'teacher' ? 'avatar-afro-girl' : 'avatar-afro-boy',
+    ...(email && !email.endsWith('@accounts.kitabu.invalid') ? { email } : {}),
+  };
+}
+
+function profileIndexEntryFromStoredProfile(profile: UserProfile): LocalProfileIndexEntry | null {
+  const role = profile.role?.toLowerCase().includes('parent')
+    ? 'parent'
+    : profile.role?.toLowerCase().includes('teacher')
+      ? 'teacher'
+      : profile.role?.toLowerCase().includes('student')
+        ? 'student'
+        : null;
+  const id = profile.id?.trim();
+  const displayName = profile.name?.trim();
+  if (!id || !displayName || displayName === 'Kitabu User' || !role) {
+    return null;
+  }
+
+  return {
+    id,
+    displayName,
+    role,
+    avatarKey: profile.avatar === 'avatar-afro-girl' ? 'avatar-afro-girl' : 'avatar-afro-boy',
+    ...(profile.email?.trim() ? { email: profile.email.trim().toLowerCase() } : {}),
+  };
+}
+
+function profileIndexEntryFromChild(child: ParentChildSummary): LocalProfileIndexEntry | null {
+  const id = child.id.trim();
+  const displayName = child.name.trim();
+  if (!id || !displayName) {
+    return null;
+  }
+
+  return {
+    id,
+    displayName,
+    role: 'student',
+    avatarKey: 'avatar-afro-boy',
+    ...(child.email.trim() ? { email: child.email.trim().toLowerCase() } : {}),
+  };
+}
+
 function mergeStoredProfileWithAuthSession(storedProfile: UserProfile, session: AuthSession) {
   const authProfile = mapAuthSessionToProfile(session);
   const sameAccount =
@@ -738,6 +818,13 @@ export function useKitabuApp() {
   const [signupFullName, setSignupFullName] = useState('');
   const [signupRole, setSignupRole] = useState<PublicSignupRole | null>(null);
   const [lastUsedAuthRole, setLastUsedAuthRole] = useState<LastUsedAuthRole | null>(null);
+  const [profileIndex, setProfileIndexState] = useState<LocalProfileIndexEntry[]>([]);
+  const profileIndexRef = useRef<LocalProfileIndexEntry[]>([]);
+
+  function setProfileIndex(entries: LocalProfileIndexEntry[]) {
+    profileIndexRef.current = entries;
+    setProfileIndexState(entries);
+  }
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [optionalPhoneNumber, setOptionalPhoneNumber] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
@@ -1092,6 +1179,7 @@ export function useKitabuApp() {
         storedFocusMode,
         storedOnboardingPreferences,
         storedLastUsedAuthRole,
+        storedProfileIndex,
         storedSession,
         storedLoginCredentials,
       ] = await Promise.all([
@@ -1109,6 +1197,7 @@ export function useKitabuApp() {
         }),
         loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
         loadJson<unknown>(STORAGE_KEYS.lastUsedAuthRole, null),
+        loadProfileIndex(),
         restoreStoredAuthSession(),
         loadSavedLoginCredentials(),
       ]);
@@ -1132,6 +1221,15 @@ export function useKitabuApp() {
         ? storedLastUsedAuthRole
         : null;
       setLastUsedAuthRole(storedRole);
+      const migratedProfileEntry = profileIndexEntryFromStoredProfile(storedProfile);
+      const hydratedProfileIndex = normalizeProfileIndex([
+        ...storedProfileIndex,
+        ...(migratedProfileEntry ? [migratedProfileEntry] : []),
+      ]);
+      setProfileIndex(hydratedProfileIndex);
+      if (migratedProfileEntry) {
+        saveProfileIndex(hydratedProfileIndex).catch(() => undefined);
+      }
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
       const durableOnboardingPreferences = storedSession
         ? onboardingPreferencesFromSession(storedSession)
@@ -1192,6 +1290,9 @@ export function useKitabuApp() {
         setUserProfile(nextProfile);
         setCurrentGrade(nextGrade);
         setIsStudentPreview(false);
+        rememberProfileIndexEntries([
+          profileIndexEntryFromAuthSession(storedSession, restoredRole),
+        ]).catch(() => undefined);
         setCurrentView(nextHomeView);
         try {
           const [plansPayload, status] = await Promise.all([
@@ -1838,6 +1939,26 @@ export function useKitabuApp() {
     }
   }
 
+  async function rememberProfileIndexEntries(entries: Array<LocalProfileIndexEntry | null>) {
+    const validEntries = entries.filter(
+      (entry): entry is LocalProfileIndexEntry => Boolean(entry),
+    );
+    if (validEntries.length === 0) {
+      return;
+    }
+
+    try {
+      const nextEntries = normalizeProfileIndex([
+        ...profileIndexRef.current,
+        ...validEntries,
+      ]);
+      setProfileIndex(nextEntries);
+      await saveProfileIndex(nextEntries);
+    } catch {
+      // Profile remembering must never block authentication or dashboard loading.
+    }
+  }
+
   async function refreshParentDashboard() {
     if (!authSession?.user.roles.includes('parent')) {
       setParentChildren([]);
@@ -1860,6 +1981,10 @@ export function useKitabuApp() {
           ? current
           : nextChildren[0]?.id ?? null,
       );
+      await rememberProfileIndexEntries([
+        profileIndexEntryFromAuthSession(authSession, 'parent'),
+        ...nextChildren.map(profileIndexEntryFromChild),
+      ]);
       setParentDashboardError(null);
     } catch {
       if (isDemoParent) {
@@ -1897,6 +2022,9 @@ export function useKitabuApp() {
         user: payload.user,
       };
       await persistAuthSession(childSession);
+      await rememberProfileIndexEntries([
+        profileIndexEntryFromAuthSession(childSession, 'student'),
+      ]);
       setAuthSession(childSession);
       setCurrentGrade(childSession.user.grade || DEFAULT_GRADE);
       setIsStudentPreview(false);
@@ -3255,6 +3383,10 @@ export function useKitabuApp() {
     setAuthEntryScreen('auth');
   }
 
+  async function openAddAccountFlow() {
+    await signOut('auth');
+  }
+
   function returnToIntro() {
     setAuthError(null);
     setAuthEntryScreen('intro');
@@ -3283,6 +3415,9 @@ export function useKitabuApp() {
     setAuthEntryScreen('auth');
     const profile = mapAuthSessionToProfile(session);
     setUserProfile(profile);
+    rememberProfileIndexEntries([
+      profileIndexEntryFromAuthSession(session, selectedRole),
+    ]);
     setCurrentGrade(profile.grade || DEFAULT_GRADE);
     setIsStudentPreview(false);
     setOnboardingError(null);
@@ -3499,10 +3634,13 @@ export function useKitabuApp() {
     await signOut();
   }
 
-  async function signOut() {
+  async function signOut(nextEntryScreen: 'intro' | 'auth' = 'intro') {
     await markPresenceOffline('sign_out');
     setAuthSession(null);
-    setAuthEntryScreen('intro');
+    setAuthEntryScreen(nextEntryScreen);
+    setAuthMode('login');
+    setSignupRole(null);
+    setLoginPassword('');
     setAuthError(null);
     setOnboardingError(null);
     setProfileOpen(false);
@@ -4478,6 +4616,7 @@ export function useKitabuApp() {
       signupFullName,
       signupRole,
       lastUsedAuthRole,
+      profileIndex,
       acceptedTerms,
       optionalPhoneNumber,
       authError,
@@ -4617,6 +4756,7 @@ export function useKitabuApp() {
       setAuthMode,
       openSignInEntry,
       openSignupEntry,
+      openAddAccountFlow,
       returnToIntro,
       setLoginEmail,
       setLoginPassword,

@@ -72,6 +72,7 @@ function makeActions() {
     completeProviderAuthentication: jest.fn(),
     signIn: jest.fn(),
     signInDemo: jest.fn(),
+    signOut: jest.fn(),
     submitAccountOnboarding: jest.fn(),
   };
 }
@@ -112,8 +113,8 @@ describe('KitabuApp signup onboarding wiring', () => {
     });
   });
 
-  test.each<PublicSignupRole>(['student', 'teacher', 'other'])(
-    'routes legacy %s signups through the existing onboarding path',
+  test.each<PublicSignupRole>(['teacher', 'other'])(
+    'routes %s signups through the shared onboarding path',
     async role => {
       const actions = makeActions();
       mockUseKitabuApp.mockReturnValue({ state: makeState(role), actions });
@@ -133,6 +134,20 @@ describe('KitabuApp signup onboarding wiring', () => {
       );
     },
   );
+
+  test('does not route a retired public student signup through onboarding', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({ state: makeState('student'), actions });
+
+    let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
+    await act(() => {
+      renderer = ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+    expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
+    expect(renderer?.root.findByProps({ children: 'Student setup is parent-managed' })).toBeTruthy();
+  });
 
   test('routes parent signups through the household onboarding path', async () => {
     const actions = makeActions();
@@ -256,6 +271,45 @@ describe('KitabuApp signup onboarding wiring', () => {
     expect(actions.submitAccountOnboarding).toHaveBeenCalledWith(onboardingInput);
   });
 
+  test('does not route a pending standalone student account through onboarding', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({
+      state: {
+        ...makeState(null),
+        authSession: {
+          accessToken: 'access-token',
+          refreshToken: 'refresh-token',
+          user: {
+            email: 'student@example.com',
+            emailVerified: true,
+            phoneVerified: false,
+            roles: ['student'],
+          },
+        },
+        hasPendingAccountOnboarding: true,
+        isSubmittingOnboarding: false,
+        onboardingError: null,
+        externalPaymentsEnabled: true,
+      },
+      actions,
+    });
+
+    let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
+    await act(() => {
+      renderer = ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+    expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
+    expect(renderer?.root.findByProps({ children: 'Student setup is parent-managed' })).toBeTruthy();
+
+    const button = renderer?.root.findByProps({ accessibilityRole: 'button' });
+    await act(() => {
+      button?.props.onPress();
+    });
+    expect(actions.signOut).toHaveBeenCalledWith('intro');
+  });
+
   test('consumes preview onboarding URL so reload returns to the intro carousel', async () => {
     const actions = makeActions();
     const replaceState = jest.fn();
@@ -295,13 +349,52 @@ describe('KitabuApp signup onboarding wiring', () => {
       renderer?.update(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).toHaveBeenLastCalledWith(
+    expect(mockParentHouseholdOnboardingScreen).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        role: 'parent',
-        includeIntroChoices: true,
         collectSignupCredentials: true,
       }),
     );
+    expect(replaceState).toHaveBeenCalledWith(null, '', '/');
+  });
+
+  test('consumes a retired student preview and returns to the normal entry flow', async () => {
+    const actions = makeActions();
+    const replaceState = jest.fn();
+    mockUseKitabuApp.mockReturnValue({
+      state: {
+        ...makeState(null),
+        authEntryScreen: 'intro',
+        authMode: 'login',
+      },
+      actions,
+    });
+    Object.defineProperty(runtimeGlobal, '__DEV__', {
+      configurable: true,
+      value: true,
+    });
+    Object.defineProperty(runtimeGlobal, 'location', {
+      configurable: true,
+      value: {
+        hash: '',
+        pathname: '/',
+        search: '?previewOnboarding=student',
+      },
+    });
+    Object.defineProperty(runtimeGlobal, 'history', {
+      configurable: true,
+      value: {
+        replaceState,
+        state: null,
+      },
+    });
+
+    await act(() => {
+      ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+    expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
+    expect(mockIntroCarouselScreen).toHaveBeenCalled();
     expect(replaceState).toHaveBeenCalledWith(null, '', '/');
   });
 });

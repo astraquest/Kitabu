@@ -22,6 +22,7 @@ import {
 } from 'expo-audio';
 import { LinearGradient } from 'expo-linear-gradient';
 import { GoogleLogo } from '../components/GoogleLogo';
+import { OnboardingVisualShell } from '../components/OnboardingVisualShell';
 
 import { SUPPORTED_GRADES } from '../constants/grades';
 import { COUNTRY_OPTIONS, REGIONS_BY_COUNTRY, detectDefaultCountryCode } from '../constants/locations';
@@ -510,7 +511,6 @@ export function ParentHouseholdOnboardingScreen({
     } finally { setIsAddingSchool(false); }
   }
 
-  const childNames = children.map((item, index) => item.name || `Child ${index + 1}`).join(' and ');
   const selectedMascot = MASCOTS.find(option => option.key === child.mascotKey) ?? MASCOTS[0];
   const tutorIntroTitle = childIndex > 0 ? `Now it’s ${child.name || `Learner ${childIndex + 1}`}’s turn to select their Tutor` : "Parent, please let the learner choose their tutor. Don't choose for them";
   const commitmentName = child.name.trim() || `Learner ${childIndex + 1}`;
@@ -528,14 +528,14 @@ export function ParentHouseholdOnboardingScreen({
 
   if (step === 'loading') {
     const studyPlanMessages = ['Checking curriculum', 'Adding quizzes', 'Adding games', 'Finding your classmates', 'Adding more fun', 'Finding your teachers', 'Making quizzes harder', 'Adding mwakenya', 'Just kidding', 'Throwing in some magic'];
-    return <LinearGradient colors={['#FFF7EC', '#EAF6F0']} style={styles.screen}><View style={styles.center}><ActivityIndicator size="large" color="#F97316" /><Text style={styles.title}>{title}</Text><Text style={styles.studyPlanMessage}>{studyPlanMessages[Math.min(Math.floor(studyPlanProgress / 10), studyPlanMessages.length - 1)]}…</Text><View style={styles.studyPlanTrack}><View style={[styles.studyPlanFill, { width: `${studyPlanProgress}%` }]} /></View><Text style={styles.studyPlanPercent}>{studyPlanProgress}%</Text></View></LinearGradient>;
+    return <OnboardingVisualShell style={styles.screen}><View style={styles.center}><ActivityIndicator size="large" color="#0F766E" /><Text style={styles.title}>{title}</Text><Text style={styles.studyPlanMessage}>{studyPlanMessages[Math.min(Math.floor(studyPlanProgress / 10), studyPlanMessages.length - 1)]}…</Text><View style={styles.studyPlanTrack}><View style={[styles.studyPlanFill, { width: `${studyPlanProgress}%` }]} /></View><Text style={styles.studyPlanPercent}>{studyPlanProgress}%</Text></View></OnboardingVisualShell>;
   }
 
   return (
-    <LinearGradient colors={['#FFF7EC', '#EAF6F0']} style={styles.screen}>
+    <OnboardingVisualShell style={styles.screen}>
       <View style={styles.progress}><View style={[styles.progressFill, { width: `${progressValue}%` }]} /></View>
       {step !== 'language' ? <Pressable accessibilityLabel="Back in parent setup" onPress={goBack} style={styles.back}><Text style={styles.backText}>‹ Back</Text></Pressable> : null}
-      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
         <Text style={styles.kicker}>KITABU · ACCOUNT SETUP</Text>
         <Text style={styles.title}>{title}</Text>
 
@@ -575,7 +575,7 @@ export function ParentHouseholdOnboardingScreen({
           const previewComplete = voicePreviewedName === option.name;
           return <Pressable key={option.name} onPress={() => selectVoice(option.name)} style={[styles.choice, selected && styles.selected]}>
             <Text style={styles.choiceText}>{option.label}</Text>
-            <Pressable accessibilityRole="button" accessibilityLabel={`Preview ${option.name} voice`} onPress={(event?: { stopPropagation?: () => void }) => { event?.stopPropagation?.(); void previewVoice(option); }} style={styles.previewButton}>
+            <Pressable accessibilityRole="button" accessibilityLabel={`Preview ${option.name} voice`} onPress={(event?: { stopPropagation?: () => void }) => { event?.stopPropagation?.(); previewVoice(option).catch(() => undefined); }} style={styles.previewButton}>
               <Text style={styles.preview}>{isPlaying ? 'Playing…' : previewComplete ? 'Preview complete' : 'Preview voice'}</Text>
             </Pressable>
           </Pressable>;
@@ -593,24 +593,24 @@ export function ParentHouseholdOnboardingScreen({
       <Modal transparent visible={countyPickerOpen} onRequestClose={() => setCountyPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountyPickerOpen(false)}><View style={styles.sheet}><ScrollView>{regionMeta.options.map(option => <Pressable key={option} onPress={() => { updateChild({ county: option, schoolId: null, school: '' }); setCountyPickerOpen(false); }} style={styles.sheetRow}><Text>{option}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
       <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel="Search school by name" autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder="Search schools" style={styles.input} /><ScrollView>{filteredSchools.map(school => <Pressable key={school.id} onPress={() => { updateChild({ schoolId: school.id, school: school.name }); setSchoolQuery(school.name); setSchoolPickerOpen(false); }} style={styles.sheetRow}><Text>{school.name}</Text></Pressable>)}{filteredSchools.length === 0 ? <Text style={styles.empty}>No match yet. Add your school below.</Text> : null}<Pressable accessibilityLabel="Add your school" onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>Add Your School</Text></Pressable></ScrollView></View></Pressable></Modal>
       <Modal transparent visible={addSchoolOpen} onRequestClose={() => setAddSchoolOpen(false)}><View style={styles.modalBackdrop}><View style={styles.sheet}><Text style={styles.sheetTitle}>Add Your School</Text><Text style={styles.county}>Selected county: {child.county}</Text><TextInput accessibilityLabel="School name" autoFocus value={manualSchoolName} onChangeText={setManualSchoolName} placeholder="Enter school name" style={styles.input} />{schoolError ? <Text style={styles.error}>{schoolError}</Text> : null}<Pressable disabled={isAddingSchool} onPress={addSchool} style={styles.modalButton}><Text style={styles.buttonText}>{isAddingSchool ? 'Saving…' : 'Save and Continue'}</Text></Pressable></View></View></Modal>
-    </LinearGradient>
+    </OnboardingVisualShell>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: '#FFFDF9', flex: 1 },
-  center: { alignItems: 'center', backgroundColor: '#FFFDF9', flex: 1, gap: 18, justifyContent: 'center', padding: 24 },
-  progress: { backgroundColor: '#F2E7D8', height: 5, width: '100%' },
+  screen: { flex: 1 },
+  center: { alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.82)', borderColor: 'rgba(255,255,255,0.9)', borderRadius: 28, borderWidth: 1, flex: 1, gap: 18, justifyContent: 'center', margin: 24, padding: 24 },
+  progress: { backgroundColor: 'rgba(255,255,255,0.72)', height: 6, width: '100%' },
   progressFill: { backgroundColor: '#F97316', height: 5 },
-  back: { paddingHorizontal: 24, paddingTop: 12 },
+  back: { alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.82)', borderColor: 'rgba(255,255,255,0.9)', borderRadius: 999, borderWidth: 1, marginLeft: 20, marginTop: 12, paddingHorizontal: 16, paddingVertical: 9 },
   backText: { color: '#123F59', fontSize: 15, fontWeight: '800' },
-  content: { alignItems: 'center', gap: 16, padding: 24, paddingBottom: 110 },
+  content: { alignItems: 'center', flexGrow: 1, gap: 16, justifyContent: 'center', padding: 24, paddingBottom: 126 },
   kicker: { color: '#B45309', fontSize: 12, fontWeight: '800', letterSpacing: 1.2, textAlign: 'center' },
   title: { color: '#123F59', fontSize: 28, fontWeight: '900', lineHeight: 34, textAlign: 'center' },
   subtitle: { color: '#52636A', fontSize: 15, lineHeight: 22, textAlign: 'center' },
   grid: { alignSelf: 'stretch', flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  choice: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 14, borderWidth: 1, minHeight: 52, justifyContent: 'center', padding: 14, width: '48%' },
-  avatarChoice: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 16, borderWidth: 1, minHeight: 170, justifyContent: 'center', padding: 12, width: '48%' },
+  choice: { alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.94)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 18, borderWidth: 1, minHeight: 52, justifyContent: 'center', padding: 14, width: '48%' },
+  avatarChoice: { alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.94)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 20, borderWidth: 1, minHeight: 170, justifyContent: 'center', padding: 12, width: '48%' },
   pressed: { opacity: 0.9, transform: [{ scale: 0.98 }] },
   selected: { backgroundColor: '#FFF0DD', borderColor: '#F97316' },
   choiceText: { color: '#123F59', fontSize: 15, fontWeight: '700', textAlign: 'center' },
@@ -618,7 +618,7 @@ const styles = StyleSheet.create({
   parentAvatarImage: { height: 120, width: 120 },
   input: { backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, color: '#123F59', fontSize: 16, minHeight: 52, paddingHorizontal: 14, paddingVertical: 12 },
   disabled: { opacity: 0.45 },
-  panel: { alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 16, borderWidth: 1, gap: 8, padding: 18 },
+  panel: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.92)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 20, borderWidth: 1, gap: 8, padding: 18 },
   countryPanel: { alignItems: 'center' },
   tutorPanel: { alignSelf: 'stretch', borderRadius: 16, gap: 8, padding: 18 },
   tutorIntro: { alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 18, borderWidth: 1, gap: 12, padding: 22 },
@@ -662,7 +662,7 @@ const styles = StyleSheet.create({
   googleText: { color: '#52636A', fontSize: 15, fontWeight: '800' },
   orText: { color: '#8A7F72', fontSize: 12, fontWeight: '800', textAlign: 'center' },
   error: { color: '#B91C1C', fontSize: 14, fontWeight: '700' },
-  button: { backgroundColor: '#F97316', borderRadius: 14, bottom: 24, left: 24, minHeight: 54, justifyContent: 'center', paddingHorizontal: 18, position: 'absolute', right: 24 },
+  button: { backgroundColor: '#0F766E', borderRadius: 18, bottom: 24, left: 24, minHeight: 54, justifyContent: 'center', paddingHorizontal: 18, position: 'absolute', right: 24 },
   buttonText: { color: '#FFFFFF', fontSize: 16, fontWeight: '900', textAlign: 'center' },
   modalBackdrop: { alignItems: 'center', backgroundColor: 'rgba(18,63,89,0.35)', flex: 1, justifyContent: 'center', padding: 24 },
   sheet: { alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderRadius: 22, maxHeight: '70%', maxWidth: 440, padding: 18 },
@@ -674,8 +674,8 @@ const styles = StyleSheet.create({
   county: { color: '#123F59', fontWeight: '800', marginBottom: 10 },
   modalButton: { backgroundColor: '#F97316', borderRadius: 14, marginTop: 14, minHeight: 52, justifyContent: 'center', paddingHorizontal: 18 },
   studyPlanMessage: { color: '#52636A', fontSize: 17, fontWeight: '700', textAlign: 'center' },
-  studyPlanTrack: { backgroundColor: '#F2E7D8', borderRadius: 999, height: 12, overflow: 'hidden', width: '100%' },
-  studyPlanFill: { backgroundColor: '#F97316', height: '100%' },
+  studyPlanTrack: { backgroundColor: 'rgba(15,118,110,0.18)', borderRadius: 999, height: 12, overflow: 'hidden', width: '100%' },
+  studyPlanFill: { backgroundColor: '#0F766E', height: '100%' },
   studyPlanPercent: { color: '#123F59', fontSize: 18, fontWeight: '900' },
   confettiLayer: { bottom: 0, left: 0, position: 'absolute', right: 0, top: 0 },
   confettiPiece: { color: '#FDE68A', fontSize: 22, fontWeight: '900', position: 'absolute', top: 0 },

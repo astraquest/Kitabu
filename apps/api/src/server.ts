@@ -819,7 +819,8 @@ const onboardingPersonalizationSchema = z.object({
   school: z.string().trim().min(2).max(120).optional(),
   countryCode: z.string().trim().min(2).max(10).optional(),
   curriculumCode: z.string().trim().min(2).max(40).optional(),
-  referralSource: z.string().trim().min(1).max(120).optional()
+  referralSource: z.string().trim().min(1).max(120).optional(),
+  whatsappNumber: z.string().trim().min(9).max(20).regex(/^[0-9\s+().-]+$/).refine(value => (value.match(/\d/g) ?? []).length >= 9, 'WhatsApp number must contain at least 9 digits').optional()
 }).strict().superRefine((value, context) => {
   if (JSON.stringify(value).length > 16000) {
     context.addIssue({ code: 'custom', message: 'Onboarding personalization is too large' });

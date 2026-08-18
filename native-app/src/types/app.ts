@@ -165,6 +165,10 @@ export interface BillingPlansResponse {
   trialOffer: BillingPlan | null;
 }
 
+export interface FreeTrialResponse {
+  subscription: BillingSubscription;
+}
+
 export interface MpesaCheckoutResponse {
   paymentRequestId: string;
   customerMessage: string;

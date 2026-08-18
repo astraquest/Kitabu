@@ -1,17 +1,21 @@
 import React from 'react';
 import {
   ActivityIndicator,
+  Image,
   Modal,
   Pressable,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import type { OnboardingMascotKey } from '../types/app';
+import { LEARNING_MASCOT_SOURCES } from '../features/progressiveLearning/components/LearningMascotReaction';
 
 interface TryForOneBobModalProps {
   isOpen: boolean;
   isSubmitting: boolean;
-  phoneNumber: string;
+  mascotKey?: OnboardingMascotKey;
+  error?: string | null;
   onClose: () => void;
   onAccept: () => void;
 }
@@ -19,21 +23,32 @@ interface TryForOneBobModalProps {
 export function TryForOneBobModal({
   isOpen,
   isSubmitting,
-  phoneNumber,
+  mascotKey,
+  error,
   onClose,
   onAccept,
 }: TryForOneBobModalProps) {
+  const resolvedMascotKey: OnboardingMascotKey =
+    mascotKey && LEARNING_MASCOT_SOURCES[mascotKey] ? mascotKey : 'rabbit';
+
   return (
     <Modal visible={isOpen} transparent animationType="fade" onRequestClose={onClose}>
       <View style={styles.backdrop}>
         <Pressable style={styles.scrim} onPress={onClose} />
         <View style={styles.card}>
-          <Text style={styles.emoji}>🔥</Text>
-          <Text style={styles.title}>Try 1 month for 1 bob</Text>
+          <Image
+            accessibilityLabel={`Selected ${resolvedMascotKey} mascot`}
+            resizeMode="contain"
+            source={LEARNING_MASCOT_SOURCES[resolvedMascotKey]}
+            style={styles.mascot}
+          />
+          <Text style={styles.title}>Start Your Free 1-Month Trial</Text>
           <Text style={styles.body}>
-            Pay KSh 1 and unlock Kitabu AI for a month.
+            Enjoy full Kitabu AI access for one month.
           </Text>
-          <Text style={styles.meta}>Checkout will use {phoneNumber || 'your M-Pesa number'}.</Text>
+          <Text style={styles.meta}>No payment required.</Text>
+
+          {error ? <Text style={styles.error}>{error}</Text> : null}
 
           <Pressable
             disabled={isSubmitting}
@@ -42,7 +57,7 @@ export function TryForOneBobModal({
             {isSubmitting ? (
               <ActivityIndicator color="#FFFFFF" />
             ) : (
-              <Text style={styles.primaryText}>Pay KSh 1</Text>
+              <Text style={styles.primaryText}>Start Free Trial</Text>
             )}
           </Pressable>
 
@@ -71,9 +86,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 22,
     paddingVertical: 24,
   },
-  emoji: {
-    fontSize: 42,
-    textAlign: 'center',
+  mascot: {
+    alignSelf: 'center',
+    height: 72,
+    width: 72,
   },
   title: {
     color: '#7c2d12',
@@ -92,6 +108,13 @@ const styles = StyleSheet.create({
   meta: {
     color: '#78716c',
     fontSize: 13,
+    marginTop: 12,
+    textAlign: 'center',
+  },
+  error: {
+    color: '#B91C1C',
+    fontSize: 13,
+    fontWeight: '700',
     marginTop: 12,
     textAlign: 'center',
   },

@@ -500,14 +500,7 @@ export function KitabuApp() {
             <SubscriptionCheckoutModal
               isOpen={state.isCheckoutOpen}
               plans={
-                state.trialOfferPlan
-                  ? [
-                      ...state.billingPlans.filter(
-                        plan => plan.code !== state.trialOfferPlan?.code,
-                      ),
-                      state.trialOfferPlan,
-                    ]
-                  : state.billingPlans
+                state.billingPlans
               }
               selectedPlanCode={state.selectedPlanCode}
               phoneNumber={state.checkoutPhoneNumber}
@@ -527,9 +520,8 @@ export function KitabuApp() {
             <TryForOneBobModal
               isOpen={state.isTryOneBobOpen}
               isSubmitting={state.isSubmittingCheckout}
-              phoneNumber={
-                state.checkoutPhoneNumber || state.billingStatus.maskedMpesaPhoneNumber || 'your number'
-              }
+              mascotKey={state.activeMascotKey}
+              error={state.checkoutError}
               onClose={actions.dismissTryOneBobOffer}
               onAccept={actions.acceptTryOneBobOffer}
             />

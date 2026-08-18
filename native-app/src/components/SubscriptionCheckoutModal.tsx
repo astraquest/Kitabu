@@ -42,7 +42,6 @@ interface SubscriptionCheckoutModalProps {
 const PLAN_ORDER: Record<string, number> = {
   weekly: 1,
   monthly: 2,
-  trial_monthly_1bob: 2,
   annual: 3,
 };
 const PUBLIC_PLAN_CODES: BillingPlanCode[] = ['weekly', 'monthly', 'annual'];
@@ -60,7 +59,7 @@ const PLAN_PRESENTATION: Record<
 > = {
   weekly: {
     name: 'Sungura',
-    cycle: 'Per Week',
+    cycle: 'Per Month',
     accent: '#F97316',
     border: '#FDBA74',
     mascot: sunguraRabbitMascot,
@@ -68,23 +67,15 @@ const PLAN_PRESENTATION: Record<
   },
   monthly: {
     name: 'Simba',
-    cycle: 'Per Month',
-    accent: '#16A34A',
-    border: '#86EFAC',
-    mascot: simbaLionMascot,
-    soft: '#F0FDF4',
-  },
-  trial_monthly_1bob: {
-    name: '1 Bob Trial',
-    cycle: 'First Month',
+    cycle: 'Per Term',
     accent: '#16A34A',
     border: '#86EFAC',
     mascot: simbaLionMascot,
     soft: '#F0FDF4',
   },
   annual: {
-    name: 'Ndovu',
-    cycle: 'Per Year',
+    name: 'Premium',
+    cycle: 'Per Term',
     accent: '#2563EB',
     border: '#93C5FD',
     mascot: ndovuElephantMascot,
@@ -96,18 +87,18 @@ const PUBLIC_PLAN_FALLBACKS: Record<string, BillingPlan> = {
     code: 'weekly',
     name: 'Weekly',
     billingCycle: 'weekly',
-    priceKsh: 100,
-    priceKshCents: 10000,
-    originalPriceKsh: null,
-    originalPriceKshCents: null,
+    priceKsh: 150,
+    priceKshCents: 15000,
+    originalPriceKsh: 250,
+    originalPriceKshCents: 25000,
     isPopular: false,
   },
   monthly: {
     code: 'monthly',
     name: 'Monthly',
     billingCycle: 'monthly',
-    priceKsh: 250,
-    priceKshCents: 25000,
+    priceKsh: 300,
+    priceKshCents: 30000,
     originalPriceKsh: 500,
     originalPriceKshCents: 50000,
     isPopular: true,
@@ -116,10 +107,10 @@ const PUBLIC_PLAN_FALLBACKS: Record<string, BillingPlan> = {
     code: 'annual',
     name: 'Annual',
     billingCycle: 'annual',
-    priceKsh: 1999,
-    priceKshCents: 199900,
-    originalPriceKsh: 6000,
-    originalPriceKshCents: 600000,
+    priceKsh: 1000,
+    priceKshCents: 100000,
+    originalPriceKsh: null,
+    originalPriceKshCents: null,
     isPopular: false,
   },
 };
@@ -189,28 +180,18 @@ export function SubscriptionCheckoutModal({
   const visiblePlans = useMemo(
     () => {
       const plansByCode = new Map(plans.map(plan => [plan.code, plan]));
-      const explicitlySelectedPlan = selectedPlanCode
-        ? plansByCode.get(selectedPlanCode)
-        : undefined;
-
-      if (explicitlySelectedPlan?.code === 'trial_monthly_1bob') {
-        return [explicitlySelectedPlan];
-      }
-
       return PUBLIC_PLAN_CODES.map(planCode => plansByCode.get(planCode) ?? PUBLIC_PLAN_FALLBACKS[planCode]).sort(
         (left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99),
       );
     },
-    [plans, selectedPlanCode],
+    [plans],
   );
   const effectiveSelectedPlanCode = focusedPlanCode ?? selectedPlanCode;
   const featuredPlan =
     visiblePlans.find(plan => plan.code === effectiveSelectedPlanCode) ??
-    visiblePlans.find(plan => plan.isPopular) ??
     visiblePlans.find(plan => plan.code === 'monthly') ??
     visiblePlans[0] ??
     null;
-  const isTrialOffer = featuredPlan?.code === 'trial_monthly_1bob';
   const packageCardWidth = useMemo(() => {
     const availableWidth = Math.min(Math.round(width - 52), 338);
     if (visiblePlans.length === 1) {
@@ -324,17 +305,15 @@ export function SubscriptionCheckoutModal({
             </Pressable>
 
             <Text style={[styles.title, compact && styles.titleCompact]}>
-              {isTrialOffer ? 'Try Kitabu for Just 1 Bob' : 'Become Top of Your Class in Just 3 Months'}
+              Become Top of Your Class in Just 3 Months
             </Text>
-            {!isTrialOffer ? (
-              <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
-                Join thousands of students already improving their grades.
-              </Text>
-            ) : null}
+            <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
+              Join thousands of students already improving their grades.
+            </Text>
 
             <View style={styles.offerBadge}>
               <Text style={styles.offerBadgeText}>
-                {isTrialOffer ? 'ONE-TIME INTRODUCTORY OFFER' : 'LIMITED TIME OFFER'}
+                LIMITED TIME OFFER
               </Text>
             </View>
 
@@ -343,7 +322,11 @@ export function SubscriptionCheckoutModal({
                 const active = plan.code === featuredPlan?.code;
                 const packageTheme = getPlanPresentation(plan);
                 const discountLabel = getDiscountLabel(plan);
-                const popular = plan.code === 'monthly' || plan.isPopular;
+                const hasDiscountedOriginalPrice =
+                  typeof plan.originalPriceKsh === 'number' &&
+                  Number.isFinite(plan.originalPriceKsh) &&
+                  plan.originalPriceKsh > plan.priceKsh;
+                const popular = plan.code === 'monthly';
                 const rowIndex = PLAN_ORDER[plan.code] ?? 2;
                 const rowOffset = (rowIndex - 2) * packageStep;
                 const translateX = focusProgress.interpolate({
@@ -409,10 +392,15 @@ export function SubscriptionCheckoutModal({
                         KSH {plan.priceKsh.toLocaleString()}
                       </Text>
                       <Text style={styles.packageCycle}>{packageTheme.cycle}</Text>
-                      {discountLabel ? (
-                        <Text style={[styles.packageDiscount, { color: packageTheme.accent }]}>
-                          {discountLabel}
-                        </Text>
+                      {hasDiscountedOriginalPrice && discountLabel ? (
+                        <View style={styles.packageDiscountRow}>
+                          <Text style={styles.packageOriginalPrice}>
+                            KSH {plan.originalPriceKsh.toLocaleString()}
+                          </Text>
+                          <Text style={[styles.packageDiscount, { color: packageTheme.accent }]}>
+                            {discountLabel}
+                          </Text>
+                        </View>
                       ) : null}
                     </Pressable>
                   </Animated.View>
@@ -642,10 +630,22 @@ const styles = StyleSheet.create({
     marginTop: 1,
     textAlign: 'center',
   },
+  packageDiscountRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 3,
+    marginTop: 2,
+  },
+  packageOriginalPrice: {
+    color: '#64748B',
+    fontSize: 7,
+    fontWeight: '800',
+    lineHeight: 9,
+    textDecorationLine: 'line-through',
+  },
   packageDiscount: {
     fontSize: 7,
     fontWeight: '900',
-    marginTop: 2,
     textAlign: 'center',
   },
   packageMascot: {

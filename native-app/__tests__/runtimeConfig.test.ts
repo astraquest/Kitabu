@@ -1,7 +1,9 @@
+const mockPlatform = { OS: 'android' };
+const mockNativeModules = { SourceCode: { scriptURL: undefined as string | undefined } };
+
 jest.mock('react-native', () => ({
-  Platform: {
-    OS: 'android',
-  },
+  Platform: mockPlatform,
+  NativeModules: mockNativeModules,
 }));
 
 describe('runtimeConfig', () => {
@@ -16,6 +18,8 @@ describe('runtimeConfig', () => {
     jest.resetModules();
     runtimeGlobal.__DEV__ = true;
     globalThis.fetch = jest.fn();
+    mockPlatform.OS = 'android';
+    mockNativeModules.SourceCode.scriptURL = undefined;
     if (processEnv) {
       delete processEnv.KITABU_USE_LOCAL_API;
       delete processEnv.KITABU_PREFER_LOCAL_API;
@@ -25,6 +29,39 @@ describe('runtimeConfig', () => {
   afterEach(() => {
     globalThis.fetch = originalFetch;
     runtimeGlobal.__DEV__ = originalDev;
+  });
+
+  it.each(['localhost', '127.0.0.1'])('uses IPv4 loopback for web development host %s', host => {
+    mockPlatform.OS = 'web';
+    mockNativeModules.SourceCode.scriptURL = `http://${host}:8081/index.bundle?platform=web`;
+    const runtimeConfig = require('../src/services/runtimeConfig');
+
+    expect(runtimeConfig.getKitabuApiBaseUrls()).toEqual([
+      'http://127.0.0.1:4000',
+      'https://app.kitabu.ai',
+    ]);
+  });
+
+  it('uses IPv4 loopback when web host discovery is unavailable', () => {
+    mockPlatform.OS = 'web';
+    const runtimeConfig = require('../src/services/runtimeConfig');
+
+    expect(runtimeConfig.getKitabuApiBaseUrls()).toEqual([
+      'http://127.0.0.1:4000',
+      'https://app.kitabu.ai',
+    ]);
+  });
+
+  it('preserves a LAN host for web development', () => {
+    mockPlatform.OS = 'web';
+    mockNativeModules.SourceCode.scriptURL = 'http://192.168.1.20:8081/index.bundle?platform=web';
+    const runtimeConfig = require('../src/services/runtimeConfig');
+
+    expect(runtimeConfig.getKitabuApiBaseUrls()).toEqual([
+      'http://192.168.1.20:4000',
+      'http://127.0.0.1:4000',
+      'https://app.kitabu.ai',
+    ]);
   });
 
   it('tries local Android endpoints before production in development', () => {

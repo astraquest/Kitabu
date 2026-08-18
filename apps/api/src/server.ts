@@ -92,6 +92,7 @@ import {
   createTeacherLessonPlan,
   createTeacherParentMessages,
   createPaymentRequest,
+  createSubscription,
   createPhoneVerificationCode,
   createEmptyCurriculumSubject,
   createOrReuseOnboardingSchool,
@@ -148,6 +149,7 @@ import {
   getUserTotpStatus,
   type OnboardingPersonalization,
   hasSuccessfulPayments,
+  hasUsedFreeTrial,
   invalidateEmailVerificationTokensForUser,
   invalidatePasswordResetTokensForUser,
   insertEmailVerificationToken,
@@ -2501,12 +2503,12 @@ export function buildServer(options: BuildServerOptions = {}) {
   }
 
   function getPublicOriginalPriceKshCents(planCode: BillingPlanCode) {
-    if (planCode === 'monthly') {
-      return 50000;
+    if (planCode === 'weekly') {
+      return 25000;
     }
 
-    if (planCode === 'annual') {
-      return 600000;
+    if (planCode === 'monthly') {
+      return 50000;
     }
 
     return undefined;
@@ -7779,10 +7781,12 @@ Return valid JSON with this shape:
       };
     }
 
-    const [schoolPricing, hiddenTrialPlan, hasPaidBefore] = await Promise.all([
+    const [schoolPricing, hiddenTrialPlan, hasPaidBefore, activeSubscription, hasUsedTrial] = await Promise.all([
       findSchoolPricingForUser(request.user!.id),
       findSubscriptionPlanByCode('trial_monthly_1bob'),
-      hasSuccessfulPayments(request.user!.id)
+      hasSuccessfulPayments(request.user!.id),
+      getActiveSubscription(request.user!.id),
+      hasUsedFreeTrial(request.user!.id)
     ]);
 
     const isSchoolManaged =
@@ -7828,12 +7832,12 @@ Return valid JSON with this shape:
       plans,
       school: isSchoolManaged && schoolPricing ? serializeSchool(schoolPricing) : null,
       trialOffer:
-        !hasPaidBefore && hiddenTrialPlan
+        !hasPaidBefore && !activeSubscription && !hasUsedTrial && hiddenTrialPlan
           ? serializePlan({
               code: hiddenTrialPlan.code,
-              name: 'Try for 1 Bob',
+              name: hiddenTrialPlan.name,
               billingCycle: hiddenTrialPlan.billing_cycle,
-              priceKshCents: 100
+              priceKshCents: Number(hiddenTrialPlan.price_ksh_cents)
             })
           : null
     };
@@ -7882,6 +7886,81 @@ Return valid JSON with this shape:
     };
   });
 
+  app.post('/billing/free-trial', {
+    config: { rateLimit: { max: 3, timeWindow: '1 minute' } }
+  }, async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    if (isDemoAccountUser(request.user!)) {
+      return reply.forbidden('Demo accounts cannot start a free trial');
+    }
+
+    const result = await withTransaction(async client => {
+      // Serialize trial starts for this account so concurrent requests cannot both pass the checks.
+      await client.query('SELECT id FROM users WHERE id = $1 FOR UPDATE', [request.user!.id]);
+      const [plan, activeSubscription, hasPaidBefore, hasUsedTrial] = await Promise.all([
+        findSubscriptionPlanByCode('trial_monthly_1bob', client),
+        getActiveSubscription(request.user!.id, client),
+        hasSuccessfulPayments(request.user!.id, client),
+        hasUsedFreeTrial(request.user!.id, client)
+      ]);
+
+      if (!plan) {
+        return { kind: 'missing' as const };
+      }
+
+      if (hasPaidBefore || activeSubscription || hasUsedTrial) {
+        return { kind: 'ineligible' as const };
+      }
+
+      const periodStart = new Date();
+      const periodEnd = getPlanPeriodEnd(periodStart, 'monthly');
+      const subscriptionId = await createSubscription(client, {
+        userId: request.user!.id,
+        planId: plan.id,
+        billingCycle: 'monthly',
+        priceKshCents: 0,
+        periodStart,
+        periodEnd
+      });
+      await createAuditLog(
+        client,
+        request.user!.id,
+        request.user!.schoolId,
+        'billing.free_trial.started',
+        { planCode: plan.code, subscriptionId, periodStart, periodEnd },
+        'subscription',
+        subscriptionId
+      );
+
+      return {
+        kind: 'started' as const,
+        subscription: {
+          id: subscriptionId,
+          code: plan.code,
+          name: plan.name,
+          billingCycle: 'monthly' as const,
+          priceKsh: 0,
+          periodStart: periodStart.toISOString(),
+          periodEnd: periodEnd.toISOString(),
+          status: 'active' as const
+        }
+      };
+    });
+
+    if (result.kind === 'missing') {
+      return reply.notFound('Free trial plan not found');
+    }
+    if (result.kind === 'ineligible') {
+      return reply.forbidden('The free trial is only available to eligible first-time users');
+    }
+
+    return { subscription: result.subscription };
+  });
+
   app.post('/billing/checkout/mpesa', {
     config: { rateLimit: { max: 6, timeWindow: '1 minute' } }
   }, async (request, reply) => {
@@ -7899,6 +7978,10 @@ Return valid JSON with this shape:
     });
 
     const body = mpesaCheckoutSchema.parse(request.body);
+    if (body.planCode === 'trial_monthly_1bob') {
+      return reply.forbidden('The free trial must be started without payment');
+    }
+
     const normalizedPhoneNumber = formatKenyanPhoneNumber(body.phoneNumber);
     const [plan, activeSubscription, schoolPricing, hasPaidBefore] = await Promise.all([
       findSubscriptionPlanByCode(body.planCode),
@@ -7917,12 +8000,7 @@ Return valid JSON with this shape:
 
     let amountKshCents = Number(plan.price_ksh_cents);
 
-    if (body.planCode === 'trial_monthly_1bob') {
-      if (hasPaidBefore || activeSubscription) {
-        return reply.forbidden('The 1 bob trial is only available before your first subscription payment');
-      }
-      amountKshCents = 100;
-    } else if (isSchoolManaged && schoolPricing) {
+    if (isSchoolManaged && schoolPricing) {
       if (!schoolPricing.available_plan_codes.includes(body.planCode)) {
         return reply.forbidden('That plan is not available for your school account');
       }

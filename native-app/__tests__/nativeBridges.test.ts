@@ -91,11 +91,14 @@ describe('audioRecordingBridge', () => {
     const ExpoAudio = require('expo-audio');
     const recorder = {
       uri: null as string | null,
+      isRecording: true,
       prepareToRecordAsync: jest.fn(() => Promise.resolve()),
       record: jest.fn(),
+      getStatus: jest.fn(() => ({ isRecording: true })),
       stop: jest.fn(async () => {
         recorder.uri = 'file:///recording.m4a';
       }),
+      release: jest.fn(),
     };
     ExpoAudio.AudioModule.AudioRecorder.mockImplementation(() => recorder);
 
@@ -105,5 +108,29 @@ describe('audioRecordingBridge', () => {
     expect(recorder.prepareToRecordAsync).toHaveBeenCalledTimes(1);
     expect(recorder.record).toHaveBeenCalledTimes(1);
     await expect(audioRecordingBridge.stopRecording()).resolves.toBe('file:///recording.m4a');
+  });
+
+  test('rejects when the recorder does not report recording and cleans it up', async () => {
+    const ExpoAudio = require('expo-audio');
+    const recorder = {
+      uri: null as string | null,
+      isRecording: false,
+      prepareToRecordAsync: jest.fn(() => Promise.resolve()),
+      record: jest.fn(),
+      getStatus: jest.fn(() => ({ isRecording: false })),
+      stop: jest.fn(() => Promise.resolve()),
+      release: jest.fn(),
+    };
+    ExpoAudio.AudioModule.AudioRecorder.mockImplementation(() => recorder);
+
+    const { audioRecordingBridge } = require('../src/services/nativeBridges');
+
+    await expect(audioRecordingBridge.startRecording()).rejects.toThrow(
+      'Recorder did not enter the recording state',
+    );
+    expect(recorder.stop).toHaveBeenCalledTimes(1);
+    expect(recorder.release).toHaveBeenCalledTimes(1);
+    expect(ExpoAudio.setAudioModeAsync).toHaveBeenLastCalledWith({ allowsRecording: false });
+    await expect(audioRecordingBridge.stopRecording()).resolves.toBeNull();
   });
 });

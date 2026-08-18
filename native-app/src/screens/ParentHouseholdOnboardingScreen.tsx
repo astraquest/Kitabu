@@ -29,7 +29,7 @@ import { COUNTRY_OPTIONS, REGIONS_BY_COUNTRY, detectDefaultCountryCode } from '.
 import { WHATSAPP_CALLING_COUNTRIES } from '../constants/whatsappCallingCountries';
 import { triggerHaptic } from '../services/haptics';
 import { requestPushPermission } from '../services/pushNotifications';
-import { buildPrimaryInstruction, getParentEnglishOnboardingCueId, useGuidedNarration } from '../services/narrationService';
+import { buildPrimaryInstruction, getParentEnglishOnboardingCueId, getParentSwahiliOnboardingCueId, useGuidedNarration } from '../services/narrationService';
 import {
   emptyParentOnboardingOrder,
   loadParentOnboardingOrder,
@@ -548,14 +548,20 @@ export function ParentHouseholdOnboardingScreen({
   const selectedMascot = MASCOTS.find(option => option.key === child.mascotKey) ?? MASCOTS[0];
   const tutorIntroTitle = copy.tutorIntro;
   const title = step === 'language' ? copy.language : step === 'role' ? copy.title.role : step === 'parentAvatar' ? copy.title.avatar : step === 'parentName' ? copy.title.name : step === 'whatsappNumber' ? copy.title.whatsapp : step === 'country' ? copy.title.country : step === 'childName' ? copy.title.childName : step === 'childAge' ? copy.title.age : step === 'childGender' ? copy.title.gender : step === 'childSchool' ? copy.title.school : step === 'childGrade' ? copy.title.grade : step === 'childPerformance' ? copy.title.performance : step === 'childSubjects' ? copy.title.subjects : step === 'addAnother' ? copy.title.add : step === 'microphone' ? copy.title.microphone : step === 'reminder' ? copy.title.reminder : step === 'referral' ? copy.title.referral : step === 'tutorIntro' ? tutorIntroTitle : step === 'socialProof' ? copy.title.social : step === 'mascot' ? copy.title.tutor : step === 'rafiki' ? copy.title.meet : step === 'voice' ? copy.title.voice : step === 'commitment' ? copy.title.commitment : step === 'childReady' ? copy.title.readyChild : step === 'loading' ? copy.title.loading : step === 'ready' ? copy.title.ready : copy.title.signup;
-  const parentCueId = languageCode === 'en' ? getParentEnglishOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted) : undefined;
-  const parentNarrationCue = buildPrimaryInstruction(
-    'parent-onboarding',
-    `${step}-${childIndex}-${parentCueId ?? 'none'}`,
-    title,
-    'Bella',
-    parentCueId ? { language: 'en', publicCueId: parentCueId } : undefined,
-  );
+  const parentCueId = languageCode === 'en'
+    ? getParentEnglishOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted)
+    : languageCode === 'sw'
+      ? getParentSwahiliOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted)
+      : undefined;
+  const parentNarrationCue = parentCueId
+    ? buildPrimaryInstruction(
+        'parent-onboarding',
+        `${step}-${childIndex}-${parentCueId}`,
+        title,
+        'Bella',
+        { language: languageCode ?? undefined, publicCueId: parentCueId },
+      )
+    : null;
   // Parent signup uses the fixed Bella catalog voice; student onboarding remains out of scope.
   useGuidedNarration(parentNarrationCue, Boolean(parentCueId));
 

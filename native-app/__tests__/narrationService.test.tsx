@@ -5,6 +5,7 @@ import {
   buildPrimaryInstruction,
   buildQuestionCue,
   getStudentEnglishOnboardingLandingCueId,
+  getParentSwahiliOnboardingCueId,
   useGuidedNarration,
 } from '../src/services/narrationService';
 import { speechPlaybackBridge } from '../src/services/nativeBridges';
@@ -90,6 +91,15 @@ test('student English onboarding maps only static catalog cues', () => {
   expect(getStudentEnglishOnboardingLandingCueId('setup', 1, 'en')).toBe('onboarding-subjects');
   expect(getStudentEnglishOnboardingLandingCueId('rafiki', 0, 'en')).toBeUndefined();
   expect(getStudentEnglishOnboardingLandingCueId('role', 0, 'sw')).toBeUndefined();
+});
+
+test('parent Kiswahili onboarding maps WhatsApp and child tutor cues to public catalog IDs', () => {
+  expect(getParentSwahiliOnboardingCueId('language')).toBe('parent-sw-language');
+  expect(getParentSwahiliOnboardingCueId('whatsappNumber')).toBe('parent-sw-whatsapp-number');
+  expect(getParentSwahiliOnboardingCueId('childSchool')).toBe('parent-sw-school');
+  expect(getParentSwahiliOnboardingCueId('tutorIntro')).toBe('parent-sw-tutor-introduction');
+  expect(getParentSwahiliOnboardingCueId('tutorIntro', 1)).toBe('parent-sw-second-learner');
+  expect(getParentSwahiliOnboardingCueId('rafiki', 0, 'lion')).toBe('parent-sw-mascot-lion');
 });
 
 test('primary instruction carries the public catalog request metadata', () => {

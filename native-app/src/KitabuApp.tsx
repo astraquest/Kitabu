@@ -915,9 +915,12 @@ function renderScreen(
     case 'profile_chooser':
       return (
         <ProfileChooserScreen
+          parentAvatarKey={state.userProfile.avatar}
+          parentGender={state.userProfile.gender}
+          parentGrade={state.userProfile.grade}
           parentName={state.userProfile.name || state.authSession.user.fullName}
-          mascotKey={state.activeMascotKey}
           children={state.parentChildren}
+          isLoading={state.isLoadingParentDashboard}
           onParent={actions.openParentDashboard}
           onChild={actions.openParentChildDashboard}
           onAddAccount={actions.openAddAccountFlow}

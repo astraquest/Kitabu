@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const DEFAULT_EXPECTED_COUNT = 84;
-const REQUIRED_VOICES = ['Samora', 'Barake', 'Bella', 'Judith'];
+const DEFAULT_EXPECTED_COUNT = 31;
+const REQUIRED_VOICES = ['Bella'];
 
 function normalizeText(text) {
   return text.trim().replace(/\s+/g, ' ');
@@ -110,12 +110,12 @@ function requireExactRecords(rows, required, expectedCount) {
 }
 
 async function loadRuntimeDependencies() {
-  const [{ Client }, { LANDING_ONBOARDING_TTS_CUES }, { SupabaseTtsAssetStorage }] = await Promise.all([
+  const [{ Client }, { PARENT_ONBOARDING_TTS_CUES }, { SupabaseTtsAssetStorage }] = await Promise.all([
     import('pg'),
     import('../dist/onboardingTts.js'),
     import('../dist/ttsStorage.js')
   ]);
-  return { Client, LANDING_ONBOARDING_TTS_CUES, SupabaseTtsAssetStorage };
+  return { Client, PARENT_ONBOARDING_TTS_CUES, SupabaseTtsAssetStorage };
 }
 
 export async function runMigration({ argv = [], env = process.env, dependencies } = {}) {
@@ -126,7 +126,7 @@ export async function runMigration({ argv = [], env = process.env, dependencies 
   const localRoot = resolve(process.cwd(), args.localRoot ?? env.KITABU_TTS_STORAGE_ROOT ?? '/app/var/tts-audio');
   if (!databaseUrl) throw new Error('KITABU_DATABASE_URL is required');
 
-  const required = buildRequiredRecords(runtime.LANDING_ONBOARDING_TTS_CUES);
+  const required = buildRequiredRecords(runtime.PARENT_ONBOARDING_TTS_CUES);
   const client = new runtime.Client({ connectionString: databaseUrl });
   const summary = {
     mode: args.dryRun ? 'dry-run' : 'apply',

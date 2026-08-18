@@ -6,13 +6,13 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildRequiredRecords, parseArgs, runMigration } from './migrate-tts-to-supabase.mjs';
 
-const cues = Array.from({ length: 21 }, (_, index) => ({ id: `cue-${index}`, text: `Cue ${index}` }));
+const cues = Array.from({ length: 31 }, (_, index) => ({ id: `cue-${index}`, text: `Cue ${index}` }));
 
-test('TTS migration defaults to the exact 84-record catalog and supports dry-run', () => {
+test('TTS migration defaults to the exact 31-record parent catalog and supports dry-run', () => {
   const args = parseArgs(['--dry-run']);
   assert.equal(args.dryRun, true);
-  assert.equal(args.expectedCount, 84);
-  assert.equal(buildRequiredRecords(cues).length, 84);
+  assert.equal(args.expectedCount, 31);
+  assert.equal(buildRequiredRecords(cues).length, 31);
 });
 
 test('TTS migration rejects unknown arguments and invalid expected counts', () => {
@@ -61,22 +61,22 @@ test('TTS migration verifies objects before metadata writes and is idempotent', 
     await mkdir(join(root, 'tts'), { recursive: true });
     for (const row of rows) await writeFile(join(root, row.storage_key), wav);
     const first = await runMigration({
-      argv: ['--expected-count', '84', '--local-root', root],
+      argv: ['--expected-count', '31', '--local-root', root],
       env: { KITABU_DATABASE_URL: 'postgres://test', KITABU_SUPABASE_URL: 'https://supabase.test', KITABU_SUPABASE_SERVICE_ROLE_KEY: 'test-key', KITABU_TTS_STORAGE_BUCKET: 'tts-audio' },
-      dependencies: { Client: FakeClient, LANDING_ONBOARDING_TTS_CUES: cues, SupabaseTtsAssetStorage: FakeStorage }
+      dependencies: { Client: FakeClient, PARENT_ONBOARDING_TTS_CUES: cues, SupabaseTtsAssetStorage: FakeStorage }
     });
-    assert.equal(first.remoteVerified, 84);
-    assert.equal(first.updated, 84);
-    assert.equal(objects.size, 84);
+    assert.equal(first.remoteVerified, 31);
+    assert.equal(first.updated, 31);
+    assert.equal(objects.size, 31);
 
     const second = await runMigration({
-      argv: ['--expected-count', '84', '--local-root', root],
+      argv: ['--expected-count', '31', '--local-root', root],
       env: { KITABU_DATABASE_URL: 'postgres://test', KITABU_SUPABASE_URL: 'https://supabase.test', KITABU_SUPABASE_SERVICE_ROLE_KEY: 'test-key', KITABU_TTS_STORAGE_BUCKET: 'tts-audio' },
-      dependencies: { Client: FakeClient, LANDING_ONBOARDING_TTS_CUES: cues, SupabaseTtsAssetStorage: FakeStorage }
+      dependencies: { Client: FakeClient, PARENT_ONBOARDING_TTS_CUES: cues, SupabaseTtsAssetStorage: FakeStorage }
     });
-    assert.equal(second.remoteVerified, 84);
+    assert.equal(second.remoteVerified, 31);
     assert.equal(second.updated, 0);
-    assert.equal(second.skipped, 84);
+    assert.equal(second.skipped, 31);
   } finally {
     await rm(root, { recursive: true, force: true });
   }

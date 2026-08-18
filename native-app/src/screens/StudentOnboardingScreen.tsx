@@ -61,10 +61,15 @@ import {
   type OnboardingEventType,
 } from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
-import { AvatarArt } from '../components/AvatarArt';
+import { AvatarArt, selectAvatarKey } from '../components/AvatarArt';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
-import { buildPrimaryInstruction, useGuidedNarration } from '../services/narrationService';
+import {
+  buildPrimaryInstruction,
+  getStudentEnglishOnboardingLandingCueId,
+  useGuidedNarration,
+} from '../services/narrationService';
 import {
   getOnboardingStepMetadata,
   type OnboardingIntroStep,
@@ -2053,6 +2058,7 @@ export function StudentOnboardingScreen({
   const [reminderEnabled, setReminderEnabled] = useState(!includeIntroChoices);
   const [isRequestingReminderPermission, setIsRequestingReminderPermission] = useState(false);
   const [isRequestingMicrophonePermission, setIsRequestingMicrophonePermission] = useState(false);
+  const [narrationTrigger, setNarrationTrigger] = useState<string | null>(null);
   const [preparedMpesaPhoneNumber, setPreparedMpesaPhoneNumber] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [gender, setGender] = useState<GenderOption | null>(includeIntroChoices ? null : 'not_specified');
@@ -2383,7 +2389,11 @@ export function StudentOnboardingScreen({
       child => isValidDisplayName(child.name) && child.grade && isValidLearnerAge(child.age),
     );
   const resolvedGender: GenderOption = gender ?? 'not_specified';
-  const learnerAvatarKey = resolvedGender === 'female' ? 'avatar-afro-girl' : 'avatar-afro-boy';
+  const learnerAvatarKey = selectAvatarKey({
+    role: 'student',
+    grade,
+    gender: resolvedGender,
+  });
   const signupEmailTrimmed = signupEmail.trim();
   const signupPhoneTrimmed = signupPhone.trim();
   const signupPhoneDigits = signupPhoneTrimmed.replace(/\D/g, '');
@@ -2936,13 +2946,22 @@ export function StudentOnboardingScreen({
                                             : 'Save your account'
                   : content.title;
   const onboardingVoiceName = noVoice ? undefined : selectedVoiceName ?? 'Samora';
+  const landingCueId =
+    includeIntroChoices && role === 'student'
+      ? getStudentEnglishOnboardingLandingCueId(introStep, step, languageCode)
+      : undefined;
   const narrationCue = buildPrimaryInstruction(
     'student-onboarding',
     `${introStep}-${step}`,
     headerTitle,
     onboardingVoiceName,
+    landingCueId ? { language: 'en', publicCueId: landingCueId } : undefined,
   );
-  useGuidedNarration(narrationCue, Boolean(headerTitle));
+  useGuidedNarration(
+    narrationCue,
+    Boolean(headerTitle),
+    narrationTrigger,
+  );
   const headerBody =
     introStep === 'language'
       ? 'Start with the language that feels most natural. You can still learn across Kiswahili and English content.'
@@ -3193,11 +3212,11 @@ export function StudentOnboardingScreen({
     }
 
     AccessibilityInfo.isReduceMotionEnabled()
-      .then(reduceMotionEnabled => {
+      .then(isReduceMotionEnabled => {
         if (mounted) {
-          setReduceMotionEnabled(reduceMotionEnabled);
+          setReduceMotionEnabled(isReduceMotionEnabled);
         }
-        if (!mounted || reduceMotionEnabled) {
+        if (!mounted || isReduceMotionEnabled) {
           return;
         }
 
@@ -4526,6 +4545,7 @@ export function StudentOnboardingScreen({
     const option = LANGUAGE_OPTIONS.find(item => item.code === value);
     trackOnboardingSelection('language', value, option?.label ?? value);
     if (includeIntroChoices) {
+      setNarrationTrigger('primary-instruction:student-onboarding:mascot-0');
       scheduleAutoAdvance(() => setIntroStep('mascot'));
     }
   }
@@ -5182,8 +5202,8 @@ export function StudentOnboardingScreen({
       }
       setAddSchoolOpen(false);
       triggerHaptic('success');
-    } catch (error) {
-      setAddSchoolError(error instanceof Error ? error.message : 'Could not add your school. Try again.');
+    } catch (createSchoolError) {
+      setAddSchoolError(createSchoolError instanceof Error ? createSchoolError.message : 'Could not add your school. Try again.');
       triggerHaptic('error');
     } finally {
       setIsAddingSchool(false);
@@ -5733,6 +5753,12 @@ export function StudentOnboardingScreen({
               usesPreMascotPickerStep && styles.mascotPickerCard,
               usesRafikiRevealStep && styles.rafikiRevealCard,
             ]}>
+            {includeIntroChoices && ['language', 'role', 'need', 'goal', 'concerns', 'achieve', 'interests'].includes(introStep) ? (
+              <AssessmentNarrationControls
+                descriptorId={`onboarding:${introStep}`}
+                languageCode={languageCode}
+              />
+            ) : null}
             {introStep === 'language' ? (
               <>
                 <View accessibilityLabel="Kitabu AI brand" style={styles.languageBrandHeader}>
@@ -8585,6 +8611,19 @@ export function StudentOnboardingScreen({
                       return;
                     }
                     handleContinue();
+                  }}
+                  style={styles.skipGhostButton}>
+                  <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>
+                </Pressable>
+              ) : null}
+              {includeIntroChoices && introStep === 'microphone' ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Skip microphone permission"
+                  disabled={isSubmitting || isRequestingMicrophonePermission}
+                  onPress={() => {
+                    trackOnboardingEvent('skip', 'microphone', 'permission');
+                    setIntroStep('need');
                   }}
                   style={styles.skipGhostButton}>
                   <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>

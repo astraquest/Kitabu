@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import { Bell, Check, ChevronDown, ChevronLeft } from 'lucide-react-native';
-import { AvatarArt, isLocalAvatarKey } from './AvatarArt';
+import { AvatarArt, normalizeLocalAvatarKey } from './AvatarArt';
 import { CountryFlagIcon, resolveCountryCode } from './CountryFlagIcon';
 import { SUPPORTED_GRADES } from '../constants/grades';
 
@@ -71,6 +71,7 @@ export function StudentHeader({
   onExitPreview,
 }: StudentHeaderProps) {
   const avatarUri = useMemo(() => getAvatarUri(userAvatar), [userAvatar]);
+  const localAvatarKey = normalizeLocalAvatarKey(userAvatar);
   const [gradeMenuOpen, setGradeMenuOpen] = React.useState(false);
   const showGradeSelect = Boolean(currentGrade && onSelectGrade);
   const countryCode = resolveCountryCode(userCountry);
@@ -229,8 +230,8 @@ export function StudentHeader({
             pressed && styles.controlPressed,
           ]}
         >
-          {userAvatar && isLocalAvatarKey(userAvatar) ? (
-            <AvatarArt avatarKey={userAvatar} size={36} />
+          {localAvatarKey ? (
+            <AvatarArt avatarKey={localAvatarKey} size={36} />
           ) : (
             <Image source={{ uri: avatarUri }} style={styles.avatarImage} />
           )}

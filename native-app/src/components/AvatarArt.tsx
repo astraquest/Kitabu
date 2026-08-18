@@ -1,36 +1,105 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Svg, {
-  Circle,
-  Defs,
-  Ellipse,
-  LinearGradient,
-  Path,
-  Rect,
-  Stop,
-} from 'react-native-svg';
+import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native';
 
-export type LocalAvatarKey = 'avatar-afro-boy' | 'avatar-afro-girl';
+export type CanonicalAvatarKey =
+  | 'girl1'
+  | 'boy1'
+  | 'mum1'
+  | 'dad1'
+  | 'girl2'
+  | 'boy2'
+  | 'mum2'
+  | 'dad2';
+
+/** Includes keys accepted from older persisted profile data. */
+export type LocalAvatarKey = CanonicalAvatarKey | 'avatar-afro-boy' | 'avatar-afro-girl';
+
+export type AvatarRole = 'student' | 'parent' | 'teacher' | 'other';
+export type AvatarGender = 'male' | 'female' | 'not_specified' | 'Not Specified';
 
 export const LOCAL_AVATAR_OPTIONS: Array<{
   key: LocalAvatarKey;
   label: string;
 }> = [
-  { key: 'avatar-afro-boy', label: 'Boy' },
-  { key: 'avatar-afro-girl', label: 'Girl' },
+  { key: 'girl1', label: 'Girl 1' },
+  { key: 'boy1', label: 'Boy 1' },
+  { key: 'mum1', label: 'Mum 1' },
+  { key: 'dad1', label: 'Dad 1' },
+  { key: 'girl2', label: 'Girl 2' },
+  { key: 'boy2', label: 'Boy 2' },
+  { key: 'mum2', label: 'Mum 2' },
+  { key: 'dad2', label: 'Dad 2' },
 ];
 
-export function isLocalAvatarKey(value?: string): value is LocalAvatarKey {
-  return value === 'avatar-afro-boy' || value === 'avatar-afro-girl';
+const AVATAR_IMAGES: Record<CanonicalAvatarKey, ImageSourcePropType> = {
+  girl1: require('../../assets/avatars/girl1.png'),
+  boy1: require('../../assets/avatars/boy1.png'),
+  mum1: require('../../assets/avatars/mum1.png'),
+  dad1: require('../../assets/avatars/dad1.png'),
+  girl2: require('../../assets/avatars/girl2.png'),
+  boy2: require('../../assets/avatars/boy2.png'),
+  mum2: require('../../assets/avatars/mum2.png'),
+  dad2: require('../../assets/avatars/dad2.png'),
+};
+
+const LEGACY_AVATAR_KEYS: Record<string, CanonicalAvatarKey> = {
+  'avatar-afro-boy': 'boy1',
+  'avatar-afro-girl': 'girl1',
+};
+
+export function isLocalAvatarKey(value?: string): value is CanonicalAvatarKey {
+  return Boolean(value && value in AVATAR_IMAGES);
+}
+
+/** Converts persisted legacy keys while keeping existing canonical choices stable. */
+export function normalizeLocalAvatarKey(value?: string | null): CanonicalAvatarKey | null {
+  if (!value) return null;
+  if (isLocalAvatarKey(value)) return value;
+  return LEGACY_AVATAR_KEYS[value] ?? null;
+}
+
+function isUpperPrimaryGrade(grade?: string | null) {
+  const match = grade?.match(/\d+/);
+  return Boolean(match && Number(match[0]) >= 5);
+}
+
+/**
+ * Deterministic defaults use the first supplied family image when gender is not specified.
+ * This chooses an asset only; it does not infer or persist a personal attribute.
+ */
+export function selectAvatarKey({
+  role,
+  grade,
+  gender,
+  existingAvatarKey,
+}: {
+  role: AvatarRole;
+  grade?: string | null;
+  gender?: AvatarGender | null;
+  existingAvatarKey?: string | null;
+}): CanonicalAvatarKey {
+  const existing = normalizeLocalAvatarKey(existingAvatarKey);
+  if (existing) return existing;
+
+  const suffix = isUpperPrimaryGrade(grade) ? '2' : '1';
+  const isAdult = role === 'parent' || role === 'teacher';
+  if (gender === 'female') {
+    return (isAdult ? `mum${suffix}` : `girl${suffix}`) as CanonicalAvatarKey;
+  }
+  if (gender === 'male') {
+    return (isAdult ? `dad${suffix}` : `boy${suffix}`) as CanonicalAvatarKey;
+  }
+  return (isAdult ? `mum${suffix}` : `boy${suffix}`) as CanonicalAvatarKey;
 }
 
 interface AvatarArtProps {
-  avatarKey: LocalAvatarKey;
+  avatarKey: LocalAvatarKey | string;
   size?: number;
+  accessibilityLabel?: string;
 }
 
-export function AvatarArt({ avatarKey, size = 72 }: AvatarArtProps) {
-  const isGirl = avatarKey === 'avatar-afro-girl';
+export function AvatarArt({ avatarKey, size = 72, accessibilityLabel }: AvatarArtProps) {
+  const resolvedKey = normalizeLocalAvatarKey(avatarKey) ?? 'boy1';
   const borderRadius = size / 2;
 
   return (
@@ -43,51 +112,14 @@ export function AvatarArt({ avatarKey, size = 72 }: AvatarArtProps) {
           borderRadius,
         },
       ]}>
-      <Svg width={size} height={size} viewBox="0 0 120 120">
-        <Defs>
-          <LinearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <Stop offset="0%" stopColor={isGirl ? '#F97316' : '#15803D'} />
-            <Stop offset="100%" stopColor={isGirl ? '#16A34A' : '#F97316'} />
-          </LinearGradient>
-          <LinearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
-            <Stop offset="0%" stopColor={isGirl ? '#F97316' : '#10B981'} />
-            <Stop offset="100%" stopColor={isGirl ? '#FB7185' : '#2563EB'} />
-          </LinearGradient>
-        </Defs>
-
-        <Rect width="120" height="120" rx="60" fill="url(#bg)" />
-        <Circle cx="60" cy="52" r="30" fill="#2B211D" />
-        <Path
-          d={
-            isGirl
-              ? 'M26 58c4-24 20-36 34-36s30 12 34 36c-4-7-10-12-18-15-5 9-13 13-25 13-8 0-17-1-25-4-1 2-1 4 0 6z'
-              : 'M24 56c2-24 19-38 36-38s34 14 36 38c-5-5-12-8-19-10-4 7-11 11-22 11-11 0-20-3-27-7-2 1-3 4-4 6z'
-          }
-          fill="#241814"
-        />
-        <Ellipse cx="60" cy="61" rx="27" ry="31" fill="#8B5E3C" />
-        <Circle cx="49" cy="59" r="3" fill="#1F2937" />
-        <Circle cx="71" cy="59" r="3" fill="#1F2937" />
-        <Path d="M53 72c4 3 10 3 14 0" stroke="#7C2D12" strokeWidth="3" strokeLinecap="round" />
-        <Path d="M54 65c4 2 8 2 12 0" stroke="#7C2D12" strokeWidth="2" strokeLinecap="round" opacity="0.55" />
-        <Ellipse cx="40" cy="64" rx="4" ry="5" fill="#8B5E3C" />
-        <Ellipse cx="80" cy="64" rx="4" ry="5" fill="#8B5E3C" />
-        {isGirl ? (
-          <>
-            <Path d="M32 47c4-20 16-29 28-29s24 9 28 29l-7 10c-4-6-10-10-20-10-11 0-18 4-23 11l-6-11z" fill="#2A1717" />
-            <Circle cx="27" cy="60" r="9" fill="#2A1717" />
-            <Circle cx="93" cy="60" r="9" fill="#2A1717" />
-          </>
-        ) : (
-          <Path d="M28 48c6-17 18-26 32-26 16 0 28 10 32 28-9-6-20-10-32-10s-23 3-32 8z" fill="#221816" />
-        )}
-        <Path d="M29 116c3-22 16-34 31-34 15 0 28 12 31 34H29z" fill="url(#shirt)" />
-        {isGirl ? (
-          <Path d="M48 91c4 5 8 7 12 7s8-2 12-7" stroke="#FDF2F8" strokeWidth="3" strokeLinecap="round" />
-        ) : (
-          <Path d="M60 85v31" stroke="#DBEAFE" strokeWidth="3" strokeLinecap="round" />
-        )}
-      </Svg>
+      <Image
+        accessibilityLabel={accessibilityLabel ?? `${resolvedKey} avatar`}
+        accessible
+        resizeMode="cover"
+        source={AVATAR_IMAGES[resolvedKey]}
+        style={{ width: size, height: size }}
+        testID={`avatar-art-${resolvedKey}`}
+      />
     </View>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
-import { AvatarArt, LocalAvatarKey } from '../AvatarArt';
+import { AvatarArt, LocalAvatarKey, selectAvatarKey } from '../AvatarArt';
 
 function initials(name: string) {
   return name
@@ -22,7 +22,10 @@ function fallbackAvatarKey(name: string): LocalAvatarKey {
     .split('')
     .reduce((total, character) => total + character.charCodeAt(0), 0);
 
-  return seed % 2 === 0 ? 'avatar-afro-girl' : 'avatar-afro-boy';
+  return selectAvatarKey({
+    role: 'teacher',
+    gender: seed % 2 === 0 ? 'female' : 'male',
+  });
 }
 
 interface TeacherAvatarBadgeProps {

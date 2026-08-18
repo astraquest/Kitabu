@@ -1,5 +1,5 @@
 import type { AuthRole } from '../types/app';
-import { isLocalAvatarKey, LocalAvatarKey } from '../components/AvatarArt';
+import { LocalAvatarKey, normalizeLocalAvatarKey, selectAvatarKey } from '../components/AvatarArt';
 import { loadSecureJson, saveSecureJson } from './storage';
 
 export const PROFILE_INDEX_STORAGE_KEY = 'kitabu_profile_index';
@@ -22,7 +22,11 @@ const PROFILE_INDEX_ROLES = new Set<ProfileIndexRole>([
 ]);
 
 function defaultAvatarForRole(role: ProfileIndexRole): LocalAvatarKey {
-  return role === 'parent' || role === 'teacher' ? 'avatar-afro-girl' : 'avatar-afro-boy';
+  return selectAvatarKey({
+    role,
+    // Profile-index metadata intentionally does not persist personal attributes.
+    gender: 'not_specified',
+  });
 }
 
 export function normalizeProfileIndex(value: unknown): LocalProfileIndexEntry[] {
@@ -50,9 +54,9 @@ export function normalizeProfileIndex(value: unknown): LocalProfileIndexEntry[] 
       id,
       displayName,
       role: role as ProfileIndexRole,
-      avatarKey: isLocalAvatarKey(candidate.avatarKey as string)
-        ? candidate.avatarKey as LocalAvatarKey
-        : defaultAvatarForRole(role as ProfileIndexRole),
+      avatarKey:
+        normalizeLocalAvatarKey(candidate.avatarKey as string) ??
+        defaultAvatarForRole(role as ProfileIndexRole),
       ...(email ? { email } : {}),
     };
     entries.set(id.toLowerCase(), entry);

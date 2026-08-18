@@ -1,6 +1,6 @@
 import { appConfig } from '../src/config.js';
 import { db } from '../src/db.js';
-import { prepareOnboardingTts } from '../src/speechQueue.js';
+import { PARENT_ONBOARDING_TTS_VOICE, prepareOnboardingTts } from '../src/speechQueue.js';
 import { getTtsArtifact, enqueueTtsJob, withTransaction } from '../src/repositories.js';
 
 function isLocalDatabaseUrl(databaseUrl: string) {
@@ -24,11 +24,15 @@ try {
 
   console.log(JSON.stringify({
     ...result,
-    voices: 4,
-    cueCount: result.total / 4,
-    model: appConfig.KITABU_GEMINI_TTS_MODEL,
+    voices: 1,
+    voice: PARENT_ONBOARDING_TTS_VOICE,
+    cueCount: result.total,
+    provider: 'cartesia',
+    model: appConfig.KITABU_CARTESIA_MODEL,
+    storageBackend: appConfig.KITABU_TTS_STORAGE_BACKEND,
+    catalog: 'parent-only',
     retrievalFirst: true,
-    readyRequires: 'status=ready, non-empty audio_data, mime_type, and content_hash'
+    readyRequires: 'status=ready, readable non-empty audio, mime_type, and content_hash'
   }, null, 2));
 } finally {
   await db.end();

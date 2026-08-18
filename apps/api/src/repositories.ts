@@ -4222,6 +4222,8 @@ export interface EnqueueTtsJobInput {
   metadata?: Record<string, unknown>;
   /** Reset only a ready storage-backed artifact after the caller verified its object is missing. */
   repairReadyMissingStorage?: boolean;
+  /** Reconfigure only a pending artifact/job after the caller scoped it to a known catalog. */
+  repairPendingArtifact?: boolean;
 }
 
 const ttsArtifactColumns = `
@@ -4283,6 +4285,8 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
            AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
            AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
            THEN EXCLUDED.provider
+         WHEN $15::boolean AND tts_artifacts.status = 'pending'
+           THEN EXCLUDED.provider
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
            THEN tts_artifacts.provider
@@ -4292,6 +4296,8 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
          WHEN $14::boolean AND tts_artifacts.status = 'ready'
            AND COALESCE(octet_length(tts_artifacts.audio_data), 0) = 0
            AND NULLIF(BTRIM(tts_artifacts.storage_key), '') IS NOT NULL
+           THEN EXCLUDED.model
+         WHEN $15::boolean AND tts_artifacts.status = 'pending'
            THEN EXCLUDED.model
          WHEN tts_artifacts.status IN ('ready', 'processing')
            OR (tts_artifacts.status = 'pending' AND tts_artifacts.provider IS NOT NULL)
@@ -4332,7 +4338,7 @@ export async function upsertTtsArtifact(client: MaybeClient, input: EnqueueTtsJo
        metadata = EXCLUDED.metadata,
        updated_at = NOW()
      RETURNING ${ttsArtifactColumns}`,
-    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}), input.repairReadyMissingStorage === true]
+    [input.cacheKey, identityKey, language, provider, model, voice, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel, input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}), input.repairReadyMissingStorage === true, input.repairPendingArtifact === true]
   );
   const artifact = artifactResult.rows[0];
   if (!artifact) {
@@ -4351,31 +4357,31 @@ export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInp
      ON CONFLICT (artifact_id) DO UPDATE SET
        status = CASE
          WHEN tts_jobs.status = 'processing' THEN tts_jobs.status
-         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN 'pending'
+         WHEN ($11::boolean OR $12::boolean) AND tts_jobs.status IN ('completed', 'failed') THEN 'pending'
          WHEN tts_jobs.status = 'completed' THEN tts_jobs.status
          ELSE 'pending'
        END,
        available_at = CASE
          WHEN tts_jobs.status = 'processing' THEN tts_jobs.available_at
-         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NOW()
+         WHEN ($11::boolean OR $12::boolean) AND tts_jobs.status IN ('completed', 'failed') THEN NOW()
          WHEN tts_jobs.status = 'completed' THEN tts_jobs.available_at
          ELSE NOW()
        END,
        last_error = CASE
          WHEN tts_jobs.status = 'processing' THEN tts_jobs.last_error
-         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN ($11::boolean OR $12::boolean) AND tts_jobs.status IN ('completed', 'failed') THEN NULL
          WHEN tts_jobs.status = 'completed' THEN tts_jobs.last_error
          ELSE NULL
        END,
        locked_at = CASE
          WHEN tts_jobs.status = 'processing' THEN tts_jobs.locked_at
-         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN ($11::boolean OR $12::boolean) AND tts_jobs.status IN ('completed', 'failed') THEN NULL
          WHEN tts_jobs.status = 'completed' THEN tts_jobs.locked_at
          ELSE NULL
        END,
        locked_by = CASE
          WHEN tts_jobs.status = 'processing' THEN tts_jobs.locked_by
-         WHEN $11::boolean AND tts_jobs.status IN ('completed', 'failed') THEN NULL
+         WHEN ($11::boolean OR $12::boolean) AND tts_jobs.status IN ('completed', 'failed') THEN NULL
          WHEN tts_jobs.status = 'completed' THEN tts_jobs.locked_by
          ELSE NULL
        END,
@@ -4391,7 +4397,7 @@ export async function enqueueTtsJob(client: MaybeClient, input: EnqueueTtsJobInp
        $6::boolean AS learner_needed, $7::int AS priority, $8::jsonb AS metadata`,
     [artifact.id, input.normalizedText, input.avatarVoice, input.geminiVoice, input.geminiModel,
       input.learnerNeeded ?? false, input.priority ?? 0, JSON.stringify(input.metadata ?? {}),
-      input.provider ?? 'gemini', input.language ?? 'en', input.repairReadyMissingStorage === true]
+      input.provider ?? 'gemini', input.language ?? 'en', input.repairReadyMissingStorage === true, input.repairPendingArtifact === true]
   );
   return { artifact, job: jobResult.rows[0] ?? null };
 }
@@ -4441,6 +4447,62 @@ export async function claimTtsJobs(
      JOIN marked m ON m.id = j.artifact_id
      JOIN tts_artifacts a ON a.id = m.id`,
     [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds)), provider ?? null]
+  );
+  return result.rows;
+}
+
+/**
+ * Claim only explicitly approved artifacts. This is used by bounded recovery
+ * routines so they cannot drain unrelated TTS queue work.
+ */
+export async function claimTtsJobsForArtifacts(
+  client: MaybeClient,
+  artifactIds: readonly string[],
+  limit: number,
+  workerId: string,
+  leaseSeconds = 300,
+  provider: 'cartesia' | 'gemini' = 'cartesia'
+): Promise<TtsJobRecord[]> {
+  if (!artifactIds.length) return [];
+  const result = await q<TtsJobRecord>(
+    client,
+    `WITH candidates AS (
+       SELECT j.id
+       FROM tts_jobs j
+       JOIN tts_artifacts a ON a.id = j.artifact_id
+       WHERE a.id = ANY($5::uuid[])
+         AND a.status <> 'ready'
+         AND COALESCE(a.provider, 'gemini') = $4
+         AND (
+           (j.status = 'pending' AND j.available_at <= NOW())
+           OR (j.status = 'processing' AND j.locked_at < NOW() - ($3::int * INTERVAL '1 second'))
+         )
+       ORDER BY j.available_at ASC, j.created_at ASC
+       LIMIT $1
+       FOR UPDATE OF j SKIP LOCKED
+     ), claimed AS (
+       UPDATE tts_jobs j
+       SET status = 'processing', attempts = j.attempts + 1,
+           locked_at = NOW(), locked_by = $2, updated_at = NOW()
+       FROM candidates c
+       WHERE j.id = c.id
+       RETURNING j.id, j.artifact_id
+     ), marked AS (
+       UPDATE tts_artifacts a
+       SET status = 'processing', error_message = NULL, updated_at = NOW()
+       FROM claimed j
+       WHERE a.id = j.artifact_id
+       RETURNING a.id
+     )
+     SELECT j.id, j.artifact_id, a.identity_key, j.status, j.attempts, j.available_at,
+       j.locked_at, j.locked_by, j.last_error, j.completed_at,
+       a.normalized_text, a.avatar_voice, a.gemini_voice, a.gemini_model,
+       a.provider, a.language, j.learner_needed, j.priority, j.metadata
+     FROM claimed c
+     JOIN tts_jobs j ON j.id = c.id
+     JOIN marked m ON m.id = j.artifact_id
+     JOIN tts_artifacts a ON a.id = m.id`,
+    [Math.max(1, Math.floor(limit)), workerId, Math.max(1, Math.floor(leaseSeconds)), provider, artifactIds]
   );
   return result.rows;
 }

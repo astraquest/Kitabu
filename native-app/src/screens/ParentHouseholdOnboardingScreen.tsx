@@ -25,9 +25,9 @@ import { GoogleLogo } from '../components/GoogleLogo';
 
 import { SUPPORTED_GRADES } from '../constants/grades';
 import { COUNTRY_OPTIONS, REGIONS_BY_COUNTRY, detectDefaultCountryCode } from '../constants/locations';
-import { INITIAL_ASSIGNMENTS, INITIAL_SUBMISSIONS_BY_ASSIGNMENT, SUBJECTS } from '../data/mockData';
 import { triggerHaptic } from '../services/haptics';
 import { requestPushPermission } from '../services/pushNotifications';
+import { buildPrimaryInstruction, getParentEnglishOnboardingCueId, useGuidedNarration } from '../services/narrationService';
 import {
   emptyParentOnboardingOrder,
   loadParentOnboardingOrder,
@@ -35,6 +35,7 @@ import {
   recordParentOnboardingSelection,
   type ParentOnboardingOrderState,
 } from '../utils/parentOnboardingOrdering';
+import { parentOnboardingSubjectOptions } from '../utils/parentOnboardingSubjects';
 import type {
   GenderOption,
   OnboardingMascotKey,
@@ -64,7 +65,7 @@ export type ParentHouseholdOnboardingInput = {
   role: 'parent';
   languageCode: OnboardingLanguageCode;
   displayName: string;
-  gender: 'not_specified';
+  gender: GenderOption;
   grade: string;
   schoolId: null;
   countryCode: string;
@@ -96,6 +97,7 @@ type Props = {
 type Step =
   | 'language'
   | 'role'
+  | 'parentAvatar'
   | 'parentName'
   | 'country'
   | 'childName'
@@ -121,6 +123,7 @@ type Step =
   | 'signup';
 
 type SignaturePoint = { x: number; y: number };
+type ParentAvatarKey = 'mum1' | 'dad1' | 'mum2' | 'dad2';
 
 const PERFORMANCE_OPTIONS: Array<{ value: ParentHouseholdChildInput['performance']; label: string }> = [
   { value: 'far_behind', label: 'Far behind' },
@@ -130,14 +133,12 @@ const PERFORMANCE_OPTIONS: Array<{ value: ParentHouseholdChildInput['performance
   { value: 'far_ahead', label: 'Far Ahead' },
   { value: 'not_sure', label: "I'm Not Sure" },
 ];
-const SUBJECTS_BY_MOST_STRUGGLED = SUBJECTS.map(subject => {
-  const scores = INITIAL_ASSIGNMENTS
-    .filter(assignment => assignment.subject === subject.name)
-    .flatMap(assignment => INITIAL_SUBMISSIONS_BY_ASSIGNMENT[assignment.id] ?? [])
-    .map(submission => submission.score);
-  return { subject, average: scores.length ? scores.reduce((total, score) => total + score, 0) / scores.length : Number.POSITIVE_INFINITY };
-}).sort((left, right) => left.average - right.average || left.subject.name.localeCompare(right.subject.name)).map(item => item.subject);
-const ALL_AREAS_SUBJECT_IDS = SUBJECTS_BY_MOST_STRUGGLED.map(subject => subject.id);
+const PARENT_AVATARS: Array<{ key: ParentAvatarKey; label: string; gender: Extract<GenderOption, 'female' | 'male'>; source: number }> = [
+  { key: 'mum1', label: 'Mum', gender: 'female', source: require('../../assets/avatars/mum1.png') },
+  { key: 'dad1', label: 'Dad', gender: 'male', source: require('../../assets/avatars/dad1.png') },
+  { key: 'mum2', label: 'Mum', gender: 'female', source: require('../../assets/avatars/mum2.png') },
+  { key: 'dad2', label: 'Dad', gender: 'male', source: require('../../assets/avatars/dad2.png') },
+];
 const REFERRAL_OPTIONS = [
   { value: 'friend_or_family', label: 'Friend or family' },
   { value: 'school_or_teacher', label: 'School or teacher' },
@@ -186,6 +187,8 @@ export function ParentHouseholdOnboardingScreen({
   const [stepHistory, setStepHistory] = useState<Step[]>([initialStep]);
   const [languageCode, setLanguageCode] = useState<OnboardingLanguageCode | null>(null);
   const [parentName, setParentName] = useState(initialParentName);
+  const [parentAvatarKey, setParentAvatarKey] = useState<ParentAvatarKey | null>(null);
+  const [parentGender, setParentGender] = useState<GenderOption>('not_specified');
   const [countryCode, setCountryCode] = useState<string>(initialCountryCode ?? detectDefaultCountryCode());
   const detectedCountryCode = initialCountryCode ?? detectDefaultCountryCode();
   const [children, setChildren] = useState<ParentHouseholdChildInput[]>([blankChild()]);
@@ -229,11 +232,13 @@ export function ParentHouseholdOnboardingScreen({
     [child.county, schools],
   );
   const filteredSchools = countySchools.filter(school => school.name.toLowerCase().includes(schoolQuery.toLowerCase().trim()));
-  const allAreasSelected = ALL_AREAS_SUBJECT_IDS.every(subjectId => child.subjects.includes(subjectId));
+  const subjectOptionsForGrade = parentOnboardingSubjectOptions(child.grade);
+  const subjectIdsForGrade = subjectOptionsForGrade.map(subject => subject.id);
+  const allAreasSelected = subjectIdsForGrade.length > 0 && subjectIdsForGrade.every(subjectId => child.subjects.includes(subjectId));
   const referralOptions = orderByLocalAggregate(REFERRAL_OPTIONS, ordering.referral);
-  const subjectOptions = orderByLocalAggregate(SUBJECTS_BY_MOST_STRUGGLED.map(subject => ({ value: subject.id, subject })), ordering.subject).map(item => item.subject);
+  const subjectOptions = orderByLocalAggregate(subjectOptionsForGrade.map(subject => ({ value: subject.id, subject })), ordering.subject).map(item => item.subject);
   const step = stepHistory[stepHistory.length - 1];
-  const progress = ['language', 'role', 'parentName', 'country', 'childName', 'childAge', 'childGender', 'childSchool', 'childGrade', 'childPerformance', 'childSubjects', 'addAnother', 'microphone', 'reminder', 'referral', 'tutorIntro', 'mascot', 'rafiki', 'voice', 'socialProof', 'commitment', 'childReady', 'ready', 'signup'];
+  const progress = ['language', 'role', 'parentAvatar', 'parentName', 'country', 'childName', 'childAge', 'childGender', 'childSchool', 'childGrade', 'childPerformance', 'childSubjects', 'addAnother', 'microphone', 'reminder', 'referral', 'tutorIntro', 'mascot', 'voice', 'rafiki', 'socialProof', 'commitment', 'childReady', 'ready', 'signup'];
   const progressValue = Math.round(((progress.indexOf(step) + 1) / progress.length) * 100);
 
   function updateChild(update: Partial<ParentHouseholdChildInput>) {
@@ -243,6 +248,12 @@ export function ParentHouseholdOnboardingScreen({
 
   function selectMascot(value: OnboardingMascotKey) {
     updateChild({ mascotKey: value });
+  }
+
+  function selectParentAvatar(option: (typeof PARENT_AVATARS)[number]) {
+    setParentAvatarKey(option.key);
+    setParentGender(option.gender);
+    setLocalError(null);
   }
 
   function selectVoice(value: OnboardingVoiceName) {
@@ -404,7 +415,8 @@ export function ParentHouseholdOnboardingScreen({
 
   function validateAndContinue() {
     if (step === 'language') { if (!languageCode) { setLocalError('Choose a language to continue.'); return; } next('role'); return; }
-    if (step === 'role') { onRoleChange('parent'); next('parentName'); return; }
+    if (step === 'role') { onRoleChange('parent'); next('parentAvatar'); return; }
+    if (step === 'parentAvatar') { if (!parentAvatarKey) { setLocalError('Choose an avatar to continue.'); return; } next('parentName'); return; }
     if (step === 'parentName') {
       if (parentName.trim().length < 2 || /\d/.test(parentName)) { setLocalError('Enter your name to continue.'); triggerHaptic('error'); return; }
       next('country'); return;
@@ -444,9 +456,9 @@ export function ParentHouseholdOnboardingScreen({
       next('tutorIntro'); return;
     }
     if (step === 'tutorIntro') { next('mascot'); return; }
-    if (step === 'mascot') { if (!child.mascotKey) { setLocalError('Choose a tutor to continue.'); return; } next('rafiki'); return; }
-    if (step === 'rafiki') { next('voice'); return; }
-    if (step === 'voice') { if (!child.voiceName) { setLocalError('Choose a tutor voice to continue.'); return; } next('socialProof'); return; }
+    if (step === 'mascot') { if (!child.mascotKey) { setLocalError('Choose a tutor to continue.'); return; } next('voice'); return; }
+    if (step === 'voice') { if (!child.voiceName) { setLocalError('Choose a tutor voice to continue.'); return; } next('rafiki'); return; }
+    if (step === 'rafiki') { next('socialProof'); return; }
     if (step === 'socialProof') { next('commitment'); return; }
     if (step === 'commitment') {
       if (!child.commitmentAccepted) {
@@ -476,7 +488,7 @@ export function ParentHouseholdOnboardingScreen({
   function submit(methodOverride: 'email' | 'google' = signupMethod) {
     const selectedSubjectIds = Array.from(new Set(children.flatMap(item => item.subjects)));
     onSubmit({
-      role: 'parent', languageCode, displayName: parentName.trim(), gender: 'not_specified', grade: children[0].grade,
+      role: 'parent', languageCode, displayName: parentName.trim(), gender: parentGender, grade: children[0].grade,
       schoolId: null, countryCode, children, parentChildren: children, selectedSubjectIds,
       mascotKey: children[0].mascotKey!, voiceName: children[0].voiceName!, referralSource: referralSource.trim() || undefined, reminderEnabled,
       signupMethod: methodOverride, signupEmail: signupEmail.trim(), signupPassword,
@@ -500,7 +512,19 @@ export function ParentHouseholdOnboardingScreen({
 
   const childNames = children.map((item, index) => item.name || `Child ${index + 1}`).join(' and ');
   const selectedMascot = MASCOTS.find(option => option.key === child.mascotKey) ?? MASCOTS[0];
-  const title = step === 'language' ? 'Choose your language' : step === 'role' ? 'Who are you?' : step === 'parentName' ? 'What is your name?' : step === 'country' ? 'Is This Your Country?' : step === 'childName' ? "What is Your Child's name?" : step === 'childAge' ? `How old is ${child.name || 'your child'}?` : step === 'childGender' ? `What is ${child.name || 'your child'}'s gender?` : step === 'childSchool' ? `Where does ${child.name || 'your child'} go to school?` : step === 'childGrade' ? `What grade is ${child.name || 'your child'} in?` : step === 'childPerformance' ? `How is ${child.name || 'your child'} performing?` : step === 'childSubjects' ? 'Which subjects need help?' : step === 'addAnother' ? 'Add another child?' : step === 'microphone' ? 'Allow microphone access' : step === 'reminder' ? 'Allow progress notifications' : step === 'referral' ? 'How did you hear about Kitabu?' : step === 'tutorIntro' ? "Parent, please let the learner choose their tutor. Don't choose for them" : step === 'socialProof' ? 'Practise makes Perfect' : step === 'mascot' ? 'Choose Rafiki' : step === 'rafiki' ? 'Meet Rafiki' : step === 'voice' ? 'Choose Rafiki\'s voice' : step === 'commitment' ? `${child.name || 'Your child'}'s daily commitment` : step === 'childReady' ? `${child.name || 'Your learner'} is ready to learn!` : step === 'loading' ? 'Creating Your Study Plan' : step === 'ready' ? 'Your Study Plan is Ready!' : 'Save your family account';
+  const tutorIntroTitle = childIndex > 0 ? `Now it’s ${child.name || `Learner ${childIndex + 1}`}’s turn to select their Tutor` : "Parent, please let the learner choose their tutor. Don't choose for them";
+  const commitmentName = child.name.trim() || `Learner ${childIndex + 1}`;
+  const title = step === 'language' ? 'Choose your language' : step === 'role' ? 'Who are you?' : step === 'parentAvatar' ? 'Choose your avatar' : step === 'parentName' ? 'What is your name?' : step === 'country' ? 'Is This Your Country?' : step === 'childName' ? "What is Your Child's name?" : step === 'childAge' ? `How old is ${child.name || 'your child'}?` : step === 'childGender' ? `What is ${child.name || 'your child'}'s gender?` : step === 'childSchool' ? `Where does ${child.name || 'your child'} go to school?` : step === 'childGrade' ? `What grade is ${child.name || 'your child'} in?` : step === 'childPerformance' ? `How is ${child.name || 'your child'} performing?` : step === 'childSubjects' ? 'Which subjects need help?' : step === 'addAnother' ? 'Add another child?' : step === 'microphone' ? 'Allow microphone access' : step === 'reminder' ? 'Allow progress notifications' : step === 'referral' ? 'How did you hear about Kitabu?' : step === 'tutorIntro' ? tutorIntroTitle : step === 'socialProof' ? 'Practise makes Perfect' : step === 'mascot' ? 'Choose Rafiki' : step === 'rafiki' ? 'Meet Rafiki' : step === 'voice' ? 'Choose Rafiki\'s voice' : step === 'commitment' ? `${child.name || 'Your child'}'s daily commitment` : step === 'childReady' ? `${child.name || 'Your learner'} is ready to learn!` : step === 'loading' ? 'Creating Your Study Plan' : step === 'ready' ? 'Your Study Plan is Ready!' : 'Save your family account';
+  const parentCueId = getParentEnglishOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted);
+  const parentNarrationCue = buildPrimaryInstruction(
+    'parent-onboarding',
+    `${step}-${childIndex}-${parentCueId ?? 'none'}`,
+    title,
+    'Bella',
+    parentCueId ? { language: 'en', publicCueId: parentCueId } : undefined,
+  );
+  // Parent signup uses the fixed Bella catalog voice; student onboarding remains out of scope.
+  useGuidedNarration(parentNarrationCue, Boolean(parentCueId));
 
   if (step === 'loading') {
     const studyPlanMessages = ['Checking curriculum', 'Adding quizzes', 'Adding games', 'Finding your classmates', 'Adding more fun', 'Finding your teachers', 'Making quizzes harder', 'Adding mwakenya', 'Just kidding', 'Throwing in some magic'];
@@ -515,8 +539,9 @@ export function ParentHouseholdOnboardingScreen({
         <Text style={styles.kicker}>KITABU · ACCOUNT SETUP</Text>
         <Text style={styles.title}>{title}</Text>
 
-        {step === 'language' ? <View style={styles.grid}><Pressable onPress={() => { setLanguageCode('en'); next('role'); }} style={[styles.choice, languageCode === 'en' && styles.selected]}><Text style={styles.choiceText}>English</Text></Pressable><Pressable onPress={() => { setLanguageCode('sw'); next('role'); }} style={[styles.choice, languageCode === 'sw' && styles.selected]}><Text style={styles.choiceText}>Kiswahili</Text></Pressable></View> : null}
-        {step === 'role' ? <View style={styles.grid}><Pressable onPress={() => { onRoleChange('parent'); next('parentName'); }} style={styles.choice}><Text style={styles.choiceText}>👨‍👩‍👧 Parent</Text></Pressable><Pressable onPress={() => onRoleChange('teacher')} style={styles.choice}><Text style={styles.choiceText}>👩‍🏫 Teacher</Text></Pressable></View> : null}
+        {step === 'language' ? <View style={styles.grid}><Pressable accessibilityLabel="Kiswahili unavailable" accessibilityState={{ disabled: true }} disabled style={[styles.choice, styles.disabled]}><Text style={styles.choiceText}>Kiswahili</Text></Pressable><Pressable accessibilityLabel="Choose English" onPress={() => { setLanguageCode('en'); next('role'); }} style={[styles.choice, languageCode === 'en' && styles.selected]}><Text style={styles.choiceText}>English</Text></Pressable></View> : null}
+        {step === 'role' ? <View style={styles.grid}><Pressable onPress={() => { onRoleChange('parent'); next('parentAvatar'); }} style={styles.choice}><Text style={styles.choiceText}>👨‍👩‍👧 Parent</Text></Pressable><Pressable onPress={() => onRoleChange('teacher')} style={styles.choice}><Text style={styles.choiceText}>👩‍🏫 Teacher</Text></Pressable></View> : null}
+        {step === 'parentAvatar' ? <View style={styles.grid}>{PARENT_AVATARS.map(option => <Pressable key={option.key} accessibilityLabel={`Choose parent avatar ${option.key}`} accessibilityRole="radio" accessibilityState={{ selected: parentAvatarKey === option.key }} onPress={() => selectParentAvatar(option)} style={({ pressed }) => [styles.avatarChoice, parentAvatarKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={`${option.label} avatar artwork`} resizeMode="contain" source={option.source} style={styles.parentAvatarImage} /><Text style={styles.choiceText}>{parentAvatarKey === option.key ? '✓ ' : ''}{option.label}</Text></Pressable>)}</View> : null}
         {step === 'parentName' ? <TextInput autoFocus value={parentName} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } setParentName(value.replace(/\d/g, '')); setLocalError(null); }} placeholder="Your name" style={styles.input} /> : null}
         {step === 'country' ? <Pressable accessibilityLabel="Select family country" onPress={() => setCountryPickerOpen(true)} style={[styles.panel, styles.countryPanel]}><Text style={styles.countryFlag}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.flag}</Text><Text style={styles.choiceText}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.name}</Text><Text style={styles.centeredCopy}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.curriculum} curriculum</Text><Text style={styles.changeCountry}>Choose another country</Text></Pressable> : null}
         {step === 'childName' ? <TextInput autoFocus value={child.name} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } updateChild({ name: value.replace(/\d/g, '') }); }} placeholder="Child's name" style={styles.input} /> : null}
@@ -526,10 +551,10 @@ export function ParentHouseholdOnboardingScreen({
           <Pressable onPress={() => setCountyPickerOpen(true)} style={styles.input}><Text>{child.county || `Select ${regionMeta.label.toLowerCase()}`}</Text></Pressable>
           <Pressable disabled={!child.county} onPress={() => setSchoolPickerOpen(true)} style={[styles.input, !child.county && styles.disabled]}><Text>{child.school || 'Select school'}</Text></Pressable>
         </> : null}
-        {step === 'childGrade' ? <View style={styles.grid}>{SUPPORTED_GRADES.map(value => <Pressable key={value} onPress={() => updateChild({ grade: value })} style={[styles.choice, child.grade === value && styles.selected]}><Text style={styles.choiceText}>{value}</Text></Pressable>)}</View> : null}
+        {step === 'childGrade' ? <View style={styles.grid}>{SUPPORTED_GRADES.map(value => <Pressable key={value} onPress={() => updateChild({ grade: value, subjects: child.grade === value ? child.subjects : [] })} style={[styles.choice, child.grade === value && styles.selected]}><Text style={styles.choiceText}>{value}</Text></Pressable>)}</View> : null}
         {step === 'childPerformance' ? <View style={styles.grid}>{PERFORMANCE_OPTIONS.map(option => <Pressable key={option.value} onPress={() => { updateChild({ performance: option.value }); next('childSubjects'); }} style={[styles.choice, child.performance === option.value && styles.selected]}><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
         {step === 'childSubjects' ? <View style={styles.grid}>
-          <Pressable onPress={() => updateChild({ subjects: allAreasSelected ? [] : ALL_AREAS_SUBJECT_IDS })} style={[styles.choice, allAreasSelected && styles.selected]}>
+          <Pressable onPress={() => updateChild({ subjects: allAreasSelected ? [] : subjectIdsForGrade })} style={[styles.choice, allAreasSelected && styles.selected]}>
             <Text style={styles.choiceText}>{allAreasSelected ? '✓ ' : ''}All Areas</Text>
           </Pressable>
           {subjectOptions.map(subject => {
@@ -541,7 +566,7 @@ export function ParentHouseholdOnboardingScreen({
         {step === 'microphone' ? <><Text style={styles.panel}>We need microphone access for spoken tutoring</Text><View style={styles.permissionChoices}><Pressable onPress={() => next('reminder')} style={styles.choice}><Text style={styles.choiceText}>Not now</Text></Pressable><Pressable onPress={() => { if (Platform.OS === 'web') { next('reminder'); return; } requestRecordingPermissionsAsync().catch(() => undefined).finally(() => next('reminder')); }} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>Allow</Text></Pressable></View></> : null}
         {step === 'reminder' ? <><Text style={styles.panel}>Click Allow so as not to miss assignments and progress reports</Text><View style={styles.permissionChoices}><Pressable onPress={() => { setReminderEnabled(false); next('referral'); }} style={styles.choice}><Text style={styles.choiceText}>Not now</Text></Pressable><Pressable onPress={() => requestPushPermission().then(permission => setReminderEnabled(permission.granted)).catch(() => setReminderEnabled(false)).finally(() => next('referral'))} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>Allow</Text></Pressable></View></> : null}
         {step === 'referral' ? <View style={styles.grid}>{referralOptions.map(option => <Pressable key={option.value} onPress={() => { setReferralSource(option.value); recordParentOnboardingSelection(ordering, 'referral', option.value); }} style={[styles.choice, referralSource === option.value && styles.selected]}><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
-        {step === 'tutorIntro' ? <View style={styles.tutorIntro}><Text style={styles.tutorIntroCopy}>{child.name || `Learner ${childIndex + 1}`} will choose their own tutor, voice, and commitment.</Text></View> : null}
+        {step === 'tutorIntro' ? <View style={styles.tutorIntro}><Text style={styles.tutorIntroCopy}>{childIndex > 0 ? tutorIntroTitle : `${child.name || `Learner ${childIndex + 1}`} will choose their own tutor, voice, and commitment.`}</Text></View> : null}
         {step === 'mascot' ? <View style={styles.grid}>{MASCOTS.map(option => <Pressable key={option.key} onPress={() => selectMascot(option.key)} style={[styles.choice, child.mascotKey === option.key && styles.selected]}><Image accessibilityLabel={`${option.label} artwork`} resizeMode="contain" source={option.source} style={styles.mascotImage} /><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
         {step === 'rafiki' ? <LinearGradient colors={['#FFF0DD', '#E6F4EE']} style={styles.tutorPanel}><Image accessibilityLabel="Selected Rafiki artwork" resizeMode="contain" source={selectedMascot.source} style={styles.revealMascotImage} /><Text style={styles.choiceText}>Hi learner. My name is Rafiki the {selectedMascot.label.replace('Rafiki the ', '')} and I will be your Tutor. Are you ready to learn?</Text></LinearGradient> : null}
         {step === 'voice' ? <><View style={styles.selectedVoiceMascot}><Image accessibilityLabel="Selected mascot on voice screen" resizeMode="contain" source={selectedMascot.source} style={styles.voiceMascotImage} /><Text style={styles.centeredCopy}>{selectedMascot.label}</Text></View><View style={styles.grid}>{VOICES.map(option => {
@@ -556,10 +581,10 @@ export function ParentHouseholdOnboardingScreen({
           </Pressable>;
         })}</View></> : null}
         {step === 'socialProof' ? <View style={styles.panel}><Text style={styles.centeredCopy}>89% of learners who practice for at least 20 minutes every day improve their grades in less than 1 month</Text></View> : null}
-        {step === 'commitment' ? <View style={styles.panel}><Text style={styles.commitmentPrompt}>Are you ready to make that commitment?</Text><View style={styles.permissionChoices}><Pressable onPress={() => { updateChild({ commitmentAccepted: false, commitmentSignature: undefined }); setSignaturePoints([]); }} style={styles.choice}><Text style={styles.choiceText}>No</Text></Pressable><Pressable onPress={() => updateChild({ commitmentAccepted: true })} style={[styles.choice, child.commitmentAccepted && styles.selected]}><Text style={styles.choiceText}>Yes</Text></Pressable></View>{child.commitmentAccepted ? <><Text style={styles.signatureLabel}>Sign here</Text><View style={styles.signatureRow}><View accessibilityLabel="Signature canvas" onStartShouldSetResponder={() => true} onResponderGrant={event => startSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderMove={event => extendSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderRelease={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderTerminate={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} style={[styles.signatureCanvas, child.commitmentSignature && styles.selected]}>{(signaturePointsByChild[childIndex] ?? []).slice(1).map((point, index) => { const previous = signaturePointsByChild[childIndex][index]; const length = Math.hypot(point.x - previous.x, point.y - previous.y); const angle = Math.atan2(point.y - previous.y, point.x - previous.x) * 180 / Math.PI; return <View key={`${index}-${point.x}-${point.y}`} pointerEvents="none" style={[styles.signatureStroke, { left: (previous.x + point.x) / 2 - length / 2, top: (previous.y + point.y) / 2 - 1, width: length, transform: [{ rotate: `${angle}deg` }] }]} />; })}<Text pointerEvents="none" style={styles.signatureHint}>{child.commitmentSignature ? 'Signature saved' : 'Draw your signature'}</Text></View><Image accessibilityLabel="Commitment mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.signatureMascot} /></View>{child.commitmentSignature ? <Text style={styles.signaturePreview}>✓ Signed by {child.name || `Learner ${childIndex + 1}`}</Text> : null}</> : null}</View> : null}
+        {step === 'commitment' ? <View style={styles.panel}><Text style={styles.commitmentPrompt}>{commitmentName}, are you ready to make that commitment?</Text><View style={styles.permissionChoices}><Pressable onPress={() => { updateChild({ commitmentAccepted: false, commitmentSignature: undefined }); setSignaturePoints([]); }} style={styles.choice}><Text style={styles.choiceText}>No</Text></Pressable><Pressable onPress={() => updateChild({ commitmentAccepted: true })} style={[styles.choice, child.commitmentAccepted && styles.selected]}><Text style={styles.choiceText}>Yes</Text></Pressable></View>{child.commitmentAccepted ? <><Text style={styles.signatureLabel}>Sign here</Text><View style={styles.signatureRow}><View accessibilityLabel="Signature canvas" onStartShouldSetResponder={() => true} onResponderGrant={event => startSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderMove={event => extendSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderRelease={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderTerminate={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} style={[styles.signatureCanvas, child.commitmentSignature && styles.selected]}>{(signaturePointsByChild[childIndex] ?? []).slice(1).map((point, index) => { const previous = signaturePointsByChild[childIndex][index]; const length = Math.hypot(point.x - previous.x, point.y - previous.y); const angle = Math.atan2(point.y - previous.y, point.x - previous.x) * 180 / Math.PI; return <View key={`${index}-${point.x}-${point.y}`} pointerEvents="none" style={[styles.signatureStroke, { left: (previous.x + point.x) / 2 - length / 2, top: (previous.y + point.y) / 2 - 1, width: length, transform: [{ rotate: `${angle}deg` }] }]} />; })}{child.commitmentSignature ? null : <Text pointerEvents="none" style={styles.signatureHint}>Draw your signature</Text>}</View><Image accessibilityLabel="Commitment mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.signatureMascot} /></View>{child.commitmentSignature ? <Text style={styles.signaturePreview}>✓ Signed by {child.name || `Learner ${childIndex + 1}`}</Text> : null}</> : null}</View> : null}
         {step === 'childReady' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><Image accessibilityLabel="Ready mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{child.name || `Learner ${childIndex + 1}`} is ready to learn!</Text><Text style={styles.readyText}>Great choice—Rafiki is ready to begin.</Text></View></LinearGradient> : null}
-        {step === 'ready' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><View pointerEvents="none" style={styles.confettiLayer}>{['●', '✦', '▲', '◆'].map((piece, index) => <Animated.Text key={piece} style={[styles.confettiPiece, { left: `${14 + index * 24}%`, transform: [{ translateY: confettiFall.interpolate({ inputRange: [0, 1], outputRange: [-90 - index * 24, 220] }) }, { rotate: `${index % 2 ? 180 : 360}deg` }] }]}>{piece}</Animated.Text>)}</View><View style={styles.readyCopy}><Text style={styles.readyTitle}>Your Study Plan is Ready!</Text><Text style={styles.readyText}>{children.length} learner{children.length === 1 ? '' : 's'} · {countryCode} · daily practice</Text>{children.map((item, index) => <Text key={`${item.name}-${index}`} style={styles.readyRow}>✓ {item.name || `Child ${index + 1}`} study plan prepared</Text>)}</View></LinearGradient> : null}
-        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountTitle}>Save your family account</Text><Text style={styles.accountText}>Keep your children’s plans, progress reports, and tutor settings together.</Text><Pressable accessibilityLabel="Continue with Google" accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>Continue with Google</Text></Pressable><Text style={styles.orText}>or use email</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder="Email" style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder="Password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? 'Hide password' : 'Show password'} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? 'Hide' : 'Show'}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder="Confirm password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? 'Hide confirm password' : 'Show confirm password'} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? 'Hide' : 'Show'}</Text></Pressable></View></View> : null}
+        {step === 'ready' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><View pointerEvents="none" style={styles.confettiLayer}>{['●', '✦', '▲', '◆'].map((piece, index) => <Animated.Text key={piece} style={[styles.confettiPiece, { left: `${14 + index * 24}%`, transform: [{ translateY: confettiFall.interpolate({ inputRange: [0, 1], outputRange: [-90 - index * 24, 220] }) }, { rotate: `${index % 2 ? 180 : 360}deg` }] }]}>{piece}</Animated.Text>)}</View><Image accessibilityLabel="Ready mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>Your Study Plan is Ready!</Text><Text style={styles.readyText}>{children.length} learner{children.length === 1 ? '' : 's'} · {countryCode} · daily practice</Text>{children.map((item, index) => <Text key={`${item.name}-${index}`} style={styles.readyRow}>✓ {item.name || `Child ${index + 1}`} study plan prepared</Text>)}</View></LinearGradient> : null}
+        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountText}>Keep your children’s plans, progress reports, and tutor settings together.</Text><Pressable accessibilityLabel="Continue with Google" accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>Continue with Google</Text></Pressable><Text style={styles.orText}>or use email</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder="Email" style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder="Password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? 'Hide password' : 'Show password'} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? 'Hide' : 'Show'}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder="Confirm password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? 'Hide confirm password' : 'Show confirm password'} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? 'Hide' : 'Show'}</Text></Pressable></View></View> : null}
         {localError || error ? <Text style={styles.error}>{localError || error}</Text> : null}
       </ScrollView>
       {step !== 'language' && step !== 'childGender' && step !== 'childPerformance' && step !== 'microphone' && step !== 'reminder' ? <Pressable disabled={isSubmitting || (step === 'commitment' && (!child.commitmentAccepted || !child.commitmentSignature))} onPress={validateAndContinue} style={styles.button}><Text style={styles.buttonText}>{isSubmitting ? 'Saving…' : step === 'country' ? 'Confirm country' : step === 'signup' ? 'Create Account' : 'Continue'}</Text></Pressable> : null}
@@ -585,9 +610,12 @@ const styles = StyleSheet.create({
   subtitle: { color: '#52636A', fontSize: 15, lineHeight: 22, textAlign: 'center' },
   grid: { alignSelf: 'stretch', flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   choice: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 14, borderWidth: 1, minHeight: 52, justifyContent: 'center', padding: 14, width: '48%' },
+  avatarChoice: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 16, borderWidth: 1, minHeight: 170, justifyContent: 'center', padding: 12, width: '48%' },
+  pressed: { opacity: 0.9, transform: [{ scale: 0.98 }] },
   selected: { backgroundColor: '#FFF0DD', borderColor: '#F97316' },
   choiceText: { color: '#123F59', fontSize: 15, fontWeight: '700', textAlign: 'center' },
   mascotImage: { alignSelf: 'center', height: 84, width: 84 },
+  parentAvatarImage: { height: 120, width: 120 },
   input: { backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, color: '#123F59', fontSize: 16, minHeight: 52, paddingHorizontal: 14, paddingVertical: 12 },
   disabled: { opacity: 0.45 },
   panel: { alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 16, borderWidth: 1, gap: 8, padding: 18 },
@@ -628,7 +656,6 @@ const styles = StyleSheet.create({
   readyText: { color: '#D9F4EE', fontSize: 14 },
   readyRow: { color: '#FFFFFF', fontSize: 13, fontWeight: '700' },
   accountPanel: { alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderColor: '#E8E0D4', borderRadius: 18, borderWidth: 1, gap: 12, padding: 18 },
-  accountTitle: { color: '#123F59', fontSize: 22, fontWeight: '900', textAlign: 'center' },
   accountText: { color: '#52636A', fontSize: 14, lineHeight: 21, textAlign: 'center' },
   googleButton: { alignItems: 'center', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, flexDirection: 'row', gap: 10, minHeight: 50, justifyContent: 'center', paddingHorizontal: 14 },
   googleDisabled: { opacity: 0.55 },

@@ -37,7 +37,6 @@ import { AvatarArt, LocalAvatarKey } from '../components/AvatarArt';
 import {
   AccountChoice,
   AccountChoiceGrid,
-  AccountChoiceRole,
 } from '../components/AccountChoiceGrid';
 import type { LocalProfileIndexEntry } from '../services/profileIndexService';
 import { GoogleLogo } from '../components/GoogleLogo';
@@ -87,24 +86,23 @@ const ROLE_OPTIONS: RoleOption[] = [
     role: 'student',
     label: 'Student',
     detail: 'Learn, quiz, and submit homework',
-    avatar: 'avatar-afro-boy',
+    avatar: 'boy1',
   },
   {
     role: 'teacher',
     label: 'Teacher',
     detail: 'Assign work and review progress',
-    avatar: 'avatar-afro-girl',
+    avatar: 'dad1',
   },
   {
     role: 'parent',
-    label: 'Parent',
+    label: 'Parent/Student',
     detail: 'Track learning and homework',
-    avatar: 'avatar-afro-girl',
+    avatar: 'mum1',
   },
 ];
 const SIGNUP_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'teacher' || option.role === 'parent');
-const LOGIN_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'student' || option.role === 'parent');
-
+const LOGIN_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role === 'teacher' || option.role === 'parent');
 function sanitizePersonName(value: string) {
   return value.replace(/\d/g, '');
 }
@@ -114,76 +112,12 @@ function isValidPersonName(value: string) {
   return trimmed.length >= 2 && /[A-Za-z]/.test(trimmed) && !/\d/.test(trimmed);
 }
 
-function getKnownRole(role?: string): AccountChoiceRole | null {
-  const normalized = role?.toLowerCase() ?? '';
-  if (normalized.includes('parent')) return 'parent';
-  if (normalized.includes('student')) return 'student';
-  return null;
-}
-
-function buildLoginChoices(
-  knownProfiles: LocalProfileIndexEntry[] = [],
-  knownProfile?: Pick<UserProfile, 'name' | 'role' | 'avatar'> | null,
-  knownChildren: Array<Pick<ParentChildSummary, 'id' | 'name' | 'grade'>> = [],
-): AccountChoice[] {
-  const choices: AccountChoice[] = [];
-  knownProfiles.forEach(profile => {
-    if (profile.role !== 'student' && profile.role !== 'parent') {
-      return;
-    }
-
-    choices.push({
-      id: `known-${profile.id}`,
-      role: profile.role,
-      name: profile.displayName,
-      detail: profile.role === 'parent' ? 'Parent account' : 'Student account',
-      avatar: profile.avatarKey,
-    });
-  });
-
-  if (knownProfiles.length > 0) {
-    return choices;
-  }
-
-  const profileName = knownProfile?.name?.trim();
-  const profileRole = getKnownRole(knownProfile?.role);
-
-  if (profileName && profileName !== 'Kitabu User' && profileRole) {
-    const option = LOGIN_ROLE_OPTIONS.find(item => item.role === profileRole)!;
-    choices.push({
-      id: `known-${profileRole}`,
-      role: profileRole,
-      name: profileName,
-      detail: profileRole === 'parent' ? 'Parent account' : 'Student account',
-      avatar: knownProfile?.avatar === 'avatar-afro-girl' ? 'avatar-afro-girl' : option.avatar,
-    });
-  }
-
-  knownChildren.forEach(child => {
-    const name = child.name.trim();
-    if (!name) return;
-    choices.push({
-      id: `child-${child.id}`,
-      role: 'student',
-      name,
-      detail: child.grade ? `${child.grade} · Student profile` : 'Student profile',
-      avatar: 'avatar-afro-boy',
-    });
-  });
-
-  return choices;
-}
-
 export function LoginScreen({
   mode,
   email,
   password,
   fullName,
   signupRole,
-  lastUsedRole = null,
-  knownProfiles = [],
-  knownProfile = null,
-  knownChildren = [],
   acceptedTerms,
   optionalPhoneNumber,
   error,
@@ -229,11 +163,6 @@ export function LoginScreen({
   const submitLabel = mode === 'login' ? 'Sign in' : 'Create account';
   const isBusy = isSubmitting || providerState.isSubmitting;
   const selectedRole = ROLE_OPTIONS.find(option => option.role === signupRole) ?? null;
-  const loginChoices = useMemo(
-    () => buildLoginChoices(knownProfiles, knownProfile, knownChildren),
-    [knownChildren, knownProfile, knownProfiles],
-  );
-  const hasKnownProfiles = loginChoices.length > 0;
   const safeError = error ? getUserFacingApiError({ message: error }) : null;
   const safeProviderError = providerState.error
     ? getUserFacingApiError({ message: providerState.error })
@@ -363,23 +292,6 @@ export function LoginScreen({
     selectRole(choice.role);
   }
 
-  function openLoginDetails() {
-    setSelectedChoiceId(null);
-    onSignupRoleChange(null);
-    setProviderState({ isSubmitting: false, message: null, error: null });
-    setAuthStep('details');
-  }
-
-  function startAddAccount() {
-    openLoginDetails();
-  }
-
-  function startSignup() {
-    onSignupRoleChange(null);
-    onModeChange('signup');
-    setProviderState({ isSubmitting: false, message: null, error: null });
-  }
-
   function handleEmailSubmit() {
     setProviderState({ isSubmitting: false, message: null, error: null });
     if (mode === 'signup' && !signupRole) {
@@ -477,15 +389,11 @@ export function LoginScreen({
 
             <View style={styles.stepHeader}>
               <Text style={styles.title}>
-                {authStep === 'gateway' ? (mode === 'login' ? "Who's using Kitabu?" : 'Choose your role') : title}
+                {authStep === 'gateway' ? 'Choose your role' : title}
               </Text>
               <Text style={styles.stepCopy}>
                 {authStep === 'gateway'
-                  ? mode === 'login'
-                    ? hasKnownProfiles
-                      ? 'Choose a profile to continue securely.'
-                      : 'Sign in or create an account to continue securely.'
-                    : 'Select how you use Kitabu AI.'
+                  ? 'Select how you use Kitabu AI.'
                   : `${selectedRole?.label ?? 'Account'} details`}
               </Text>
             </View>
@@ -494,57 +402,25 @@ export function LoginScreen({
           {authStep === 'gateway' ? (
             <View style={styles.roleStep}>
               <View style={styles.rolePanel}>
-                {mode === 'signup' || hasKnownProfiles ? (
-                  <AccountChoiceGrid
-                    choices={mode === 'signup'
-                      ? SIGNUP_ROLE_OPTIONS.map(option => ({
-                          id: `role-${option.role}`,
-                          role: option.role,
-                          name: option.label,
-                          detail: option.detail,
-                          avatar: option.avatar,
-                        }))
-                      : loginChoices}
-                    lastUsedRole={mode === 'login' ? lastUsedRole : null}
-                    onSelect={selectChoice}
-                    selectedId={selectedChoiceId}
-                  />
-                ) : (
-                  <View style={styles.gatewayActions}>
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel="Sign in"
-                      onPress={openLoginDetails}
-                      style={styles.gatewayButton}>
-                      <Text style={styles.gatewayButtonText}>Sign in</Text>
-                    </Pressable>
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel="Create account"
-                      onPress={startSignup}
-                      style={[styles.gatewayButton, styles.gatewayButtonSecondary]}>
-                      <Text style={[styles.gatewayButtonText, styles.gatewayButtonSecondaryText]}>
-                        Create account
-                      </Text>
-                    </Pressable>
-                  </View>
-                )}
-                {mode === 'login' && hasKnownProfiles ? (
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityLabel="+ Add account"
-                    onPress={startAddAccount}
-                    style={styles.addAccountButton}>
-                    <Text style={styles.addAccountText}>+ Add account</Text>
-                  </Pressable>
-                ) : null}
+                <AccountChoiceGrid
+                  choices={(mode === 'login' ? LOGIN_ROLE_OPTIONS : SIGNUP_ROLE_OPTIONS).map(option => ({
+                    id: `role-${option.role}`,
+                    role: option.role,
+                    name: option.label,
+                    detail: option.detail,
+                    avatar: option.avatar,
+                  }))}
+                  lastUsedRole={null}
+                  onSelect={selectChoice}
+                  selectedId={selectedChoiceId}
+                />
               </View>
             </View>
           ) : (
           <View style={styles.form}>
             <View style={styles.selectedRoleRow}>
               <View style={styles.selectedRoleBadge}>
-                <AvatarArt avatarKey={selectedRole?.avatar ?? 'avatar-afro-boy'} size={30} />
+                <AvatarArt avatarKey={selectedRole?.avatar ?? 'boy1'} size={30} />
                 <View>
                   <Text style={styles.selectedRoleLabel}>{selectedRole?.label ?? 'Choose role'}</Text>
                   <Text style={styles.selectedRoleDetail}>

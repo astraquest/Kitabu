@@ -29,6 +29,9 @@ apps/api/var/educational-assets/
 *.bundle
 *.hbc
 *.png
+!native-app/assets/
+!native-app/assets/avatars/
+!native-app/assets/avatars/*.png
 !apps/web/assets/kitabu-favicon-bold-16.png
 !apps/web/assets/kitabu-favicon-bold-32.png
 !apps/web/assets/kitabu-favicon-bold-48.png

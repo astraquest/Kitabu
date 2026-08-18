@@ -133,6 +133,7 @@ import {
 } from '../services/profileIndexService';
 import { subscribeToAuthSessionUpdates } from '../services/requestHelpers';
 import { triggerHaptic } from '../services/haptics';
+import { normalizeLocalAvatarKey, selectAvatarKey } from '../components/AvatarArt';
 import {
   getSubjectRecommendations,
   recordSubjectRecommendationEvents,
@@ -592,6 +593,7 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
   const isAdmin = isAdminRole(user.roles);
   const isTeacher = isTeacherRole(user.roles);
   const isParent = isParentRole(user.roles);
+  const avatarRole = isParent ? 'parent' : isTeacher ? 'teacher' : 'student';
 
   return {
     ...INITIAL_USER_PROFILE,
@@ -627,11 +629,11 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
         : user.gender === 'female'
           ? 'female'
           : 'Not Specified',
-    avatar: user.email.includes('teacher')
-      ? 'avatar-afro-boy'
-      : user.email.includes('admin')
-        ? 'avatar-afro-girl'
-        : 'avatar-afro-boy',
+    avatar: selectAvatarKey({
+      role: avatarRole,
+      grade: user.grade,
+      gender: user.gender,
+    }),
     voiceName: personalization?.voiceName,
   };
 }
@@ -665,7 +667,11 @@ function profileIndexEntryFromAuthSession(
     id: session.user.id,
     displayName,
     role,
-    avatarKey: role === 'parent' || role === 'teacher' ? 'avatar-afro-girl' : 'avatar-afro-boy',
+    avatarKey: selectAvatarKey({
+      role,
+      grade: session.user.grade,
+      gender: session.user.gender,
+    }),
     ...(email && !email.endsWith('@accounts.kitabu.invalid') ? { email } : {}),
   };
 }
@@ -688,7 +694,12 @@ function profileIndexEntryFromStoredProfile(profile: UserProfile): LocalProfileI
     id,
     displayName,
     role,
-    avatarKey: profile.avatar === 'avatar-afro-girl' ? 'avatar-afro-girl' : 'avatar-afro-boy',
+    avatarKey: selectAvatarKey({
+      role,
+      grade: profile.grade,
+      gender: profile.gender,
+      existingAvatarKey: profile.avatar,
+    }),
     ...(profile.email?.trim() ? { email: profile.email.trim().toLowerCase() } : {}),
   };
 }
@@ -704,7 +715,12 @@ function profileIndexEntryFromChild(child: ParentChildSummary): LocalProfileInde
     id,
     displayName,
     role: 'student',
-    avatarKey: 'avatar-afro-boy',
+    avatarKey: selectAvatarKey({
+      role: 'student',
+      grade: child.grade,
+      gender: child.gender,
+      existingAvatarKey: child.avatar,
+    }),
     ...(child.email.trim() ? { email: child.email.trim().toLowerCase() } : {}),
   };
 }
@@ -749,7 +765,10 @@ function mergeStoredProfileWithAuthSession(storedProfile: UserProfile, session: 
       authProfile.voiceName,
     role: authProfile.role,
     status: authProfile.status,
-    avatar: storedProfile.avatar || authProfile.avatar,
+    avatar:
+      normalizeLocalAvatarKey(storedProfile.avatar) ??
+      storedProfile.avatar ??
+      authProfile.avatar,
   };
 }
 
@@ -783,7 +802,12 @@ function mapParentChildToStudentProfile(child: ParentChildSummary): UserProfile 
     school: child.school,
     role: 'Student Account',
     status: child.last_active || 'Student preview',
-    avatar: child.name,
+    avatar: selectAvatarKey({
+      role: 'student',
+      grade: child.grade,
+      gender: child.gender,
+      existingAvatarKey: child.avatar,
+    }),
   };
 }
 

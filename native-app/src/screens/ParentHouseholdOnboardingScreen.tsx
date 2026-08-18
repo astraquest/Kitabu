@@ -26,6 +26,7 @@ import { OnboardingVisualShell } from '../components/OnboardingVisualShell';
 
 import { SUPPORTED_GRADES } from '../constants/grades';
 import { COUNTRY_OPTIONS, REGIONS_BY_COUNTRY, detectDefaultCountryCode } from '../constants/locations';
+import { WHATSAPP_CALLING_COUNTRIES } from '../constants/whatsappCallingCountries';
 import { triggerHaptic } from '../services/haptics';
 import { requestPushPermission } from '../services/pushNotifications';
 import { buildPrimaryInstruction, getParentEnglishOnboardingCueId, useGuidedNarration } from '../services/narrationService';
@@ -37,6 +38,7 @@ import {
   type ParentOnboardingOrderState,
 } from '../utils/parentOnboardingOrdering';
 import { parentOnboardingSubjectOptions } from '../utils/parentOnboardingSubjects';
+import { parentHouseholdCopy } from '../onboarding/parentHouseholdOnboardingCopy';
 import type {
   GenderOption,
   OnboardingMascotKey,
@@ -70,6 +72,7 @@ export type ParentHouseholdOnboardingInput = {
   grade: string;
   schoolId: null;
   countryCode: string;
+  whatsappNumber?: string;
   children: ParentHouseholdChildInput[];
   parentChildren: ParentHouseholdChildInput[];
   selectedSubjectIds: string[];
@@ -100,6 +103,7 @@ type Step =
   | 'role'
   | 'parentAvatar'
   | 'parentName'
+  | 'whatsappNumber'
   | 'country'
   | 'childName'
   | 'childAge'
@@ -158,11 +162,11 @@ const MASCOTS: Array<{ key: OnboardingMascotKey; label: string; source: number }
   { key: 'elephant', label: 'Rafiki the Elephant', source: require('../assets/mascot/ndovu-elephant.png') },
   { key: 'panda', label: 'Rafiki the Panda', source: require('../assets/mascot/panda.png') },
 ];
-const VOICES: Array<{ name: OnboardingVoiceName; label: string; en: AudioSource }> = [
-  { name: 'Samora', label: 'Warm and encouraging', en: require('../assets/Samora-Sekou-Eng.mp3') },
-  { name: 'Barake', label: 'Calm and clear', en: require('../assets/Barake-Dexter-Eng.mp3') },
-  { name: 'Bella', label: 'Bright and energetic', en: require('../assets/Bella-Anya-Eng.mp3') },
-  { name: 'Judith', label: 'Patient and steady', en: require('../assets/Judith-cay-Eng.mp3') },
+const VOICES: Array<{ name: OnboardingVoiceName; label: string; en: AudioSource; sw: AudioSource }> = [
+  { name: 'Samora', label: 'Warm and encouraging', en: require('../assets/Samora-Sekou-Eng.mp3'), sw: require('../assets/Samora-Sekou-Kisw.mp3') },
+  { name: 'Barake', label: 'Calm and clear', en: require('../assets/Barake-Dexter-Eng.mp3'), sw: require('../assets/Barake-Dexter-Kisw.mp3') },
+  { name: 'Bella', label: 'Bright and energetic', en: require('../assets/Bella-Anya-Eng.mp3'), sw: require('../assets/Bella-Anya-Kisw.mp3') },
+  { name: 'Judith', label: 'Patient and steady', en: require('../assets/Judith-cay-Eng.mp3'), sw: require('../assets/Judith-Cay-Kisw.mp3') },
 ];
 
 function blankChild(): ParentHouseholdChildInput {
@@ -170,6 +174,14 @@ function blankChild(): ParentHouseholdChildInput {
     name: '', age: '', gender: 'not_specified', county: '', schoolId: null, school: '',
     grade: '', performance: '' as ParentHouseholdChildInput['performance'], subjects: [], commitmentAccepted: false, commitmentMinutes: 20,
   };
+}
+
+export function canonicalizeWhatsappNumber(value: string, callingCode: string): string {
+  const digits = value.replace(/\D/g, '');
+  const nationalDigits = value.trim().startsWith('+') && digits.startsWith(callingCode)
+    ? digits.slice(callingCode.length)
+    : digits;
+  return nationalDigits ? `+${callingCode}${nationalDigits.replace(/^0/, '')}` : '';
 }
 
 export function ParentHouseholdOnboardingScreen({
@@ -185,16 +197,20 @@ export function ParentHouseholdOnboardingScreen({
   onRoleChange,
 }: Props) {
   const initialStep: Step = skipHouseholdSetup ? 'childName' : 'language';
+  const detectedCountryCode = initialCountryCode ?? detectDefaultCountryCode();
   const [stepHistory, setStepHistory] = useState<Step[]>([initialStep]);
   const [languageCode, setLanguageCode] = useState<OnboardingLanguageCode | null>(null);
   const [parentName, setParentName] = useState(initialParentName);
+  const [whatsappNumber, setWhatsappNumber] = useState('');
   const [parentAvatarKey, setParentAvatarKey] = useState<ParentAvatarKey | null>(null);
   const [parentGender, setParentGender] = useState<GenderOption>('not_specified');
   const [countryCode, setCountryCode] = useState<string>(initialCountryCode ?? detectDefaultCountryCode());
-  const detectedCountryCode = initialCountryCode ?? detectDefaultCountryCode();
+  const [whatsappCallingCountryCode, setWhatsappCallingCountryCode] = useState(detectedCountryCode);
   const [children, setChildren] = useState<ParentHouseholdChildInput[]>([blankChild()]);
   const [childIndex, setChildIndex] = useState(0);
   const [countryPickerOpen, setCountryPickerOpen] = useState(false);
+  const [whatsappCountryPickerOpen, setWhatsappCountryPickerOpen] = useState(false);
+  const [whatsappCountryQuery, setWhatsappCountryQuery] = useState('');
   const [countyPickerOpen, setCountyPickerOpen] = useState(false);
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [schoolQuery, setSchoolQuery] = useState('');
@@ -228,19 +244,26 @@ export function ParentHouseholdOnboardingScreen({
 
   const child = children[childIndex];
   const regionMeta = REGIONS_BY_COUNTRY[countryCode as keyof typeof REGIONS_BY_COUNTRY] ?? REGIONS_BY_COUNTRY.KE;
+  const selectedWhatsappCallingCountry = WHATSAPP_CALLING_COUNTRIES.find(option => option.iso2 === whatsappCallingCountryCode)
+    ?? WHATSAPP_CALLING_COUNTRIES.find(option => option.iso2 === 'KE')!;
   const countySchools = useMemo(
     () => schools.filter(school => !child.county || school.location.toLowerCase() === child.county.toLowerCase()),
     [child.county, schools],
   );
   const filteredSchools = countySchools.filter(school => school.name.toLowerCase().includes(schoolQuery.toLowerCase().trim()));
+  const filteredWhatsappCallingCountries = WHATSAPP_CALLING_COUNTRIES.filter(option => {
+    const query = whatsappCountryQuery.trim().toLowerCase();
+    return !query || option.name.toLowerCase().includes(query) || option.iso2.toLowerCase() === query || option.callingCode.includes(query.replace(/^\+/, ''));
+  });
   const subjectOptionsForGrade = parentOnboardingSubjectOptions(child.grade);
   const subjectIdsForGrade = subjectOptionsForGrade.map(subject => subject.id);
   const allAreasSelected = subjectIdsForGrade.length > 0 && subjectIdsForGrade.every(subjectId => child.subjects.includes(subjectId));
   const referralOptions = orderByLocalAggregate(REFERRAL_OPTIONS, ordering.referral);
   const subjectOptions = orderByLocalAggregate(subjectOptionsForGrade.map(subject => ({ value: subject.id, subject })), ordering.subject).map(item => item.subject);
   const step = stepHistory[stepHistory.length - 1];
-  const progress = ['language', 'role', 'parentAvatar', 'parentName', 'country', 'childName', 'childAge', 'childGender', 'childSchool', 'childGrade', 'childPerformance', 'childSubjects', 'addAnother', 'microphone', 'reminder', 'referral', 'tutorIntro', 'mascot', 'voice', 'rafiki', 'socialProof', 'commitment', 'childReady', 'ready', 'signup'];
+  const progress = ['language', 'role', 'parentAvatar', 'parentName', 'whatsappNumber', 'country', 'childName', 'childAge', 'childGender', 'childSchool', 'childGrade', 'childPerformance', 'childSubjects', 'addAnother', 'microphone', 'reminder', 'referral', 'tutorIntro', 'mascot', 'voice', 'rafiki', 'socialProof', 'commitment', 'childReady', 'ready', 'signup'];
   const progressValue = Math.round(((progress.indexOf(step) + 1) / progress.length) * 100);
+  const copy = parentHouseholdCopy(languageCode, child.name, childIndex, children.length);
 
   function updateChild(update: Partial<ParentHouseholdChildInput>) {
     setChildren(current => current.map((item, index) => index === childIndex ? { ...item, ...update } : item));
@@ -294,6 +317,7 @@ export function ParentHouseholdOnboardingScreen({
 
   function closePickers() {
     setCountryPickerOpen(false);
+    setWhatsappCountryPickerOpen(false);
     setCountyPickerOpen(false);
     setSchoolPickerOpen(false);
     setAddSchoolOpen(false);
@@ -330,7 +354,7 @@ export function ParentHouseholdOnboardingScreen({
       if (voicePreviewRequestIdRef.current !== requestId) {
         return;
       }
-      const player = createAudioPlayer(option.en, { downloadFirst: true });
+      const player = createAudioPlayer(languageCode === 'sw' ? option.sw : option.en, { downloadFirst: true });
       voicePlayerRef.current = player;
       voicePreviewSubscriptionRef.current = player.addListener(
         'playbackStatusUpdate',
@@ -415,31 +439,41 @@ export function ParentHouseholdOnboardingScreen({
   }
 
   function validateAndContinue() {
-    if (step === 'language') { if (!languageCode) { setLocalError('Choose a language to continue.'); return; } next('role'); return; }
+    if (step === 'language') { if (!languageCode) { setLocalError(copy.validation.language); return; } next('role'); return; }
     if (step === 'role') { onRoleChange('parent'); next('parentAvatar'); return; }
-    if (step === 'parentAvatar') { if (!parentAvatarKey) { setLocalError('Choose an avatar to continue.'); return; } next('parentName'); return; }
+    if (step === 'parentAvatar') { if (!parentAvatarKey) { setLocalError(copy.validation.avatar); return; } next('parentName'); return; }
     if (step === 'parentName') {
-      if (parentName.trim().length < 2 || /\d/.test(parentName)) { setLocalError('Enter your name to continue.'); triggerHaptic('error'); return; }
+      if (parentName.trim().length < 2 || /\d/.test(parentName)) { setLocalError(copy.validation.name); triggerHaptic('error'); return; }
+      next('whatsappNumber'); return;
+    }
+    if (step === 'whatsappNumber') {
+      const trimmedWhatsappNumber = whatsappNumber.trim();
+      const digitCount = (trimmedWhatsappNumber.match(/\d/g) ?? []).length;
+      if (trimmedWhatsappNumber.length < 9 || trimmedWhatsappNumber.length > 20 || !/^[0-9\s+().-]+$/.test(trimmedWhatsappNumber) || digitCount < 9) {
+        setLocalError(copy.validation.whatsapp);
+        triggerHaptic('error');
+        return;
+      }
       next('country'); return;
     }
     if (step === 'country') { next('childName'); return; }
     if (step === 'childName') {
-      if (child.name.trim().length < 2) { setLocalError('Enter your child\'s name to continue.'); return; }
+      if (child.name.trim().length < 2) { setLocalError(copy.validation.childName); return; }
       next('childAge'); return;
     }
     if (step === 'childAge') {
       const age = Number(child.age);
-      if (!Number.isInteger(age) || age < 4 || age > 20) { setLocalError('Age must be between 4 and 20.'); return; }
+      if (!Number.isInteger(age) || age < 4 || age > 20) { setLocalError(copy.validation.age); return; }
       next('childGender'); return;
     }
-    if (step === 'childGender') { if (child.gender !== 'female' && child.gender !== 'male') { setLocalError('Choose Girl or Boy to continue.'); return; } next('childSchool'); return; }
+    if (step === 'childGender') { if (child.gender !== 'female' && child.gender !== 'male') { setLocalError(copy.validation.gender); return; } next('childSchool'); return; }
     if (step === 'childSchool') {
-      if (!child.county || !child.school) { setLocalError('Select a county and school to continue.'); return; }
+      if (!child.county || !child.school) { setLocalError(copy.validation.school); return; }
       next('childGrade'); return;
     }
-    if (step === 'childGrade') { if (!child.grade) { setLocalError('Select a grade to continue.'); return; } next('childPerformance'); return; }
-    if (step === 'childPerformance') { if (!child.performance) { setLocalError('Choose a performance level to continue.'); return; } next('childSubjects'); return; }
-    if (step === 'childSubjects') { if (!child.subjects.length) { setLocalError('Select at least one subject.'); return; } next('addAnother'); return; }
+    if (step === 'childGrade') { if (!child.grade) { setLocalError(copy.validation.grade); return; } next('childPerformance'); return; }
+    if (step === 'childPerformance') { if (!child.performance) { setLocalError(copy.validation.performance); return; } next('childSubjects'); return; }
+    if (step === 'childSubjects') { if (!child.subjects.length) { setLocalError(copy.validation.subjects); return; } next('addAnother'); return; }
     if (step === 'addAnother') {
       if (children.length < 8) {
         setChildren(current => [...current, blankChild()]);
@@ -453,21 +487,21 @@ export function ParentHouseholdOnboardingScreen({
     }
     if (step === 'microphone' || step === 'reminder') { next(step === 'microphone' ? 'reminder' : 'referral'); return; }
     if (step === 'referral') {
-      if (!referralSource) { setLocalError('Choose how you heard about Kitabu.'); return; }
+      if (!referralSource) { setLocalError(copy.validation.referral); return; }
       next('tutorIntro'); return;
     }
     if (step === 'tutorIntro') { next('mascot'); return; }
-    if (step === 'mascot') { if (!child.mascotKey) { setLocalError('Choose a tutor to continue.'); return; } next('voice'); return; }
-    if (step === 'voice') { if (!child.voiceName) { setLocalError('Choose a tutor voice to continue.'); return; } next('rafiki'); return; }
+    if (step === 'mascot') { if (!child.mascotKey) { setLocalError(copy.validation.tutor); return; } next('voice'); return; }
+    if (step === 'voice') { if (!child.voiceName) { setLocalError(copy.validation.voice); return; } next('rafiki'); return; }
     if (step === 'rafiki') { next('socialProof'); return; }
     if (step === 'socialProof') { next('commitment'); return; }
     if (step === 'commitment') {
       if (!child.commitmentAccepted) {
-        setLocalError('Choose Yes to make the commitment.');
+        setLocalError(copy.validation.commitment);
         return;
       }
       if (!child.commitmentSignature) {
-        setLocalError('Sign before continuing.');
+        setLocalError(copy.validation.sign);
         return;
       }
       next('childReady'); return;
@@ -479,9 +513,9 @@ export function ParentHouseholdOnboardingScreen({
     if (step === 'ready') { if (collectSignupCredentials) { next('signup'); } else { submit(); } return; }
     if (step === 'signup') {
       if (!collectSignupCredentials) { submit(); return; }
-      if (!signupEmail.trim() || !signupEmail.includes('@')) { setLocalError('Enter a valid email address.'); return; }
-      if (signupPassword.length < 8) { setLocalError('Use at least 8 characters for your password.'); return; }
-      if (signupPassword !== signupPasswordConfirm) { setLocalError('Passwords do not match.'); return; }
+      if (!signupEmail.trim() || !signupEmail.includes('@')) { setLocalError(copy.validation.email); return; }
+      if (signupPassword.length < 8) { setLocalError(copy.validation.password); return; }
+      if (signupPassword !== signupPasswordConfirm) { setLocalError(copy.validation.match); return; }
       submit();
     }
   }
@@ -490,7 +524,7 @@ export function ParentHouseholdOnboardingScreen({
     const selectedSubjectIds = Array.from(new Set(children.flatMap(item => item.subjects)));
     onSubmit({
       role: 'parent', languageCode, displayName: parentName.trim(), gender: parentGender, grade: children[0].grade,
-      schoolId: null, countryCode, children, parentChildren: children, selectedSubjectIds,
+      schoolId: null, countryCode, whatsappNumber: canonicalizeWhatsappNumber(whatsappNumber, selectedWhatsappCallingCountry.callingCode) || undefined, children, parentChildren: children, selectedSubjectIds,
       mascotKey: children[0].mascotKey!, voiceName: children[0].voiceName!, referralSource: referralSource.trim() || undefined, reminderEnabled,
       signupMethod: methodOverride, signupEmail: signupEmail.trim(), signupPassword,
     });
@@ -498,7 +532,7 @@ export function ParentHouseholdOnboardingScreen({
 
   async function addSchool() {
     const name = manualSchoolName.trim();
-    if (name.length < 2 || !child.county) { setSchoolError('Enter a school name and select a county first.'); return; }
+    if (name.length < 2 || !child.county) { setSchoolError(copy.schoolNameValidation); return; }
     setIsAddingSchool(true); setSchoolError(null);
     try {
       const created = onCreateSchool ? await onCreateSchool({ schoolName: name, county: child.county }) : null;
@@ -512,10 +546,9 @@ export function ParentHouseholdOnboardingScreen({
   }
 
   const selectedMascot = MASCOTS.find(option => option.key === child.mascotKey) ?? MASCOTS[0];
-  const tutorIntroTitle = childIndex > 0 ? `Now it’s ${child.name || `Learner ${childIndex + 1}`}’s turn to select their Tutor` : "Parent, please let the learner choose their tutor. Don't choose for them";
-  const commitmentName = child.name.trim() || `Learner ${childIndex + 1}`;
-  const title = step === 'language' ? 'Choose your language' : step === 'role' ? 'Who are you?' : step === 'parentAvatar' ? 'Choose your avatar' : step === 'parentName' ? 'What is your name?' : step === 'country' ? 'Is This Your Country?' : step === 'childName' ? "What is Your Child's name?" : step === 'childAge' ? `How old is ${child.name || 'your child'}?` : step === 'childGender' ? `What is ${child.name || 'your child'}'s gender?` : step === 'childSchool' ? `Where does ${child.name || 'your child'} go to school?` : step === 'childGrade' ? `What grade is ${child.name || 'your child'} in?` : step === 'childPerformance' ? `How is ${child.name || 'your child'} performing?` : step === 'childSubjects' ? 'Which subjects need help?' : step === 'addAnother' ? 'Add another child?' : step === 'microphone' ? 'Allow microphone access' : step === 'reminder' ? 'Allow progress notifications' : step === 'referral' ? 'How did you hear about Kitabu?' : step === 'tutorIntro' ? tutorIntroTitle : step === 'socialProof' ? 'Practise makes Perfect' : step === 'mascot' ? 'Choose Rafiki' : step === 'rafiki' ? 'Meet Rafiki' : step === 'voice' ? 'Choose Rafiki\'s voice' : step === 'commitment' ? `${child.name || 'Your child'}'s daily commitment` : step === 'childReady' ? `${child.name || 'Your learner'} is ready to learn!` : step === 'loading' ? 'Creating Your Study Plan' : step === 'ready' ? 'Your Study Plan is Ready!' : 'Save your family account';
-  const parentCueId = getParentEnglishOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted);
+  const tutorIntroTitle = copy.tutorIntro;
+  const title = step === 'language' ? copy.language : step === 'role' ? copy.title.role : step === 'parentAvatar' ? copy.title.avatar : step === 'parentName' ? copy.title.name : step === 'whatsappNumber' ? copy.title.whatsapp : step === 'country' ? copy.title.country : step === 'childName' ? copy.title.childName : step === 'childAge' ? copy.title.age : step === 'childGender' ? copy.title.gender : step === 'childSchool' ? copy.title.school : step === 'childGrade' ? copy.title.grade : step === 'childPerformance' ? copy.title.performance : step === 'childSubjects' ? copy.title.subjects : step === 'addAnother' ? copy.title.add : step === 'microphone' ? copy.title.microphone : step === 'reminder' ? copy.title.reminder : step === 'referral' ? copy.title.referral : step === 'tutorIntro' ? tutorIntroTitle : step === 'socialProof' ? copy.title.social : step === 'mascot' ? copy.title.tutor : step === 'rafiki' ? copy.title.meet : step === 'voice' ? copy.title.voice : step === 'commitment' ? copy.title.commitment : step === 'childReady' ? copy.title.readyChild : step === 'loading' ? copy.title.loading : step === 'ready' ? copy.title.ready : copy.title.signup;
+  const parentCueId = languageCode === 'en' ? getParentEnglishOnboardingCueId(step, childIndex, child.mascotKey, child.commitmentAccepted) : undefined;
   const parentNarrationCue = buildPrimaryInstruction(
     'parent-onboarding',
     `${step}-${childIndex}-${parentCueId ?? 'none'}`,
@@ -527,72 +560,74 @@ export function ParentHouseholdOnboardingScreen({
   useGuidedNarration(parentNarrationCue, Boolean(parentCueId));
 
   if (step === 'loading') {
-    const studyPlanMessages = ['Checking curriculum', 'Adding quizzes', 'Adding games', 'Finding your classmates', 'Adding more fun', 'Finding your teachers', 'Making quizzes harder', 'Adding mwakenya', 'Just kidding', 'Throwing in some magic'];
+    const studyPlanMessages = copy.studyPlanMessages;
     return <OnboardingVisualShell style={styles.screen}><View style={styles.center}><ActivityIndicator size="large" color="#0F766E" /><Text style={styles.title}>{title}</Text><Text style={styles.studyPlanMessage}>{studyPlanMessages[Math.min(Math.floor(studyPlanProgress / 10), studyPlanMessages.length - 1)]}…</Text><View style={styles.studyPlanTrack}><View style={[styles.studyPlanFill, { width: `${studyPlanProgress}%` }]} /></View><Text style={styles.studyPlanPercent}>{studyPlanProgress}%</Text></View></OnboardingVisualShell>;
   }
 
   return (
     <OnboardingVisualShell style={styles.screen}>
       <View style={styles.progress}><View style={[styles.progressFill, { width: `${progressValue}%` }]} /></View>
-      {step !== 'language' ? <Pressable accessibilityLabel="Back in parent setup" onPress={goBack} style={styles.back}><Text style={styles.backText}>‹ Back</Text></Pressable> : null}
+      {step !== 'language' ? <Pressable accessibilityLabel={copy.sw ? 'Rudi kwenye usanidi wa mzazi' : 'Back in parent setup'} onPress={goBack} style={styles.back}><Text style={styles.backText}>{copy.back}</Text></Pressable> : null}
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-        <Text style={styles.kicker}>KITABU · ACCOUNT SETUP</Text>
+        <Text style={styles.kicker}>{copy.kicker}</Text>
         <Text style={styles.title}>{title}</Text>
 
-        {step === 'language' ? <View style={styles.grid}><Pressable accessibilityLabel="Kiswahili unavailable" accessibilityState={{ disabled: true }} disabled style={[styles.choice, styles.disabled]}><Text style={styles.choiceText}>Kiswahili</Text></Pressable><Pressable accessibilityLabel="Choose English" onPress={() => { setLanguageCode('en'); next('role'); }} style={[styles.choice, languageCode === 'en' && styles.selected]}><Text style={styles.choiceText}>English</Text></Pressable></View> : null}
-        {step === 'role' ? <View style={styles.grid}><Pressable onPress={() => { onRoleChange('parent'); next('parentAvatar'); }} style={styles.choice}><Text style={styles.choiceText}>👨‍👩‍👧 Parent</Text></Pressable><Pressable onPress={() => onRoleChange('teacher')} style={styles.choice}><Text style={styles.choiceText}>👩‍🏫 Teacher</Text></Pressable></View> : null}
-        {step === 'parentAvatar' ? <View style={styles.grid}>{PARENT_AVATARS.map(option => <Pressable key={option.key} accessibilityLabel={`Choose parent avatar ${option.key}`} accessibilityRole="radio" accessibilityState={{ selected: parentAvatarKey === option.key }} onPress={() => selectParentAvatar(option)} style={({ pressed }) => [styles.avatarChoice, parentAvatarKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={`${option.label} avatar artwork`} resizeMode="contain" source={option.source} style={styles.parentAvatarImage} /><Text style={styles.choiceText}>{parentAvatarKey === option.key ? '✓ ' : ''}{option.label}</Text></Pressable>)}</View> : null}
-        {step === 'parentName' ? <TextInput autoFocus value={parentName} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } setParentName(value.replace(/\d/g, '')); setLocalError(null); }} placeholder="Your name" style={styles.input} /> : null}
-        {step === 'country' ? <Pressable accessibilityLabel="Select family country" onPress={() => setCountryPickerOpen(true)} style={[styles.panel, styles.countryPanel]}><Text style={styles.countryFlag}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.flag}</Text><Text style={styles.choiceText}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.name}</Text><Text style={styles.centeredCopy}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.curriculum} curriculum</Text><Text style={styles.changeCountry}>Choose another country</Text></Pressable> : null}
-        {step === 'childName' ? <TextInput autoFocus value={child.name} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } updateChild({ name: value.replace(/\d/g, '') }); }} placeholder="Child's name" style={styles.input} /> : null}
-        {step === 'childAge' ? <TextInput autoFocus keyboardType="number-pad" value={child.age} onChangeText={value => updateChild({ age: value.replace(/\D/g, '').slice(0, 2) })} placeholder="Age" style={styles.input} /> : null}
-        {step === 'childGender' ? <View style={styles.grid}>{(['female', 'male'] as GenderOption[]).map(value => <Pressable key={value} onPress={() => { updateChild({ gender: value }); next('childSchool'); }} style={[styles.choice, child.gender === value && styles.selected]}><Text style={styles.choiceText}>{value === 'female' ? 'Girl' : 'Boy'}</Text></Pressable>)}</View> : null}
+        {step === 'language' ? <><Text style={styles.languagePrompt}>{copy.prompt}</Text><View style={styles.grid}><Pressable accessibilityLabel="Choose Kiswahili" onPress={() => { setLanguageCode('sw'); next('role'); }} style={({ pressed }) => [styles.choice, pressed && styles.pressed]}><Text style={styles.choiceText}>Kiswahili</Text></Pressable><Pressable accessibilityLabel="Choose English" onPress={() => { setLanguageCode('en'); next('role'); }} style={({ pressed }) => [styles.choice, pressed && styles.pressed]}><Text style={styles.choiceText}>English</Text></Pressable></View></> : null}
+        {step === 'role' ? <View style={styles.grid}><Pressable onPress={() => { onRoleChange('parent'); next('parentAvatar'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.roleParent}</Text></Pressable><Pressable onPress={() => onRoleChange('teacher')} style={styles.choice}><Text style={styles.choiceText}>{copy.roleTeacher}</Text></Pressable></View> : null}
+        {step === 'parentAvatar' ? <View style={styles.grid}>{PARENT_AVATARS.map(option => <Pressable key={option.key} accessibilityLabel={`${copy.avatarLabel} ${option.key}`} accessibilityRole="radio" accessibilityState={{ selected: parentAvatarKey === option.key }} onPress={() => selectParentAvatar(option)} style={({ pressed }) => [styles.avatarChoice, parentAvatarKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={`${copy.avatarLabel} ${option.gender === 'female' ? copy.mum : copy.dad} artwork`} resizeMode="contain" source={option.source} style={styles.parentAvatarImage} /><Text style={styles.choiceText}>{parentAvatarKey === option.key ? '✓ ' : ''}{option.gender === 'female' ? copy.mum : copy.dad}</Text></Pressable>)}</View> : null}
+        {step === 'parentName' ? <TextInput autoFocus value={parentName} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } setParentName(value.replace(/\d/g, '')); setLocalError(null); }} placeholder={copy.namePlaceholder} style={styles.input} /> : null}
+        {step === 'whatsappNumber' ? <View style={styles.panel}><Text style={styles.centeredCopy}>{copy.whatsappCopy}</Text><Text style={styles.fieldLabel}>{copy.sw ? 'Nchi ya WhatsApp' : 'WhatsApp country'}</Text><View style={styles.whatsappEntryRow}><Pressable accessibilityLabel={copy.sw ? 'Chagua msimbo wa nchi wa WhatsApp' : 'Select WhatsApp country calling code'} accessibilityRole="button" accessibilityValue={{ text: `${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}` }} accessibilityState={{ expanded: whatsappCountryPickerOpen }} onPress={() => { setWhatsappCountryQuery(''); setWhatsappCountryPickerOpen(true); }} style={({ pressed }) => [styles.callingCountrySelector, pressed && styles.pressed]}><Text accessibilityLabel={`${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}`} ellipsizeMode="tail" numberOfLines={1} style={styles.choiceText}>{selectedWhatsappCallingCountry.flag} {selectedWhatsappCallingCountry.name} · +{selectedWhatsappCallingCountry.callingCode}</Text></Pressable><TextInput accessibilityLabel={copy.sw ? 'Nambari ya WhatsApp' : 'WhatsApp number'} autoCapitalize="none" autoCorrect={false} autoComplete="tel" textContentType="telephoneNumber" autoFocus keyboardType="phone-pad" maxLength={20} multiline={false} numberOfLines={1} value={whatsappNumber} onChangeText={value => { setWhatsappNumber(value); setLocalError(null); }} placeholder="0700123456" style={[styles.input, styles.whatsappNumberInput]} /> </View>{localError ? <Text style={styles.error}>{localError}</Text> : null}</View> : null}
+        {step === 'country' ? <Pressable accessibilityLabel={copy.sw ? 'Chagua nchi ya familia' : 'Select family country'} onPress={() => setCountryPickerOpen(true)} style={[styles.panel, styles.countryPanel]}><Text style={styles.countryFlag}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.flag}</Text><Text style={styles.choiceText}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.name}</Text><Text style={styles.centeredCopy}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.curriculum} {copy.curriculum}</Text><Text style={styles.changeCountry}>{copy.country}</Text></Pressable> : null}
+        {step === 'childName' ? <TextInput autoFocus value={child.name} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } updateChild({ name: value.replace(/\d/g, '') }); }} placeholder={copy.childPlaceholder} style={styles.input} /> : null}
+        {step === 'childAge' ? <TextInput autoFocus keyboardType="number-pad" value={child.age} onChangeText={value => updateChild({ age: value.replace(/\D/g, '').slice(0, 2) })} placeholder={copy.agePlaceholder} style={styles.input} /> : null}
+        {step === 'childGender' ? <View style={styles.grid}>{(['female', 'male'] as GenderOption[]).map(value => <Pressable key={value} onPress={() => { updateChild({ gender: value }); next('childSchool'); }} style={[styles.choice, child.gender === value && styles.selected]}><Text style={styles.choiceText}>{value === 'female' ? copy.girl : copy.boy}</Text></Pressable>)}</View> : null}
         {step === 'childSchool' ? <>
-          <Pressable onPress={() => setCountyPickerOpen(true)} style={styles.input}><Text>{child.county || `Select ${regionMeta.label.toLowerCase()}`}</Text></Pressable>
-          <Pressable disabled={!child.county} onPress={() => setSchoolPickerOpen(true)} style={[styles.input, !child.county && styles.disabled]}><Text>{child.school || 'Select school'}</Text></Pressable>
+          <Pressable onPress={() => setCountyPickerOpen(true)} style={styles.input}><Text>{child.county || copy.selectRegion(copy.sw ? regionMeta.labelSw : regionMeta.label)}</Text></Pressable>
+          <Pressable disabled={!child.county} onPress={() => setSchoolPickerOpen(true)} style={[styles.input, !child.county && styles.disabled]}><Text>{child.school || copy.selectSchool}</Text></Pressable>
         </> : null}
-        {step === 'childGrade' ? <View style={styles.grid}>{SUPPORTED_GRADES.map(value => <Pressable key={value} onPress={() => updateChild({ grade: value, subjects: child.grade === value ? child.subjects : [] })} style={[styles.choice, child.grade === value && styles.selected]}><Text style={styles.choiceText}>{value}</Text></Pressable>)}</View> : null}
-        {step === 'childPerformance' ? <View style={styles.grid}>{PERFORMANCE_OPTIONS.map(option => <Pressable key={option.value} onPress={() => { updateChild({ performance: option.value }); next('childSubjects'); }} style={[styles.choice, child.performance === option.value && styles.selected]}><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
+        {step === 'childGrade' ? <View style={styles.grid}>{SUPPORTED_GRADES.map(value => <Pressable key={value} onPress={() => updateChild({ grade: value, subjects: child.grade === value ? child.subjects : [] })} style={[styles.choice, child.grade === value && styles.selected]}><Text style={styles.choiceText}>{copy.grade(value)}</Text></Pressable>)}</View> : null}
+        {step === 'childPerformance' ? <View style={styles.grid}>{PERFORMANCE_OPTIONS.map(option => <Pressable key={option.value} onPress={() => { updateChild({ performance: option.value }); next('childSubjects'); }} style={[styles.choice, child.performance === option.value && styles.selected]}><Text style={styles.choiceText}>{copy.performance(option.label)}</Text></Pressable>)}</View> : null}
         {step === 'childSubjects' ? <View style={styles.grid}>
           <Pressable onPress={() => updateChild({ subjects: allAreasSelected ? [] : subjectIdsForGrade })} style={[styles.choice, allAreasSelected && styles.selected]}>
-            <Text style={styles.choiceText}>{allAreasSelected ? '✓ ' : ''}All Areas</Text>
+            <Text style={styles.choiceText}>{allAreasSelected ? '✓ ' : ''}{copy.allAreas}</Text>
           </Pressable>
           {subjectOptions.map(subject => {
             const selected = child.subjects.includes(subject.id);
-            return <Pressable key={subject.id} onPress={() => { setOrdering(current => recordParentOnboardingSelection(current, 'subject', subject.id)); updateChild({ subjects: selected ? child.subjects.filter(id => id !== subject.id) : [...child.subjects, subject.id] }); }} style={[styles.choice, selected && styles.selected]}><Text style={styles.choiceText}>{selected ? '✓ ' : ''}{subject.name}</Text></Pressable>;
+            return <Pressable key={subject.id} onPress={() => { setOrdering(current => recordParentOnboardingSelection(current, 'subject', subject.id)); updateChild({ subjects: selected ? child.subjects.filter(id => id !== subject.id) : [...child.subjects, subject.id] }); }} style={[styles.choice, selected && styles.selected]}><Text style={styles.choiceText}>{selected ? '✓ ' : ''}{copy.subject(subject.name)}</Text></Pressable>;
           })}
         </View> : null}
-        {step === 'addAnother' ? <View style={styles.grid}><Pressable onPress={() => { setChildren(current => [...current, blankChild()]); setChildIndex(children.length); next('childName'); }} style={styles.choice}><Text style={styles.choiceText}>Yes, add another child</Text></Pressable><Pressable onPress={() => { setChildIndex(0); next('microphone'); }} style={styles.choice}><Text style={styles.choiceText}>No, continue</Text></Pressable></View> : null}
-        {step === 'microphone' ? <><Text style={styles.panel}>We need microphone access for spoken tutoring</Text><View style={styles.permissionChoices}><Pressable onPress={() => next('reminder')} style={styles.choice}><Text style={styles.choiceText}>Not now</Text></Pressable><Pressable onPress={() => { if (Platform.OS === 'web') { next('reminder'); return; } requestRecordingPermissionsAsync().catch(() => undefined).finally(() => next('reminder')); }} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>Allow</Text></Pressable></View></> : null}
-        {step === 'reminder' ? <><Text style={styles.panel}>Click Allow so as not to miss assignments and progress reports</Text><View style={styles.permissionChoices}><Pressable onPress={() => { setReminderEnabled(false); next('referral'); }} style={styles.choice}><Text style={styles.choiceText}>Not now</Text></Pressable><Pressable onPress={() => requestPushPermission().then(permission => setReminderEnabled(permission.granted)).catch(() => setReminderEnabled(false)).finally(() => next('referral'))} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>Allow</Text></Pressable></View></> : null}
-        {step === 'referral' ? <View style={styles.grid}>{referralOptions.map(option => <Pressable key={option.value} onPress={() => { setReferralSource(option.value); recordParentOnboardingSelection(ordering, 'referral', option.value); }} style={[styles.choice, referralSource === option.value && styles.selected]}><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
-        {step === 'tutorIntro' ? <View style={styles.tutorIntro}><Text style={styles.tutorIntroCopy}>{childIndex > 0 ? tutorIntroTitle : `${child.name || `Learner ${childIndex + 1}`} will choose their own tutor, voice, and commitment.`}</Text></View> : null}
-        {step === 'mascot' ? <View style={styles.grid}>{MASCOTS.map(option => <Pressable key={option.key} onPress={() => selectMascot(option.key)} style={[styles.choice, child.mascotKey === option.key && styles.selected]}><Image accessibilityLabel={`${option.label} artwork`} resizeMode="contain" source={option.source} style={styles.mascotImage} /><Text style={styles.choiceText}>{option.label}</Text></Pressable>)}</View> : null}
-        {step === 'rafiki' ? <LinearGradient colors={['#FFF0DD', '#E6F4EE']} style={styles.tutorPanel}><Image accessibilityLabel="Selected Rafiki artwork" resizeMode="contain" source={selectedMascot.source} style={styles.revealMascotImage} /><Text style={styles.choiceText}>Hi learner. My name is Rafiki the {selectedMascot.label.replace('Rafiki the ', '')} and I will be your Tutor. Are you ready to learn?</Text></LinearGradient> : null}
-        {step === 'voice' ? <><View style={styles.selectedVoiceMascot}><Image accessibilityLabel="Selected mascot on voice screen" resizeMode="contain" source={selectedMascot.source} style={styles.voiceMascotImage} /><Text style={styles.centeredCopy}>{selectedMascot.label}</Text></View><View style={styles.grid}>{VOICES.map(option => {
+        {step === 'addAnother' ? <View style={styles.grid}><Pressable onPress={() => { setChildren(current => [...current, blankChild()]); setChildIndex(children.length); next('childName'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.yesAdd}</Text></Pressable><Pressable onPress={() => { setChildIndex(0); next('microphone'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.noContinue}</Text></Pressable></View> : null}
+        {step === 'microphone' ? <><Text style={styles.panel}>{copy.microphoneCopy}</Text><View style={styles.permissionChoices}><Pressable onPress={() => next('reminder')} style={styles.choice}><Text style={styles.choiceText}>{copy.notNow}</Text></Pressable><Pressable onPress={() => { if (Platform.OS === 'web') { next('reminder'); return; } requestRecordingPermissionsAsync().catch(() => undefined).finally(() => next('reminder')); }} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>{copy.allow}</Text></Pressable></View></> : null}
+        {step === 'reminder' ? <><Text style={styles.panel}>{copy.reminderCopy}</Text><View style={styles.permissionChoices}><Pressable onPress={() => { setReminderEnabled(false); next('referral'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.notNow}</Text></Pressable><Pressable onPress={() => requestPushPermission().then(permission => setReminderEnabled(permission.granted)).catch(() => setReminderEnabled(false)).finally(() => next('referral'))} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>{copy.allow}</Text></Pressable></View></> : null}
+        {step === 'referral' ? <View style={styles.grid}>{referralOptions.map(option => <Pressable key={option.value} onPress={() => { setReferralSource(option.value); recordParentOnboardingSelection(ordering, 'referral', option.value); }} style={[styles.choice, referralSource === option.value && styles.selected]}><Text style={styles.choiceText}>{copy.referral(option.label)}</Text></Pressable>)}</View> : null}
+        {step === 'tutorIntro' ? <View style={styles.tutorIntro}><Text style={styles.tutorIntroCopy}>{childIndex > 0 ? tutorIntroTitle : copy.tutorIntroForChild}</Text></View> : null}
+        {step === 'mascot' ? <View style={styles.grid}>{MASCOTS.map(option => <Pressable key={option.key} onPress={() => selectMascot(option.key)} style={[styles.choice, child.mascotKey === option.key && styles.selected]}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(option.key)}` : `${copy.mascot(option.key)} artwork`} resizeMode="contain" source={option.source} style={styles.mascotImage} /><Text style={styles.choiceText}>{copy.mascot(option.key)}</Text></Pressable>)}</View> : null}
+        {step === 'rafiki' ? <LinearGradient colors={['#FFF0DD', '#E6F4EE']} style={styles.tutorPanel}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(selectedMascot.key)} aliyechaguliwa` : 'Selected Rafiki artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.revealMascotImage} /><Text style={styles.choiceText}>{copy.rafiki(selectedMascot.key)}</Text></LinearGradient> : null}
+        {step === 'voice' ? <><View style={styles.selectedVoiceMascot}><Image accessibilityLabel={copy.sw ? `Mnyama aliyechaguliwa: ${copy.mascot(selectedMascot.key)}` : 'Selected mascot on voice screen'} resizeMode="contain" source={selectedMascot.source} style={styles.voiceMascotImage} /><Text style={styles.centeredCopy}>{copy.mascot(selectedMascot.key)}</Text></View><View style={styles.grid}>{VOICES.map(option => {
           const selected = child.voiceName === option.name;
           const isPlaying = voicePreviewingName === option.name;
           const previewComplete = voicePreviewedName === option.name;
           return <Pressable key={option.name} onPress={() => selectVoice(option.name)} style={[styles.choice, selected && styles.selected]}>
-            <Text style={styles.choiceText}>{option.label}</Text>
-            <Pressable accessibilityRole="button" accessibilityLabel={`Preview ${option.name} voice`} onPress={(event?: { stopPropagation?: () => void }) => { event?.stopPropagation?.(); previewVoice(option).catch(() => undefined); }} style={styles.previewButton}>
-              <Text style={styles.preview}>{isPlaying ? 'Playing…' : previewComplete ? 'Preview complete' : 'Preview voice'}</Text>
+            <Text style={styles.choiceText}>{copy.voice(option.name)}</Text>
+            <Pressable accessibilityRole="button" accessibilityLabel={copy.sw ? `Sikiliza sauti ya ${option.name}` : `Preview ${option.name} voice`} onPress={(event?: { stopPropagation?: () => void }) => { event?.stopPropagation?.(); previewVoice(option).catch(() => undefined); }} style={styles.previewButton}>
+              <Text style={styles.preview}>{isPlaying ? copy.playing : previewComplete ? copy.previewDone : copy.preview}</Text>
             </Pressable>
           </Pressable>;
         })}</View></> : null}
-        {step === 'socialProof' ? <View style={styles.panel}><Text style={styles.centeredCopy}>89% of learners who practice for at least 20 minutes every day improve their grades in less than 1 month</Text></View> : null}
-        {step === 'commitment' ? <View style={styles.panel}><Text style={styles.commitmentPrompt}>{commitmentName}, are you ready to make that commitment?</Text><View style={styles.permissionChoices}><Pressable onPress={() => { updateChild({ commitmentAccepted: false, commitmentSignature: undefined }); setSignaturePoints([]); }} style={styles.choice}><Text style={styles.choiceText}>No</Text></Pressable><Pressable onPress={() => updateChild({ commitmentAccepted: true })} style={[styles.choice, child.commitmentAccepted && styles.selected]}><Text style={styles.choiceText}>Yes</Text></Pressable></View>{child.commitmentAccepted ? <><Text style={styles.signatureLabel}>Sign here</Text><View style={styles.signatureRow}><View accessibilityLabel="Signature canvas" onStartShouldSetResponder={() => true} onResponderGrant={event => startSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderMove={event => extendSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderRelease={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderTerminate={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} style={[styles.signatureCanvas, child.commitmentSignature && styles.selected]}>{(signaturePointsByChild[childIndex] ?? []).slice(1).map((point, index) => { const previous = signaturePointsByChild[childIndex][index]; const length = Math.hypot(point.x - previous.x, point.y - previous.y); const angle = Math.atan2(point.y - previous.y, point.x - previous.x) * 180 / Math.PI; return <View key={`${index}-${point.x}-${point.y}`} pointerEvents="none" style={[styles.signatureStroke, { left: (previous.x + point.x) / 2 - length / 2, top: (previous.y + point.y) / 2 - 1, width: length, transform: [{ rotate: `${angle}deg` }] }]} />; })}{child.commitmentSignature ? null : <Text pointerEvents="none" style={styles.signatureHint}>Draw your signature</Text>}</View><Image accessibilityLabel="Commitment mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.signatureMascot} /></View>{child.commitmentSignature ? <Text style={styles.signaturePreview}>✓ Signed by {child.name || `Learner ${childIndex + 1}`}</Text> : null}</> : null}</View> : null}
-        {step === 'childReady' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><Image accessibilityLabel="Ready mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{child.name || `Learner ${childIndex + 1}`} is ready to learn!</Text><Text style={styles.readyText}>Great choice—Rafiki is ready to begin.</Text></View></LinearGradient> : null}
-        {step === 'ready' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><View pointerEvents="none" style={styles.confettiLayer}>{['●', '✦', '▲', '◆'].map((piece, index) => <Animated.Text key={piece} style={[styles.confettiPiece, { left: `${14 + index * 24}%`, transform: [{ translateY: confettiFall.interpolate({ inputRange: [0, 1], outputRange: [-90 - index * 24, 220] }) }, { rotate: `${index % 2 ? 180 : 360}deg` }] }]}>{piece}</Animated.Text>)}</View><Image accessibilityLabel="Ready mascot artwork" resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>Your Study Plan is Ready!</Text><Text style={styles.readyText}>{children.length} learner{children.length === 1 ? '' : 's'} · {countryCode} · daily practice</Text>{children.map((item, index) => <Text key={`${item.name}-${index}`} style={styles.readyRow}>✓ {item.name || `Child ${index + 1}`} study plan prepared</Text>)}</View></LinearGradient> : null}
-        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountText}>Keep your children’s plans, progress reports, and tutor settings together.</Text><Pressable accessibilityLabel="Continue with Google" accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>Continue with Google</Text></Pressable><Text style={styles.orText}>or use email</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder="Email" style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder="Password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? 'Hide password' : 'Show password'} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? 'Hide' : 'Show'}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder="Confirm password" style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? 'Hide confirm password' : 'Show confirm password'} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? 'Hide' : 'Show'}</Text></Pressable></View></View> : null}
-        {localError || error ? <Text style={styles.error}>{localError || error}</Text> : null}
+        {step === 'socialProof' ? <View style={styles.panel}><Text style={styles.centeredCopy}>{copy.social}</Text></View> : null}
+        {step === 'commitment' ? <View style={styles.panel}><Text style={styles.commitmentPrompt}>{copy.commitmentPrompt}</Text><View style={styles.permissionChoices}><Pressable onPress={() => { updateChild({ commitmentAccepted: false, commitmentSignature: undefined }); setSignaturePoints([]); }} style={styles.choice}><Text style={styles.choiceText}>{copy.no}</Text></Pressable><Pressable onPress={() => updateChild({ commitmentAccepted: true })} style={[styles.choice, child.commitmentAccepted && styles.selected]}><Text style={styles.choiceText}>{copy.yes}</Text></Pressable></View>{child.commitmentAccepted ? <><Text style={styles.signatureLabel}>{copy.sign}</Text><View style={styles.signatureRow}><View accessibilityLabel={copy.sw ? 'Eneo la saini' : 'Signature canvas'} onStartShouldSetResponder={() => true} onResponderGrant={event => startSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderMove={event => extendSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderRelease={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderTerminate={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} style={[styles.signatureCanvas, child.commitmentSignature && styles.selected]}>{(signaturePointsByChild[childIndex] ?? []).slice(1).map((point, index) => { const previous = signaturePointsByChild[childIndex][index]; const length = Math.hypot(point.x - previous.x, point.y - previous.y); const angle = Math.atan2(point.y - previous.y, point.x - previous.x) * 180 / Math.PI; return <View key={`${index}-${point.x}-${point.y}`} pointerEvents="none" style={[styles.signatureStroke, { left: (previous.x + point.x) / 2 - length / 2, top: (previous.y + point.y) / 2 - 1, width: length, transform: [{ rotate: `${angle}deg` }] }]} />; })}{child.commitmentSignature ? null : <Text pointerEvents="none" style={styles.signatureHint}>{copy.draw}</Text>}</View><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(selectedMascot.key)} kwa ahadi` : 'Commitment mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.signatureMascot} /></View>{child.commitmentSignature ? <Text style={styles.signaturePreview}>{copy.signed(child.name)}</Text> : null}</> : null}</View> : null}
+        {step === 'childReady' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><Image accessibilityLabel={copy.sw ? 'Mchoro wa Rafiki: mtoto yuko tayari' : 'Ready mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{copy.title.readyChild}</Text><Text style={styles.readyText}>{copy.readyCopy}</Text></View></LinearGradient> : null}
+        {step === 'ready' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><View pointerEvents="none" style={styles.confettiLayer}>{['●', '✦', '▲', '◆'].map((piece, index) => <Animated.Text key={piece} style={[styles.confettiPiece, { left: `${14 + index * 24}%`, transform: [{ translateY: confettiFall.interpolate({ inputRange: [0, 1], outputRange: [-90 - index * 24, 220] }) }, { rotate: `${index % 2 ? 180 : 360}deg` }] }]}>{piece}</Animated.Text>)}</View><Image accessibilityLabel={copy.sw ? 'Mchoro wa Rafiki: mpango uko tayari' : 'Ready mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{copy.title.ready}</Text><Text style={styles.readyText}>{copy.readyText(countryCode)}</Text>{children.map((item, index) => <Text key={`${item.name}-${index}`} style={styles.readyRow}>{copy.readyRow(item.name, index)}</Text>)}</View></LinearGradient> : null}
+        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountText}>{copy.signupCopy}</Text><Pressable accessibilityLabel={copy.google} accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>{copy.google}</Text></Pressable><Text style={styles.orText}>{copy.email}</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder={copy.emailPlaceholder} style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder={copy.password} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? copy.hide : copy.show} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? copy.hide : copy.show}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder={copy.confirmPassword} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? copy.hide : copy.show} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? copy.hide : copy.show}</Text></Pressable></View></View> : null}
+        {(localError || error) && step !== 'whatsappNumber' ? <Text style={styles.error}>{localError || error}</Text> : null}
       </ScrollView>
-      {step !== 'language' && step !== 'childGender' && step !== 'childPerformance' && step !== 'microphone' && step !== 'reminder' ? <Pressable disabled={isSubmitting || (step === 'commitment' && (!child.commitmentAccepted || !child.commitmentSignature))} onPress={validateAndContinue} style={styles.button}><Text style={styles.buttonText}>{isSubmitting ? 'Saving…' : step === 'country' ? 'Confirm country' : step === 'signup' ? 'Create Account' : 'Continue'}</Text></Pressable> : null}
+      {step !== 'language' && step !== 'childGender' && step !== 'childPerformance' && step !== 'microphone' && step !== 'reminder' ? <Pressable disabled={isSubmitting || (step === 'commitment' && (!child.commitmentAccepted || !child.commitmentSignature))} onPress={validateAndContinue} style={styles.button}><Text style={styles.buttonText}>{isSubmitting ? copy.saving : step === 'country' ? copy.confirmCountry : step === 'signup' ? (copy.sw ? 'Fungua akaunti' : 'Create Account') : copy.continue}</Text></Pressable> : null}
 
-      <Modal transparent visible={countryPickerOpen} onRequestClose={() => setCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>Choose your country</Text><ScrollView>{[...COUNTRY_OPTIONS].sort((left, right) => Number(right.code === detectedCountryCode) - Number(left.code === detectedCountryCode)).map(option => <Pressable key={option.code} onPress={() => { setCountryCode(option.code); setCountryPickerOpen(false); }} style={styles.sheetRow}><Text style={styles.choiceText}>{option.flag} {option.name}{option.code === detectedCountryCode ? ' · Detected' : ''}</Text><Text>{option.curriculum} curriculum</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={countryPickerOpen} onRequestClose={() => setCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi yako' : 'Choose your country'}</Text><ScrollView>{[...COUNTRY_OPTIONS].sort((left, right) => Number(right.code === detectedCountryCode) - Number(left.code === detectedCountryCode)).map(option => <Pressable key={option.code} onPress={() => { setCountryCode(option.code); setCountryPickerOpen(false); }} style={styles.sheetRow}><Text style={styles.choiceText}>{option.flag} {option.name}{option.code === detectedCountryCode ? (copy.sw ? ' · Imetambuliwa' : ' · Detected') : ''}</Text><Text>{option.curriculum} {copy.curriculum}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={whatsappCountryPickerOpen} onRequestClose={() => setWhatsappCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setWhatsappCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi ya WhatsApp' : 'Choose WhatsApp country'}</Text><TextInput accessibilityLabel={copy.sw ? 'Tafuta nchi za WhatsApp' : 'Search WhatsApp countries'} autoFocus value={whatsappCountryQuery} onChangeText={setWhatsappCountryQuery} placeholder={copy.sw ? 'Tafuta nchi' : 'Search countries'} style={styles.input} /><ScrollView>{filteredWhatsappCallingCountries.map(option => <Pressable key={option.iso2} accessibilityRole="radio" accessibilityState={{ selected: option.iso2 === whatsappCallingCountryCode }} onPress={() => { setWhatsappCallingCountryCode(option.iso2); setWhatsappCountryPickerOpen(false); }} style={[styles.sheetRow, option.iso2 === whatsappCallingCountryCode && styles.selected]}><Text style={styles.choiceText}>{option.flag} {option.name} · +{option.callingCode}{option.iso2 === detectedCountryCode ? (copy.sw ? ' · Imetambuliwa' : ' · Detected') : ''}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
       <Modal transparent visible={countyPickerOpen} onRequestClose={() => setCountyPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountyPickerOpen(false)}><View style={styles.sheet}><ScrollView>{regionMeta.options.map(option => <Pressable key={option} onPress={() => { updateChild({ county: option, schoolId: null, school: '' }); setCountyPickerOpen(false); }} style={styles.sheetRow}><Text>{option}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
-      <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel="Search school by name" autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder="Search schools" style={styles.input} /><ScrollView>{filteredSchools.map(school => <Pressable key={school.id} onPress={() => { updateChild({ schoolId: school.id, school: school.name }); setSchoolQuery(school.name); setSchoolPickerOpen(false); }} style={styles.sheetRow}><Text>{school.name}</Text></Pressable>)}{filteredSchools.length === 0 ? <Text style={styles.empty}>No match yet. Add your school below.</Text> : null}<Pressable accessibilityLabel="Add your school" onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>Add Your School</Text></Pressable></ScrollView></View></Pressable></Modal>
-      <Modal transparent visible={addSchoolOpen} onRequestClose={() => setAddSchoolOpen(false)}><View style={styles.modalBackdrop}><View style={styles.sheet}><Text style={styles.sheetTitle}>Add Your School</Text><Text style={styles.county}>Selected county: {child.county}</Text><TextInput accessibilityLabel="School name" autoFocus value={manualSchoolName} onChangeText={setManualSchoolName} placeholder="Enter school name" style={styles.input} />{schoolError ? <Text style={styles.error}>{schoolError}</Text> : null}<Pressable disabled={isAddingSchool} onPress={addSchool} style={styles.modalButton}><Text style={styles.buttonText}>{isAddingSchool ? 'Saving…' : 'Save and Continue'}</Text></Pressable></View></View></Modal>
+      <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel={copy.sw ? 'Tafuta shule kwa jina' : 'Search school by name'} autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder={copy.sw ? 'Tafuta shule' : 'Search schools'} style={styles.input} /><ScrollView>{filteredSchools.map(school => <Pressable key={school.id} onPress={() => { updateChild({ schoolId: school.id, school: school.name }); setSchoolQuery(school.name); setSchoolPickerOpen(false); }} style={styles.sheetRow}><Text>{school.name}</Text></Pressable>)}{filteredSchools.length === 0 ? <Text style={styles.empty}>{copy.sw ? 'Hakuna inayolingana. Ongeza shule yako hapa chini.' : 'No match yet. Add your school below.'}</Text> : null}<Pressable accessibilityLabel={copy.sw ? 'Ongeza shule yako' : 'Add your school'} onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text></Pressable></ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={addSchoolOpen} onRequestClose={() => setAddSchoolOpen(false)}><View style={styles.modalBackdrop}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text><Text style={styles.county}>{copy.sw ? 'Kaunti iliyochaguliwa' : 'Selected county'}: {child.county}</Text><TextInput accessibilityLabel={copy.sw ? 'Jina la shule' : 'School name'} autoFocus value={manualSchoolName} onChangeText={setManualSchoolName} placeholder={copy.sw ? 'Andika jina la shule' : 'Enter school name'} style={styles.input} />{schoolError ? <Text style={styles.error}>{schoolError}</Text> : null}<Pressable disabled={isAddingSchool} onPress={addSchool} style={styles.modalButton}><Text style={styles.buttonText}>{isAddingSchool ? copy.saving : (copy.sw ? 'Hifadhi na uendelee' : 'Save and Continue')}</Text></Pressable></View></View></Modal>
     </OnboardingVisualShell>
   );
 }
@@ -607,6 +642,7 @@ const styles = StyleSheet.create({
   content: { alignItems: 'center', flexGrow: 1, gap: 16, justifyContent: 'center', padding: 24, paddingBottom: 126 },
   kicker: { color: '#B45309', fontSize: 12, fontWeight: '800', letterSpacing: 1.2, textAlign: 'center' },
   title: { color: '#123F59', fontSize: 28, fontWeight: '900', lineHeight: 34, textAlign: 'center' },
+  languagePrompt: { color: '#52636A', fontSize: 15, fontWeight: '700', lineHeight: 20, textAlign: 'center' },
   subtitle: { color: '#52636A', fontSize: 15, lineHeight: 22, textAlign: 'center' },
   grid: { alignSelf: 'stretch', flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   choice: { alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.94)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 18, borderWidth: 1, minHeight: 52, justifyContent: 'center', padding: 14, width: '48%' },
@@ -617,6 +653,10 @@ const styles = StyleSheet.create({
   mascotImage: { alignSelf: 'center', height: 84, width: 84 },
   parentAvatarImage: { height: 120, width: 120 },
   input: { backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, color: '#123F59', fontSize: 16, minHeight: 52, paddingHorizontal: 14, paddingVertical: 12 },
+  fieldLabel: { color: '#123F59', fontSize: 13, fontWeight: '800' },
+  whatsappEntryRow: { alignSelf: 'stretch', flexDirection: 'row', gap: 8, minWidth: 0 },
+  callingCountrySelector: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, flex: 1.25, justifyContent: 'center', minWidth: 0, paddingHorizontal: 8, paddingVertical: 12 },
+  whatsappNumberInput: { flex: 1, minWidth: 0, paddingHorizontal: 8 },
   disabled: { opacity: 0.45 },
   panel: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.92)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 20, borderWidth: 1, gap: 8, padding: 18 },
   countryPanel: { alignItems: 'center' },

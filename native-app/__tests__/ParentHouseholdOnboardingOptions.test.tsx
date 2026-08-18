@@ -4,6 +4,7 @@ import { createAudioPlayer, requestRecordingPermissionsAsync } from 'expo-audio'
 
 import { ParentHouseholdOnboardingScreen } from '../src/screens/ParentHouseholdOnboardingScreen';
 import { parentOnboardingSubjectOptions } from '../src/utils/parentOnboardingSubjects';
+import { parentHouseholdCopy } from '../src/onboarding/parentHouseholdOnboardingCopy';
 
 jest.mock('../src/services/pushNotifications', () => ({
   requestPushPermission: jest.fn().mockResolvedValue({ granted: true }),
@@ -22,6 +23,17 @@ const schools = [
     gradeCounts: {},
   },
 ];
+
+test('localizes display-only grades, loading, subjects, and school validation while retaining stable values', () => {
+  const copy = parentHouseholdCopy('sw', 'Amina');
+  expect(copy.grade('Grade 5')).toBe('Darasa la 5');
+  expect(copy.title.age).toBe('Amina ana miaka mingapi?');
+  expect(copy.studyPlanMessages[0]).toBe('Tunaangalia mtaala');
+  expect(copy.subject('CRE / IRE / HRE')).toBe('CRE / IRE / HRE');
+  expect(copy.subject('Creative Arts & Sports')).toBe('Sanaa za Ubunifu na Michezo');
+  expect(copy.schoolNameValidation).toBe('Andika jina la shule na uchague kaunti kwanza.');
+  expect('Grade 5').toBe('Grade 5');
+});
 
 function textContent(value: unknown): string {
   if (Array.isArray(value)) return value.map(textContent).join('');
@@ -64,7 +76,12 @@ async function fill(root: ReactTestRenderer.ReactTestInstance, placeholder: stri
   });
 }
 
-test('keeps Kiswahili first and disabled while English is enabled on parent language setup', async () => {
+async function continueFromWhatsAppNumber(root: ReactTestRenderer.ReactTestInstance, value = '0700123456') {
+  await fill(root, '0700123456', value);
+  await pressText(root, 'Continue');
+}
+
+test('enables Kiswahili with the exact prompt and keeps English available', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
   await act(() => {
     renderer = ReactTestRenderer.create(
@@ -72,22 +89,91 @@ test('keeps Kiswahili first and disabled while English is enabled on parent lang
     );
   });
   const root = renderer!.root;
-  const languageChoices = root.findAll(node => ['Choose English', 'Kiswahili unavailable'].includes(node.props.accessibilityLabel));
+  expect(root.findAll(node => textContent(node.props.children) === 'Chagua Lugha Yako').length).toBeGreaterThan(0);
+  const prompt = root.find(node => textContent(node.props.children) === 'Chagua Lugha Yako');
+  expect(prompt.props.style).toEqual(expect.objectContaining({ fontSize: 15 }));
+  const languageChoices = root.findAll(node => ['Choose English', 'Choose Kiswahili'].includes(node.props.accessibilityLabel));
   const english = languageChoices.find(node => node.props.accessibilityLabel === 'Choose English');
-  const kiswahili = languageChoices.find(node => node.props.accessibilityLabel === 'Kiswahili unavailable');
+  const kiswahili = languageChoices.find(node => node.props.accessibilityLabel === 'Choose Kiswahili');
 
   expect(languageChoices.indexOf(kiswahili!)).toBeLessThan(languageChoices.indexOf(english!));
   expect(english?.props.disabled).not.toBe(true);
   expect(typeof english?.props.onPress).toBe('function');
-  expect(kiswahili?.props.disabled).toBe(true);
-  expect(kiswahili?.props.accessibilityState).toEqual({ disabled: true });
-  expect(kiswahili?.props.onPress).toBeUndefined();
+  expect(kiswahili?.props.disabled).not.toBe(true);
+  expect(kiswahili?.props.onPress).toEqual(expect.any(Function));
 
   await pressText(root, 'English');
   expect(root.findAll(node => textContent(node.props.children) === 'Who are you?').length).toBeGreaterThan(0);
 });
 
-test('centres the account setup flow, rejects digits in parent names, and exposes the detected country in its picker', async () => {
+test('selecting Kiswahili advances into translated parent setup and preserves sw on submit', async () => {
+  const onSubmit = jest.fn();
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <ParentHouseholdOnboardingScreen schools={schools} isSubmitting={false} collectSignupCredentials={false} onRoleChange={jest.fn()} onSubmit={onSubmit} />,
+    );
+  });
+  const root = renderer!.root;
+  await pressLabel(root, 'Choose Kiswahili');
+  expect(root.findAll(node => textContent(node.props.children) === 'Wewe ni nani?').length).toBeGreaterThan(0);
+  await pressText(root, '👨‍👩‍👧 Mzazi');
+  await pressLabel(root, 'Chagua picha ya mzazi mum1');
+  await pressText(root, 'Endelea');
+  await fill(root, 'Jina lako', 'Grace');
+  await pressText(root, 'Endelea');
+  await fill(root, '0700123456', '+254 701 234 567');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Thibitisha nchi');
+  await fill(root, 'Jina la mtoto', 'Amina');
+  await pressText(root, 'Endelea');
+  await fill(root, 'Umri', '10');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Msichana');
+  await pressText(root, 'Chagua kaunti');
+  await pressText(root, 'Baringo');
+  await pressText(root, 'Chagua shule');
+  await pressText(root, 'Kitabu Academy');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Darasa la 5');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Yuko kwenye kiwango cha darasa');
+  expect(root.findAll(node => textContent(node.props.children) === 'Ni masomo gani yanahitaji msaada?').length).toBeGreaterThan(0);
+  await pressText(root, 'Hisabati');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Hapana, endelea');
+  expect(root.findAll(node => textContent(node.props.children) === 'Tunahitaji ruhusa ya maikrofoni kwa mafunzo ya kuzungumza').length).toBeGreaterThan(0);
+  await pressText(root, 'Si sasa');
+  await pressText(root, 'Si sasa');
+  await pressText(root, 'WhatsApp');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Rafiki Panda');
+  await pressText(root, 'Endelea');
+  expect(root.findAll(node => textContent(node.props.children) === 'Chagua sauti ya Rafiki').length).toBeGreaterThan(0);
+  await pressLabel(root, 'Sikiliza sauti ya Samora');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Endelea');
+  await pressText(root, 'Ndiyo');
+  const signatureCanvas = root.findByProps({ accessibilityLabel: 'Eneo la saini' });
+  await act(async () => {
+    signatureCanvas.props.onResponderGrant({ nativeEvent: { locationX: 10, locationY: 10 } });
+    signatureCanvas.props.onResponderMove({ nativeEvent: { locationX: 40, locationY: 24 } });
+    signatureCanvas.props.onResponderRelease({ nativeEvent: { locationX: 52, locationY: 28 } });
+  });
+  await pressText(root, 'Endelea');
+  expect(root.findAll(node => textContent(node.props.children) === 'Amina yuko tayari kujifunza!').length).toBeGreaterThan(0);
+  jest.useFakeTimers();
+  await pressText(root, 'Endelea');
+  await act(async () => { jest.advanceTimersByTime(8_500); });
+  jest.useRealTimers();
+  expect(root.findAll(node => textContent(node.props.children) === 'Mpango wako wa masomo uko tayari!').length).toBeGreaterThan(0);
+  await pressText(root, 'Endelea');
+  expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ languageCode: 'sw' }));
+});
+
+test('centres the account setup flow, asks for WhatsApp before country, and exposes the detected country in its picker', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -111,6 +197,26 @@ test('centres the account setup flow, rejects digits in parent names, and expose
   await fill(root, 'Your name', 'Grace2');
   expect(root.findByProps({ placeholder: 'Your name' }).props.value).toBe('Grace');
   await pressText(root, 'Continue');
+  expect(root.findAll(node => textContent(node.props.children) === 'What is your WhatsApp number?').length).toBeGreaterThan(0);
+  expect(root.findAll(node => textContent(node.props.children) === "We will use this to send you reports about your child's progress").length).toBeGreaterThan(0);
+  expect(root.findByProps({ placeholder: '0700123456' })).toBeTruthy();
+  expect(textContent(root.findAll(node => node.props.accessibilityLabel === 'Select WhatsApp country calling code')[0].props.children)).toContain('+254');
+  await pressText(root, 'Continue');
+  expect(root.findAll(node => textContent(node.props.children).includes('Enter a valid WhatsApp number')).length).toBeGreaterThan(0);
+  await pressLabel(root, 'Select WhatsApp country calling code');
+  const callingCountryRows = root.findAll(node => node.props.accessibilityRole === 'radio');
+  const callingCountryNames = callingCountryRows.map(node => textContent(node.props.children).replace(/^[^A-Za-z]+/, '').replace(/ · \+\d+(?: · Detected)?$/, ''));
+  expect(callingCountryRows.length).toBeGreaterThan(200);
+  expect(callingCountryNames).toEqual([...callingCountryNames].sort((left, right) => left.localeCompare(right, 'en')));
+  await fill(root, 'Search countries', 'United States');
+  expect(root.findAll(node => textContent(node.props.children).includes('United States')).length).toBeGreaterThan(0);
+  await pressText(root, '🇺🇸 United States · +1');
+  expect(textContent(root.findAll(node => node.props.accessibilityLabel === 'Select WhatsApp country calling code')[0].props.children)).toContain('+1');
+  await continueFromWhatsAppNumber(root);
+  await pressLabel(root, 'Back in parent setup');
+  expect(root.findByProps({ placeholder: '0700123456' }).props.value).toBe('0700123456');
+  expect(textContent(root.findAll(node => node.props.accessibilityLabel === 'Select WhatsApp country calling code')[0].props.children)).toContain('+1');
+  await continueFromWhatsAppNumber(root);
   await pressLabel(root, 'Select family country');
   expect(root.findAll(node => textContent(node.props.children).includes('Detected')).length).toBeGreaterThan(0);
   expect(root.findAll(node => textContent(node.props.children) === '🇺🇬 Uganda · Detected').length).toBeLessThanOrEqual(1);
@@ -142,6 +248,10 @@ test('uses the revised family reveal order with all subjects, permission copy, a
   await pressLabel(root, 'Back in parent setup');
   expect(root.findByProps({ placeholder: 'Your name' }).props.value).toBe('Grace');
   await pressText(root, 'Continue');
+  await pressLabel(root, 'Select WhatsApp country calling code');
+  await fill(root, 'Search countries', 'United States');
+  await pressText(root, '🇺🇸 United States · +1');
+  await continueFromWhatsAppNumber(root);
   await pressText(root, 'Confirm country');
   await fill(root, "Child's name", 'Amina');
   await pressText(root, 'Continue');
@@ -229,6 +339,7 @@ test('uses the revised family reveal order with all subjects, permission copy, a
   expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({
     gender: 'male',
     signupMethod: 'google',
+    whatsappNumber: '+1700123456',
     children: [expect.objectContaining({ name: 'Amina', mascotKey: 'panda', voiceName: 'Samora', commitmentAccepted: true })],
   }));
 });
@@ -264,6 +375,7 @@ test('starts the tutor loop with the first child and advances independently to t
   await chooseParentAvatar(root);
   await fill(root, 'Your name', 'Grace');
   await pressText(root, 'Continue');
+  await continueFromWhatsAppNumber(root);
   await pressText(root, 'Confirm country');
   await completeChildProfile('Amina');
   await pressText(root, 'Yes, add another child');
@@ -308,6 +420,7 @@ test('scopes parent subjects to the selected grade band and clears subjects outs
   await chooseParentAvatar(root);
   await fill(root, 'Your name', 'Grace');
   await pressText(root, 'Continue');
+  await continueFromWhatsAppNumber(root);
   await pressText(root, 'Confirm country');
   await fill(root, "Child's name", 'Amina');
   await pressText(root, 'Continue');
@@ -372,6 +485,7 @@ test('keeps a manually entered school when the create-school request fails', asy
   await chooseParentAvatar(root);
   await fill(root, 'Your name', 'Grace');
   await pressText(root, 'Continue');
+  await continueFromWhatsAppNumber(root);
   await pressText(root, 'Confirm country');
   await fill(root, "Child's name", 'Amina');
   await pressText(root, 'Continue');

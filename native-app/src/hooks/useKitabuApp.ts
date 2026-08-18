@@ -355,6 +355,7 @@ type OnboardingSignupInput = {
   teachGrades?: string[];
   teacherGradeIds?: string[];
   mpesaPhoneNumber?: string;
+  whatsappNumber?: string;
 };
 
 interface FocusModeSnapshot {
@@ -2492,6 +2493,7 @@ export function useKitabuApp() {
     grade: string;
     schoolId: string | null;
     mpesaPhoneNumber?: string | null;
+    whatsappNumber?: string;
     selectedSubjectIds?: string[];
     lang?: OnboardingLanguageCode;
     languageCode?: OnboardingLanguageCode;
@@ -2563,6 +2565,7 @@ export function useKitabuApp() {
         signupEmail,
         phone,
         signupPhone,
+        whatsappNumber,
         ...accountOnboardingInput
       } = input;
       delete accountOnboardingInput.password;
@@ -2604,6 +2607,7 @@ export function useKitabuApp() {
         countryCode,
         curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
         referralSource,
+        whatsappNumber,
       };
       const nextSession = await completeAccountOnboarding({
         ...accountOnboardingInput,
@@ -3625,6 +3629,7 @@ export function useKitabuApp() {
             selectedSubjectIds: input.selectedSubjectIds,
             reminderEnabled: input.reminderEnabled,
             referralSource: input.referralSource,
+            whatsappNumber: input.whatsappNumber,
             countryCode: input.countryCode,
             curriculumCode: curriculumCodeForCountry(input.countryCode),
           },

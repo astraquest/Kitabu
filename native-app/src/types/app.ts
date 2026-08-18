@@ -93,6 +93,7 @@ export interface OnboardingPersonalization {
   countryCode?: string;
   curriculumCode?: string;
   referralSource?: string;
+  whatsappNumber?: string;
 }
 
 export interface AuthUser {

@@ -99,7 +99,7 @@ function shouldShowDiagnosticPreview() {
   return Boolean(__DEV__ && location?.search?.includes('previewDiagnostic=1'));
 }
 
-function getOnboardingPreviewRole(): PublicSignupRole | null {
+function getOnboardingPreviewRole(): Exclude<PublicSignupRole, 'student'> | null {
   if (!__DEV__) {
     return null;
   }
@@ -126,7 +126,7 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
     // URL cleanup is best-effort; the preview should still render if history is unavailable.
   }
 
-  return role;
+  return role === 'student' ? null : role;
 }
 
 function AppSafeArea({ children }: { children: React.ReactNode }) {
@@ -134,6 +134,32 @@ function AppSafeArea({ children }: { children: React.ReactNode }) {
     <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={styles.safeArea}>
       {children}
     </SafeAreaView>
+  );
+}
+
+function RetiredStudentOnboardingScreen({
+  onBack,
+}: {
+  onBack: () => void | Promise<void>;
+}) {
+  return (
+    <View style={styles.retiredOnboardingScreen}>
+      <View style={styles.retiredOnboardingPanel}>
+        <Text style={styles.retiredOnboardingEyebrow}>KITABU · ACCOUNT SETUP</Text>
+        <Text style={styles.retiredOnboardingTitle}>Student setup is parent-managed</Text>
+        <Text style={styles.retiredOnboardingCopy}>
+          Student accounts are created inside a parent household. Ask your parent or guardian
+          to add you as a learner, then sign in with the access they provide.
+        </Text>
+        <Pressable
+          accessibilityRole="button"
+          onPress={onBack}
+          style={styles.retiredOnboardingButton}
+        >
+          <Text style={styles.retiredOnboardingButtonText}>Back to sign in</Text>
+        </Pressable>
+      </View>
+    </View>
   );
 }
 
@@ -163,15 +189,25 @@ export function KitabuApp() {
   if (onboardingPreviewRole) {
     return (
       <AppSafeArea>
-        <StudentOnboardingScreen
-          role={onboardingPreviewRole}
-          schools={[ONBOARDING_PREVIEW_SCHOOL]}
-          isSubmitting={false}
-          includeIntroChoices
-          collectSignupCredentials
-          externalPaymentsEnabled={state.externalPaymentsEnabled}
-          onSubmit={() => undefined}
-        />
+        {onboardingPreviewRole === 'parent' ? (
+          <ParentHouseholdOnboardingScreen
+            schools={[ONBOARDING_PREVIEW_SCHOOL]}
+            isSubmitting={false}
+            collectSignupCredentials
+            onRoleChange={() => undefined}
+            onSubmit={() => undefined}
+          />
+        ) : (
+          <StudentOnboardingScreen
+            role={onboardingPreviewRole}
+            schools={[ONBOARDING_PREVIEW_SCHOOL]}
+            isSubmitting={false}
+            includeIntroChoices
+            collectSignupCredentials
+            externalPaymentsEnabled={state.externalPaymentsEnabled}
+            onSubmit={() => undefined}
+          />
+        )}
       </AppSafeArea>
     );
   }
@@ -210,6 +246,13 @@ export function KitabuApp() {
               onRoleChange={actions.setSignupRole}
               onSubmit={actions.signUp}
               onCreateSchool={actions.createOnboardingSchool}
+            />
+          ) : state.signupRole === 'student' ? (
+            <RetiredStudentOnboardingScreen
+              onBack={() => {
+                actions.setSignupRole(null);
+                actions.setAuthMode('login');
+              }}
             />
           ) : (
             <StudentOnboardingScreen
@@ -273,12 +316,16 @@ export function KitabuApp() {
             onRoleChange={() => undefined}
             onSubmit={input => actions.submitAccountOnboarding(input)}
           />
+        ) : state.authSession.user.roles.includes('student') &&
+          !state.authSession.user.roles.includes('teacher') &&
+          !state.authSession.user.roles.includes('other') ? (
+          <RetiredStudentOnboardingScreen onBack={() => actions.signOut('intro')} />
         ) : (
           <StudentOnboardingScreen
             role={
               state.authSession.user.roles.includes('teacher')
                 ? 'teacher'
-                : 'student'
+                : 'other'
             }
             schools={state.schoolsList}
             isSubmitting={state.isSubmittingOnboarding}
@@ -1034,6 +1081,51 @@ const styles = StyleSheet.create({
   },
   screenWrap: {
     flex: 1,
+  },
+  retiredOnboardingScreen: {
+    alignItems: 'center',
+    backgroundColor: '#f4f7fb',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  retiredOnboardingPanel: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    maxWidth: 520,
+    padding: 24,
+    width: '100%',
+  },
+  retiredOnboardingEyebrow: {
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
+  retiredOnboardingTitle: {
+    color: '#0F172A',
+    fontSize: 28,
+    fontWeight: '900',
+    marginTop: 8,
+  },
+  retiredOnboardingCopy: {
+    color: '#334155',
+    fontSize: 16,
+    lineHeight: 24,
+    marginTop: 14,
+  },
+  retiredOnboardingButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F766E',
+    borderRadius: 10,
+    justifyContent: 'center',
+    marginTop: 22,
+    minHeight: 48,
+  },
+  retiredOnboardingButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
   },
   timeUpScreen: {
     alignItems: 'center',

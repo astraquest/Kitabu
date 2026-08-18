@@ -63,6 +63,7 @@ import {
 import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt, selectAvatarKey } from '../components/AvatarArt';
 import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
+import { OnboardingVisualShell } from '../components/OnboardingVisualShell';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
 import {
@@ -5518,20 +5519,7 @@ export function StudentOnboardingScreen({
   }
 
   return (
-    <LinearGradient
-      colors={content.gradient}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.screen}>
-      <View
-        accessibilityElementsHidden
-        importantForAccessibility="no-hide-descendants"
-        pointerEvents="none"
-        style={styles.decorativeShapes}>
-        <View style={[styles.decorativeShape, styles.decorativeShapeTop]} />
-        <View style={[styles.decorativeShape, styles.decorativeShapeSide]} />
-        <View style={[styles.decorativeShape, styles.decorativeShapeBottom]} />
-      </View>
+    <OnboardingVisualShell style={styles.screen}>
       <KeyboardAvoidingView
         behavior={Platform.select({ ios: 'padding', default: undefined })}
         keyboardVerticalOffset={insets.top}
@@ -8686,7 +8674,7 @@ export function StudentOnboardingScreen({
           </View>
         ) : null}
       </KeyboardAvoidingView>
-    </LinearGradient>
+    </OnboardingVisualShell>
   );
 }
 
@@ -8694,41 +8682,12 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
-  decorativeShapes: {
-    ...StyleSheet.absoluteFillObject,
-    overflow: 'hidden',
-  },
-  decorativeShape: {
-    borderRadius: 999,
-    opacity: 0.48,
-    position: 'absolute',
-  },
-  decorativeShapeTop: {
-    backgroundColor: '#FFFFFF',
-    height: 220,
-    right: -84,
-    top: -92,
-    width: 220,
-  },
-  decorativeShapeSide: {
-    backgroundColor: '#A9E8DE',
-    height: 190,
-    left: -126,
-    top: 280,
-    width: 190,
-  },
-  decorativeShapeBottom: {
-    backgroundColor: '#FFFFFF',
-    bottom: -118,
-    height: 230,
-    right: -84,
-    width: 230,
-  },
   keyboardWrap: {
     flex: 1,
   },
   scrollContent: {
     flexGrow: 1,
+    justifyContent: 'center',
     paddingBottom: 24,
     paddingHorizontal: 20,
     paddingTop: 22,
@@ -9132,16 +9091,21 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.white,
   },
   card: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderRadius: 0,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(255,255,255,0.78)',
+    borderColor: 'rgba(255,255,255,0.9)',
+    borderRadius: 28,
+    borderWidth: 1,
     flex: 1,
+    justifyContent: 'center',
     marginTop: 12,
-    padding: 0,
+    maxWidth: 520,
+    padding: 18,
+    width: '100%',
   },
   cardCompact: {
-    borderRadius: 0,
-    padding: 0,
+    borderRadius: 24,
+    padding: 14,
   },
   mascotPickerCard: {
     minHeight: 430,
@@ -11930,7 +11894,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   footerDock: {
-    backgroundColor: 'rgba(242,255,251,0.9)',
+    backgroundColor: 'rgba(255,255,255,0.9)',
     borderTopColor: 'rgba(255,255,255,0.7)',
     borderTopWidth: 1,
     paddingHorizontal: 20,

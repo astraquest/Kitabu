@@ -99,6 +99,51 @@ export function getParentEnglishOnboardingCueId(
   return cueIds[step];
 }
 
+export function getParentSwahiliOnboardingCueId(
+  step: string,
+  childIndex = 0,
+  mascotKey?: OnboardingMascotKey,
+  commitmentAccepted = false,
+) {
+  if (step === 'tutorIntro') {
+    return childIndex > 0 ? 'parent-sw-second-learner' : 'parent-sw-tutor-introduction';
+  }
+  if (step === 'rafiki') {
+    return PARENT_MASCOT_CUE_IDS[mascotKey ?? 'rabbit'].replace('parent-', 'parent-sw-');
+  }
+  if (step === 'commitment') {
+    return commitmentAccepted ? 'parent-sw-signature' : 'parent-sw-commitment';
+  }
+
+  const cueIds: Record<string, string> = {
+    language: 'parent-sw-language',
+    role: 'parent-sw-role',
+    parentAvatar: 'parent-sw-avatar',
+    parentName: 'parent-sw-name',
+    whatsappNumber: 'parent-sw-whatsapp-number',
+    country: 'parent-sw-country',
+    childName: 'parent-sw-learner-name',
+    childAge: 'parent-sw-learner-age',
+    childGender: 'parent-sw-learner-gender',
+    childSchool: 'parent-sw-school',
+    childGrade: 'parent-sw-grade',
+    childPerformance: 'parent-sw-performance',
+    childSubjects: 'parent-sw-subjects',
+    addAnother: 'parent-sw-add-another',
+    microphone: 'parent-sw-microphone',
+    reminder: 'parent-sw-reminders',
+    referral: 'parent-sw-referral',
+    mascot: 'parent-sw-mascot-selection',
+    voice: 'parent-sw-tutor-voice',
+    socialProof: 'parent-sw-progress-encouragement',
+    childReady: 'parent-sw-learner-ready',
+    loading: 'parent-sw-study-plan-loading',
+    ready: 'parent-sw-study-plan-ready',
+    signup: 'parent-sw-save-account',
+  };
+  return cueIds[step];
+}
+
 export function getStudentEnglishOnboardingLandingCueId(
   introStep: OnboardingIntroStep,
   setupStep: number,

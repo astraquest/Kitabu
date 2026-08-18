@@ -28,6 +28,7 @@
     "import:quiz-bank": "node scripts/quiz-bank/import-quiz-bank.mjs",
     "prepare:tts:quiz-bank": "node scripts/quiz-bank/import-quiz-bank.mjs --enqueue-tts",
     "prepare:tts:onboarding": "tsx scripts/prepare-onboarding-tts.ts",
+    "tts:parent:onboarding:sw": "tsx scripts/run-parent-onboarding-sw-tts.ts",
     "import:reference-library": "node scripts/reference-library/import-reference-library.mjs",
     "test:reference-library": "node --test scripts/reference-library/reference-library-contract.test.mjs",
     "validate:book-package": "node scripts/curriculum/validate-book-package.mjs",

@@ -15,13 +15,14 @@ const {
   getOrCreateDurableSpeech,
   isReadyTtsArtifact,
   normalizeSpokenText,
+  prepareOnboardingTtsCatalog,
   prepareOnboardingTts,
   repairMissingOnboardingTts,
   spokenCuesFromQuestions,
   TTS_AVATAR_VOICES
 } =
   await import('./speechQueue.js');
-const { PARENT_ONBOARDING_TTS_CUES } = await import('./onboardingTts.js');
+const { PARENT_ONBOARDING_TTS_CUES, PARENT_ONBOARDING_SW_TTS_CUES } = await import('./onboardingTts.js');
 const { db, redis } = await import('./db.js');
 
 test.after(async () => {
@@ -271,6 +272,18 @@ test('storage repair reconfigures pending parent jobs for Cartesia unless they a
   assert.equal(requeued[0].repairPendingArtifact, true);
   assert.equal(requeued[0].provider, 'cartesia');
   assert.equal(requeued[0].model, 'sonic-3');
+});
+
+test('onboarding preparation scopes Kiswahili identities to Bella and sw', async () => {
+  const enqueued: Array<Record<string, unknown>> = [];
+  const result = await prepareOnboardingTtsCatalog(PARENT_ONBOARDING_SW_TTS_CUES, 'sw', {
+    getArtifact: async () => null,
+    enqueue: async input => { enqueued.push(input); }
+  });
+
+  assert.equal(result.total, 32);
+  assert.equal(result.enqueued, 32);
+  assert.equal(enqueued.every(input => input.language === 'sw' && input.provider === 'cartesia' && input.voice === 'Bella'), true);
 });
 
 test('durable speech treats a missing ready object as a miss and requests repair', async () => {

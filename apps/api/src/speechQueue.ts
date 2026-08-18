@@ -16,7 +16,7 @@ import {
   type TtsJobRecord,
   withTransaction
 } from './repositories.js';
-import { PARENT_ONBOARDING_TTS_CUES } from './onboardingTts.js';
+import { PARENT_ONBOARDING_TTS_CUES, type OnboardingTtsCue } from './onboardingTts.js';
 import { createTtsAssetStorage, type TtsAssetStorage } from './ttsStorage.js';
 import { createTtsProviders, TtsProviderError, type TtsProviderInput, type TtsProviderResult } from './ttsProviders.js';
 
@@ -154,16 +154,18 @@ export interface OnboardingTtsRepairDependencies {
   }) => Promise<unknown>;
 }
 
-export async function prepareOnboardingTts(
+export async function prepareOnboardingTtsCatalog(
+  cues: readonly OnboardingTtsCue[],
+  language: string,
   dependencies: OnboardingTtsPreparationDependencies = {
     getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
     enqueue: input => withTransaction(client => enqueueTtsJob(client, input))
   }
 ): Promise<OnboardingTtsPreparationResult> {
   const result: OnboardingTtsPreparationResult = { total: 0, ready: 0, enqueued: 0, failed: 0 };
-  for (const cue of PARENT_ONBOARDING_TTS_CUES) {
+  for (const cue of cues) {
     result.total += 1;
-    const identity = buildTtsArtifactKey({ text: cue.text, language: 'en', voice: PARENT_ONBOARDING_TTS_VOICE });
+    const identity = buildTtsArtifactKey({ text: cue.text, language, voice: PARENT_ONBOARDING_TTS_VOICE });
     const existing = await dependencies.getArtifact(identity.cacheKey);
     if (isReadyTtsArtifact(existing)) {
       result.ready += 1;
@@ -195,6 +197,15 @@ export async function prepareOnboardingTts(
   return result;
 }
 
+export async function prepareOnboardingTts(
+  dependencies: OnboardingTtsPreparationDependencies = {
+    getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
+    enqueue: input => withTransaction(client => enqueueTtsJob(client, input))
+  }
+) {
+  return prepareOnboardingTtsCatalog(PARENT_ONBOARDING_TTS_CUES, 'en', dependencies);
+}
+
 export interface OnboardingTtsRepairResult {
   total: number;
   ready: number;
@@ -204,8 +215,10 @@ export interface OnboardingTtsRepairResult {
   failed: number;
 }
 
-/** Repair only missing or stale parent artifacts in the curated English catalog. */
-export async function repairMissingOnboardingTts(
+/** Repair only missing or stale artifacts in the supplied curated parent catalog. */
+export async function repairMissingOnboardingTtsCatalog(
+  cues: readonly OnboardingTtsCue[],
+  language: string,
   dependencies: OnboardingTtsRepairDependencies = {
     getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
     storage: createTtsAssetStorage(),
@@ -214,9 +227,9 @@ export async function repairMissingOnboardingTts(
   }
 ): Promise<OnboardingTtsRepairResult> {
   const result: OnboardingTtsRepairResult = { total: 0, ready: 0, present: 0, missing: 0, requeued: 0, failed: 0 };
-  for (const cue of PARENT_ONBOARDING_TTS_CUES) {
+  for (const cue of cues) {
     result.total += 1;
-    const identity = buildTtsArtifactKey({ text: cue.text, language: 'en', voice: PARENT_ONBOARDING_TTS_VOICE });
+    const identity = buildTtsArtifactKey({ text: cue.text, language, voice: PARENT_ONBOARDING_TTS_VOICE });
     const existing = await dependencies.getArtifact(identity.cacheKey);
     if (existing?.status !== 'ready' && existing?.status !== 'pending') continue;
 
@@ -231,7 +244,7 @@ export async function repairMissingOnboardingTts(
           avatarVoice: PARENT_ONBOARDING_TTS_VOICE,
           geminiVoice: GEMINI_TTS_VOICE_BY_AVATAR[PARENT_ONBOARDING_TTS_VOICE],
           geminiModel: appConfig.KITABU_GEMINI_TTS_MODEL,
-          language: 'en',
+          language: identity.language,
           provider: 'cartesia',
           model: appConfig.KITABU_CARTESIA_MODEL,
           voice: PARENT_ONBOARDING_TTS_VOICE,
@@ -271,7 +284,7 @@ export async function repairMissingOnboardingTts(
         avatarVoice: PARENT_ONBOARDING_TTS_VOICE,
         geminiVoice: GEMINI_TTS_VOICE_BY_AVATAR[PARENT_ONBOARDING_TTS_VOICE],
         geminiModel: appConfig.KITABU_GEMINI_TTS_MODEL,
-        language: 'en',
+        language: identity.language,
         provider: 'cartesia',
         model: appConfig.KITABU_CARTESIA_MODEL,
         voice: PARENT_ONBOARDING_TTS_VOICE,
@@ -283,6 +296,17 @@ export async function repairMissingOnboardingTts(
     }
   }
   return result;
+}
+
+export async function repairMissingOnboardingTts(
+  dependencies: OnboardingTtsRepairDependencies = {
+    getArtifact: cacheKey => getTtsArtifact(db, cacheKey),
+    storage: createTtsAssetStorage(),
+    getJob: artifactId => getTtsJobForArtifact(db, artifactId),
+    enqueue: input => withTransaction(client => enqueueTtsJob(client, input))
+  }
+) {
+  return repairMissingOnboardingTtsCatalog(PARENT_ONBOARDING_TTS_CUES, 'en', dependencies);
 }
 
 export async function enqueueSpeechCues(

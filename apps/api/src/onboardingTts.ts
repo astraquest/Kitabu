@@ -68,10 +68,46 @@ export const PARENT_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
   { id: 'parent-second-learner', text: 'Now it’s the next learner’s turn to choose their tutor.' }
 ] as const;
 
+export const PARENT_ONBOARDING_SW_TTS_CUES: readonly OnboardingTtsCue[] = [
+  { id: 'parent-sw-language', text: 'Chagua lugha yako.', language: 'sw' },
+  { id: 'parent-sw-role', text: 'Je, wewe ni mwalimu au mzazi?', language: 'sw' },
+  { id: 'parent-sw-avatar', text: 'Chagua picha inayokuwakilisha vizuri.', language: 'sw' },
+  { id: 'parent-sw-name', text: 'Ungependa tukuite nani?', language: 'sw' },
+  { id: 'parent-sw-whatsapp-number', text: 'Nambari yako ya WhatsApp ni ipi? Tutatumia nambari hii kukutumia taarifa kuhusu maendeleo ya mtoto wako.', language: 'sw' },
+  { id: 'parent-sw-country', text: 'Thibitisha nchi yako ili tukuandalie mtaala unaofaa.', language: 'sw' },
+  { id: 'parent-sw-learner-name', text: 'Jina la mtoto wako ni nani?', language: 'sw' },
+  { id: 'parent-sw-learner-age', text: 'Mtoto wako ana miaka mingapi?', language: 'sw' },
+  { id: 'parent-sw-learner-gender', text: 'Mtoto wako ni msichana au mvulana?', language: 'sw' },
+  { id: 'parent-sw-school', text: 'Mtoto wako anasoma shule gani?', language: 'sw' },
+  { id: 'parent-sw-grade', text: 'Na mtoto wako yuko darasa gani?', language: 'sw' },
+  { id: 'parent-sw-performance', text: 'Je, mtoto wako anafanya vizuri kiasi gani shuleni kwa sasa?', language: 'sw' },
+  { id: 'parent-sw-subjects', text: 'Ni masomo gani ungependa Kitabu AI imsaidie?', language: 'sw' },
+  { id: 'parent-sw-add-another', text: 'Je, ungependa kuongeza mtoto mwingine?', language: 'sw' },
+  { id: 'parent-sw-microphone', text: 'Ruhusu matumizi ya maikrofoni ili mwanafunzi wako aweze kuzungumza na mwalimu wake.', language: 'sw' },
+  { id: 'parent-sw-reminders', text: 'Washa arifa ili upokee kazi za nyumbani na taarifa za maendeleo.', language: 'sw' },
+  { id: 'parent-sw-referral', text: 'Na je, ulisikiaje kuhusu Kitabu AI?', language: 'sw' },
+  { id: 'parent-sw-tutor-introduction', text: 'Sasa ni wakati wa mwanafunzi wako kuchagua mwalimu wake. Tafadhali mwache achague mwenyewe.', language: 'sw' },
+  { id: 'parent-sw-mascot-selection', text: 'Chagua picha ya rafiki ungependa awe mwalimu wako.', language: 'sw' },
+  { id: 'parent-sw-mascot-rabbit', text: 'Jambo, mimi ni Rafiki Sungura. Nitakuwa mwalimu wako wa nyumbani. Je, uko tayari?', language: 'sw' },
+  { id: 'parent-sw-mascot-lion', text: 'Jambo, mimi ni Rafiki Simba. Nitakuwa mwalimu wako wa nyumbani. Je, uko tayari?', language: 'sw' },
+  { id: 'parent-sw-mascot-elephant', text: 'Jambo, mimi ni Rafiki Tembo. Nitakuwa mwalimu wako wa nyumbani. Je, uko tayari?', language: 'sw' },
+  { id: 'parent-sw-mascot-panda', text: 'Jambo, mimi ni Rafiki Panda. Nitakuwa mwalimu wako wa nyumbani. Je, uko tayari?', language: 'sw' },
+  { id: 'parent-sw-tutor-voice', text: 'Chagua sauti ambayo ungependa mwalimu wako atumie.', language: 'sw' },
+  { id: 'parent-sw-progress-encouragement', text: 'Mazoezi kidogo kila siku yatakusaidia kupata maendeleo makubwa.', language: 'sw' },
+  { id: 'parent-sw-commitment', text: 'Uko tayari kufanya ahadi ya kujifunza kila siku?', language: 'sw' },
+  { id: 'parent-sw-signature', text: 'Tafadhali tia sahihi kuthibitisha ahadi yako.', language: 'sw' },
+  { id: 'parent-sw-learner-ready', text: 'Endelea ili kuanza safari yako ya kujifunza.', language: 'sw' },
+  { id: 'parent-sw-study-plan-loading', text: 'Rafiki anaandaa mpango wako maalum wa masomo. Utakuwa tayari baada ya muda mfupi tu.', language: 'sw' },
+  { id: 'parent-sw-study-plan-ready', text: 'Hongera! Mpango wako wa masomo uko tayari.', language: 'sw' },
+  { id: 'parent-sw-save-account', text: 'Fungua akaunti ili uweze kufikia darasa lako.', language: 'sw' },
+  { id: 'parent-sw-second-learner', text: 'Sasa ni zamu ya mwanafunzi mwingine kuchagua mwalimu wake.', language: 'sw' }
+] as const;
+
 /** The public resolver serves both landing and parent onboarding cues. */
 export const LANDING_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
   ...LANDING_INTRO_TTS_CUES,
-  ...PARENT_ONBOARDING_TTS_CUES
+  ...PARENT_ONBOARDING_TTS_CUES,
+  ...PARENT_ONBOARDING_SW_TTS_CUES
 ] as const;
 
 export function getLandingIntroTtsCue(cueId: string) {

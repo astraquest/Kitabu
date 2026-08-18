@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-const { getLandingIntroTtsCue, getLandingTtsCue, LANDING_INTRO_TTS_CUES, PARENT_ONBOARDING_TTS_CUES } = await import('./onboardingTts.js');
+const { getLandingIntroTtsCue, getLandingTtsCue, LANDING_INTRO_TTS_CUES, PARENT_ONBOARDING_TTS_CUES, PARENT_ONBOARDING_SW_TTS_CUES } = await import('./onboardingTts.js');
 
 test('landing TTS resolver exposes only the four curated intro-carousel cues', () => {
   assert.deepEqual(
@@ -20,4 +20,13 @@ test('landing TTS resolver exposes landing and parent catalog cue IDs', () => {
   assert.equal(getLandingTtsCue('parent-mascot-panda')?.text.includes('Rafiki the Panda'), true);
   assert.equal(getLandingTtsCue('intro-slide-4')?.language, 'sw');
   assert.equal(getLandingTtsCue('arbitrary-user-text'), null);
+});
+
+test('Kiswahili parent onboarding catalog has 32 static Cartesia cues', () => {
+  assert.equal(PARENT_ONBOARDING_SW_TTS_CUES.length, 32);
+  assert.ok(PARENT_ONBOARDING_SW_TTS_CUES.every(cue => cue.language === 'sw'));
+  assert.equal(PARENT_ONBOARDING_SW_TTS_CUES[0].text, 'Chagua lugha yako.');
+  assert.equal(PARENT_ONBOARDING_SW_TTS_CUES[1].text, 'Je, wewe ni mwalimu au mzazi?');
+  assert.equal(PARENT_ONBOARDING_SW_TTS_CUES.find(cue => cue.id === 'parent-sw-whatsapp-number')?.text, 'Nambari yako ya WhatsApp ni ipi? Tutatumia nambari hii kukutumia taarifa kuhusu maendeleo ya mtoto wako.');
+  assert.equal(getLandingTtsCue('parent-sw-language')?.language, 'sw');
 });

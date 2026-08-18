@@ -255,6 +255,41 @@ function createSimulatedLiveAudioSession(): LiveAudioSession {
 
 let activeRecording: AudioRecorder | null = null;
 
+async function resetRecordingAudioMode() {
+  await setAudioModeAsync({
+    allowsRecording: false,
+  }).catch(() => undefined);
+}
+
+async function releaseRecording(recording: AudioRecorder | null) {
+  if (!recording) {
+    await resetRecordingAudioMode();
+    return;
+  }
+
+  if (activeRecording === recording) {
+    activeRecording = null;
+  }
+
+  await Promise.resolve()
+    .then(() => recording.stop())
+    .catch(() => undefined);
+  try {
+    recording.release?.();
+  } catch {
+    // The native object may already be released after a failed stop.
+  }
+  await resetRecordingAudioMode();
+}
+
+function recorderReportsRecording(recording: AudioRecorder) {
+  if (typeof recording.getStatus === 'function') {
+    return recording.getStatus().isRecording === true;
+  }
+
+  return recording.isRecording === true;
+}
+
 type WebFileLike = {
   arrayBuffer: () => Promise<ArrayBuffer>;
   name?: string;
@@ -525,44 +560,66 @@ function normalizeImportedCurriculum(
 export const audioRecordingBridge: AudioRecordingBridge = {
   state: 'expo_native',
   async startRecording() {
-    const permission = await requestRecordingPermissionsAsync();
+    let permission;
+    try {
+      permission = await requestRecordingPermissionsAsync();
+    } catch (error) {
+      await resetRecordingAudioMode();
+      throw error;
+    }
+
     if (!permission.granted) {
+      await resetRecordingAudioMode();
       return false;
     }
 
     if (activeRecording) {
-      await activeRecording.stop().catch(() => undefined);
-      activeRecording = null;
+      await releaseRecording(activeRecording);
     }
 
-    await setAudioModeAsync({
-      allowsRecording: true,
-      playsInSilentMode: true,
-    });
+    let recording: AudioRecorder | null = null;
+    try {
+      await setAudioModeAsync({
+        allowsRecording: true,
+        playsInSilentMode: true,
+      });
 
-    const recording = new AudioModule.AudioRecorder(speechRecordingOptions);
-    await recording.prepareToRecordAsync();
-    recording.record();
-    activeRecording = recording;
-    // Android may not expose a usable file URI until stop() completes. The UI
-    // previously treated that pre-stop URI as the success signal, so recording
-    // started natively but immediately appeared to fail after permission grant.
-    return true;
+      recording = new AudioModule.AudioRecorder(speechRecordingOptions);
+      activeRecording = recording;
+      await recording.prepareToRecordAsync();
+      recording.record();
+
+      if (!recorderReportsRecording(recording)) {
+        throw new Error('Recorder did not enter the recording state');
+      }
+
+      return true;
+    } catch (error) {
+      await releaseRecording(recording);
+      throw error;
+    }
   },
   async stopRecording() {
-    if (!activeRecording) {
-      return null;
-    }
-
     const recording = activeRecording;
     activeRecording = null;
     try {
+      if (!recording) {
+        return null;
+      }
+
       await recording.stop();
-      return recording.uri;
+      const uri = recording.uri;
+      if (!uri?.trim()) {
+        throw new Error('Recorder did not return an audio file');
+      }
+      return uri;
     } finally {
-      await setAudioModeAsync({
-        allowsRecording: false,
-      }).catch(() => undefined);
+      try {
+        recording?.release?.();
+      } catch {
+        // The recorder may already have released its native resources.
+      }
+      await resetRecordingAudioMode();
     }
   },
   async transcribeClip(_audioPath) {

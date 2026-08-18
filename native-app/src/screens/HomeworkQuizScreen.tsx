@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Info, Mic, RotateCcw, Square, X } from 'lucide-react-native';
 
@@ -42,10 +42,13 @@ export function HomeworkQuizScreen({
   const [questionStartTime, setQuestionStartTime] = useState(Date.now());
   const [rushWarning, setRushWarning] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [isStartingRecording, setIsStartingRecording] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
   const [recordedAudioPath, setRecordedAudioPath] = useState<string | null>(null);
   const [voiceError, setVoiceError] = useState<string | null>(null);
+  const startRecordingPendingRef = useRef(false);
+  const screenMountedRef = useRef(true);
   const [explanationModal, setExplanationModal] = useState<{
     isOpen: boolean;
     isLoading: boolean;
@@ -80,6 +83,13 @@ export function HomeworkQuizScreen({
     setRecordedAudioPath(null);
     setVoiceError(null);
   }, [currentQuestionIndex]);
+
+  useEffect(() => {
+    return () => {
+      screenMountedRef.current = false;
+      Promise.resolve(audioRecordingBridge.stopRecording()).catch(() => undefined);
+    };
+  }, []);
 
   useEffect(() => {
     if (!rushWarning) {
@@ -129,11 +139,15 @@ export function HomeworkQuizScreen({
 
     let active = true;
     const timer = setTimeout(() => {
-      audioRecordingBridge
-        .transcribeAnswer(currentQuestionIndex, recordedAudioPath)
+        audioRecordingBridge
+        .transcribeClip(recordedAudioPath)
         .then(fallback => {
         if (!active) {
           return;
+        }
+
+        if (!fallback?.trim()) {
+          throw new Error('Audio transcription returned no answer');
         }
 
         setAnswers(previous => ({ ...previous, [currentQuestionIndex]: fallback }));
@@ -208,9 +222,39 @@ export function HomeworkQuizScreen({
     onSubmit(finalScore, answers);
   }
 
+  function handleSkipQuestion() {
+    setIsRecording(false);
+    setIsTranscribing(false);
+    setRecordedAudioPath(null);
+    setVoiceError(null);
+
+    if (currentQuestionIndex < totalQuestions - 1) {
+      setCurrentQuestionIndex(value => value + 1);
+      return;
+    }
+
+    const finalScore = calculateScore();
+    setScore(finalScore);
+    setStatus('scored');
+    onSubmit(finalScore, answers);
+  }
+
   async function beginVoiceRecording() {
+    if (startRecordingPendingRef.current || isStartingRecording || isRecording || isTranscribing) {
+      return;
+    }
+
+    startRecordingPendingRef.current = true;
+    setIsStartingRecording(true);
     try {
       const started = await audioRecordingBridge.startRecording();
+      if (!screenMountedRef.current) {
+        if (started) {
+          await audioRecordingBridge.stopRecording();
+        }
+        return;
+      }
+
       if (!started) {
         setVoiceError('Microphone access is required to record an answer.');
         return;
@@ -222,8 +266,16 @@ export function HomeworkQuizScreen({
       setTimeLeft(10);
     } catch (error) {
       console.error('Unable to start voice recording', error);
+      if (!screenMountedRef.current) {
+        return;
+      }
       setIsRecording(false);
       setVoiceError('Recording could not start. Please try again.');
+    } finally {
+      startRecordingPendingRef.current = false;
+      if (screenMountedRef.current) {
+        setIsStartingRecording(false);
+      }
     }
   }
 
@@ -396,9 +448,18 @@ export function HomeworkQuizScreen({
             ) : !isReview ? (
               <View style={styles.voiceCard}>
                 {voiceError ? (
-                  <View style={styles.voiceErrorBanner}>
-                    <Text style={styles.voiceErrorText}>{voiceError}</Text>
-                  </View>
+                  <>
+                    <View style={styles.voiceErrorBanner}>
+                      <Text style={styles.voiceErrorText}>{voiceError}</Text>
+                    </View>
+                    <Pressable
+                      accessibilityLabel="Skip question"
+                      accessibilityRole="button"
+                      onPress={handleSkipQuestion}
+                      style={styles.skipButton}>
+                      <Text style={styles.skipButtonText}>Skip question</Text>
+                    </Pressable>
+                  </>
                 ) : null}
 
                 {isRecording ? (
@@ -433,6 +494,7 @@ export function HomeworkQuizScreen({
                   </View>
                 ) : (
                   <Pressable
+                    disabled={isStartingRecording}
                     accessibilityLabel="Start recording answer"
                     accessibilityRole="button"
                     onPress={() => {
@@ -748,6 +810,18 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 16,
   },
+  skipButton: {
+    backgroundColor: '#FFF7ED',
+    borderColor: '#FDBA74',
+    borderRadius: 14,
+    borderWidth: 1,
+    bottom: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    position: 'absolute',
+    right: 14,
+  },
+  skipButtonText: { color: '#C2410C', fontWeight: '800', fontSize: 12 },
   voiceStateWrap: {
     alignItems: 'center',
     gap: 14,

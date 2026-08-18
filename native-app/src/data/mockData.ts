@@ -554,7 +554,7 @@ export const INITIAL_USER_PROFILE: UserProfile = {
   grade: 'Grade 6',
   gender: 'Not Specified',
   email: '',
-  avatar: 'avatar-afro-boy',
+  avatar: 'boy1',
   school: '',
   phone: '',
   dateJoined: '',

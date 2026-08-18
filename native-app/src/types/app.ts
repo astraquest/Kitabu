@@ -705,6 +705,8 @@ export interface ParentChildSummary {
   name: string;
   email: string;
   grade: string;
+  gender?: GenderOption;
+  avatar?: string;
   school: string | null;
   relationship: string;
   assessment_average: number;

@@ -49,13 +49,13 @@ test('normalizes and deduplicates profile metadata while dropping secrets', () =
       id: 'PARENT-1',
       displayName: 'Njeri Wambui Updated',
       role: 'parent',
-      avatarKey: 'avatar-afro-girl',
+      avatarKey: 'mum1',
     },
     {
       id: 'teacher-1',
       displayName: 'Teacher One',
       role: 'teacher',
-      avatarKey: 'avatar-afro-boy',
+      avatarKey: 'boy1',
     },
   ]);
   expect(JSON.stringify(normalized)).not.toContain('password');
@@ -74,7 +74,7 @@ test('loads and saves only the normalized secure profile index', async () => {
       id: 'student-1',
       displayName: 'Amani',
       role: 'student',
-      avatarKey: 'avatar-afro-boy',
+      avatarKey: 'boy1',
       email: 'a@example.com',
     },
   ]);
@@ -85,7 +85,7 @@ test('loads and saves only the normalized secure profile index', async () => {
         id: 'student-1',
         displayName: 'Amani',
         role: 'student',
-        avatarKey: 'avatar-afro-boy',
+        avatarKey: 'boy1',
         refreshToken: 'secret-token',
       },
     ]),
@@ -94,7 +94,7 @@ test('loads and saves only the normalized secure profile index', async () => {
       id: 'student-1',
       displayName: 'Amani',
       role: 'student',
-      avatarKey: 'avatar-afro-boy',
+      avatarKey: 'boy1',
     },
   ]);
   expect(saveSecure).toHaveBeenCalledWith(PROFILE_INDEX_STORAGE_KEY, [
@@ -102,7 +102,7 @@ test('loads and saves only the normalized secure profile index', async () => {
       id: 'student-1',
       displayName: 'Amani',
       role: 'student',
-      avatarKey: 'avatar-afro-boy',
+      avatarKey: 'boy1',
     },
   ]);
 });

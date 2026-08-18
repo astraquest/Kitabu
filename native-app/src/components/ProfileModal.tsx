@@ -29,7 +29,7 @@ import {
 import { SchoolData, Subject, UserProfile } from '../types/app';
 import type { BillingStatus } from '../types/app';
 import { SUPPORTED_GRADES } from '../constants/grades';
-import { AvatarArt, isLocalAvatarKey } from './AvatarArt';
+import { AvatarArt, normalizeLocalAvatarKey } from './AvatarArt';
 import { CountryFlagIcon } from './CountryFlagIcon';
 
 interface ProfileModalProps {
@@ -462,6 +462,7 @@ export function ProfileModal({
     error: null,
   });
   const avatarUri = getAvatarUri(formData.avatar);
+  const localAvatarKey = normalizeLocalAvatarKey(formData.avatar);
   const orderedSubjects = useMemo(
     () => orderProfileSubjects(allSubjects),
     [allSubjects],
@@ -767,8 +768,8 @@ export function ProfileModal({
                   onPress={openEditCard}
                   style={styles.compactAvatarPressable}
                 >
-                  {formData.avatar && isLocalAvatarKey(formData.avatar) ? (
-                    <AvatarArt avatarKey={formData.avatar} size={62} />
+                  {localAvatarKey ? (
+                    <AvatarArt avatarKey={localAvatarKey} size={62} />
                   ) : avatarUri ? (
                     <Image
                       source={{ uri: avatarUri }}

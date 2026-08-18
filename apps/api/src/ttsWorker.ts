@@ -63,8 +63,8 @@ function providerInput(job: TtsJobRecord): TtsProviderInput {
   return { text: job.normalized_text, language: job.language || 'en', voice: job.avatar_voice };
 }
 
-async function processCartesiaQueue(
-  options: { limit?: number; workerId?: string; dependencies?: QueueProcessorDependencies } = {}
+export async function processCartesiaQueue(
+  options: { limit?: number; workerId?: string; dependencies?: QueueProcessorDependencies; fallbackToGemini?: boolean } = {}
 ) {
   const dependencies = options.dependencies ?? defaultDependencies();
   const workerId = options.workerId ?? newTtsWorkerId();
@@ -72,6 +72,7 @@ async function processCartesiaQueue(
   let completed = 0;
   let deferred = 0;
   let failed = 0;
+  const errors: Array<{ jobId: string; message: string }> = [];
   for (const job of jobs) {
     try {
       const generated = await dependencies.synthesize(dependencies.providers.cartesia, providerInput(job));
@@ -82,17 +83,51 @@ async function processCartesiaQueue(
       const providerError = error instanceof TtsProviderError ? error : null;
       const message = error instanceof Error ? error.message : String(error);
       if (providerError && providerError.kind !== 'invalid') {
-        await dependencies.release(job, message, providerError.retryAfterMs ? Math.ceil(providerError.retryAfterMs / 1000) : appConfig.KITABU_TTS_RETRY_DELAY_SECONDS, workerId, 'gemini');
+        errors.push({ jobId: job.id, message });
+        await dependencies.release(
+          job,
+          message,
+          providerError.retryAfterMs ? Math.ceil(providerError.retryAfterMs / 1000) : appConfig.KITABU_TTS_RETRY_DELAY_SECONDS,
+          workerId,
+          options.fallbackToGemini === false ? 'cartesia' : 'gemini'
+        );
         deferred += 1;
+        if (options.fallbackToGemini === false) break;
         continue;
       }
       await dependencies.fail(job, message.slice(0, 2_000), workerId);
       failed += 1;
+      errors.push({ jobId: job.id, message });
       console.warn('[tts] Cartesia job failed', { jobId: job.id, message });
+      if (options.fallbackToGemini === false) break;
     }
   }
   const queueDepth = await dependencies.queueDepth();
-  return { claimed: jobs.length, completed, deferred, failed, queueDepth, mode: 'cartesia-primary' as const };
+  return { claimed: jobs.length, completed, deferred, failed, errors, queueDepth, mode: 'cartesia-primary' as const };
+}
+
+/** Process only explicit artifact IDs and never send them to the Gemini fallback. */
+export async function processCartesiaTtsJobsForArtifacts(
+  artifactIds: readonly string[],
+  options: { limit?: number; workerId?: string } = {}
+) {
+  if (!artifactIds.length) {
+    return { claimed: 0, completed: 0, deferred: 0, failed: 0, queueDepth: { pending: 0, processing: 0 }, mode: 'cartesia-parent-only' as const };
+  }
+  const dependencies = defaultDependencies();
+  const { claimTtsJobsForArtifacts, withTransaction } = await import('./repositories.js');
+  dependencies.claim = (limit, workerId, leaseSeconds, provider) => {
+    if (provider !== 'cartesia') return Promise.resolve([]);
+    return withTransaction(client => claimTtsJobsForArtifacts(client, artifactIds, limit, workerId, leaseSeconds, 'cartesia'));
+  };
+
+  const result = await processCartesiaQueue({
+    limit: options.limit ?? artifactIds.length,
+    workerId: options.workerId,
+    dependencies,
+    fallbackToGemini: false
+  });
+  return { ...result, mode: 'cartesia-parent-only' as const };
 }
 
 export async function processGeminiTtsQueue(

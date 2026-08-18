@@ -11,6 +11,7 @@ import { HomeworkListScreen } from '../src/screens/HomeworkListScreen';
 import { LoginScreen } from '../src/screens/LoginScreen';
 import { StudentOnboardingScreen } from '../src/screens/StudentOnboardingScreen';
 import { TryForOneBobModal } from '../src/components/TryForOneBobModal';
+import { LEARNING_MASCOT_SOURCES } from '../src/features/progressiveLearning/components/LearningMascotReaction';
 import type { BillingPlan, DueReview, SchoolData, WeeklyExamPayload } from '../src/types/app';
 
 jest.mock('../src/services/authService', () => ({
@@ -49,28 +50,28 @@ const plans: BillingPlan[] = [
     code: 'annual',
     name: 'Annual',
     billingCycle: 'annual',
-    priceKsh: 1999,
-    priceKshCents: 199900,
-    originalPriceKsh: 6000,
-    originalPriceKshCents: 600000,
+    priceKsh: 1000,
+    priceKshCents: 100000,
+    originalPriceKsh: null,
+    originalPriceKshCents: null,
     isPopular: false,
   },
   {
     code: 'weekly',
     name: 'Weekly',
     billingCycle: 'weekly',
-    priceKsh: 100,
-    priceKshCents: 10000,
-    originalPriceKsh: null,
-    originalPriceKshCents: null,
+    priceKsh: 150,
+    priceKshCents: 15000,
+    originalPriceKsh: 250,
+    originalPriceKshCents: 25000,
     isPopular: false,
   },
   {
     code: 'monthly',
     name: 'Monthly',
     billingCycle: 'monthly',
-    priceKsh: 250,
-    priceKshCents: 25000,
+    priceKsh: 300,
+    priceKshCents: 30000,
     originalPriceKsh: 500,
     originalPriceKshCents: 50000,
     isPopular: true,
@@ -3248,7 +3249,7 @@ test('onboarding selected controls use role accent colors', async () => {
   }
 });
 
-test('subscription modal shows Sungura Simba Ndovu packages and discounts', async () => {
+test('subscription modal shows the requested public packages and discounts', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -3279,19 +3280,45 @@ test('subscription modal shows Sungura Simba Ndovu packages and discounts', asyn
   const text = renderedText(renderer!.root);
 
   expect(textValues.indexOf('Sungura')).toBeLessThan(textValues.indexOf('Simba'));
-  expect(textValues.indexOf('Simba')).toBeLessThan(textValues.indexOf('Ndovu'));
+  expect(textValues.indexOf('Simba')).toBeLessThan(textValues.indexOf('Premium'));
   expect(textValues).toContain('MOST POPULAR');
-  expect(text).toContain('KSH 100');
-  expect(text).toContain('KSH 250');
-  expect(text).toContain('KSH 1,999');
-  expect(text).toContain('Per Week');
+  expect(textValues.filter(value => value === 'MOST POPULAR')).toHaveLength(1);
+  expect(text).toContain('KSH 150');
+  expect(text).toContain('KSH 300');
+  expect(text).toContain('KSH 1,000');
+  const textForNode = (node: ReactTestRenderer.ReactTestInstance) =>
+    [node.props.children]
+      .flat(Number.POSITIVE_INFINITY)
+      .filter(value => value !== null && value !== undefined && value !== false)
+      .join('');
+  const sunguraCard = renderer!.root.findByProps({ accessibilityLabel: 'Select Sungura package' });
+  const simbaCard = renderer!.root.findByProps({ accessibilityLabel: 'Select Simba package' });
+  for (const [card, originalPrice] of [
+    [sunguraCard, 'KSH 250'],
+    [simbaCard, 'KSH 500'],
+  ] as const) {
+    const originalPriceText = card.findAllByType(Text).find(node => textForNode(node) === originalPrice);
+    expect(originalPriceText).toBeDefined();
+    expect(StyleSheet.flatten(originalPriceText!.props.style).textDecorationLine).toBe('line-through');
+  }
+  const premiumCard = renderer!.root.findByProps({ accessibilityLabel: 'Select Premium package' });
+  expect(premiumCard.findAllByType(Text).some(node => textForNode(node).includes('% OFF'))).toBe(false);
+  expect(
+    premiumCard.findAllByType(Text).some(
+      node => textForNode(node).startsWith('KSH ') &&
+        StyleSheet.flatten(node.props.style).textDecorationLine === 'line-through',
+    ),
+  ).toBe(false);
   expect(text).toContain('Per Month');
-  expect(text).toContain('Per Year');
-  expect(text).toContain('50% OFF');
-  expect(text).toContain('Continue to Pay - KSH 250');
+  expect(text).toContain('Per Term');
+  expect(text).toContain('40% OFF');
+  expect(text).not.toContain('Per Week');
+  expect(text).not.toContain('Per Year');
+  expect(text).not.toContain('50% OFF');
+  expect(text).toContain('Continue to Pay - KSH 300');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Sungura mascot' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Simba mascot' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Ndovu mascot' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Premium mascot' })).toBeTruthy();
 });
 
 test('subscription modal fills missing public packages when only one plan is returned', async () => {
@@ -3321,11 +3348,11 @@ test('subscription modal fills missing public packages when only one plan is ret
 
   expect(text).toContain('Sungura');
   expect(text).toContain('Simba');
-  expect(text).toContain('Ndovu');
-  expect(text).toContain('KSH 100');
-  expect(text).toContain('KSH 250');
-  expect(text).toContain('KSH 1,999');
-  expect(text).toContain('Continue to Pay - KSH 250');
+  expect(text).toContain('Premium');
+  expect(text).toContain('KSH 150');
+  expect(text).toContain('KSH 300');
+  expect(text).toContain('KSH 1,000');
+  expect(text).toContain('Continue to Pay - KSH 300');
 });
 
 test('subscription modal centers the tapped package and updates checkout amount', async () => {
@@ -3352,48 +3379,48 @@ test('subscription modal centers the tapped package and updates checkout amount'
     );
   });
 
-  const ndovuButton = renderer!.root.findByProps({ accessibilityLabel: 'Select Ndovu package' });
+  const premiumButton = renderer!.root.findByProps({ accessibilityLabel: 'Select Premium package' });
 
-  expect(ndovuButton).toBeTruthy();
+  expect(premiumButton).toBeTruthy();
 
   await act(() => {
-    ndovuButton!.props.onPress();
+    premiumButton!.props.onPress();
   });
 
   const text = renderedText(renderer!.root);
 
   expect(onSelectPlan).toHaveBeenCalledWith('annual');
-  expect(text).toContain('Ndovu selected');
-  expect(text).toContain('Continue to Pay - KSH 1,999');
+  expect(text).toContain('Premium selected');
+  expect(text).toContain('Continue to Pay - KSH 1,000');
 
   await act(() => {
-    ndovuButton!.props.onPress();
+    premiumButton!.props.onPress();
   });
 
   const resetText = renderedText(renderer!.root);
-  expect(resetText).not.toContain('Ndovu selected');
+  expect(resetText).not.toContain('Premium selected');
   expect(onSelectPlan).toHaveBeenCalledTimes(1);
 });
 
-test('one bob offer opens the payment modal with the trial selected', async () => {
+test('free trial stays out of the paid checkout plan list', async () => {
   const onContinue = jest.fn();
   const trialPlan: BillingPlan = {
     code: 'trial_monthly_1bob',
-    name: '1 Bob Trial',
+    name: 'Free 1-Month Trial',
     billingCycle: 'monthly',
-    priceKsh: 1,
-    priceKshCents: 100,
-    originalPriceKsh: 250,
-    originalPriceKshCents: 25000,
+    priceKsh: 0,
+    priceKshCents: 0,
+    originalPriceKsh: null,
+    originalPriceKshCents: null,
     isPopular: false,
   };
   let renderer: ReactTestRenderer.ReactTestRenderer;
   const renderCheckout = (isSubmitting: boolean) => (
-    <SubscriptionCheckoutModal
-      isOpen
-      plans={[...plans, trialPlan]}
-      selectedPlanCode="trial_monthly_1bob"
-      phoneNumber="254700000000"
+      <SubscriptionCheckoutModal
+        isOpen
+        plans={[...plans, trialPlan]}
+        selectedPlanCode="monthly"
+        phoneNumber="254700000000"
       maskedSavedPhoneNumber={null}
       isSubmitting={isSubmitting}
       statusLabel={isSubmitting ? 'Check your phone and enter your M-Pesa PIN to continue.' : null}
@@ -3411,11 +3438,10 @@ test('one bob offer opens the payment modal with the trial selected', async () =
   });
 
   const text = renderedText(renderer!.root);
-  expect(text).toContain('Try Kitabu for Just 1 Bob');
-  expect(text).not.toContain('Unlock your first month and continue learning right away.');
-  expect(text).toContain('Continue to Pay - KSH 1');
-  expect(text).not.toContain('Sungura');
-  expect(text).not.toContain('Ndovu');
+  expect(text).not.toContain('Free 1-Month Trial');
+  expect(text).not.toContain('Bob');
+  expect(text).not.toContain('KSH 0');
+  expect(text).toContain('Continue to Pay - KSH 300');
 
   await act(() => {
     renderer!.root
@@ -3423,7 +3449,7 @@ test('one bob offer opens the payment modal with the trial selected', async () =
       .props.onPress();
   });
 
-  expect(onContinue).toHaveBeenCalledWith('trial_monthly_1bob');
+  expect(onContinue).toHaveBeenCalledWith('monthly');
 
   await act(() => {
     renderer!.update(renderCheckout(true));
@@ -3436,7 +3462,7 @@ test('one bob offer opens the payment modal with the trial selected', async () =
   expect(pendingButton.props.accessibilityState).toEqual({ disabled: true, busy: true });
 });
 
-test('try for one bob offer starts the KSh 1 checkout action', async () => {
+test('free trial offer starts directly without a phone number or checkout', async () => {
   const onAccept = jest.fn();
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
@@ -3445,7 +3471,7 @@ test('try for one bob offer starts the KSh 1 checkout action', async () => {
       <TryForOneBobModal
         isOpen
         isSubmitting={false}
-        phoneNumber="254704***611"
+        mascotKey="panda"
         onClose={jest.fn()}
         onAccept={onAccept}
       />,
@@ -3454,18 +3480,24 @@ test('try for one bob offer starts the KSh 1 checkout action', async () => {
 
   const text = renderedText(renderer!.root);
 
-  expect(text).toContain('Try 1 month for 1 bob');
-  expect(text).toContain('Pay KSh 1 and unlock Kitabu AI for a month.');
-  expect(text).toContain('Checkout will use 254704***611.');
+  expect(text).toContain('Start Your Free 1-Month Trial');
+  expect(text).toContain('No payment required.');
+  expect(text).toContain('Start Free Trial');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected panda mascot' }).props.source)
+    .toBe(LEARNING_MASCOT_SOURCES.panda);
+  expect(text).not.toContain('Bob');
+  expect(text).not.toContain('🔥');
+  expect(text).not.toContain('KSh 1');
+  expect(text).not.toContain('M-Pesa');
 
-  const payButton = renderer!.root.findAll(
+  const trialButton = renderer!.root.findAll(
     node =>
       typeof node.props.onPress === 'function' &&
-      node.findAllByProps({ children: 'Pay KSh 1' }).length > 0,
+      node.findAllByProps({ children: 'Start Free Trial' }).length > 0,
   )[0];
 
   await act(() => {
-    payButton.props.onPress();
+    trialButton.props.onPress();
   });
 
   expect(onAccept).toHaveBeenCalledTimes(1);

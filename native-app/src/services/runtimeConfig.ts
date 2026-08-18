@@ -44,7 +44,11 @@ function uniqueBaseUrls(urls: string[]) {
 }
 
 function getLocalDevelopmentApiBaseUrl() {
-  return Platform.OS === 'android' ? 'http://10.0.2.2:4000' : 'http://localhost:4000';
+  if (Platform.OS === 'android') {
+    return 'http://10.0.2.2:4000';
+  }
+
+  return Platform.OS === 'web' ? 'http://127.0.0.1:4000' : 'http://localhost:4000';
 }
 
 function readExpoDevelopmentHost() {
@@ -68,7 +72,12 @@ function readExpoDevelopmentHost() {
 
 function getExpoDevelopmentApiBaseUrl() {
   const host = readExpoDevelopmentHost();
-  return host ? `http://${host}:4000` : null;
+  if (!host) {
+    return null;
+  }
+
+  const isWebLoopbackHost = Platform.OS === 'web' && /^(localhost|127\.0\.0\.1)$/i.test(host);
+  return `http://${isWebLoopbackHost ? '127.0.0.1' : host}:4000`;
 }
 
 function getLocalDevelopmentApiBaseUrls() {

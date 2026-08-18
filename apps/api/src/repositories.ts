@@ -1999,8 +1999,8 @@ export async function upsertPushToken(
   );
 }
 
-export async function getActiveSubscription(userId: string) {
-  const result = await db.query<{
+export async function getActiveSubscription(userId: string, client: MaybeClient = db) {
+  const result = await q<{
     id: string;
     user_id: string;
     plan_id: string;
@@ -2012,6 +2012,7 @@ export async function getActiveSubscription(userId: string) {
     period_end: Date;
     status: string;
   }>(
+    client,
     `SELECT s.id, s.user_id, s.plan_id, p.code AS plan_code, p.name AS plan_name, s.billing_cycle, s.price_ksh_cents, s.period_start, s.period_end, s.status
      FROM subscriptions s
      JOIN subscription_plans p ON p.id = s.plan_id
@@ -2052,8 +2053,9 @@ export async function listSubscriptionPlans(codes?: BillingPlanCode[]) {
   return result.rows;
 }
 
-export async function findSubscriptionPlanByCode(code: BillingPlanCode) {
-  const result = await db.query<SubscriptionPlanRecord>(
+export async function findSubscriptionPlanByCode(code: BillingPlanCode, client: MaybeClient = db) {
+  const result = await q<SubscriptionPlanRecord>(
+    client,
     `SELECT id, code, name, billing_cycle, price_ksh_cents, is_pro, is_hidden
      FROM subscription_plans
      WHERE code = $1`,
@@ -2782,8 +2784,9 @@ export async function createParentHouseholdChildren(
   }
 }
 
-export async function hasSuccessfulPayments(userId: string) {
-  const result = await db.query<{ total: string }>(
+export async function hasSuccessfulPayments(userId: string, client: MaybeClient = db) {
+  const result = await q<{ total: string }>(
+    client,
     `SELECT COUNT(*)::bigint AS total
      FROM payment_requests
      WHERE user_id = $1
@@ -2792,6 +2795,22 @@ export async function hasSuccessfulPayments(userId: string) {
   );
 
   return Number(result.rows[0]?.total ?? 0) > 0;
+}
+
+export async function hasUsedFreeTrial(userId: string, client: MaybeClient = db) {
+  const result = await q<{ used: boolean }>(
+    client,
+    `SELECT EXISTS (
+       SELECT 1
+       FROM subscriptions s
+       JOIN subscription_plans p ON p.id = s.plan_id
+       WHERE s.user_id = $1
+         AND p.code = 'trial_monthly_1bob'
+     ) AS used`,
+    [userId]
+  );
+
+  return Boolean(result.rows[0]?.used);
 }
 
 export async function upsertBillingProfile(client: MaybeClient, userId: string, mpesaPhoneNumber: string) {
@@ -3012,6 +3031,35 @@ export async function replaceActiveSubscription(
     [input.userId]
   );
 
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO subscriptions (user_id, plan_id, billing_cycle, price_ksh_cents, period_start, period_end, status)
+     VALUES ($1, $2, $3, $4, $5, $6, 'active')
+     RETURNING id`,
+    [
+      input.userId,
+      input.planId,
+      input.billingCycle,
+      input.priceKshCents,
+      input.periodStart,
+      input.periodEnd
+    ]
+  );
+
+  return result.rows[0].id;
+}
+
+export async function createSubscription(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    planId: string;
+    billingCycle: 'weekly' | 'monthly' | 'annual';
+    priceKshCents: number;
+    periodStart: Date;
+    periodEnd: Date;
+  }
+) {
   const result = await q<{ id: string }>(
     client,
     `INSERT INTO subscriptions (user_id, plan_id, billing_cycle, price_ksh_cents, period_start, period_end, status)

@@ -26,6 +26,7 @@ import {
   getBillingPlans,
   getBillingStatus,
   getMpesaCheckoutStatus,
+  startFreeTrial,
   startMpesaCheckout,
 } from '../services/billingService';
 import {
@@ -3183,6 +3184,7 @@ export function useKitabuApp() {
     const shouldOfferTrial =
       Boolean(trialOfferPlan) &&
       !billingStatus.hasPaidBefore &&
+      !hasActiveSubscription &&
       pendingSubscriptionIntent?.kind !== 'manage_subscription' &&
       !activePaymentRequestId &&
       canShowTryOneBobOffer();
@@ -3329,10 +3331,10 @@ export function useKitabuApp() {
     }
   }
 
-  function acceptTryOneBobOffer() {
+  async function acceptTryOneBobOffer() {
     if (!trialOfferPlan) {
       setIsTryOneBobOpen(false);
-      setCheckoutError('The 1 bob offer is unavailable right now.');
+      setCheckoutError('The free trial is unavailable right now.');
       return;
     }
 
@@ -3340,7 +3342,29 @@ export function useKitabuApp() {
       kind: 'manage_subscription' as const,
       snapshot: getRouteSnapshot(currentView),
     };
-    openSubscriptionCheckout(intent, trialOfferPlan.code);
+    if (checkoutSubmissionLockedRef.current || activePaymentRequestId) {
+      return;
+    }
+
+    checkoutSubmissionLockedRef.current = true;
+    setIsSubmittingCheckout(true);
+    setCheckoutError(null);
+
+    try {
+      await startFreeTrial();
+      await refreshBillingState();
+      setIsTryOneBobOpen(false);
+      setQueuedTryOneBobOffer(false);
+      setPendingSubscriptionIntent(null);
+      triggerHaptic('success');
+      await resumePendingSubscriptionIntent(intent);
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : 'Unable to start the free trial');
+      triggerHaptic('error');
+    } finally {
+      checkoutSubmissionLockedRef.current = false;
+      setIsSubmittingCheckout(false);
+    }
   }
 
   function openAdminPortal() {

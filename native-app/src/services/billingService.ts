@@ -1,6 +1,7 @@
 import {
   BillingPlansResponse,
   BillingStatus,
+  FreeTrialResponse,
   MpesaCheckoutResponse,
   MpesaCheckoutStatus,
   BillingPlanCode,
@@ -16,6 +17,12 @@ export async function getBillingPlans(): Promise<BillingPlansResponse> {
 export async function getBillingStatus(): Promise<BillingStatus> {
   return apiRequest<BillingStatus>('/billing/subscription', {
     method: 'GET',
+  });
+}
+
+export async function startFreeTrial() {
+  return apiRequest<FreeTrialResponse>('/billing/free-trial', {
+    method: 'POST',
   });
 }
 

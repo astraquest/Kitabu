@@ -374,10 +374,10 @@ export function StudentDetailsModal({
                         isSvgUri(user.avatar) ? (
                           <SvgUri uri={user.avatar} width="100%" height="100%" />
                         ) : (
-                          <Image source={{ uri: avatarUri || user.avatar }} style={s.avatarImage} resizeMode="cover" />
+                          <Image resizeMethod="resize" source={{ cache: 'default', uri: avatarUri || user.avatar }} style={s.avatarImage} resizeMode="cover" />
                         )
                       ) : avatarUri ? (
-                        <Image source={{ uri: avatarUri }} style={s.avatarImage} resizeMode="cover" />
+                        <Image resizeMethod="resize" source={{ cache: 'default', uri: avatarUri }} style={s.avatarImage} resizeMode="cover" />
                       ) : (
                         <View style={s.avatarFallback}>
                           <Text style={s.avatarFallbackText}>{initials(user.name)}</Text>

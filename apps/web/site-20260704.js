@@ -5,21 +5,16 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------------------------------------------------------------
-     Analytics (Playbook 8.1 event names). Sends to PostHog when present;
-     otherwise queues so no click is lost before the analytics script loads.
-  --------------------------------------------------------------------- */
-  window.__kitabuEvents = window.__kitabuEvents || [];
+  /* Legacy presentation behavior delegates analytics to site-20260818.js. */
   function track(name, props) {
-    var payload = props || {};
-    payload.page_path = window.location.pathname;
-    if (window.posthog && typeof window.posthog.capture === 'function') {
-      window.posthog.capture(name, payload);
-    } else {
-      window.__kitabuEvents.push({ event: name, properties: payload, ts: Date.now() });
+    if (window.kitabuAnalytics && typeof window.kitabuAnalytics.track === 'function') {
+      return window.kitabuAnalytics.track(name, props);
     }
+    return null;
   }
-  window.kitabuTrack = track;
+  window.kitabuTrack = window.kitabuAnalytics && typeof window.kitabuAnalytics.track === 'function'
+    ? window.kitabuAnalytics.track
+    : track;
 
   // Declarative CTA events: <a data-event="download_cta_clicked" data-event-source="hero">
   document.addEventListener('click', function (e) {
@@ -29,7 +24,7 @@
 
   // Page-view events declared on <body data-page-event="pricing_viewed">
   var pageEvent = document.body.getAttribute('data-page-event');
-  if (pageEvent) track(pageEvent, { persona: document.body.getAttribute('data-persona') || undefined });
+  if (pageEvent && pageEvent !== 'pricing_viewed') track(pageEvent, { persona: document.body.getAttribute('data-persona') || undefined });
 
   /* ---------------------------------------------------------------------
      Header: sticky state + mobile sheet menu (spec 4.2-F)

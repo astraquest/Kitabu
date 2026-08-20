@@ -60,6 +60,7 @@ function makeState(role: PublicSignupRole | null = null) {
 function makeActions() {
   return {
     setSignupRole: jest.fn(),
+    recordProfileSetupStarted: jest.fn(),
     signUp: jest.fn(),
     openSignInEntry: jest.fn(),
     openSignupEntry: jest.fn(),
@@ -129,6 +130,7 @@ describe('KitabuApp signup onboarding wiring', () => {
           includeIntroChoices: role !== 'teacher',
           collectSignupCredentials: true,
           onRoleChange: actions.setSignupRole,
+          onProfileSetupStarted: actions.recordProfileSetupStarted,
           onSubmit: actions.signUp,
         }),
       );
@@ -161,6 +163,7 @@ describe('KitabuApp signup onboarding wiring', () => {
       expect.objectContaining({
         collectSignupCredentials: true,
         onRoleChange: actions.setSignupRole,
+        onProfileSetupStarted: actions.recordProfileSetupStarted,
         onSubmit: actions.signUp,
       }),
     );

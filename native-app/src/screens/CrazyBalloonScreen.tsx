@@ -196,7 +196,8 @@ export function CrazyBalloonScreen({
                       <SvgUri uri={opponentAvatar} width="100%" height="100%" />
                     ) : (
                       <Image
-                        source={{ uri: opponentAvatar }}
+                        resizeMethod="resize"
+                        source={{ cache: 'default', uri: opponentAvatar }}
                         style={styles.opponentAvatarImage}
                       />
                     )
@@ -339,7 +340,8 @@ export function CrazyBalloonScreen({
                         <SvgUri uri={player.avatar} width="100%" height="100%" />
                       ) : (
                         <Image
-                          source={{ uri: player.avatar }}
+                          resizeMethod="resize"
+                          source={{ cache: 'default', uri: player.avatar }}
                           style={styles.avatarImage}
                         />
                       )}

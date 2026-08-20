@@ -288,18 +288,6 @@ export function QuizMeScreen({
 
             <View style={styles.formatGrid}>
               <FormatOption
-                title="Flashcards"
-                body="Learn concepts by flipping cards"
-                icon={<Brain size={24} color={config.format === 'flashcards' ? '#FFFFFF' : '#6B7280'} />}
-                color="#F97316"
-                mutedColor="#F3F4F6"
-                active={config.format === 'flashcards'}
-                onPress={() =>
-                  setConfig(current => ({ ...current, format: 'flashcards' }))
-                }
-              />
-
-              <FormatOption
                 title="Quiz Format"
                 body="Standard multiple choice quiz"
                 icon={<ClipboardList size={24} color={config.format === 'quiz' ? '#FFFFFF' : '#6B7280'} />}
@@ -312,15 +300,26 @@ export function QuizMeScreen({
               />
 
               <FormatOption
+                title="Flashcards"
+                body="Learn concepts by flipping cards"
+                icon={<Brain size={24} color={config.format === 'flashcards' ? '#FFFFFF' : '#6B7280'} />}
+                color="#F97316"
+                mutedColor="#F3F4F6"
+                active={config.format === 'flashcards'}
+                onPress={() =>
+                  setConfig(current => ({ ...current, format: 'flashcards' }))
+                }
+              />
+
+              <FormatOption
                 title="Live Audio Quiz"
                 body="Interactive voice-based quiz"
+                status="Coming soon"
                 icon={<Mic size={24} color={config.format === 'audio' ? '#FFFFFF' : '#6B7280'} />}
                 color="#F59E0B"
                 mutedColor="#F3F4F6"
                 active={config.format === 'audio'}
-                onPress={() =>
-                  setConfig(current => ({ ...current, format: 'audio' }))
-                }
+                disabled
               />
             </View>
 
@@ -425,25 +424,34 @@ function Field({
 function FormatOption({
   title,
   body,
+  status,
   icon,
   color,
   mutedColor,
   active,
+  disabled = false,
   onPress,
 }: {
   title: string;
   body: string;
+  status?: string;
   icon: React.ReactNode;
   color: string;
   mutedColor: string;
   active: boolean;
-  onPress: () => void;
+  disabled?: boolean;
+  onPress?: () => void;
 }) {
   return (
     <Pressable
-      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={status ? `${title}, ${status}` : title}
+      accessibilityState={{ disabled, selected: active }}
+      disabled={disabled}
+      onPress={disabled ? undefined : onPress}
       style={[
         styles.formatCard,
+        disabled && styles.formatCardDisabled,
         active && {
           borderColor: color,
           backgroundColor: `${color}10`,
@@ -459,7 +467,12 @@ function FormatOption({
       </View>
 
       <View style={styles.formatTextWrap}>
-        <Text style={[styles.formatTitle, active && { color }]}>{title}</Text>
+        <View style={styles.formatTitleRow}>
+          <Text style={[styles.formatTitle, active && { color }, disabled && styles.formatTitleDisabled]}>
+            {title}
+          </Text>
+          {status ? <Text style={styles.formatStatus}>{status}</Text> : null}
+        </View>
         <Text style={styles.formatBody}>{body}</Text>
       </View>
 
@@ -773,6 +786,9 @@ const styles = StyleSheet.create({
     gap: 14,
     shadowOpacity: 0,
   },
+  formatCardDisabled: {
+    opacity: 0.62,
+  },
   formatIconWrap: {
     width: 52,
     height: 52,
@@ -788,6 +804,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
     marginBottom: 4,
+  },
+  formatTitleDisabled: {
+    color: '#6B7280',
+  },
+  formatTitleRow: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  formatStatus: {
+    backgroundColor: '#FEF3C7',
+    borderRadius: 999,
+    color: '#92400E',
+    fontSize: 10,
+    fontWeight: '800',
+    marginTop: 2,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    textTransform: 'uppercase',
   },
   formatBody: {
     color: '#6B7280',

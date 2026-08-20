@@ -86,14 +86,14 @@ export function PictureChoiceChallengeScene({
                 {groupIndex > 0 ? <Text style={styles.operator}>+</Text> : null}
                 <View style={styles.imageGroup}>
                   {Array.from({ length: group.count }, (_, imageIndex) => spec.imageUrl && !remoteImageFailed ? (
-                    <Image accessibilityLabel={`Picture ${imageIndex + 1} of group ${groupIndex + 1}`} key={imageIndex} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.groupImage} testID={`picture-choice-remote-group-image-${groupIndex}-${imageIndex}`} />
+                    <Image accessibilityLabel={`Picture ${imageIndex + 1} of group ${groupIndex + 1}`} key={imageIndex} onError={() => setRemoteImageFailed(true)} resizeMethod="resize" source={{ cache: 'default', uri: spec.imageUrl }} style={styles.groupImage} testID={`picture-choice-remote-group-image-${groupIndex}-${imageIndex}`} />
                   ) : <ObjectIllustration key={imageIndex} kind={spec.object} size={42} />)}
                 </View>
               </React.Fragment>
             ))}
           </View>
         ) : spec.imageUrl && !remoteImageFailed ? (
-          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-choice-remote-image" />
+          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} resizeMethod="resize" source={{ cache: 'default', uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-choice-remote-image" />
         ) : (
           <ObjectIllustration kind={spec.object} size={150} />
         )}

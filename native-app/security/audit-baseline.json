@@ -1,12 +1,47 @@
 {
   "schemaVersion": 1,
-  "expiresOn": "2026-09-04",
+  "expiresOn": "2026-08-22",
   "owner": "Kitabu mobile platform",
-  "reason": "The remaining native production-tree findings are the two published image-size denial-of-service advisories with no patched image-size release; all fixable js-yaml and nanoid findings were remediated in the lockfile.",
-  "remediation": "KITABU-SEC-2026-08-22: monitor image-size and Metro upstream releases, then update the Expo SDK 57-compatible Metro dependency as soon as a patched image-size release is published; rerun npm audit and remove this baseline immediately after remediation.",
+  "reason": "Expo SDK 57 and React Native 0.86 currently resolve Metro image-size 1.2.1, whose latest published 2.0.2 remains in the affected advisory range; npm only offers incompatible Expo 53 or React Native 0.72 fixes. js-yaml and nanoid were remediated with compatible lockfile overrides.",
+  "remediation": "KITABU-SEC-2026-08-19: replace the SDK-compatible Metro image-size chain when a patched release is published; retain this short-lived baseline only until then.",
   "findings": [
     {
+      "package": "@expo/cli",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
       "package": "@expo/metro",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
+      "package": "@expo/metro-config",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
+      "package": "@react-native/community-cli-plugin",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
+      "package": "@react-native/virtualized-lists",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
+      "package": "expo",
       "advisories": [
         "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
         "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
@@ -35,6 +70,13 @@
     },
     {
       "package": "metro-transform-worker",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ]
+    },
+    {
+      "package": "react-native",
       "advisories": [
         "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
         "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"

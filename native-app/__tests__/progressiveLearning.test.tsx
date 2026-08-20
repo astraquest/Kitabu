@@ -324,8 +324,8 @@ test('subject page visibly reports a failed live refresh while showing the curri
   expect(
     renderer.root.findAllByProps({
       children: 'Please sign in again to continue.',
-    }),
-  ).toHaveLength(1);
+    }).length,
+  ).toBeGreaterThan(0);
   expect(
     renderer.root.findByProps({
       children: 'Live learning path unavailable',

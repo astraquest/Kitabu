@@ -21,6 +21,12 @@ interface LoginResponse {
   refreshToken: string;
   user: AuthSession['user'];
   authState: AuthState;
+  isNewGoogleUser?: boolean;
+}
+
+export interface GoogleAuthResult {
+  session: AuthSession;
+  isNewGoogleUser: boolean;
 }
 
 export interface PhoneCodeResponse {
@@ -144,13 +150,30 @@ export async function verifyPhoneAuthCode(input: {
   return persistLoginResponse(payload);
 }
 
+export function authenticateWithGoogleToken(input: {
+  idToken: string;
+  role?: PublicSignupRole;
+  acceptedTerms?: true;
+}): Promise<AuthSession>;
+export function authenticateWithGoogleToken(input: {
+  idToken: string;
+  role?: PublicSignupRole;
+  acceptedTerms?: true;
+}, options: { includeSignupMetadata: true }): Promise<GoogleAuthResult>;
 export async function authenticateWithGoogleToken(input: {
   idToken: string;
   role?: PublicSignupRole;
   acceptedTerms?: true;
-}): Promise<AuthSession> {
+}, options?: { includeSignupMetadata?: boolean }): Promise<AuthSession | GoogleAuthResult> {
   const payload = await postJson<LoginResponse>('/auth/google', input);
-  return persistLoginResponse(payload);
+  const session = await persistLoginResponse(payload);
+  if (options?.includeSignupMetadata) {
+    return {
+      session,
+      isNewGoogleUser: payload.isNewGoogleUser === true,
+    };
+  }
+  return session;
 }
 
 export async function refreshAccessSession(refreshToken: string): Promise<AuthSession> {

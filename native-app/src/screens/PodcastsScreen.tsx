@@ -226,7 +226,8 @@ function PodcastThumbnail({ podcast }: { podcast: Podcast }) {
       {podcast.thumbnail ? (
         <Image
           resizeMode="cover"
-          source={{ uri: podcast.thumbnail }}
+          resizeMethod="resize"
+          source={{ cache: 'default', uri: podcast.thumbnail }}
           style={styles.thumbnailImage}
         />
       ) : podcast.type === 'video' ? (

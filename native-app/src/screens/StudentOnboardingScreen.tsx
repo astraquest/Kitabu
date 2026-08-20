@@ -1967,6 +1967,7 @@ interface StudentOnboardingScreenProps {
   externalPaymentsEnabled?: boolean;
   onCreateSchool?: (input: { schoolName: string; county: string }) => Promise<SchoolData>;
   onRoleChange?: (role: PublicSignupRole) => void;
+  onProfileSetupStarted?: (role: PublicSignupRole, grade?: string) => void;
   onSubmit: (input: {
     gender: GenderOption;
     grade: string;
@@ -2026,6 +2027,7 @@ export function StudentOnboardingScreen({
   externalPaymentsEnabled = true,
   onCreateSchool,
   onRoleChange,
+  onProfileSetupStarted,
   onSubmit,
 }: StudentOnboardingScreenProps) {
   const [introStep, setIntroStep] = useState<IntroStep>(includeIntroChoices ? 'language' : 'setup');
@@ -3893,7 +3895,6 @@ export function StudentOnboardingScreen({
     signupMethodOverride: SignupMethod | null = null,
   ) {
     onboardingCompletedRef.current = true;
-    trackOnboardingEvent('complete', 'complete', 'Onboarding complete');
     Keyboard.dismiss();
     setFocusedField(null);
     triggerHaptic('success');
@@ -4227,6 +4228,10 @@ export function StudentOnboardingScreen({
         triggerHaptic('error');
       }
       return;
+    }
+
+    if (introStep === 'setup') {
+      onProfileSetupStarted?.(role, grade || parentChildGrade || undefined);
     }
 
     if (introStep === 'language') {

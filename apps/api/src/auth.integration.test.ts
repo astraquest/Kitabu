@@ -926,6 +926,7 @@ test('Google signup links a verified identity and supports subsequent login', as
   });
   assert.equal(signup.statusCode, 200);
   const firstSession = signup.json();
+  assert.equal(firstSession.isNewGoogleUser, true);
   assert.equal(firstSession.user.emailVerified, true);
   assert.deepEqual(firstSession.user.roles, ['parent']);
   assert.equal(sentEmails.length, 1);
@@ -938,6 +939,7 @@ test('Google signup links a verified identity and supports subsequent login', as
     payload: { idToken }
   });
   assert.equal(login.statusCode, 200);
+  assert.equal(login.json().isNewGoogleUser, false);
   assert.equal(login.json().user.id, firstSession.user.id);
   assert.equal(sentEmails.length, 0);
 

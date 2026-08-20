@@ -17,6 +17,12 @@
 /site-20260704.js
   Cache-Control: public, max-age=31536000, immutable
 
+/site-20260818.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/analytics-config.js
+  Cache-Control: public, max-age=60, must-revalidate
+
 /styles.css
   Cache-Control: public, max-age=86400
 

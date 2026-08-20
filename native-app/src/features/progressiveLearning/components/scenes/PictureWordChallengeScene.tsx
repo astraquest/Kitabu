@@ -91,7 +91,7 @@ export function PictureWordChallengeScene({
         style={styles.pictureStage}
       >
         {spec.imageUrl && !remoteImageFailed ? (
-          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} source={{ uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-word-remote-image" />
+          <Image accessibilityLabel={`Picture of ${spec.caption}`} onError={() => setRemoteImageFailed(true)} resizeMethod="resize" source={{ cache: 'default', uri: spec.imageUrl }} style={styles.remoteImage} testID="picture-word-remote-image" />
         ) : (
           <ObjectIllustration kind={spec.object} size={148} />
         )}

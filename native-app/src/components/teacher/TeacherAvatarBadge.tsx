@@ -58,7 +58,7 @@ export function TeacherAvatarBadge({
         isSvgAvatar ? (
           <SvgUri uri={avatar} width="100%" height="100%" />
         ) : (
-          <Image source={{ uri: avatar }} style={styles.avatarImage} resizeMode="cover" />
+          <Image resizeMethod="resize" source={{ cache: 'default', uri: avatar }} style={styles.avatarImage} resizeMode="cover" />
         )
       ) : styles.avatarArtFallback ? (
         <AvatarArt avatarKey={fallbackAvatarKey(name)} size={size} />

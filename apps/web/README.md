@@ -44,12 +44,24 @@ for caching/security). No framework, no build dependencies beyond Node.
 
 ## Analytics
 
-`site-*.js` exposes `window.kitabuTrack(name, props)` and fires the playbook
-8.1 event names (`download_cta_clicked`, `school_demo_viewed/started/submitted`,
-`pricing_viewed`, `persona_page_viewed`, `faq_expanded`) from `data-event`
-attributes. Events forward to PostHog when `window.posthog` exists; until then
-they queue in `window.__kitabuEvents`, so adding the PostHog snippet later
-requires no markup changes.
+`site-20260818.js` is the centralized first-party website analytics service.
+It exposes `window.kitabuTrack(name, props)`. Before analytics consent, the
+anonymous/session UUIDs, first/latest attribution, and pending events remain
+memory-only. After analytics consent it persists those bounded identifiers and
+attribution, then batches consented events to
+`https://app.kitabu.ai/analytics/events` (override with `window.KITABU_API_BASE`),
+and keeps a bounded offline queue. `analytics-config.js` is public configuration
+only: Meta Pixel ID, TikTok Pixel Code, GA4 Measurement ID, and Google Ads
+conversion IDs/labels may be populated at deploy time; never add access tokens or
+API secrets. Third-party scripts are loaded only after the matching consent.
+
+The older `site-20260704.js` remains loaded for non-funnel presentation behavior;
+its `kitabuTrack` calls delegate to the centralized service. Unknown legacy
+event names are ignored because no page reads the former in-memory buffer.
+Canonical events are `page_view`,
+`landing_page_engaged`, `app_download_clicked`, and `pricing_viewed` plus the
+backend lifecycle names. A direct Google Play destination is the only website
+action classified as `app_download_clicked`; WhatsApp is not.
 
 ## School onboarding form (`/schools/demo`)
 

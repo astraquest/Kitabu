@@ -40,6 +40,7 @@ interface DiagnosticScreenProps {
   voiceName?: OnboardingVoiceName;
   previewQuestions?: PreviewDiagnosticQuestion[];
   onComplete: (result: DiagnosticResult) => void;
+  onCompletionConfirmed?: (sessionId: string) => void;
 }
 
 export function DiagnosticScreen({
@@ -50,6 +51,7 @@ export function DiagnosticScreen({
   voiceName,
   previewQuestions,
   onComplete,
+  onCompletionConfirmed,
 }: DiagnosticScreenProps) {
   const { height, width } = useWindowDimensions();
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -196,6 +198,7 @@ export function DiagnosticScreen({
             ? await completeProgressiveDiagnostic(subjectId, sessionId)
             : await completeOnboardingDiagnostic(sessionId);
         setResult(completion.result);
+        onCompletionConfirmed?.(sessionId);
       }
       setMascotMood('celebrate');
       triggerHaptic('success');

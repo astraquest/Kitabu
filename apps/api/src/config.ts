@@ -106,7 +106,7 @@ const configSchema = z.object({
   KITABU_GEMINI_TTS_DAILY_WORKER_HOUR_UTC: z.coerce.number().int().min(0).max(23).default(2),
   KITABU_CARTESIA_API_KEY: z.string().optional(),
   KITABU_CARTESIA_BASE_URL: z.string().url().default('https://api.cartesia.ai'),
-  KITABU_CARTESIA_VERSION: z.string().default('2025-04-16'),
+  KITABU_CARTESIA_VERSION: z.string().default('2026-03-01'),
   KITABU_CARTESIA_MODEL: z.string().default('sonic-3'),
   KITABU_CARTESIA_VOICE_MAP: z.string().default('{}'),
   KITABU_CARTESIA_DEFAULT_VOICE: z.string().optional(),
@@ -119,7 +119,7 @@ const configSchema = z.object({
   KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT: z.string().default('./var/educational-assets'),
   KITABU_TTS_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
   KITABU_TTS_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
-  KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND: z.enum(['local', 'http-put']).default('local'),
+  KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND: z.enum(['local', 'http-put', 'supabase']).default('local'),
   KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE: z.string().url().optional(),
   KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL: z.string().url().optional(),
   KITABU_TTS_WORKER_ENABLED: booleanish.default(true),
@@ -128,6 +128,26 @@ const configSchema = z.object({
   KITABU_TTS_WORKER_LEASE_SECONDS: z.coerce.number().int().positive().default(300),
   KITABU_TTS_MAX_ATTEMPTS: z.coerce.number().int().positive().max(10).default(3),
   KITABU_TTS_RETRY_DELAY_SECONDS: z.coerce.number().int().positive().default(60),
+  KITABU_GEMINI_API_BASE_URL: z.string().url().default('https://generativelanguage.googleapis.com'),
+  KITABU_GEMINI_TTS_BATCH_ENABLED: booleanish.default(false),
+  KITABU_TTS_STORAGE_BUCKET: z.string().trim().min(1).default('tts-audio'),
+  KITABU_EDUCATIONAL_ASSET_STORAGE_BUCKET: z.string().trim().min(1).default('educational-assets'),
+  KITABU_SUPABASE_URL: z.string().url().optional(),
+  KITABU_SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
+  KITABU_TTS_PUBLIC_BASE_URL: z.string().url().optional(),
+  KITABU_TTS_QUEUE_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(25),
+  KITABU_TTS_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(30_000),
+  KITABU_ANALYTICS_WORKER_ENABLED: booleanish.default(true),
+  KITABU_ANALYTICS_WORKER_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(15_000),
+  KITABU_ANALYTICS_WORKER_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(25),
+  KITABU_ANALYTICS_WORKER_MAX_ATTEMPTS: z.coerce.number().int().positive().max(10).default(5),
+  KITABU_ANALYTICS_WORKER_LEASE_MS: z.coerce.number().int().positive().default(60_000),
+  KITABU_ANALYTICS_WORKER_BASE_BACKOFF_MS: z.coerce.number().int().positive().default(5_000),
+  KITABU_ANALYTICS_WORKER_MAX_BACKOFF_MS: z.coerce.number().int().positive().default(900_000),
+  KITABU_ANALYTICS_INACTIVITY_ENABLED: booleanish.default(true),
+  KITABU_ANALYTICS_INACTIVITY_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(86_400_000),
+  KITABU_ANALYTICS_INACTIVITY_THRESHOLD_DAYS: z.coerce.number().int().positive().max(30).default(7),
+  KITABU_ANALYTICS_INACTIVITY_BATCH_SIZE: z.coerce.number().int().positive().max(100).default(100),
   KITABU_KSH_PER_USD: z.coerce.number().positive().default(129.5),
   KITABU_ADMIN_WEB_ORIGIN: z.string().default('https://admin.kitabu.ai'),
   KITABU_WEB_APP_ORIGINS: z.string().default(''),
@@ -183,7 +203,15 @@ const configSchema = z.object({
   KITABU_AFRICASTALKING_SENDER_ID: z.string().optional(),
   KITABU_SENTRY_DSN: z.string().optional(),
   KITABU_POSTHOG_KEY: z.string().optional(),
-  KITABU_POSTHOG_HOST: z.string().url().default('https://app.posthog.com')
+  KITABU_POSTHOG_HOST: z.string().url().default('https://us.i.posthog.com'),
+  KITABU_META_PIXEL_ID: z.string().trim().optional(),
+  KITABU_META_CAPI_ACCESS_TOKEN: z.string().optional(),
+  KITABU_TIKTOK_PIXEL_CODE: z.string().trim().optional(),
+  KITABU_TIKTOK_EVENTS_ACCESS_TOKEN: z.string().optional(),
+  KITABU_GA4_MEASUREMENT_ID: z.string().trim().optional(),
+  KITABU_GA4_API_SECRET: z.string().optional(),
+  KITABU_ANALYTICS_PROVIDER_TIMEOUT_MS: z.coerce.number().int().min(500).max(10_000).default(3_000),
+  KITABU_ANALYTICS_DEBUG: booleanish.default(false)
 });
 
 export const appConfig = configSchema.parse(process.env);
@@ -223,6 +251,10 @@ appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT = appConfig.KITABU_EDUCATIONAL_A
 appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_STORAGE_PUBLIC_BASE_URL);
 appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE);
 appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL);
+appConfig.KITABU_GEMINI_API_BASE_URL = appConfig.KITABU_GEMINI_API_BASE_URL.replace(/\/$/, '').trim();
+appConfig.KITABU_SUPABASE_URL = trimOptional(appConfig.KITABU_SUPABASE_URL);
+appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY = trimOptionalSecret(appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY);
+appConfig.KITABU_TTS_PUBLIC_BASE_URL = trimOptional(appConfig.KITABU_TTS_PUBLIC_BASE_URL);
 appConfig.KITABU_WEB_APP_ORIGINS = appConfig.KITABU_WEB_APP_ORIGINS.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
 appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);
@@ -241,3 +273,9 @@ appConfig.KITABU_SMTP_PASS = trimOptional(appConfig.KITABU_SMTP_PASS);
 appConfig.KITABU_TRANSACTIONAL_MAIL_FROM = trimOptional(appConfig.KITABU_TRANSACTIONAL_MAIL_FROM);
 appConfig.KITABU_SENTRY_DSN = trimOptional(appConfig.KITABU_SENTRY_DSN);
 appConfig.KITABU_POSTHOG_KEY = trimOptional(appConfig.KITABU_POSTHOG_KEY);
+appConfig.KITABU_META_PIXEL_ID = trimOptional(appConfig.KITABU_META_PIXEL_ID);
+appConfig.KITABU_META_CAPI_ACCESS_TOKEN = trimOptionalSecret(appConfig.KITABU_META_CAPI_ACCESS_TOKEN);
+appConfig.KITABU_TIKTOK_PIXEL_CODE = trimOptional(appConfig.KITABU_TIKTOK_PIXEL_CODE);
+appConfig.KITABU_TIKTOK_EVENTS_ACCESS_TOKEN = trimOptionalSecret(appConfig.KITABU_TIKTOK_EVENTS_ACCESS_TOKEN);
+appConfig.KITABU_GA4_MEASUREMENT_ID = trimOptional(appConfig.KITABU_GA4_MEASUREMENT_ID);
+appConfig.KITABU_GA4_API_SECRET = trimOptionalSecret(appConfig.KITABU_GA4_API_SECRET);

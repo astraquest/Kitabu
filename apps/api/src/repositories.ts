@@ -19,6 +19,8 @@ import { deriveEducationalAssetAltText } from './educationalAssets/classificatio
 import type { EducationalAssetClassification } from './educationalAssets/classificationEdit.js';
 import { normalizeEducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
 import type { EducationalAssetProvenanceMetadata } from './educationalAssets/provenance.js';
+import { ANALYTICS_GRADE_BAND_SQL, type AnalyticsConsentInput, type AnalyticsGradeBand, type AnalyticsProvider } from './analytics.js';
+import type { AdminFunnelRow } from './analyticsAdmin.js';
 import {
   normalizeEducationalAssetCurriculumUnitIds,
   serializeEducationalAssetRelationshipMetadata,
@@ -1220,6 +1222,19 @@ export async function createAdminManagedUser(
 export async function deleteSelfServiceAccount(client: MaybeClient, userId: string) {
   await q(
     client,
+    `WITH linked_ids AS (
+       SELECT anonymous_id FROM analytics_events WHERE user_id = $1
+     ), deleted_events AS (
+       DELETE FROM analytics_events
+        WHERE user_id = $1 OR anonymous_id IN (SELECT anonymous_id FROM linked_ids)
+        RETURNING anonymous_id
+     )
+     DELETE FROM analytics_consent_states
+      WHERE user_id = $1 OR anonymous_id IN (SELECT anonymous_id FROM linked_ids)`,
+    [userId]
+  );
+  await q(
+    client,
     `DELETE FROM users
      WHERE id = $1`,
     [userId]
@@ -2025,6 +2040,614 @@ export async function getActiveSubscription(userId: string, client: MaybeClient 
     [userId]
   );
   return result.rows[0] ?? null;
+}
+
+export type StoredAnalyticsEvent = {
+  eventId: string;
+  name: string;
+  occurredAt: Date;
+  anonymousId: string;
+  userId: string | null;
+  sessionId?: string;
+  platform: string;
+  source: string;
+  appVersion?: string;
+  properties: Record<string, unknown>;
+  consent: { analytics: boolean; marketing: boolean };
+  clientDeliveredProviders?: AnalyticsProvider[];
+  attribution: Record<string, unknown>;
+  clientId?: string | null;
+  appInstanceId?: string | null;
+};
+
+export type AnalyticsConsentStateInput = AnalyticsConsentInput & {
+  userId?: string | null;
+  firstAttribution?: Record<string, unknown>;
+  latestAttribution?: Record<string, unknown>;
+  clientId?: string | null;
+  appInstanceId?: string | null;
+};
+
+export async function upsertAnalyticsConsentState(client: MaybeClient, input: AnalyticsConsentStateInput) {
+  const existing = await q<{ id: string; anonymous_id: string | null; user_id: string | null }>(
+    client,
+    `SELECT id, anonymous_id, user_id
+       FROM analytics_consent_states
+      WHERE ($1::uuid IS NOT NULL AND user_id = $1)
+         OR ($2::uuid IS NOT NULL AND anonymous_id = $2)
+      ORDER BY (user_id = $1) DESC NULLS LAST, updated_at DESC
+      FOR UPDATE`,
+    [input.userId ?? null, input.anonymousId ?? null]
+  );
+  const primary = existing.rows[0];
+  if (primary) {
+    const duplicateIds = existing.rows.slice(1).map(row => row.id);
+    if (duplicateIds.length) {
+      await q(client, 'DELETE FROM analytics_consent_states WHERE id = ANY($1::uuid[])', [duplicateIds]);
+    }
+    await q(
+      client,
+      `UPDATE analytics_consent_states
+          SET anonymous_id = COALESCE($2, anonymous_id),
+              user_id = COALESCE($3, user_id),
+              analytics_consent = $4,
+              marketing_consent = $5,
+              source = $6,
+              platform = $7,
+              consent_version = $8,
+              first_attribution = CASE WHEN $9::jsonb = '{}'::jsonb THEN first_attribution ELSE $9::jsonb END,
+              latest_attribution = $10::jsonb,
+              client_id = COALESCE($11, client_id),
+              app_instance_id = COALESCE($12, app_instance_id),
+              consented_at = NOW(),
+              updated_at = NOW()
+        WHERE id = $1`,
+      [
+        primary.id,
+        input.anonymousId ?? null,
+        input.userId ?? null,
+        input.analytics,
+        input.marketing,
+        input.source,
+        input.platform,
+        input.version,
+        JSON.stringify(input.firstAttribution ?? {}),
+        JSON.stringify(input.latestAttribution ?? {}),
+        input.clientId ?? null,
+        input.appInstanceId ?? null
+      ]
+    );
+    return primary.id;
+  }
+
+  const inserted = await q<{ id: string }>(
+    client,
+    `INSERT INTO analytics_consent_states (
+       anonymous_id, user_id, analytics_consent, marketing_consent, source, platform,
+       consent_version, first_attribution, latest_attribution, client_id, app_instance_id
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8::jsonb, $9::jsonb, $10, $11)
+     RETURNING id`,
+    [
+      input.anonymousId ?? null,
+      input.userId ?? null,
+      input.analytics,
+      input.marketing,
+      input.source,
+      input.platform,
+      input.version,
+      JSON.stringify(input.firstAttribution ?? {}),
+      JSON.stringify(input.latestAttribution ?? {}),
+      input.clientId ?? null,
+      input.appInstanceId ?? null
+    ]
+  );
+  return inserted.rows[0].id;
+}
+
+export async function recordAnalyticsEvent(
+  client: MaybeClient,
+  input: StoredAnalyticsEvent,
+  providers: AnalyticsProvider[] = []
+) {
+  const firstTouch = await q<{ first_attribution: Record<string, unknown> }>(
+    client,
+    `SELECT first_attribution FROM analytics_events
+     WHERE anonymous_id = $1 ORDER BY occurred_at ASC, created_at ASC LIMIT 1`,
+    [input.anonymousId]
+  );
+  const firstAttribution = firstTouch.rows[0]?.first_attribution ?? input.attribution;
+  if (input.source !== 'server') {
+    await upsertAnalyticsConsentState(client, {
+      anonymousId: input.anonymousId,
+      userId: input.userId,
+      analytics: input.consent.analytics,
+      marketing: input.consent.marketing,
+      source: input.source === 'website' ? 'website' : 'native',
+      platform: input.platform === 'ios' ? 'ios' : input.platform === 'android' ? 'android' : 'web',
+      version: 'event-v1',
+      firstAttribution,
+      latestAttribution: input.attribution,
+      clientId: input.clientId,
+      appInstanceId: input.appInstanceId
+    });
+  }
+  const result = await q<{ event_id: string }>(
+    client,
+    `INSERT INTO analytics_events (
+       event_id, name, occurred_at, anonymous_id, user_id, session_id, platform, source,
+       app_version, properties, analytics_consent, marketing_consent, first_attribution,
+       latest_attribution, client_id, app_instance_id
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11, $12, $13::jsonb, $14::jsonb, $15, $16)
+     ON CONFLICT (event_id) DO NOTHING
+     RETURNING event_id`,
+    [
+      input.eventId, input.name, input.occurredAt, input.anonymousId, input.userId, input.sessionId ?? null,
+      input.platform, input.source, input.appVersion ?? null, JSON.stringify(input.properties),
+      input.consent.analytics, input.consent.marketing, JSON.stringify(firstAttribution),
+      JSON.stringify(input.attribution), input.clientId ?? null, input.appInstanceId ?? null
+    ]
+  );
+  if (result.rowCount !== 1) return { inserted: false, eventId: input.eventId };
+
+  for (const provider of providers) {
+    await q(
+      client,
+      `INSERT INTO analytics_event_deliveries (event_id, provider, status)
+       VALUES ($1, $2, 'pending') ON CONFLICT (event_id, provider) DO NOTHING`,
+      [input.eventId, provider]
+    );
+  }
+  return { inserted: true, eventId: input.eventId };
+}
+
+export type InactiveAnalyticsCandidate = {
+  userId: string;
+  lastActivityAt: Date;
+  lastSurface: string;
+};
+
+export async function listInactiveAnalyticsCandidates(
+  client: MaybeClient,
+  cutoff: Date,
+  limit = 100
+): Promise<InactiveAnalyticsCandidate[]> {
+  const result = await q<{
+    user_id: string;
+    last_activity_at: Date;
+    last_surface: string;
+  }>(
+    client,
+    `WITH latest_activity AS (
+       SELECT DISTINCT ON (user_id)
+              user_id, occurred_at AS last_activity_at, name AS last_surface
+         FROM analytics_events
+        WHERE user_id IS NOT NULL
+          AND name <> 'user_inactive'
+        ORDER BY user_id, occurred_at DESC, created_at DESC
+     ), effective_activity AS (
+       SELECT latest.user_id,
+              CASE WHEN u.presence_last_seen_at IS NOT NULL
+                         AND u.presence_last_seen_at > latest.last_activity_at
+                   THEN u.presence_last_seen_at ELSE latest.last_activity_at END AS last_activity_at,
+              CASE WHEN u.presence_last_seen_at IS NOT NULL
+                         AND u.presence_last_seen_at > latest.last_activity_at
+                   THEN 'app_presence' ELSE latest.last_surface END AS last_surface
+       FROM latest_activity latest
+         JOIN users u ON u.id = latest.user_id
+         JOIN analytics_consent_states consent
+           ON consent.user_id = latest.user_id
+          AND consent.analytics_consent = TRUE
+     )
+     SELECT effective.user_id, effective.last_activity_at, effective.last_surface
+       FROM effective_activity effective
+       LEFT JOIN analytics_inactivity_states state ON state.user_id = effective.user_id
+      WHERE effective.last_activity_at <= $1
+        AND (state.user_id IS NULL
+          OR state.last_activity_at IS DISTINCT FROM effective.last_activity_at
+          OR state.emitted_for_activity_at IS NULL)
+      ORDER BY effective.last_activity_at ASC, effective.user_id
+      LIMIT $2`,
+    [cutoff, Math.max(1, Math.min(100, Math.floor(limit)))]
+  );
+  return result.rows.map(row => ({
+    userId: row.user_id,
+    lastActivityAt: row.last_activity_at,
+    lastSurface: row.last_surface.slice(0, 80)
+  }));
+}
+
+/** Atomically claims an episode so concurrent maintenance workers cannot emit twice. */
+export async function claimAnalyticsInactivityEpisode(
+  client: MaybeClient,
+  userId: string,
+  lastActivityAt: Date
+) {
+  const result = await q<{ user_id: string }>(
+    client,
+    `INSERT INTO analytics_inactivity_states (user_id, last_activity_at)
+     VALUES ($1, $2)
+     ON CONFLICT (user_id) DO UPDATE
+       SET last_activity_at = EXCLUDED.last_activity_at,
+           emitted_for_activity_at = CASE
+             WHEN analytics_inactivity_states.last_activity_at IS DISTINCT FROM EXCLUDED.last_activity_at
+             THEN NULL ELSE analytics_inactivity_states.emitted_for_activity_at END,
+           emitted_event_id = CASE
+             WHEN analytics_inactivity_states.last_activity_at IS DISTINCT FROM EXCLUDED.last_activity_at
+             THEN NULL ELSE analytics_inactivity_states.emitted_event_id END,
+           updated_at = NOW()
+     WHERE analytics_inactivity_states.last_activity_at IS DISTINCT FROM EXCLUDED.last_activity_at
+        OR analytics_inactivity_states.emitted_for_activity_at IS NULL
+     RETURNING user_id`,
+    [userId, lastActivityAt]
+  );
+  return result.rowCount === 1;
+}
+
+export async function markAnalyticsInactivityEpisodeEmitted(
+  client: MaybeClient,
+  userId: string,
+  lastActivityAt: Date,
+  eventId: string
+) {
+  const result = await q(
+    client,
+    `UPDATE analytics_inactivity_states
+        SET emitted_for_activity_at = last_activity_at,
+            emitted_event_id = $3,
+            updated_at = NOW()
+      WHERE user_id = $1
+        AND last_activity_at = $2
+        AND emitted_for_activity_at IS NULL`,
+    [userId, lastActivityAt, eventId]
+  );
+  return result.rowCount === 1;
+}
+
+export async function associateAnalyticsAnonymousId(client: MaybeClient, anonymousId: string, userId: string) {
+  const result = await q<{ event_id: string }>(
+    client,
+    `UPDATE analytics_events SET user_id = $2
+     WHERE anonymous_id = $1 AND user_id IS NULL RETURNING event_id`,
+    [anonymousId, userId]
+  );
+  return result.rowCount;
+}
+
+export type AnalyticsConsentContext = {
+  anonymousId: string;
+  analytics: boolean;
+  marketing: boolean;
+  firstAttribution: Record<string, unknown>;
+  latestAttribution: Record<string, unknown>;
+  clientId: string | null;
+  appInstanceId: string | null;
+};
+
+export async function findLatestAnalyticsConsentContext(userId: string): Promise<AnalyticsConsentContext | null> {
+  const current = await db.query<{
+    anonymous_id: string | null;
+    analytics_consent: boolean;
+    marketing_consent: boolean;
+    first_attribution: Record<string, unknown>;
+    latest_attribution: Record<string, unknown>;
+    client_id: string | null;
+    app_instance_id: string | null;
+  }>(
+    `SELECT anonymous_id, analytics_consent, marketing_consent, first_attribution,
+            latest_attribution, client_id, app_instance_id
+       FROM analytics_consent_states
+      WHERE user_id = $1
+      ORDER BY updated_at DESC
+      LIMIT 1`,
+    [userId]
+  );
+  const currentRow = current.rows[0];
+  if (currentRow) {
+    return {
+      anonymousId: currentRow.anonymous_id ?? userId,
+      analytics: currentRow.analytics_consent,
+      marketing: currentRow.marketing_consent,
+      firstAttribution: currentRow.first_attribution,
+      latestAttribution: currentRow.latest_attribution,
+      clientId: currentRow.client_id,
+      appInstanceId: currentRow.app_instance_id
+    };
+  }
+  const result = await db.query<{
+    anonymous_id: string;
+    analytics_consent: boolean;
+    marketing_consent: boolean;
+    first_attribution: Record<string, unknown>;
+    latest_attribution: Record<string, unknown>;
+    client_id: string | null;
+    app_instance_id: string | null;
+  }>(
+    `SELECT anonymous_id, analytics_consent, marketing_consent, first_attribution,
+            latest_attribution, client_id, app_instance_id
+       FROM analytics_events
+      WHERE user_id = $1
+      ORDER BY occurred_at DESC, created_at DESC
+      LIMIT 1`,
+    [userId]
+  );
+  const row = result.rows[0];
+  return row
+    ? {
+        anonymousId: row.anonymous_id,
+        analytics: row.analytics_consent,
+        marketing: row.marketing_consent,
+        firstAttribution: row.first_attribution,
+        latestAttribution: row.latest_attribution,
+        clientId: row.client_id,
+        appInstanceId: row.app_instance_id
+      }
+    : null;
+}
+
+/** Current consent only; event history is deliberately not used for retries. */
+export async function findCurrentAnalyticsConsentContext(
+  userId: string | null,
+  anonymousId: string | null,
+  client: MaybeClient = db
+): Promise<AnalyticsConsentContext | null> {
+  const result = await q<{
+    anonymous_id: string | null;
+    analytics_consent: boolean;
+    marketing_consent: boolean;
+    first_attribution: Record<string, unknown>;
+    latest_attribution: Record<string, unknown>;
+    client_id: string | null;
+    app_instance_id: string | null;
+  }>(
+    client,
+    `SELECT anonymous_id, analytics_consent, marketing_consent, first_attribution,
+            latest_attribution, client_id, app_instance_id
+       FROM analytics_consent_states
+      WHERE ($1::uuid IS NOT NULL AND user_id = $1)
+         OR ($2::uuid IS NOT NULL AND anonymous_id = $2)
+      ORDER BY (user_id = $1) DESC NULLS LAST, updated_at DESC
+      LIMIT 1`,
+    [userId, anonymousId]
+  );
+  const row = result.rows[0];
+  return row
+    ? {
+        anonymousId: row.anonymous_id ?? anonymousId ?? userId ?? '',
+        analytics: row.analytics_consent,
+        marketing: row.marketing_consent,
+        firstAttribution: row.first_attribution,
+        latestAttribution: row.latest_attribution,
+        clientId: row.client_id,
+        appInstanceId: row.app_instance_id
+      }
+    : null;
+}
+
+export async function findAnalyticsUserRoles(userId: string, client: MaybeClient = db): Promise<string[]> {
+  const result = await q<{ role: string }>(client, 'SELECT role FROM user_roles WHERE user_id = $1', [userId]);
+  return result.rows.map(row => row.role);
+}
+
+export type AnalyticsDeliveryClaim = {
+  eventId: string;
+  provider: AnalyticsProvider;
+  attempts: number;
+  event: StoredAnalyticsEvent;
+};
+
+export async function claimAnalyticsDeliveryBatch(
+  client: MaybeClient,
+  owner: string,
+  batchSize: number,
+  maxAttempts: number,
+  leaseMs: number
+): Promise<AnalyticsDeliveryClaim[]> {
+  const result = await q<{
+    event_id: string;
+    provider: AnalyticsProvider;
+    attempts: number;
+    name: string;
+    occurred_at: Date;
+    anonymous_id: string;
+    user_id: string | null;
+    session_id: string | null;
+    platform: string;
+    source: string;
+    app_version: string | null;
+    properties: Record<string, unknown>;
+    analytics_consent: boolean;
+    marketing_consent: boolean;
+    first_attribution: Record<string, unknown>;
+    latest_attribution: Record<string, unknown>;
+    client_id: string | null;
+    app_instance_id: string | null;
+  }>(
+    client,
+    `WITH candidates AS (
+       SELECT d.event_id, d.provider
+         FROM analytics_event_deliveries d
+        WHERE d.status IN ('pending', 'failed')
+          AND d.attempts < $3
+          AND (d.next_attempt_at IS NULL OR d.next_attempt_at <= NOW())
+          AND (d.lease_expires_at IS NULL OR d.lease_expires_at <= NOW())
+        ORDER BY COALESCE(d.next_attempt_at, d.created_at), d.created_at
+        LIMIT $2
+        FOR UPDATE SKIP LOCKED
+     )
+     UPDATE analytics_event_deliveries d
+        SET lease_owner = $1,
+            lease_expires_at = NOW() + ($4 * INTERVAL '1 millisecond'),
+            attempts = d.attempts + 1,
+            last_attempt_at = NOW()
+       FROM candidates c
+       JOIN analytics_events e ON e.event_id = c.event_id
+      WHERE d.event_id = c.event_id AND d.provider = c.provider
+      RETURNING d.event_id, d.provider, d.attempts,
+                e.name, e.occurred_at, e.anonymous_id, e.user_id, e.session_id,
+                e.platform, e.source, e.app_version, e.properties,
+                e.analytics_consent, e.marketing_consent, e.first_attribution,
+                e.latest_attribution, e.client_id, e.app_instance_id`,
+    [owner, Math.max(1, Math.min(batchSize, 100)), maxAttempts, Math.max(1_000, leaseMs)]
+  );
+  return result.rows.map(row => ({
+    eventId: row.event_id,
+    provider: row.provider,
+    attempts: row.attempts,
+    event: {
+      eventId: row.event_id,
+      name: row.name,
+      occurredAt: row.occurred_at,
+      anonymousId: row.anonymous_id,
+      userId: row.user_id,
+      sessionId: row.session_id ?? undefined,
+      platform: row.platform,
+      source: row.source,
+      appVersion: row.app_version ?? undefined,
+      properties: row.properties,
+      consent: { analytics: row.analytics_consent, marketing: row.marketing_consent },
+      attribution: row.latest_attribution,
+      clientId: row.client_id,
+      appInstanceId: row.app_instance_id
+    }
+  }));
+}
+
+export async function completeAnalyticsDeliveryAttempt(
+  client: MaybeClient,
+  eventId: string,
+  provider: AnalyticsProvider,
+  owner: string,
+  status: 'delivered' | 'failed' | 'skipped',
+  error: string | undefined,
+  nextAttemptAt: Date | null
+) {
+  await q(
+    client,
+    `UPDATE analytics_event_deliveries
+        SET status = $4,
+            delivered_at = CASE WHEN $4 = 'delivered' THEN NOW() ELSE delivered_at END,
+            last_error = $5,
+            next_attempt_at = COALESCE($6, next_attempt_at),
+            lease_owner = NULL,
+            lease_expires_at = NULL
+      WHERE event_id = $1 AND provider = $2 AND lease_owner = $3`,
+    [eventId, provider, owner, status, error?.slice(0, 240) ?? null, nextAttemptAt]
+  );
+}
+
+// Explicit release alias for worker callers and operational tooling. The
+// completion update also clears the lease atomically with the final status.
+export async function releaseAnalyticsDeliveryLease(
+  client: MaybeClient,
+  eventId: string,
+  provider: AnalyticsProvider,
+  owner: string,
+  status: 'delivered' | 'failed' | 'skipped',
+  error: string | undefined,
+  nextAttemptAt: Date | null
+) {
+  return completeAnalyticsDeliveryAttempt(client, eventId, provider, owner, status, error, nextAttemptAt);
+}
+
+export async function skipAnalyticsDeliveriesForEvent(
+  client: MaybeClient,
+  eventId: string,
+  reason: string
+) {
+  await q(
+    client,
+    `UPDATE analytics_event_deliveries
+        SET status = 'skipped', last_error = $2,
+            lease_owner = NULL, lease_expires_at = NULL
+      WHERE event_id = $1 AND status IN ('pending', 'failed')`,
+    [eventId, reason.slice(0, 240)]
+  );
+}
+
+export async function recordAnalyticsDeliveryAttempt(
+  client: MaybeClient,
+  eventId: string,
+  provider: AnalyticsProvider,
+  status: 'delivered' | 'failed',
+  error?: string
+) {
+  await q(
+    client,
+    `UPDATE analytics_event_deliveries
+     SET status = $3, attempts = attempts + 1, last_attempt_at = NOW(),
+         delivered_at = CASE WHEN $3 = 'delivered' THEN NOW() ELSE delivered_at END,
+         last_error = $4
+     WHERE event_id = $1 AND provider = $2`,
+    [eventId, provider, status, error?.slice(0, 240) ?? null]
+  );
+}
+
+export async function getAdminFunnelAnalytics(input: {
+  schoolId?: string | null;
+  role?: string;
+  gradeBand?: AnalyticsGradeBand;
+  subject?: string;
+  from?: Date;
+  to?: Date;
+  source?: string;
+  platform?: string;
+  campaign?: string;
+  planCode?: string;
+}) {
+  const result = await db.query<{
+    name: string;
+    role: string;
+    grade_band: AnalyticsGradeBand | null;
+    subject: string | null;
+    source: string;
+    platform: string;
+    campaign: string | null;
+    plan_code: string | null;
+    events: number;
+    actors: number;
+  }>(
+    `SELECT e.name,
+            COALESCE(NULLIF(e.properties->>'role', ''),
+              (SELECT MIN(ur.role)::text FROM user_roles ur WHERE ur.user_id = e.user_id),
+              'unknown') AS "role",
+            ${ANALYTICS_GRADE_BAND_SQL} AS grade_band,
+            NULLIF(e.properties->>'subject', '') AS subject,
+            e.source, e.platform,
+            NULLIF(e.latest_attribution->>'utm_campaign', '') AS campaign,
+            NULLIF(e.properties->>'plan_code', '') AS plan_code,
+            COUNT(*)::int AS events,
+            COUNT(DISTINCT COALESCE(e.user_id::text, e.anonymous_id::text))::int AS actors
+       FROM analytics_events e
+       LEFT JOIN users u ON u.id = e.user_id
+      WHERE ($1::uuid IS NULL OR u.school_id = $1)
+        AND ($2::timestamptz IS NULL OR e.occurred_at >= $2)
+        AND ($3::timestamptz IS NULL OR e.occurred_at < $3)
+        AND ($4::text IS NULL OR COALESCE(NULLIF(e.properties->>'role', ''),
+          (SELECT MIN(ur.role)::text FROM user_roles ur WHERE ur.user_id = e.user_id), 'unknown') = $4)
+        AND ($5::text IS NULL OR (${ANALYTICS_GRADE_BAND_SQL}) = $5)
+        AND ($6::text IS NULL OR e.properties->>'subject' = $6)
+        AND ($7::text IS NULL OR e.source = $7)
+        AND ($8::text IS NULL OR e.platform = $8)
+        AND ($9::text IS NULL OR e.latest_attribution->>'utm_campaign' = $9)
+        AND ($10::text IS NULL OR e.properties->>'plan_code' = $10)
+      GROUP BY e.name, "role", grade_band, subject, e.source, e.platform, campaign, plan_code
+      ORDER BY MIN(e.occurred_at), e.name, "role", grade_band, subject`,
+    [input.schoolId ?? null, input.from ?? null, input.to ?? null, input.role ?? null, input.gradeBand ?? null,
+      input.subject ?? null, input.source ?? null, input.platform ?? null, input.campaign ?? null, input.planCode ?? null]
+  );
+  const rows: AdminFunnelRow[] = result.rows.map(row => ({
+    name: row.name,
+    role: row.role,
+    gradeBand: row.grade_band,
+    subject: row.subject,
+    source: row.source,
+    platform: row.platform,
+    campaign: row.campaign,
+    planCode: row.plan_code,
+    events: row.events,
+    actors: row.actors
+  }));
+  return { rows };
 }
 
 export async function listSubscriptionPlans(codes?: BillingPlanCode[]) {
@@ -7832,7 +8455,7 @@ export async function submitStudentAssignment(
   const status =
     assignment.due_at && assignment.due_at.getTime() < Date.now() ? 'Late' : 'Completed';
 
-  await q(
+  const submissionResult = await q<{ id: string }>(
     client,
     `INSERT INTO submissions (assignment_id, student_id, score, submitted_at, status, answers)
      VALUES ($1, $2, $3, NOW(), $4, $5::jsonb)
@@ -7841,9 +8464,11 @@ export async function submitStudentAssignment(
        score = EXCLUDED.score,
        submitted_at = EXCLUDED.submitted_at,
        status = EXCLUDED.status,
-       answers = EXCLUDED.answers`,
+       answers = EXCLUDED.answers
+     RETURNING id`,
     [assignmentId, user.id, input.score, status, JSON.stringify(input.answers)]
   );
+  return { submissionId: submissionResult.rows[0]?.id ?? null };
 }
 
 const PRESENCE_FRESH_SECONDS = 90;

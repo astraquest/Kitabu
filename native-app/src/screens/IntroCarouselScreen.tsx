@@ -11,8 +11,9 @@ import {
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Volume2, VolumeX } from 'lucide-react-native';
 import { buildScreenIntro, useGuidedNarration } from '../services/narrationService';
-import { useLandingSoundtrack } from '../services/landingSoundtrack';
+import type { LandingSoundtrackController } from '../services/landingSoundtrack';
 
 const { width } = Dimensions.get('window');
 
@@ -63,14 +64,18 @@ const SLIDES = [
 interface IntroCarouselScreenProps {
   onSignIn: () => void;
   onCreateAccount: () => void;
+  soundtrack: LandingSoundtrackController;
 }
 
 export function IntroCarouselScreen({
   onSignIn,
   onCreateAccount,
+  soundtrack,
 }: IntroCarouselScreenProps) {
   const scrollRef = useRef<ScrollView | null>(null);
+  const soundtrackStartedRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [narrationTrigger, setNarrationTrigger] = useState<string | null>(null);
   const isLast = activeIndex === SLIDES.length - 1;
   const ctaLabel = isLast ? 'Create account' : 'Next';
 
@@ -82,13 +87,13 @@ export function IntroCarouselScreen({
       'Samora',
       {
         language: activeIndex === 3 ? 'sw' : 'en',
-        landingCueId: `intro-slide-${activeIndex + 1}`,
+        publicCueId: `intro-slide-${activeIndex + 1}`,
       },
     ),
     [activeIndex],
   );
-  useGuidedNarration(narrationCue);
-  useLandingSoundtrack();
+  useGuidedNarration(narrationCue, true, narrationTrigger);
+  const { muted, start: startSoundtrack, toggleMuted } = soundtrack;
 
   const progress = useMemo(
     () => SLIDES.map((_, index) => index <= activeIndex),
@@ -106,7 +111,12 @@ export function IntroCarouselScreen({
       return;
     }
 
+    if (!soundtrackStartedRef.current) {
+      soundtrackStartedRef.current = true;
+      startSoundtrack();
+    }
     const nextIndex = activeIndex + 1;
+    setNarrationTrigger(`screen-intro:intro-carousel:${nextIndex}`);
     scrollRef.current?.scrollTo({ x: nextIndex * width, animated: true });
     setActiveIndex(nextIndex);
   }
@@ -167,21 +177,56 @@ export function IntroCarouselScreen({
           <View style={styles.finalActionRow}>
             <Pressable
               accessibilityRole="button"
-              onPress={handlePrimaryAction}
+              accessibilityLabel={
+                muted ? 'Unmute landing soundtrack' : 'Mute landing soundtrack'
+              }
+              accessibilityHint="Toggles the quiet landing soundtrack"
+              onPress={toggleMuted}
+              style={styles.soundtrackToggle}>
+              {muted ? (
+                <VolumeX color="#FFFFFF" size={22} />
+              ) : (
+                <Volume2 color="#FFFFFF" size={22} />
+              )}
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={ctaLabel}
+              onPress={onCreateAccount}
               style={[styles.primaryButton, styles.finalActionButton]}>
               <Text style={styles.primaryText}>{ctaLabel}</Text>
             </Pressable>
             <Pressable
               accessibilityRole="button"
+              accessibilityLabel="Sign in"
               onPress={onSignIn}
               style={[styles.signInButton, styles.finalActionButton]}>
               <Text style={styles.signInText}>Sign in</Text>
             </Pressable>
           </View>
         ) : (
-          <Pressable onPress={handlePrimaryAction} style={styles.primaryButton}>
-            <Text style={styles.primaryText}>{ctaLabel}</Text>
-          </Pressable>
+          <View style={styles.actionRow}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={
+                muted ? 'Unmute landing soundtrack' : 'Mute landing soundtrack'
+              }
+              accessibilityHint="Toggles the quiet landing soundtrack"
+              onPress={toggleMuted}
+              style={styles.soundtrackToggle}>
+              {muted ? (
+                <VolumeX color="#FFFFFF" size={22} />
+              ) : (
+                <Volume2 color="#FFFFFF" size={22} />
+              )}
+            </Pressable>
+            <Pressable
+              accessibilityLabel={ctaLabel}
+              onPress={handlePrimaryAction}
+              style={[styles.primaryButton, styles.nextButton]}>
+              <Text style={styles.primaryText}>{ctaLabel}</Text>
+            </Pressable>
+          </View>
         )}
 
         <Text style={styles.helperText}>
@@ -320,12 +365,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 58,
   },
+  nextButton: {
+    flex: 1,
+  },
   primaryText: {
     color: '#FFFFFF',
     fontSize: 17,
     fontWeight: '900',
   },
   finalActionRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 12,
+  },
+  actionRow: {
+    alignItems: 'center',
     flexDirection: 'row',
     gap: 12,
   },
@@ -336,5 +390,12 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.72)',
     fontSize: 13,
     textAlign: 'center',
+  },
+  soundtrackToggle: {
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    height: 58,
+    justifyContent: 'center',
+    width: 58,
   },
 });

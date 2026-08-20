@@ -233,7 +233,11 @@ export function StudentHeader({
           {localAvatarKey ? (
             <AvatarArt avatarKey={localAvatarKey} size={36} />
           ) : (
-            <Image source={{ uri: avatarUri }} style={styles.avatarImage} />
+            <Image
+              resizeMethod="resize"
+              source={{ cache: 'default', uri: avatarUri }}
+              style={styles.avatarImage}
+            />
           )}
         </Pressable>
       </View>

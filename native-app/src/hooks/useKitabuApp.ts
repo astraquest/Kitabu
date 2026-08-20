@@ -125,6 +125,8 @@ import {
 import { focusModeBridge, speechPlaybackBridge } from '../services/nativeBridges';
 import { getLocalCalendarDateKey, requestDailyStudentWelcome } from '../services/dailyWelcomeService';
 import { loadJson, saveJson } from '../services/storage';
+import { mobileAnalytics } from '../services/mobileAnalytics';
+import { trackLearningCompletion } from '../services/learningAnalytics';
 import {
   loadProfileIndex,
   normalizeProfileIndex,
@@ -882,6 +884,9 @@ export function useKitabuApp() {
   const [subjectRecommendations, setSubjectRecommendations] =
     useState<SubjectRecommendationPayload | null>(null);
   const recordedRecommendationImpressions = useRef(new Set<string>());
+  const onboardingAttemptKeyRef = useRef<string | null>(null);
+  const signupAttemptKeyRef = useRef<string | null>(null);
+  const profileSetupStartedRef = useRef(false);
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [progressiveDiagnosticSubject, setProgressiveDiagnosticSubject] =
     useState<Subject | null>(null);
@@ -975,6 +980,7 @@ export function useKitabuApp() {
   const [isSubmittingCheckout, setIsSubmittingCheckout] = useState(false);
   const [activePaymentRequestId, setActivePaymentRequestId] = useState<string | null>(null);
   const checkoutSubmissionLockedRef = useRef(false);
+  const pricingViewedForOpenRef = useRef(false);
   const [pendingSubscriptionIntent, setPendingSubscriptionIntent] =
     useState<PendingSubscriptionIntent | null>(null);
   const [queuedCheckoutLaunch, setQueuedCheckoutLaunch] =
@@ -982,6 +988,23 @@ export function useKitabuApp() {
   const [queuedTryOneBobOffer, setQueuedTryOneBobOffer] = useState(false);
   const [navigationHistory, setNavigationHistory] = useState<RouteSnapshot[]>([]);
   const [navigationIndex, setNavigationIndex] = useState(-1);
+
+  function getAnalyticsAttemptKey(ref: { current: string | null }, prefix: string) {
+    if (!ref.current) {
+      ref.current = `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    }
+    return ref.current;
+  }
+
+  function recordProfileSetupStarted(role: PublicSignupRole, grade?: string) {
+    if (profileSetupStartedRef.current) return;
+    profileSetupStartedRef.current = true;
+    mobileAnalytics.trackOnce(
+      'profile_setup_started',
+      getAnalyticsAttemptKey(onboardingAttemptKeyRef, 'onboarding'),
+      { role, ...(grade ? { grade } : {}) },
+    ).catch(() => undefined);
+  }
   const [adminDiscounts, setAdminDiscounts] = useState<SchoolDiscount[]>([]);
   const [adminAnnouncements, setAdminAnnouncements] = useState<BannerAnnouncement[]>([]);
   const [adminSchoolPlans, setAdminSchoolPlans] = useState<BillingPlan[]>([]);
@@ -1166,6 +1189,24 @@ export function useKitabuApp() {
   useEffect(() => {
     authSessionRef.current = authSession;
   }, [authSession]);
+
+  useEffect(() => {
+    if (!isCheckoutOpen) {
+      pricingViewedForOpenRef.current = false;
+      return;
+    }
+    if (pricingViewedForOpenRef.current || billingPlans.length === 0) return;
+    pricingViewedForOpenRef.current = true;
+    mobileAnalytics.trackOnce(
+      'pricing_viewed',
+      `pricing:${Date.now()}`,
+      {
+        plan_code: billingPlans.map(plan => plan.code).join('|'),
+        billing_cycle: billingPlans.map(plan => plan.billingCycle).join('|'),
+        source_page: currentView,
+      },
+    ).catch(() => undefined);
+  }, [billingPlans, currentView, isCheckoutOpen]);
 
   useEffect(() => {
     return subscribeToAuthSessionUpdates(session => {
@@ -2063,6 +2104,8 @@ export function useKitabuApp() {
   }
 
   function startParentHouseholdOnboarding() {
+    onboardingAttemptKeyRef.current = null;
+    profileSetupStartedRef.current = false;
     setParentHouseholdOnboardingRequested(true);
     setOnboardingError(null);
   }
@@ -2266,6 +2309,12 @@ export function useKitabuApp() {
         answers,
         timedOut,
       });
+      await trackLearningCompletion({
+        completionId: result.attempt.id,
+        subject: 'Weekly Exam',
+        grade: result.exam.gradeLevel,
+        completed: result.attempt.status === 'completed',
+      });
       setWeeklyExam(current => current ? { ...current, exam: result.exam, attempt: result.attempt } : current);
       await Promise.all([refreshDueReviews(), refreshStudentContentState(authSession!, currentGrade)]);
       triggerHaptic('success');
@@ -2364,6 +2413,15 @@ export function useKitabuApp() {
     setIsDiagnosticStatusLoaded(true);
     refreshDueReviews().catch(() => undefined);
     replaceWith(primaryHomeView);
+  }
+
+  async function recordProgressiveDiagnosticCompletion(sessionId: string) {
+    await trackLearningCompletion({
+      completionId: sessionId,
+      subject: progressiveDiagnosticSubject?.name,
+      grade: currentGrade,
+      completed: true,
+    });
   }
 
   function completeProgressiveDiagnostic() {
@@ -2617,6 +2675,15 @@ export function useKitabuApp() {
         curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
         onboardingPersonalization,
       });
+      await mobileAnalytics.associateUser(nextSession.user.id);
+      await mobileAnalytics.trackOnce(
+        'onboarding_completed',
+        getAnalyticsAttemptKey(onboardingAttemptKeyRef, 'onboarding'),
+        {
+          role: input.role ?? nextSession.user.roles[0] ?? 'unknown',
+          grade: input.grade,
+        },
+      );
       setAuthSession(nextSession);
       setParentHouseholdOnboardingRequested(false);
       if (nextSession.user.roles.includes('student')) {
@@ -3008,7 +3075,15 @@ export function useKitabuApp() {
     navigateTo('progressive_lesson');
   }
 
-  async function finishProgressiveLesson() {
+  async function finishProgressiveLesson(completion?: { attemptId: string }) {
+    if (completion?.attemptId) {
+      await trackLearningCompletion({
+        completionId: completion.attemptId,
+        subject: selectedSubject?.name,
+        grade: currentGrade,
+        completed: true,
+      });
+    }
     setSelectedProgressiveLessonKey(null);
     setSelectedProgressiveLessonVersion(null);
     await refreshSubjectLearningPath();
@@ -3321,6 +3396,14 @@ export function useKitabuApp() {
 
       setCheckoutStatusLabel(response.customerMessage);
       setActivePaymentRequestId(response.paymentRequestId);
+      const selectedPlan = billingPlans.find(plan => plan.code === requestedPlanCode);
+      mobileAnalytics.track('checkout_started', {
+        plan_code: requestedPlanCode,
+        ...(selectedPlan?.billingCycle ? { billing_cycle: selectedPlan.billingCycle } : {}),
+        ...(typeof selectedPlan?.priceKshCents === 'number'
+          ? { amount_ksh_cents: selectedPlan.priceKshCents }
+          : {}),
+      }).catch(() => undefined);
       keepCheckoutLocked = true;
       setIsTryOneBobOpen(false);
       triggerHaptic('success');
@@ -3428,6 +3511,9 @@ export function useKitabuApp() {
   }
 
   function openSignupEntry() {
+    onboardingAttemptKeyRef.current = null;
+    signupAttemptKeyRef.current = null;
+    profileSetupStartedRef.current = false;
     setAuthMode('signup');
     setAuthError(null);
     setSignupRole(null);
@@ -3554,12 +3640,22 @@ export function useKitabuApp() {
       if (!fullName) {
         throw new Error('Enter your full name to create an account.');
       }
+      if (method === 'phone' && !signupPhoneValue) {
+        throw new Error('Enter a valid Kenyan phone number.');
+      }
+      if (method === 'email' && !signupEmailValue) {
+        throw new Error('Enter a valid email address.');
+      }
+
+      const signupAttemptKey = getAnalyticsAttemptKey(signupAttemptKeyRef, 'signup');
+      await mobileAnalytics.trackOnce('signup_started', signupAttemptKey, {
+        role,
+        entry_point: method,
+      });
 
       let session: AuthSession;
+      let googleIsNewUser = false;
       if (method === 'phone') {
-        if (!signupPhoneValue) {
-          throw new Error('Enter a valid Kenyan phone number.');
-        }
         const request = input?.signupOtp
           ? null
           : await requestPhoneAuthCode({
@@ -3576,11 +3672,19 @@ export function useKitabuApp() {
         });
       } else if (method === 'google') {
         const idToken = await requestGoogleIdToken();
-        session = await authenticateWithGoogleToken({ idToken, role, acceptedTerms: true });
-      } else {
-        if (!signupEmailValue) {
-          throw new Error('Enter a valid email address.');
+        const googleResult = await authenticateWithGoogleToken(
+          { idToken, role, acceptedTerms: true },
+          { includeSignupMetadata: true },
+        );
+        if ('session' in googleResult) {
+          session = googleResult.session;
+          googleIsNewUser = googleResult.isNewGoogleUser;
+        } else {
+          // Keep compatibility with test doubles and older clients that return
+          // the session directly while treating the account as existing.
+          session = googleResult;
         }
+      } else {
         session = await signupWithPassword({
           fullName,
           email: signupEmailValue,
@@ -3598,6 +3702,13 @@ export function useKitabuApp() {
         setLoginPassword(password);
       }
       authenticatedSession = session;
+      await mobileAnalytics.associateUser(session.user.id);
+      if (method !== 'google' || googleIsNewUser) {
+        await mobileAnalytics.trackOnce('signup_completed', signupAttemptKey, {
+          role,
+          entry_point: method,
+        });
+      }
       let onboardingSchoolId = input?.schoolId || null;
       if (!onboardingSchoolId && input?.school?.trim() && input.county?.trim()) {
         const school = await createOnboardingSchool({
@@ -3635,6 +3746,12 @@ export function useKitabuApp() {
           },
         });
         authenticatedSession = session;
+        await mobileAnalytics.associateUser(session.user.id);
+        await mobileAnalytics.trackOnce(
+          'onboarding_completed',
+          getAnalyticsAttemptKey(onboardingAttemptKeyRef, 'onboarding'),
+          { role, grade: input.grade },
+        );
       }
       completeProviderAuthentication(session, input?.role ?? signupRole);
       if (input) {
@@ -3690,6 +3807,9 @@ export function useKitabuApp() {
   async function signOut(nextEntryScreen: 'intro' | 'auth' = 'intro') {
     await markPresenceOffline('sign_out');
     setAuthSession(null);
+    onboardingAttemptKeyRef.current = null;
+    signupAttemptKeyRef.current = null;
+    profileSetupStartedRef.current = false;
     setAuthEntryScreen(nextEntryScreen);
     setAuthMode('login');
     setSignupRole(null);
@@ -3898,6 +4018,14 @@ export function useKitabuApp() {
         curriculumStrands: selectedSubjectStrands,
       });
       setMessages(prev => [...prev, { role: 'model', text: responseText }]);
+      mobileAnalytics.trackOnce(
+        'first_tutor_session',
+        `tutor:${authSession?.user.id ?? 'anonymous'}`,
+        {
+          ...(selectedSubject?.name ? { subject: selectedSubject.name } : {}),
+          ...(currentGrade ? { grade: currentGrade } : {}),
+        },
+      ).catch(() => undefined);
     } catch (error) {
       console.error(error);
       setMessages(prev => [
@@ -4208,9 +4336,16 @@ export function useKitabuApp() {
       isCorrect: String(question.correctAnswer ?? '').trim() === String(answers[index] || '').trim(),
     }));
 
-    await submitStudentAssignmentRequest(selectedAssignment.id, {
+    const submission = await submitStudentAssignmentRequest(selectedAssignment.id, {
       score,
       answers: submissionAnswers,
+    });
+
+    await trackLearningCompletion({
+      completionId: submission.submissionId,
+      subject: selectedAssignment.subject,
+      grade: currentGrade,
+      completed: true,
     });
 
     if (authSession) {
@@ -4815,6 +4950,7 @@ export function useKitabuApp() {
       setLoginPassword,
       setSignupFullName,
       setSignupRole,
+      recordProfileSetupStarted,
       setAcceptedTerms,
       setOptionalPhoneNumber,
       setProfileOpen,
@@ -4904,6 +5040,7 @@ export function useKitabuApp() {
       readAllNotifications,
       completeDiagnosticOnboarding,
       completeProgressiveDiagnostic,
+      recordProgressiveDiagnosticCompletion,
       createOnboardingSchool,
       refreshAdminData,
       createSchoolRecord,

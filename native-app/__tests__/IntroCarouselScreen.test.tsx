@@ -12,23 +12,19 @@ jest.mock('../src/services/narrationService', () => ({
   useGuidedNarration: jest.fn(),
 }));
 
-jest.mock('../src/services/landingSoundtrack', () => ({
-  useLandingSoundtrack: jest.fn(),
-}));
-
-const useLandingSoundtrack = jest.requireMock('../src/services/landingSoundtrack').useLandingSoundtrack as jest.Mock;
-
-beforeEach(() => {
-  useLandingSoundtrack.mockReturnValue({
+function makeSoundtrack() {
+  return {
     muted: false,
     start: jest.fn(),
+    stop: jest.fn(),
     toggleMuted: jest.fn(),
-  });
-});
+  };
+}
 
 test('final landing actions invoke signup and sign-in callbacks directly', async () => {
   const onCreateAccount = jest.fn();
   const onSignIn = jest.fn();
+  const soundtrack = makeSoundtrack();
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -36,6 +32,7 @@ test('final landing actions invoke signup and sign-in callbacks directly', async
       <IntroCarouselScreen
         onCreateAccount={onCreateAccount}
         onSignIn={onSignIn}
+        soundtrack={soundtrack}
       />,
     );
   });
@@ -66,6 +63,7 @@ test('final landing actions invoke signup and sign-in callbacks directly', async
 test('next touch arms narration for the target landing slide', async () => {
   const onCreateAccount = jest.fn();
   const onSignIn = jest.fn();
+  const soundtrack = makeSoundtrack();
   const { useGuidedNarration } = jest.requireMock('../src/services/narrationService') as {
     useGuidedNarration: jest.Mock;
   };
@@ -74,7 +72,7 @@ test('next touch arms narration for the target landing slide', async () => {
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <IntroCarouselScreen onCreateAccount={onCreateAccount} onSignIn={onSignIn} />,
+      <IntroCarouselScreen onCreateAccount={onCreateAccount} onSignIn={onSignIn} soundtrack={soundtrack} />,
     );
   });
 
@@ -89,23 +87,23 @@ test('next touch arms narration for the target landing slide', async () => {
   );
 });
 
-test('landing soundtrack control is accessible and starts soundtrack on the first touch', async () => {
-  const start = jest.fn();
-  const toggleMuted = jest.fn();
-  useLandingSoundtrack.mockReturnValue({ muted: false, start, toggleMuted });
+test('landing soundtrack starts only from the first Next and the speaker remains accessible', async () => {
+  const soundtrack = makeSoundtrack();
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <IntroCarouselScreen onCreateAccount={jest.fn()} onSignIn={jest.fn()} />,
+      <IntroCarouselScreen onCreateAccount={jest.fn()} onSignIn={jest.fn()} soundtrack={soundtrack} />,
     );
   });
 
+  expect(renderer!.root.findByType('LinearGradient' as React.ElementType).props.onTouchStart).toBeUndefined();
   await act(() => {
-    renderer!.root.findByType('LinearGradient' as React.ElementType).props.onTouchStart();
+    renderer!.root.findByProps({ accessibilityLabel: 'Next' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Next' }).props.onPress();
     renderer!.root.findByProps({ accessibilityLabel: 'Mute landing soundtrack' }).props.onPress();
   });
 
-  expect(start).toHaveBeenCalledTimes(1);
-  expect(toggleMuted).toHaveBeenCalledTimes(1);
+  expect(soundtrack.start).toHaveBeenCalledTimes(1);
+  expect(soundtrack.toggleMuted).toHaveBeenCalledTimes(1);
 });

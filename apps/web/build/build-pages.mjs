@@ -21,7 +21,9 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const WEB = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ASSET_CSS = '/styles-20260811.css';
-const ASSET_JS = '/site-20260704.js';
+const ASSET_CONFIG = '/analytics-config.js';
+const ASSET_JS = '/site-20260818.js';
+const ASSET_LEGACY_JS = '/site-20260704.js';
 const WA = (tag) => `https://wa.me/254716175485?text=I%27m%20interested%20in%20Kitabu%20AI%20%5B${tag}%5D`;
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa&amp;pcampaignid=web_share';
 const BRAND_ICON_URL = '/assets/kitabu-icon-bold-192.png?v=20260710';
@@ -239,7 +241,9 @@ ${def.content}
     </main>
 ${footer()}
 ${def.noSticky ? '' : stickyBar()}
+    <script src="${ASSET_CONFIG}" defer></script>
     <script src="${ASSET_JS}" defer></script>
+    <script src="${ASSET_LEGACY_JS}" defer></script>
   </body>
 </html>
 `;
@@ -308,7 +312,9 @@ ${def.faq ? `      <section class="section" style="padding-top: 0">
       </section>
 ` : ''}    </main>
 ${footer()}
+    <script src="${ASSET_CONFIG}" defer></script>
     <script src="${ASSET_JS}" defer></script>
+    <script src="${ASSET_LEGACY_JS}" defer></script>
   </body>
 </html>
 `;
@@ -613,7 +619,7 @@ pages.push({
       <section class="section" style="padding-top: 24px">
         <div class="container">
           <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 560px; margin-inline: auto">
-            <article class="price-card price-card-featured" data-reveal>
+            <article class="price-card price-card-featured" data-reveal data-pricing-module data-plan-code="monthly" data-billing-cycle="monthly">
               <span class="popular-tag">Most parents choose this</span>
               <h3>Per learner</h3>
               <div class="price-figure">KSh 250 <span>/ month</span></div>
@@ -1242,7 +1248,9 @@ ${header()}
       </div>
     </main>
 ${footer()}
+    <script src="${ASSET_CONFIG}" defer></script>
     <script src="${ASSET_JS}" defer></script>
+    <script src="${ASSET_LEGACY_JS}" defer></script>
   </body>
 </html>
 `;

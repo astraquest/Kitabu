@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { Volume2, VolumeX } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BottomChatBar } from './components/BottomChatBar';
@@ -17,6 +18,11 @@ import { StudentHeader } from './components/StudentHeader';
 import { SubscriptionCheckoutModal } from './components/SubscriptionCheckoutModal';
 import { TryForOneBobModal } from './components/TryForOneBobModal';
 import { useKitabuApp } from './hooks/useKitabuApp';
+import {
+  useLandingSoundtrack,
+  type LandingSoundtrackController,
+} from './services/landingSoundtrack';
+import { getMobileAnalyticsAppVersion, mobileAnalytics } from './services/mobileAnalytics';
 import type { PublicSignupRole, SchoolData } from './types/app';
 import { LoginScreen } from './screens/LoginScreen';
 import { AdminPortalScreen } from './screens/AdminPortalScreen';
@@ -163,8 +169,51 @@ function RetiredStudentOnboardingScreen({
   );
 }
 
+function OnboardingSoundtrackSurface({
+  children,
+  soundtrack,
+}: {
+  children: React.ReactNode;
+  soundtrack: LandingSoundtrackController;
+}) {
+  return (
+    <View style={styles.onboardingAudioSurface}>
+      {children}
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={soundtrack.muted ? 'Unmute landing soundtrack' : 'Mute landing soundtrack'}
+        accessibilityHint="Toggles the quiet landing soundtrack"
+        onPress={soundtrack.toggleMuted}
+        style={styles.onboardingSoundtrackToggle}
+        testID="onboarding-soundtrack-toggle"
+      >
+        {soundtrack.muted ? <VolumeX color="#0F172A" size={20} /> : <Volume2 color="#0F172A" size={20} />}
+      </Pressable>
+    </View>
+  );
+}
+
 export function KitabuApp() {
   const { state, actions } = useKitabuApp();
+  const soundtrack = useLandingSoundtrack();
+  const { stop: stopSoundtrack } = soundtrack;
+  const analyticsRole = state.authSession?.user.roles.find(role =>
+    ['student', 'parent', 'teacher', 'other', 'school_admin', 'platform_admin', 'sales_agent'].includes(role),
+  ) ?? null;
+  React.useEffect(() => {
+    mobileAnalytics.updateContext({
+      role: analyticsRole,
+      userId: state.authSession?.user.id ?? null,
+      grade: state.currentGrade,
+      appVersion: getMobileAnalyticsAppVersion(),
+    });
+    mobileAnalytics.initialize().catch(() => undefined);
+  }, [analyticsRole, state.authSession?.user.id, state.currentGrade]);
+  React.useEffect(() => {
+    if (state.authSession || (state.authEntryScreen === 'auth' && state.authMode === 'login')) {
+      stopSoundtrack();
+    }
+  }, [stopSoundtrack, state.authEntryScreen, state.authMode, state.authSession]);
   const [onboardingPreviewRole] = React.useState(getOnboardingPreviewRole);
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
@@ -229,6 +278,7 @@ export function KitabuApp() {
           <IntroCarouselScreen
             onSignIn={actions.openSignInEntry}
             onCreateAccount={actions.openSignupEntry}
+            soundtrack={soundtrack}
           />
         </AppSafeArea>
       );
@@ -237,36 +287,40 @@ export function KitabuApp() {
     if (state.authMode === 'signup') {
       return (
         <AppSafeArea>
-          {state.signupRole === 'parent' || !state.signupRole ? (
-            <ParentHouseholdOnboardingScreen
-              schools={state.schoolsList}
-              isSubmitting={state.isAuthenticating}
-              error={state.authError}
-              collectSignupCredentials
-              onRoleChange={actions.setSignupRole}
-              onSubmit={actions.signUp}
-              onCreateSchool={actions.createOnboardingSchool}
-            />
-          ) : state.signupRole === 'student' ? (
-            <RetiredStudentOnboardingScreen
-              onBack={() => {
-                actions.setSignupRole(null);
-                actions.setAuthMode('login');
-              }}
-            />
-          ) : (
-            <StudentOnboardingScreen
-              role={state.signupRole}
-              schools={state.schoolsList}
-              isSubmitting={state.isAuthenticating}
-              error={state.authError}
-              includeIntroChoices={state.signupRole !== 'teacher'}
-              collectSignupCredentials
-              externalPaymentsEnabled={state.externalPaymentsEnabled}
-              onRoleChange={actions.setSignupRole}
-              onSubmit={actions.signUp}
-            />
-          )}
+          <OnboardingSoundtrackSurface soundtrack={soundtrack}>
+            {state.signupRole === 'parent' || !state.signupRole ? (
+              <ParentHouseholdOnboardingScreen
+                schools={state.schoolsList}
+                isSubmitting={state.isAuthenticating}
+                error={state.authError}
+                collectSignupCredentials
+                onRoleChange={actions.setSignupRole}
+                onProfileSetupStarted={actions.recordProfileSetupStarted}
+                onSubmit={actions.signUp}
+                onCreateSchool={actions.createOnboardingSchool}
+              />
+            ) : state.signupRole === 'student' ? (
+              <RetiredStudentOnboardingScreen
+                onBack={() => {
+                  actions.setSignupRole(null);
+                  actions.setAuthMode('login');
+                }}
+              />
+            ) : (
+              <StudentOnboardingScreen
+                role={state.signupRole}
+                schools={state.schoolsList}
+                isSubmitting={state.isAuthenticating}
+                error={state.authError}
+                includeIntroChoices={state.signupRole !== 'teacher'}
+                collectSignupCredentials
+                externalPaymentsEnabled={state.externalPaymentsEnabled}
+                onRoleChange={actions.setSignupRole}
+                onProfileSetupStarted={actions.recordProfileSetupStarted}
+                onSubmit={actions.signUp}
+              />
+            )}
+          </OnboardingSoundtrackSurface>
         </AppSafeArea>
       );
     }
@@ -314,6 +368,7 @@ export function KitabuApp() {
             skipHouseholdSetup={state.parentHouseholdOnboardingRequested}
             onCreateSchool={actions.createOnboardingSchool}
             onRoleChange={() => undefined}
+            onProfileSetupStarted={actions.recordProfileSetupStarted}
             onSubmit={input => actions.submitAccountOnboarding(input)}
           />
         ) : state.authSession.user.roles.includes('student') &&
@@ -333,6 +388,7 @@ export function KitabuApp() {
             includeIntroChoices
             externalPaymentsEnabled={state.externalPaymentsEnabled}
             onCreateSchool={actions.createOnboardingSchool}
+            onProfileSetupStarted={actions.recordProfileSetupStarted}
             onSubmit={actions.submitAccountOnboarding}
           />
         )}
@@ -350,6 +406,7 @@ export function KitabuApp() {
           subjectId={state.progressiveDiagnosticSubject.id}
           subjectName={state.progressiveDiagnosticSubject.name}
           onComplete={actions.completeProgressiveDiagnostic}
+          onCompletionConfirmed={actions.recordProgressiveDiagnosticCompletion}
         />
       </AppSafeArea>
     );
@@ -464,6 +521,7 @@ export function KitabuApp() {
           selectedSubjectIds={state.dashboardSubjectIds}
           onToggleSubject={actions.toggleDashboardSubject}
           onSwapSubject={actions.swapDashboardSubject}
+          analyticsRole={analyticsRole}
         />
 
         <NotificationsModal
@@ -1073,6 +1131,22 @@ const styles = StyleSheet.create({
   },
   screenWrap: {
     flex: 1,
+  },
+  onboardingAudioSurface: {
+    flex: 1,
+    position: 'relative',
+  },
+  onboardingSoundtrackToggle: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    borderRadius: 999,
+    height: 42,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 14,
+    top: 14,
+    width: 42,
+    zIndex: 20,
   },
   retiredOnboardingScreen: {
     alignItems: 'center',

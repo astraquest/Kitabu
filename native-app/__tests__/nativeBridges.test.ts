@@ -65,11 +65,32 @@ describe('chatAttachmentBridge', () => {
     const { chatAttachmentBridge } = require('../src/services/nativeBridges');
     const attachment = await chatAttachmentBridge.pickImage();
 
+    expect(ImagePicker.launchImageLibraryAsync).toHaveBeenCalledWith({
+      allowsEditing: true,
+      base64: false,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.72,
+    });
+
     expect(attachment).toEqual({
       data: 'iVBORw==',
       mimeType: 'image/png',
       name: 'homework.png',
       type: 'image',
+    });
+  });
+
+  test('bounds camera capture options before decoding a chat attachment', async () => {
+    const ImagePicker = require('expo-image-picker');
+    const { chatAttachmentBridge } = require('../src/services/nativeBridges');
+
+    await expect(chatAttachmentBridge.takePhoto()).resolves.toBeNull();
+
+    expect(ImagePicker.launchCameraAsync).toHaveBeenCalledWith({
+      allowsEditing: true,
+      base64: false,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.72,
     });
   });
 });

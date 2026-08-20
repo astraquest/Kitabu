@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Animated,
@@ -28,9 +28,11 @@ import {
 
 import { SchoolData, Subject, UserProfile } from '../types/app';
 import type { BillingStatus } from '../types/app';
+import type { MobileAnalyticsRole } from '../services/mobileAnalytics';
 import { SUPPORTED_GRADES } from '../constants/grades';
 import { AvatarArt, normalizeLocalAvatarKey } from './AvatarArt';
 import { CountryFlagIcon } from './CountryFlagIcon';
+import { MobileAnalyticsConsentCard } from './MobileAnalyticsConsentCard';
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -61,6 +63,7 @@ interface ProfileModalProps {
   selectedSubjectIds: string[];
   onToggleSubject: (subjectId: string) => void;
   onSwapSubject: (replacedSubjectId: string, addedSubjectId: string) => void;
+  analyticsRole?: MobileAnalyticsRole;
   subscriptionCheckoutOverlay?: React.ReactNode;
 }
 
@@ -437,6 +440,7 @@ export function ProfileModal({
   selectedSubjectIds,
   onToggleSubject,
   onSwapSubject,
+  analyticsRole = null,
   subscriptionCheckoutOverlay,
 }: ProfileModalProps) {
   const [editCardVisible, setEditCardVisible] = useState(false);
@@ -772,7 +776,8 @@ export function ProfileModal({
                     <AvatarArt avatarKey={localAvatarKey} size={62} />
                   ) : avatarUri ? (
                     <Image
-                      source={{ uri: avatarUri }}
+                      resizeMethod="resize"
+                      source={{ cache: 'default', uri: avatarUri }}
                       style={styles.avatarImage}
                     />
                   ) : (
@@ -1022,32 +1027,35 @@ export function ProfileModal({
               />
             </Pressable>
             {accountToolsOpen ? (
-              <View style={styles.accountDeletionPanel}>
-                <View style={styles.accountDeletionCopyWrap}>
-                  <Text style={styles.accountDeletionTitle}>
-                    Delete account
-                  </Text>
-                  <Text style={styles.accountDeletionCopy}>
-                    Requires typed confirmation.
-                  </Text>
+              <>
+                <MobileAnalyticsConsentCard role={analyticsRole} />
+                <View style={styles.accountDeletionPanel}>
+                  <View style={styles.accountDeletionCopyWrap}>
+                    <Text style={styles.accountDeletionTitle}>
+                      Delete account
+                    </Text>
+                    <Text style={styles.accountDeletionCopy}>
+                      Requires typed confirmation.
+                    </Text>
+                  </View>
+                  <Pressable
+                    onPress={() =>
+                      setDeleteState({
+                        isOpen: true,
+                        isSubmitting: false,
+                        confirmationText: '',
+                        error: null,
+                      })
+                    }
+                    style={({ pressed }) => [
+                      styles.accountDeletionButton,
+                      pressed && styles.footerButtonPressed,
+                    ]}
+                  >
+                    <Text style={styles.accountDeletionButtonText}>Request</Text>
+                  </Pressable>
                 </View>
-                <Pressable
-                  onPress={() =>
-                    setDeleteState({
-                      isOpen: true,
-                      isSubmitting: false,
-                      confirmationText: '',
-                      error: null,
-                    })
-                  }
-                  style={({ pressed }) => [
-                    styles.accountDeletionButton,
-                    pressed && styles.footerButtonPressed,
-                  ]}
-                >
-                  <Text style={styles.accountDeletionButtonText}>Request</Text>
-                </Pressable>
-              </View>
+              </>
             ) : null}
           </View>
         </View>
@@ -2892,10 +2900,10 @@ const styles = StyleSheet.create({
     height: 256,
   },
   subjectsFooterSpacerSwapExpanded: {
-    height: 322,
+    height: 450,
   },
   subjectsFooterSpacerExpanded: {
-    height: 188,
+    height: 390,
   },
   footer: {
     backgroundColor: '#FFFFFF',

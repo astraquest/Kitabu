@@ -390,12 +390,13 @@ test('sign-in page renders account-type cards before credentials', async () => {
     renderer = ReactTestRenderer.create(<LoginScreen {...defaultLoginProps} />);
   });
 
-  expect(renderer!.root.findByProps({ children: "Who's using Kitabu?" })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Sign in' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Create account' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ children: 'Choose your role' })).toBeTruthy();
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Sign in' })).toHaveLength(0);
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Create account' })).toHaveLength(0);
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Parent/Student' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Teacher' })).toBeTruthy();
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Continue as Student' })).toHaveLength(0);
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Continue as Parent' })).toHaveLength(0);
-  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Continue as Teacher' })).toHaveLength(0);
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Continue as Other' })).toHaveLength(0);
   expect(renderedText(renderer!.root)).not.toContain('Other');
 });

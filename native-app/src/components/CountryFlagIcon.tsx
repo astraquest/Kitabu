@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import type { StyleProp, ViewStyle } from 'react-native';
 
@@ -55,7 +55,8 @@ export function CountryFlagIcon({
     >
       <Image
         resizeMode="cover"
-        source={{ uri: flagUri }}
+        resizeMethod="resize"
+        source={{ cache: 'default', uri: flagUri }}
         style={{ height, width }}
       />
     </View>

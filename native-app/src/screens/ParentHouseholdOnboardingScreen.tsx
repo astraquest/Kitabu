@@ -23,10 +23,12 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { OnboardingVisualShell } from '../components/OnboardingVisualShell';
+import { MobileAnalyticsConsentCard } from '../components/MobileAnalyticsConsentCard';
 
 import { SUPPORTED_GRADES } from '../constants/grades';
 import { COUNTRY_OPTIONS, REGIONS_BY_COUNTRY, detectDefaultCountryCode } from '../constants/locations';
-import { WHATSAPP_CALLING_COUNTRIES } from '../constants/whatsappCallingCountries';
+import { WHATSAPP_CALLING_COUNTRIES, type WhatsAppCallingCountry } from '../constants/whatsappCallingCountries';
+import { WHATSAPP_MOBILE_NSN_LENGTHS } from '../constants/whatsappMobileNsnLengths';
 import { triggerHaptic } from '../services/haptics';
 import { requestPushPermission } from '../services/pushNotifications';
 import { buildPrimaryInstruction, getParentEnglishOnboardingCueId, getParentSwahiliOnboardingCueId, useGuidedNarration } from '../services/narrationService';
@@ -94,6 +96,7 @@ type Props = {
   initialCountryCode?: string;
   skipHouseholdSetup?: boolean;
   onCreateSchool?: (input: { schoolName: string; county: string }) => Promise<SchoolData>;
+  onProfileSetupStarted?: (role: 'parent', grade?: string) => void;
   onSubmit: (input: ParentHouseholdOnboardingInput) => void;
   onRoleChange: (role: 'parent' | 'teacher') => void;
 };
@@ -168,6 +171,17 @@ const VOICES: Array<{ name: OnboardingVoiceName; label: string; en: AudioSource;
   { name: 'Bella', label: 'Bright and energetic', en: require('../assets/Bella-Anya-Eng.mp3'), sw: require('../assets/Bella-Anya-Kisw.mp3') },
   { name: 'Judith', label: 'Patient and steady', en: require('../assets/Judith-cay-Eng.mp3'), sw: require('../assets/Judith-Cay-Kisw.mp3') },
 ];
+const WHATSAPP_REGIONAL_COUNTRY_CODES = new Set(COUNTRY_OPTIONS.map(option => option.code));
+
+export function orderWhatsappCallingCountries(
+  countries: readonly WhatsAppCallingCountry[],
+  detectedCountryCode: string,
+  regionalCountryCodes: ReadonlySet<string> = WHATSAPP_REGIONAL_COUNTRY_CODES,
+): WhatsAppCallingCountry[] {
+  const uniqueCountries = Array.from(new Map(countries.map(country => [country.iso2, country])).values());
+  const tier = (country: WhatsAppCallingCountry) => country.iso2 === detectedCountryCode ? 0 : regionalCountryCodes.has(country.iso2) ? 1 : 2;
+  return uniqueCountries.sort((left, right) => tier(left) - tier(right) || left.name.localeCompare(right.name, 'en') || left.iso2.localeCompare(right.iso2));
+}
 
 function blankChild(): ParentHouseholdChildInput {
   return {
@@ -184,6 +198,16 @@ export function canonicalizeWhatsappNumber(value: string, callingCode: string): 
   return nationalDigits ? `+${callingCode}${nationalDigits.replace(/^0/, '')}` : '';
 }
 
+export function sanitizeWhatsappNationalNumber(value: string, callingCode: string, maxLength: number): string {
+  let digits = value.replace(/\D/g, '');
+  if (value.trim().startsWith('+') && digits.startsWith(callingCode)) {
+    digits = digits.slice(callingCode.length);
+  } else if (digits.startsWith(callingCode) && digits.length >= maxLength + callingCode.length) {
+    digits = digits.slice(callingCode.length);
+  }
+  return digits.replace(/^0+/, '').slice(0, maxLength);
+}
+
 export function ParentHouseholdOnboardingScreen({
   schools,
   isSubmitting,
@@ -193,6 +217,7 @@ export function ParentHouseholdOnboardingScreen({
   initialCountryCode,
   skipHouseholdSetup = false,
   onCreateSchool,
+  onProfileSetupStarted,
   onSubmit,
   onRoleChange,
 }: Props) {
@@ -221,7 +246,6 @@ export function ParentHouseholdOnboardingScreen({
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [referralSource, setReferralSource] = useState('');
   const [ordering, setOrdering] = useState<ParentOnboardingOrderState>(emptyParentOnboardingOrder);
-  const [voicePreviewingName, setVoicePreviewingName] = useState<OnboardingVoiceName | null>(null);
   const [voicePreviewedName, setVoicePreviewedName] = useState<OnboardingVoiceName | null>(null);
   const [signupEmail, setSignupEmail] = useState('');
   const [signupMethod, setSignupMethod] = useState<'email' | 'google'>('email');
@@ -251,7 +275,8 @@ export function ParentHouseholdOnboardingScreen({
     [child.county, schools],
   );
   const filteredSchools = countySchools.filter(school => school.name.toLowerCase().includes(schoolQuery.toLowerCase().trim()));
-  const filteredWhatsappCallingCountries = WHATSAPP_CALLING_COUNTRIES.filter(option => {
+  const orderedWhatsappCallingCountries = orderWhatsappCallingCountries(WHATSAPP_CALLING_COUNTRIES, detectedCountryCode);
+  const filteredWhatsappCallingCountries = orderedWhatsappCallingCountries.filter(option => {
     const query = whatsappCountryQuery.trim().toLowerCase();
     return !query || option.name.toLowerCase().includes(query) || option.iso2.toLowerCase() === query || option.callingCode.includes(query.replace(/^\+/, ''));
   });
@@ -264,20 +289,24 @@ export function ParentHouseholdOnboardingScreen({
   const progress = ['language', 'role', 'parentAvatar', 'parentName', 'whatsappNumber', 'country', 'childName', 'childAge', 'childGender', 'childSchool', 'childGrade', 'childPerformance', 'childSubjects', 'addAnother', 'microphone', 'reminder', 'referral', 'tutorIntro', 'mascot', 'voice', 'rafiki', 'socialProof', 'commitment', 'childReady', 'ready', 'signup'];
   const progressValue = Math.round(((progress.indexOf(step) + 1) / progress.length) * 100);
   const copy = parentHouseholdCopy(languageCode, child.name, childIndex, children.length);
+  const continueDisabled = isSubmitting || (step === 'voice' && (!child.voiceName || voicePreviewedName !== child.voiceName)) || (step === 'commitment' && (!child.commitmentAccepted || !child.commitmentSignature));
 
   function updateChild(update: Partial<ParentHouseholdChildInput>) {
+    onProfileSetupStarted?.('parent', (update.grade ?? child.grade) || undefined);
     setChildren(current => current.map((item, index) => index === childIndex ? { ...item, ...update } : item));
     setLocalError(null);
   }
 
   function selectMascot(value: OnboardingMascotKey) {
     updateChild({ mascotKey: value });
+    next('voice');
   }
 
   function selectParentAvatar(option: (typeof PARENT_AVATARS)[number]) {
     setParentAvatarKey(option.key);
     setParentGender(option.gender);
     setLocalError(null);
+    next('parentName');
   }
 
   function selectVoice(value: OnboardingVoiceName) {
@@ -331,7 +360,6 @@ export function ParentHouseholdOnboardingScreen({
     voicePlayerRef.current?.pause();
     voicePlayerRef.current?.remove();
     voicePlayerRef.current = null;
-    setVoicePreviewingName(null);
   }
 
   async function previewVoice(option: (typeof VOICES)[number]) {
@@ -339,7 +367,6 @@ export function ParentHouseholdOnboardingScreen({
     const requestId = voicePreviewRequestIdRef.current;
     selectVoice(option.name);
     setVoicePreviewedName(null);
-    setVoicePreviewingName(option.name);
 
     try {
       if (Platform.OS !== 'web') {
@@ -364,18 +391,12 @@ export function ParentHouseholdOnboardingScreen({
           }
           if (status.playing) {
             setVoicePreviewedName(option.name);
-            setVoicePreviewingName(null);
-          }
-          if (status.didJustFinish) {
-            setVoicePreviewingName(null);
           }
         },
       );
       player.play();
     } catch {
-      if (voicePreviewRequestIdRef.current === requestId) {
-        setVoicePreviewingName(null);
-      }
+      // Playback failures leave the selected voice unverified, so Continue stays disabled.
     }
   }
 
@@ -447,10 +468,10 @@ export function ParentHouseholdOnboardingScreen({
       next('whatsappNumber'); return;
     }
     if (step === 'whatsappNumber') {
-      const trimmedWhatsappNumber = whatsappNumber.trim();
-      const digitCount = (trimmedWhatsappNumber.match(/\d/g) ?? []).length;
-      if (trimmedWhatsappNumber.length < 9 || trimmedWhatsappNumber.length > 20 || !/^[0-9\s+().-]+$/.test(trimmedWhatsappNumber) || digitCount < 9) {
-        setLocalError(copy.validation.whatsapp);
+      const lengths = WHATSAPP_MOBILE_NSN_LENGTHS[selectedWhatsappCallingCountry.iso2];
+      const nationalDigits = sanitizeWhatsappNationalNumber(whatsappNumber, selectedWhatsappCallingCountry.callingCode, Math.max(...lengths));
+      if (!lengths.includes(nationalDigits.length)) {
+        setLocalError(copy.whatsappValidation(lengths, selectedWhatsappCallingCountry.callingCode));
         triggerHaptic('error');
         return;
       }
@@ -492,7 +513,7 @@ export function ParentHouseholdOnboardingScreen({
     }
     if (step === 'tutorIntro') { next('mascot'); return; }
     if (step === 'mascot') { if (!child.mascotKey) { setLocalError(copy.validation.tutor); return; } next('voice'); return; }
-    if (step === 'voice') { if (!child.voiceName) { setLocalError(copy.validation.voice); return; } next('rafiki'); return; }
+    if (step === 'voice') { if (!child.voiceName || voicePreviewedName !== child.voiceName) { setLocalError(copy.validation.voice); return; } next('rafiki'); return; }
     if (step === 'rafiki') { next('socialProof'); return; }
     if (step === 'socialProof') { next('commitment'); return; }
     if (step === 'commitment') {
@@ -580,9 +601,9 @@ export function ParentHouseholdOnboardingScreen({
 
         {step === 'language' ? <><Text style={styles.languagePrompt}>{copy.prompt}</Text><View style={styles.grid}><Pressable accessibilityLabel="Choose Kiswahili" onPress={() => { setLanguageCode('sw'); next('role'); }} style={({ pressed }) => [styles.choice, pressed && styles.pressed]}><Text style={styles.choiceText}>Kiswahili</Text></Pressable><Pressable accessibilityLabel="Choose English" onPress={() => { setLanguageCode('en'); next('role'); }} style={({ pressed }) => [styles.choice, pressed && styles.pressed]}><Text style={styles.choiceText}>English</Text></Pressable></View></> : null}
         {step === 'role' ? <View style={styles.grid}><Pressable onPress={() => { onRoleChange('parent'); next('parentAvatar'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.roleParent}</Text></Pressable><Pressable onPress={() => onRoleChange('teacher')} style={styles.choice}><Text style={styles.choiceText}>{copy.roleTeacher}</Text></Pressable></View> : null}
-        {step === 'parentAvatar' ? <View style={styles.grid}>{PARENT_AVATARS.map(option => <Pressable key={option.key} accessibilityLabel={`${copy.avatarLabel} ${option.key}`} accessibilityRole="radio" accessibilityState={{ selected: parentAvatarKey === option.key }} onPress={() => selectParentAvatar(option)} style={({ pressed }) => [styles.avatarChoice, parentAvatarKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={`${copy.avatarLabel} ${option.gender === 'female' ? copy.mum : copy.dad} artwork`} resizeMode="contain" source={option.source} style={styles.parentAvatarImage} /><Text style={styles.choiceText}>{parentAvatarKey === option.key ? '✓ ' : ''}{option.gender === 'female' ? copy.mum : copy.dad}</Text></Pressable>)}</View> : null}
+        {step === 'parentAvatar' ? <View style={styles.grid}>{PARENT_AVATARS.map(option => <Pressable key={option.key} accessibilityLabel={`${copy.avatarLabel} ${option.key}`} accessibilityRole="radio" accessibilityState={{ selected: parentAvatarKey === option.key }} onPress={() => selectParentAvatar(option)} style={({ pressed }) => [styles.avatarChoice, parentAvatarKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${option.gender === 'female' ? copy.mum : copy.dad}` : `${copy.avatarLabel} ${option.gender === 'female' ? copy.mum : copy.dad} artwork`} resizeMode="contain" source={option.source} style={styles.parentAvatarImage} /><Text style={styles.choiceText}>{parentAvatarKey === option.key ? '✓ ' : ''}{option.gender === 'female' ? copy.mum : copy.dad}</Text></Pressable>)}</View> : null}
         {step === 'parentName' ? <TextInput autoFocus value={parentName} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } setParentName(value.replace(/\d/g, '')); setLocalError(null); }} placeholder={copy.namePlaceholder} style={styles.input} /> : null}
-        {step === 'whatsappNumber' ? <View style={styles.panel}><Text style={styles.centeredCopy}>{copy.whatsappCopy}</Text><Text style={styles.fieldLabel}>{copy.sw ? 'Nchi ya WhatsApp' : 'WhatsApp country'}</Text><View style={styles.whatsappEntryRow}><Pressable accessibilityLabel={copy.sw ? 'Chagua msimbo wa nchi wa WhatsApp' : 'Select WhatsApp country calling code'} accessibilityRole="button" accessibilityValue={{ text: `${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}` }} accessibilityState={{ expanded: whatsappCountryPickerOpen }} onPress={() => { setWhatsappCountryQuery(''); setWhatsappCountryPickerOpen(true); }} style={({ pressed }) => [styles.callingCountrySelector, pressed && styles.pressed]}><Text accessibilityLabel={`${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}`} ellipsizeMode="tail" numberOfLines={1} style={styles.choiceText}>{selectedWhatsappCallingCountry.flag} {selectedWhatsappCallingCountry.name} · +{selectedWhatsappCallingCountry.callingCode}</Text></Pressable><TextInput accessibilityLabel={copy.sw ? 'Nambari ya WhatsApp' : 'WhatsApp number'} autoCapitalize="none" autoCorrect={false} autoComplete="tel" textContentType="telephoneNumber" autoFocus keyboardType="phone-pad" maxLength={20} multiline={false} numberOfLines={1} value={whatsappNumber} onChangeText={value => { setWhatsappNumber(value); setLocalError(null); }} placeholder="0700123456" style={[styles.input, styles.whatsappNumberInput]} /> </View>{localError ? <Text style={styles.error}>{localError}</Text> : null}</View> : null}
+        {step === 'whatsappNumber' ? <View style={styles.panel}><Text style={styles.centeredCopy}>{copy.whatsappCopy}</Text><Text style={styles.centeredCopy}>{copy.whatsappHint(WHATSAPP_MOBILE_NSN_LENGTHS[selectedWhatsappCallingCountry.iso2], selectedWhatsappCallingCountry.callingCode)}</Text><View style={styles.whatsappEntryRow}><Pressable accessibilityLabel={copy.sw ? 'Chagua msimbo wa nchi wa WhatsApp' : 'Select WhatsApp country calling code'} accessibilityRole="button" accessibilityValue={{ text: `${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}` }} accessibilityState={{ expanded: whatsappCountryPickerOpen }} onPress={() => { setWhatsappCountryQuery(''); setWhatsappCountryPickerOpen(true); }} style={({ pressed }) => [styles.callingCountrySelector, pressed && styles.pressed]}><Text accessibilityLabel={`${selectedWhatsappCallingCountry.name}, +${selectedWhatsappCallingCountry.callingCode}`} ellipsizeMode="tail" numberOfLines={1} style={styles.choiceText}>{selectedWhatsappCallingCountry.iso2} +{selectedWhatsappCallingCountry.callingCode}</Text></Pressable><TextInput accessibilityLabel={copy.sw ? 'Nambari ya WhatsApp' : 'WhatsApp number'} autoCapitalize="none" autoCorrect={false} autoComplete="tel" textContentType="telephoneNumber" autoFocus keyboardType="phone-pad" maxLength={Math.max(...WHATSAPP_MOBILE_NSN_LENGTHS[selectedWhatsappCallingCountry.iso2])} multiline={false} numberOfLines={1} value={whatsappNumber} onChangeText={value => { setWhatsappNumber(sanitizeWhatsappNationalNumber(value, selectedWhatsappCallingCountry.callingCode, Math.max(...WHATSAPP_MOBILE_NSN_LENGTHS[selectedWhatsappCallingCountry.iso2]))); setLocalError(null); }} placeholder={selectedWhatsappCallingCountry.iso2 === 'KE' ? '712345678' : '1'.repeat(Math.max(...WHATSAPP_MOBILE_NSN_LENGTHS[selectedWhatsappCallingCountry.iso2]))} style={[styles.input, styles.whatsappNumberInput]} /> </View>{localError ? <Text style={styles.error}>{localError}</Text> : null}</View> : null}
         {step === 'country' ? <Pressable accessibilityLabel={copy.sw ? 'Chagua nchi ya familia' : 'Select family country'} onPress={() => setCountryPickerOpen(true)} style={[styles.panel, styles.countryPanel]}><Text style={styles.countryFlag}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.flag}</Text><Text style={styles.choiceText}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.name}</Text><Text style={styles.centeredCopy}>{COUNTRY_OPTIONS.find(option => option.code === countryCode)?.curriculum} {copy.curriculum}</Text><Text style={styles.changeCountry}>{copy.country}</Text></Pressable> : null}
         {step === 'childName' ? <TextInput autoFocus value={child.name} onChangeText={value => { if (/\d/.test(value)) { triggerHaptic('error'); } updateChild({ name: value.replace(/\d/g, '') }); }} placeholder={copy.childPlaceholder} style={styles.input} /> : null}
         {step === 'childAge' ? <TextInput autoFocus keyboardType="number-pad" value={child.age} onChangeText={value => updateChild({ age: value.replace(/\D/g, '').slice(0, 2) })} placeholder={copy.agePlaceholder} style={styles.input} /> : null}
@@ -607,30 +628,25 @@ export function ParentHouseholdOnboardingScreen({
         {step === 'reminder' ? <><Text style={styles.panel}>{copy.reminderCopy}</Text><View style={styles.permissionChoices}><Pressable onPress={() => { setReminderEnabled(false); next('referral'); }} style={styles.choice}><Text style={styles.choiceText}>{copy.notNow}</Text></Pressable><Pressable onPress={() => requestPushPermission().then(permission => setReminderEnabled(permission.granted)).catch(() => setReminderEnabled(false)).finally(() => next('referral'))} style={[styles.choice, styles.permissionAllow]}><Text style={styles.choiceText}>{copy.allow}</Text></Pressable></View></> : null}
         {step === 'referral' ? <View style={styles.grid}>{referralOptions.map(option => <Pressable key={option.value} onPress={() => { setReferralSource(option.value); recordParentOnboardingSelection(ordering, 'referral', option.value); }} style={[styles.choice, referralSource === option.value && styles.selected]}><Text style={styles.choiceText}>{copy.referral(option.label)}</Text></Pressable>)}</View> : null}
         {step === 'tutorIntro' ? <View style={styles.tutorIntro}><Text style={styles.tutorIntroCopy}>{childIndex > 0 ? tutorIntroTitle : copy.tutorIntroForChild}</Text></View> : null}
-        {step === 'mascot' ? <View style={styles.grid}>{MASCOTS.map(option => <Pressable key={option.key} onPress={() => selectMascot(option.key)} style={[styles.choice, child.mascotKey === option.key && styles.selected]}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(option.key)}` : `${copy.mascot(option.key)} artwork`} resizeMode="contain" source={option.source} style={styles.mascotImage} /><Text style={styles.choiceText}>{copy.mascot(option.key)}</Text></Pressable>)}</View> : null}
+        {step === 'mascot' ? <View style={styles.grid}>{MASCOTS.map(option => <Pressable key={option.key} accessibilityRole="button" accessibilityLabel={copy.sw ? `Chagua na uendelee na ${copy.mascot(option.key)}` : `Select ${copy.mascot(option.key)} and continue`} onPress={() => selectMascot(option.key)} style={({ pressed }) => [styles.choice, child.mascotKey === option.key && styles.selected, pressed && styles.pressed]}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(option.key)}` : `${copy.mascot(option.key)} artwork`} resizeMode="contain" source={option.source} style={styles.mascotImage} /><Text style={styles.choiceText}>{copy.mascot(option.key)}</Text></Pressable>)}</View> : null}
         {step === 'rafiki' ? <LinearGradient colors={['#FFF0DD', '#E6F4EE']} style={styles.tutorPanel}><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(selectedMascot.key)} aliyechaguliwa` : 'Selected Rafiki artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.revealMascotImage} /><Text style={styles.choiceText}>{copy.rafiki(selectedMascot.key)}</Text></LinearGradient> : null}
         {step === 'voice' ? <><View style={styles.selectedVoiceMascot}><Image accessibilityLabel={copy.sw ? `Mnyama aliyechaguliwa: ${copy.mascot(selectedMascot.key)}` : 'Selected mascot on voice screen'} resizeMode="contain" source={selectedMascot.source} style={styles.voiceMascotImage} /><Text style={styles.centeredCopy}>{copy.mascot(selectedMascot.key)}</Text></View><View style={styles.grid}>{VOICES.map(option => {
           const selected = child.voiceName === option.name;
-          const isPlaying = voicePreviewingName === option.name;
-          const previewComplete = voicePreviewedName === option.name;
-          return <Pressable key={option.name} onPress={() => selectVoice(option.name)} style={[styles.choice, selected && styles.selected]}>
+          return <Pressable key={option.name} accessibilityRole="button" accessibilityLabel={copy.sw ? `Chagua na usikilize sauti ya ${option.name}` : `Select and preview ${option.name} voice`} onPress={() => { previewVoice(option).catch(() => undefined); }} style={({ pressed }) => [styles.choice, selected && styles.selected, pressed && styles.pressed]}>
             <Text style={styles.choiceText}>{copy.voice(option.name)}</Text>
-            <Pressable accessibilityRole="button" accessibilityLabel={copy.sw ? `Sikiliza sauti ya ${option.name}` : `Preview ${option.name} voice`} onPress={(event?: { stopPropagation?: () => void }) => { event?.stopPropagation?.(); previewVoice(option).catch(() => undefined); }} style={styles.previewButton}>
-              <Text style={styles.preview}>{isPlaying ? copy.playing : previewComplete ? copy.previewDone : copy.preview}</Text>
-            </Pressable>
           </Pressable>;
         })}</View></> : null}
         {step === 'socialProof' ? <View style={styles.panel}><Text style={styles.centeredCopy}>{copy.social}</Text></View> : null}
         {step === 'commitment' ? <View style={styles.panel}><Text style={styles.commitmentPrompt}>{copy.commitmentPrompt}</Text><View style={styles.permissionChoices}><Pressable onPress={() => { updateChild({ commitmentAccepted: false, commitmentSignature: undefined }); setSignaturePoints([]); }} style={styles.choice}><Text style={styles.choiceText}>{copy.no}</Text></Pressable><Pressable onPress={() => updateChild({ commitmentAccepted: true })} style={[styles.choice, child.commitmentAccepted && styles.selected]}><Text style={styles.choiceText}>{copy.yes}</Text></Pressable></View>{child.commitmentAccepted ? <><Text style={styles.signatureLabel}>{copy.sign}</Text><View style={styles.signatureRow}><View accessibilityLabel={copy.sw ? 'Eneo la saini' : 'Signature canvas'} onStartShouldSetResponder={() => true} onResponderGrant={event => startSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderMove={event => extendSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderRelease={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} onResponderTerminate={event => finishSignature(event.nativeEvent.locationX, event.nativeEvent.locationY)} style={[styles.signatureCanvas, child.commitmentSignature && styles.selected]}>{(signaturePointsByChild[childIndex] ?? []).slice(1).map((point, index) => { const previous = signaturePointsByChild[childIndex][index]; const length = Math.hypot(point.x - previous.x, point.y - previous.y); const angle = Math.atan2(point.y - previous.y, point.x - previous.x) * 180 / Math.PI; return <View key={`${index}-${point.x}-${point.y}`} pointerEvents="none" style={[styles.signatureStroke, { left: (previous.x + point.x) / 2 - length / 2, top: (previous.y + point.y) / 2 - 1, width: length, transform: [{ rotate: `${angle}deg` }] }]} />; })}{child.commitmentSignature ? null : <Text pointerEvents="none" style={styles.signatureHint}>{copy.draw}</Text>}</View><Image accessibilityLabel={copy.sw ? `Mchoro wa ${copy.mascot(selectedMascot.key)} kwa ahadi` : 'Commitment mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.signatureMascot} /></View>{child.commitmentSignature ? <Text style={styles.signaturePreview}>{copy.signed(child.name)}</Text> : null}</> : null}</View> : null}
         {step === 'childReady' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><Image accessibilityLabel={copy.sw ? 'Mchoro wa Rafiki: mtoto yuko tayari' : 'Ready mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{copy.title.readyChild}</Text><Text style={styles.readyText}>{copy.readyCopy}</Text></View></LinearGradient> : null}
         {step === 'ready' ? <LinearGradient colors={['#123F59', '#1A6A73']} style={styles.readyHero}><View pointerEvents="none" style={styles.confettiLayer}>{['●', '✦', '▲', '◆'].map((piece, index) => <Animated.Text key={piece} style={[styles.confettiPiece, { left: `${14 + index * 24}%`, transform: [{ translateY: confettiFall.interpolate({ inputRange: [0, 1], outputRange: [-90 - index * 24, 220] }) }, { rotate: `${index % 2 ? 180 : 360}deg` }] }]}>{piece}</Animated.Text>)}</View><Image accessibilityLabel={copy.sw ? 'Mchoro wa Rafiki: mpango uko tayari' : 'Ready mascot artwork'} resizeMode="contain" source={selectedMascot.source} style={styles.readyMascotImage} /><View style={styles.readyCopy}><Text style={styles.readyTitle}>{copy.title.ready}</Text><Text style={styles.readyText}>{copy.readyText(countryCode)}</Text>{children.map((item, index) => <Text key={`${item.name}-${index}`} style={styles.readyRow}>{copy.readyRow(item.name, index)}</Text>)}</View></LinearGradient> : null}
-        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountText}>{copy.signupCopy}</Text><Pressable accessibilityLabel={copy.google} accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>{copy.google}</Text></Pressable><Text style={styles.orText}>{copy.email}</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder={copy.emailPlaceholder} style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder={copy.password} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? copy.hide : copy.show} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? copy.hide : copy.show}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder={copy.confirmPassword} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? copy.hide : copy.show} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? copy.hide : copy.show}</Text></Pressable></View></View> : null}
+        {step === 'signup' ? <View style={styles.accountPanel}><Text style={styles.accountText}>{copy.signupCopy}</Text><MobileAnalyticsConsentCard role="parent" /><Pressable accessibilityLabel={copy.google} accessibilityRole="button" disabled={isSubmitting} onPress={() => { setSignupMethod('google'); submit('google'); }} style={[styles.googleButton, isSubmitting && styles.googleDisabled]}><GoogleLogo size={20} /><Text style={styles.googleText}>{copy.google}</Text></Pressable><Text style={styles.orText}>{copy.email}</Text><TextInput autoCapitalize="none" keyboardType="email-address" value={signupEmail} onChangeText={setSignupEmail} placeholder={copy.emailPlaceholder} style={styles.input} /><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPassword} value={signupPassword} onChangeText={setSignupPassword} placeholder={copy.password} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPassword ? copy.hide : copy.show} onPress={() => setShowSignupPassword(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPassword ? copy.hide : copy.show}</Text></Pressable></View><View style={styles.passwordRow}><TextInput autoCapitalize="none" secureTextEntry={!showSignupPasswordConfirm} value={signupPasswordConfirm} onChangeText={setSignupPasswordConfirm} placeholder={copy.confirmPassword} style={styles.passwordInput} /><Pressable accessibilityLabel={showSignupPasswordConfirm ? copy.hide : copy.show} onPress={() => setShowSignupPasswordConfirm(value => !value)} style={styles.visibilityButton}><Text style={styles.visibilityText}>{showSignupPasswordConfirm ? copy.hide : copy.show}</Text></Pressable></View></View> : null}
         {(localError || error) && step !== 'whatsappNumber' ? <Text style={styles.error}>{localError || error}</Text> : null}
       </ScrollView>
-      {step !== 'language' && step !== 'childGender' && step !== 'childPerformance' && step !== 'microphone' && step !== 'reminder' ? <Pressable disabled={isSubmitting || (step === 'commitment' && (!child.commitmentAccepted || !child.commitmentSignature))} onPress={validateAndContinue} style={styles.button}><Text style={styles.buttonText}>{isSubmitting ? copy.saving : step === 'country' ? copy.confirmCountry : step === 'signup' ? (copy.sw ? 'Fungua akaunti' : 'Create Account') : copy.continue}</Text></Pressable> : null}
+      {step !== 'language' && step !== 'childGender' && step !== 'childPerformance' && step !== 'microphone' && step !== 'reminder' ? <Pressable disabled={continueDisabled} onPress={validateAndContinue} style={[styles.button, continueDisabled && styles.disabled]}><Text style={styles.buttonText}>{isSubmitting ? copy.saving : step === 'country' ? copy.confirmCountry : step === 'signup' ? (copy.sw ? 'Fungua akaunti' : 'Create Account') : copy.continue}</Text></Pressable> : null}
 
       <Modal transparent visible={countryPickerOpen} onRequestClose={() => setCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi yako' : 'Choose your country'}</Text><ScrollView>{[...COUNTRY_OPTIONS].sort((left, right) => Number(right.code === detectedCountryCode) - Number(left.code === detectedCountryCode)).map(option => <Pressable key={option.code} onPress={() => { setCountryCode(option.code); setCountryPickerOpen(false); }} style={styles.sheetRow}><Text style={styles.choiceText}>{option.flag} {option.name}{option.code === detectedCountryCode ? (copy.sw ? ' · Imetambuliwa' : ' · Detected') : ''}</Text><Text>{option.curriculum} {copy.curriculum}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
-      <Modal transparent visible={whatsappCountryPickerOpen} onRequestClose={() => setWhatsappCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setWhatsappCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi ya WhatsApp' : 'Choose WhatsApp country'}</Text><TextInput accessibilityLabel={copy.sw ? 'Tafuta nchi za WhatsApp' : 'Search WhatsApp countries'} autoFocus value={whatsappCountryQuery} onChangeText={setWhatsappCountryQuery} placeholder={copy.sw ? 'Tafuta nchi' : 'Search countries'} style={styles.input} /><ScrollView>{filteredWhatsappCallingCountries.map(option => <Pressable key={option.iso2} accessibilityRole="radio" accessibilityState={{ selected: option.iso2 === whatsappCallingCountryCode }} onPress={() => { setWhatsappCallingCountryCode(option.iso2); setWhatsappCountryPickerOpen(false); }} style={[styles.sheetRow, option.iso2 === whatsappCallingCountryCode && styles.selected]}><Text style={styles.choiceText}>{option.flag} {option.name} · +{option.callingCode}{option.iso2 === detectedCountryCode ? (copy.sw ? ' · Imetambuliwa' : ' · Detected') : ''}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={whatsappCountryPickerOpen} onRequestClose={() => setWhatsappCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setWhatsappCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi ya WhatsApp' : 'Choose WhatsApp country'}</Text><TextInput accessibilityLabel={copy.sw ? 'Tafuta nchi za WhatsApp' : 'Search WhatsApp countries'} autoFocus value={whatsappCountryQuery} onChangeText={setWhatsappCountryQuery} placeholder={copy.sw ? 'Tafuta nchi' : 'Search countries'} style={styles.input} /><ScrollView>{filteredWhatsappCallingCountries.map(option => <Pressable key={option.iso2} accessibilityRole="radio" accessibilityLabel={`${option.name}, ${option.iso2} +${option.callingCode}`} accessibilityState={{ selected: option.iso2 === whatsappCallingCountryCode }} onPress={() => { setWhatsappCallingCountryCode(option.iso2); setWhatsappNumber(current => sanitizeWhatsappNationalNumber(current, option.callingCode, Math.max(...WHATSAPP_MOBILE_NSN_LENGTHS[option.iso2]))); setWhatsappCountryPickerOpen(false); }} style={[styles.sheetRow, option.iso2 === whatsappCallingCountryCode && styles.selected]}><Text style={styles.choiceText}>{option.iso2} +{option.callingCode}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
       <Modal transparent visible={countyPickerOpen} onRequestClose={() => setCountyPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountyPickerOpen(false)}><View style={styles.sheet}><ScrollView>{regionMeta.options.map(option => <Pressable key={option} onPress={() => { updateChild({ county: option, schoolId: null, school: '' }); setCountyPickerOpen(false); }} style={styles.sheetRow}><Text>{option}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
       <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel={copy.sw ? 'Tafuta shule kwa jina' : 'Search school by name'} autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder={copy.sw ? 'Tafuta shule' : 'Search schools'} style={styles.input} /><ScrollView>{filteredSchools.map(school => <Pressable key={school.id} onPress={() => { updateChild({ schoolId: school.id, school: school.name }); setSchoolQuery(school.name); setSchoolPickerOpen(false); }} style={styles.sheetRow}><Text>{school.name}</Text></Pressable>)}{filteredSchools.length === 0 ? <Text style={styles.empty}>{copy.sw ? 'Hakuna inayolingana. Ongeza shule yako hapa chini.' : 'No match yet. Add your school below.'}</Text> : null}<Pressable accessibilityLabel={copy.sw ? 'Ongeza shule yako' : 'Add your school'} onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text></Pressable></ScrollView></View></Pressable></Modal>
       <Modal transparent visible={addSchoolOpen} onRequestClose={() => setAddSchoolOpen(false)}><View style={styles.modalBackdrop}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text><Text style={styles.county}>{copy.sw ? 'Kaunti iliyochaguliwa' : 'Selected county'}: {child.county}</Text><TextInput accessibilityLabel={copy.sw ? 'Jina la shule' : 'School name'} autoFocus value={manualSchoolName} onChangeText={setManualSchoolName} placeholder={copy.sw ? 'Andika jina la shule' : 'Enter school name'} style={styles.input} />{schoolError ? <Text style={styles.error}>{schoolError}</Text> : null}<Pressable disabled={isAddingSchool} onPress={addSchool} style={styles.modalButton}><Text style={styles.buttonText}>{isAddingSchool ? copy.saving : (copy.sw ? 'Hifadhi na uendelee' : 'Save and Continue')}</Text></Pressable></View></View></Modal>
@@ -659,9 +675,8 @@ const styles = StyleSheet.create({
   mascotImage: { alignSelf: 'center', height: 84, width: 84 },
   parentAvatarImage: { height: 120, width: 120 },
   input: { backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, color: '#123F59', fontSize: 16, minHeight: 52, paddingHorizontal: 14, paddingVertical: 12 },
-  fieldLabel: { color: '#123F59', fontSize: 13, fontWeight: '800' },
   whatsappEntryRow: { alignSelf: 'stretch', flexDirection: 'row', gap: 8, minWidth: 0 },
-  callingCountrySelector: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, flex: 1.25, justifyContent: 'center', minWidth: 0, paddingHorizontal: 8, paddingVertical: 12 },
+  callingCountrySelector: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, justifyContent: 'center', minHeight: 52, paddingHorizontal: 8, paddingVertical: 12, width: 92 },
   whatsappNumberInput: { flex: 1, minWidth: 0, paddingHorizontal: 8 },
   disabled: { opacity: 0.45 },
   panel: { alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.92)', borderColor: 'rgba(255,255,255,0.98)', borderRadius: 20, borderWidth: 1, gap: 8, padding: 18 },
@@ -689,8 +704,6 @@ const styles = StyleSheet.create({
   centeredCopy: { textAlign: 'center' },
   permissionChoices: { alignSelf: 'stretch', flexDirection: 'row', gap: 10, justifyContent: 'space-between' },
   permissionAllow: { backgroundColor: '#FFF0DD', borderColor: '#F97316' },
-  previewButton: { alignSelf: 'stretch', paddingVertical: 4 },
-  preview: { color: '#B45309', fontSize: 12, fontWeight: '800', marginTop: 4, textAlign: 'center' },
   passwordRow: { alignItems: 'center', alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderColor: '#D8D0C5', borderRadius: 12, borderWidth: 1, flexDirection: 'row', minHeight: 52 },
   passwordInput: { color: '#123F59', flex: 1, fontSize: 16, paddingHorizontal: 14, paddingVertical: 12 },
   visibilityButton: { paddingHorizontal: 14, paddingVertical: 12 },

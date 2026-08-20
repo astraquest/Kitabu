@@ -67,7 +67,7 @@ interface ProgressiveLessonScreenProps {
   mascotKey: OnboardingMascotKey;
   subjectName: string;
   onBack: () => void;
-  onComplete: () => void;
+  onComplete: (completion: { attemptId: string }) => void;
 }
 
 export function ProgressiveLessonScreen({
@@ -573,7 +573,7 @@ export function ProgressiveLessonScreen({
           accessibilityLabel="Back to learning path"
           containerStyle={styles.completionBackButton}
           hitSlop={10}
-          onPress={onComplete}
+          onPress={() => onComplete({ attemptId: attemptId! })}
           reduceMotion={reduceMotion}
         >
           <ArrowLeft color="#0B1F4D" size={25} strokeWidth={2.4} />
@@ -620,7 +620,7 @@ export function ProgressiveLessonScreen({
           </View>
         </View>
         <SquishPressable
-          onPress={onComplete}
+          onPress={() => onComplete({ attemptId: attemptId! })}
           reduceMotion={reduceMotion}
           containerStyle={styles.completionButtonWrap}
         >

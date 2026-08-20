@@ -145,7 +145,7 @@ export async function submitStudentAssignment(
     }>;
   },
 ) {
-  return apiRequest<{ success: boolean }>(`/homework/assignments/${assignmentId}/submit`, {
+  return apiRequest<{ success: boolean; submissionId: string | null }>(`/homework/assignments/${assignmentId}/submit`, {
     method: 'POST',
     body: JSON.stringify(input),
   });

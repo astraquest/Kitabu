@@ -91,6 +91,12 @@ interface NativeFocusModeModule {
 }
 
 const MAX_CHAT_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+const CHAT_IMAGE_PICKER_OPTIONS = {
+  allowsEditing: true,
+  base64: false,
+  mediaTypes: ImagePicker.MediaTypeOptions.Images,
+  quality: 0.72,
+} as const;
 const nativeFocusModeModule =
   NativeModules.KitabuFocusMode as NativeFocusModeModule | undefined;
 
@@ -751,22 +757,14 @@ export const chatAttachmentBridge: ChatAttachmentBridge = {
     if (!permission.granted) {
       return null;
     }
-    const result = await ImagePicker.launchCameraAsync({
-      base64: true,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 0.82,
-    });
+    const result = await ImagePicker.launchCameraAsync(CHAT_IMAGE_PICKER_OPTIONS);
     if (result.canceled || !result.assets[0]) {
       return null;
     }
     return mapFileMetaToAttachment(await mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickImage() {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      base64: true,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 0.82,
-    });
+    const result = await ImagePicker.launchImageLibraryAsync(CHAT_IMAGE_PICKER_OPTIONS);
     if (result.canceled || !result.assets[0]) {
       return null;
     }

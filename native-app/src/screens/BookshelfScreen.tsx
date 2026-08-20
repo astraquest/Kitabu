@@ -16,11 +16,9 @@ import {
   Book as BookIcon,
   BookOpen,
   Check,
-  Download,
   GraduationCap,
   Lightbulb,
   Plus,
-  Trash2,
   Wifi,
   X,
 } from 'lucide-react-native';
@@ -47,23 +45,18 @@ const BOOKS_PER_SHELF = 6;
 export function BookshelfScreen({
   books,
   user,
-  readingProgress,
   previewBookId,
   downloadedBooks,
   isSpotlightMode,
   onBack,
-  onOpenBook,
   onSetPreviewBookId,
   onToggleSpotlight,
-  onToggleDownload,
 }: BookshelfScreenProps) {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
-  const [downloadingBookId, setDownloadingBookId] = useState<string | null>(null);
   const [requestModalOpen, setRequestModalOpen] = useState(false);
   const [requestedTitle, setRequestedTitle] = useState('');
   const [requestedSubject, setRequestedSubject] = useState('');
   const [requestMessage, setRequestMessage] = useState<string | null>(null);
-  const [downloadError, setDownloadError] = useState<string | null>(null);
   const [coverPreviewUri, setCoverPreviewUri] = useState<string | null>(null);
   const [coverPreviewLoading, setCoverPreviewLoading] = useState(false);
 
@@ -76,10 +69,6 @@ export function BookshelfScreen({
     const matchedBook = books.find(book => book.id === previewBookId) || null;
     setSelectedBook(matchedBook);
   }, [books, previewBookId]);
-
-  useEffect(() => {
-    setDownloadingBookId(null);
-  }, [selectedBook]);
 
   useEffect(() => {
     if (!selectedBook) {
@@ -147,33 +136,7 @@ export function BookshelfScreen({
 
   function handleCloseModal() {
     setSelectedBook(null);
-    setDownloadingBookId(null);
-    setDownloadError(null);
     onSetPreviewBookId(null);
-  }
-
-  function getSavedPage(bookId: string) {
-    return readingProgress[bookId] || 1;
-  }
-
-  async function handleDownload(bookId: string) {
-    setDownloadError(null);
-    setDownloadingBookId(bookId);
-    try {
-      await onToggleDownload(bookId);
-    } catch (error) {
-      setDownloadError(error instanceof Error ? error.message : 'Unable to update offline book.');
-    } finally {
-      setDownloadingBookId(null);
-    }
-  }
-
-  function openBookFromModal(startPage: number) {
-    if (!selectedBook) {
-      return;
-    }
-
-    onOpenBook(selectedBook, startPage);
   }
 
   function submitBookRequest() {
@@ -378,15 +341,27 @@ export function BookshelfScreen({
           {selectedBook ? (
             <View style={styles.modalCenter}>
               <View style={styles.modalBookWrap}>
-                <Pressable
-                  onPress={() => openBookFromModal(1)}
+                <View
+                  accessible
+                  accessibilityLabel={`${selectedBook.title}, Coming soon`}
+                  accessibilityLiveRegion="polite"
+                  style={styles.comingSoonNotice}>
+                  <Text style={styles.comingSoonTitle}>Coming soon</Text>
+                  <Text style={styles.comingSoonBookTitle}>{selectedBook.title}</Text>
+                  <Text style={styles.comingSoonBody}>
+                    This book is not available to open or download yet.
+                  </Text>
+                </View>
+
+                <View
                   style={[
                     styles.bookPreview,
                     { backgroundColor: selectedBook.spineColor },
                   ]}>
                   {coverPreviewUri ? (
                     <ImageBackground
-                      source={{ uri: coverPreviewUri }}
+                      resizeMethod="resize"
+                      source={{ cache: 'default', uri: coverPreviewUri }}
                       resizeMode="cover"
                       style={styles.coverPreviewImage}
                       imageStyle={styles.coverPreviewImageStyle}
@@ -464,42 +439,17 @@ export function BookshelfScreen({
                       <Text style={styles.offlineBadgeText}>Offline</Text>
                     </View>
                   ) : null}
-                </Pressable>
+                </View>
 
                 <View style={styles.modalActions}>
-                  <Pressable onPress={handleCloseModal} style={styles.circleAction}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Close book details"
+                    onPress={handleCloseModal}
+                    style={styles.circleAction}>
                     <X size={24} color="#1F2937" strokeWidth={2.2} />
                   </Pressable>
-
-                  <Pressable
-                    onPress={() => handleDownload(selectedBook.id)}
-                    disabled={downloadingBookId === selectedBook.id}
-                    style={[
-                      styles.circleAction,
-                      downloadedBooks.has(selectedBook.id)
-                        ? styles.circleActionMuted
-                        : styles.circleActionPrimary,
-                      downloadingBookId === selectedBook.id && styles.actionDisabled,
-                    ]}>
-                    {downloadedBooks.has(selectedBook.id) ? (
-                      <Trash2 size={20} color="#6B7280" strokeWidth={2.2} />
-                    ) : (
-                      <Download size={20} color="#2563EB" strokeWidth={2.2} />
-                    )}
-                  </Pressable>
-
-                  <Pressable
-                    onPress={() => openBookFromModal(getSavedPage(selectedBook.id))}
-                    style={styles.readButton}>
-                    <BookOpen size={20} color="#FFFFFF" strokeWidth={2.2} />
-                    <Text style={styles.readButtonText}>
-                      {getSavedPage(selectedBook.id) > 1 ? 'Resume' : 'Read'}
-                    </Text>
-                  </Pressable>
                 </View>
-                {downloadError ? (
-                  <Text style={styles.downloadError}>{downloadError}</Text>
-                ) : null}
               </View>
             </View>
           ) : null}
@@ -564,6 +514,8 @@ function ShelfBookSpine({
 
   return (
     <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={`${book.title} book, Coming soon`}
       onPress={onPress}
       style={[
         styles.bookSpine,
@@ -1171,6 +1123,36 @@ const styles = StyleSheet.create({
     width: 290,
     alignItems: 'center',
   },
+  comingSoonNotice: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    marginBottom: 14,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    width: '100%',
+  },
+  comingSoonTitle: {
+    color: '#2563EB',
+    fontSize: 13,
+    fontWeight: '900',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+  },
+  comingSoonBookTitle: {
+    color: '#0F172A',
+    fontSize: 18,
+    fontWeight: '900',
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  comingSoonBody: {
+    color: '#64748B',
+    fontSize: 13,
+    lineHeight: 18,
+    marginTop: 4,
+    textAlign: 'center',
+  },
   bookPreview: {
     width: 270,
     aspectRatio: 2 / 3,
@@ -1297,38 +1279,5 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
     elevation: 6,
-  },
-  circleActionPrimary: {
-    backgroundColor: '#FFFFFF',
-  },
-  circleActionMuted: {
-    backgroundColor: '#E5E7EB',
-  },
-  actionDisabled: {
-    opacity: 0.45,
-  },
-  readButton: {
-    flex: 1,
-    minHeight: 50,
-    borderRadius: 999,
-    backgroundColor: '#10B981',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    paddingHorizontal: 20,
-  },
-  readButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  downloadError: {
-    color: '#FEE2E2',
-    fontSize: 12,
-    fontWeight: '800',
-    lineHeight: 17,
-    marginTop: 12,
-    textAlign: 'center',
   },
 });

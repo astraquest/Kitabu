@@ -48,7 +48,7 @@ module.exports = {
     name: 'Kitabu AI',
     slug: 'kitabu-ai',
     scheme: 'kitabu',
-    version: '1.2.7',
+    version: '1.2.8',
     assetBundlePatterns: ['**/*'],
     plugins: [
       'expo-asset',
@@ -76,6 +76,13 @@ module.exports = {
       'expo-status-bar',
       'expo-web-browser',
       [
+        'react-native-appsflyer',
+        {
+          shouldUseStrictMode: true,
+          shouldUsePurchaseConnector: false,
+        },
+      ],
+      [
         '@sentry/react-native',
         {
           organization: process.env.SENTRY_ORG || 'astra-quest',
@@ -91,6 +98,7 @@ module.exports = {
         'android.permission.WRITE_EXTERNAL_STORAGE',
         'android.permission.READ_MEDIA_IMAGES',
         'android.permission.READ_MEDIA_VIDEO',
+        'com.google.android.gms.permission.AD_ID',
       ],
     },
     ios: {
@@ -108,6 +116,8 @@ module.exports = {
       googleIosClientId,
       googleRedirectUri,
       kitabuExpoProjectId: process.env.KITABU_EXPO_PROJECT_ID || process.env.EXPO_PUBLIC_KITABU_EXPO_PROJECT_ID || '',
+      kitabuAppsFlyerDevKey:
+        process.env.KITABU_APPSFLYER_DEV_KEY || process.env.EXPO_PUBLIC_KITABU_APPSFLYER_DEV_KEY || '',
       sentryDsn: process.env.SENTRY_DSN || process.env.EXPO_PUBLIC_SENTRY_DSN || DEFAULT_SENTRY_DSN,
     },
   },

@@ -16,14 +16,39 @@ import org.objectweb.asm.Opcodes
 abstract class RemoveDeprecatedSystemBarApisFactory implements AsmClassVisitorFactory<InstrumentationParameters.None> {
     @Override
     boolean isInstrumentable(ClassData classData) {
-        def className = classData.className
+        return isSupportedClassName(classData.className)
+    }
+
+    static boolean isSupportedClassName(String className) {
         return className.startsWith("com.facebook.react.modules.statusbar.StatusBarModule") ||
             className.startsWith("com.facebook.react.views.view.WindowUtilKt") ||
-            className.startsWith("expo.modules.imagepicker.ExpoCropImage")
+            className.startsWith("expo.modules.imagepicker.ExpoCropImage") ||
+            className == "com.google.android.material.datepicker.MaterialDatePicker" ||
+            className == "com.google.android.material.internal.EdgeToEdgeUtils" ||
+            className == "com.google.android.material.datepicker.k" ||
+            className == "androidx.lifecycle.ReportFragment"
+    }
+
+    static boolean isDeprecatedWindowMethod(String owner, String methodName, String methodDescriptor) {
+        return owner == "android/view/Window" &&
+            ((methodName == "getStatusBarColor" && methodDescriptor == "()I") ||
+                ((methodName == "setStatusBarColor" || methodName == "setNavigationBarColor") &&
+                    methodDescriptor == "(I)V"))
+    }
+
+    static boolean isDeprecatedCutoutField(int opcode, String owner, String fieldName, String fieldDescriptor) {
+        return opcode == Opcodes.PUTFIELD &&
+            owner == "android/view/WindowManager\$LayoutParams" &&
+            fieldName == "layoutInDisplayCutoutMode" &&
+            fieldDescriptor == "I"
     }
 
     @Override
     ClassVisitor createClassVisitor(ClassContext classContext, ClassVisitor nextClassVisitor) {
+        return createTransformingClassVisitor(nextClassVisitor)
+    }
+
+    static ClassVisitor createTransformingClassVisitor(ClassVisitor nextClassVisitor) {
         return new ClassVisitor(Opcodes.ASM9, nextClassVisitor) {
             @Override
             MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
@@ -31,17 +56,13 @@ abstract class RemoveDeprecatedSystemBarApisFactory implements AsmClassVisitorFa
                 return new MethodVisitor(Opcodes.ASM9, nextMethodVisitor) {
                     @Override
                     void visitMethodInsn(int opcode, String owner, String methodName, String methodDescriptor, boolean isInterface) {
-                        if (owner == "android/view/Window" && methodDescriptor == "()I" && methodName == "getStatusBarColor") {
-                            super.visitInsn(Opcodes.POP)
-                            super.visitInsn(Opcodes.ICONST_0)
-                            return
-                        }
-                        if (
-                            owner == "android/view/Window" &&
-                            methodDescriptor == "(I)V" &&
-                            (methodName == "setStatusBarColor" || methodName == "setNavigationBarColor")
-                        ) {
-                            super.visitInsn(Opcodes.POP2)
+                        if (isDeprecatedWindowMethod(owner, methodName, methodDescriptor)) {
+                            if (methodName == "getStatusBarColor") {
+                                super.visitInsn(Opcodes.POP)
+                                super.visitInsn(Opcodes.ICONST_0)
+                            } else {
+                                super.visitInsn(Opcodes.POP2)
+                            }
                             return
                         }
                         super.visitMethodInsn(opcode, owner, methodName, methodDescriptor, isInterface)
@@ -49,12 +70,7 @@ abstract class RemoveDeprecatedSystemBarApisFactory implements AsmClassVisitorFa
 
                     @Override
                     void visitFieldInsn(int opcode, String owner, String fieldName, String fieldDescriptor) {
-                        if (
-                            opcode == Opcodes.PUTFIELD &&
-                            owner == "android/view/WindowManager\$LayoutParams" &&
-                            fieldName == "layoutInDisplayCutoutMode" &&
-                            fieldDescriptor == "I"
-                        ) {
+                        if (isDeprecatedCutoutField(opcode, owner, fieldName, fieldDescriptor)) {
                             super.visitInsn(Opcodes.POP2)
                             return
                         }
@@ -70,6 +86,127 @@ def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("key.properties")
 def googleWebClientId = (project.findProperty("KITABU_GOOGLE_WEB_CLIENT_ID") ?: System.getenv("KITABU_GOOGLE_WEB_CLIENT_ID") ?: "").toString()
 def googleAndroidClientId = (project.findProperty("KITABU_GOOGLE_ANDROID_CLIENT_ID") ?: System.getenv("KITABU_GOOGLE_ANDROID_CLIENT_ID") ?: "").toString()
+def releasedAndroidVersionCodeFloor = 127L
+def minimumAndroidVersionCode = releasedAndroidVersionCodeFloor + 1L
+def googlePlayMaximumVersionCode = 2100000000L
+def configuredAndroidVersionCode = project.findProperty("KITABU_ANDROID_VERSION_CODE") ?: System.getenv("KITABU_ANDROID_VERSION_CODE")
+def resolveAndroidVersionCode = { configuredValue ->
+    def resolvedVersionCode = minimumAndroidVersionCode
+    if (configuredValue != null && configuredValue.toString().trim()) {
+        def overrideText = configuredValue.toString().trim()
+        if (!(overrideText ==~ /\d+/)) {
+            throw new GradleException("KITABU_ANDROID_VERSION_CODE must be a whole number.")
+        }
+        try {
+            resolvedVersionCode = Long.parseLong(overrideText)
+        } catch (NumberFormatException exception) {
+            throw new GradleException("KITABU_ANDROID_VERSION_CODE is outside the supported numeric range.", exception)
+        }
+        if (resolvedVersionCode < minimumAndroidVersionCode) {
+            throw new GradleException("KITABU_ANDROID_VERSION_CODE must be at least ${minimumAndroidVersionCode}.")
+        }
+    }
+    if (resolvedVersionCode > googlePlayMaximumVersionCode) {
+        throw new GradleException("Resolved Android versionCode ${resolvedVersionCode} exceeds Google Play's maximum of ${googlePlayMaximumVersionCode}.")
+    }
+    return resolvedVersionCode as int
+}
+
+tasks.register("verifyAndroidVersionCodeResolver") {
+    doLast {
+        assert resolveAndroidVersionCode(null) == minimumAndroidVersionCode
+        assert resolveAndroidVersionCode("128") == 128
+        assert resolveAndroidVersionCode("129") == 129
+        try {
+            resolveAndroidVersionCode("127")
+            assert false: "A stale versionCode override should be rejected"
+        } catch (GradleException expected) {
+            assert expected.message.contains("at least 128")
+        }
+        try {
+            resolveAndroidVersionCode((googlePlayMaximumVersionCode + 1L).toString())
+            assert false: "An out-of-range versionCode override should be rejected"
+        } catch (GradleException expected) {
+            assert expected.message.contains("exceeds Google Play's maximum")
+        }
+        println("Android versionCode resolver assertions passed")
+    }
+}
+
+tasks.register("verifyDeprecatedSystemBarTransform") {
+    doLast {
+        assert RemoveDeprecatedSystemBarApisFactory.isSupportedClassName("com.google.android.material.datepicker.k")
+        assert RemoveDeprecatedSystemBarApisFactory.isSupportedClassName("com.google.android.material.datepicker.MaterialDatePicker")
+        assert RemoveDeprecatedSystemBarApisFactory.isSupportedClassName("com.google.android.material.internal.EdgeToEdgeUtils")
+        assert RemoveDeprecatedSystemBarApisFactory.isSupportedClassName("androidx.lifecycle.ReportFragment")
+        assert !RemoveDeprecatedSystemBarApisFactory.isSupportedClassName("androidx.lifecycle.SomeOtherFragment")
+        assert RemoveDeprecatedSystemBarApisFactory.isDeprecatedWindowMethod(
+            "android/view/Window", "getStatusBarColor", "()I"
+        )
+        assert RemoveDeprecatedSystemBarApisFactory.isDeprecatedWindowMethod(
+            "android/view/Window", "setNavigationBarColor", "(I)V"
+        )
+        assert RemoveDeprecatedSystemBarApisFactory.isDeprecatedCutoutField(
+            Opcodes.PUTFIELD, "android/view/WindowManager\$LayoutParams", "layoutInDisplayCutoutMode", "I"
+        )
+
+        def input = new org.objectweb.asm.ClassWriter(org.objectweb.asm.ClassWriter.COMPUTE_MAXS)
+        input.visit(org.objectweb.asm.Opcodes.V1_8, org.objectweb.asm.Opcodes.ACC_PUBLIC, "test/SystemBarCalls", null, "java/lang/Object", null)
+        def method = input.visitMethod(
+            org.objectweb.asm.Opcodes.ACC_PUBLIC | org.objectweb.asm.Opcodes.ACC_STATIC,
+            "calls",
+            "(Landroid/view/Window;Landroid/view/WindowManager\$LayoutParams;)V",
+            null,
+            null
+        )
+        method.visitCode()
+        method.visitVarInsn(org.objectweb.asm.Opcodes.ALOAD, 0)
+        method.visitMethodInsn(org.objectweb.asm.Opcodes.INVOKEVIRTUAL, "android/view/Window", "getStatusBarColor", "()I", false)
+        method.visitInsn(org.objectweb.asm.Opcodes.POP)
+        method.visitVarInsn(org.objectweb.asm.Opcodes.ALOAD, 0)
+        method.visitInsn(org.objectweb.asm.Opcodes.ICONST_1)
+        method.visitMethodInsn(org.objectweb.asm.Opcodes.INVOKEVIRTUAL, "android/view/Window", "setStatusBarColor", "(I)V", false)
+        method.visitVarInsn(org.objectweb.asm.Opcodes.ALOAD, 0)
+        method.visitInsn(org.objectweb.asm.Opcodes.ICONST_2)
+        method.visitMethodInsn(org.objectweb.asm.Opcodes.INVOKEVIRTUAL, "android/view/Window", "setNavigationBarColor", "(I)V", false)
+        method.visitVarInsn(org.objectweb.asm.Opcodes.ALOAD, 1)
+        method.visitInsn(org.objectweb.asm.Opcodes.ICONST_3)
+        method.visitFieldInsn(org.objectweb.asm.Opcodes.PUTFIELD, "android/view/WindowManager\$LayoutParams", "layoutInDisplayCutoutMode", "I")
+        method.visitInsn(org.objectweb.asm.Opcodes.RETURN)
+        method.visitMaxs(2, 2)
+        method.visitEnd()
+        input.visitEnd()
+
+        def output = new org.objectweb.asm.ClassWriter(org.objectweb.asm.ClassWriter.COMPUTE_MAXS)
+        new org.objectweb.asm.ClassReader(input.toByteArray()).accept(
+            RemoveDeprecatedSystemBarApisFactory.createTransformingClassVisitor(output),
+            0
+        )
+        def remainingCalls = []
+        def remainingFields = []
+        new org.objectweb.asm.ClassReader(output.toByteArray()).accept(new ClassVisitor(Opcodes.ASM9) {
+            @Override
+            MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
+                def next = super.visitMethod(access, name, descriptor, signature, exceptions)
+                return new MethodVisitor(Opcodes.ASM9, next) {
+                    @Override
+                    void visitMethodInsn(int opcode, String owner, String methodName, String methodDescriptor, boolean isInterface) {
+                        remainingCalls << [owner, methodName, methodDescriptor]
+                    }
+
+                    @Override
+                    void visitFieldInsn(int opcode, String owner, String fieldName, String fieldDescriptor) {
+                        remainingFields << [opcode, owner, fieldName, fieldDescriptor]
+                    }
+                }
+            }
+        }, 0)
+        assert remainingCalls.isEmpty(): "Deprecated Window method calls survived: ${remainingCalls}"
+        assert remainingFields.isEmpty(): "Deprecated cutout field writes survived: ${remainingFields}"
+        println("Deprecated system-bar transform matching and bytecode assertions passed")
+    }
+}
+def resolvedAndroidVersionCode = resolveAndroidVersionCode(configuredAndroidVersionCode)
 gradle.taskGraph.whenReady { graph ->
     def hasReleaseTask = graph.allTasks.any { task -> task.name.toLowerCase().contains("release") }
     if (hasReleaseTask && googleWebClientId.trim().isEmpty()) {
@@ -77,6 +214,11 @@ gradle.taskGraph.whenReady { graph ->
     }
     if (hasReleaseTask && googleAndroidClientId.trim().isEmpty()) {
         throw new GradleException("KITABU_GOOGLE_ANDROID_CLIENT_ID must be configured for release builds.")
+    }
+}
+tasks.register("printReleaseVersionCode") {
+    doLast {
+        println("resolvedAndroidVersionCode=${resolvedAndroidVersionCode}")
     }
 }
 if (keystorePropertiesFile.exists()) {
@@ -165,8 +307,9 @@ android {
         applicationId "ai.kitabu2.twa"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 127
-        versionName "1.2.7"
+        // Play has already used 127; the next explicitly gated release defaults to 128.
+        versionCode resolvedAndroidVersionCode
+        versionName "1.2.8"
         externalNativeBuild {
             cmake {
                 arguments "-DCMAKE_OBJECT_PATH_MAX=128"

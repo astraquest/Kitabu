@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "sourceWorkbook": "Kenya_Schools_Master.xlsx",
+  "sourceWorkbookSha256": "e1196400dd6286804672cf4516c4c68df876f3bf422b127aaee353b3201f343e",
+  "sourceSheet": "All Schools",
+  "sourceHeaders": [
+    "School Name",
+    "Level",
+    "County",
+    "Sub County",
+    "Type",
+    "Day/Boarding",
+    "Gender",
+    "Sponsor",
+    "School Code (KNEC/MoE)",
+    "Latitude",
+    "Longitude",
+    "Data Source"
+  ],
+  "sourceRows": 37379,
+  "acceptedRows": 37379,
+  "rejectedRows": 0,
+  "rejectedReasons": {},
+  "duplicateSchoolCodes": 3,
+  "artifact": "kenya-schools-master.ndjson.gz",
+  "artifactSha256": "5c53ee958951ece437591d531376dd8dc8b9f54bfac88573dc7ae0483b2d861d",
+  "artifactBytes": 2576190,
+  "artifactUncompressedSha256": "35e161686b6d7a41d3311c989a9cef788cd17c43dbadee5624f3b56057be7870",
+  "generatedAt": "2026-08-22"
+}

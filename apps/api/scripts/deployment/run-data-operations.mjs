@@ -125,6 +125,17 @@ export function operationDefinitions() {
     ],
     apply: [['scripts/quiz-bank/import-quiz-bank.mjs']],
   });
+  definitions.push({
+    key: 'school-directory-import',
+    state: { kind: 'school-directory' },
+    inputs: [
+      'data/school-directory/kenya-schools-master.ndjson.gz',
+      'data/school-directory/manifest.json',
+      'scripts/schools/import-school-directory.mjs',
+    ],
+    preview: [['scripts/schools/import-school-directory.mjs', '--dry-run']],
+    apply: [['scripts/schools/import-school-directory.mjs']],
+  });
   return definitions;
 }
 
@@ -275,6 +286,17 @@ async function stateRows(client, state) {
        FROM quiz_bank_questions
        WHERE country_code = 'KEN' AND curriculum_code = 'CBC'
        ORDER BY grade_level, subject_id, question_number`,
+    );
+    return result.rows;
+  }
+
+  if (state.kind === 'school-directory') {
+    const result = await client.query(
+      `SELECT source_record_key, school_name, level, county, sub_county, school_type,
+              day_boarding, gender, sponsor, school_code, latitude, longitude, data_source,
+              source_workbook_sha256, source_row_number, source_row_sha256
+       FROM school_directory_records
+       ORDER BY source_record_key`,
     );
     return result.rows;
   }

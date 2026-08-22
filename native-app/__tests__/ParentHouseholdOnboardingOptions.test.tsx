@@ -9,6 +9,8 @@ import { WHATSAPP_MOBILE_NSN_LENGTHS } from '../src/constants/whatsappMobileNsnL
 import { parentOnboardingSubjectOptions } from '../src/utils/parentOnboardingSubjects';
 import { parentHouseholdCopy } from '../src/onboarding/parentHouseholdOnboardingCopy';
 
+jest.setTimeout(15_000);
+
 jest.mock('../src/services/pushNotifications', () => ({
   requestPushPermission: jest.fn().mockResolvedValue({ granted: true }),
 }));

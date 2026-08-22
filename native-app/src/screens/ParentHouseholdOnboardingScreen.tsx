@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Animated,
@@ -41,6 +41,8 @@ import {
 } from '../utils/parentOnboardingOrdering';
 import { parentOnboardingSubjectOptions } from '../utils/parentOnboardingSubjects';
 import { parentHouseholdCopy } from '../onboarding/parentHouseholdOnboardingCopy';
+import { recordSchoolSelection, type SchoolCatalogRecord } from '../services/appDataService';
+import { filterCountyOptions } from '../utils/countySearch';
 import type {
   GenderOption,
   OnboardingMascotKey,
@@ -55,6 +57,7 @@ export type ParentHouseholdChildInput = {
   gender: GenderOption;
   county: string;
   schoolId: string | null;
+  schoolDirectoryId: string | null;
   school: string;
   grade: string;
   performance: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
@@ -96,6 +99,7 @@ type Props = {
   initialCountryCode?: string;
   skipHouseholdSetup?: boolean;
   onCreateSchool?: (input: { schoolName: string; county: string }) => Promise<SchoolData>;
+  onSearchSchools?: (input: { county?: string; query?: string; limit?: number }) => Promise<SchoolCatalogRecord[]>;
   onProfileSetupStarted?: (role: 'parent', grade?: string) => void;
   onSubmit: (input: ParentHouseholdOnboardingInput) => void;
   onRoleChange: (role: 'parent' | 'teacher') => void;
@@ -185,7 +189,7 @@ export function orderWhatsappCallingCountries(
 
 function blankChild(): ParentHouseholdChildInput {
   return {
-    name: '', age: '', gender: 'not_specified', county: '', schoolId: null, school: '',
+    name: '', age: '', gender: 'not_specified', county: '', schoolId: null, schoolDirectoryId: null, school: '',
     grade: '', performance: '' as ParentHouseholdChildInput['performance'], subjects: [], commitmentAccepted: false, commitmentMinutes: 20,
   };
 }
@@ -217,6 +221,7 @@ export function ParentHouseholdOnboardingScreen({
   initialCountryCode,
   skipHouseholdSetup = false,
   onCreateSchool,
+  onSearchSchools,
   onProfileSetupStarted,
   onSubmit,
   onRoleChange,
@@ -237,11 +242,16 @@ export function ParentHouseholdOnboardingScreen({
   const [whatsappCountryPickerOpen, setWhatsappCountryPickerOpen] = useState(false);
   const [whatsappCountryQuery, setWhatsappCountryQuery] = useState('');
   const [countyPickerOpen, setCountyPickerOpen] = useState(false);
+  const [countyQuery, setCountyQuery] = useState('');
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [schoolQuery, setSchoolQuery] = useState('');
   const [addSchoolOpen, setAddSchoolOpen] = useState(false);
   const [manualSchoolName, setManualSchoolName] = useState('');
   const [schoolError, setSchoolError] = useState<string | null>(null);
+  const [directorySchools, setDirectorySchools] = useState<SchoolCatalogRecord[]>([]);
+  const [isLoadingDirectorySchools, setIsLoadingDirectorySchools] = useState(false);
+  const [directoryError, setDirectoryError] = useState<string | null>(null);
+  const directoryRequestIdRef = useRef(0);
   const [isAddingSchool, setIsAddingSchool] = useState(false);
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [referralSource, setReferralSource] = useState('');
@@ -270,11 +280,44 @@ export function ParentHouseholdOnboardingScreen({
   const regionMeta = REGIONS_BY_COUNTRY[countryCode as keyof typeof REGIONS_BY_COUNTRY] ?? REGIONS_BY_COUNTRY.KE;
   const selectedWhatsappCallingCountry = WHATSAPP_CALLING_COUNTRIES.find(option => option.iso2 === whatsappCallingCountryCode)
     ?? WHATSAPP_CALLING_COUNTRIES.find(option => option.iso2 === 'KE')!;
-  const countySchools = useMemo(
-    () => schools.filter(school => !child.county || school.location.toLowerCase() === child.county.toLowerCase()),
-    [child.county, schools],
-  );
-  const filteredSchools = countySchools.filter(school => school.name.toLowerCase().includes(schoolQuery.toLowerCase().trim()));
+  useEffect(() => {
+    if (!schoolPickerOpen || !child.county) return undefined;
+    if (!onSearchSchools) {
+      const query = schoolQuery.trim().toLowerCase();
+      setDirectorySchools(schools
+        .filter(school => (school.county ?? school.location ?? '').trim().toLowerCase() === child.county!.trim().toLowerCase())
+        .filter(school => !query || school.name.trim().toLowerCase().includes(query))
+        .slice(0, 24)
+        .map(school => ({
+          schoolId: school.id,
+          sourceRecordKey: school.sourceRecordKey ?? null,
+          name: school.name,
+          county: school.county ?? school.location ?? null,
+          subCounty: school.subCounty ?? null,
+          level: school.catalogLevel ?? '',
+          schoolCode: school.schoolCode ?? '',
+          selectionCount: school.selectionCount ?? 0,
+          activeEnrollment: school.totalStudents,
+        })));
+      setDirectoryError(null);
+      return undefined;
+    }
+    const requestId = ++directoryRequestIdRef.current;
+    const timer = setTimeout(() => {
+      setIsLoadingDirectorySchools(true);
+      setDirectoryError(null);
+      onSearchSchools({ county: child.county, query: schoolQuery, limit: 24 })
+        .then(results => { if (requestId === directoryRequestIdRef.current) setDirectorySchools(results); })
+        .catch(() => {
+          if (requestId === directoryRequestIdRef.current) {
+            setDirectorySchools([]);
+            setDirectoryError(languageCode === 'sw' ? 'Imeshindikana kupakia shule.' : 'Could not load schools. Try again.');
+          }
+        })
+        .finally(() => { if (requestId === directoryRequestIdRef.current) setIsLoadingDirectorySchools(false); });
+    }, 220);
+    return () => clearTimeout(timer);
+  }, [child.county, languageCode, onSearchSchools, schoolPickerOpen, schoolQuery, schools]);
   const orderedWhatsappCallingCountries = orderWhatsappCallingCountries(WHATSAPP_CALLING_COUNTRIES, detectedCountryCode);
   const filteredWhatsappCallingCountries = orderedWhatsappCallingCountries.filter(option => {
     const query = whatsappCountryQuery.trim().toLowerCase();
@@ -551,13 +594,20 @@ export function ParentHouseholdOnboardingScreen({
     });
   }
 
+  function selectSchool(school: SchoolCatalogRecord) {
+    updateChild({ schoolId: null, schoolDirectoryId: school.schoolId, school: school.name, county: school.county ?? child.county });
+    void recordSchoolSelection(school.schoolId).catch(() => {});
+    setSchoolQuery(school.name);
+    setSchoolPickerOpen(false);
+  }
+
   async function addSchool() {
     const name = manualSchoolName.trim();
     if (name.length < 2 || !child.county) { setSchoolError(copy.schoolNameValidation); return; }
     setIsAddingSchool(true); setSchoolError(null);
     try {
       const created = onCreateSchool ? await onCreateSchool({ schoolName: name, county: child.county }) : null;
-      updateChild({ schoolId: created?.id ?? null, school: created?.name ?? name });
+      updateChild({ schoolId: created?.id ?? null, schoolDirectoryId: null, school: created?.name ?? name });
       setSchoolQuery(created?.name ?? name); setAddSchoolOpen(false); setSchoolPickerOpen(false);
     } catch {
       // Manual entry is an intentional no-admin-contact fallback when the school request is unavailable.
@@ -609,7 +659,7 @@ export function ParentHouseholdOnboardingScreen({
         {step === 'childAge' ? <TextInput autoFocus keyboardType="number-pad" value={child.age} onChangeText={value => updateChild({ age: value.replace(/\D/g, '').slice(0, 2) })} placeholder={copy.agePlaceholder} style={styles.input} /> : null}
         {step === 'childGender' ? <View style={styles.grid}>{(['female', 'male'] as GenderOption[]).map(value => <Pressable key={value} onPress={() => { updateChild({ gender: value }); next('childSchool'); }} style={[styles.choice, child.gender === value && styles.selected]}><Text style={styles.choiceText}>{value === 'female' ? copy.girl : copy.boy}</Text></Pressable>)}</View> : null}
         {step === 'childSchool' ? <>
-          <Pressable onPress={() => setCountyPickerOpen(true)} style={styles.input}><Text>{child.county || copy.selectRegion(copy.sw ? regionMeta.labelSw : regionMeta.label)}</Text></Pressable>
+          <Pressable onPress={() => { setCountyQuery(''); setCountyPickerOpen(true); }} style={styles.input}><Text>{child.county || copy.selectRegion(copy.sw ? regionMeta.labelSw : regionMeta.label)}</Text></Pressable>
           <Pressable disabled={!child.county} onPress={() => setSchoolPickerOpen(true)} style={[styles.input, !child.county && styles.disabled]}><Text>{child.school || copy.selectSchool}</Text></Pressable>
         </> : null}
         {step === 'childGrade' ? <View style={styles.grid}>{SUPPORTED_GRADES.map(value => <Pressable key={value} onPress={() => updateChild({ grade: value, subjects: child.grade === value ? child.subjects : [] })} style={[styles.choice, child.grade === value && styles.selected]}><Text style={styles.choiceText}>{copy.grade(value)}</Text></Pressable>)}</View> : null}
@@ -647,8 +697,8 @@ export function ParentHouseholdOnboardingScreen({
 
       <Modal transparent visible={countryPickerOpen} onRequestClose={() => setCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi yako' : 'Choose your country'}</Text><ScrollView>{[...COUNTRY_OPTIONS].sort((left, right) => Number(right.code === detectedCountryCode) - Number(left.code === detectedCountryCode)).map(option => <Pressable key={option.code} onPress={() => { setCountryCode(option.code); setCountryPickerOpen(false); }} style={styles.sheetRow}><Text style={styles.choiceText}>{option.flag} {option.name}{option.code === detectedCountryCode ? (copy.sw ? ' · Imetambuliwa' : ' · Detected') : ''}</Text><Text>{option.curriculum} {copy.curriculum}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
       <Modal transparent visible={whatsappCountryPickerOpen} onRequestClose={() => setWhatsappCountryPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setWhatsappCountryPickerOpen(false)}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Chagua nchi ya WhatsApp' : 'Choose WhatsApp country'}</Text><TextInput accessibilityLabel={copy.sw ? 'Tafuta nchi za WhatsApp' : 'Search WhatsApp countries'} autoFocus value={whatsappCountryQuery} onChangeText={setWhatsappCountryQuery} placeholder={copy.sw ? 'Tafuta nchi' : 'Search countries'} style={styles.input} /><ScrollView>{filteredWhatsappCallingCountries.map(option => <Pressable key={option.iso2} accessibilityRole="radio" accessibilityLabel={`${option.name}, ${option.iso2} +${option.callingCode}`} accessibilityState={{ selected: option.iso2 === whatsappCallingCountryCode }} onPress={() => { setWhatsappCallingCountryCode(option.iso2); setWhatsappNumber(current => sanitizeWhatsappNationalNumber(current, option.callingCode, Math.max(...WHATSAPP_MOBILE_NSN_LENGTHS[option.iso2]))); setWhatsappCountryPickerOpen(false); }} style={[styles.sheetRow, option.iso2 === whatsappCallingCountryCode && styles.selected]}><Text style={styles.choiceText}>{option.iso2} +{option.callingCode}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
-      <Modal transparent visible={countyPickerOpen} onRequestClose={() => setCountyPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountyPickerOpen(false)}><View style={styles.sheet}><ScrollView>{regionMeta.options.map(option => <Pressable key={option} onPress={() => { updateChild({ county: option, schoolId: null, school: '' }); setCountyPickerOpen(false); }} style={styles.sheetRow}><Text>{option}</Text></Pressable>)}</ScrollView></View></Pressable></Modal>
-      <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel={copy.sw ? 'Tafuta shule kwa jina' : 'Search school by name'} autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder={copy.sw ? 'Tafuta shule' : 'Search schools'} style={styles.input} /><ScrollView>{filteredSchools.map(school => <Pressable key={school.id} onPress={() => { updateChild({ schoolId: school.id, school: school.name }); setSchoolQuery(school.name); setSchoolPickerOpen(false); }} style={styles.sheetRow}><Text>{school.name}</Text></Pressable>)}{filteredSchools.length === 0 ? <Text style={styles.empty}>{copy.sw ? 'Hakuna inayolingana. Ongeza shule yako hapa chini.' : 'No match yet. Add your school below.'}</Text> : null}<Pressable accessibilityLabel={copy.sw ? 'Ongeza shule yako' : 'Add your school'} onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text></Pressable></ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={countyPickerOpen} onRequestClose={() => setCountyPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setCountyPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel={copy.sw ? 'Tafuta kaunti' : 'Search county'} autoFocus value={countyQuery} onChangeText={setCountyQuery} placeholder={copy.sw ? 'Tafuta kaunti' : 'Search counties'} style={styles.input} /><ScrollView>{filterCountyOptions(regionMeta.options, countyQuery).map(option => <Pressable key={option} onPress={() => { updateChild({ county: option, schoolId: null, schoolDirectoryId: null, school: '' }); setSchoolQuery(''); setCountyQuery(''); setCountyPickerOpen(false); }} style={styles.sheetRow}><Text>{option}</Text></Pressable>)}{filterCountyOptions(regionMeta.options, countyQuery).length === 0 ? <Text style={styles.empty}>{copy.sw ? 'Hakuna kaunti inayolingana.' : 'No counties match your search.'}</Text> : null}</ScrollView></View></Pressable></Modal>
+      <Modal transparent visible={schoolPickerOpen} onRequestClose={() => setSchoolPickerOpen(false)}><Pressable style={styles.modalBackdrop} onPress={() => setSchoolPickerOpen(false)}><View style={styles.sheet}><TextInput accessibilityLabel={copy.sw ? 'Tafuta shule kwa jina' : 'Search school by name'} autoFocus value={schoolQuery} onChangeText={setSchoolQuery} placeholder={copy.sw ? 'Tafuta shule' : 'Search schools'} style={styles.input} />{isLoadingDirectorySchools ? <ActivityIndicator accessibilityLabel={copy.sw ? 'Inapakia shule' : 'Loading schools'} color="#F97316" /> : null}{directoryError ? <Text style={styles.error}>{directoryError}</Text> : null}<ScrollView>{directorySchools.map(school => <Pressable key={school.schoolId} onPress={() => selectSchool(school)} style={styles.sheetRow}><Text onPress={() => selectSchool(school)}>{school.name}</Text><Text style={styles.county}>{school.county ?? child.county}</Text></Pressable>)}{!isLoadingDirectorySchools && !directoryError && directorySchools.length === 0 ? <Text style={styles.empty}>{copy.sw ? 'Hakuna inayolingana. Ongeza shule yako hapa chini.' : 'No schools found. Add your school below.'}</Text> : null}<Pressable accessibilityLabel={copy.sw ? 'Ongeza shule yako' : 'Add your school'} onPress={() => { setManualSchoolName(schoolQuery); setSchoolPickerOpen(false); setAddSchoolOpen(true); }} style={styles.addSchool}><Text style={styles.addSchoolText}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text></Pressable></ScrollView></View></Pressable></Modal>
       <Modal transparent visible={addSchoolOpen} onRequestClose={() => setAddSchoolOpen(false)}><View style={styles.modalBackdrop}><View style={styles.sheet}><Text style={styles.sheetTitle}>{copy.sw ? 'Ongeza shule yako' : 'Add Your School'}</Text><Text style={styles.county}>{copy.sw ? 'Kaunti iliyochaguliwa' : 'Selected county'}: {child.county}</Text><TextInput accessibilityLabel={copy.sw ? 'Jina la shule' : 'School name'} autoFocus value={manualSchoolName} onChangeText={setManualSchoolName} placeholder={copy.sw ? 'Andika jina la shule' : 'Enter school name'} style={styles.input} />{schoolError ? <Text style={styles.error}>{schoolError}</Text> : null}<Pressable disabled={isAddingSchool} onPress={addSchool} style={styles.modalButton}><Text style={styles.buttonText}>{isAddingSchool ? copy.saving : (copy.sw ? 'Hifadhi na uendelee' : 'Save and Continue')}</Text></Pressable></View></View></Modal>
     </OnboardingVisualShell>
   );

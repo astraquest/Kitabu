@@ -5,6 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 import {
   digestInputs,
+  databaseStateDigest,
   executeOperationPlan,
   resolveOperationDigests,
   selectPendingOperations,
@@ -19,6 +20,22 @@ test('input digests are stable and change with file content', async () => {
   assert.equal(first, second);
   await writeFile(path.join(root, 'data', 'a.json'), '{"value":2}\n');
   assert.notEqual(await digestInputs(root, ['data']), first);
+});
+
+test('school-directory state digest tolerates a pending migration', async () => {
+  const queries = [];
+  const client = {
+    query: async query => {
+      queries.push(query);
+      return { rows: [{ present: false }] };
+    },
+  };
+
+  const digest = await databaseStateDigest(client, { state: { kind: 'school-directory' } });
+
+  assert.match(digest, /^[0-9a-f]{64}$/);
+  assert.equal(queries.length, 1);
+  assert.match(queries[0], /to_regclass/);
 });
 
 test('dependency changes invalidate downstream checkpoints', async () => {

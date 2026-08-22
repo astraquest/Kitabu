@@ -227,7 +227,7 @@ async function readCheckpoints(client) {
   }]));
 }
 
-async function stateRows(client, state) {
+export async function stateRows(client, state) {
   if (state.kind === 'lower-primary-grade') {
     const result = await client.query(
       `SELECT
@@ -291,6 +291,10 @@ async function stateRows(client, state) {
   }
 
   if (state.kind === 'school-directory') {
+    const exists = await client.query(
+      `SELECT to_regclass('public.school_directory_records') IS NOT NULL AS present`,
+    );
+    if (!exists.rows[0]?.present) return [];
     const result = await client.query(
       `SELECT source_record_key, school_name, level, county, sub_county, school_type,
               day_boarding, gender, sponsor, school_code, latitude, longitude, data_source,
@@ -304,7 +308,7 @@ async function stateRows(client, state) {
   throw new Error(`Unknown database state scope: ${state.kind}`);
 }
 
-async function databaseStateDigest(client, operation) {
+export async function databaseStateDigest(client, operation) {
   if (!operation.state) return null;
   return sha256(canonicalJson(await stateRows(client, operation.state)));
 }

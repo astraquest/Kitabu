@@ -13,6 +13,13 @@ const envPath = path.resolve(apiDir, '.env');
 const sqlDir = path.resolve(apiDir, 'sql');
 
 loadEnv({ path: envPath });
+const onlyArguments = process.argv.slice(2).filter(argument => argument === '--only');
+if (onlyArguments.length > 1) throw new Error('--only may be specified once.');
+const onlyIndex = process.argv.indexOf('--only');
+const onlyMigration = onlyIndex >= 0 ? process.argv[onlyIndex + 1]?.trim() : null;
+if (onlyIndex >= 0 && (!onlyMigration || onlyMigration.startsWith('--'))) {
+  throw new Error('--only requires one migration filename.');
+}
 
 function isLocalDatabaseUrl(databaseUrl) {
   try {
@@ -88,6 +95,23 @@ if (!process.env.KITABU_DATABASE_URL) {
 const sqlFiles = readdirSync(sqlDir)
   .filter(file => /^\d+.*\.sql$/i.test(file))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+const archivedMigrationAliases = Object.freeze({
+  '072_tts_artifacts_jobs.sql': '091_tts_artifacts_jobs.sql',
+  '077_dual_provider_tts.sql': '092_dual_provider_tts.sql',
+});
+for (const [alias, canonicalMigration] of Object.entries(archivedMigrationAliases)) {
+  if (!sqlFiles.includes(canonicalMigration)) {
+    throw new Error(`${alias} is an archived alias, but canonical migration ${canonicalMigration} is missing.`);
+  }
+}
+const selectedSqlFiles = onlyMigration ? sqlFiles.filter(file => file === onlyMigration) : sqlFiles;
+
+if (onlyMigration && selectedSqlFiles.length !== 1) {
+  throw new Error(`Migration ${onlyMigration} was not found.`);
+}
+if (onlyMigration && archivedMigrationAliases[onlyMigration]) {
+  throw new Error(`${onlyMigration} is an archived alias of ${archivedMigrationAliases[onlyMigration]}; run the canonical migration with --only instead.`);
+}
 
 function assertMigrationSafety(file, sql) {
   if (process.env.KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS === 'true') return;
@@ -132,7 +156,7 @@ try {
       throw new Error('KITABU_MIGRATIONS_BASELINE=true was set, but schema_migrations already has rows.');
     }
 
-    for (const file of sqlFiles) {
+    for (const file of selectedSqlFiles) {
       const fullPath = path.join(sqlDir, file);
       const sql = readFileSync(fullPath, 'utf8');
       await pool.query('INSERT INTO schema_migrations (filename, checksum) VALUES ($1, $2)', [file, checksumSql(sql)]);
@@ -141,7 +165,7 @@ try {
 
     console.log('Migration baseline recorded successfully.');
   } else {
-    for (const file of sqlFiles) {
+    for (const file of selectedSqlFiles) {
       const fullPath = path.join(sqlDir, file);
       const sql = readFileSync(fullPath, 'utf8');
       const sqlChecksum = checksumSql(sql);
@@ -160,6 +184,20 @@ try {
         }
 
         console.log(`Skipping ${file}`);
+        continue;
+      }
+
+      const canonicalMigration = archivedMigrationAliases[file];
+      if (canonicalMigration) {
+        if (!sqlFiles.includes(canonicalMigration)) {
+          throw new Error(`${file} is an archived alias, but canonical migration ${canonicalMigration} is missing.`);
+        }
+
+        await pool.query(
+          'INSERT INTO schema_migrations (filename, checksum) VALUES ($1, $2)',
+          [file, sqlChecksum],
+        );
+        console.log(`Recording ${file} as archived alias of ${canonicalMigration}`);
         continue;
       }
 

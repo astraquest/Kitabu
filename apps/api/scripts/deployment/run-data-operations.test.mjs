@@ -6,6 +6,7 @@ import test from 'node:test';
 import {
   digestInputs,
   databaseStateDigest,
+  buildPlan,
   executeOperationPlan,
   resolveOperationDigests,
   selectPendingOperations,
@@ -36,6 +37,24 @@ test('school-catalog state digest reads only the canonical schools table', async
   assert.match(digest, /^[0-9a-f]{64}$/);
   assert.equal(queries.length, 1);
   assert.match(queries[0], /FROM schools/);
+});
+
+test('pending migrations defer database state reads until after migration apply', async () => {
+  const queries = [];
+  const client = {
+    query: async query => {
+      queries.push(query);
+      if (query.includes('schema_migrations')) return { rows: [{ present: false }] };
+      if (query.includes('deployment_data_operation_checkpoints')) return { rows: [{ present: false }] };
+      throw new Error(`Unexpected query: ${query}`);
+    },
+  };
+
+  const plan = await buildPlan(client);
+
+  assert.ok(plan.pendingMigrations.length > 0);
+  assert.equal(plan.mutatesData, true);
+  assert.equal(queries.some(query => query.includes('FROM schools')), false);
 });
 
 test('dependency changes invalidate downstream checkpoints', async () => {

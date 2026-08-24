@@ -17,6 +17,6 @@ test('stage B is fail-closed until all catalog identities are verified in school
   const deployWorkflow = await readFile(path.join(repoDir, '.github', 'workflows', 'deploy-api.yml'), 'utf8');
   assert.match(
     deployWorkflow,
-    /KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS=true\s+\\\s+docker compose run --rm -T api node scripts\/apply-migrations\.mjs/,
+    /docker compose run --rm -T\s+\\\s+-e KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS=true\s+\\\s+api node scripts\/apply-migrations\.mjs/,
   );
 });

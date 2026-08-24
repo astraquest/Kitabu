@@ -320,13 +320,15 @@ async function readStateDigests(client, operations) {
 
 export async function buildPlan(client, { forceKeys = new Set() } = {}) {
   const operations = await resolveOperationDigests(operationDefinitions());
+  const migrations = await pendingMigrations(client);
   const checkpointTable = await client.query(
     `SELECT to_regclass('public.deployment_data_operation_checkpoints') IS NOT NULL AS present`,
   );
   const checkpoints = checkpointTable.rows[0]?.present ? await readCheckpoints(client) : new Map();
-  const stateDigests = checkpointTable.rows[0]?.present ? await readStateDigests(client, operations) : new Map();
+  const stateDigests = migrations.length === 0 && checkpointTable.rows[0]?.present
+    ? await readStateDigests(client, operations)
+    : new Map();
   const selected = selectPendingOperations(operations, checkpoints, forceKeys, stateDigests);
-  const migrations = await pendingMigrations(client);
   return {
     schema: 1,
     pendingMigrations: migrations,

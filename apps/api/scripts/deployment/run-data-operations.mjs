@@ -126,15 +126,15 @@ export function operationDefinitions() {
     apply: [['scripts/quiz-bank/import-quiz-bank.mjs']],
   });
   definitions.push({
-    key: 'school-directory-import',
-    state: { kind: 'school-directory' },
+    key: 'school-catalog-import',
+    state: { kind: 'school-catalog' },
     inputs: [
       'data/school-directory/kenya-schools-master.ndjson.gz',
       'data/school-directory/manifest.json',
-      'scripts/schools/import-school-directory.mjs',
+      'scripts/schools/import-school-catalog.mjs',
     ],
-    preview: [['scripts/schools/import-school-directory.mjs', '--dry-run']],
-    apply: [['scripts/schools/import-school-directory.mjs']],
+    preview: [['scripts/schools/import-school-catalog.mjs', '--dry-run']],
+    apply: [['scripts/schools/import-school-catalog.mjs']],
   });
   return definitions;
 }
@@ -290,16 +290,13 @@ export async function stateRows(client, state) {
     return result.rows;
   }
 
-  if (state.kind === 'school-directory') {
-    const exists = await client.query(
-      `SELECT to_regclass('public.school_directory_records') IS NOT NULL AS present`,
-    );
-    if (!exists.rows[0]?.present) return [];
+  if (state.kind === 'school-catalog') {
     const result = await client.query(
-      `SELECT source_record_key, school_name, level, county, sub_county, school_type,
+      `SELECT source_record_key, name, catalog_level, county, sub_county, catalog_school_type,
               day_boarding, gender, sponsor, school_code, latitude, longitude, data_source,
-              source_workbook_sha256, source_row_number, source_row_sha256
-       FROM school_directory_records
+              source_workbook_sha256, source_row_number, source_row_sha256, lead_status
+       FROM schools
+      WHERE source_record_key IS NOT NULL
        ORDER BY source_record_key`,
     );
     return result.rows;

@@ -112,7 +112,9 @@ import {
   createPhoneVerificationCode,
   createEmptyCurriculumSubject,
   createOrReuseOnboardingSchool,
+  createOrReuseOnboardingSchoolFromCatalog,
   createSchool,
+  countSchools,
   createSchoolDiscount,
   deleteBannerAnnouncement,
   deleteSchool,
@@ -194,6 +196,8 @@ import {
   listQuizBankQuestions,
   listSchoolDiscounts,
   listSchools,
+  searchSchoolCatalog,
+  recordSchoolSelection,
   listStudentAssignments,
   listSubscriptionPlans,
   listTeacherAssignments,
@@ -698,6 +702,7 @@ const adminStudentProfileSchema = z.object({
   fullName: personNameSchema,
   grade: z.string().trim().min(2).max(40).nullable(),
   schoolId: z.string().uuid().nullable(),
+  schoolDirectoryId: z.string().uuid().nullable().optional(),
   email: z.string().email(),
   phone: z.string().trim().max(20).nullable(),
   county: z.string().trim().max(80).nullable(),
@@ -832,6 +837,7 @@ const onboardingPersonalizationChildSchema = z.object({
   gender: z.enum(['male', 'female', 'not_specified']).optional(),
   county: z.string().trim().min(2).max(80).optional(),
   schoolId: z.string().uuid().nullable().optional(),
+  schoolDirectoryId: z.string().uuid().nullable().optional(),
   school: z.string().trim().min(2).max(120).optional(),
   performance: z.enum(['far_behind', 'behind', 'at_grade_level', 'ahead', 'far_ahead', 'not_sure']).optional(),
   commitmentAccepted: z.boolean().optional(),
@@ -1762,7 +1768,8 @@ const landingSynthesizeSpeechSchema = z.object({
 
 const onboardingSchoolSchema = z.object({
   schoolName: z.string().trim().min(2).max(120),
-  county: z.string().trim().min(2).max(80)
+  county: z.string().trim().min(2).max(80),
+  schoolDirectoryId: z.string().uuid().nullable().optional()
 }).superRefine((value, context) => {
   if (!isSupportedOnboardingCounty(value.county)) {
     context.addIssue({
@@ -1771,6 +1778,13 @@ const onboardingSchoolSchema = z.object({
       message: 'Select a supported county before adding a school'
     });
   }
+});
+
+const schoolDirectoryQuerySchema = z.object({
+  county: z.string().trim().max(80).optional(),
+  query: z.string().trim().max(120).default(''),
+  limit: z.coerce.number().int().min(1).max(50).default(24),
+  offset: z.coerce.number().int().min(0).max(100000).default(0)
 });
 
 const assessmentTtsResolveSchema = z.object({
@@ -2660,6 +2674,21 @@ export function buildServer(options: BuildServerOptions = {}) {
       principal: school.principal,
       phone: school.phone,
       email: school.email,
+      sourceRecordKey: school.source_record_key ?? null,
+      catalogLevel: school.catalog_level ?? null,
+      county: school.county ?? null,
+      subCounty: school.sub_county ?? null,
+      catalogSchoolType: school.catalog_school_type ?? null,
+      dayBoarding: school.day_boarding ?? null,
+      gender: school.gender ?? null,
+      sponsor: school.sponsor ?? null,
+      schoolCode: school.school_code ?? null,
+      latitude: school.latitude === null || school.latitude === undefined ? null : Number(school.latitude),
+      longitude: school.longitude === null || school.longitude === undefined ? null : Number(school.longitude),
+      dataSource: school.data_source ?? null,
+      leadStatus: school.lead_status ?? 'customer',
+      selectionCount: Number(school.selection_count ?? 0),
+      lastSelectedAt: school.last_selected_at?.toISOString() ?? null,
       salesAgentUserId: school.sales_agent_user_id,
       availableGrades: school.available_grades,
       availablePlanCodes: school.available_plan_codes,
@@ -6561,6 +6590,23 @@ Return valid JSON with this shape:
     return { completed: true };
   });
 
+  app.get('/public/schools', async request => {
+    const params = schoolDirectoryQuerySchema.parse(request.query);
+    const schools = await searchSchoolCatalog(params);
+    return {
+      schools,
+      county: params.county ?? null,
+      query: params.query,
+      limit: params.limit
+    };
+  });
+
+  app.post('/public/schools/:schoolId/selection', { config: { rateLimit: { max: 30, timeWindow: '1 minute' } } }, async request => {
+    const params = schoolParamsSchema.parse(request.params);
+    const recorded = await withTransaction(client => recordSchoolSelection(client, params.schoolId));
+    return { recorded };
+  });
+
   app.get('/schools', async () => {
     const schools = await listSchools();
     return {
@@ -6576,16 +6622,23 @@ Return valid JSON with this shape:
 
     const body = onboardingSchoolSchema.parse(request.body);
     const result = await withTransaction(async client => {
-      const school = await createOrReuseOnboardingSchool(client, {
-        name: body.schoolName,
-        county: body.county
-      });
+      const school = body.schoolDirectoryId
+        ? await createOrReuseOnboardingSchoolFromCatalog(client, body.schoolDirectoryId)
+        : await createOrReuseOnboardingSchool(client, {
+            name: body.schoolName,
+            county: body.county
+          });
       await createAuditLog(
         client,
         request.user!.id,
         school.schoolId,
         'auth.onboarding.school.created',
-        { schoolName: body.schoolName, county: body.county, reused: school.reused },
+        {
+          schoolName: body.schoolName,
+          county: body.county,
+          schoolDirectoryId: body.schoolDirectoryId ?? null,
+          reused: school.reused
+        },
         'school',
         school.schoolId
       );
@@ -7330,7 +7383,13 @@ Return valid JSON with this shape:
       return reply.conflict('Another account already uses this email');
     }
     await withTransaction(async client => {
-      await updateAdminStudentProfile(client, params.userId, body);
+      const school = body.schoolDirectoryId
+        ? await createOrReuseOnboardingSchoolFromCatalog(client, body.schoolDirectoryId)
+        : null;
+      await updateAdminStudentProfile(client, params.userId, {
+        ...body,
+        schoolId: school?.schoolId ?? body.schoolId
+      });
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.student.profile.updated', { studentUserId: params.userId });
     });
     const users = await listAdminUsers(request.user!);
@@ -7675,6 +7734,9 @@ Return valid JSON with this shape:
           mascotKey: body.mascotKey,
           children: await Promise.all(body.onboardingPersonalization.children.map(async child => ({
             ...child,
+            schoolId: child.schoolDirectoryId
+              ? (await createOrReuseOnboardingSchoolFromCatalog(client, child.schoolDirectoryId)).schoolId
+              : child.schoolId ?? null,
             passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
           }))),
         });
@@ -7781,10 +7843,15 @@ Return valid JSON with this shape:
       return precondition;
     }
 
-    const schools = await listSchools();
-    return {
-      schools: schools.map(serializeSchool)
-    };
+    const params = schoolDirectoryQuerySchema.parse(request.query);
+    const [schools, total] = await Promise.all([listSchools({
+      includeProspects: true,
+      query: params.query,
+      county: params.county,
+      limit: params.limit,
+      offset: params.offset
+    }), countSchools({ includeProspects: true, query: params.query, county: params.county })]);
+    return { schools: schools.map(serializeSchool), total, limit: params.limit, offset: params.offset, hasNext: params.offset + schools.length < total };
   });
 
   app.get('/admin/subscription-plans', async (request, reply) => {

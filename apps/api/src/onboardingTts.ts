@@ -4,7 +4,7 @@
  * numbers, answer options, checkbox labels, helper paragraphs, or decorative
  * copy belong here.
  *
- * StudentOnboardingScreen/student onboarding is intentionally out of scope
+ * Direct student self-signup is intentionally out of scope
  * for the parent TTS catalog and must not be re-added here. Student narration
  * remains on its existing path.
  */
@@ -112,4 +112,8 @@ export const LANDING_ONBOARDING_TTS_CUES: readonly OnboardingTtsCue[] = [
 
 export function getLandingIntroTtsCue(cueId: string) {
   return LANDING_INTRO_TTS_CUES.find(cue => cue.id === cueId) ?? null;
+}
+
+export function getLandingTtsCue(cueId: string) {
+  return LANDING_ONBOARDING_TTS_CUES.find(cue => cue.id === cueId) ?? null;
 }

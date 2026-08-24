@@ -22,7 +22,7 @@ test('input digests are stable and change with file content', async () => {
   assert.notEqual(await digestInputs(root, ['data']), first);
 });
 
-test('school-directory state digest tolerates a pending migration', async () => {
+test('school-catalog state digest reads only the canonical schools table', async () => {
   const queries = [];
   const client = {
     query: async query => {
@@ -31,11 +31,11 @@ test('school-directory state digest tolerates a pending migration', async () => 
     },
   };
 
-  const digest = await databaseStateDigest(client, { state: { kind: 'school-directory' } });
+  const digest = await databaseStateDigest(client, { state: { kind: 'school-catalog' } });
 
   assert.match(digest, /^[0-9a-f]{64}$/);
   assert.equal(queries.length, 1);
-  assert.match(queries[0], /to_regclass/);
+  assert.match(queries[0], /FROM schools/);
 });
 
 test('dependency changes invalidate downstream checkpoints', async () => {

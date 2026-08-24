@@ -95,10 +95,22 @@ if (!process.env.KITABU_DATABASE_URL) {
 const sqlFiles = readdirSync(sqlDir)
   .filter(file => /^\d+.*\.sql$/i.test(file))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+const archivedMigrationAliases = Object.freeze({
+  '072_tts_artifacts_jobs.sql': '091_tts_artifacts_jobs.sql',
+  '077_dual_provider_tts.sql': '092_dual_provider_tts.sql',
+});
+for (const [alias, canonicalMigration] of Object.entries(archivedMigrationAliases)) {
+  if (!sqlFiles.includes(canonicalMigration)) {
+    throw new Error(`${alias} is an archived alias, but canonical migration ${canonicalMigration} is missing.`);
+  }
+}
 const selectedSqlFiles = onlyMigration ? sqlFiles.filter(file => file === onlyMigration) : sqlFiles;
 
 if (onlyMigration && selectedSqlFiles.length !== 1) {
   throw new Error(`Migration ${onlyMigration} was not found.`);
+}
+if (onlyMigration && archivedMigrationAliases[onlyMigration]) {
+  throw new Error(`${onlyMigration} is an archived alias of ${archivedMigrationAliases[onlyMigration]}; run the canonical migration with --only instead.`);
 }
 
 function assertMigrationSafety(file, sql) {
@@ -172,6 +184,20 @@ try {
         }
 
         console.log(`Skipping ${file}`);
+        continue;
+      }
+
+      const canonicalMigration = archivedMigrationAliases[file];
+      if (canonicalMigration) {
+        if (!sqlFiles.includes(canonicalMigration)) {
+          throw new Error(`${file} is an archived alias, but canonical migration ${canonicalMigration} is missing.`);
+        }
+
+        await pool.query(
+          'INSERT INTO schema_migrations (filename, checksum) VALUES ($1, $2)',
+          [file, sqlChecksum],
+        );
+        console.log(`Recording ${file} as archived alias of ${canonicalMigration}`);
         continue;
       }
 

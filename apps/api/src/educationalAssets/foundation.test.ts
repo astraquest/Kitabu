@@ -9,7 +9,7 @@ import { decideEducationalAssetLicense, educationalAssetAttributionRequired } fr
 import { isEducationalAssetProductionEligible } from './productionEligibility.js';
 import { rankEducationalAssetSearch, normalizeEducationalAssetSearch } from './search.js';
 import { assertSafeEducationalAssetSvg } from './svgSafety.js';
-import { HttpPutEducationalAssetStorage, LocalEducationalAssetStorage, LocalFilesystemAssetStorage, persistEducationalAssetWithCleanup } from './storage.js';
+import { HttpPutEducationalAssetStorage, LocalEducationalAssetStorage, LocalFilesystemAssetStorage, SupabaseEducationalAssetStorage, createEducationalAssetStorageFromConfig, persistEducationalAssetWithCleanup } from './storage.js';
 
 test('classifies licenses conservatively', () => {
   for (const license of ['CC0', 'public domain', 'MIT', 'CC BY']) assert.equal(decideEducationalAssetLicense(license), 'accepted');
@@ -131,6 +131,45 @@ test('educational HTTP-PUT storage preserves MIME type and reads through the pub
     { url: 'https://cdn.example/assets/health-icons/heart.svg', method: undefined, contentType: undefined },
   ]);
   await assert.rejects(storage.put('../escape.svg', Buffer.from('no'), 'image/svg+xml'), /Invalid asset storage key/);
+});
+
+test('Supabase educational storage authenticates private upload and read requests and treats existing objects as idempotent', async () => {
+  const requests: Array<{ url: string; method?: string; authorization?: string | null; apiKey?: string | null; upsert?: string | null; contentType?: string | null }> = [];
+  const storage = new SupabaseEducationalAssetStorage(
+    'https://project.supabase.co/',
+    'service-role-secret',
+    'educational-assets',
+    undefined,
+    async (input, init) => {
+      const headers = new Headers(init?.headers);
+      requests.push({
+        url: String(input), method: init?.method, authorization: headers.get('Authorization'), apiKey: headers.get('apikey'),
+        upsert: headers.get('x-upsert'), contentType: headers.get('Content-Type'),
+      });
+      return init?.method === 'POST' ? new Response(null, { status: 409 }) : new Response(Buffer.from('private asset'), { status: 200 });
+    },
+  );
+  assert.deepEqual(await storage.put('openclipart/animal.svg', Buffer.from('<svg/>'), 'image/svg+xml'), {
+    storageKey: 'openclipart/animal.svg', byteSize: 6, created: false,
+  });
+  assert.deepEqual(Buffer.from(await storage.read('openclipart/animal.svg')), Buffer.from('private asset'));
+  assert.deepEqual(requests, [
+    { url: 'https://project.supabase.co/storage/v1/object/educational-assets/openclipart/animal.svg', method: 'POST', authorization: 'Bearer service-role-secret', apiKey: 'service-role-secret', upsert: 'false', contentType: 'image/svg+xml' },
+    { url: 'https://project.supabase.co/storage/v1/object/authenticated/educational-assets/openclipart/animal.svg', method: undefined, authorization: 'Bearer service-role-secret', apiKey: 'service-role-secret', upsert: null, contentType: null },
+  ]);
+  await assert.rejects(storage.put('../escape.svg', Buffer.from('no'), 'image/svg+xml'), /Invalid asset storage key/);
+  await assert.rejects(storage.read('openclipart\\escape.svg'), /Invalid asset storage key/);
+});
+
+test('storage configuration selects Supabase only with its required service credentials', () => {
+  assert.throws(() => createEducationalAssetStorageFromConfig({
+    backend: 'supabase', rootDirectory: './var/educational-assets', supabaseBucket: 'educational-assets',
+  }), /KITABU_SUPABASE_URL/);
+  const storage = createEducationalAssetStorageFromConfig({
+    backend: 'supabase', rootDirectory: './var/educational-assets', supabaseUrl: 'https://project.supabase.co',
+    supabaseServiceRoleKey: 'service-role-secret', supabaseBucket: 'educational-assets',
+  });
+  assert.equal(storage.backend, 'supabase');
 });
 
 test('local educational storage keeps the existing path containment boundary', async () => {

@@ -23,6 +23,7 @@ import {
 import { triggerHaptic } from '../services/haptics';
 import { buildQuestionCue, useGuidedNarration } from '../services/narrationService';
 import { DiagnosticQuestion, DiagnosticResult, OnboardingMascotKey, OnboardingVoiceName } from '../types/app';
+import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 
 const HIDDEN_CONFIDENCE_SCORE = 3;
 const MASCOT_FEEDBACK_MS = 520;
@@ -355,6 +356,12 @@ export function DiagnosticScreen({
             style={[styles.questionText, compactLayout && styles.questionTextCompact]}>
             {currentQuestion.prompt}
           </Text>
+          <AssessmentNarrationControls
+            descriptorId={`${mode === 'progressive' ? `progressive:${subjectId}:${currentQuestion.id}` : `diagnostic:${currentQuestion.id}`}`}
+            nextDescriptorIds={questions.slice(currentIndex + 1, currentIndex + 3).map(question =>
+              mode === 'progressive' ? `progressive:${subjectId}:${question.id}` : `diagnostic:${question.id}`
+            )}
+          />
           <View style={[styles.options, compactLayout && styles.optionsCompact]}>
             {currentQuestion.options.map(option => {
               const selected = selectedAnswer === option;

@@ -44,7 +44,7 @@ import { ParentDashboardScreen } from './screens/ParentDashboardScreen';
 import { QuizBattleScreen } from './screens/QuizBattleScreen';
 import { QuizMeScreen } from './screens/QuizMeScreen';
 import { ReviewSessionScreen } from './screens/ReviewSessionScreen';
-import { StudentOnboardingScreen } from './screens/StudentOnboardingScreen';
+import { NeutralOnboardingScreen } from './screens/NeutralOnboardingScreen';
 import { ParentHouseholdOnboardingScreen } from './screens/ParentHouseholdOnboardingScreen';
 import { ProfileChooserScreen } from './screens/ProfileChooserScreen';
 import { TakeQuizScreen } from './screens/TakeQuizScreen';
@@ -143,7 +143,7 @@ function AppSafeArea({ children }: { children: React.ReactNode }) {
   );
 }
 
-function RetiredStudentOnboardingScreen({
+function RetiredDirectSignupScreen({
   onBack,
 }: {
   onBack: () => void | Promise<void>;
@@ -245,9 +245,10 @@ export function KitabuApp() {
             collectSignupCredentials
             onRoleChange={() => undefined}
             onSubmit={() => undefined}
+            onSearchSchools={actions.searchOnboardingSchools}
           />
         ) : (
-          <StudentOnboardingScreen
+          <NeutralOnboardingScreen
             role={onboardingPreviewRole}
             schools={[ONBOARDING_PREVIEW_SCHOOL]}
             isSubmitting={false}
@@ -255,6 +256,7 @@ export function KitabuApp() {
             collectSignupCredentials
             externalPaymentsEnabled={state.externalPaymentsEnabled}
             onSubmit={() => undefined}
+            onSearchSchools={actions.searchOnboardingSchools}
           />
         )}
       </AppSafeArea>
@@ -298,16 +300,17 @@ export function KitabuApp() {
                 onProfileSetupStarted={actions.recordProfileSetupStarted}
                 onSubmit={actions.signUp}
                 onCreateSchool={actions.createOnboardingSchool}
+                onSearchSchools={actions.searchOnboardingSchools}
               />
             ) : state.signupRole === 'student' ? (
-              <RetiredStudentOnboardingScreen
+              <RetiredDirectSignupScreen
                 onBack={() => {
                   actions.setSignupRole(null);
                   actions.setAuthMode('login');
                 }}
               />
             ) : (
-              <StudentOnboardingScreen
+              <NeutralOnboardingScreen
                 role={state.signupRole}
                 schools={state.schoolsList}
                 isSubmitting={state.isAuthenticating}
@@ -318,6 +321,7 @@ export function KitabuApp() {
                 onRoleChange={actions.setSignupRole}
                 onProfileSetupStarted={actions.recordProfileSetupStarted}
                 onSubmit={actions.signUp}
+                onSearchSchools={actions.searchOnboardingSchools}
               />
             )}
           </OnboardingSoundtrackSurface>
@@ -370,13 +374,14 @@ export function KitabuApp() {
             onRoleChange={() => undefined}
             onProfileSetupStarted={actions.recordProfileSetupStarted}
             onSubmit={input => actions.submitAccountOnboarding(input)}
+            onSearchSchools={actions.searchOnboardingSchools}
           />
         ) : state.authSession.user.roles.includes('student') &&
           !state.authSession.user.roles.includes('teacher') &&
           !state.authSession.user.roles.includes('other') ? (
-          <RetiredStudentOnboardingScreen onBack={() => actions.signOut('intro')} />
+          <RetiredDirectSignupScreen onBack={() => actions.signOut('intro')} />
         ) : (
-          <StudentOnboardingScreen
+          <NeutralOnboardingScreen
             role={
               state.authSession.user.roles.includes('teacher')
                 ? 'teacher'
@@ -390,6 +395,7 @@ export function KitabuApp() {
             onCreateSchool={actions.createOnboardingSchool}
             onProfileSetupStarted={actions.recordProfileSetupStarted}
             onSubmit={actions.submitAccountOnboarding}
+            onSearchSchools={actions.searchOnboardingSchools}
           />
         )}
       </AppSafeArea>

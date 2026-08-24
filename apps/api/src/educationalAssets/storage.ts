@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto';
 import { resolve, sep } from 'node:path';
 import { appConfig } from '../config.js';
 
-export type EducationalAssetStorageBackend = 'local' | 'http-put';
+export type EducationalAssetStorageBackend = 'local' | 'http-put' | 'supabase';
 
 export interface EducationalAssetStorage {
   readonly backend: EducationalAssetStorageBackend;
@@ -14,15 +14,15 @@ export interface EducationalAssetStorage {
   remove?(storageKey: string): Promise<boolean>;
 }
 
-function assertSafeRemoteStorageKey(storageKey: string): void {
-  if (!storageKey || storageKey.includes('\0') || storageKey.startsWith('/') || storageKey.startsWith('\\') || storageKey.split(/[\\/]/).includes('..')) {
+export function assertSafeEducationalAssetStorageKey(storageKey: string): void {
+  if (!storageKey || storageKey.includes('\0') || storageKey.startsWith('/') || storageKey.startsWith('\\') || storageKey.includes('\\') || storageKey.split('/').includes('..')) {
     throw new Error('Invalid asset storage key');
   }
 }
 
 function publicUrlForKey(publicBaseUrl: string | null, storageKey: string): string | null {
   if (!publicBaseUrl) return null;
-  assertSafeRemoteStorageKey(storageKey);
+  assertSafeEducationalAssetStorageKey(storageKey);
   return `${publicBaseUrl}/${storageKey.split('/').map(encodeURIComponent).join('/')}`;
 }
 
@@ -120,7 +120,7 @@ export class HttpPutEducationalAssetStorage implements EducationalAssetStorage {
   }
 
   private urlFor(storageKey: string): string {
-    assertSafeRemoteStorageKey(storageKey);
+    assertSafeEducationalAssetStorageKey(storageKey);
     return this.uploadUrlTemplate.replace('{key}', encodeURIComponent(storageKey));
   }
 
@@ -151,6 +151,85 @@ export class HttpPutEducationalAssetStorage implements EducationalAssetStorage {
   }
 }
 
+function supabaseObjectUrl(projectUrl: string, bucket: string, storageKey: string, authenticated = false): string {
+  assertSafeEducationalAssetStorageKey(storageKey);
+  const objectPath = storageKey.split('/').map(encodeURIComponent).join('/');
+  return `${projectUrl.replace(/\/$/, '')}/storage/v1/object/${authenticated ? 'authenticated/' : ''}${encodeURIComponent(bucket)}/${objectPath}`;
+}
+
+export class SupabaseEducationalAssetStorage implements EducationalAssetStorage {
+  readonly backend = 'supabase' as const;
+  private readonly projectUrl: string;
+  private readonly serviceRoleKey: string;
+  private readonly bucket: string;
+  private readonly publicBaseUrl: string | null;
+  private readonly fetchImpl: typeof fetch;
+
+  constructor(projectUrl: string, serviceRoleKey: string, bucket: string, publicBaseUrl?: string, fetchImpl: typeof fetch = globalThis.fetch) {
+    this.projectUrl = projectUrl.replace(/\/$/, '');
+    this.serviceRoleKey = serviceRoleKey;
+    this.bucket = bucket;
+    this.publicBaseUrl = publicBaseUrl?.replace(/\/$/, '') || null;
+    this.fetchImpl = fetchImpl;
+  }
+
+  private authHeaders() {
+    return {
+      Authorization: `Bearer ${this.serviceRoleKey}`,
+      apikey: this.serviceRoleKey,
+    };
+  }
+
+  async put(storageKey: string, content: Uint8Array, mimeType: string) {
+    const response = await this.fetchImpl(supabaseObjectUrl(this.projectUrl, this.bucket, storageKey), {
+      method: 'POST',
+      headers: {
+        ...this.authHeaders(),
+        'Content-Type': mimeType,
+        'x-upsert': 'false',
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Content-Disposition': 'inline',
+      },
+      body: Buffer.from(content),
+    });
+    if (!response.ok) {
+      const body = await response.text().catch(() => '');
+      let duplicate = response.status === 409;
+      if (!duplicate && response.status === 400) {
+        try {
+          const parsed = JSON.parse(body) as { statusCode?: string; code?: string };
+          duplicate = parsed.statusCode === '409' && parsed.code === 'KeyAlreadyExists';
+        } catch {
+          duplicate = false;
+        }
+      }
+      if (!duplicate) {
+        throw new Error(`Educational asset Supabase Storage upload failed: ${response.status}`);
+      }
+      return { storageKey, byteSize: content.byteLength, created: false };
+    }
+    return { storageKey, byteSize: content.byteLength, created: true };
+  }
+
+  async read(storageKey: string) {
+    const publicUrl = this.publicUrl(storageKey);
+    const response = await this.fetchImpl(
+      publicUrl ?? supabaseObjectUrl(this.projectUrl, this.bucket, storageKey, true),
+      publicUrl ? undefined : { headers: this.authHeaders() },
+    );
+    if (!response.ok) throw new Error(`Educational asset Supabase Storage read failed: ${response.status}`);
+    return new Uint8Array(await response.arrayBuffer());
+  }
+
+  publicUrl(storageKey: string) {
+    return publicUrlForKey(this.publicBaseUrl, storageKey);
+  }
+
+  async writeJsonAtomic(storageKey: string, value: unknown) {
+    return this.put(storageKey, Buffer.from(`${JSON.stringify(value, null, 2)}\n`), 'application/json');
+  }
+}
+
 export async function persistEducationalAssetWithCleanup<T>(
   storage: EducationalAssetStorage,
   storageKey: string,
@@ -169,18 +248,51 @@ export async function persistEducationalAssetWithCleanup<T>(
   }
 }
 
-export function createEducationalAssetStorage(): EducationalAssetStorage {
-  if (appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND === 'http-put') {
-    if (!appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE) {
+export interface EducationalAssetStorageConfig {
+  backend: EducationalAssetStorageBackend;
+  rootDirectory: string;
+  uploadUrlTemplate?: string;
+  publicBaseUrl?: string;
+  supabaseUrl?: string;
+  supabaseServiceRoleKey?: string;
+  supabaseBucket: string;
+}
+
+export function createEducationalAssetStorageFromConfig(config: EducationalAssetStorageConfig): EducationalAssetStorage {
+  if (config.backend === 'http-put') {
+    if (!config.uploadUrlTemplate) {
       throw new Error('KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE is required for http-put educational asset storage');
     }
     return new HttpPutEducationalAssetStorage(
-      appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE,
-      appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL,
+      config.uploadUrlTemplate,
+      config.publicBaseUrl,
+    );
+  }
+  if (config.backend === 'supabase') {
+    if (!config.supabaseUrl || !config.supabaseServiceRoleKey) {
+      throw new Error('KITABU_SUPABASE_URL and KITABU_SUPABASE_SERVICE_ROLE_KEY are required for Supabase educational asset storage');
+    }
+    return new SupabaseEducationalAssetStorage(
+      config.supabaseUrl,
+      config.supabaseServiceRoleKey,
+      config.supabaseBucket,
+      config.publicBaseUrl,
     );
   }
   return new LocalEducationalAssetStorage(
-    appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT,
-    appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL,
+    config.rootDirectory,
+    config.publicBaseUrl,
   );
+}
+
+export function createEducationalAssetStorage(): EducationalAssetStorage {
+  return createEducationalAssetStorageFromConfig({
+    backend: appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_BACKEND,
+    rootDirectory: appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_ROOT,
+    uploadUrlTemplate: appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_UPLOAD_URL_TEMPLATE,
+    publicBaseUrl: appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_PUBLIC_BASE_URL,
+    supabaseUrl: appConfig.KITABU_SUPABASE_URL,
+    supabaseServiceRoleKey: appConfig.KITABU_SUPABASE_SERVICE_ROLE_KEY,
+    supabaseBucket: appConfig.KITABU_EDUCATIONAL_ASSET_STORAGE_BUCKET,
+  });
 }

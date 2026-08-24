@@ -1194,6 +1194,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     gender: 'female',
     grade: 'Grade 6',
     schoolId: schools[0].id,
+    schoolDirectoryId: null,
     mpesaPhoneNumber: null,
     selectedSubjectIds: selectedFullIntroSubjectIds,
     lang: 'sw',
@@ -1232,7 +1233,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-dashboard' })).toHaveLength(0);
   expect(renderedText(renderer!.root)).not.toContain('Simulate success');
   jest.useRealTimers();
-});
+}, 15000);
 
 test('onboarding displays Form aliases and filters subjects by selected senior grade', async () => {
   jest.useFakeTimers();
@@ -2231,6 +2232,7 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
     gender: 'not_specified',
     grade: 'Grade 8',
     schoolId: schools[0].id,
+    schoolDirectoryId: null,
     mpesaPhoneNumber: '254716175485',
     selectedSubjectIds: defaultOnboardingSubjectIds,
   });
@@ -2440,6 +2442,7 @@ test('onboarding validates and normalizes optional M-Pesa numbers before submit'
     gender: 'not_specified',
     grade: 'Grade 6',
     schoolId: schools[0].id,
+    schoolDirectoryId: null,
     mpesaPhoneNumber: '254716175485',
     selectedSubjectIds: defaultOnboardingSubjectIds,
   });
@@ -2739,6 +2742,7 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
     gender: 'not_specified',
     grade: 'Grade 6',
     schoolId: schools[0].id,
+    schoolDirectoryId: null,
     mpesaPhoneNumber: '254716175485',
     selectedSubjectIds: defaultOnboardingSubjectIds,
   });

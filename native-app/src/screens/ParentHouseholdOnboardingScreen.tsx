@@ -596,7 +596,7 @@ export function ParentHouseholdOnboardingScreen({
 
   function selectSchool(school: SchoolCatalogRecord) {
     updateChild({ schoolId: null, schoolDirectoryId: school.schoolId, school: school.name, county: school.county ?? child.county });
-    void recordSchoolSelection(school.schoolId).catch(() => {});
+    recordSchoolSelection(school.schoolId).catch(() => undefined);
     setSchoolQuery(school.name);
     setSchoolPickerOpen(false);
   }

@@ -61,6 +61,8 @@ import {
   type OnboardingEventType,
 } from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
+import { recordSchoolSelection, type SchoolCatalogRecord } from '../services/appDataService';
+import { filterCountyOptions } from '../utils/countySearch';
 import { AvatarArt, selectAvatarKey } from '../components/AvatarArt';
 import { AssessmentNarrationControls } from '../components/AssessmentNarrationControls';
 import { OnboardingVisualShell } from '../components/OnboardingVisualShell';
@@ -1957,7 +1959,7 @@ function prioritizeSchoolsByEnrollment(schoolOptions: SchoolData[], grade?: stri
   return [...topSchools, ...remainingSchools];
 }
 
-interface StudentOnboardingScreenProps {
+interface NeutralOnboardingScreenProps {
   role: PublicSignupRole;
   schools: SchoolData[];
   isSubmitting: boolean;
@@ -1966,12 +1968,14 @@ interface StudentOnboardingScreenProps {
   collectSignupCredentials?: boolean;
   externalPaymentsEnabled?: boolean;
   onCreateSchool?: (input: { schoolName: string; county: string }) => Promise<SchoolData>;
+  onSearchSchools?: (input: { county?: string; query?: string; limit?: number }) => Promise<SchoolCatalogRecord[]>;
   onRoleChange?: (role: PublicSignupRole) => void;
   onProfileSetupStarted?: (role: PublicSignupRole, grade?: string) => void;
   onSubmit: (input: {
     gender: GenderOption;
     grade: string;
     schoolId: string | null;
+    schoolDirectoryId?: string | null;
     mpesaPhoneNumber?: string | null;
     selectedSubjectIds?: string[];
     lang?: OnboardingLanguageCode;
@@ -2017,7 +2021,7 @@ interface StudentOnboardingScreenProps {
   }) => void;
 }
 
-export function StudentOnboardingScreen({
+export function NeutralOnboardingScreen({
   role,
   schools,
   isSubmitting,
@@ -2026,10 +2030,11 @@ export function StudentOnboardingScreen({
   collectSignupCredentials = false,
   externalPaymentsEnabled = true,
   onCreateSchool,
+  onSearchSchools,
   onRoleChange,
   onProfileSetupStarted,
   onSubmit,
-}: StudentOnboardingScreenProps) {
+}: NeutralOnboardingScreenProps) {
   const [introStep, setIntroStep] = useState<IntroStep>(includeIntroChoices ? 'language' : 'setup');
   const [languageCode, setLanguageCode] = useState<OnboardingLanguageCode | null>(null);
   const [selectedMascotKey, setSelectedMascotKey] = useState<OnboardingMascotKey | null>(null);
@@ -2072,10 +2077,16 @@ export function StudentOnboardingScreen({
   const [countryCode, setCountryCode] = useState<string>(() => detectDefaultCountryCode());
   const [countryPickerOpen, setCountryPickerOpen] = useState(false);
   const [countyPickerOpen, setCountyPickerOpen] = useState(false);
+  const [countyQuery, setCountyQuery] = useState('');
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [county, setCounty] = useState('');
   const [schoolQuery, setSchoolQuery] = useState('');
   const [schoolId, setSchoolId] = useState('');
+  const [schoolDirectoryId, setSchoolDirectoryId] = useState<string | null>(null);
+  const [directorySchools, setDirectorySchools] = useState<SchoolCatalogRecord[]>([]);
+  const [isLoadingDirectorySchools, setIsLoadingDirectorySchools] = useState(false);
+  const [directoryError, setDirectoryError] = useState<string | null>(null);
+  const directoryRequestIdRef = useRef(0);
   const [manualSchoolName, setManualSchoolName] = useState('');
   const [addSchoolOpen, setAddSchoolOpen] = useState(false);
   const [isAddingSchool, setIsAddingSchool] = useState(false);
@@ -3063,8 +3074,8 @@ export function StudentOnboardingScreen({
     () => schools.find(school => school.id === schoolId) ?? null,
     [schoolId, schools],
   );
-  const selectedSchoolName = selectedSchool?.name ?? manualSchoolName;
-  const hasSelectedSchool = Boolean(selectedSchoolName);
+  const selectedSchoolName = selectedSchool?.name ?? (manualSchoolName || (schoolDirectoryId ? schoolQuery : ''));
+  const hasSelectedSchool = Boolean(selectedSchoolName || schoolDirectoryId);
   const regionMeta = REGIONS_BY_COUNTRY[countryCode] ?? REGIONS_BY_COUNTRY.KE;
   const regionLabel = swahiliIntro ? regionMeta.labelSw : regionMeta.label;
   const countyOptions = useMemo(
@@ -3091,6 +3102,7 @@ export function StudentOnboardingScreen({
     },
     [schools, countryCode, regionMeta],
   );
+  const filteredCountyOptions = useMemo(() => filterCountyOptions(countyOptions, countyQuery), [countyOptions, countyQuery]);
   const hasMpesaInput = externalPaymentsEnabled && Boolean(mpesaPhoneNumber.trim());
   const hasValidMpesaShortcut = useMemo(() => {
     if (!hasMpesaInput) {
@@ -3403,6 +3415,7 @@ export function StudentOnboardingScreen({
     if (county && !countyOptions.includes(county)) {
       setCounty('');
       setSchoolId('');
+      setSchoolDirectoryId(null);
       setSchoolQuery('');
       setManualSchoolName('');
     }
@@ -3414,6 +3427,28 @@ export function StudentOnboardingScreen({
       : includeIntroChoices && role === 'parent'
         ? parentChildGrade
         : grade;
+  useEffect(() => {
+    if (!schoolPickerOpen || !county || !onSearchSchools) {
+      setDirectorySchools([]);
+      setDirectoryError(null);
+      setIsLoadingDirectorySchools(false);
+      return undefined;
+    }
+    const requestId = ++directoryRequestIdRef.current;
+    const timer = setTimeout(() => {
+      setIsLoadingDirectorySchools(true);
+      setDirectoryError(null);
+      onSearchSchools({ county, query: schoolQuery, limit: 24 })
+        .then(results => { if (requestId === directoryRequestIdRef.current) setDirectorySchools(results); })
+        .catch(searchError => {
+          if (requestId !== directoryRequestIdRef.current) return;
+          setDirectorySchools([]);
+          setDirectoryError(searchError instanceof Error ? searchError.message : 'Unable to load schools.');
+        })
+        .finally(() => { if (requestId === directoryRequestIdRef.current) setIsLoadingDirectorySchools(false); });
+    }, 220);
+    return () => clearTimeout(timer);
+  }, [county, onSearchSchools, schoolPickerOpen, schoolQuery]);
   const filteredSchools = useMemo(
     () =>
       county
@@ -3428,13 +3463,30 @@ export function StudentOnboardingScreen({
         : [],
     [county, grade, schoolLookupGrade, schoolQuery, schools],
   );
+  const visibleDirectorySchools = onSearchSchools
+    ? directorySchools
+    : filteredSchools.map(school => ({
+        schoolId: school.id,
+        sourceRecordKey: school.sourceRecordKey ?? null,
+        name: school.name,
+        county: school.location,
+        subCounty: school.subCounty ?? null,
+        level: formatSchoolGradeMeta(school, schoolLookupGrade || grade),
+        schoolCode: school.schoolCode ?? '',
+        selectionCount: school.selectionCount ?? 0,
+        activeEnrollment: schoolEnrollmentForSort(school, schoolLookupGrade || grade),
+      }));
   const schoolResultStatus =
     !county
       ? `Select a ${regionLabel.toLowerCase()} to see schools`
-      : filteredSchools.length === 0
+      : isLoadingDirectorySchools
+        ? 'Loading schools...'
+        : directoryError
+          ? 'Unable to load schools'
+          : visibleDirectorySchools.length === 0
         ? `No schools found in ${county} for ${schoolLookupGrade || 'your grade'}`
-        : `Showing ${filteredSchools.length} ${
-            filteredSchools.length === 1 ? 'school' : 'schools'
+        : `Showing ${visibleDirectorySchools.length} ${
+            visibleDirectorySchools.length === 1 ? 'school' : 'schools'
           } in ${county} for ${schoolLookupGrade || 'your grade'}`;
 
   const canContinue =
@@ -3903,6 +3955,7 @@ export function StudentOnboardingScreen({
       gender: resolvedGender,
       grade: primaryProfileGrade,
       schoolId: schoolId || null,
+      schoolDirectoryId: schoolDirectoryId || null,
       mpesaPhoneNumber: normalizedMpesaPhoneNumber,
       selectedSubjectIds: effectiveSelectedSubjectIds,
       ...(includeIntroChoices
@@ -4809,7 +4862,7 @@ export function StudentOnboardingScreen({
       setManualSchoolName('');
     }
 
-    if (!schoolId) {
+    if (!schoolId && !schoolDirectoryId) {
       return;
     }
 
@@ -4819,6 +4872,7 @@ export function StudentOnboardingScreen({
     }
 
     setSchoolId('');
+    setSchoolDirectoryId(null);
   }
 
   function handleCountySelect(value: string) {
@@ -4826,6 +4880,7 @@ export function StudentOnboardingScreen({
     setCounty(value);
     setSchoolQuery('');
     setSchoolId('');
+    setSchoolDirectoryId(null);
     setManualSchoolName('');
     setLocalError(null);
     setFocusedField(null);
@@ -4846,6 +4901,7 @@ export function StudentOnboardingScreen({
 
   function handleSelectSchool(school: SchoolData) {
     setSchoolId(school.id);
+    setSchoolDirectoryId(null);
     setSchoolQuery(school.name);
     setManualSchoolName('');
     trackOnboardingSelection('school', school.id, school.name, {
@@ -5130,6 +5186,7 @@ export function StudentOnboardingScreen({
     });
     if (value !== grade && schoolId && !studentFullIntro) {
       setSchoolId('');
+      setSchoolDirectoryId(null);
       setSchoolQuery('');
       setManualSchoolName('');
       setLocalError(null);
@@ -5150,16 +5207,37 @@ export function StudentOnboardingScreen({
       return;
     }
 
-    if (filteredSchools.length === 1) {
-      handleSchoolOptionPress(filteredSchools[0]);
+    if (visibleDirectorySchools.length === 1) {
+      handleDirectorySchoolPress(visibleDirectorySchools[0]);
     }
   }
 
   function handleSchoolSearchBlur() {
     setFocusedField(null);
-    if (!hasSelectedSchool && filteredSchools.length === 1) {
-      handleSelectSchool(filteredSchools[0]);
+    if (!hasSelectedSchool && visibleDirectorySchools.length === 1) {
+      handleDirectorySchoolPress(visibleDirectorySchools[0]);
     }
+  }
+
+  function handleDirectorySchoolPress(school: SchoolCatalogRecord) {
+    if (!onSearchSchools) {
+      const localSchool = schools.find(item => item.id === school.schoolId);
+      if (localSchool) {
+        handleSchoolOptionPress(localSchool);
+        return;
+      }
+    }
+
+    Keyboard.dismiss();
+    setFocusedField(null);
+    triggerHaptic('selection');
+    setSchoolId('');
+    setSchoolDirectoryId(school.schoolId);
+    setSchoolQuery(school.name);
+    setManualSchoolName('');
+    trackOnboardingSelection('school', school.schoolId, school.name, { county: school.county ?? county, catalog: true });
+    recordSchoolSelection(school.schoolId).catch(() => undefined);
+    setSchoolPickerOpen(false);
   }
 
   function handleSchoolSearchKeyPress(event: NativeSyntheticEvent<TextInputKeyPressEventData>) {
@@ -5202,6 +5280,7 @@ export function StudentOnboardingScreen({
         handleSelectSchool(school);
       } else {
         setSchoolId('');
+        setSchoolDirectoryId(null);
         setSchoolQuery(schoolName);
         setManualSchoolName(schoolName);
         trackOnboardingSelection('school', 'manual', schoolName, { county, manual: true });
@@ -7565,6 +7644,7 @@ export function StudentOnboardingScreen({
                   accessibilityLabel={`${regionMeta.label} selector`}
                   accessibilityHint={`Opens the list of ${regionMeta.label.toLowerCase()} options`}
                   accessibilityRole="button"
+                  onPressIn={() => setCountyQuery('')}
                   onPress={() => setCountyPickerOpen(true)}
                   style={[
                     styles.dropdownField,
@@ -7590,12 +7670,22 @@ export function StudentOnboardingScreen({
                   visible={countyPickerOpen}>
                   <Pressable style={styles.pickerBackdrop} onPress={() => setCountyPickerOpen(false)}>
                     <Pressable style={styles.pickerSheet} onPress={() => undefined}>
+                      <TextInput
+                        accessibilityLabel={`Search ${regionMeta.label.toLowerCase()}`}
+                        autoCapitalize="words"
+                        autoCorrect={false}
+                        onChangeText={setCountyQuery}
+                        placeholder={swahiliIntro ? `Tafuta ${regionLabel.toLowerCase()}` : `Search ${regionLabel.toLowerCase()}...`}
+                        placeholderTextColor="#9CA3AF"
+                        style={styles.input}
+                        value={countyQuery}
+                      />
                       <ScrollView
                         accessibilityLabel={`${regionMeta.label} options`}
                         accessibilityRole="radiogroup"
                         keyboardShouldPersistTaps="handled"
                         style={styles.pickerList}>
-                        {countyOptions.map(option => {
+                        {filteredCountyOptions.map(option => {
                           const selected = county === option;
                           return (
                             <Pressable
@@ -7619,6 +7709,11 @@ export function StudentOnboardingScreen({
                             </Pressable>
                           );
                         })}
+                        {filteredCountyOptions.length === 0 ? (
+                          <Text accessibilityLiveRegion="polite" style={styles.emptyText}>
+                            {swahiliIntro ? 'Hakuna kaunti inayolingana.' : 'No counties match your search.'}
+                          </Text>
+                        ) : null}
                       </ScrollView>
                     </Pressable>
                   </Pressable>
@@ -7732,16 +7827,17 @@ export function StudentOnboardingScreen({
                         nestedScrollEnabled
                         style={styles.schoolPickerList}
                         showsVerticalScrollIndicator={false}>
-                  {filteredSchools.map(school => {
-                    const selected = schoolId === school.id;
-                    const schoolGradeMeta = formatSchoolGradeMeta(school, schoolLookupGrade || grade);
+                  {visibleDirectorySchools.map(school => {
+                    const selected = schoolDirectoryId === school.schoolId;
                     return (
                       <Pressable
                         accessibilityRole="radio"
-                        accessibilityLabel={`Choose ${school.name}, ${school.location}, ${schoolGradeMeta}`}
+                        accessibilityLabel={`Choose ${school.name}, ${school.county ?? county}${
+                          onSearchSchools ? '' : `, ${school.level}`
+                        }`}
                         accessibilityState={{ checked: selected }}
-                        key={school.id}
-                        onPress={() => handleSchoolOptionPress(school)}
+                        key={school.schoolId}
+                        onPress={() => handleDirectorySchoolPress(school)}
                         style={[
                           styles.schoolOption,
                           schoolStepCompactLayout && styles.schoolOptionCompact,
@@ -7758,14 +7854,14 @@ export function StudentOnboardingScreen({
                             </View>
                           ) : null}
                         </View>
-                        <Text style={styles.schoolMeta}>{school.location}</Text>
-                        <Text style={[styles.schoolGradeMeta, { color: content.accent }]}>
-                          {schoolGradeMeta}
-                        </Text>
+                        <Text style={styles.schoolMeta}>{school.county ?? county}</Text>
+                        <Text style={[styles.schoolGradeMeta, { color: content.accent }]}>{school.level}</Text>
                       </Pressable>
                     );
                   })}
-                  {filteredSchools.length === 0 ? (
+                  {isLoadingDirectorySchools ? <ActivityIndicator accessibilityLabel="Loading schools" color={content.accent} /> : null}
+                  {directoryError ? <Text accessibilityLiveRegion="polite" role="alert" style={styles.emptyText}>{directoryError}</Text> : null}
+                  {!isLoadingDirectorySchools && !directoryError && visibleDirectorySchools.length === 0 ? (
                     <>
                       <Text
                         accessibilityLabel="No matching schools"
@@ -11905,3 +12001,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 });
+
+// Compatibility export for existing role-onboarding tests and callers while
+// the source file remains neutral and no longer represents direct students.

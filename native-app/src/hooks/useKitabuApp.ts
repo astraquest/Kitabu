@@ -69,6 +69,7 @@ import {
   getAdminUsers,
   getDashboardBanner,
   getSchools,
+  searchSchoolCatalog,
   updateAdminAnnouncement,
   updateAdminDiscount,
   updateAdminSchool,
@@ -332,6 +333,7 @@ type OnboardingSignupInput = {
   county?: string;
   school?: string;
   schoolId?: string | null;
+  schoolDirectoryId?: string | null;
   countryCode?: string;
   mascot?: OnboardingMascotKey;
   mascotKey?: OnboardingMascotKey;
@@ -343,6 +345,7 @@ type OnboardingSignupInput = {
     gender?: GenderOption;
     county?: string;
     schoolId?: string | null;
+    schoolDirectoryId?: string | null;
     school?: string;
     grade: string;
     performance?: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
@@ -1951,7 +1954,7 @@ export function useKitabuApp() {
     }
   }
 
-  async function createOnboardingSchool(input: { schoolName: string; county: string }) {
+  async function createOnboardingSchool(input: { schoolName: string; county: string; schoolDirectoryId?: string | null }) {
     const school = await createOnboardingSchoolRequest(input);
     if (!school) {
       throw new Error('The school could not be added. Please try again.');
@@ -1960,6 +1963,10 @@ export function useKitabuApp() {
       current.some(item => item.id === school.id) ? current : [...current, school],
     );
     return school;
+  }
+
+  async function searchOnboardingSchools(input: { county?: string; query?: string; limit?: number }) {
+    return searchSchoolCatalog(input);
   }
 
   async function refreshDashboardBanner() {
@@ -2517,7 +2524,7 @@ export function useKitabuApp() {
     }
 
     try {
-      const [schools, discounts, announcements, plans, users, ai, billing, subjectEngagement] = await Promise.all([
+      const [adminSchools, discounts, announcements, plans, users, ai, billing, subjectEngagement] = await Promise.all([
         getAdminSchools(),
         getAdminDiscounts(),
         getAdminAnnouncements(),
@@ -2527,7 +2534,7 @@ export function useKitabuApp() {
         getAdminBillingAnalytics(),
         getAdminSubjectEngagementAnalytics(adminSelectedGrade),
       ]);
-      setSchoolsList(schools);
+      setSchoolsList(adminSchools.schools);
       setAdminDiscounts(discounts);
       setAdminAnnouncements(announcements);
       setAdminSchoolPlans(plans);
@@ -2550,6 +2557,7 @@ export function useKitabuApp() {
     gender: GenderOption;
     grade: string;
     schoolId: string | null;
+    schoolDirectoryId?: string | null;
     mpesaPhoneNumber?: string | null;
     whatsappNumber?: string;
     selectedSubjectIds?: string[];
@@ -2566,8 +2574,8 @@ export function useKitabuApp() {
     needKey?: OnboardingNeedKey;
     displayName?: string;
     age?: string;
-    children?: Array<{ name: string; age: string; grade: string; subjects?: string[] }>;
-    parentChildren?: Array<{ name: string; age: string; grade: string; subjects?: string[] }>;
+    children?: Array<{ name: string; age: string; grade: string; schoolDirectoryId?: string | null; subjects?: string[] }>;
+    parentChildren?: Array<{ name: string; age: string; grade: string; schoolDirectoryId?: string | null; subjects?: string[] }>;
     teachGrades?: string[];
     teacherGradeIds?: string[];
     subjects?: string[];
@@ -2599,6 +2607,7 @@ export function useKitabuApp() {
     try {
       const {
         selectedSubjectIds,
+        schoolDirectoryId,
         languageCode,
         mascotKey,
         voiceName,
@@ -2641,6 +2650,15 @@ export function useKitabuApp() {
       const resolvedInterestKeys = interestKeys ?? input.interests;
       const resolvedSignupEmail = signupEmail ?? email;
       const resolvedSignupPhone = signupPhone ?? phone;
+      let onboardingSchoolId = input.schoolId;
+      if (!onboardingSchoolId && input.school?.trim() && input.county?.trim()) {
+        const school = await createOnboardingSchool({
+          schoolName: input.school,
+          county: input.county,
+          schoolDirectoryId: schoolDirectoryId || null,
+        });
+        onboardingSchoolId = school.id;
+      }
       const onboardingPersonalization: OnboardingPersonalization = {
         version: 1,
         languageCode: resolvedLanguageCode,
@@ -2669,6 +2687,7 @@ export function useKitabuApp() {
       };
       const nextSession = await completeAccountOnboarding({
         ...accountOnboardingInput,
+        schoolId: onboardingSchoolId,
         subjectIds: selectedSubjectIds,
         mascotKey: isOnboardingMascotKey(resolvedMascotKey) ? resolvedMascotKey : undefined,
         countryCode,
@@ -3714,6 +3733,7 @@ export function useKitabuApp() {
         const school = await createOnboardingSchool({
           schoolName: input.school,
           county: input.county,
+          schoolDirectoryId: input.schoolDirectoryId || null,
         });
         onboardingSchoolId = school.id;
       }
@@ -5042,6 +5062,7 @@ export function useKitabuApp() {
       completeProgressiveDiagnostic,
       recordProgressiveDiagnosticCompletion,
       createOnboardingSchool,
+      searchOnboardingSchools,
       refreshAdminData,
       createSchoolRecord,
       updateSchoolRecord,

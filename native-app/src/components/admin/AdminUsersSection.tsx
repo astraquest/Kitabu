@@ -48,7 +48,6 @@ export function AdminUsersSection({
   onSelectUser,
 }: AdminUsersSectionProps) {
   const schoolOptions = ['All Schools', ...Array.from(new Set(users.map(user => user.school)))];
-
   return (
     <>
       <View style={styles.pageHead}>

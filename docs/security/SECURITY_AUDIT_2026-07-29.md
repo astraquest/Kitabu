@@ -130,9 +130,9 @@ This document is the durable record for findings, validation evidence, fixes, re
 **Status:** Open
 **Locations:**
 
-- `native-app/src/screens/StudentOnboardingScreen.tsx:2762-2768`
-- `native-app/src/screens/StudentOnboardingScreen.tsx:5015-5041`
-- `native-app/src/screens/StudentOnboardingScreen.tsx:8460-8466`
+- `native-app/src/screens/NeutralOnboardingScreen.tsx:2762-2768`
+- `native-app/src/screens/NeutralOnboardingScreen.tsx:5015-5041`
+- `native-app/src/screens/NeutralOnboardingScreen.tsx:8460-8466`
 - `apps/api/src/server.ts:458-522`
 
 **Evidence:** Mobile validation accepts passwords with six characters while API signup validation requires eight.
@@ -145,7 +145,7 @@ This document is the durable record for findings, validation evidence, fixes, re
 
 **Status:** Open
 
-**Evidence:** `server.ts` contains roughly 150 manually registered routes and exceeds 8,000 lines; `repositories.ts` exceeds 6,000 lines; `StudentOnboardingScreen.tsx` exceeds 11,000 lines; `TeacherPortalScreen.tsx` exceeds 6,000 lines; and `useKitabuApp.ts` approaches 4,000 lines.
+**Evidence:** `server.ts` contains roughly 150 manually registered routes and exceeds 8,000 lines; `repositories.ts` exceeds 6,000 lines; `NeutralOnboardingScreen.tsx` exceeds 11,000 lines; `TeacherPortalScreen.tsx` exceeds 6,000 lines; and `useKitabuApp.ts` approaches 4,000 lines.
 
 **Impact:** Small feature changes pull unrelated native modules into startup, authorization policy is difficult to audit, test isolation deteriorates, and concurrent delivery becomes unsafe.
 

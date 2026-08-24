@@ -9,7 +9,7 @@ const mockUseKitabuApp = jest.fn();
 const mockIntroCarouselScreen = jest.fn((_props: unknown) => <Text>intro carousel</Text>);
 const mockLoginScreen = jest.fn((_props: unknown) => <Text>login screen</Text>);
 const mockParentHouseholdOnboardingScreen = jest.fn((_props: unknown) => <Text>parent household onboarding</Text>);
-const mockStudentOnboardingScreen = jest.fn((_props: unknown) => <Text>onboarding signup</Text>);
+const mockNeutralOnboardingScreen = jest.fn((_props: unknown) => <Text>onboarding signup</Text>);
 const runtimeGlobal = globalThis as typeof globalThis & {
   __DEV__?: boolean;
   history?: unknown;
@@ -24,8 +24,8 @@ jest.mock('../src/screens/IntroCarouselScreen', () => ({
   IntroCarouselScreen: (props: unknown) => mockIntroCarouselScreen(props),
 }));
 
-jest.mock('../src/screens/StudentOnboardingScreen', () => ({
-  StudentOnboardingScreen: (props: unknown) => mockStudentOnboardingScreen(props),
+jest.mock('../src/screens/NeutralOnboardingScreen', () => ({
+  NeutralOnboardingScreen: (props: unknown) => mockNeutralOnboardingScreen(props),
 }));
 
 jest.mock('../src/screens/LoginScreen', () => ({
@@ -124,7 +124,7 @@ describe('KitabuApp signup onboarding wiring', () => {
         ReactTestRenderer.create(<KitabuApp />);
       });
 
-      expect(mockStudentOnboardingScreen).toHaveBeenCalledWith(
+      expect(mockNeutralOnboardingScreen).toHaveBeenCalledWith(
         expect.objectContaining({
           role,
           includeIntroChoices: role !== 'teacher',
@@ -146,7 +146,7 @@ describe('KitabuApp signup onboarding wiring', () => {
       renderer = ReactTestRenderer.create(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+      expect(mockNeutralOnboardingScreen).not.toHaveBeenCalled();
     expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
     expect(renderer?.root.findByProps({ children: 'Student setup is parent-managed' })).toBeTruthy();
   });
@@ -182,7 +182,7 @@ describe('KitabuApp signup onboarding wiring', () => {
         collectSignupCredentials: true,
       }),
     );
-    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+      expect(mockNeutralOnboardingScreen).not.toHaveBeenCalled();
   });
 
   test('routes the landing Create account CTA to signup while Sign in remains login', async () => {
@@ -302,7 +302,7 @@ describe('KitabuApp signup onboarding wiring', () => {
       renderer = ReactTestRenderer.create(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+      expect(mockNeutralOnboardingScreen).not.toHaveBeenCalled();
     expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
     expect(renderer?.root.findByProps({ children: 'Student setup is parent-managed' })).toBeTruthy();
 
@@ -395,7 +395,7 @@ describe('KitabuApp signup onboarding wiring', () => {
       ReactTestRenderer.create(<KitabuApp />);
     });
 
-    expect(mockStudentOnboardingScreen).not.toHaveBeenCalled();
+      expect(mockNeutralOnboardingScreen).not.toHaveBeenCalled();
     expect(mockParentHouseholdOnboardingScreen).not.toHaveBeenCalled();
     expect(mockIntroCarouselScreen).toHaveBeenCalled();
     expect(replaceState).toHaveBeenCalledWith(null, '', '/');

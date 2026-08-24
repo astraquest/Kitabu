@@ -12,3 +12,10 @@ test('scoped migrations select exactly one named file and fail closed for invali
   assert.equal((source.match(/for \(const file of selectedSqlFiles\)/g) ?? []).length, 2);
   assert.doesNotMatch(source, /for \(const file of sqlFiles\)/);
 });
+test('reviewed legacy TTS aliases are archived, never executed, and --only refuses them', () => {
+  assert.match(source, /'072_tts_artifacts_jobs\.sql': '091_tts_artifacts_jobs\.sql'/);
+  assert.match(source, /'077_dual_provider_tts\.sql': '092_dual_provider_tts\.sql'/);
+  assert.match(source, /is an archived alias/);
+  assert.match(source, /canonical migration .* is missing/);
+  assert.match(source, /Recording .* as archived alias of/);
+});

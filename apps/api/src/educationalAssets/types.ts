@@ -29,7 +29,7 @@ export interface EducationalAssetRecord extends EducationalAssetProvenance {
   mimeType: string;
   contentSha256: string;
   byteSize: number;
-  storageBackend: 'local' | 'http-put';
+  storageBackend: 'local' | 'http-put' | 'supabase';
   storageKey: string;
   productionStatus: EducationalAssetProductionStatus;
   usageRestriction: EducationalAssetUsageRestriction;

@@ -9,7 +9,7 @@ import { SubscriptionCheckoutModal } from '../src/components/SubscriptionCheckou
 import { INITIAL_ASSIGNMENTS, SUBJECTS } from '../src/data/mockData';
 import { HomeworkListScreen } from '../src/screens/HomeworkListScreen';
 import { LoginScreen } from '../src/screens/LoginScreen';
-import { StudentOnboardingScreen } from '../src/screens/StudentOnboardingScreen';
+import { NeutralOnboardingScreen } from '../src/screens/NeutralOnboardingScreen';
 import { TryForOneBobModal } from '../src/components/TryForOneBobModal';
 import { LEARNING_MASCOT_SOURCES } from '../src/features/progressiveLearning/components/LearningMascotReaction';
 import type { BillingPlan, DueReview, SchoolData, WeeklyExamPayload } from '../src/types/app';
@@ -42,6 +42,7 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   onAcceptedTermsChange: jest.fn(),
   onOptionalPhoneNumberChange: jest.fn(),
   onAuthenticated: jest.fn(),
+  onDemoLogin: jest.fn(),
   onSubmit: jest.fn(),
 };
 
@@ -409,7 +410,7 @@ test('onboarding full intro captures profile details before account setup', asyn
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="student"
         schools={schools}
         isSubmitting={false}
@@ -1241,7 +1242,7 @@ test('onboarding displays Form aliases and filters subjects by selected senior g
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="student"
         schools={schools}
         isSubmitting={false}
@@ -1350,7 +1351,7 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+        <NeutralOnboardingScreen
           role={expectation.role}
           schools={schools}
           isSubmitting={false}
@@ -1522,7 +1523,7 @@ test('onboarding role step does not expose the removed Other role', async () => 
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="student"
         schools={schools}
         isSubmitting={false}
@@ -1741,7 +1742,7 @@ test('full intro loading and ready states use teacher and parent context', async
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+        <NeutralOnboardingScreen
           role={expectation.role}
           schools={schools}
           isSubmitting={false}
@@ -2120,7 +2121,7 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting={false}
@@ -2243,7 +2244,7 @@ test('parent onboarding uses family dashboard copy', async () => {
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2267,7 +2268,7 @@ test('onboarding setup summary updates across role choices', async () => {
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting={false}
@@ -2333,7 +2334,7 @@ test('onboarding uses compact review rows without truncating payment details', a
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2372,7 +2373,7 @@ test('onboarding validates and normalizes optional M-Pesa numbers before submit'
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2453,7 +2454,7 @@ test('onboarding disables Back while final setup is submitting', async () => {
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting={false}
@@ -2479,7 +2480,7 @@ test('onboarding disables Back while final setup is submitting', async () => {
 
   await act(() => {
     renderer!.update(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting
@@ -2507,7 +2508,7 @@ test('onboarding ignores keyboard submit while final setup is submitting', async
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2532,7 +2533,7 @@ test('onboarding ignores keyboard submit while final setup is submitting', async
 
   await act(() => {
     renderer!.update(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting
@@ -2558,7 +2559,7 @@ test('student onboarding exposes accessible gender and grade selections', async 
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="student"
         schools={schools}
         isSubmitting={false}
@@ -2637,7 +2638,7 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2785,7 +2786,7 @@ test('onboarding prioritizes populated counties and schools without extra labels
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={rankedSchools}
         isSubmitting={false}
@@ -2838,7 +2839,7 @@ test('onboarding announces empty school search results', async () => {
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting={false}
@@ -2870,7 +2871,7 @@ test('onboarding adds a missing school with the selected county and enables cont
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -2930,7 +2931,7 @@ test('onboarding clears selected school when the search query changes', async ()
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={localSchools}
         isSubmitting={false}
@@ -3018,7 +3019,7 @@ test('onboarding clears selected school when grade changes after selection', asy
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="parent"
         schools={schools}
         isSubmitting={false}
@@ -3076,7 +3077,7 @@ test('onboarding commits school selection and dismisses the keyboard', async () 
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="teacher"
         schools={schools}
         isSubmitting={false}
@@ -3122,7 +3123,7 @@ test('onboarding dismisses keyboard during step navigation and uses mobile keybo
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <StudentOnboardingScreen
+      <NeutralOnboardingScreen
         role="student"
         schools={schools}
         isSubmitting={false}
@@ -3185,7 +3186,7 @@ test('onboarding selected controls use role accent colors', async () => {
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+      <NeutralOnboardingScreen
           role={expectation.role}
           schools={schools}
           isSubmitting={false}

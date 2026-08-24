@@ -44,6 +44,7 @@ export interface OnboardingPersonalizationChild {
   gender?: 'male' | 'female' | 'not_specified';
   county?: string;
   schoolId?: string | null;
+  schoolDirectoryId?: string | null;
   school?: string;
   performance?: 'far_behind' | 'behind' | 'at_grade_level' | 'ahead' | 'far_ahead' | 'not_sure';
   commitmentAccepted?: boolean;
@@ -171,6 +172,22 @@ export interface SchoolRecord {
   principal: string | null;
   phone: string | null;
   email: string | null;
+  source_record_key?: string | null;
+  catalog_level?: string | null;
+  county?: string | null;
+  schoolId?: string | null;
+  sub_county?: string | null;
+  catalog_school_type?: string | null;
+  day_boarding?: string | null;
+  gender?: string | null;
+  sponsor?: string | null;
+  school_code?: string | null;
+  latitude?: string | number | null;
+  longitude?: string | number | null;
+  data_source?: string | null;
+  lead_status?: 'prospect' | 'customer' | 'inactive';
+  selection_count?: string | number;
+  last_selected_at?: Date | null;
   sales_agent_user_id: string | null;
   available_grades: string[];
   available_plan_codes: BillingPlanCode[];
@@ -2711,6 +2728,21 @@ function mapSchoolRows(
     principal: string | null;
     phone: string | null;
     email: string | null;
+    source_record_key: string | null;
+    catalog_level: string | null;
+    county: string | null;
+    sub_county: string | null;
+    catalog_school_type: string | null;
+    day_boarding: string | null;
+    gender: string | null;
+    sponsor: string | null;
+    school_code: string | null;
+    latitude: string | null;
+    longitude: string | null;
+    data_source: string | null;
+    lead_status: 'prospect' | 'customer' | 'inactive';
+    selection_count: string;
+    last_selected_at: Date | null;
     sales_agent_user_id: string | null;
     available_grades: string[];
     available_plan_codes: BillingPlanCode[];
@@ -2744,7 +2776,19 @@ function mapSchoolRows(
   }));
 }
 
-export async function listSchools() {
+export async function listSchools(input: {
+  includeProspects?: boolean;
+  query?: string | null;
+  county?: string | null;
+  schoolId?: string | null;
+  limit?: number;
+  offset?: number;
+} = {}) {
+  const query = input.query?.trim() || null;
+  const county = input.county?.trim() || null;
+  const includeProspects = input.includeProspects ?? false;
+  const limit = Math.min(Math.max(input.limit ?? 500, 1), 1000);
+  const offset = Math.max(input.offset ?? 0, 0);
   const [schoolsResult, gradeResult] = await Promise.all([
     db.query<{
       id: string;
@@ -2756,6 +2800,21 @@ export async function listSchools() {
       principal: string | null;
       phone: string | null;
       email: string | null;
+      source_record_key: string | null;
+      catalog_level: string | null;
+      county: string | null;
+      sub_county: string | null;
+      catalog_school_type: string | null;
+      day_boarding: string | null;
+      gender: string | null;
+      sponsor: string | null;
+      school_code: string | null;
+      latitude: string | null;
+      longitude: string | null;
+      data_source: string | null;
+      lead_status: 'prospect' | 'customer' | 'inactive';
+      selection_count: string;
+      last_selected_at: Date | null;
       sales_agent_user_id: string | null;
       available_grades: string[];
       available_plan_codes: BillingPlanCode[];
@@ -2791,6 +2850,21 @@ export async function listSchools() {
          s.principal,
          s.phone,
          s.email,
+         s.source_record_key,
+         s.catalog_level,
+         s.county,
+         s.sub_county,
+         s.catalog_school_type,
+         s.day_boarding,
+         s.gender,
+         s.sponsor,
+         s.school_code,
+         s.latitude,
+         s.longitude,
+         s.data_source,
+         s.lead_status,
+         s.selection_count,
+         s.last_selected_at,
          s.sales_agent_user_id,
          s.available_grades,
          s.available_plan_codes,
@@ -2831,11 +2905,17 @@ export async function listSchools() {
        LEFT JOIN school_discounts d ON d.id = s.discount_id
        LEFT JOIN users u ON u.school_id = s.id
        LEFT JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+       WHERE ($1::boolean OR s.lead_status = 'customer')
+         AND ($2::text IS NULL OR lower(s.name) LIKE '%' || lower($2) || '%')
+         AND ($3::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($3))
+         AND ($4::uuid IS NULL OR s.id = $4)
        GROUP BY
          s.id,
          ap.id,
          d.id
-       ORDER BY s.name ASC`
+       ORDER BY s.name ASC
+       LIMIT $5 OFFSET $6`,
+      [includeProspects, query, county, input.schoolId ?? null, limit, offset]
     ),
     db.query<{ school_id: string; grade_level: string | null; total: string }>(
       `SELECT u.school_id, u.grade_level, COUNT(*)::bigint AS total
@@ -2849,8 +2929,106 @@ export async function listSchools() {
   return mapSchoolRows(schoolsResult.rows, gradeResult.rows);
 }
 
+export async function countSchools(input: { includeProspects?: boolean; query?: string | null; county?: string | null } = {}) {
+  const result = await db.query<{ total: string }>(
+    `SELECT COUNT(*)::bigint AS total
+       FROM schools s
+      WHERE ($1::boolean OR s.lead_status = 'customer')
+        AND ($2::text IS NULL OR lower(s.name) LIKE '%' || lower($2) || '%')
+        AND ($3::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($3))`,
+    [input.includeProspects ?? false, input.query?.trim() || null, input.county?.trim() || null],
+  );
+  return Number(result.rows[0]?.total ?? 0);
+}
+
+export interface SchoolCatalogSearchResult {
+  schoolId: string;
+  sourceRecordKey: string | null;
+  name: string;
+  county: string | null;
+  subCounty: string | null;
+  level: string;
+  schoolCode: string;
+  selectionCount: number;
+  lastSelectedAt: Date | null;
+  activeEnrollment: number;
+}
+
+export async function searchSchoolCatalog(input: {
+  county?: string | null;
+  query?: string | null;
+  limit: number;
+  offset?: number;
+}) {
+  const county = input.county?.trim() || null;
+  const query = input.query?.trim() || '';
+  const result = await db.query<{
+    id: string;
+    source_record_key: string | null;
+    name: string;
+    county: string | null;
+    sub_county: string | null;
+    catalog_level: string | null;
+    school_code: string | null;
+    selection_count: string;
+    last_selected_at: Date | null;
+    active_enrollment: string;
+  }>(
+    `WITH school_activity AS (
+       SELECT u.school_id, COUNT(DISTINCT u.id)::int AS active_enrollment
+         FROM users u
+         JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+        WHERE u.school_id IS NOT NULL AND u.status = 'active'
+        GROUP BY u.school_id
+     )
+     SELECT s.id, s.source_record_key, s.name, s.county, s.sub_county,
+            s.catalog_level, s.school_code, s.selection_count, s.last_selected_at,
+            COALESCE(a.active_enrollment, 0)::int AS active_enrollment,
+            CASE
+              WHEN $2::text = '' THEN 3
+              WHEN lower(btrim(s.name)) = lower($2) THEN 0
+              WHEN lower(btrim(s.name)) LIKE lower($2) || '%' THEN 1
+              ELSE 2
+            END AS relevance_tier
+       FROM schools s
+       LEFT JOIN school_activity a ON a.school_id = s.id
+      WHERE s.status <> 'inactive'
+        AND ($1::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($1))
+        AND ($2::text = '' OR lower(btrim(s.name)) LIKE '%' || replace(replace(replace(lower($2), '\\', '\\\\'), '%', '\\%'), '_', '\\_') || '%' ESCAPE '\\')
+      ORDER BY relevance_tier,
+               (LEAST(s.selection_count, 1000) * 10 + LEAST(COALESCE(a.active_enrollment, 0), 1000) * 25) DESC,
+               s.selection_count DESC, s.last_selected_at DESC NULLS LAST,
+               lower(btrim(s.name)), s.id
+      LIMIT $3 OFFSET $4`,
+    [county, query, input.limit, input.offset ?? 0],
+  );
+
+  return result.rows.map(row => ({
+    schoolId: row.id,
+    sourceRecordKey: row.source_record_key,
+    name: row.name,
+    county: row.county,
+    subCounty: row.sub_county,
+    level: row.catalog_level ?? 'School',
+    schoolCode: row.school_code ?? '',
+    selectionCount: Number(row.selection_count),
+    lastSelectedAt: row.last_selected_at,
+    activeEnrollment: Number(row.active_enrollment),
+  } satisfies SchoolCatalogSearchResult));
+}
+
+export async function recordSchoolSelection(client: MaybeClient, schoolId: string) {
+  const result = await q<{ id: string }>(client, `
+    UPDATE schools
+       SET selection_count = selection_count + 1,
+           last_selected_at = NOW()
+     WHERE id = $1 AND status <> 'inactive'
+     RETURNING id`, [schoolId]);
+  return Boolean(result.rows[0]);
+}
+
 export async function findSchoolById(schoolId: string) {
-  const schools = await listSchools();
+  const schools = await listSchools({ includeProspects: true, schoolId, limit: 1 });
   return schools.find(school => school.id === schoolId) ?? null;
 }
 
@@ -3035,6 +3213,25 @@ export async function createOrReuseOnboardingSchool(
   }
 
   return { schoolId: created.rows[0].id, reused: false };
+}
+
+export async function createOrReuseOnboardingSchoolFromCatalog(
+  client: MaybeClient,
+  schoolId: string,
+) {
+  const result = await q<{ id: string; name: string; location: string; county: string | null }>(
+    client,
+    `SELECT id, name, location, county
+     FROM schools
+     WHERE id = $1
+     LIMIT 1`,
+    [schoolId],
+  );
+  const selectedSchool = result.rows[0];
+  if (!selectedSchool) {
+    throw new Error('Selected school catalog record could not be resolved');
+  }
+  return { schoolId: selectedSchool.id, reused: true };
 }
 
 export async function updateSchool(

@@ -544,6 +544,15 @@ export interface SchoolData {
   phone?: string;
   principal?: string;
   gradeCounts: Record<string, number>;
+  sourceRecordKey?: string | null;
+  catalogLevel?: string | null;
+  county?: string | null;
+  subCounty?: string | null;
+  schoolCode?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  leadStatus?: 'prospect' | 'customer' | 'inactive';
+  selectionCount?: number;
   pilot?: {
     status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
     startDate: string | null;

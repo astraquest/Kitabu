@@ -54,7 +54,7 @@ const PARENT_MASCOT_CUE_IDS: Record<OnboardingMascotKey, string> = {
   panda: 'parent-mascot-panda',
 };
 
-/** Parent signup only. StudentOnboardingScreen intentionally uses its own legacy mapping. */
+/** Parent signup only. NeutralOnboardingScreen owns teacher/other role narration. */
 export function getParentEnglishOnboardingCueId(
   step: string,
   childIndex = 0,

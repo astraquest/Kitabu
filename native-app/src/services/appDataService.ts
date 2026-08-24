@@ -23,7 +23,28 @@ interface SchoolApiResponse {
   gradeCounts: Record<string, number>;
   pricing?: SchoolData['pricing'];
   pilot?: SchoolData['pilot'];
+  sourceRecordKey?: string | null;
+  catalogLevel?: string | null;
+  county?: string | null;
+  subCounty?: string | null;
+  schoolCode?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  leadStatus?: 'prospect' | 'customer' | 'inactive';
+  selectionCount?: number;
 }
+
+export type SchoolCatalogRecord = {
+  schoolId: string;
+  sourceRecordKey: string | null;
+  name: string;
+  county: string | null;
+  subCounty: string | null;
+  level: string;
+  schoolCode: string;
+  selectionCount: number;
+  activeEnrollment: number;
+};
 
 function mapSchool(school: SchoolApiResponse): SchoolData {
   return {
@@ -38,6 +59,15 @@ function mapSchool(school: SchoolApiResponse): SchoolData {
     gradeCounts: school.gradeCounts,
     pricing: school.pricing ?? undefined,
     pilot: school.pilot ?? undefined,
+    sourceRecordKey: school.sourceRecordKey ?? null,
+    catalogLevel: school.catalogLevel ?? null,
+    county: school.county ?? null,
+    subCounty: school.subCounty ?? null,
+    schoolCode: school.schoolCode ?? null,
+    latitude: school.latitude ?? null,
+    longitude: school.longitude ?? null,
+    leadStatus: school.leadStatus,
+    selectionCount: school.selectionCount ?? 0,
   };
 }
 
@@ -86,10 +116,34 @@ export async function getSchools() {
   return payload.schools.map(mapSchool);
 }
 
-export async function createOnboardingSchool(input: { schoolName: string; county: string }): Promise<SchoolData> {
+export async function searchSchoolCatalog(input: {
+  county?: string;
+  query?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<SchoolCatalogRecord[]> {
+  const params = new URLSearchParams();
+  if (input.county?.trim()) params.set('county', input.county.trim());
+  if (input.query?.trim()) params.set('query', input.query.trim());
+  if (input.limit) params.set('limit', String(input.limit));
+  if (input.offset) params.set('offset', String(input.offset));
+  const query = params.toString();
+  const payload = await apiRequest<{ schools: SchoolCatalogRecord[] }>(
+    `/public/schools${query ? `?${query}` : ''}`,
+    { method: 'GET' },
+  );
+  return payload.schools;
+}
+
+export async function recordSchoolSelection(schoolId: string) {
+  return apiRequest<{ recorded: boolean }>(`/public/schools/${schoolId}/selection`, { method: 'POST' });
+}
+
+export async function createOnboardingSchool(input: { schoolName: string; county: string; schoolId?: string | null; schoolDirectoryId?: string | null }): Promise<SchoolData> {
+  const request = { ...input, schoolDirectoryId: input.schoolId ?? input.schoolDirectoryId ?? null };
   const payload = await apiRequest<{ school: SchoolApiResponse | null }>('/onboarding/schools', {
     method: 'POST',
-    body: JSON.stringify(input),
+    body: JSON.stringify(request),
   });
   if (!payload.school) {
     throw new Error('The school could not be loaded after saving.');
@@ -103,11 +157,17 @@ export async function getDashboardBanner() {
   });
 }
 
-export async function getAdminSchools() {
-  const payload = await apiRequest<{ schools: SchoolApiResponse[] }>('/admin/schools', {
+export async function getAdminSchools(input: { query?: string; county?: string; limit?: number; offset?: number } = {}) {
+  const params = new URLSearchParams();
+  if (input.query?.trim()) params.set('query', input.query.trim());
+  if (input.county?.trim()) params.set('county', input.county.trim());
+  if (input.limit) params.set('limit', String(input.limit));
+  if (input.offset) params.set('offset', String(input.offset));
+  const query = params.toString();
+  const payload = await apiRequest<{ schools: SchoolApiResponse[]; total: number; limit: number; offset: number; hasNext: boolean }>(`/admin/schools${query ? `?${query}` : ''}`, {
     method: 'GET',
   });
-  return payload.schools.map(mapSchool);
+  return { schools: payload.schools.map(mapSchool), total: payload.total, limit: payload.limit, offset: payload.offset, hasNext: payload.hasNext };
 }
 
 export async function getAdminSubscriptionPlans() {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 import { requestRecordingPermissionsAsync } from 'expo-audio';
 
-import { StudentOnboardingScreen } from '../src/screens/StudentOnboardingScreen';
+import { NeutralOnboardingScreen } from '../src/screens/NeutralOnboardingScreen';
 
 jest.mock('../src/services/narrationService', () => {
   const actual = jest.requireActual('../src/services/narrationService');
@@ -16,7 +16,7 @@ const narrationService = jest.requireMock('../src/services/narrationService') as
   useGuidedNarration: jest.Mock;
 };
 
-describe('StudentOnboardingScreen narration transitions', () => {
+describe('NeutralOnboardingScreen narration transitions', () => {
   beforeEach(() => {
     narrationService.useGuidedNarration.mockClear();
   });
@@ -31,7 +31,7 @@ describe('StudentOnboardingScreen narration transitions', () => {
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+        <NeutralOnboardingScreen
           role="student"
           schools={[]}
           isSubmitting={false}
@@ -92,7 +92,7 @@ describe('StudentOnboardingScreen narration transitions', () => {
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+        <NeutralOnboardingScreen
           role="student"
           schools={[]}
           isSubmitting={false}
@@ -127,7 +127,7 @@ describe('StudentOnboardingScreen narration transitions', () => {
 
     await act(() => {
       renderer = ReactTestRenderer.create(
-        <StudentOnboardingScreen
+        <NeutralOnboardingScreen
           role="student"
           schools={[]}
           isSubmitting={false}

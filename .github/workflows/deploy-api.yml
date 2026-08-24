@@ -171,8 +171,9 @@ jobs:
             echo 'KITABU_DATA_BACKUP_SKIPPED:no-pending-data-mutations'
           fi
 
-          KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS=true \
-          docker compose run --rm -T api node scripts/apply-migrations.mjs </dev/null
+          docker compose run --rm -T \
+            -e KITABU_ALLOW_DESTRUCTIVE_MIGRATIONS=true \
+            api node scripts/apply-migrations.mjs </dev/null
           docker compose run --rm -T \
             -e KITABU_RELEASE_SHA='${{ github.sha }}' \
             -e KITABU_DATA_OPERATION_MEMORY_BUDGET_MIB=900 \

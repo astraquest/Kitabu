@@ -240,7 +240,7 @@ export function TakeQuizScreen({
       setFeedback(result.isCorrect ? 'correct' : 'incorrect');
       setResults(prev => ({ ...prev, [currentIndex]: result.isCorrect ? 'correct' : 'incorrect' }));
       return result;
-    } catch (error) {
+    } catch {
       setVoiceError('Your answer could not be submitted. Please try again.');
       return null;
     } finally {

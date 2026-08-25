@@ -1,1409 +1,2393 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 9",
-  "subjectId": "integrated_science",
-  "subjectName": "Integrated Science",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which subatomic particle has a positive charge in an atom?",
-      "options": ["Proton", "Electron", "Neutron", "Molecule"],
-      "correctAnswer": "Proton",
-      "explanation": "Protons are positively charged particles found in the nucleus of an atom.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Describe the structure of the atom using protons, neutrons and electrons.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which particles are found in the nucleus of an atom?",
-      "options": ["Protons and neutrons", "Electrons and shells", "Molecules and ions", "Compounds and mixtures"],
-      "correctAnswer": "Protons and neutrons",
-      "explanation": "The nucleus contains protons and neutrons, while electrons occupy energy levels around the nucleus.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Describe the structure of the atom using protons, neutrons and electrons.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "An atom has 11 protons. What is its atomic number?",
-      "options": ["11", "22", "10", "12"],
-      "correctAnswer": "11",
-      "explanation": "Atomic number is equal to the number of protons in the nucleus.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Determine atomic number from the number of protons in an atom.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "An atom has 8 protons and 8 neutrons. What is its mass number?",
-      "options": ["16", "8", "0", "24"],
-      "correctAnswer": "16",
-      "explanation": "Mass number is the total number of protons and neutrons, so 8 + 8 = 16.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Determine the mass number of elements from protons and neutrons.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "A neutral atom has 13 protons. How many electrons does it have?",
-      "options": ["13 electrons", "26 electrons", "14 electrons", "1 electron"],
-      "correctAnswer": "13 electrons",
-      "explanation": "In a neutral atom, the number of electrons is equal to the number of protons.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Relate the number of protons and electrons in a neutral atom.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which electron arrangement is correct for magnesium with atomic number 12?",
-      "options": ["2,8,2", "2,6,4", "2,10", "2,8,1"],
-      "correctAnswer": "2,8,2",
-      "explanation": "Magnesium has 12 electrons arranged as 2 in the first shell, 8 in the second and 2 in the third.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Write electron arrangements for elements using the first 20 elements.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which element is a non-metal among the first 20 elements?",
-      "options": ["Oxygen", "Sodium", "Magnesium", "Calcium"],
-      "correctAnswer": "Oxygen",
-      "explanation": "Oxygen is a non-metal, while sodium, magnesium and calcium are metals.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Classify elements into metals and non-metals using selected examples.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why chlorine is classified as a non-metal?",
-      "options": ["It has non-metal properties and is not a good conductor", "It is shiny and easily hammered into sheets", "It is used to make steel bridges", "It always forms cooking pots"],
-      "correctAnswer": "It has non-metal properties and is not a good conductor",
-      "explanation": "Non-metals usually have poor electrical conductivity and do not show typical metallic properties such as malleability.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Use properties to classify elements into metals and non-metals.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "An atom has atomic number 17 and mass number 35. How many neutrons does it have?",
-      "options": ["18 neutrons", "17 neutrons", "35 neutrons", "52 neutrons"],
-      "correctAnswer": "18 neutrons",
-      "explanation": "Number of neutrons is mass number minus atomic number, so 35 - 17 = 18.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Calculate the number of neutrons from mass number and atomic number.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which model would best represent the electron arrangement of carbon, atomic number 6?",
-      "options": ["Two electrons in the first shell and four in the second", "Six electrons all in the first shell", "Four electrons in the first shell and two in the second", "Two protons outside the nucleus and four inside"],
-      "correctAnswer": "Two electrons in the first shell and four in the second",
-      "explanation": "Carbon has six electrons, arranged as 2,4 in the first two energy levels.",
-      "difficulty": 4,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Draw or interpret electron arrangement diagrams for selected atoms.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which plan would help a group make a simple atom model from locally available materials?",
-      "options": ["Use labelled beads for protons, neutrons and electrons, then place electrons on shells", "Mix all beads in a tin without labels", "Use only one bead to represent every particle in every atom", "Draw a plant leaf and call it an atom"],
-      "correctAnswer": "Use labelled beads for protons, neutrons and electrons, then place electrons on shells",
-      "explanation": "A useful model should show the nucleus particles clearly and place electrons on energy levels around the nucleus.",
-      "difficulty": 5,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Structure of the atom",
-      "learningOutcome": "Create a model showing the atomic structure of selected elements.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which property describes most metals?",
-      "options": ["They conduct heat and electricity well", "They are always gases at room temperature", "They dissolve in water to form sugar", "They cannot be shaped into wires"],
-      "correctAnswer": "They conduct heat and electricity well",
-      "explanation": "Most metals are good conductors of heat and electricity and can often be shaped into useful forms.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Describe common physical properties of metals.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "What does malleability mean when describing a metal?",
-      "options": ["The ability to be hammered into sheets", "The ability to evaporate easily", "The ability to kill germs in water", "The ability to produce seeds"],
-      "correctAnswer": "The ability to be hammered into sheets",
-      "explanation": "A malleable material can be beaten or pressed into thin sheets without breaking easily.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Describe common physical properties of metals.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which alloy is mainly made from copper and zinc?",
-      "options": ["Brass", "Steel", "Bronze", "Duralumin"],
-      "correctAnswer": "Brass",
-      "explanation": "Brass is an alloy of copper and zinc, commonly used for fittings and decorative items.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Describe the composition of common alloys.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which alloy is mainly made from iron and carbon?",
-      "options": ["Steel", "Brass", "Bronze", "Gold"],
-      "correctAnswer": "Steel",
-      "explanation": "Steel is an alloy made mainly from iron with carbon added to improve useful properties.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Describe the composition of common alloys.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Why is copper commonly used in electrical wiring?",
-      "options": ["It is a good electrical conductor and can be drawn into wires", "It is a poor conductor and breaks easily", "It is a gas that fills the wire", "It stops all electric current from flowing"],
-      "correctAnswer": "It is a good electrical conductor and can be drawn into wires",
-      "explanation": "Copper conducts electricity well and is ductile, so it can be drawn into wires.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Identify uses of metals and alloys in day-to-day life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which conditions encourage rusting of iron?",
-      "options": ["Presence of water and oxygen", "Absence of air and moisture", "Keeping iron coated with oil", "Placing iron in dry nitrogen only"],
-      "correctAnswer": "Presence of water and oxygen",
-      "explanation": "Iron rusts when it reacts with oxygen in the presence of water or moisture.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Explain the causes of rusting in metals.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which method helps prevent rusting of a steel gate?",
-      "options": ["Painting the surface", "Pouring salty water on it daily", "Scratching off all protective coating", "Leaving it wet after rain"],
-      "correctAnswer": "Painting the surface",
-      "explanation": "Paint forms a barrier that reduces contact between the iron in steel, oxygen and moisture.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Explain methods of preventing rusting of metals.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "A cooking utensil must resist rusting and be easy to clean. Which material is most suitable?",
-      "options": ["Stainless steel", "Untreated iron", "Damp wood", "Plain paper"],
-      "correctAnswer": "Stainless steel",
-      "explanation": "Stainless steel resists corrosion better than untreated iron and is suitable for many kitchen utensils.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Identify uses of metals and alloys in day-to-day life.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Why are alloys often preferred to pure metals for some uses?",
-      "options": ["They can have improved strength, hardness or resistance to corrosion", "They are always lighter than air", "They are never made from metals", "They cannot be shaped into useful objects"],
-      "correctAnswer": "They can have improved strength, hardness or resistance to corrosion",
-      "explanation": "Alloying can improve properties such as strength, hardness and resistance to corrosion.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Appreciate the importance of common alloys in day-to-day life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "A bicycle chain has turned reddish-brown after being left in the rain. What has most likely happened?",
-      "options": ["Iron in the chain has rusted", "The chain has changed into plastic", "The chain has become a non-metal", "The chain has produced chlorophyll"],
-      "correctAnswer": "Iron in the chain has rusted",
-      "explanation": "The reddish-brown substance is rust, which forms when iron reacts with oxygen and moisture.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Explain the effects of rusting of metals.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which investigation would best compare electrical conductivity of metals and non-metals safely?",
-      "options": ["Use a low-voltage cell, bulb and switch to test small samples in a simple circuit", "Connect unknown samples directly to mains electricity", "Heat all samples in a closed plastic bottle", "Taste each sample to identify it"],
-      "correctAnswer": "Use a low-voltage cell, bulb and switch to test small samples in a simple circuit",
-      "explanation": "A low-voltage circuit can show whether a material conducts electricity while reducing safety risk.",
-      "difficulty": 5,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Metals and Alloys",
-      "learningOutcome": "Investigate physical properties of metals using safe scientific procedures.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which statement describes pure water under normal classroom conditions?",
-      "options": ["It is colourless, odourless and tasteless", "It is always blue and salty", "It has a strong smell of metal", "It boils at 0 degrees Celsius"],
-      "correctAnswer": "It is colourless, odourless and tasteless",
-      "explanation": "Pure water is commonly described as colourless, odourless and tasteless.",
-      "difficulty": 1,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Describe the physical properties of water.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which observation suggests that a water sample is hard water?",
-      "options": ["It forms scum and lathers poorly with soap", "It instantly turns into ice at room temperature", "It has no dissolved substances at all", "It boils without heating"],
-      "correctAnswer": "It forms scum and lathers poorly with soap",
-      "explanation": "Hard water reacts with soap to form scum and produces little lather.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Distinguish between hard and soft water using lathering ability.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which method can soften temporary hard water?",
-      "options": ["Boiling", "Adding sand", "Freezing it in a bottle", "Painting the container"],
-      "correctAnswer": "Boiling",
-      "explanation": "Boiling can remove temporary hardness by changing dissolved hydrogen carbonates into insoluble carbonates.",
-      "difficulty": 2,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Apply methods of softening temporary hard water in day-to-day life.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Why does soft water save soap during washing?",
-      "options": ["It lathers easily and does not form much scum with soap", "It changes soap into metal", "It always contains large pieces of soil", "It prevents any water from touching clothes"],
-      "correctAnswer": "It lathers easily and does not form much scum with soap",
-      "explanation": "Soft water forms lather readily, so less soap is wasted forming scum.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Outline advantages of soft water in day-to-day life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which disadvantage is associated with hard water in kettles and boilers?",
-      "options": ["It can form scale that reduces heating efficiency", "It makes water burn without heat", "It changes metal into sugar", "It stops all evaporation permanently"],
-      "correctAnswer": "It can form scale that reduces heating efficiency",
-      "explanation": "Hard water can deposit scale, which wastes heat and may damage heating equipment.",
-      "difficulty": 3,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Outline disadvantages of hard water in day-to-day life.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "A learner tests two water samples with the same amount of soap. Sample A lathers quickly, while Sample B forms scum. Which conclusion is best?",
-      "options": ["Sample A is softer than Sample B", "Sample B is pure distilled water", "Sample A has more hardness than Sample B", "Both samples are identical in hardness"],
-      "correctAnswer": "Sample A is softer than Sample B",
-      "explanation": "Water that lathers more easily with soap is softer than water that forms scum.",
-      "difficulty": 4,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Compare hard and soft water using experimental observations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which plan is safest when comparing the taste of water from different sources?",
-      "options": ["Taste only water confirmed safe for drinking and use other observations for unsafe sources", "Taste every sample from drains, rivers and taps equally", "Boil water in a plastic bag over a strong flame", "Use taste as the only test for water quality"],
-      "correctAnswer": "Taste only water confirmed safe for drinking and use other observations for unsafe sources",
-      "explanation": "Only safe drinking water should be tasted; unsafe samples can be observed without tasting.",
-      "difficulty": 5,
-      "strandTitle": "Mixtures, Elements and Compounds",
-      "subStrandTitle": "Water hardness",
-      "learningOutcome": "Investigate physical properties of water while observing safety precautions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which organelle in plant cells contains chlorophyll for photosynthesis?",
-      "options": ["Chloroplast", "Nucleus", "Cell wall", "Vacuole"],
-      "correctAnswer": "Chloroplast",
-      "explanation": "Chloroplasts contain chlorophyll, which absorbs light energy for photosynthesis.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Relate the structure of chloroplasts to their role in photosynthesis.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which raw materials are needed for photosynthesis?",
-      "options": ["Carbon (IV) oxide and water", "Oxygen and glucose", "Nitrogen and iron filings", "Soap and hard water"],
-      "correctAnswer": "Carbon (IV) oxide and water",
-      "explanation": "Plants use carbon (IV) oxide and water to make glucose during photosynthesis.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Identify the raw materials and products of photosynthesis.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which products are formed during photosynthesis?",
-      "options": ["Glucose and oxygen", "Soap and scum", "Rust and water", "Salt and sand"],
-      "correctAnswer": "Glucose and oxygen",
-      "explanation": "Photosynthesis produces glucose as food and releases oxygen as a by-product.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Identify the raw materials and products of photosynthesis.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Why are leaves broad and thin in many plants?",
-      "options": ["To provide a large surface area for absorbing light and gases", "To make them sink faster in water", "To prevent any gas exchange", "To store stones inside the plant"],
-      "correctAnswer": "To provide a large surface area for absorbing light and gases",
-      "explanation": "Broad, thin leaves expose more surface area to light and allow gases to diffuse over short distances.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Explain adaptations of the leaf to photosynthesis.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "What is the purpose of testing a leaf with iodine solution after removing its green colour?",
-      "options": ["To test for starch", "To test for rust", "To test for hard water", "To test for sound waves"],
-      "correctAnswer": "To test for starch",
-      "explanation": "Iodine solution turns blue-black if starch is present in the leaf.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Carry out an experiment to test for the presence of starch in a leaf.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "A destarched plant is placed in bright light with one leaf partly covered by black paper. Which part should test positive for starch?",
-      "options": ["The uncovered part exposed to light", "Only the covered part", "The roots only", "No part of the plant"],
-      "correctAnswer": "The uncovered part exposed to light",
-      "explanation": "The uncovered part receives light and can photosynthesise, producing starch.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Investigate conditions necessary for photosynthesis.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Why is photosynthesis important in food production?",
-      "options": ["It makes food in green plants that other organisms can use", "It turns all animals into plants", "It removes every gas from air", "It changes hard water into rust"],
-      "correctAnswer": "It makes food in green plants that other organisms can use",
-      "explanation": "Photosynthesis produces plant food and supports feeding relationships in ecosystems and agriculture.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Discuss the importance of photosynthesis in nature.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "A variegated leaf has green and white parts. After exposure to light, where is starch most likely found?",
-      "options": ["Mainly in the green parts because they contain chlorophyll", "Only in the white parts because they lack chlorophyll", "Equally in the cut stalk only", "Nowhere because leaves cannot make food"],
-      "correctAnswer": "Mainly in the green parts because they contain chlorophyll",
-      "explanation": "Green parts contain chlorophyll, so they can absorb light for photosynthesis and make starch.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Investigate the role of chlorophyll in photosynthesis.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which plan would best test whether carbon (IV) oxide is necessary for photosynthesis?",
-      "options": ["Grow one destarched leaf in air with carbon (IV) oxide removed and another in normal air, then test both for starch", "Put both leaves in the dark and test immediately", "Paint both leaves green and compare their colour", "Place one leaf in hard water and one in soft water only"],
-      "correctAnswer": "Grow one destarched leaf in air with carbon (IV) oxide removed and another in normal air, then test both for starch",
-      "explanation": "A fair test changes carbon (IV) oxide availability while keeping other conditions similar, then compares starch formation.",
-      "difficulty": 5,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in plants",
-      "learningOutcome": "Design a fair experiment on conditions necessary for photosynthesis.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which mode of nutrition describes an animal feeding on ready-made food and digesting it internally?",
-      "options": ["Holozoic nutrition", "Photosynthesis", "Saprophytic nutrition", "Chemosynthesis"],
-      "correctAnswer": "Holozoic nutrition",
-      "explanation": "Holozoic nutrition involves taking in solid or liquid food, digesting it and absorbing nutrients.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Describe modes of nutrition in animals.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which teeth are mainly used for cutting and biting food?",
-      "options": ["Incisors", "Molars", "Premolars", "Canines"],
-      "correctAnswer": "Incisors",
-      "explanation": "Incisors have chisel-like edges suited for biting and cutting food.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Identify types of teeth and their functions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Which teeth are best adapted for grinding food?",
-      "options": ["Molars", "Canines", "Incisors", "Milk teeth only"],
-      "correctAnswer": "Molars",
-      "explanation": "Molars have broad surfaces that crush and grind food during chewing.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Identify types of teeth and their functions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which term describes animals with different types of teeth such as incisors, canines and molars?",
-      "options": ["Heterodont", "Homodont", "Saprophytic", "Abiotic"],
-      "correctAnswer": "Heterodont",
-      "explanation": "Heterodont dentition means having different types of teeth with different functions.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Describe dentition in animals using homodont and heterodont examples.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "flashcards"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "What happens during ingestion in human digestion?",
-      "options": ["Food is taken into the mouth", "Digested food enters the blood", "Undigested food leaves the body", "Glucose is made in leaves"],
-      "correctAnswer": "Food is taken into the mouth",
-      "explanation": "Ingestion is the taking in of food through the mouth before digestion continues.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Describe stages in the process of digestion in human beings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "flashcards"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which stage of digestion involves soluble nutrients moving into the bloodstream?",
-      "options": ["Absorption", "Ingestion", "Egestion", "Chewing only"],
-      "correctAnswer": "Absorption",
-      "explanation": "Absorption is the movement of digested soluble nutrients from the small intestine into the blood.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Describe stages in the process of digestion in human beings.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Why does a herbivore such as a cow need broad grinding teeth?",
-      "options": ["To grind plant material before swallowing", "To inject venom into prey", "To produce chlorophyll", "To reflect light into the eye"],
-      "correctAnswer": "To grind plant material before swallowing",
-      "explanation": "Herbivores feed on plant material, so broad molars and premolars help crush and grind their food.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Relate dentition to feeding habits in animals.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which example shows a parasitic mode of nutrition?",
-      "options": ["A tick feeding on blood from a cow", "A maize plant making food in sunlight", "A mushroom decomposing dead leaves", "A lion chewing meat after hunting"],
-      "correctAnswer": "A tick feeding on blood from a cow",
-      "explanation": "A parasite obtains food from a host and may harm the host in the process.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Differentiate modes of nutrition in animals and related organisms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "A learner says absorption and assimilation mean the same thing. Which response best corrects this?",
-      "options": ["Absorption moves nutrients into blood, while assimilation uses nutrients in body cells", "Absorption removes faeces, while assimilation means chewing", "Both words mean oxygen leaving a leaf", "Both words describe rusting of metals"],
-      "correctAnswer": "Absorption moves nutrients into blood, while assimilation uses nutrients in body cells",
-      "explanation": "Absorption and assimilation are related but different stages in nutrition.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Distinguish between digestion, absorption, assimilation and egestion.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which comparison correctly matches an animal with likely dentition?",
-      "options": ["Carnivore - sharp canines for tearing flesh", "Herbivore - no grinding teeth for plants", "Omnivore - only one type of tooth", "Carnivore - flat molars only and no canines"],
-      "correctAnswer": "Carnivore - sharp canines for tearing flesh",
-      "explanation": "Carnivores usually have strong canines that help grip and tear flesh.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Nutrition in animals",
-      "learningOutcome": "Analyze dentition in relation to feeding habits in animals.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which part of a flower produces pollen grains?",
-      "options": ["Anther", "Stigma", "Ovary", "Petal"],
-      "correctAnswer": "Anther",
-      "explanation": "The anther is part of the stamen and produces pollen grains.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Outline the functions of parts of a flower.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which part of a flower receives pollen during pollination?",
-      "options": ["Stigma", "Filament", "Sepal", "Anther"],
-      "correctAnswer": "Stigma",
-      "explanation": "The stigma is the receptive part of the carpel where pollen lands during pollination.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Outline the functions of parts of a flower.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "What is pollination in flowering plants?",
-      "options": ["Transfer of pollen from anther to stigma", "Formation of rust on iron", "Movement of food through the oesophagus", "Softening of hard water by boiling"],
-      "correctAnswer": "Transfer of pollen from anther to stigma",
-      "explanation": "Pollination is the transfer of pollen grains from the anther to the stigma.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Describe pollination in plants.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which feature is common in insect-pollinated flowers?",
-      "options": ["Brightly coloured petals or scent to attract insects", "Tiny dull petals with no nectar and exposed stamens only", "No reproductive parts at all", "Hard metal petals that rust"],
-      "correctAnswer": "Brightly coloured petals or scent to attract insects",
-      "explanation": "Insect-pollinated flowers often attract insects using colour, scent or nectar.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Outline adaptations of flowers to insect pollination.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Which feature helps wind-pollinated flowers release and catch pollen?",
-      "options": ["Light pollen and feathery stigmas", "Sticky large fruits only", "Large grinding teeth", "A shiny curved mirror"],
-      "correctAnswer": "Light pollen and feathery stigmas",
-      "explanation": "Wind-pollinated flowers often produce light pollen and have feathery stigmas to trap wind-borne pollen.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Outline adaptations of flowers to wind pollination.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "What happens during fertilisation in flowering plants?",
-      "options": ["A male gamete fuses with a female gamete in the ovule", "A leaf tests positive for iodine", "A seed is blown away by wind", "Soap forms lather in soft water"],
-      "correctAnswer": "A male gamete fuses with a female gamete in the ovule",
-      "explanation": "Fertilisation occurs when male and female gametes fuse, leading to seed formation.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Explain fertilisation in flowering plants.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "After fertilisation in a flowering plant, what does the ovule usually develop into?",
-      "options": ["Seed", "Petal", "Stem", "Anther"],
-      "correctAnswer": "Seed",
-      "explanation": "After fertilisation, the ovule develops into a seed while the ovary may develop into a fruit.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Explain seed and fruit formation in flowering plants.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Which fruit is adapted for dispersal by animals because it is fleshy and edible?",
-      "options": ["Mango", "Dandelion-like wind fruit", "Dry explosive pod only", "Metal nut and bolt"],
-      "correctAnswer": "Mango",
-      "explanation": "Fleshy fruits such as mango can be eaten by animals, helping seeds move away from the parent plant.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Categorise fruits and seeds based on their mode of dispersal.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which seed adaptation is most useful for wind dispersal?",
-      "options": ["Light weight with wing-like or hair-like structures", "Heavy smooth stone with no air resistance", "Bright petals attached to a tooth", "A thick iron coat that rusts easily"],
-      "correctAnswer": "Light weight with wing-like or hair-like structures",
-      "explanation": "Light seeds with wings or hairs can be carried away by moving air.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Categorise fruits and seeds based on their mode of dispersal.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which statement best compares self-pollination and cross-pollination?",
-      "options": ["Self-pollination uses pollen from the same plant, while cross-pollination uses pollen from another plant of the same species", "Self-pollination happens only in animals, while cross-pollination happens only in metals", "Self-pollination forms rust, while cross-pollination softens water", "Both processes mean seed dispersal by wind"],
-      "correctAnswer": "Self-pollination uses pollen from the same plant, while cross-pollination uses pollen from another plant of the same species",
-      "explanation": "The difference depends on whether pollen comes from the same plant or from a different plant of the same species.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Describe types of pollination in plants.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "How can careless use of agrochemicals reduce reproduction in flowering plants?",
-      "options": ["It can kill pollinating insects that transfer pollen", "It makes all seeds germinate instantly", "It changes petals into iron", "It prevents all plants from needing light"],
-      "correctAnswer": "It can kill pollinating insects that transfer pollen",
-      "explanation": "Some agrochemicals can harm pollinators, reducing pollination and seed or fruit formation.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Explain factors that affect reproduction in flowering plants.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which activity would best show the importance of flowers in nature without damaging the environment?",
-      "options": ["Observe and record visiting pollinators on living flowers without uprooting the plants", "Cut all flowers in a school garden to count them", "Spray unknown chemicals on flowers before observing", "Remove all insects from the area permanently"],
-      "correctAnswer": "Observe and record visiting pollinators on living flowers without uprooting the plants",
-      "explanation": "Observation protects plants and pollinators while helping learners connect flowers with pollination and biodiversity.",
-      "difficulty": 5,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "Reproduction in plants",
-      "learningOutcome": "Recognise the role of flowers in nature through responsible investigation.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which item is a biotic component of an environment?",
-      "options": ["Grass", "Temperature", "Wind", "Light"],
-      "correctAnswer": "Grass",
-      "explanation": "Biotic components are living things, and grass is a living plant.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Explain biotic and abiotic factors of the environment.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which item is an abiotic factor in an ecosystem?",
-      "options": ["Water", "Maize plant", "Bee", "Fungus"],
-      "correctAnswer": "Water",
-      "explanation": "Abiotic factors are non-living environmental factors such as water, light, temperature and pH.",
-      "difficulty": 1,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Explain biotic and abiotic factors of the environment.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which relationship describes a lion hunting a zebra for food?",
-      "options": ["Predation", "Pollination", "Rusting", "Softening"],
-      "correctAnswer": "Predation",
-      "explanation": "Predation is a feeding relationship where one organism hunts and eats another.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Explain biotic interrelationships in an ecosystem.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which relationship occurs when two organisms use the same limited resource such as food or space?",
-      "options": ["Competition", "Reflection", "Condensation", "Distillation"],
-      "correctAnswer": "Competition",
-      "explanation": "Competition occurs when organisms need the same limited resource in an environment.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Explain biotic interrelationships in an ecosystem.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which sequence is a correct food chain?",
-      "options": ["Grass -> grasshopper -> lizard -> hawk", "Hawk -> grass -> lizard -> grasshopper", "Lizard -> sunlight -> grass -> hawk", "Water -> oxygen -> rust -> brass"],
-      "correctAnswer": "Grass -> grasshopper -> lizard -> hawk",
-      "explanation": "Energy flows from a producer to herbivores and then to higher-level consumers.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Construct food chains in the environment.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "What is the role of decomposers in an ecosystem?",
-      "options": ["They break down dead matter and recycle nutrients", "They make all food chains begin with carnivores", "They stop plants from needing minerals", "They change sound into light"],
-      "correctAnswer": "They break down dead matter and recycle nutrients",
-      "explanation": "Decomposers break down dead organisms and wastes, returning nutrients to the environment.",
-      "difficulty": 2,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Describe the role of decomposers in an ecosystem.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which human activity can directly destroy habitats?",
-      "options": ["Clearing forest without proper conservation", "Planting indigenous trees on bare land", "Protecting riparian areas", "Using manure to improve soil responsibly"],
-      "correctAnswer": "Clearing forest without proper conservation",
-      "explanation": "Uncontrolled clearing removes shelter and food sources for many organisms.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Describe effects of human activities on the environment.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "A fish species survives only in a narrow range of water salinity. Which abiotic factor is limiting its distribution?",
-      "options": ["Salinity", "Predation", "Pollination", "Malleability"],
-      "correctAnswer": "Salinity",
-      "explanation": "Salinity is a non-living chemical factor that can affect where aquatic organisms survive.",
-      "difficulty": 3,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Explain how abiotic factors affect living organisms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which statement best explains energy flow in a food web?",
-      "options": ["Energy enters through producers and passes to consumers along feeding links", "Energy starts with top carnivores and always increases down the food chain", "Energy is made by decomposers only and never reaches plants", "Energy flow is the same as rusting iron"],
-      "correctAnswer": "Energy enters through producers and passes to consumers along feeding links",
-      "explanation": "Producers capture energy, usually from sunlight, and this energy moves through consumers in food chains and webs.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Construct and interpret food webs in the environment.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "In a garden food web, birds feed on caterpillars and caterpillars feed on cabbages. What may happen first if most birds disappear?",
-      "options": ["Caterpillar numbers may increase and damage more cabbages", "Cabbages will immediately eat the caterpillars", "All abiotic factors will vanish", "Water hardness will increase in the leaves"],
-      "correctAnswer": "Caterpillar numbers may increase and damage more cabbages",
-      "explanation": "Removing a predator can allow its prey to increase, which may affect the plants they feed on.",
-      "difficulty": 4,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Analyze interdependence between organisms in food webs.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Which plan best reduces the negative effect of human activities on a school compound ecosystem?",
-      "options": ["Separate waste, compost biodegradable matter, plant suitable trees and avoid destroying habitats", "Burn all waste near classrooms every day", "Remove every insect and flowering plant", "Pour used oil into the soil to kill weeds"],
-      "correctAnswer": "Separate waste, compost biodegradable matter, plant suitable trees and avoid destroying habitats",
-      "explanation": "The plan conserves habitats, recycles nutrients and reduces pollution.",
-      "difficulty": 5,
-      "strandTitle": "Living Things and their Environment",
-      "subStrandTitle": "The interdependence of life",
-      "learningOutcome": "Create practical ways of conserving interdependence in the environment.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which mirror curves inward like the inside of a spoon?",
-      "options": ["Concave mirror", "Convex mirror", "Plane mirror", "Transparent mirror"],
-      "correctAnswer": "Concave mirror",
-      "explanation": "A concave mirror has a reflecting surface that curves inward.",
-      "difficulty": 1,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Describe types of curved mirrors.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Which mirror curves outward like the back of a spoon?",
-      "options": ["Convex mirror", "Concave mirror", "Plane mirror", "Opaque mirror"],
-      "correctAnswer": "Convex mirror",
-      "explanation": "A convex mirror has a reflecting surface that bulges outward.",
-      "difficulty": 1,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Describe types of curved mirrors.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Which mirror is commonly used in vehicles to give a wide field of view?",
-      "options": ["Convex mirror", "Concave mirror", "Microscope slide", "Flat sheet of paper"],
-      "correctAnswer": "Convex mirror",
-      "explanation": "Convex mirrors form small upright images and allow drivers to see a wider area.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Explain uses of convex mirrors in day-to-day life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which mirror can be used in a solar cooker to concentrate sunlight at a point?",
-      "options": ["Concave mirror", "Convex mirror", "Plane glass only", "Unpolished wood"],
-      "correctAnswer": "Concave mirror",
-      "explanation": "A concave mirror can converge parallel rays of sunlight toward a focus.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Explain uses of concave mirrors in day-to-day life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "What is the principal axis of a curved mirror?",
-      "options": ["The straight line passing through the pole and centre of curvature", "The rough edge of the mirror frame", "Any random line drawn on a table", "The shadow behind an object"],
-      "correctAnswer": "The straight line passing through the pole and centre of curvature",
-      "explanation": "The principal axis is the reference line through the pole and centre of curvature of a curved mirror.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Use terms associated with curved mirrors correctly.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which image is usually formed by a convex mirror?",
-      "options": ["Upright, diminished and virtual", "Always inverted and enlarged", "Always same size and real", "No image at all"],
-      "correctAnswer": "Upright, diminished and virtual",
-      "explanation": "Convex mirrors usually form upright, smaller and virtual images.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Describe characteristics of images formed by convex mirrors.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A learner wants to see an enlarged upright image of the face while shaving. Which mirror is most suitable when the face is close to it?",
-      "options": ["Concave mirror", "Convex mirror", "Plain wall", "Transparent plastic sheet"],
-      "correctAnswer": "Concave mirror",
-      "explanation": "A concave mirror can form an enlarged upright virtual image when the object is placed close to the mirror.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Apply image characteristics of concave mirrors to day-to-day uses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Why is a convex mirror useful at a blind corner in a school driveway?",
-      "options": ["It gives a wider view of approaching people or vehicles", "It makes all objects disappear", "It focuses all light into one hot point", "It changes sound waves into water waves"],
-      "correctAnswer": "It gives a wider view of approaching people or vehicles",
-      "explanation": "Convex mirrors increase the field of view, which improves safety at corners.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Explain applications of curved mirrors in day-to-day life.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which drawing instruction is best when constructing a ray diagram for a curved mirror?",
-      "options": ["Use a ruler, mark the principal axis, pole and focus, then draw rays with arrow directions", "Draw rays randomly without labels", "Avoid showing where the object is placed", "Use only coloured shading without lines"],
-      "correctAnswer": "Use a ruler, mark the principal axis, pole and focus, then draw rays with arrow directions",
-      "explanation": "A clear ray diagram needs labelled reference points, straight rays and direction arrows.",
-      "difficulty": 5,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Curved mirrors",
-      "learningOutcome": "Draw ray diagrams to locate images formed by curved mirrors.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "What is a wave in science?",
-      "options": ["A disturbance that transfers energy from one place to another", "A metal that resists rusting", "A type of hard water", "A seed formed after fertilisation"],
-      "correctAnswer": "A disturbance that transfers energy from one place to another",
-      "explanation": "A wave carries energy through a medium or through space without transporting matter overall.",
-      "difficulty": 1,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe the generation of waves in nature.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Which example shows a transverse wave?",
-      "options": ["A wave on a rope moving up and down as the wave travels along", "Sound compressions moving through air", "Food moving through the gut", "Rust spreading on iron"],
-      "correctAnswer": "A wave on a rope moving up and down as the wave travels along",
-      "explanation": "In a transverse wave, particles vibrate at right angles to the direction of wave travel.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Classify waves as longitudinal and transverse.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which example shows a longitudinal wave?",
-      "options": ["Sound wave travelling through air", "Light wave in a vacuum only", "Water being softened by boiling", "A seed carried by wind"],
-      "correctAnswer": "Sound wave travelling through air",
-      "explanation": "Sound in air is longitudinal because air particles vibrate parallel to the direction of travel.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Classify waves as longitudinal and transverse.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "What is wavelength?",
-      "options": ["Distance between two successive crests or two successive troughs", "Number of protons in an atom", "Mass of a metal sample", "Amount of soap used in hard water"],
-      "correctAnswer": "Distance between two successive crests or two successive troughs",
-      "explanation": "Wavelength is the distance between matching points on consecutive waves.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe basic characteristics of waves in nature.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "What does frequency of a wave measure?",
-      "options": ["Number of complete waves passing a point each second", "Distance from a mirror to its pole", "Number of petals on a flower", "Amount of rust on a nail"],
-      "correctAnswer": "Number of complete waves passing a point each second",
-      "explanation": "Frequency is the number of complete waves passing a point per second and is measured in hertz.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe basic characteristics of waves in nature.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which equation relates wave speed, wavelength and frequency?",
-      "options": ["Wave speed = wavelength x frequency", "Wave speed = atomic number + mass number", "Wave speed = soap x scum", "Wave speed = pollen divided by stigma"],
-      "correctAnswer": "Wave speed = wavelength x frequency",
-      "explanation": "For waves, speed is calculated by multiplying wavelength by frequency.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Use the wave equation to relate speed, wavelength and frequency.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "A wave has wavelength 2 m and frequency 5 Hz. What is its speed?",
-      "options": ["10 m/s", "2.5 m/s", "7 m/s", "3 m/s"],
-      "correctAnswer": "10 m/s",
-      "explanation": "Wave speed = wavelength x frequency, so 2 m x 5 Hz = 10 m/s.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Calculate wave speed using wavelength and frequency.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which behaviour occurs when waves bounce off a barrier?",
-      "options": ["Reflection", "Absorption", "Digestion", "Rusting"],
-      "correctAnswer": "Reflection",
-      "explanation": "Reflection occurs when waves bounce back after meeting a surface or barrier.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe basic characteristics of waves in nature.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which behaviour describes waves bending as they pass from one medium to another?",
-      "options": ["Refraction", "Pollination", "Assimilation", "Malleability"],
-      "correctAnswer": "Refraction",
-      "explanation": "Refraction is the bending of waves when their speed changes as they enter another medium.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe basic characteristics of waves in nature.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "What is remote sensing?",
-      "options": ["Collecting information about an object or area from a distance using waves", "Touching every object directly before observing it", "Softening water by boiling", "Making an alloy from copper and zinc"],
-      "correctAnswer": "Collecting information about an object or area from a distance using waves",
-      "explanation": "Remote sensing uses waves, often electromagnetic waves, to gather information without direct contact.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe remote sensing in relation to waves.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Which application uses waves in medical diagnosis?",
-      "options": ["Ultrasound imaging", "Boiling hard water", "Planting maize seeds", "Painting a steel gate"],
-      "correctAnswer": "Ultrasound imaging",
-      "explanation": "Ultrasound uses high-frequency sound waves to form images inside the body.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe applications of waves in day-to-day life.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which application uses electromagnetic waves for communication?",
-      "options": ["Radio transmission", "Animal digestion", "Seed formation", "Tooth grinding"],
-      "correctAnswer": "Radio transmission",
-      "explanation": "Radio transmission uses electromagnetic waves to carry signals over distances.",
-      "difficulty": 2,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Describe applications of waves in day-to-day life.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A drone maps crop health by detecting reflected radiation from plants. Which science idea is being applied?",
-      "options": ["Remote sensing using waves", "Rust prevention by painting", "Pollination by insects", "Water softening by washing soda"],
-      "correctAnswer": "Remote sensing using waves",
-      "explanation": "The drone collects information from a distance by detecting waves reflected or emitted by crops.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Analyze remote sensing in relation to waves and day-to-day applications.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A microwave oven warms food. Which energy transfer idea is involved?",
-      "options": ["Microwaves transfer energy to water molecules in the food", "Hard water changes to soft water without heating", "Pollen moves from anther to stigma", "Electrons turn into seeds"],
-      "correctAnswer": "Microwaves transfer energy to water molecules in the food",
-      "explanation": "Microwave ovens use electromagnetic waves that transfer energy to molecules in food, causing heating.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Explain applications of waves in day-to-day life.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which comparison correctly distinguishes transverse and longitudinal waves?",
-      "options": ["Transverse vibrations are perpendicular to travel direction, while longitudinal vibrations are parallel", "Transverse waves have no energy, while longitudinal waves are always metals", "Transverse waves occur only in digestion, while longitudinal waves occur only in flowers", "Both wave types require rusting to move"],
-      "correctAnswer": "Transverse vibrations are perpendicular to travel direction, while longitudinal vibrations are parallel",
-      "explanation": "The classification depends on the direction of vibration compared with the direction of wave travel.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Classify waves as longitudinal and transverse.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A learner makes waves in a rope and doubles the frequency while wavelength stays the same. What happens to wave speed?",
-      "options": ["It doubles", "It halves", "It becomes zero", "It changes into mass number"],
-      "correctAnswer": "It doubles",
-      "explanation": "Since speed = wavelength x frequency, doubling frequency while wavelength is constant doubles the speed.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Analyze the relationship between wavelength, frequency and wave speed.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Which classroom activity safely demonstrates a longitudinal wave?",
-      "options": ["Push and pull one end of a slinky spring to create compressions and rarefactions", "Look directly at the sun with a mirror", "Connect a speaker to mains electricity using bare wires", "Boil water in a sealed glass bottle"],
-      "correctAnswer": "Push and pull one end of a slinky spring to create compressions and rarefactions",
-      "explanation": "A slinky can safely show compressions and rarefactions moving along the same direction as the vibration.",
-      "difficulty": 5,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Create safe activities to demonstrate generation and classification of waves.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which safety rule is important when learning about X-rays and other high-energy waves?",
-      "options": ["Use them only under trained supervision and avoid unnecessary exposure", "Use X-rays for entertainment at home", "Stand near X-ray machines without protection for a long time", "Point high-energy waves at classmates to see what happens"],
-      "correctAnswer": "Use them only under trained supervision and avoid unnecessary exposure",
-      "explanation": "High-energy waves such as X-rays can be harmful, so exposure must be controlled by trained personnel.",
-      "difficulty": 3,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Appreciate safe applications of waves in day-to-day life.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A weather satellite observes cloud patterns over Kenya from space. Which process explains how it gathers information?",
-      "options": ["Remote sensing by detecting waves from Earth", "Direct tasting of clouds by the satellite", "Boiling the atmosphere to make soft water", "Using flower petals to catch pollen"],
-      "correctAnswer": "Remote sensing by detecting waves from Earth",
-      "explanation": "Weather satellites collect wave signals from a distance to infer information about clouds and weather.",
-      "difficulty": 4,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Analyze remote sensing applications in weather and environmental monitoring.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "A group must design a poster on useful waves in the community. Which set of examples is most accurate?",
-      "options": ["Radio for communication, ultrasound for medical imaging, and microwaves for cooking", "Rusting for communication, pollen for X-rays, and molars for Wi-Fi", "Hard water for television, starch for MRI scans, and brass for sound", "Seed dispersal for radar, digestion for radio, and rust for ultrasound"],
-      "correctAnswer": "Radio for communication, ultrasound for medical imaging, and microwaves for cooking",
-      "explanation": "Those examples correctly match wave applications with communication, medicine and cooking.",
-      "difficulty": 5,
-      "strandTitle": "Force and Energy",
-      "subStrandTitle": "Waves",
-      "learningOutcome": "Create summaries of applications of waves in day-to-day life.",
-      "cognitiveLevel": "create",
-      "featureTags": ["homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 9",
+ "subjectId": "integrated_science",
+ "subjectName": "Integrated Science",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which subatomic particle has a positive charge in an atom?",
+   "options": [
+    "Proton",
+    "Electron",
+    "Neutron",
+    "Molecule"
+   ],
+   "correctAnswer": "Proton",
+   "explanation": "Protons are positively charged particles found in the nucleus of an atom.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Describe the structure of the atom using protons, neutrons and electrons.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which particles are found in the nucleus of an atom?",
+   "options": [
+    "Protons and neutrons",
+    "Electrons and shells",
+    "Molecules and ions",
+    "Compounds and mixtures"
+   ],
+   "correctAnswer": "Protons and neutrons",
+   "explanation": "The nucleus contains protons and neutrons, while electrons occupy energy levels around the nucleus.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Describe the structure of the atom using protons, neutrons and electrons.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "An atom has 11 protons. What is its atomic number?",
+   "options": [
+    "11",
+    "22",
+    "10",
+    "12"
+   ],
+   "correctAnswer": "11",
+   "explanation": "Atomic number is equal to the number of protons in the nucleus.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Determine atomic number from the number of protons in an atom.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "An atom has 8 protons and 8 neutrons. What is its mass number?",
+   "options": [
+    "16",
+    "8",
+    "0",
+    "24"
+   ],
+   "correctAnswer": "16",
+   "explanation": "Mass number is the total number of protons and neutrons, so 8 + 8 = 16.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Determine the mass number of elements from protons and neutrons.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "A neutral atom has 13 protons. How many electrons does it have?",
+   "options": [
+    "13 electrons",
+    "26 electrons",
+    "14 electrons",
+    "1 electron"
+   ],
+   "correctAnswer": "13 electrons",
+   "explanation": "In a neutral atom, the number of electrons is equal to the number of protons.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Relate the number of protons and electrons in a neutral atom.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which electron arrangement is correct for magnesium with atomic number 12?",
+   "options": [
+    "2,8,2",
+    "2,6,4",
+    "2,10",
+    "2,8,1"
+   ],
+   "correctAnswer": "2,8,2",
+   "explanation": "Magnesium has 12 electrons arranged as 2 in the first shell, 8 in the second and 2 in the third.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Write electron arrangements for elements using the first 20 elements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which element is a non-metal among the first 20 elements?",
+   "options": [
+    "Oxygen",
+    "Sodium",
+    "Magnesium",
+    "Calcium"
+   ],
+   "correctAnswer": "Oxygen",
+   "explanation": "Oxygen is a non-metal, while sodium, magnesium and calcium are metals.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Classify elements into metals and non-metals using selected examples.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why chlorine is classified as a non-metal?",
+   "options": [
+    "It has non-metal properties and is not a good conductor",
+    "It is shiny and easily hammered into sheets",
+    "It is used to make steel bridges",
+    "It always forms cooking pots"
+   ],
+   "correctAnswer": "It has non-metal properties and is not a good conductor",
+   "explanation": "Non-metals usually have poor electrical conductivity and do not show typical metallic properties such as malleability.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Use properties to classify elements into metals and non-metals.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "An atom has atomic number 17 and mass number 35. How many neutrons does it have?",
+   "options": [
+    "18 neutrons",
+    "17 neutrons",
+    "35 neutrons",
+    "52 neutrons"
+   ],
+   "correctAnswer": "18 neutrons",
+   "explanation": "Number of neutrons is mass number minus atomic number, so 35 - 17 = 18.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Calculate the number of neutrons from mass number and atomic number.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which model would best represent the electron arrangement of carbon, atomic number 6?",
+   "options": [
+    "Two electrons in the first shell and four in the second",
+    "Six electrons all in the first shell",
+    "Four electrons in the first shell and two in the second",
+    "Two protons outside the nucleus and four inside"
+   ],
+   "correctAnswer": "Two electrons in the first shell and four in the second",
+   "explanation": "Carbon has six electrons, arranged as 2,4 in the first two energy levels.",
+   "difficulty": 4,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Draw or interpret electron arrangement diagrams for selected atoms.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which plan would help a group make a simple atom model from locally available materials?",
+   "options": [
+    "Use labelled beads for protons, neutrons and electrons, then place electrons on shells",
+    "Mix all beads in a tin without labels",
+    "Use only one bead to represent every particle in every atom",
+    "Draw a plant leaf and call it an atom"
+   ],
+   "correctAnswer": "Use labelled beads for protons, neutrons and electrons, then place electrons on shells",
+   "explanation": "A useful model should show the nucleus particles clearly and place electrons on energy levels around the nucleus.",
+   "difficulty": 5,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Structure of the atom",
+   "learningOutcome": "Create a model showing the atomic structure of selected elements.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which property describes most metals?",
+   "options": [
+    "They conduct heat and electricity well",
+    "They are always gases at room temperature",
+    "They dissolve in water to form sugar",
+    "They cannot be shaped into wires"
+   ],
+   "correctAnswer": "They conduct heat and electricity well",
+   "explanation": "Most metals are good conductors of heat and electricity and can often be shaped into useful forms.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Describe common physical properties of metals.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What does malleability mean when describing a metal?",
+   "options": [
+    "The ability to be hammered into sheets",
+    "The ability to evaporate easily",
+    "The ability to kill germs in water",
+    "The ability to produce seeds"
+   ],
+   "correctAnswer": "The ability to be hammered into sheets",
+   "explanation": "A malleable material can be beaten or pressed into thin sheets without breaking easily.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Describe common physical properties of metals.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which alloy is mainly made from copper and zinc?",
+   "options": [
+    "Brass",
+    "Steel",
+    "Bronze",
+    "Duralumin"
+   ],
+   "correctAnswer": "Brass",
+   "explanation": "Brass is an alloy of copper and zinc, commonly used for fittings and decorative items.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Describe the composition of common alloys.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which alloy is mainly made from iron and carbon?",
+   "options": [
+    "Steel",
+    "Brass",
+    "Bronze",
+    "Gold"
+   ],
+   "correctAnswer": "Steel",
+   "explanation": "Steel is an alloy made mainly from iron with carbon added to improve useful properties.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Describe the composition of common alloys.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Why is copper commonly used in electrical wiring?",
+   "options": [
+    "It is a good electrical conductor and can be drawn into wires",
+    "It is a poor conductor and breaks easily",
+    "It is a gas that fills the wire",
+    "It stops all electric current from flowing"
+   ],
+   "correctAnswer": "It is a good electrical conductor and can be drawn into wires",
+   "explanation": "Copper conducts electricity well and is ductile, so it can be drawn into wires.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Identify uses of metals and alloys in day-to-day life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which conditions encourage rusting of iron?",
+   "options": [
+    "Presence of water and oxygen",
+    "Absence of air and moisture",
+    "Keeping iron coated with oil",
+    "Placing iron in dry nitrogen only"
+   ],
+   "correctAnswer": "Presence of water and oxygen",
+   "explanation": "Iron rusts when it reacts with oxygen in the presence of water or moisture.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Explain the causes of rusting in metals.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which method helps prevent rusting of a steel gate?",
+   "options": [
+    "Painting the surface",
+    "Pouring salty water on it daily",
+    "Scratching off all protective coating",
+    "Leaving it wet after rain"
+   ],
+   "correctAnswer": "Painting the surface",
+   "explanation": "Paint forms a barrier that reduces contact between the iron in steel, oxygen and moisture.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Explain methods of preventing rusting of metals.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "A cooking utensil must resist rusting and be easy to clean. Which material is most suitable?",
+   "options": [
+    "Stainless steel",
+    "Untreated iron",
+    "Damp wood",
+    "Plain paper"
+   ],
+   "correctAnswer": "Stainless steel",
+   "explanation": "Stainless steel resists corrosion better than untreated iron and is suitable for many kitchen utensils.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Identify uses of metals and alloys in day-to-day life.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Why are alloys often preferred to pure metals for some uses?",
+   "options": [
+    "They can have improved strength, hardness or resistance to corrosion",
+    "They are always lighter than air",
+    "They are never made from metals",
+    "They cannot be shaped into useful objects"
+   ],
+   "correctAnswer": "They can have improved strength, hardness or resistance to corrosion",
+   "explanation": "Alloying can improve properties such as strength, hardness and resistance to corrosion.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Appreciate the importance of common alloys in day-to-day life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "A bicycle chain has turned reddish-brown after being left in the rain. What has most likely happened?",
+   "options": [
+    "Iron in the chain has rusted",
+    "The chain has changed into plastic",
+    "The chain has become a non-metal",
+    "The chain has produced chlorophyll"
+   ],
+   "correctAnswer": "Iron in the chain has rusted",
+   "explanation": "The reddish-brown substance is rust, which forms when iron reacts with oxygen and moisture.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Explain the effects of rusting of metals.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which investigation would best compare electrical conductivity of metals and non-metals safely?",
+   "options": [
+    "Use a low-voltage cell, bulb and switch to test small samples in a simple circuit",
+    "Connect unknown samples directly to mains electricity",
+    "Heat all samples in a closed plastic bottle",
+    "Taste each sample to identify it"
+   ],
+   "correctAnswer": "Use a low-voltage cell, bulb and switch to test small samples in a simple circuit",
+   "explanation": "A low-voltage circuit can show whether a material conducts electricity while reducing safety risk.",
+   "difficulty": 5,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Investigate physical properties of metals using safe scientific procedures.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which statement describes pure water under normal classroom conditions?",
+   "options": [
+    "It is colourless, odourless and tasteless",
+    "It is always blue and salty",
+    "It has a strong smell of metal",
+    "It boils at 0 degrees Celsius"
+   ],
+   "correctAnswer": "It is colourless, odourless and tasteless",
+   "explanation": "Pure water is commonly described as colourless, odourless and tasteless.",
+   "difficulty": 1,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Describe the physical properties of water.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which observation suggests that a water sample is hard water?",
+   "options": [
+    "It forms scum and lathers poorly with soap",
+    "It instantly turns into ice at room temperature",
+    "It has no dissolved substances at all",
+    "It boils without heating"
+   ],
+   "correctAnswer": "It forms scum and lathers poorly with soap",
+   "explanation": "Hard water reacts with soap to form scum and produces little lather.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Distinguish between hard and soft water using lathering ability.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which method can soften temporary hard water?",
+   "options": [
+    "Boiling",
+    "Adding sand",
+    "Freezing it in a bottle",
+    "Painting the container"
+   ],
+   "correctAnswer": "Boiling",
+   "explanation": "Boiling can remove temporary hardness by changing dissolved hydrogen carbonates into insoluble carbonates.",
+   "difficulty": 2,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Apply methods of softening temporary hard water in day-to-day life.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Why does soft water save soap during washing?",
+   "options": [
+    "It lathers easily and does not form much scum with soap",
+    "It changes soap into metal",
+    "It always contains large pieces of soil",
+    "It prevents any water from touching clothes"
+   ],
+   "correctAnswer": "It lathers easily and does not form much scum with soap",
+   "explanation": "Soft water forms lather readily, so less soap is wasted forming scum.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Outline advantages of soft water in day-to-day life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which disadvantage is associated with hard water in kettles and boilers?",
+   "options": [
+    "It can form scale that reduces heating efficiency",
+    "It makes water burn without heat",
+    "It changes metal into sugar",
+    "It stops all evaporation permanently"
+   ],
+   "correctAnswer": "It can form scale that reduces heating efficiency",
+   "explanation": "Hard water can deposit scale, which wastes heat and may damage heating equipment.",
+   "difficulty": 3,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Outline disadvantages of hard water in day-to-day life.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "A learner tests two water samples with the same amount of soap. Sample A lathers quickly, while Sample B forms scum. Which conclusion is best?",
+   "options": [
+    "Sample A is softer than Sample B",
+    "Sample B is pure distilled water",
+    "Sample A has more hardness than Sample B",
+    "Both samples are identical in hardness"
+   ],
+   "correctAnswer": "Sample A is softer than Sample B",
+   "explanation": "Water that lathers more easily with soap is softer than water that forms scum.",
+   "difficulty": 4,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Compare hard and soft water using experimental observations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which plan is safest when comparing the taste of water from different sources?",
+   "options": [
+    "Taste only water confirmed safe for drinking and use other observations for unsafe sources",
+    "Taste every sample from drains, rivers and taps equally",
+    "Boil water in a plastic bag over a strong flame",
+    "Use taste as the only test for water quality"
+   ],
+   "correctAnswer": "Taste only water confirmed safe for drinking and use other observations for unsafe sources",
+   "explanation": "Only safe drinking water should be tasted; unsafe samples can be observed without tasting.",
+   "difficulty": 5,
+   "strandTitle": "Mixtures, Elements and Compounds",
+   "subStrandTitle": "Water hardness",
+   "learningOutcome": "Investigate physical properties of water while observing safety precautions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which organelle in plant cells contains chlorophyll for photosynthesis?",
+   "options": [
+    "Chloroplast",
+    "Nucleus",
+    "Cell wall",
+    "Vacuole"
+   ],
+   "correctAnswer": "Chloroplast",
+   "explanation": "Chloroplasts contain chlorophyll, which absorbs light energy for photosynthesis.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Relate the structure of chloroplasts to their role in photosynthesis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which raw materials are needed for photosynthesis?",
+   "options": [
+    "Carbon (IV) oxide and water",
+    "Oxygen and glucose",
+    "Nitrogen and iron filings",
+    "Soap and hard water"
+   ],
+   "correctAnswer": "Carbon (IV) oxide and water",
+   "explanation": "Plants use carbon (IV) oxide and water to make glucose during photosynthesis.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Identify the raw materials and products of photosynthesis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which products are formed during photosynthesis?",
+   "options": [
+    "Glucose and oxygen",
+    "Soap and scum",
+    "Rust and water",
+    "Salt and sand"
+   ],
+   "correctAnswer": "Glucose and oxygen",
+   "explanation": "Photosynthesis produces glucose as food and releases oxygen as a by-product.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Identify the raw materials and products of photosynthesis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Why are leaves broad and thin in many plants?",
+   "options": [
+    "To provide a large surface area for absorbing light and gases",
+    "To make them sink faster in water",
+    "To prevent any gas exchange",
+    "To store stones inside the plant"
+   ],
+   "correctAnswer": "To provide a large surface area for absorbing light and gases",
+   "explanation": "Broad, thin leaves expose more surface area to light and allow gases to diffuse over short distances.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Explain adaptations of the leaf to photosynthesis.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "What is the purpose of testing a leaf with iodine solution after removing its green colour?",
+   "options": [
+    "To test for starch",
+    "To test for rust",
+    "To test for hard water",
+    "To test for sound waves"
+   ],
+   "correctAnswer": "To test for starch",
+   "explanation": "Iodine solution turns blue-black if starch is present in the leaf.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Carry out an experiment to test for the presence of starch in a leaf.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "A destarched plant is placed in bright light with one leaf partly covered by black paper. Which part should test positive for starch?",
+   "options": [
+    "The uncovered part exposed to light",
+    "Only the covered part",
+    "The roots only",
+    "No part of the plant"
+   ],
+   "correctAnswer": "The uncovered part exposed to light",
+   "explanation": "The uncovered part receives light and can photosynthesise, producing starch.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Investigate conditions necessary for photosynthesis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Why is photosynthesis important in food production?",
+   "options": [
+    "It makes food in green plants that other organisms can use",
+    "It turns all animals into plants",
+    "It removes every gas from air",
+    "It changes hard water into rust"
+   ],
+   "correctAnswer": "It makes food in green plants that other organisms can use",
+   "explanation": "Photosynthesis produces plant food and supports feeding relationships in ecosystems and agriculture.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Discuss the importance of photosynthesis in nature.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "A variegated leaf has green and white parts. After exposure to light, where is starch most likely found?",
+   "options": [
+    "Mainly in the green parts because they contain chlorophyll",
+    "Only in the white parts because they lack chlorophyll",
+    "Equally in the cut stalk only",
+    "Nowhere because leaves cannot make food"
+   ],
+   "correctAnswer": "Mainly in the green parts because they contain chlorophyll",
+   "explanation": "Green parts contain chlorophyll, so they can absorb light for photosynthesis and make starch.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Investigate the role of chlorophyll in photosynthesis.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which plan would best test whether carbon (IV) oxide is necessary for photosynthesis?",
+   "options": [
+    "Grow one destarched leaf in air with carbon (IV) oxide removed and another in normal air, then test both for starch",
+    "Put both leaves in the dark and test immediately",
+    "Paint both leaves green and compare their colour",
+    "Place one leaf in hard water and one in soft water only"
+   ],
+   "correctAnswer": "Grow one destarched leaf in air with carbon (IV) oxide removed and another in normal air, then test both for starch",
+   "explanation": "A fair test changes carbon (IV) oxide availability while keeping other conditions similar, then compares starch formation.",
+   "difficulty": 5,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in plants",
+   "learningOutcome": "Design a fair experiment on conditions necessary for photosynthesis.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which mode of nutrition describes an animal feeding on ready-made food and digesting it internally?",
+   "options": [
+    "Holozoic nutrition",
+    "Photosynthesis",
+    "Saprophytic nutrition",
+    "Chemosynthesis"
+   ],
+   "correctAnswer": "Holozoic nutrition",
+   "explanation": "Holozoic nutrition involves taking in solid or liquid food, digesting it and absorbing nutrients.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Describe modes of nutrition in animals.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which teeth are mainly used for cutting and biting food?",
+   "options": [
+    "Incisors",
+    "Molars",
+    "Premolars",
+    "Canines"
+   ],
+   "correctAnswer": "Incisors",
+   "explanation": "Incisors have chisel-like edges suited for biting and cutting food.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Identify types of teeth and their functions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Which teeth are best adapted for grinding food?",
+   "options": [
+    "Molars",
+    "Canines",
+    "Incisors",
+    "Milk teeth only"
+   ],
+   "correctAnswer": "Molars",
+   "explanation": "Molars have broad surfaces that crush and grind food during chewing.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Identify types of teeth and their functions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which term describes animals with different types of teeth such as incisors, canines and molars?",
+   "options": [
+    "Heterodont",
+    "Homodont",
+    "Saprophytic",
+    "Abiotic"
+   ],
+   "correctAnswer": "Heterodont",
+   "explanation": "Heterodont dentition means having different types of teeth with different functions.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Describe dentition in animals using homodont and heterodont examples.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "What happens during ingestion in human digestion?",
+   "options": [
+    "Food is taken into the mouth",
+    "Digested food enters the blood",
+    "Undigested food leaves the body",
+    "Glucose is made in leaves"
+   ],
+   "correctAnswer": "Food is taken into the mouth",
+   "explanation": "Ingestion is the taking in of food through the mouth before digestion continues.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Describe stages in the process of digestion in human beings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which stage of digestion involves soluble nutrients moving into the bloodstream?",
+   "options": [
+    "Absorption",
+    "Ingestion",
+    "Egestion",
+    "Chewing only"
+   ],
+   "correctAnswer": "Absorption",
+   "explanation": "Absorption is the movement of digested soluble nutrients from the small intestine into the blood.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Describe stages in the process of digestion in human beings.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Why does a herbivore such as a cow need broad grinding teeth?",
+   "options": [
+    "To grind plant material before swallowing",
+    "To inject venom into prey",
+    "To produce chlorophyll",
+    "To reflect light into the eye"
+   ],
+   "correctAnswer": "To grind plant material before swallowing",
+   "explanation": "Herbivores feed on plant material, so broad molars and premolars help crush and grind their food.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Relate dentition to feeding habits in animals.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which example shows a parasitic mode of nutrition?",
+   "options": [
+    "A tick feeding on blood from a cow",
+    "A maize plant making food in sunlight",
+    "A mushroom decomposing dead leaves",
+    "A lion chewing meat after hunting"
+   ],
+   "correctAnswer": "A tick feeding on blood from a cow",
+   "explanation": "A parasite obtains food from a host and may harm the host in the process.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Differentiate modes of nutrition in animals and related organisms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "A learner says absorption and assimilation mean the same thing. Which response best corrects this?",
+   "options": [
+    "Absorption moves nutrients into blood, while assimilation uses nutrients in body cells",
+    "Absorption removes faeces, while assimilation means chewing",
+    "Both words mean oxygen leaving a leaf",
+    "Both words describe rusting of metals"
+   ],
+   "correctAnswer": "Absorption moves nutrients into blood, while assimilation uses nutrients in body cells",
+   "explanation": "Absorption and assimilation are related but different stages in nutrition.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Distinguish between digestion, absorption, assimilation and egestion.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which comparison correctly matches an animal with likely dentition?",
+   "options": [
+    "Carnivore - sharp canines for tearing flesh",
+    "Herbivore - no grinding teeth for plants",
+    "Omnivore - only one type of tooth",
+    "Carnivore - flat molars only and no canines"
+   ],
+   "correctAnswer": "Carnivore - sharp canines for tearing flesh",
+   "explanation": "Carnivores usually have strong canines that help grip and tear flesh.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Nutrition in animals",
+   "learningOutcome": "Analyze dentition in relation to feeding habits in animals.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which part of a flower produces pollen grains?",
+   "options": [
+    "Anther",
+    "Stigma",
+    "Ovary",
+    "Petal"
+   ],
+   "correctAnswer": "Anther",
+   "explanation": "The anther is part of the stamen and produces pollen grains.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Outline the functions of parts of a flower.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which part of a flower receives pollen during pollination?",
+   "options": [
+    "Stigma",
+    "Filament",
+    "Sepal",
+    "Anther"
+   ],
+   "correctAnswer": "Stigma",
+   "explanation": "The stigma is the receptive part of the carpel where pollen lands during pollination.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Outline the functions of parts of a flower.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "What is pollination in flowering plants?",
+   "options": [
+    "Transfer of pollen from anther to stigma",
+    "Formation of rust on iron",
+    "Movement of food through the oesophagus",
+    "Softening of hard water by boiling"
+   ],
+   "correctAnswer": "Transfer of pollen from anther to stigma",
+   "explanation": "Pollination is the transfer of pollen grains from the anther to the stigma.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Describe pollination in plants.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which feature is common in insect-pollinated flowers?",
+   "options": [
+    "Brightly coloured petals or scent to attract insects",
+    "Tiny dull petals with no nectar and exposed stamens only",
+    "No reproductive parts at all",
+    "Hard metal petals that rust"
+   ],
+   "correctAnswer": "Brightly coloured petals or scent to attract insects",
+   "explanation": "Insect-pollinated flowers often attract insects using colour, scent or nectar.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Outline adaptations of flowers to insect pollination.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Which feature helps wind-pollinated flowers release and catch pollen?",
+   "options": [
+    "Light pollen and feathery stigmas",
+    "Sticky large fruits only",
+    "Large grinding teeth",
+    "A shiny curved mirror"
+   ],
+   "correctAnswer": "Light pollen and feathery stigmas",
+   "explanation": "Wind-pollinated flowers often produce light pollen and have feathery stigmas to trap wind-borne pollen.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Outline adaptations of flowers to wind pollination.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "What happens during fertilisation in flowering plants?",
+   "options": [
+    "A male gamete fuses with a female gamete in the ovule",
+    "A leaf tests positive for iodine",
+    "A seed is blown away by wind",
+    "Soap forms lather in soft water"
+   ],
+   "correctAnswer": "A male gamete fuses with a female gamete in the ovule",
+   "explanation": "Fertilisation occurs when male and female gametes fuse, leading to seed formation.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Explain fertilisation in flowering plants.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "After fertilisation in a flowering plant, what does the ovule usually develop into?",
+   "options": [
+    "Seed",
+    "Petal",
+    "Stem",
+    "Anther"
+   ],
+   "correctAnswer": "Seed",
+   "explanation": "After fertilisation, the ovule develops into a seed while the ovary may develop into a fruit.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Explain seed and fruit formation in flowering plants.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Which fruit is adapted for dispersal by animals because it is fleshy and edible?",
+   "options": [
+    "Mango",
+    "Dandelion-like wind fruit",
+    "Dry explosive pod only",
+    "Metal nut and bolt"
+   ],
+   "correctAnswer": "Mango",
+   "explanation": "Fleshy fruits such as mango can be eaten by animals, helping seeds move away from the parent plant.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Categorise fruits and seeds based on their mode of dispersal.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which seed adaptation is most useful for wind dispersal?",
+   "options": [
+    "Light weight with wing-like or hair-like structures",
+    "Heavy smooth stone with no air resistance",
+    "Bright petals attached to a tooth",
+    "A thick iron coat that rusts easily"
+   ],
+   "correctAnswer": "Light weight with wing-like or hair-like structures",
+   "explanation": "Light seeds with wings or hairs can be carried away by moving air.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Categorise fruits and seeds based on their mode of dispersal.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which statement best compares self-pollination and cross-pollination?",
+   "options": [
+    "Self-pollination uses pollen from the same plant, while cross-pollination uses pollen from another plant of the same species",
+    "Self-pollination happens only in animals, while cross-pollination happens only in metals",
+    "Self-pollination forms rust, while cross-pollination softens water",
+    "Both processes mean seed dispersal by wind"
+   ],
+   "correctAnswer": "Self-pollination uses pollen from the same plant, while cross-pollination uses pollen from another plant of the same species",
+   "explanation": "The difference depends on whether pollen comes from the same plant or from a different plant of the same species.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Describe types of pollination in plants.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "How can careless use of agrochemicals reduce reproduction in flowering plants?",
+   "options": [
+    "It can kill pollinating insects that transfer pollen",
+    "It makes all seeds germinate instantly",
+    "It changes petals into iron",
+    "It prevents all plants from needing light"
+   ],
+   "correctAnswer": "It can kill pollinating insects that transfer pollen",
+   "explanation": "Some agrochemicals can harm pollinators, reducing pollination and seed or fruit formation.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Explain factors that affect reproduction in flowering plants.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which activity would best show the importance of flowers in nature without damaging the environment?",
+   "options": [
+    "Observe and record visiting pollinators on living flowers without uprooting the plants",
+    "Cut all flowers in a school garden to count them",
+    "Spray unknown chemicals on flowers before observing",
+    "Remove all insects from the area permanently"
+   ],
+   "correctAnswer": "Observe and record visiting pollinators on living flowers without uprooting the plants",
+   "explanation": "Observation protects plants and pollinators while helping learners connect flowers with pollination and biodiversity.",
+   "difficulty": 5,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "Reproduction in plants",
+   "learningOutcome": "Recognise the role of flowers in nature through responsible investigation.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which item is a biotic component of an environment?",
+   "options": [
+    "Grass",
+    "Temperature",
+    "Wind",
+    "Light"
+   ],
+   "correctAnswer": "Grass",
+   "explanation": "Biotic components are living things, and grass is a living plant.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Explain biotic and abiotic factors of the environment.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which item is an abiotic factor in an ecosystem?",
+   "options": [
+    "Water",
+    "Maize plant",
+    "Bee",
+    "Fungus"
+   ],
+   "correctAnswer": "Water",
+   "explanation": "Abiotic factors are non-living environmental factors such as water, light, temperature and pH.",
+   "difficulty": 1,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Explain biotic and abiotic factors of the environment.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which relationship describes a lion hunting a zebra for food?",
+   "options": [
+    "Predation",
+    "Pollination",
+    "Rusting",
+    "Softening"
+   ],
+   "correctAnswer": "Predation",
+   "explanation": "Predation is a feeding relationship where one organism hunts and eats another.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Explain biotic interrelationships in an ecosystem.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which relationship occurs when two organisms use the same limited resource such as food or space?",
+   "options": [
+    "Competition",
+    "Reflection",
+    "Condensation",
+    "Distillation"
+   ],
+   "correctAnswer": "Competition",
+   "explanation": "Competition occurs when organisms need the same limited resource in an environment.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Explain biotic interrelationships in an ecosystem.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which sequence is a correct food chain?",
+   "options": [
+    "Grass -> grasshopper -> lizard -> hawk",
+    "Hawk -> grass -> lizard -> grasshopper",
+    "Lizard -> sunlight -> grass -> hawk",
+    "Water -> oxygen -> rust -> brass"
+   ],
+   "correctAnswer": "Grass -> grasshopper -> lizard -> hawk",
+   "explanation": "Energy flows from a producer to herbivores and then to higher-level consumers.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Construct food chains in the environment.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "What is the role of decomposers in an ecosystem?",
+   "options": [
+    "They break down dead matter and recycle nutrients",
+    "They make all food chains begin with carnivores",
+    "They stop plants from needing minerals",
+    "They change sound into light"
+   ],
+   "correctAnswer": "They break down dead matter and recycle nutrients",
+   "explanation": "Decomposers break down dead organisms and wastes, returning nutrients to the environment.",
+   "difficulty": 2,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Describe the role of decomposers in an ecosystem.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which human activity can directly destroy habitats?",
+   "options": [
+    "Clearing forest without proper conservation",
+    "Planting indigenous trees on bare land",
+    "Protecting riparian areas",
+    "Using manure to improve soil responsibly"
+   ],
+   "correctAnswer": "Clearing forest without proper conservation",
+   "explanation": "Uncontrolled clearing removes shelter and food sources for many organisms.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Describe effects of human activities on the environment.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A fish species survives only in a narrow range of water salinity. Which abiotic factor is limiting its distribution?",
+   "options": [
+    "Salinity",
+    "Predation",
+    "Pollination",
+    "Malleability"
+   ],
+   "correctAnswer": "Salinity",
+   "explanation": "Salinity is a non-living chemical factor that can affect where aquatic organisms survive.",
+   "difficulty": 3,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Explain how abiotic factors affect living organisms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which statement best explains energy flow in a food web?",
+   "options": [
+    "Energy enters through producers and passes to consumers along feeding links",
+    "Energy starts with top carnivores and always increases down the food chain",
+    "Energy is made by decomposers only and never reaches plants",
+    "Energy flow is the same as rusting iron"
+   ],
+   "correctAnswer": "Energy enters through producers and passes to consumers along feeding links",
+   "explanation": "Producers capture energy, usually from sunlight, and this energy moves through consumers in food chains and webs.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Construct and interpret food webs in the environment.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "In a garden food web, birds feed on caterpillars and caterpillars feed on cabbages. What may happen first if most birds disappear?",
+   "options": [
+    "Caterpillar numbers may increase and damage more cabbages",
+    "Cabbages will immediately eat the caterpillars",
+    "All abiotic factors will vanish",
+    "Water hardness will increase in the leaves"
+   ],
+   "correctAnswer": "Caterpillar numbers may increase and damage more cabbages",
+   "explanation": "Removing a predator can allow its prey to increase, which may affect the plants they feed on.",
+   "difficulty": 4,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Analyze interdependence between organisms in food webs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which plan best reduces the negative effect of human activities on a school compound ecosystem?",
+   "options": [
+    "Separate waste, compost biodegradable matter, plant suitable trees and avoid destroying habitats",
+    "Burn all waste near classrooms every day",
+    "Remove every insect and flowering plant",
+    "Pour used oil into the soil to kill weeds"
+   ],
+   "correctAnswer": "Separate waste, compost biodegradable matter, plant suitable trees and avoid destroying habitats",
+   "explanation": "The plan conserves habitats, recycles nutrients and reduces pollution.",
+   "difficulty": 5,
+   "strandTitle": "Living Things and their Environment",
+   "subStrandTitle": "The interdependence of life",
+   "learningOutcome": "Create practical ways of conserving interdependence in the environment.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which mirror curves inward like the inside of a spoon?",
+   "options": [
+    "Concave mirror",
+    "Convex mirror",
+    "Plane mirror",
+    "Transparent mirror"
+   ],
+   "correctAnswer": "Concave mirror",
+   "explanation": "A concave mirror has a reflecting surface that curves inward.",
+   "difficulty": 1,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Describe types of curved mirrors.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Which mirror curves outward like the back of a spoon?",
+   "options": [
+    "Convex mirror",
+    "Concave mirror",
+    "Plane mirror",
+    "Opaque mirror"
+   ],
+   "correctAnswer": "Convex mirror",
+   "explanation": "A convex mirror has a reflecting surface that bulges outward.",
+   "difficulty": 1,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Describe types of curved mirrors.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Which mirror is commonly used in vehicles to give a wide field of view?",
+   "options": [
+    "Convex mirror",
+    "Concave mirror",
+    "Microscope slide",
+    "Flat sheet of paper"
+   ],
+   "correctAnswer": "Convex mirror",
+   "explanation": "Convex mirrors form small upright images and allow drivers to see a wider area.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Explain uses of convex mirrors in day-to-day life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which mirror can be used in a solar cooker to concentrate sunlight at a point?",
+   "options": [
+    "Concave mirror",
+    "Convex mirror",
+    "Plane glass only",
+    "Unpolished wood"
+   ],
+   "correctAnswer": "Concave mirror",
+   "explanation": "A concave mirror can converge parallel rays of sunlight toward a focus.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Explain uses of concave mirrors in day-to-day life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "What is the principal axis of a curved mirror?",
+   "options": [
+    "The straight line passing through the pole and centre of curvature",
+    "The rough edge of the mirror frame",
+    "Any random line drawn on a table",
+    "The shadow behind an object"
+   ],
+   "correctAnswer": "The straight line passing through the pole and centre of curvature",
+   "explanation": "The principal axis is the reference line through the pole and centre of curvature of a curved mirror.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Use terms associated with curved mirrors correctly.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which image is usually formed by a convex mirror?",
+   "options": [
+    "Upright, diminished and virtual",
+    "Always inverted and enlarged",
+    "Always same size and real",
+    "No image at all"
+   ],
+   "correctAnswer": "Upright, diminished and virtual",
+   "explanation": "Convex mirrors usually form upright, smaller and virtual images.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Describe characteristics of images formed by convex mirrors.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A learner wants to see an enlarged upright image of the face while shaving. Which mirror is most suitable when the face is close to it?",
+   "options": [
+    "Concave mirror",
+    "Convex mirror",
+    "Plain wall",
+    "Transparent plastic sheet"
+   ],
+   "correctAnswer": "Concave mirror",
+   "explanation": "A concave mirror can form an enlarged upright virtual image when the object is placed close to the mirror.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Apply image characteristics of concave mirrors to day-to-day uses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Why is a convex mirror useful at a blind corner in a school driveway?",
+   "options": [
+    "It gives a wider view of approaching people or vehicles",
+    "It makes all objects disappear",
+    "It focuses all light into one hot point",
+    "It changes sound waves into water waves"
+   ],
+   "correctAnswer": "It gives a wider view of approaching people or vehicles",
+   "explanation": "Convex mirrors increase the field of view, which improves safety at corners.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Explain applications of curved mirrors in day-to-day life.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which drawing instruction is best when constructing a ray diagram for a curved mirror?",
+   "options": [
+    "Use a ruler, mark the principal axis, pole and focus, then draw rays with arrow directions",
+    "Draw rays randomly without labels",
+    "Avoid showing where the object is placed",
+    "Use only coloured shading without lines"
+   ],
+   "correctAnswer": "Use a ruler, mark the principal axis, pole and focus, then draw rays with arrow directions",
+   "explanation": "A clear ray diagram needs labelled reference points, straight rays and direction arrows.",
+   "difficulty": 5,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Curved mirrors",
+   "learningOutcome": "Draw ray diagrams to locate images formed by curved mirrors.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "What is a wave in science?",
+   "options": [
+    "A disturbance that transfers energy from one place to another",
+    "A metal that resists rusting",
+    "A type of hard water",
+    "A seed formed after fertilisation"
+   ],
+   "correctAnswer": "A disturbance that transfers energy from one place to another",
+   "explanation": "A wave carries energy through a medium or through space without transporting matter overall.",
+   "difficulty": 1,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe the generation of waves in nature.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Which example shows a transverse wave?",
+   "options": [
+    "A wave on a rope moving up and down as the wave travels along",
+    "Sound compressions moving through air",
+    "Food moving through the gut",
+    "Rust spreading on iron"
+   ],
+   "correctAnswer": "A wave on a rope moving up and down as the wave travels along",
+   "explanation": "In a transverse wave, particles vibrate at right angles to the direction of wave travel.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Classify waves as longitudinal and transverse.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which example shows a longitudinal wave?",
+   "options": [
+    "Sound wave travelling through air",
+    "Light wave in a vacuum only",
+    "Water being softened by boiling",
+    "A seed carried by wind"
+   ],
+   "correctAnswer": "Sound wave travelling through air",
+   "explanation": "Sound in air is longitudinal because air particles vibrate parallel to the direction of travel.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Classify waves as longitudinal and transverse.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "What is wavelength?",
+   "options": [
+    "Distance between two successive crests or two successive troughs",
+    "Number of protons in an atom",
+    "Mass of a metal sample",
+    "Amount of soap used in hard water"
+   ],
+   "correctAnswer": "Distance between two successive crests or two successive troughs",
+   "explanation": "Wavelength is the distance between matching points on consecutive waves.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe basic characteristics of waves in nature.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "What does frequency of a wave measure?",
+   "options": [
+    "Number of complete waves passing a point each second",
+    "Distance from a mirror to its pole",
+    "Number of petals on a flower",
+    "Amount of rust on a nail"
+   ],
+   "correctAnswer": "Number of complete waves passing a point each second",
+   "explanation": "Frequency is the number of complete waves passing a point per second and is measured in hertz.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe basic characteristics of waves in nature.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which equation relates wave speed, wavelength and frequency?",
+   "options": [
+    "Wave speed = wavelength x frequency",
+    "Wave speed = atomic number + mass number",
+    "Wave speed = soap x scum",
+    "Wave speed = pollen divided by stigma"
+   ],
+   "correctAnswer": "Wave speed = wavelength x frequency",
+   "explanation": "For waves, speed is calculated by multiplying wavelength by frequency.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Use the wave equation to relate speed, wavelength and frequency.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "A wave has wavelength 2 m and frequency 5 Hz. What is its speed?",
+   "options": [
+    "10 m/s",
+    "2.5 m/s",
+    "7 m/s",
+    "3 m/s"
+   ],
+   "correctAnswer": "10 m/s",
+   "explanation": "Wave speed = wavelength x frequency, so 2 m x 5 Hz = 10 m/s.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Calculate wave speed using wavelength and frequency.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which behaviour occurs when waves bounce off a barrier?",
+   "options": [
+    "Reflection",
+    "Absorption",
+    "Digestion",
+    "Rusting"
+   ],
+   "correctAnswer": "Reflection",
+   "explanation": "Reflection occurs when waves bounce back after meeting a surface or barrier.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe basic characteristics of waves in nature.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which behaviour describes waves bending as they pass from one medium to another?",
+   "options": [
+    "Refraction",
+    "Pollination",
+    "Assimilation",
+    "Malleability"
+   ],
+   "correctAnswer": "Refraction",
+   "explanation": "Refraction is the bending of waves when their speed changes as they enter another medium.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe basic characteristics of waves in nature.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "What is remote sensing?",
+   "options": [
+    "Collecting information about an object or area from a distance using waves",
+    "Touching every object directly before observing it",
+    "Softening water by boiling",
+    "Making an alloy from copper and zinc"
+   ],
+   "correctAnswer": "Collecting information about an object or area from a distance using waves",
+   "explanation": "Remote sensing uses waves, often electromagnetic waves, to gather information without direct contact.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe remote sensing in relation to waves.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Which application uses waves in medical diagnosis?",
+   "options": [
+    "Ultrasound imaging",
+    "Boiling hard water",
+    "Planting maize seeds",
+    "Painting a steel gate"
+   ],
+   "correctAnswer": "Ultrasound imaging",
+   "explanation": "Ultrasound uses high-frequency sound waves to form images inside the body.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe applications of waves in day-to-day life.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which application uses electromagnetic waves for communication?",
+   "options": [
+    "Radio transmission",
+    "Animal digestion",
+    "Seed formation",
+    "Tooth grinding"
+   ],
+   "correctAnswer": "Radio transmission",
+   "explanation": "Radio transmission uses electromagnetic waves to carry signals over distances.",
+   "difficulty": 2,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Describe applications of waves in day-to-day life.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A drone maps crop health by detecting reflected radiation from plants. Which science idea is being applied?",
+   "options": [
+    "Remote sensing using waves",
+    "Rust prevention by painting",
+    "Pollination by insects",
+    "Water softening by washing soda"
+   ],
+   "correctAnswer": "Remote sensing using waves",
+   "explanation": "The drone collects information from a distance by detecting waves reflected or emitted by crops.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Analyze remote sensing in relation to waves and day-to-day applications.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A microwave oven warms food. Which energy transfer idea is involved?",
+   "options": [
+    "Microwaves transfer energy to water molecules in the food",
+    "Hard water changes to soft water without heating",
+    "Pollen moves from anther to stigma",
+    "Electrons turn into seeds"
+   ],
+   "correctAnswer": "Microwaves transfer energy to water molecules in the food",
+   "explanation": "Microwave ovens use electromagnetic waves that transfer energy to molecules in food, causing heating.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Explain applications of waves in day-to-day life.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which comparison correctly distinguishes transverse and longitudinal waves?",
+   "options": [
+    "Transverse vibrations are perpendicular to travel direction, while longitudinal vibrations are parallel",
+    "Transverse waves have no energy, while longitudinal waves are always metals",
+    "Transverse waves occur only in digestion, while longitudinal waves occur only in flowers",
+    "Both wave types require rusting to move"
+   ],
+   "correctAnswer": "Transverse vibrations are perpendicular to travel direction, while longitudinal vibrations are parallel",
+   "explanation": "The classification depends on the direction of vibration compared with the direction of wave travel.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Classify waves as longitudinal and transverse.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A learner makes waves in a rope and doubles the frequency while wavelength stays the same. What happens to wave speed?",
+   "options": [
+    "It doubles",
+    "It halves",
+    "It becomes zero",
+    "It changes into mass number"
+   ],
+   "correctAnswer": "It doubles",
+   "explanation": "Since speed = wavelength x frequency, doubling frequency while wavelength is constant doubles the speed.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Analyze the relationship between wavelength, frequency and wave speed.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Which classroom activity safely demonstrates a longitudinal wave?",
+   "options": [
+    "Push and pull one end of a slinky spring to create compressions and rarefactions",
+    "Look directly at the sun with a mirror",
+    "Connect a speaker to mains electricity using bare wires",
+    "Boil water in a sealed glass bottle"
+   ],
+   "correctAnswer": "Push and pull one end of a slinky spring to create compressions and rarefactions",
+   "explanation": "A slinky can safely show compressions and rarefactions moving along the same direction as the vibration.",
+   "difficulty": 5,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Create safe activities to demonstrate generation and classification of waves.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which safety rule is important when learning about X-rays and other high-energy waves?",
+   "options": [
+    "Use them only under trained supervision and avoid unnecessary exposure",
+    "Use X-rays for entertainment at home",
+    "Stand near X-ray machines without protection for a long time",
+    "Point high-energy waves at classmates to see what happens"
+   ],
+   "correctAnswer": "Use them only under trained supervision and avoid unnecessary exposure",
+   "explanation": "High-energy waves such as X-rays can be harmful, so exposure must be controlled by trained personnel.",
+   "difficulty": 3,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Appreciate safe applications of waves in day-to-day life.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A weather satellite observes cloud patterns over Kenya from space. Which process explains how it gathers information?",
+   "options": [
+    "Remote sensing by detecting waves from Earth",
+    "Direct tasting of clouds by the satellite",
+    "Boiling the atmosphere to make soft water",
+    "Using flower petals to catch pollen"
+   ],
+   "correctAnswer": "Remote sensing by detecting waves from Earth",
+   "explanation": "Weather satellites collect wave signals from a distance to infer information about clouds and weather.",
+   "difficulty": 4,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Analyze remote sensing applications in weather and environmental monitoring.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "A group must design a poster on useful waves in the community. Which set of examples is most accurate?",
+   "options": [
+    "Radio for communication, ultrasound for medical imaging, and microwaves for cooking",
+    "Rusting for communication, pollen for X-rays, and molars for Wi-Fi",
+    "Hard water for television, starch for MRI scans, and brass for sound",
+    "Seed dispersal for radar, digestion for radio, and rust for ultrasound"
+   ],
+   "correctAnswer": "Radio for communication, ultrasound for medical imaging, and microwaves for cooking",
+   "explanation": "Those examples correctly match wave applications with communication, medicine and cooking.",
+   "difficulty": 5,
+   "strandTitle": "Force and Energy",
+   "subStrandTitle": "Waves",
+   "learningOutcome": "Create summaries of applications of waves in day-to-day life.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

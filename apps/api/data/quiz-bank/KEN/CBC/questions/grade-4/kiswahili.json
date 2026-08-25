@@ -1,1409 +1,2431 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 4",
-  "subjectId": "kiswahili",
-  "subjectName": "Kiswahili",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Sauti ya kwanza katika neno kitabu ni ipi?",
-      "options": ["sauti k", "sauti t", "sauti b", "sauti u"],
-      "correctAnswer": "sauti k",
-      "explanation": "Neno kitabu huanza kwa sauti k.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Sauti na Matamshi",
-      "learningOutcome": "Kutambua sauti za mwanzo katika maneno mepesi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Ni neno gani linaanza kwa sauti m?",
-      "options": ["meza", "kitabu", "kalamu", "dawati"],
-      "correctAnswer": "meza",
-      "explanation": "Meza huanza kwa sauti m.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Sauti na Maneno",
-      "learningOutcome": "Kutambua maneno yanayoanza kwa sauti maalumu.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Neno kalamu hugawanywa katika silabi zipi?",
-      "options": ["ka-la-mu", "kal-a-mu", "ka-lam-u", "kala-mu-a"],
-      "correctAnswer": "ka-la-mu",
-      "explanation": "Kalamu lina silabi tatu: ka, la na mu.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Silabi",
-      "learningOutcome": "Kutamka na kugawa maneno mepesi katika silabi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Wingi wa neno mtoto ni upi?",
-      "options": ["watoto", "mitoto", "kitoto", "mtotoo"],
-      "correctAnswer": "watoto",
-      "explanation": "Mtoto ni umoja, na wingi wake ni watoto.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Umoja na Wingi",
-      "learningOutcome": "Kutambua umoja na wingi wa majina ya kawaida.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Ni salamu gani hutumiwa asubuhi?",
-      "options": ["Habari za asubuhi", "Usiku mwema", "Kwaheri ya jioni", "Lala salama"],
-      "correctAnswer": "Habari za asubuhi",
-      "explanation": "Habari za asubuhi hutumiwa mtu anapokutana na mwenzake asubuhi.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maamkizi",
-      "learningOutcome": "Kutumia salamu zinazofaa katika nyakati mbalimbali.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Ni alama gani hutumika mwishoni mwa swali?",
-      "options": ["alama ya kuuliza (?)", "nukta (.)", "mkato (,)", "alama ya mshangao (!)"],
-      "correctAnswer": "alama ya kuuliza (?)",
-      "explanation": "Swali huishia kwa alama ya kuuliza.",
-      "difficulty": 1,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutambua alama za uakifishaji katika sentensi fupi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Ni neno gani la heshima hutumiwa unapoomba kitu?",
-      "options": ["tafadhali", "haraka", "basi", "lakini"],
-      "correctAnswer": "tafadhali",
-      "explanation": "Tafadhali huonyesha heshima wakati wa kuomba msaada au kitu.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Lugha ya Adabu",
-      "learningOutcome": "Kutumia maneno ya adabu katika mazungumzo ya kila siku.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Kitenzi katika sentensi Juma anakimbia uwanjani ni kipi?",
-      "options": ["anakimbia", "Juma", "uwanjani", "sentensi"],
-      "correctAnswer": "anakimbia",
-      "explanation": "Anakimbia ni neno linaloonyesha kitendo kinachofanywa.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vitenzi",
-      "learningOutcome": "Kutambua vitenzi katika sentensi rahisi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Ni nomino gani inataja mtu?",
-      "options": ["mwalimu", "meza", "kalamu", "mlango"],
-      "correctAnswer": "mwalimu",
-      "explanation": "Mwalimu ni jina la mtu anayefundisha.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nomino",
-      "learningOutcome": "Kutambua nomino za watu na vitu katika mazingira ya shule.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Kinyume cha neno kubwa ni kipi?",
-      "options": ["ndogo", "refu", "pana", "nzito"],
-      "correctAnswer": "ndogo",
-      "explanation": "Ndogo ni kinyume cha kubwa.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati",
-      "learningOutcome": "Kutambua visawe na vinyume vya maneno ya kawaida.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Siku inayofuata Jumatatu ni ipi?",
-      "options": ["Jumanne", "Jumapili", "Alhamisi", "Jumamosi"],
-      "correctAnswer": "Jumanne",
-      "explanation": "Jumanne huja baada ya Jumatatu katika siku za wiki.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Wakati",
-      "learningOutcome": "Kutumia msamiati wa siku na wakati katika mawasiliano.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Ni mnyama gani wa nyumbani hutoa maziwa?",
-      "options": ["ng'ombe", "kuku", "paka", "mbwa"],
-      "correctAnswer": "ng'ombe",
-      "explanation": "Ng'ombe hufugwa nyumbani na anaweza kutoa maziwa.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Mazingira",
-      "learningOutcome": "Kutumia majina ya wanyama wa nyumbani katika sentensi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Ni neno gani lina maana ya kutokuwa mchafu?",
-      "options": ["safi", "chafu", "kavu", "tupu"],
-      "correctAnswer": "safi",
-      "explanation": "Safi humaanisha kitu kisicho na uchafu.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati",
-      "learningOutcome": "Kueleza maana ya maneno ya kawaida yanayotumika nyumbani na shuleni.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Herufi ya mwisho katika neno dada ni ipi?",
-      "options": ["herufi a", "herufi d", "herufi m", "herufi k"],
-      "correctAnswer": "herufi a",
-      "explanation": "Neno dada huishia kwa herufi a.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Herufi na Sauti",
-      "learningOutcome": "Kutambua herufi za mwanzo na mwisho katika maneno rahisi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani inaonyesha heshima?",
-      "options": ["Tafadhali nifungulie mlango.", "Fungua mlango sasa!", "Nipe hicho kitu.", "Ondoka hapo."],
-      "correctAnswer": "Tafadhali nifungulie mlango.",
-      "explanation": "Sentensi hii hutumia neno tafadhali kuonyesha heshima.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Lugha ya Adabu",
-      "learningOutcome": "Kuchagua lugha ya heshima katika mazungumzo ya kila siku.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Kamilisha sentensi: Mama ___ chakula jikoni.",
-      "options": ["anapika", "analala", "anaruka", "anasoma"],
-      "correctAnswer": "anapika",
-      "explanation": "Chakula hupikwa jikoni, hivyo kitenzi kinachofaa ni anapika.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vitenzi",
-      "learningOutcome": "Kutumia vitenzi vinavyofaa katika sentensi rahisi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Wingi wa neno kikapu ni upi?",
-      "options": ["vikapu", "wakapu", "mikapu", "makikapu"],
-      "correctAnswer": "vikapu",
-      "explanation": "Majina mengi ya ngeli ya KI-VI hubadilika kutoka ki- hadi vi- katika wingi.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya KI-VI",
-      "learningOutcome": "Kubadilisha majina mepesi kutoka umoja kwenda wingi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Kinyume cha neno haraka ni kipi?",
-      "options": ["polepole", "karibu", "sana", "vizuri"],
-      "correctAnswer": "polepole",
-      "explanation": "Polepole huonyesha mwendo usio wa haraka.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Vinyume",
-      "learningOutcome": "Kutumia vinyume vya maneno katika mawasiliano.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Ni alama gani hutumika kuonyesha mshangao?",
-      "options": ["alama ya mshangao (!)", "alama ya kuuliza (?)", "nukta (.)", "mkato (,)"],
-      "correctAnswer": "alama ya mshangao (!)",
-      "explanation": "Alama ya mshangao hutumika kuonyesha hisia kama furaha, hofu au mshangao.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutumia alama rahisi za uakifishaji katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Mtu mdogo akisema Shikamoo kwa mtu mzima, jibu linalofaa ni lipi?",
-      "options": ["Marahaba", "Kwaheri", "Samahani", "Karibu sana"],
-      "correctAnswer": "Marahaba",
-      "explanation": "Marahaba ni jibu la salamu Shikamoo.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maamkizi na Heshima",
-      "learningOutcome": "Kutumia majibu yanayofaa katika maamkizi ya heshima.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Soma sentensi: Neema alichota maji kisimani. Neema alifanya nini?",
-      "options": ["alichota maji", "alipanda mti", "alifagia darasa", "alipika ugali"],
-      "correctAnswer": "alichota maji",
-      "explanation": "Sentensi inasema Neema alichota maji kisimani.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ufahamu wa Sentensi",
-      "learningOutcome": "Kujibu maswali rahisi kutokana na sentensi fupi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Sentensi Funga mlango inaonyesha nini?",
-      "options": ["agizo", "salamu", "swali", "wimbo"],
-      "correctAnswer": "agizo",
-      "explanation": "Funga mlango humwelekeza mtu kufanya jambo fulani.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maagizo",
-      "learningOutcome": "Kutambua maagizo mafupi katika mazungumzo.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Ni neno gani lina silabi mbili?",
-      "options": ["meza", "kalamu", "darasa", "mwalimu"],
-      "correctAnswer": "meza",
-      "explanation": "Meza lina silabi mbili: me na za.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Silabi",
-      "learningOutcome": "Kuhesabu silabi katika maneno yanayofahamika.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Unaposema samahani baada ya kukosea, unaonyesha nini?",
-      "options": ["kuomba msamaha", "kuagana", "kuuliza bei", "kutoa amri"],
-      "correctAnswer": "kuomba msamaha",
-      "explanation": "Samahani hutumiwa kuomba msamaha kwa kosa au usumbufu.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Lugha ya Adabu",
-      "learningOutcome": "Kutumia maneno ya adabu katika hali mbalimbali.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani ni swali?",
-      "options": ["Utaenda shuleni lini?", "Ninaenda shuleni.", "Funga mlango.", "Asante sana."],
-      "correctAnswer": "Utaenda shuleni lini?",
-      "explanation": "Sentensi hii inauliza jambo na ina alama ya kuuliza.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Aina za Sentensi",
-      "learningOutcome": "Kutofautisha sentensi za taarifa, swali na agizo.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Ni neno gani liko katika wingi?",
-      "options": ["vitabu", "kitabu", "mtoto", "kiti"],
-      "correctAnswer": "vitabu",
-      "explanation": "Vitabu hutaja zaidi ya kitabu kimoja.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Umoja na Wingi",
-      "learningOutcome": "Kutambua maneno ya umoja na wingi katika orodha.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Kivumishi katika sentensi Mtoto mzuri amefika ni kipi?",
-      "options": ["mzuri", "mtoto", "amefika", "sentensi"],
-      "correctAnswer": "mzuri",
-      "explanation": "Mzuri hueleza jinsi mtoto alivyo.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vivumishi",
-      "learningOutcome": "Kutambua vivumishi katika sentensi rahisi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Ni kitenzi gani kinaonyesha wakati uliopita?",
-      "options": ["alisoma", "anasoma", "atasoma", "asome"],
-      "correctAnswer": "alisoma",
-      "explanation": "Kiambishi li huonyesha tendo lililofanyika zamani.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nyakati",
-      "learningOutcome": "Kutambua vitenzi vya wakati uliopita, uliopo na ujao.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Ni neno gani linaonyesha mahali?",
-      "options": ["sokoni", "kitabu", "mzuri", "kimbia"],
-      "correctAnswer": "sokoni",
-      "explanation": "Sokoni ni mahali ambapo watu huuza na kununua bidhaa.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Mahali",
-      "learningOutcome": "Kutambua maneno yanayoonyesha mahali katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Kamilisha methali: Haraka haraka haina ___.",
-      "options": ["baraka", "chakula", "kelele", "mvua"],
-      "correctAnswer": "baraka",
-      "explanation": "Methali hii hutukumbusha kufanya mambo kwa utulivu na umakini.",
-      "difficulty": 2,
-      "strandTitle": "Fasihi Simulizi",
-      "subStrandTitle": "Methali",
-      "learningOutcome": "Kukamilisha na kueleza methali rahisi zinazotumika kila siku.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Ni kitenzi gani kinaonyesha wakati uliopo?",
-      "options": ["anaimba", "aliimba", "ataimba", "kuimba"],
-      "correctAnswer": "anaimba",
-      "explanation": "Kiambishi na huonyesha tendo linalofanyika sasa.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nyakati",
-      "learningOutcome": "Kutumia viambishi vya wakati katika vitenzi rahisi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Unapopewa zawadi, neno gani la adabu linafaa kusema?",
-      "options": ["Asante", "Ondoka", "Haraka", "Ngoja"],
-      "correctAnswer": "Asante",
-      "explanation": "Asante hutumiwa kuonyesha shukrani.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Lugha ya Adabu",
-      "learningOutcome": "Kutumia maneno ya shukrani katika mawasiliano.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Sentensi Tupige makofi inaonyesha nini?",
-      "options": ["ombi la kufanya jambo pamoja", "swali la mahali", "maelezo ya rangi", "jina la mtu"],
-      "correctAnswer": "ombi la kufanya jambo pamoja",
-      "explanation": "Tupige makofi humwalika au humwomba mtu kushiriki tendo pamoja.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maagizo na Maombi",
-      "learningOutcome": "Kutambua maana ya maombi na maagizo katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi iliyokamilika vizuri.",
-      "options": ["Mwalimu anaandika ubaoni.", "Mwalimu ubaoni.", "Anaandika.", "Ubaoni mwalimu"],
-      "correctAnswer": "Mwalimu anaandika ubaoni.",
-      "explanation": "Sentensi hii ina mtendaji, kitendo na mahali pa kitendo.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Muundo wa Sentensi",
-      "learningOutcome": "Kuunda sentensi rahisi zenye maana kamili.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Ni kiulizi gani hutumiwa kuuliza mahali?",
-      "options": ["wapi", "nani", "lini", "ngapi"],
-      "correctAnswer": "wapi",
-      "explanation": "Wapi hutumiwa kuuliza mahali kitu au mtu alipo.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viulizi",
-      "learningOutcome": "Kutumia viulizi vinavyofaa katika maswali rahisi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Neno yeye ni aina gani ya neno?",
-      "options": ["kiwakilishi", "kivumishi", "kielezi", "kihisishi"],
-      "correctAnswer": "kiwakilishi",
-      "explanation": "Yeye hutumika badala ya jina la mtu.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viwakilishi",
-      "learningOutcome": "Kutambua viwakilishi vya nafsi katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Kichwa cha habari katika kifungu husaidia msomaji kujua nini?",
-      "options": ["wazo kuu", "idadi ya kurasa", "rangi ya kitabu", "jina la kalamu"],
-      "correctAnswer": "wazo kuu",
-      "explanation": "Kichwa cha habari hutoa dokezo la jambo kuu linalozungumziwa.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Mbinu za Kusoma",
-      "learningOutcome": "Kutumia kichwa cha habari kutabiri ujumbe wa kifungu.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Ni neno gani linataja mtu wa familia?",
-      "options": ["shangazi", "kijiko", "dirisha", "mkoba"],
-      "correctAnswer": "shangazi",
-      "explanation": "Shangazi ni dada ya baba au mtu wa ukoo wa familia.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Familia",
-      "learningOutcome": "Kutumia msamiati wa familia katika mazungumzo na maandishi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Neno nyekundu hutaja nini?",
-      "options": ["rangi", "siku", "mahali", "tendo"],
-      "correctAnswer": "rangi",
-      "explanation": "Nyekundu ni jina la rangi.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Rangi",
-      "learningOutcome": "Kutambua maneno yanayotaja rangi katika mazingira.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani inaonyesha wakati ujao?",
-      "options": ["Kesho tutapanda miti.", "Jana tulipanda miti.", "Sasa tunapanda miti.", "Miti imepandwa."],
-      "correctAnswer": "Kesho tutapanda miti.",
-      "explanation": "Kesho na kiambishi ta huonyesha tendo litakalofanyika baadaye.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nyakati",
-      "learningOutcome": "Kutofautisha sentensi za wakati uliopita, uliopo na ujao.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi iliyoandikwa kwa herufi kubwa na nukta vizuri.",
-      "options": ["Leo ni Jumatano.", "leo ni Jumatano,", "Leo ni Jumatano", "leo ni jumatano!"],
-      "correctAnswer": "Leo ni Jumatano.",
-      "explanation": "Sentensi huanza kwa herufi kubwa na kuishia kwa nukta.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutumia herufi kubwa na nukta katika sentensi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani ina kivumishi?",
-      "options": ["Kikapu kikubwa kimejaa maembe.", "Juma anakimbia.", "Saa ililia.", "Mwalimu alifika."],
-      "correctAnswer": "Kikapu kikubwa kimejaa maembe.",
-      "explanation": "Kikubwa ni kivumishi kinachoeleza kikapu.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vivumishi",
-      "learningOutcome": "Kutambua vivumishi na kazi yake katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Wingi wa sentensi Mtu mwema husaidia ni upi?",
-      "options": ["Watu wema husaidia.", "Watu mwema husaidia.", "Mtu wema husaidia.", "Watu mema husaidia."],
-      "correctAnswer": "Watu wema husaidia.",
-      "explanation": "Mtu hubadilika kuwa watu, na mwema hubadilika kuwa wema.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Umoja na Wingi",
-      "learningOutcome": "Kubadilisha sentensi fupi kutoka umoja kwenda wingi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Kamilisha sentensi: Asha ___ barua jana.",
-      "options": ["aliandika", "anaandika", "ataandika", "andika"],
-      "correctAnswer": "aliandika",
-      "explanation": "Jana huonyesha wakati uliopita, kwa hiyo aliandika linafaa.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nyakati",
-      "learningOutcome": "Kuchagua kitenzi kinacholingana na wakati uliotajwa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi yenye upatanisho sahihi.",
-      "options": ["Kiti kimevunjika.", "Kiti zimevunjika.", "Kiti wamevunjika.", "Kiti imevunjika."],
-      "correctAnswer": "Kiti kimevunjika.",
-      "explanation": "Kiti huendana na kiambishi ki katika kimevunjika.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Kisarufi",
-      "learningOutcome": "Kutumia upatanisho sahihi kati ya nomino na kitenzi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Neno na katika sentensi Amina na Otieno wanasoma lina kazi gani?",
-      "options": ["kuunganisha majina", "kuonyesha wakati", "kuuliza swali", "kutaja rangi"],
-      "correctAnswer": "kuunganisha majina",
-      "explanation": "Na huunganisha majina Amina na Otieno.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viunganishi",
-      "learningOutcome": "Kutambua maneno yanayounganisha mawazo au majina.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Kamilisha sentensi: Watoto wawili ___ uwanjani.",
-      "options": ["wanacheza", "anacheza", "kinacheza", "linacheza"],
-      "correctAnswer": "wanacheza",
-      "explanation": "Watoto ni wingi wa watu, hivyo kitenzi kinaanza kwa wa.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Kisarufi",
-      "learningOutcome": "Kuchagua kitenzi kinacholingana na nomino ya wingi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Barua ya kirafiki huanza kwa sehemu gani mara nyingi?",
-      "options": ["anwani ya mwandishi", "orodha ya vyakula", "alama ya kuuliza", "jina la mnyama"],
-      "correctAnswer": "anwani ya mwandishi",
-      "explanation": "Barua ya kirafiki huanza kwa anwani ya mwandishi kabla ya tarehe na salamu.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Barua ya Kirafiki",
-      "learningOutcome": "Kutambua sehemu kuu za barua ya kirafiki.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Maneno kwanza, pili na mwisho hutumika kuonyesha nini?",
-      "options": ["mpangilio wa matukio", "majina ya watu", "rangi za vitu", "idadi ya silabi"],
-      "correctAnswer": "mpangilio wa matukio",
-      "explanation": "Maneno hayo husaidia kupanga matukio kwa mfuatano.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mpangilio wa Mawazo",
-      "learningOutcome": "Kutumia maneno ya mpangilio kuandika matukio kwa utaratibu.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani ni ombi la heshima?",
-      "options": ["Naomba unisaidie kufuta ubao.", "Futa ubao mara moja.", "Ubao uko mbele.", "Nimeona ubao."],
-      "correctAnswer": "Naomba unisaidie kufuta ubao.",
-      "explanation": "Naomba huifanya sentensi kuwa ombi la heshima.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Lugha ya Adabu",
-      "learningOutcome": "Kutunga na kuchagua maombi ya heshima katika mazingira ya shule.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Katika sentensi Mkulima analima shambani, neno mkulima linaonyesha nini?",
-      "options": ["mtendaji wa kitendo", "kitendo", "mahali", "wakati"],
-      "correctAnswer": "mtendaji wa kitendo",
-      "explanation": "Mkulima ndiye anayefanya kitendo cha kulima.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Sehemu za Sentensi",
-      "learningOutcome": "Kutambua mtendaji, kitendo na mahali katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Katika sentensi Ndizi zimeiva, neno zimeiva linaonyesha nini?",
-      "options": ["hali ya ndizi", "jina la mtu", "rangi ya kalamu", "mahali pa shule"],
-      "correctAnswer": "hali ya ndizi",
-      "explanation": "Zimeiva linaeleza hali ya ndizi.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vitenzi na Hali",
-      "learningOutcome": "Kutambua neno linaloonyesha hali au kitendo katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Chagua jozi sahihi ya umoja na wingi.",
-      "options": ["mwanafunzi - wanafunzi", "kitabu - watoto", "mtoto - vitoto", "kikapu - mikapu"],
-      "correctAnswer": "mwanafunzi - wanafunzi",
-      "explanation": "Mwanafunzi hubadilika kuwa wanafunzi katika wingi.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Umoja na Wingi",
-      "learningOutcome": "Kulinganisha jozi sahihi za umoja na wingi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Neno chakula lina silabi ngapi?",
-      "options": ["silabi tatu", "silabi mbili", "silabi nne", "silabi moja"],
-      "correctAnswer": "silabi tatu",
-      "explanation": "Chakula hugawanywa kuwa cha-ku-la, silabi tatu.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Silabi",
-      "learningOutcome": "Kugawa maneno marefu kidogo katika silabi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Sentensi Mtoto wamefika inapaswa kusahihishwa vipi?",
-      "options": ["Mtoto amefika.", "Mtoto zimefika.", "Mtoto wamefika.", "Mtoto limefika."],
-      "correctAnswer": "Mtoto amefika.",
-      "explanation": "Mtoto ni umoja, hivyo kitenzi kinahitaji kiambishi a.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Kisarufi",
-      "learningOutcome": "Kusahihisha makosa rahisi ya upatanisho katika sentensi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Leo kunanyesha mvua. Ni tendo gani linafaa kabla ya kutoka nje?",
-      "options": ["kubeba mwavuli", "kuosha ubao", "kupaka viatu rangi", "kufungua vitabu vyote"],
-      "correctAnswer": "kubeba mwavuli",
-      "explanation": "Mwavuli husaidia kujikinga na mvua.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ufahamu wa Hali",
-      "learningOutcome": "Kufanya uamuzi rahisi kutokana na ujumbe uliosomwa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Ni sehemu gani inaweza kufunga barua ya kirafiki?",
-      "options": ["Rafiki yako, Amina.", "Habari za saa hizi?", "Soko la kijiji.", "Nukta na mkato."],
-      "correctAnswer": "Rafiki yako, Amina.",
-      "explanation": "Barua ya kirafiki inaweza kufungwa kwa maneno ya ukaribu na jina la mwandishi.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Barua ya Kirafiki",
-      "learningOutcome": "Kutambua mwisho unaofaa wa barua ya kirafiki.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Ni neno gani lina maana karibu na furaha?",
-      "options": ["shangwe", "huzuni", "hasira", "usingizi"],
-      "correctAnswer": "shangwe",
-      "explanation": "Shangwe ni hali ya furaha au kusherehekea.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Visawe",
-      "learningOutcome": "Kutambua maneno yenye maana zinazokaribiana.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Kinyume cha neno nene ni kipi?",
-      "options": ["nyembamba", "fupi", "chache", "baridi"],
-      "correctAnswer": "nyembamba",
-      "explanation": "Nyembamba ni kinyume cha nene.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Vinyume",
-      "learningOutcome": "Kutumia vinyume vya maneno katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Maneno kamba, kiti na kalamu yanaanza kwa sauti gani?",
-      "options": ["sauti k", "sauti m", "sauti t", "sauti p"],
-      "correctAnswer": "sauti k",
-      "explanation": "Maneno yote matatu huanza kwa sauti k.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Sauti Zinazofanana",
-      "learningOutcome": "Kutambua sauti inayofanana katika kundi la maneno.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Tangazo linasema Usitupe taka hapa. Lengo la ujumbe huu ni lipi?",
-      "options": ["kuweka mazingira safi", "kuongeza taka", "kucheza mpira", "kununua vitabu"],
-      "correctAnswer": "kuweka mazingira safi",
-      "explanation": "Kutotupa taka ovyo husaidia mazingira kubaki safi.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kusoma Matangazo",
-      "learningOutcome": "Kuelewa ujumbe mfupi katika tangazo la mazingira.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi yenye upatanisho sahihi wa neno vikombe.",
-      "options": ["Vikombe vimevunjika.", "Vikombe kimevunjika.", "Vikombe limevunjika.", "Vikombe amevunjika."],
-      "correctAnswer": "Vikombe vimevunjika.",
-      "explanation": "Vikombe ni wingi wa ngeli ya KI-VI na hutumia kiambishi vi.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya KI-VI",
-      "learningOutcome": "Kutumia viambishi vinavyofaa kwa majina ya ngeli ya KI-VI.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Katika sentensi Mimi ninapenda kusoma, neno mimi ni nini?",
-      "options": ["kiwakilishi nafsi", "nomino ya mahali", "kivumishi cha rangi", "kiulizi"],
-      "correctAnswer": "kiwakilishi nafsi",
-      "explanation": "Mimi hutumiwa badala ya jina la msemaji.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viwakilishi Nafsi",
-      "learningOutcome": "Kutambua viwakilishi nafsi katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi inayotumia mkato vizuri katika orodha.",
-      "options": ["Nilinunua maembe, ndizi na machungwa.", "Nilinunua, maembe ndizi na machungwa.", "Nilinunua maembe ndizi, na machungwa.", "Nilinunua maembe ndizi na, machungwa."],
-      "correctAnswer": "Nilinunua maembe, ndizi na machungwa.",
-      "explanation": "Mkato hutenganisha vitu katika orodha.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutumia mkato kutenganisha maneno katika orodha fupi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Rafiki yako ana huzuni kwa kupoteza penseli. Ni maneno gani yanafaa?",
-      "options": ["Pole, nitakusaidia kuitafuta.", "Cheka kwa sauti kubwa.", "Ondoka haraka.", "Usisome tena."],
-      "correctAnswer": "Pole, nitakusaidia kuitafuta.",
-      "explanation": "Maneno haya yanaonyesha huruma na msaada.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mazungumzo ya Kijamii",
-      "learningOutcome": "Kuchagua lugha inayofaa katika hali za kijamii.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Kichwa cha hadithi hueleza nini kwa kifupi?",
-      "options": ["jambo kuu la hadithi", "idadi ya madawati", "bei ya kitabu", "rangi ya sare"],
-      "correctAnswer": "jambo kuu la hadithi",
-      "explanation": "Kichwa hutoa mwanga kuhusu hadithi itakayohusu nini.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Hadithi Fupi",
-      "learningOutcome": "Kutambua maana ya kichwa cha hadithi kabla ya kusoma.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Kamilisha sentensi: Vitabu ___ vipo mezani.",
-      "options": ["vipya", "kipya", "mpya", "mapya"],
-      "correctAnswer": "vipya",
-      "explanation": "Vitabu huendana na kivumishi vipya.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Vivumishi",
-      "learningOutcome": "Kutumia kivumishi kinacholingana na nomino ya wingi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Alipofika nyumbani, aliosha mikono kabla ya kula. Kwa nini alifanya hivyo?",
-      "options": ["kudumisha usafi", "kuharibu chakula", "kuchelewa shule", "kupoteza maji"],
-      "correctAnswer": "kudumisha usafi",
-      "explanation": "Kuosha mikono kabla ya kula ni tabia ya usafi.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ufahamu wa Sentensi",
-      "learningOutcome": "Kutoa sababu rahisi kutokana na sentensi iliyosomwa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Maneno jana, leo na kesho ni maneno ya nini?",
-      "options": ["wakati", "rangi", "familia", "chakula"],
-      "correctAnswer": "wakati",
-      "explanation": "Jana, leo na kesho hutaja wakati.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Wakati",
-      "learningOutcome": "Kutambua maneno yanayoonyesha wakati katika mazungumzo.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani ina neno linaloonyesha mahali?",
-      "options": ["Tutaenda sokoni jioni.", "Mtoto anacheka.", "Kalamu ni mpya.", "Supu ni moto."],
-      "correctAnswer": "Tutaenda sokoni jioni.",
-      "explanation": "Sokoni ni neno linaloonyesha mahali pa kwenda.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati wa Mahali",
-      "learningOutcome": "Kutambua maneno ya mahali ndani ya sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Soma: Wanafunzi walipanda miti shuleni. Walimwagilia maji kila siku. Muhtasari mzuri ni upi?",
-      "options": ["Wanafunzi walitunza miti shuleni.", "Wanafunzi walipika chakula.", "Wanafunzi walichora ukutani.", "Wanafunzi walifunga duka."],
-      "correctAnswer": "Wanafunzi walitunza miti shuleni.",
-      "explanation": "Sentensi zote mbili zinahusu kupanda na kutunza miti.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ufahamu na Muhtasari",
-      "learningOutcome": "Kuchagua muhtasari unaolingana na ujumbe mfupi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Methali Umoja ni nguvu, utengano ni udhaifu hutufunza nini?",
-      "options": ["kushirikiana huleta mafanikio", "kukimbia haraka ni vizuri", "kulala sana ni afya", "kununua vitu ni lazima"],
-      "correctAnswer": "kushirikiana huleta mafanikio",
-      "explanation": "Methali hii inaonyesha kuwa watu wakifanya kazi pamoja hupata nguvu zaidi.",
-      "difficulty": 4,
-      "strandTitle": "Fasihi Simulizi",
-      "subStrandTitle": "Methali",
-      "learningOutcome": "Kueleza funzo la methali rahisi katika maisha ya kila siku.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Kamilisha aya: Niliosha mikono. ___ nilikula chakula.",
-      "options": ["Baada ya hapo", "Kwa sababu gani", "Ingawa jana", "Bila jina"],
-      "correctAnswer": "Baada ya hapo",
-      "explanation": "Baada ya hapo huunganisha matukio yanayofuatana.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mpangilio wa Aya",
-      "learningOutcome": "Kutumia viunganishi kupanga mawazo katika aya fupi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Ni neno gani halimo katika kundi la majina ya watu?",
-      "options": ["kikapu", "mwalimu", "daktari", "mkulima"],
-      "correctAnswer": "kikapu",
-      "explanation": "Kikapu ni kitu, ilhali mengine ni majina ya watu.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nomino",
-      "learningOutcome": "Kupanga nomino kulingana na makundi ya maana.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi yenye upatanisho sahihi wa kivumishi.",
-      "options": ["Vikapu hivi ni vipya.", "Vikapu hiki ni kipya.", "Vikapu huyu ni mpya.", "Vikapu hili ni jipya."],
-      "correctAnswer": "Vikapu hivi ni vipya.",
-      "explanation": "Vikapu huendana na hivi na vipya katika wingi.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Vivumishi",
-      "learningOutcome": "Kuchagua sentensi yenye upatanisho sahihi wa nomino na kivumishi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Soma: Miti hutupa kivuli. Mizizi huzuia udongo kusombwa na maji. Kichwa kizuri ni kipi?",
-      "options": ["Umuhimu wa Miti", "Rangi za Sare", "Safari ya Sokoni", "Siku ya Michezo"],
-      "correctAnswer": "Umuhimu wa Miti",
-      "explanation": "Kifungu kinaeleza faida za miti.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kichwa cha Kifungu",
-      "learningOutcome": "Kuchagua kichwa kinachofaa kwa ujumbe mfupi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Maneno mara kwa mara yana maana gani?",
-      "options": ["mara nyingi", "mara moja tu", "mahali mbali", "kwa siri"],
-      "correctAnswer": "mara nyingi",
-      "explanation": "Mara kwa mara humaanisha jambo hutokea tena na tena.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Semi na Maneno",
-      "learningOutcome": "Kueleza maana ya semi rahisi zinazotumika kila siku.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani inaonyesha sababu?",
-      "options": ["Nilichelewa kwa sababu mvua ilinyesha.", "Nilichelewa jana.", "Mvua ilinyesha sana.", "Nilifika shuleni."],
-      "correctAnswer": "Nilichelewa kwa sababu mvua ilinyesha.",
-      "explanation": "Kwa sababu huonyesha chanzo cha tukio.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuunganisha Mawazo",
-      "learningOutcome": "Kutumia maneno yanayoonyesha sababu katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Katika sentensi Kwa sababu mvua ilinyesha, mchezo uliahirishwa, sababu ni ipi?",
-      "options": ["mvua ilinyesha", "mchezo ulianza", "wanafunzi walicheza", "uwanja ulikuwa mkubwa"],
-      "correctAnswer": "mvua ilinyesha",
-      "explanation": "Mvua ndiyo iliyosababisha mchezo kuahirishwa.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Sababu na Matokeo",
-      "learningOutcome": "Kutambua sababu na matokeo katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Aya inahusu maktaba ya shule. Ni sentensi gani inafaa kuongezwa?",
-      "options": ["Vitabu hupangwa vizuri kwenye rafu.", "Samaki huogelea mtoni.", "Mpira ulipasuka uwanjani.", "Mkulima alipalilia mahindi."],
-      "correctAnswer": "Vitabu hupangwa vizuri kwenye rafu.",
-      "explanation": "Sentensi hii inahusiana na maktaba na vitabu.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mshikamano wa Aya",
-      "learningOutcome": "Kuchagua sentensi inayolingana na mada ya aya.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Methali Akili ni mali hutufunza nini?",
-      "options": ["maarifa ni muhimu", "fedha pekee hutosha", "kulala ni kazi", "nguo ni chakula"],
-      "correctAnswer": "maarifa ni muhimu",
-      "explanation": "Methali hii inaonyesha thamani ya kufikiri na kutumia maarifa.",
-      "difficulty": 4,
-      "strandTitle": "Fasihi Simulizi",
-      "subStrandTitle": "Methali",
-      "learningOutcome": "Kueleza ujumbe wa methali zinazofahamika.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Ni mpangilio gani unaofaa kwa maandalizi ya kwenda shule asubuhi?",
-      "options": ["kuamka, kuoga, kuvaa sare, kwenda shule", "kwenda shule, kuamka, kuvaa sare, kuoga", "kuoga, kwenda shule, kuamka, kuvaa sare", "kuvaa sare, kulala, kuamka, kwenda shule"],
-      "correctAnswer": "kuamka, kuoga, kuvaa sare, kwenda shule",
-      "explanation": "Mpangilio huu unaonyesha matukio yanayofuatana kwa njia ya kawaida.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mpangilio wa Matukio",
-      "learningOutcome": "Kupanga matukio ya kila siku kwa mfuatano unaoeleweka.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Chagua sentensi inayotumia usemi halisi kwa uakifishaji unaofaa.",
-      "options": ["Mama alisema, 'Funga mlango.'", "Mama alisema Funga mlango.", "Mama, alisema 'Funga mlango'", "Mama alisema 'Funga mlango'."],
-      "correctAnswer": "Mama alisema, 'Funga mlango.'",
-      "explanation": "Usemi halisi hutenganishwa kwa mkato na kuwekwa ndani ya alama za kunukuu.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Usemi Halisi",
-      "learningOutcome": "Kutambua uakifishaji wa usemi halisi katika sentensi fupi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Ni salamu gani inafaa kwa mtoto kumwamkia shangazi yake kwa heshima?",
-      "options": ["Shikamoo, shangazi.", "Sema haraka.", "Nipe kalamu.", "Kwaheri, chakula."],
-      "correctAnswer": "Shikamoo, shangazi.",
-      "explanation": "Shikamoo ni salamu ya heshima kwa mtu mzima.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maamkizi ya Heshima",
-      "learningOutcome": "Kuchagua salamu inayofaa kulingana na mtu anayezungumziwa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Kamilisha sentensi: Wanafunzi ___ wanasoma kimya.",
-      "options": ["hawa", "huyu", "hiki", "hili"],
-      "correctAnswer": "hawa",
-      "explanation": "Wanafunzi ni wingi wa watu, hivyo kiwakilishi kinachofaa ni hawa.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viwakilishi Vionyeshi",
-      "learningOutcome": "Kutumia viwakilishi vionyeshi vinavyolingana na nomino.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Mwanafunzi anasema Nimepoteza kalamu yangu. Ni jibu gani linafaa?",
-      "options": ["Pole, tutaitafuta pamoja.", "Hongera kwa kupoteza.", "Tupa vitabu vyote.", "Usiseme tena."],
-      "correctAnswer": "Pole, tutaitafuta pamoja.",
-      "explanation": "Jibu hili linaonyesha huruma na msaada.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mazungumzo ya Kijamii",
-      "learningOutcome": "Kuchagua majibu yanayofaa katika mazungumzo ya kila siku.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Katika sentensi Nyumba nyeupe na kubwa imejengwa, vivumishi ni vipi?",
-      "options": ["nyeupe na kubwa", "nyumba na imejengwa", "na na kubwa", "imejengwa na nyeupe"],
-      "correctAnswer": "nyeupe na kubwa",
-      "explanation": "Nyeupe na kubwa hueleza sifa za nyumba.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vivumishi",
-      "learningOutcome": "Kutambua zaidi ya kivumishi kimoja katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Kabla ya kuandika insha fupi, jambo gani linafaa kufanywa kwanza?",
-      "options": ["kupanga mawazo", "kufuta daftari", "kufunga kitabu", "kuandika bila mada"],
-      "correctAnswer": "kupanga mawazo",
-      "explanation": "Kupanga mawazo husaidia insha kuwa na mtiririko mzuri.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuandaa Insha",
-      "learningOutcome": "Kutambua hatua rahisi za kuandaa maandishi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Alama : huitwa nini katika uakifishaji?",
-      "options": ["nukta mbili", "mkato", "alama ya kuuliza", "nukta"],
-      "correctAnswer": "nukta mbili",
-      "explanation": "Alama : huitwa nukta mbili na hutumika kutanguliza maelezo au orodha.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutambua majina ya alama za uakifishaji zinazotumika mara kwa mara.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Sauti ya kengele ililia, wanafunzi wakaingia darasani. Tunaweza kusema nini?",
-      "options": ["kipindi kilianza", "soko lilifungwa", "mvua iliisha", "chakula kiliungua"],
-      "correctAnswer": "kipindi kilianza",
-      "explanation": "Kengele na kuingia darasani huonyesha kuwa somo au kipindi kinaanza.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kudokeza Maana",
-      "learningOutcome": "Kufanya hitimisho rahisi kutokana na ujumbe mfupi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani bora ya kuanza aya kuhusu soko?",
-      "options": ["Soko letu huwa na watu wengi asubuhi.", "Kalamu yangu ni nyekundu.", "Mvua ilinyesha jana usiku.", "Niliosha kikombe kimoja."],
-      "correctAnswer": "Soko letu huwa na watu wengi asubuhi.",
-      "explanation": "Sentensi hii inatanguliza mada ya soko kwa njia wazi.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Sentensi ya Mada",
-      "learningOutcome": "Kuchagua sentensi ya mada inayofaa kuanza aya fupi.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Unganisha mawazo haya bila kurudia jina: Amina alifagia darasa. Amina alipanga viti.",
-      "options": ["Amina alifagia darasa na kupanga viti.", "Amina alifagia darasa. Amina Amina.", "Darasa alipanga Amina na viti.", "Viti vilifagia Amina darasa."],
-      "correctAnswer": "Amina alifagia darasa na kupanga viti.",
-      "explanation": "Sentensi hii inaunganisha vitendo viwili vya Amina kwa kutumia na.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuunganisha Sentensi",
-      "learningOutcome": "Kuunganisha sentensi mbili fupi kwa njia yenye maana.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Hadithi inasema mtoto aligawa maji yake na rafiki mwenye kiu. Ni swali gani linaonyesha ufahamu wa funzo?",
-      "options": ["Kwa nini ni vizuri kusaidiana?", "Kalamu ilikuwa ya rangi gani?", "Darasa lilikuwa na madirisha mangapi?", "Mchezo ulianza saa ngapi?"],
-      "correctAnswer": "Kwa nini ni vizuri kusaidiana?",
-      "explanation": "Swali hili linahusiana na funzo la kusaidiana katika hadithi.",
-      "difficulty": 5,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ufahamu wa Hadithi",
-      "learningOutcome": "Kuchagua swali linalochunguza funzo la hadithi fupi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Ni sentensi gani inaonyesha mfuatano mzuri wa matukio?",
-      "options": ["Kwanza tulipanda mbegu, kisha tukamwagilia maji.", "Kisha tulipanda kwanza mbegu maji.", "Mbegu maji kwanza kisha tulipanda.", "Tulimwagilia kisha kwanza mbegu."],
-      "correctAnswer": "Kwanza tulipanda mbegu, kisha tukamwagilia maji.",
-      "explanation": "Kwanza na kisha hupanga matukio kwa mpangilio unaoeleweka.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mtiririko wa Mawazo",
-      "learningOutcome": "Kutumia maneno ya mpangilio kuonyesha mfuatano wa matukio.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Tangazo linasema wanafunzi walete chupa ya maji siku ya michezo. Kichwa kinachofaa ni kipi?",
-      "options": ["Maandalizi ya Siku ya Michezo", "Mapishi ya Chakula cha Jioni", "Safari ya Baharini", "Mavuno ya Mahindi"],
-      "correctAnswer": "Maandalizi ya Siku ya Michezo",
-      "explanation": "Tangazo linahusu maandalizi ya siku ya michezo.",
-      "difficulty": 5,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kusoma Matangazo",
-      "learningOutcome": "Kuchagua kichwa kinacholingana na ujumbe wa tangazo.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Boresha sentensi Mtoto amefika kwa kuongeza maelezo yanayofaa.",
-      "options": ["Mtoto mwenye bidii amefika mapema shuleni.", "Mtoto amefika amefika amefika.", "Mtoto meza kalamu shuleni.", "Mtoto imefika mapema."],
-      "correctAnswer": "Mtoto mwenye bidii amefika mapema shuleni.",
-      "explanation": "Sentensi hii inaongeza sifa, wakati na mahali kwa njia sahihi.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuboresha Sentensi",
-      "learningOutcome": "Kuboresha sentensi fupi kwa kuongeza maelezo yanayofaa.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Ni mwisho gani unaofaa kwa barua ya kumwalika rafiki kupanda miti?",
-      "options": ["Natumaini utakuja tushirikiane.", "Futa barua hii sasa.", "Soko limefungwa jana.", "Kalamu yangu imepotea."],
-      "correctAnswer": "Natumaini utakuja tushirikiane.",
-      "explanation": "Mwisho huu unafunga mwaliko kwa upole na kubaki kwenye mada.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Barua ya Kirafiki",
-      "learningOutcome": "Kuchagua hitimisho linalofaa kwa barua ya kirafiki.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Katika aya, jina Amina limerudiwa mara nyingi. Ni neno gani linaweza kuchukua nafasi yake?",
-      "options": ["yeye", "hicho", "hayo", "vile"],
-      "correctAnswer": "yeye",
-      "explanation": "Yeye ni kiwakilishi kinachoweza kutumika badala ya jina la mtu.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuepuka Marudio",
-      "learningOutcome": "Kutumia kiwakilishi ili kuepuka kurudia jina mara nyingi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Hadithi inasema mtoto aliokota penseli na kumrudishia mwenyewe. Funzo bora ni lipi?",
-      "options": ["Ni vizuri kuwa mwaminifu.", "Ni vizuri kuficha vitu.", "Ni vizuri kucheka rafiki.", "Ni vizuri kuchelewa darasani."],
-      "correctAnswer": "Ni vizuri kuwa mwaminifu.",
-      "explanation": "Kumrudishia mtu kitu chake huonyesha uaminifu.",
-      "difficulty": 5,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Funzo la Hadithi",
-      "learningOutcome": "Kutambua funzo linalotokana na tukio fupi la hadithi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Ni aya gani fupi ina mawazo yanayofuatana vizuri?",
-      "options": ["Tulipanda miti shuleni. Kila mwanafunzi alimwagilia mti wake. Baadaye uwanja ulionekana mzuri.", "Tulipanda miti shuleni. Samaki waliogelea baharini. Kalamu yangu ni fupi.", "Mti wangu maji. Shule nzuri alimwagilia.", "Baadaye uwanja. Kila mwanafunzi. Tulipanda."],
-      "correctAnswer": "Tulipanda miti shuleni. Kila mwanafunzi alimwagilia mti wake. Baadaye uwanja ulionekana mzuri.",
-      "explanation": "Aya hii ina sentensi zinazohusu mada moja na zinafuatana kwa mpangilio.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mshikamano wa Aya",
-      "learningOutcome": "Kuchagua aya fupi yenye mshikamano na mtiririko mzuri.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 4",
+ "subjectId": "kiswahili",
+ "subjectName": "Kiswahili",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Sauti ya kwanza katika neno kitabu ni ipi?",
+   "options": [
+    "sauti k",
+    "sauti t",
+    "sauti b",
+    "sauti u"
+   ],
+   "correctAnswer": "sauti k",
+   "explanation": "Neno kitabu huanza kwa sauti k.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Sauti na Matamshi",
+   "learningOutcome": "Kutambua sauti za mwanzo katika maneno mepesi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Ni neno gani linaanza kwa sauti m?",
+   "options": [
+    "meza",
+    "kitabu",
+    "kalamu",
+    "dawati"
+   ],
+   "correctAnswer": "meza",
+   "explanation": "Meza huanza kwa sauti m.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Sauti na Maneno",
+   "learningOutcome": "Kutambua maneno yanayoanza kwa sauti maalumu.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Neno kalamu hugawanywa katika silabi zipi?",
+   "options": [
+    "ka-la-mu",
+    "kal-a-mu",
+    "ka-lam-u",
+    "kala-mu-a"
+   ],
+   "correctAnswer": "ka-la-mu",
+   "explanation": "Kalamu lina silabi tatu: ka, la na mu.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Silabi",
+   "learningOutcome": "Kutamka na kugawa maneno mepesi katika silabi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Wingi wa neno mtoto ni upi?",
+   "options": [
+    "watoto",
+    "mitoto",
+    "kitoto",
+    "mtotoo"
+   ],
+   "correctAnswer": "watoto",
+   "explanation": "Mtoto ni umoja, na wingi wake ni watoto.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Umoja na Wingi",
+   "learningOutcome": "Kutambua umoja na wingi wa majina ya kawaida.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Ni salamu gani hutumiwa asubuhi?",
+   "options": [
+    "Habari za asubuhi",
+    "Usiku mwema",
+    "Kwaheri ya jioni",
+    "Lala salama"
+   ],
+   "correctAnswer": "Habari za asubuhi",
+   "explanation": "Habari za asubuhi hutumiwa mtu anapokutana na mwenzake asubuhi.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maamkizi",
+   "learningOutcome": "Kutumia salamu zinazofaa katika nyakati mbalimbali.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Ni alama gani hutumika mwishoni mwa swali?",
+   "options": [
+    "alama ya kuuliza (?)",
+    "nukta (.)",
+    "mkato (,)",
+    "alama ya mshangao (!)"
+   ],
+   "correctAnswer": "alama ya kuuliza (?)",
+   "explanation": "Swali huishia kwa alama ya kuuliza.",
+   "difficulty": 1,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutambua alama za uakifishaji katika sentensi fupi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Ni neno gani la heshima hutumiwa unapoomba kitu?",
+   "options": [
+    "tafadhali",
+    "haraka",
+    "basi",
+    "lakini"
+   ],
+   "correctAnswer": "tafadhali",
+   "explanation": "Tafadhali huonyesha heshima wakati wa kuomba msaada au kitu.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Lugha ya Adabu",
+   "learningOutcome": "Kutumia maneno ya adabu katika mazungumzo ya kila siku.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Kitenzi katika sentensi Juma anakimbia uwanjani ni kipi?",
+   "options": [
+    "anakimbia",
+    "Juma",
+    "uwanjani",
+    "sentensi"
+   ],
+   "correctAnswer": "anakimbia",
+   "explanation": "Anakimbia ni neno linaloonyesha kitendo kinachofanywa.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vitenzi",
+   "learningOutcome": "Kutambua vitenzi katika sentensi rahisi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Ni nomino gani inataja mtu?",
+   "options": [
+    "mwalimu",
+    "meza",
+    "kalamu",
+    "mlango"
+   ],
+   "correctAnswer": "mwalimu",
+   "explanation": "Mwalimu ni jina la mtu anayefundisha.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nomino",
+   "learningOutcome": "Kutambua nomino za watu na vitu katika mazingira ya shule.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Kinyume cha neno kubwa ni kipi?",
+   "options": [
+    "ndogo",
+    "refu",
+    "pana",
+    "nzito"
+   ],
+   "correctAnswer": "ndogo",
+   "explanation": "Ndogo ni kinyume cha kubwa.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati",
+   "learningOutcome": "Kutambua visawe na vinyume vya maneno ya kawaida.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Siku inayofuata Jumatatu ni ipi?",
+   "options": [
+    "Jumanne",
+    "Jumapili",
+    "Alhamisi",
+    "Jumamosi"
+   ],
+   "correctAnswer": "Jumanne",
+   "explanation": "Jumanne huja baada ya Jumatatu katika siku za wiki.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Wakati",
+   "learningOutcome": "Kutumia msamiati wa siku na wakati katika mawasiliano.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Ni mnyama gani wa nyumbani hutoa maziwa?",
+   "options": [
+    "ng'ombe",
+    "kuku",
+    "paka",
+    "mbwa"
+   ],
+   "correctAnswer": "ng'ombe",
+   "explanation": "Ng'ombe hufugwa nyumbani na anaweza kutoa maziwa.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Mazingira",
+   "learningOutcome": "Kutumia majina ya wanyama wa nyumbani katika sentensi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Ni neno gani lina maana ya kutokuwa mchafu?",
+   "options": [
+    "safi",
+    "chafu",
+    "kavu",
+    "tupu"
+   ],
+   "correctAnswer": "safi",
+   "explanation": "Safi humaanisha kitu kisicho na uchafu.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati",
+   "learningOutcome": "Kueleza maana ya maneno ya kawaida yanayotumika nyumbani na shuleni.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Herufi ya mwisho katika neno dada ni ipi?",
+   "options": [
+    "herufi a",
+    "herufi d",
+    "herufi m",
+    "herufi k"
+   ],
+   "correctAnswer": "herufi a",
+   "explanation": "Neno dada huishia kwa herufi a.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Herufi na Sauti",
+   "learningOutcome": "Kutambua herufi za mwanzo na mwisho katika maneno rahisi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani inaonyesha heshima?",
+   "options": [
+    "Tafadhali nifungulie mlango.",
+    "Fungua mlango sasa!",
+    "Nipe hicho kitu.",
+    "Ondoka hapo."
+   ],
+   "correctAnswer": "Tafadhali nifungulie mlango.",
+   "explanation": "Sentensi hii hutumia neno tafadhali kuonyesha heshima.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Lugha ya Adabu",
+   "learningOutcome": "Kuchagua lugha ya heshima katika mazungumzo ya kila siku.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Kamilisha sentensi: Mama ___ chakula jikoni.",
+   "options": [
+    "anapika",
+    "analala",
+    "anaruka",
+    "anasoma"
+   ],
+   "correctAnswer": "anapika",
+   "explanation": "Chakula hupikwa jikoni, hivyo kitenzi kinachofaa ni anapika.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vitenzi",
+   "learningOutcome": "Kutumia vitenzi vinavyofaa katika sentensi rahisi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Wingi wa neno kikapu ni upi?",
+   "options": [
+    "vikapu",
+    "wakapu",
+    "mikapu",
+    "makikapu"
+   ],
+   "correctAnswer": "vikapu",
+   "explanation": "Majina mengi ya ngeli ya KI-VI hubadilika kutoka ki- hadi vi- katika wingi.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya KI-VI",
+   "learningOutcome": "Kubadilisha majina mepesi kutoka umoja kwenda wingi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Kinyume cha neno haraka ni kipi?",
+   "options": [
+    "polepole",
+    "karibu",
+    "sana",
+    "vizuri"
+   ],
+   "correctAnswer": "polepole",
+   "explanation": "Polepole huonyesha mwendo usio wa haraka.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Vinyume",
+   "learningOutcome": "Kutumia vinyume vya maneno katika mawasiliano.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Ni alama gani hutumika kuonyesha mshangao?",
+   "options": [
+    "alama ya mshangao (!)",
+    "alama ya kuuliza (?)",
+    "nukta (.)",
+    "mkato (,)"
+   ],
+   "correctAnswer": "alama ya mshangao (!)",
+   "explanation": "Alama ya mshangao hutumika kuonyesha hisia kama furaha, hofu au mshangao.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutumia alama rahisi za uakifishaji katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Mtu mdogo akisema Shikamoo kwa mtu mzima, jibu linalofaa ni lipi?",
+   "options": [
+    "Marahaba",
+    "Kwaheri",
+    "Samahani",
+    "Karibu sana"
+   ],
+   "correctAnswer": "Marahaba",
+   "explanation": "Marahaba ni jibu la salamu Shikamoo.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maamkizi na Heshima",
+   "learningOutcome": "Kutumia majibu yanayofaa katika maamkizi ya heshima.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Soma sentensi: Neema alichota maji kisimani. Neema alifanya nini?",
+   "options": [
+    "alichota maji",
+    "alipanda mti",
+    "alifagia darasa",
+    "alipika ugali"
+   ],
+   "correctAnswer": "alichota maji",
+   "explanation": "Sentensi inasema Neema alichota maji kisimani.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ufahamu wa Sentensi",
+   "learningOutcome": "Kujibu maswali rahisi kutokana na sentensi fupi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Sentensi Funga mlango inaonyesha nini?",
+   "options": [
+    "agizo",
+    "salamu",
+    "swali",
+    "wimbo"
+   ],
+   "correctAnswer": "agizo",
+   "explanation": "Funga mlango humwelekeza mtu kufanya jambo fulani.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maagizo",
+   "learningOutcome": "Kutambua maagizo mafupi katika mazungumzo.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Ni neno gani lina silabi mbili?",
+   "options": [
+    "meza",
+    "kalamu",
+    "darasa",
+    "mwalimu"
+   ],
+   "correctAnswer": "meza",
+   "explanation": "Meza lina silabi mbili: me na za.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Silabi",
+   "learningOutcome": "Kuhesabu silabi katika maneno yanayofahamika.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Unaposema samahani baada ya kukosea, unaonyesha nini?",
+   "options": [
+    "kuomba msamaha",
+    "kuagana",
+    "kuuliza bei",
+    "kutoa amri"
+   ],
+   "correctAnswer": "kuomba msamaha",
+   "explanation": "Samahani hutumiwa kuomba msamaha kwa kosa au usumbufu.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Lugha ya Adabu",
+   "learningOutcome": "Kutumia maneno ya adabu katika hali mbalimbali.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani ni swali?",
+   "options": [
+    "Utaenda shuleni lini?",
+    "Ninaenda shuleni.",
+    "Funga mlango.",
+    "Asante sana."
+   ],
+   "correctAnswer": "Utaenda shuleni lini?",
+   "explanation": "Sentensi hii inauliza jambo na ina alama ya kuuliza.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Aina za Sentensi",
+   "learningOutcome": "Kutofautisha sentensi za taarifa, swali na agizo.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Ni neno gani liko katika wingi?",
+   "options": [
+    "vitabu",
+    "kitabu",
+    "mtoto",
+    "kiti"
+   ],
+   "correctAnswer": "vitabu",
+   "explanation": "Vitabu hutaja zaidi ya kitabu kimoja.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Umoja na Wingi",
+   "learningOutcome": "Kutambua maneno ya umoja na wingi katika orodha.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Kivumishi katika sentensi Mtoto mzuri amefika ni kipi?",
+   "options": [
+    "mzuri",
+    "mtoto",
+    "amefika",
+    "sentensi"
+   ],
+   "correctAnswer": "mzuri",
+   "explanation": "Mzuri hueleza jinsi mtoto alivyo.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vivumishi",
+   "learningOutcome": "Kutambua vivumishi katika sentensi rahisi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Ni kitenzi gani kinaonyesha wakati uliopita?",
+   "options": [
+    "alisoma",
+    "anasoma",
+    "atasoma",
+    "asome"
+   ],
+   "correctAnswer": "alisoma",
+   "explanation": "Kiambishi li huonyesha tendo lililofanyika zamani.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nyakati",
+   "learningOutcome": "Kutambua vitenzi vya wakati uliopita, uliopo na ujao.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Ni neno gani linaonyesha mahali?",
+   "options": [
+    "sokoni",
+    "kitabu",
+    "mzuri",
+    "kimbia"
+   ],
+   "correctAnswer": "sokoni",
+   "explanation": "Sokoni ni mahali ambapo watu huuza na kununua bidhaa.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Mahali",
+   "learningOutcome": "Kutambua maneno yanayoonyesha mahali katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Kamilisha methali: Haraka haraka haina ___.",
+   "options": [
+    "baraka",
+    "chakula",
+    "kelele",
+    "mvua"
+   ],
+   "correctAnswer": "baraka",
+   "explanation": "Methali hii hutukumbusha kufanya mambo kwa utulivu na umakini.",
+   "difficulty": 2,
+   "strandTitle": "Fasihi Simulizi",
+   "subStrandTitle": "Methali",
+   "learningOutcome": "Kukamilisha na kueleza methali rahisi zinazotumika kila siku.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Ni kitenzi gani kinaonyesha wakati uliopo?",
+   "options": [
+    "anaimba",
+    "aliimba",
+    "ataimba",
+    "kuimba"
+   ],
+   "correctAnswer": "anaimba",
+   "explanation": "Kiambishi na huonyesha tendo linalofanyika sasa.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nyakati",
+   "learningOutcome": "Kutumia viambishi vya wakati katika vitenzi rahisi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Unapopewa zawadi, neno gani la adabu linafaa kusema?",
+   "options": [
+    "Asante",
+    "Ondoka",
+    "Haraka",
+    "Ngoja"
+   ],
+   "correctAnswer": "Asante",
+   "explanation": "Asante hutumiwa kuonyesha shukrani.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Lugha ya Adabu",
+   "learningOutcome": "Kutumia maneno ya shukrani katika mawasiliano.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Sentensi Tupige makofi inaonyesha nini?",
+   "options": [
+    "ombi la kufanya jambo pamoja",
+    "swali la mahali",
+    "maelezo ya rangi",
+    "jina la mtu"
+   ],
+   "correctAnswer": "ombi la kufanya jambo pamoja",
+   "explanation": "Tupige makofi humwalika au humwomba mtu kushiriki tendo pamoja.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maagizo na Maombi",
+   "learningOutcome": "Kutambua maana ya maombi na maagizo katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi iliyokamilika vizuri.",
+   "options": [
+    "Mwalimu anaandika ubaoni.",
+    "Mwalimu ubaoni.",
+    "Anaandika.",
+    "Ubaoni mwalimu"
+   ],
+   "correctAnswer": "Mwalimu anaandika ubaoni.",
+   "explanation": "Sentensi hii ina mtendaji, kitendo na mahali pa kitendo.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Muundo wa Sentensi",
+   "learningOutcome": "Kuunda sentensi rahisi zenye maana kamili.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Ni kiulizi gani hutumiwa kuuliza mahali?",
+   "options": [
+    "wapi",
+    "nani",
+    "lini",
+    "ngapi"
+   ],
+   "correctAnswer": "wapi",
+   "explanation": "Wapi hutumiwa kuuliza mahali kitu au mtu alipo.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viulizi",
+   "learningOutcome": "Kutumia viulizi vinavyofaa katika maswali rahisi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Neno yeye ni aina gani ya neno?",
+   "options": [
+    "kiwakilishi",
+    "kivumishi",
+    "kielezi",
+    "kihisishi"
+   ],
+   "correctAnswer": "kiwakilishi",
+   "explanation": "Yeye hutumika badala ya jina la mtu.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viwakilishi",
+   "learningOutcome": "Kutambua viwakilishi vya nafsi katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Kichwa cha habari katika kifungu husaidia msomaji kujua nini?",
+   "options": [
+    "wazo kuu",
+    "idadi ya kurasa",
+    "rangi ya kitabu",
+    "jina la kalamu"
+   ],
+   "correctAnswer": "wazo kuu",
+   "explanation": "Kichwa cha habari hutoa dokezo la jambo kuu linalozungumziwa.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Mbinu za Kusoma",
+   "learningOutcome": "Kutumia kichwa cha habari kutabiri ujumbe wa kifungu.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Ni neno gani linataja mtu wa familia?",
+   "options": [
+    "shangazi",
+    "kijiko",
+    "dirisha",
+    "mkoba"
+   ],
+   "correctAnswer": "shangazi",
+   "explanation": "Shangazi ni dada ya baba au mtu wa ukoo wa familia.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Familia",
+   "learningOutcome": "Kutumia msamiati wa familia katika mazungumzo na maandishi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Neno nyekundu hutaja nini?",
+   "options": [
+    "rangi",
+    "siku",
+    "mahali",
+    "tendo"
+   ],
+   "correctAnswer": "rangi",
+   "explanation": "Nyekundu ni jina la rangi.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Rangi",
+   "learningOutcome": "Kutambua maneno yanayotaja rangi katika mazingira.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani inaonyesha wakati ujao?",
+   "options": [
+    "Kesho tutapanda miti.",
+    "Jana tulipanda miti.",
+    "Sasa tunapanda miti.",
+    "Miti imepandwa."
+   ],
+   "correctAnswer": "Kesho tutapanda miti.",
+   "explanation": "Kesho na kiambishi ta huonyesha tendo litakalofanyika baadaye.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nyakati",
+   "learningOutcome": "Kutofautisha sentensi za wakati uliopita, uliopo na ujao.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi iliyoandikwa kwa herufi kubwa na nukta vizuri.",
+   "options": [
+    "Leo ni Jumatano.",
+    "leo ni Jumatano,",
+    "Leo ni Jumatano",
+    "leo ni jumatano!"
+   ],
+   "correctAnswer": "Leo ni Jumatano.",
+   "explanation": "Sentensi huanza kwa herufi kubwa na kuishia kwa nukta.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutumia herufi kubwa na nukta katika sentensi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani ina kivumishi?",
+   "options": [
+    "Kikapu kikubwa kimejaa maembe.",
+    "Juma anakimbia.",
+    "Saa ililia.",
+    "Mwalimu alifika."
+   ],
+   "correctAnswer": "Kikapu kikubwa kimejaa maembe.",
+   "explanation": "Kikubwa ni kivumishi kinachoeleza kikapu.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vivumishi",
+   "learningOutcome": "Kutambua vivumishi na kazi yake katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Wingi wa sentensi Mtu mwema husaidia ni upi?",
+   "options": [
+    "Watu wema husaidia.",
+    "Watu mwema husaidia.",
+    "Mtu wema husaidia.",
+    "Watu mema husaidia."
+   ],
+   "correctAnswer": "Watu wema husaidia.",
+   "explanation": "Mtu hubadilika kuwa watu, na mwema hubadilika kuwa wema.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Umoja na Wingi",
+   "learningOutcome": "Kubadilisha sentensi fupi kutoka umoja kwenda wingi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Kamilisha sentensi: Asha ___ barua jana.",
+   "options": [
+    "aliandika",
+    "anaandika",
+    "ataandika",
+    "andika"
+   ],
+   "correctAnswer": "aliandika",
+   "explanation": "Jana huonyesha wakati uliopita, kwa hiyo aliandika linafaa.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nyakati",
+   "learningOutcome": "Kuchagua kitenzi kinacholingana na wakati uliotajwa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi yenye upatanisho sahihi.",
+   "options": [
+    "Kiti kimevunjika.",
+    "Kiti zimevunjika.",
+    "Kiti wamevunjika.",
+    "Kiti imevunjika."
+   ],
+   "correctAnswer": "Kiti kimevunjika.",
+   "explanation": "Kiti huendana na kiambishi ki katika kimevunjika.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Kisarufi",
+   "learningOutcome": "Kutumia upatanisho sahihi kati ya nomino na kitenzi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Neno na katika sentensi Amina na Otieno wanasoma lina kazi gani?",
+   "options": [
+    "kuunganisha majina",
+    "kuonyesha wakati",
+    "kuuliza swali",
+    "kutaja rangi"
+   ],
+   "correctAnswer": "kuunganisha majina",
+   "explanation": "Na huunganisha majina Amina na Otieno.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viunganishi",
+   "learningOutcome": "Kutambua maneno yanayounganisha mawazo au majina.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Kamilisha sentensi: Watoto wawili ___ uwanjani.",
+   "options": [
+    "wanacheza",
+    "anacheza",
+    "kinacheza",
+    "linacheza"
+   ],
+   "correctAnswer": "wanacheza",
+   "explanation": "Watoto ni wingi wa watu, hivyo kitenzi kinaanza kwa wa.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Kisarufi",
+   "learningOutcome": "Kuchagua kitenzi kinacholingana na nomino ya wingi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Barua ya kirafiki huanza kwa sehemu gani mara nyingi?",
+   "options": [
+    "anwani ya mwandishi",
+    "orodha ya vyakula",
+    "alama ya kuuliza",
+    "jina la mnyama"
+   ],
+   "correctAnswer": "anwani ya mwandishi",
+   "explanation": "Barua ya kirafiki huanza kwa anwani ya mwandishi kabla ya tarehe na salamu.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Barua ya Kirafiki",
+   "learningOutcome": "Kutambua sehemu kuu za barua ya kirafiki.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Maneno kwanza, pili na mwisho hutumika kuonyesha nini?",
+   "options": [
+    "mpangilio wa matukio",
+    "majina ya watu",
+    "rangi za vitu",
+    "idadi ya silabi"
+   ],
+   "correctAnswer": "mpangilio wa matukio",
+   "explanation": "Maneno hayo husaidia kupanga matukio kwa mfuatano.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mpangilio wa Mawazo",
+   "learningOutcome": "Kutumia maneno ya mpangilio kuandika matukio kwa utaratibu.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani ni ombi la heshima?",
+   "options": [
+    "Naomba unisaidie kufuta ubao.",
+    "Futa ubao mara moja.",
+    "Ubao uko mbele.",
+    "Nimeona ubao."
+   ],
+   "correctAnswer": "Naomba unisaidie kufuta ubao.",
+   "explanation": "Naomba huifanya sentensi kuwa ombi la heshima.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Lugha ya Adabu",
+   "learningOutcome": "Kutunga na kuchagua maombi ya heshima katika mazingira ya shule.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Katika sentensi Mkulima analima shambani, neno mkulima linaonyesha nini?",
+   "options": [
+    "mtendaji wa kitendo",
+    "kitendo",
+    "mahali",
+    "wakati"
+   ],
+   "correctAnswer": "mtendaji wa kitendo",
+   "explanation": "Mkulima ndiye anayefanya kitendo cha kulima.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Sehemu za Sentensi",
+   "learningOutcome": "Kutambua mtendaji, kitendo na mahali katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Katika sentensi Ndizi zimeiva, neno zimeiva linaonyesha nini?",
+   "options": [
+    "hali ya ndizi",
+    "jina la mtu",
+    "rangi ya kalamu",
+    "mahali pa shule"
+   ],
+   "correctAnswer": "hali ya ndizi",
+   "explanation": "Zimeiva linaeleza hali ya ndizi.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vitenzi na Hali",
+   "learningOutcome": "Kutambua neno linaloonyesha hali au kitendo katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Chagua jozi sahihi ya umoja na wingi.",
+   "options": [
+    "mwanafunzi - wanafunzi",
+    "kitabu - watoto",
+    "mtoto - vitoto",
+    "kikapu - mikapu"
+   ],
+   "correctAnswer": "mwanafunzi - wanafunzi",
+   "explanation": "Mwanafunzi hubadilika kuwa wanafunzi katika wingi.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Umoja na Wingi",
+   "learningOutcome": "Kulinganisha jozi sahihi za umoja na wingi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Neno chakula lina silabi ngapi?",
+   "options": [
+    "silabi tatu",
+    "silabi mbili",
+    "silabi nne",
+    "silabi moja"
+   ],
+   "correctAnswer": "silabi tatu",
+   "explanation": "Chakula hugawanywa kuwa cha-ku-la, silabi tatu.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Silabi",
+   "learningOutcome": "Kugawa maneno marefu kidogo katika silabi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Sentensi Mtoto wamefika inapaswa kusahihishwa vipi?",
+   "options": [
+    "Mtoto amefika.",
+    "Mtoto zimefika.",
+    "Mtoto wamefika.",
+    "Mtoto limefika."
+   ],
+   "correctAnswer": "Mtoto amefika.",
+   "explanation": "Mtoto ni umoja, hivyo kitenzi kinahitaji kiambishi a.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Kisarufi",
+   "learningOutcome": "Kusahihisha makosa rahisi ya upatanisho katika sentensi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Leo kunanyesha mvua. Ni tendo gani linafaa kabla ya kutoka nje?",
+   "options": [
+    "kubeba mwavuli",
+    "kuosha ubao",
+    "kupaka viatu rangi",
+    "kufungua vitabu vyote"
+   ],
+   "correctAnswer": "kubeba mwavuli",
+   "explanation": "Mwavuli husaidia kujikinga na mvua.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ufahamu wa Hali",
+   "learningOutcome": "Kufanya uamuzi rahisi kutokana na ujumbe uliosomwa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Ni sehemu gani inaweza kufunga barua ya kirafiki?",
+   "options": [
+    "Rafiki yako, Amina.",
+    "Habari za saa hizi?",
+    "Soko la kijiji.",
+    "Nukta na mkato."
+   ],
+   "correctAnswer": "Rafiki yako, Amina.",
+   "explanation": "Barua ya kirafiki inaweza kufungwa kwa maneno ya ukaribu na jina la mwandishi.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Barua ya Kirafiki",
+   "learningOutcome": "Kutambua mwisho unaofaa wa barua ya kirafiki.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Ni neno gani lina maana karibu na furaha?",
+   "options": [
+    "shangwe",
+    "huzuni",
+    "hasira",
+    "usingizi"
+   ],
+   "correctAnswer": "shangwe",
+   "explanation": "Shangwe ni hali ya furaha au kusherehekea.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Visawe",
+   "learningOutcome": "Kutambua maneno yenye maana zinazokaribiana.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Kinyume cha neno nene ni kipi?",
+   "options": [
+    "nyembamba",
+    "fupi",
+    "chache",
+    "baridi"
+   ],
+   "correctAnswer": "nyembamba",
+   "explanation": "Nyembamba ni kinyume cha nene.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Vinyume",
+   "learningOutcome": "Kutumia vinyume vya maneno katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Maneno kamba, kiti na kalamu yanaanza kwa sauti gani?",
+   "options": [
+    "sauti k",
+    "sauti m",
+    "sauti t",
+    "sauti p"
+   ],
+   "correctAnswer": "sauti k",
+   "explanation": "Maneno yote matatu huanza kwa sauti k.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Sauti Zinazofanana",
+   "learningOutcome": "Kutambua sauti inayofanana katika kundi la maneno.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Tangazo linasema Usitupe taka hapa. Lengo la ujumbe huu ni lipi?",
+   "options": [
+    "kuweka mazingira safi",
+    "kuongeza taka",
+    "kucheza mpira",
+    "kununua vitabu"
+   ],
+   "correctAnswer": "kuweka mazingira safi",
+   "explanation": "Kutotupa taka ovyo husaidia mazingira kubaki safi.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kusoma Matangazo",
+   "learningOutcome": "Kuelewa ujumbe mfupi katika tangazo la mazingira.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi yenye upatanisho sahihi wa neno vikombe.",
+   "options": [
+    "Vikombe vimevunjika.",
+    "Vikombe kimevunjika.",
+    "Vikombe limevunjika.",
+    "Vikombe amevunjika."
+   ],
+   "correctAnswer": "Vikombe vimevunjika.",
+   "explanation": "Vikombe ni wingi wa ngeli ya KI-VI na hutumia kiambishi vi.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya KI-VI",
+   "learningOutcome": "Kutumia viambishi vinavyofaa kwa majina ya ngeli ya KI-VI.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Katika sentensi Mimi ninapenda kusoma, neno mimi ni nini?",
+   "options": [
+    "kiwakilishi nafsi",
+    "nomino ya mahali",
+    "kivumishi cha rangi",
+    "kiulizi"
+   ],
+   "correctAnswer": "kiwakilishi nafsi",
+   "explanation": "Mimi hutumiwa badala ya jina la msemaji.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viwakilishi Nafsi",
+   "learningOutcome": "Kutambua viwakilishi nafsi katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi inayotumia mkato vizuri katika orodha.",
+   "options": [
+    "Nilinunua maembe, ndizi na machungwa.",
+    "Nilinunua, maembe ndizi na machungwa.",
+    "Nilinunua maembe ndizi, na machungwa.",
+    "Nilinunua maembe ndizi na, machungwa."
+   ],
+   "correctAnswer": "Nilinunua maembe, ndizi na machungwa.",
+   "explanation": "Mkato hutenganisha vitu katika orodha.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutumia mkato kutenganisha maneno katika orodha fupi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Rafiki yako ana huzuni kwa kupoteza penseli. Ni maneno gani yanafaa?",
+   "options": [
+    "Pole, nitakusaidia kuitafuta.",
+    "Cheka kwa sauti kubwa.",
+    "Ondoka haraka.",
+    "Usisome tena."
+   ],
+   "correctAnswer": "Pole, nitakusaidia kuitafuta.",
+   "explanation": "Maneno haya yanaonyesha huruma na msaada.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mazungumzo ya Kijamii",
+   "learningOutcome": "Kuchagua lugha inayofaa katika hali za kijamii.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Kichwa cha hadithi hueleza nini kwa kifupi?",
+   "options": [
+    "jambo kuu la hadithi",
+    "idadi ya madawati",
+    "bei ya kitabu",
+    "rangi ya sare"
+   ],
+   "correctAnswer": "jambo kuu la hadithi",
+   "explanation": "Kichwa hutoa mwanga kuhusu hadithi itakayohusu nini.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Hadithi Fupi",
+   "learningOutcome": "Kutambua maana ya kichwa cha hadithi kabla ya kusoma.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Kamilisha sentensi: Vitabu ___ vipo mezani.",
+   "options": [
+    "vipya",
+    "kipya",
+    "mpya",
+    "mapya"
+   ],
+   "correctAnswer": "vipya",
+   "explanation": "Vitabu huendana na kivumishi vipya.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Vivumishi",
+   "learningOutcome": "Kutumia kivumishi kinacholingana na nomino ya wingi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Alipofika nyumbani, aliosha mikono kabla ya kula. Kwa nini alifanya hivyo?",
+   "options": [
+    "kudumisha usafi",
+    "kuharibu chakula",
+    "kuchelewa shule",
+    "kupoteza maji"
+   ],
+   "correctAnswer": "kudumisha usafi",
+   "explanation": "Kuosha mikono kabla ya kula ni tabia ya usafi.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ufahamu wa Sentensi",
+   "learningOutcome": "Kutoa sababu rahisi kutokana na sentensi iliyosomwa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Maneno jana, leo na kesho ni maneno ya nini?",
+   "options": [
+    "wakati",
+    "rangi",
+    "familia",
+    "chakula"
+   ],
+   "correctAnswer": "wakati",
+   "explanation": "Jana, leo na kesho hutaja wakati.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Wakati",
+   "learningOutcome": "Kutambua maneno yanayoonyesha wakati katika mazungumzo.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani ina neno linaloonyesha mahali?",
+   "options": [
+    "Tutaenda sokoni jioni.",
+    "Mtoto anacheka.",
+    "Kalamu ni mpya.",
+    "Supu ni moto."
+   ],
+   "correctAnswer": "Tutaenda sokoni jioni.",
+   "explanation": "Sokoni ni neno linaloonyesha mahali pa kwenda.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati wa Mahali",
+   "learningOutcome": "Kutambua maneno ya mahali ndani ya sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Soma: Wanafunzi walipanda miti shuleni. Walimwagilia maji kila siku. Muhtasari mzuri ni upi?",
+   "options": [
+    "Wanafunzi walitunza miti shuleni.",
+    "Wanafunzi walipika chakula.",
+    "Wanafunzi walichora ukutani.",
+    "Wanafunzi walifunga duka."
+   ],
+   "correctAnswer": "Wanafunzi walitunza miti shuleni.",
+   "explanation": "Sentensi zote mbili zinahusu kupanda na kutunza miti.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ufahamu na Muhtasari",
+   "learningOutcome": "Kuchagua muhtasari unaolingana na ujumbe mfupi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Methali Umoja ni nguvu, utengano ni udhaifu hutufunza nini?",
+   "options": [
+    "kushirikiana huleta mafanikio",
+    "kukimbia haraka ni vizuri",
+    "kulala sana ni afya",
+    "kununua vitu ni lazima"
+   ],
+   "correctAnswer": "kushirikiana huleta mafanikio",
+   "explanation": "Methali hii inaonyesha kuwa watu wakifanya kazi pamoja hupata nguvu zaidi.",
+   "difficulty": 4,
+   "strandTitle": "Fasihi Simulizi",
+   "subStrandTitle": "Methali",
+   "learningOutcome": "Kueleza funzo la methali rahisi katika maisha ya kila siku.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Kamilisha aya: Niliosha mikono. ___ nilikula chakula.",
+   "options": [
+    "Baada ya hapo",
+    "Kwa sababu gani",
+    "Ingawa jana",
+    "Bila jina"
+   ],
+   "correctAnswer": "Baada ya hapo",
+   "explanation": "Baada ya hapo huunganisha matukio yanayofuatana.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mpangilio wa Aya",
+   "learningOutcome": "Kutumia viunganishi kupanga mawazo katika aya fupi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Ni neno gani halimo katika kundi la majina ya watu?",
+   "options": [
+    "kikapu",
+    "mwalimu",
+    "daktari",
+    "mkulima"
+   ],
+   "correctAnswer": "kikapu",
+   "explanation": "Kikapu ni kitu, ilhali mengine ni majina ya watu.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nomino",
+   "learningOutcome": "Kupanga nomino kulingana na makundi ya maana.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi yenye upatanisho sahihi wa kivumishi.",
+   "options": [
+    "Vikapu hivi ni vipya.",
+    "Vikapu hiki ni kipya.",
+    "Vikapu huyu ni mpya.",
+    "Vikapu hili ni jipya."
+   ],
+   "correctAnswer": "Vikapu hivi ni vipya.",
+   "explanation": "Vikapu huendana na hivi na vipya katika wingi.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Vivumishi",
+   "learningOutcome": "Kuchagua sentensi yenye upatanisho sahihi wa nomino na kivumishi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Soma: Miti hutupa kivuli. Mizizi huzuia udongo kusombwa na maji. Kichwa kizuri ni kipi?",
+   "options": [
+    "Umuhimu wa Miti",
+    "Rangi za Sare",
+    "Safari ya Sokoni",
+    "Siku ya Michezo"
+   ],
+   "correctAnswer": "Umuhimu wa Miti",
+   "explanation": "Kifungu kinaeleza faida za miti.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kichwa cha Kifungu",
+   "learningOutcome": "Kuchagua kichwa kinachofaa kwa ujumbe mfupi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Maneno mara kwa mara yana maana gani?",
+   "options": [
+    "mara nyingi",
+    "mara moja tu",
+    "mahali mbali",
+    "kwa siri"
+   ],
+   "correctAnswer": "mara nyingi",
+   "explanation": "Mara kwa mara humaanisha jambo hutokea tena na tena.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Semi na Maneno",
+   "learningOutcome": "Kueleza maana ya semi rahisi zinazotumika kila siku.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani inaonyesha sababu?",
+   "options": [
+    "Nilichelewa kwa sababu mvua ilinyesha.",
+    "Nilichelewa jana.",
+    "Mvua ilinyesha sana.",
+    "Nilifika shuleni."
+   ],
+   "correctAnswer": "Nilichelewa kwa sababu mvua ilinyesha.",
+   "explanation": "Kwa sababu huonyesha chanzo cha tukio.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuunganisha Mawazo",
+   "learningOutcome": "Kutumia maneno yanayoonyesha sababu katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Katika sentensi Kwa sababu mvua ilinyesha, mchezo uliahirishwa, sababu ni ipi?",
+   "options": [
+    "mvua ilinyesha",
+    "mchezo ulianza",
+    "wanafunzi walicheza",
+    "uwanja ulikuwa mkubwa"
+   ],
+   "correctAnswer": "mvua ilinyesha",
+   "explanation": "Mvua ndiyo iliyosababisha mchezo kuahirishwa.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Sababu na Matokeo",
+   "learningOutcome": "Kutambua sababu na matokeo katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Aya inahusu maktaba ya shule. Ni sentensi gani inafaa kuongezwa?",
+   "options": [
+    "Vitabu hupangwa vizuri kwenye rafu.",
+    "Samaki huogelea mtoni.",
+    "Mpira ulipasuka uwanjani.",
+    "Mkulima alipalilia mahindi."
+   ],
+   "correctAnswer": "Vitabu hupangwa vizuri kwenye rafu.",
+   "explanation": "Sentensi hii inahusiana na maktaba na vitabu.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mshikamano wa Aya",
+   "learningOutcome": "Kuchagua sentensi inayolingana na mada ya aya.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Methali Akili ni mali hutufunza nini?",
+   "options": [
+    "maarifa ni muhimu",
+    "fedha pekee hutosha",
+    "kulala ni kazi",
+    "nguo ni chakula"
+   ],
+   "correctAnswer": "maarifa ni muhimu",
+   "explanation": "Methali hii inaonyesha thamani ya kufikiri na kutumia maarifa.",
+   "difficulty": 4,
+   "strandTitle": "Fasihi Simulizi",
+   "subStrandTitle": "Methali",
+   "learningOutcome": "Kueleza ujumbe wa methali zinazofahamika.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Ni mpangilio gani unaofaa kwa maandalizi ya kwenda shule asubuhi?",
+   "options": [
+    "kuamka, kuoga, kuvaa sare, kwenda shule",
+    "kwenda shule, kuamka, kuvaa sare, kuoga",
+    "kuoga, kwenda shule, kuamka, kuvaa sare",
+    "kuvaa sare, kulala, kuamka, kwenda shule"
+   ],
+   "correctAnswer": "kuamka, kuoga, kuvaa sare, kwenda shule",
+   "explanation": "Mpangilio huu unaonyesha matukio yanayofuatana kwa njia ya kawaida.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mpangilio wa Matukio",
+   "learningOutcome": "Kupanga matukio ya kila siku kwa mfuatano unaoeleweka.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Chagua sentensi inayotumia usemi halisi kwa uakifishaji unaofaa.",
+   "options": [
+    "Mama alisema, 'Funga mlango.'",
+    "Mama alisema Funga mlango.",
+    "Mama, alisema 'Funga mlango'",
+    "Mama alisema 'Funga mlango'."
+   ],
+   "correctAnswer": "Mama alisema, 'Funga mlango.'",
+   "explanation": "Usemi halisi hutenganishwa kwa mkato na kuwekwa ndani ya alama za kunukuu.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Usemi Halisi",
+   "learningOutcome": "Kutambua uakifishaji wa usemi halisi katika sentensi fupi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Ni salamu gani inafaa kwa mtoto kumwamkia shangazi yake kwa heshima?",
+   "options": [
+    "Shikamoo, shangazi.",
+    "Sema haraka.",
+    "Nipe kalamu.",
+    "Kwaheri, chakula."
+   ],
+   "correctAnswer": "Shikamoo, shangazi.",
+   "explanation": "Shikamoo ni salamu ya heshima kwa mtu mzima.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maamkizi ya Heshima",
+   "learningOutcome": "Kuchagua salamu inayofaa kulingana na mtu anayezungumziwa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Kamilisha sentensi: Wanafunzi ___ wanasoma kimya.",
+   "options": [
+    "hawa",
+    "huyu",
+    "hiki",
+    "hili"
+   ],
+   "correctAnswer": "hawa",
+   "explanation": "Wanafunzi ni wingi wa watu, hivyo kiwakilishi kinachofaa ni hawa.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viwakilishi Vionyeshi",
+   "learningOutcome": "Kutumia viwakilishi vionyeshi vinavyolingana na nomino.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Mwanafunzi anasema Nimepoteza kalamu yangu. Ni jibu gani linafaa?",
+   "options": [
+    "Pole, tutaitafuta pamoja.",
+    "Hongera kwa kupoteza.",
+    "Tupa vitabu vyote.",
+    "Usiseme tena."
+   ],
+   "correctAnswer": "Pole, tutaitafuta pamoja.",
+   "explanation": "Jibu hili linaonyesha huruma na msaada.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mazungumzo ya Kijamii",
+   "learningOutcome": "Kuchagua majibu yanayofaa katika mazungumzo ya kila siku.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Katika sentensi Nyumba nyeupe na kubwa imejengwa, vivumishi ni vipi?",
+   "options": [
+    "nyeupe na kubwa",
+    "nyumba na imejengwa",
+    "na na kubwa",
+    "imejengwa na nyeupe"
+   ],
+   "correctAnswer": "nyeupe na kubwa",
+   "explanation": "Nyeupe na kubwa hueleza sifa za nyumba.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vivumishi",
+   "learningOutcome": "Kutambua zaidi ya kivumishi kimoja katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Kabla ya kuandika insha fupi, jambo gani linafaa kufanywa kwanza?",
+   "options": [
+    "kupanga mawazo",
+    "kufuta daftari",
+    "kufunga kitabu",
+    "kuandika bila mada"
+   ],
+   "correctAnswer": "kupanga mawazo",
+   "explanation": "Kupanga mawazo husaidia insha kuwa na mtiririko mzuri.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuandaa Insha",
+   "learningOutcome": "Kutambua hatua rahisi za kuandaa maandishi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Alama : huitwa nini katika uakifishaji?",
+   "options": [
+    "nukta mbili",
+    "mkato",
+    "alama ya kuuliza",
+    "nukta"
+   ],
+   "correctAnswer": "nukta mbili",
+   "explanation": "Alama : huitwa nukta mbili na hutumika kutanguliza maelezo au orodha.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutambua majina ya alama za uakifishaji zinazotumika mara kwa mara.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Sauti ya kengele ililia, wanafunzi wakaingia darasani. Tunaweza kusema nini?",
+   "options": [
+    "kipindi kilianza",
+    "soko lilifungwa",
+    "mvua iliisha",
+    "chakula kiliungua"
+   ],
+   "correctAnswer": "kipindi kilianza",
+   "explanation": "Kengele na kuingia darasani huonyesha kuwa somo au kipindi kinaanza.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kudokeza Maana",
+   "learningOutcome": "Kufanya hitimisho rahisi kutokana na ujumbe mfupi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani bora ya kuanza aya kuhusu soko?",
+   "options": [
+    "Soko letu huwa na watu wengi asubuhi.",
+    "Kalamu yangu ni nyekundu.",
+    "Mvua ilinyesha jana usiku.",
+    "Niliosha kikombe kimoja."
+   ],
+   "correctAnswer": "Soko letu huwa na watu wengi asubuhi.",
+   "explanation": "Sentensi hii inatanguliza mada ya soko kwa njia wazi.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Sentensi ya Mada",
+   "learningOutcome": "Kuchagua sentensi ya mada inayofaa kuanza aya fupi.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Unganisha mawazo haya bila kurudia jina: Amina alifagia darasa. Amina alipanga viti.",
+   "options": [
+    "Amina alifagia darasa na kupanga viti.",
+    "Amina alifagia darasa. Amina Amina.",
+    "Darasa alipanga Amina na viti.",
+    "Viti vilifagia Amina darasa."
+   ],
+   "correctAnswer": "Amina alifagia darasa na kupanga viti.",
+   "explanation": "Sentensi hii inaunganisha vitendo viwili vya Amina kwa kutumia na.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuunganisha Sentensi",
+   "learningOutcome": "Kuunganisha sentensi mbili fupi kwa njia yenye maana.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Hadithi inasema mtoto aligawa maji yake na rafiki mwenye kiu. Ni swali gani linaonyesha ufahamu wa funzo?",
+   "options": [
+    "Kwa nini ni vizuri kusaidiana?",
+    "Kalamu ilikuwa ya rangi gani?",
+    "Darasa lilikuwa na madirisha mangapi?",
+    "Mchezo ulianza saa ngapi?"
+   ],
+   "correctAnswer": "Kwa nini ni vizuri kusaidiana?",
+   "explanation": "Swali hili linahusiana na funzo la kusaidiana katika hadithi.",
+   "difficulty": 5,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ufahamu wa Hadithi",
+   "learningOutcome": "Kuchagua swali linalochunguza funzo la hadithi fupi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Ni sentensi gani inaonyesha mfuatano mzuri wa matukio?",
+   "options": [
+    "Kwanza tulipanda mbegu, kisha tukamwagilia maji.",
+    "Kisha tulipanda kwanza mbegu maji.",
+    "Mbegu maji kwanza kisha tulipanda.",
+    "Tulimwagilia kisha kwanza mbegu."
+   ],
+   "correctAnswer": "Kwanza tulipanda mbegu, kisha tukamwagilia maji.",
+   "explanation": "Kwanza na kisha hupanga matukio kwa mpangilio unaoeleweka.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mtiririko wa Mawazo",
+   "learningOutcome": "Kutumia maneno ya mpangilio kuonyesha mfuatano wa matukio.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Tangazo linasema wanafunzi walete chupa ya maji siku ya michezo. Kichwa kinachofaa ni kipi?",
+   "options": [
+    "Maandalizi ya Siku ya Michezo",
+    "Mapishi ya Chakula cha Jioni",
+    "Safari ya Baharini",
+    "Mavuno ya Mahindi"
+   ],
+   "correctAnswer": "Maandalizi ya Siku ya Michezo",
+   "explanation": "Tangazo linahusu maandalizi ya siku ya michezo.",
+   "difficulty": 5,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kusoma Matangazo",
+   "learningOutcome": "Kuchagua kichwa kinacholingana na ujumbe wa tangazo.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Boresha sentensi Mtoto amefika kwa kuongeza maelezo yanayofaa.",
+   "options": [
+    "Mtoto mwenye bidii amefika mapema shuleni.",
+    "Mtoto amefika amefika amefika.",
+    "Mtoto meza kalamu shuleni.",
+    "Mtoto imefika mapema."
+   ],
+   "correctAnswer": "Mtoto mwenye bidii amefika mapema shuleni.",
+   "explanation": "Sentensi hii inaongeza sifa, wakati na mahali kwa njia sahihi.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuboresha Sentensi",
+   "learningOutcome": "Kuboresha sentensi fupi kwa kuongeza maelezo yanayofaa.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Ni mwisho gani unaofaa kwa barua ya kumwalika rafiki kupanda miti?",
+   "options": [
+    "Natumaini utakuja tushirikiane.",
+    "Futa barua hii sasa.",
+    "Soko limefungwa jana.",
+    "Kalamu yangu imepotea."
+   ],
+   "correctAnswer": "Natumaini utakuja tushirikiane.",
+   "explanation": "Mwisho huu unafunga mwaliko kwa upole na kubaki kwenye mada.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Barua ya Kirafiki",
+   "learningOutcome": "Kuchagua hitimisho linalofaa kwa barua ya kirafiki.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Katika aya, jina Amina limerudiwa mara nyingi. Ni neno gani linaweza kuchukua nafasi yake?",
+   "options": [
+    "yeye",
+    "hicho",
+    "hayo",
+    "vile"
+   ],
+   "correctAnswer": "yeye",
+   "explanation": "Yeye ni kiwakilishi kinachoweza kutumika badala ya jina la mtu.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuepuka Marudio",
+   "learningOutcome": "Kutumia kiwakilishi ili kuepuka kurudia jina mara nyingi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Hadithi inasema mtoto aliokota penseli na kumrudishia mwenyewe. Funzo bora ni lipi?",
+   "options": [
+    "Ni vizuri kuwa mwaminifu.",
+    "Ni vizuri kuficha vitu.",
+    "Ni vizuri kucheka rafiki.",
+    "Ni vizuri kuchelewa darasani."
+   ],
+   "correctAnswer": "Ni vizuri kuwa mwaminifu.",
+   "explanation": "Kumrudishia mtu kitu chake huonyesha uaminifu.",
+   "difficulty": 5,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Funzo la Hadithi",
+   "learningOutcome": "Kutambua funzo linalotokana na tukio fupi la hadithi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Ni aya gani fupi ina mawazo yanayofuatana vizuri?",
+   "options": [
+    "Tulipanda miti shuleni. Kila mwanafunzi alimwagilia mti wake. Baadaye uwanja ulionekana mzuri.",
+    "Tulipanda miti shuleni. Samaki waliogelea baharini. Kalamu yangu ni fupi.",
+    "Mti wangu maji. Shule nzuri alimwagilia.",
+    "Baadaye uwanja. Kila mwanafunzi. Tulipanda."
+   ],
+   "correctAnswer": "Tulipanda miti shuleni. Kila mwanafunzi alimwagilia mti wake. Baadaye uwanja ulionekana mzuri.",
+   "explanation": "Aya hii ina sentensi zinazohusu mada moja na zinafuatana kwa mpangilio.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mshikamano wa Aya",
+   "learningOutcome": "Kuchagua aya fupi yenye mshikamano na mtiririko mzuri.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

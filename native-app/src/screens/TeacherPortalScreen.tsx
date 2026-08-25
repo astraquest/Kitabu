@@ -58,7 +58,8 @@ import {
   countryCodeForName,
   countryNameForCode,
 } from '../constants/locations';
-import { generateAssignmentJson, generateLessonPlanIdeas } from '../services/aiService';
+import { generateLessonPlanIdeas } from '../services/aiService';
+import { createTeacherAssignmentDraft, getTeacherClasses, TeacherClassOption } from '../services/teacherService';
 import { getCurriculumForGrade } from '../services/curriculumService';
 import {
   getTeacherParentMessages,
@@ -95,7 +96,14 @@ interface TeacherPortalScreenProps {
   userProfile?: UserProfile;
   onSaveProfile?: (profile: UserProfile) => void;
   onSignOut?: () => void | Promise<void>;
-  onPublishAssignment: (assignment: Omit<Assignment, 'id' | 'status'>) => Promise<void>;
+  onPublishAssignment: (assignment: {
+    draftId: string;
+    title: string;
+    description: string;
+    dueDate: string;
+    approvedAiQuestionIds: string[];
+    questions: Assignment['questions'];
+  }) => Promise<void>;
 }
 
 type Tab = 'students' | 'assignments';
@@ -232,6 +240,9 @@ export function TeacherPortalScreen({
   const [wizardSubjectOpen, setWizardSubjectOpen] = useState(false);
   const [wizardStrandOpen, setWizardStrandOpen] = useState(false);
   const [wizardSubStrandOpen, setWizardSubStrandOpen] = useState(false);
+  const [wizardClassOpen, setWizardClassOpen] = useState(false);
+  const [teacherClasses, setTeacherClasses] = useState<TeacherClassOption[]>([]);
+  const [classId, setClassId] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const teacherProfile: UserProfile = userProfile ?? {
@@ -275,9 +286,11 @@ export function TeacherPortalScreen({
   const [curriculumLoading, setCurriculumLoading] = useState(false);
   const [curriculumLoadError, setCurriculumLoadError] = useState(false);
   const [draft, setDraft] = useState<{
+    draftId: string;
     title: string;
     description: string;
     questions: Assignment['questions'];
+    aiCandidates: Assignment['questions'];
   } | null>(null);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -424,6 +437,32 @@ export function TeacherPortalScreen({
     }
   }, [curriculumSubjectsByGrade, grade, subject]);
 
+  useEffect(() => {
+    if (!wizardOpen) return undefined;
+    let active = true;
+    getTeacherClasses()
+      .then(classes => {
+        if (active) setTeacherClasses(classes);
+      })
+      .catch(() => {
+        if (active) setTeacherClasses([]);
+      });
+    return () => {
+      active = false;
+    };
+  }, [wizardOpen]);
+
+  const classOptionsForGrade = useMemo(
+    () => teacherClasses.filter(item => item.gradeLevel === grade),
+    [teacherClasses, grade],
+  );
+
+  useEffect(() => {
+    if (classId && !classOptionsForGrade.some(item => item.id === classId)) {
+      setClassId(null);
+    }
+  }, [classId, classOptionsForGrade]);
+
   const filteredAssignments = useMemo(
     () =>
       [...assignments]
@@ -528,20 +567,31 @@ export function TeacherPortalScreen({
 
   async function handleGenerateAssignment() {
     setIsGenerating(true);
-    const result = await generateAssignmentJson(grade, subject, strand, subStrand, topic);
-
-    if (result && result.questions) {
+    try {
+      const result = await createTeacherAssignmentDraft({
+        title: topic ? `${subject} homework` : undefined,
+        description: topic,
+        gradeLevel: grade,
+        subject,
+        strand: strand || undefined,
+        subStrand: subStrand || undefined,
+        classId,
+        requestedCount: 10,
+      });
       setDraft({
+        draftId: result.draftId,
         title: result.title,
         description: result.description,
-        questions: result.questions,
+        questions: [...result.questions, ...result.aiCandidates],
+        aiCandidates: result.aiCandidates,
       });
       setStep(2);
-    } else {
-      Alert.alert('Generation Failed', 'Could not generate assignment. Please try again.');
+    } catch (error) {
+      Alert.alert('Draft Failed', error instanceof Error ? error.message : 'Could not prepare homework.');
     }
-
-    setIsGenerating(false);
+    finally {
+      setIsGenerating(false);
+    }
   }
 
   function updateDraftQuestion(index: number, updater: (question: Question) => Question) {
@@ -566,12 +616,15 @@ export function TeacherPortalScreen({
     const dueDate = new Date(Date.now() + dueInDays * 24 * 60 * 60 * 1000).toISOString();
 
     try {
+      if (!draft.draftId) {
+        throw new Error('This homework must be regenerated from QuizBank before publishing.');
+      }
       await onPublishAssignment({
+        draftId: draft.draftId,
         title: draft.title,
         description: draft.description,
-        subject,
-        gradeLevel: grade,
         dueDate,
+        approvedAiQuestionIds: draft.aiCandidates.map(question => question.candidateId).filter((id): id is string => Boolean(id)),
         questions: draft.questions,
       });
 
@@ -582,6 +635,7 @@ export function TeacherPortalScreen({
       setTopic('');
       setStrand('');
       setSubStrand('');
+      setClassId(null);
       setDueInDays(7);
       setTab('assignments');
       setToast(true);
@@ -603,6 +657,7 @@ export function TeacherPortalScreen({
       return;
     }
     setWizardOpen(false);
+    setWizardClassOpen(false);
   }
 
   function openRemedialAssignment(payload: RemedialAssignmentPayload) {
@@ -611,7 +666,7 @@ export function TeacherPortalScreen({
     setStrand('');
     setSubStrand('');
     setTopic(payload.topic);
-    setDraft(payload.draft);
+    setDraft({ ...payload.draft, draftId: '', aiCandidates: [] });
     setStep(2);
     setStudent(null);
     setWizardOpen(true);
@@ -1187,6 +1242,9 @@ export function TeacherPortalScreen({
           wizardSubjectOpen={wizardSubjectOpen}
           wizardStrandOpen={wizardStrandOpen}
           wizardSubStrandOpen={wizardSubStrandOpen}
+          wizardClassOpen={wizardClassOpen}
+          classId={classId}
+          classOptions={classOptionsForGrade}
           draft={draft}
           dueInDays={dueInDays}
           subjectStrands={subjectStrands}
@@ -1199,6 +1257,7 @@ export function TeacherPortalScreen({
             setSubject(nextSubject);
             setStrand('');
             setSubStrand('');
+            setClassId(null);
             setWizardGradeOpen(false);
           }}
           onSetSubject={value => {
@@ -1240,6 +1299,17 @@ export function TeacherPortalScreen({
             setWizardGradeOpen(false);
             setWizardSubjectOpen(false);
             setWizardStrandOpen(false);
+          }}
+          onToggleClassOpen={() => {
+            setWizardClassOpen(open => !open);
+            setWizardGradeOpen(false);
+            setWizardSubjectOpen(false);
+            setWizardStrandOpen(false);
+            setWizardSubStrandOpen(false);
+          }}
+          onSetClassId={value => {
+            setClassId(value);
+            setWizardClassOpen(false);
           }}
           onGenerate={handleGenerateAssignment}
           onUpdateDraftTitle={value =>

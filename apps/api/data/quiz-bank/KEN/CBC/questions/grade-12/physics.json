@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "physics",
-  "subjectName": "Physics",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "What is the SI unit of angular velocity?",
-      "options": ["rad/s", "m/s", "N m", "kg m/s"],
-      "correctAnswer": "rad/s",
-      "explanation": "Angular velocity is angular displacement per unit time, so it is measured in radians per second.",
-      "difficulty": 1,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Circular Motion",
-      "learningOutcome": "Identify units used to describe rotational motion.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which quantity is conserved when no external torque acts on a rotating system?",
-      "options": ["Angular momentum", "Linear acceleration", "Electric charge density", "Refractive index"],
-      "correctAnswer": "Angular momentum",
-      "explanation": "A system with zero resultant external torque keeps a constant angular momentum.",
-      "difficulty": 1,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Rotational Motion",
-      "learningOutcome": "Recall conservation of angular momentum in rotating systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "In simple harmonic motion, what is the direction of the restoring force?",
-      "options": ["Towards the equilibrium position", "Away from the equilibrium position", "Always vertically upward", "Always opposite to the velocity only"],
-      "correctAnswer": "Towards the equilibrium position",
-      "explanation": "The restoring force in SHM is directed towards equilibrium and is proportional to displacement.",
-      "difficulty": 1,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Simple Harmonic Motion",
-      "learningOutcome": "Describe the restoring force that produces simple harmonic motion.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "How is gravitational field strength at a point defined?",
-      "options": ["Gravitational force per unit mass", "Mass per unit volume", "Work done per unit charge", "Change in velocity per unit displacement"],
-      "correctAnswer": "Gravitational force per unit mass",
-      "explanation": "Gravitational field strength is the force that a unit mass would experience at that point.",
-      "difficulty": 1,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Gravitation",
-      "learningOutcome": "Define gravitational field strength using force and mass.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "When does resonance occur in an oscillating system?",
-      "options": ["When the driving frequency equals the natural frequency", "When friction is completely absent from every system", "When the amplitude is forced to zero", "When mass is removed from a stationary object"],
-      "correctAnswer": "When the driving frequency equals the natural frequency",
-      "explanation": "Resonance produces a large response when the system is driven at its natural frequency.",
-      "difficulty": 1,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Forced Oscillations",
-      "learningOutcome": "Recognize the condition for resonance in oscillating systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which statement correctly describes electromagnetic waves in a vacuum?",
-      "options": ["They are transverse waves", "They require air to travel", "They are always longitudinal waves", "They carry no energy"],
-      "correctAnswer": "They are transverse waves",
-      "explanation": "Electromagnetic waves have electric and magnetic fields oscillating perpendicular to the direction of travel.",
-      "difficulty": 1,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Electromagnetic Waves",
-      "learningOutcome": "State the nature of electromagnetic waves in a vacuum.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "For two coherent waves, which path difference gives constructive interference?",
-      "options": ["A whole number of wavelengths", "An odd number of half wavelengths only", "One quarter of a wavelength only", "Any random path difference"],
-      "correctAnswer": "A whole number of wavelengths",
-      "explanation": "Constructive interference occurs when waves arrive in phase, which happens for path differences of n lambda.",
-      "difficulty": 1,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Interference",
-      "learningOutcome": "Recall the path difference condition for constructive interference.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "What is the critical angle for light moving from glass to air?",
-      "options": ["The angle of incidence in glass for which the refracted ray is 90 degrees", "The angle of reflection measured inside air", "The angle at which light stops obeying reflection", "The smallest angle made by a ray with a mirror surface"],
-      "correctAnswer": "The angle of incidence in glass for which the refracted ray is 90 degrees",
-      "explanation": "The critical angle is measured in the optically denser medium when the refracted ray just grazes the boundary.",
-      "difficulty": 1,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Total Internal Reflection",
-      "learningOutcome": "Define critical angle for light moving from a denser to a rarer medium.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which unit can be used for electric field strength?",
-      "options": ["N/C", "C/s", "J kg", "Wb/m"],
-      "correctAnswer": "N/C",
-      "explanation": "Electric field strength is force per unit charge, so newtons per coulomb is a correct unit.",
-      "difficulty": 1,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Electric Fields",
-      "learningOutcome": "Identify units of electric field strength.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "What does the capacitance of a capacitor measure?",
-      "options": ["Charge stored per unit potential difference", "Current supplied per unit magnetic field", "Energy lost per unit distance", "Resistance offered per unit length"],
-      "correctAnswer": "Charge stored per unit potential difference",
-      "explanation": "Capacitance is defined by C = Q/V, the charge stored for each volt across the capacitor.",
-      "difficulty": 1,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Capacitors",
-      "learningOutcome": "Define capacitance in terms of charge and potential difference.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "What is the SI unit of magnetic flux?",
-      "options": ["Weber", "Tesla", "Henry", "Volt"],
-      "correctAnswer": "Weber",
-      "explanation": "Magnetic flux is measured in webers, while magnetic flux density is measured in tesla.",
-      "difficulty": 1,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Magnetic Flux",
-      "learningOutcome": "Recall the SI unit of magnetic flux.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "What does Lenz's law state about an induced current?",
-      "options": ["It flows in a direction that opposes the change producing it", "It always flows clockwise around a coil", "It is independent of magnetic flux change", "It exists only in non-conductors"],
-      "correctAnswer": "It flows in a direction that opposes the change producing it",
-      "explanation": "Lenz's law is a conservation principle: the induced effect opposes the change in magnetic flux.",
-      "difficulty": 1,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Lenz's Law",
-      "learningOutcome": "State Lenz's law for induced current direction.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "In the photoelectric effect, what is the work function of a metal?",
-      "options": ["The minimum energy needed to remove an electron from its surface", "The maximum current through the metal wire", "The power needed to heat the metal to melting point", "The energy released by each radioactive nucleus"],
-      "correctAnswer": "The minimum energy needed to remove an electron from its surface",
-      "explanation": "The work function is the least photon energy required to liberate an electron from a metal surface.",
-      "difficulty": 1,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Photoelectric Effect",
-      "learningOutcome": "Define work function in photoelectric emission.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "What is meant by the half-life of a radioactive isotope?",
-      "options": ["Time taken for half the undecayed nuclei to decay", "Time taken for all nuclei to become stable", "Half the time needed to ionise an atom", "Time taken for radiation to travel half a metre"],
-      "correctAnswer": "Time taken for half the undecayed nuclei to decay",
-      "explanation": "Half-life measures the time for the number of undecayed radioactive nuclei to fall by half.",
-      "difficulty": 1,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Radioactivity",
-      "learningOutcome": "Recall the meaning of radioactive half-life.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "What is the main action of a semiconductor diode in a simple circuit?",
-      "options": ["It allows current more easily in one direction than the other", "It stores gravitational potential energy", "It converts sound directly into nuclear energy", "It makes resistance zero at room temperature"],
-      "correctAnswer": "It allows current more easily in one direction than the other",
-      "explanation": "A diode has a low resistance in forward bias and a high resistance in reverse bias.",
-      "difficulty": 1,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Semiconductor Devices",
-      "learningOutcome": "Describe the rectifying action of a semiconductor diode.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "A projectile moves without air resistance. What happens to its horizontal velocity after launch?",
-      "options": ["It remains constant", "It increases uniformly", "It falls to zero immediately", "It reverses at the highest point"],
-      "correctAnswer": "It remains constant",
-      "explanation": "With no horizontal resultant force, the horizontal component of velocity remains unchanged.",
-      "difficulty": 2,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Projectile Motion",
-      "learningOutcome": "Explain horizontal motion of a projectile in the absence of air resistance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "A stone tied to a string is whirled in a horizontal circle. In which direction is the centripetal force on the stone?",
-      "options": ["Towards the centre of the circle", "Along the tangent in the direction of motion", "Vertically upward only", "Away from the centre of the circle"],
-      "correctAnswer": "Towards the centre of the circle",
-      "explanation": "Centripetal force is the resultant force directed towards the centre that changes the direction of velocity.",
-      "difficulty": 2,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Circular Motion",
-      "learningOutcome": "Identify the direction of centripetal force in circular motion.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "For a satellite in a stable circular orbit around Earth, what provides the centripetal force?",
-      "options": ["Earth's gravitational attraction", "Air resistance from the upper atmosphere only", "The satellite's solar panels", "A permanent outward force from the orbit"],
-      "correctAnswer": "Earth's gravitational attraction",
-      "explanation": "Gravity acts towards Earth's centre and supplies the centripetal force needed for orbital motion.",
-      "difficulty": 2,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Gravitation",
-      "learningOutcome": "Relate gravitational force to satellite circular motion.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which set of factors determines the pressure at a point in a liquid at rest?",
-      "options": ["Density, gravitational field strength, and depth", "Container colour, surface area, and volume", "Mass of the container, current, and voltage", "Frequency, wavelength, and amplitude only"],
-      "correctAnswer": "Density, gravitational field strength, and depth",
-      "explanation": "Liquid pressure at depth h is given by p = rho g h, so density, g, and depth are the relevant factors.",
-      "difficulty": 2,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Fluid Pressure",
-      "learningOutcome": "Explain the factors affecting pressure in a liquid.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "A falling raindrop reaches terminal velocity. Which statement best explains this motion?",
-      "options": ["Upward resistive forces balance its weight", "Its mass has become zero", "Gravity has stopped acting on it", "Its acceleration is greater than g"],
-      "correctAnswer": "Upward resistive forces balance its weight",
-      "explanation": "At terminal velocity the resultant force is zero, so the object continues at constant speed.",
-      "difficulty": 2,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Forces in Fluids",
-      "learningOutcome": "Explain terminal velocity using balanced forces.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "A sound wave travels at 340 m/s and has a frequency of 680 Hz. What is its wavelength?",
-      "options": ["0.50 m", "2.0 m", "340 m", "1020 m"],
-      "correctAnswer": "0.50 m",
-      "explanation": "Using v = f lambda, lambda = 340/680 = 0.50 m.",
-      "difficulty": 2,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Wave Equation",
-      "learningOutcome": "Use the wave equation to calculate wavelength.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "A wave has a frequency of 50 Hz. What is its period?",
-      "options": ["0.020 s", "0.20 s", "2.0 s", "50 s"],
-      "correctAnswer": "0.020 s",
-      "explanation": "The period is T = 1/f = 1/50 = 0.020 s.",
-      "difficulty": 2,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Wave Period and Frequency",
-      "learningOutcome": "Calculate wave period from frequency.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Light travels at 3.0 x 10^8 m/s in a vacuum and 2.0 x 10^8 m/s in glass. What is the refractive index of the glass?",
-      "options": ["1.5", "0.67", "5.0", "6.0 x 10^16"],
-      "correctAnswer": "1.5",
-      "explanation": "Refractive index n = c/v = 3.0 x 10^8 divided by 2.0 x 10^8 = 1.5.",
-      "difficulty": 2,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Refraction",
-      "learningOutcome": "Calculate refractive index from speed of light in a medium.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "A converging lens forms an image of an object placed beyond its focal length. Which image description is generally correct?",
-      "options": ["Real and inverted", "Virtual and upright only", "No image is formed", "Real and always same size"],
-      "correctAnswer": "Real and inverted",
-      "explanation": "For an object beyond the focal length of a converging lens, refracted rays meet to form a real inverted image.",
-      "difficulty": 2,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Thin Lenses",
-      "learningOutcome": "Describe image formation by a converging lens.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which condition is required for total internal reflection?",
-      "options": ["Light travels from a denser medium to a rarer medium and the angle of incidence exceeds the critical angle", "Light travels from air to glass at any angle", "The angle of incidence is zero degrees in all media", "The reflecting surface is painted black"],
-      "correctAnswer": "Light travels from a denser medium to a rarer medium and the angle of incidence exceeds the critical angle",
-      "explanation": "Total internal reflection needs a denser-to-rarer boundary and an incidence angle greater than the critical angle.",
-      "difficulty": 2,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Total Internal Reflection",
-      "learningOutcome": "State the conditions needed for total internal reflection.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Two resistors of 3 ohm and 5 ohm are connected in series. What is their combined resistance?",
-      "options": ["8 ohm", "1.9 ohm", "2 ohm", "15 ohm"],
-      "correctAnswer": "8 ohm",
-      "explanation": "Series resistances add directly, so R = 3 + 5 = 8 ohm.",
-      "difficulty": 2,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Series Circuits",
-      "learningOutcome": "Calculate equivalent resistance for resistors in series.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "A 6 ohm resistor and a 3 ohm resistor are connected in parallel. What is the equivalent resistance?",
-      "options": ["2 ohm", "9 ohm", "4.5 ohm", "18 ohm"],
-      "correctAnswer": "2 ohm",
-      "explanation": "For parallel resistors, 1/R = 1/6 + 1/3 = 1/2, so R = 2 ohm.",
-      "difficulty": 2,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Parallel Circuits",
-      "learningOutcome": "Calculate equivalent resistance for two parallel resistors.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "What current flows through a 4 ohm resistor connected to a 12 V supply?",
-      "options": ["3 A", "0.33 A", "16 A", "48 A"],
-      "correctAnswer": "3 A",
-      "explanation": "Ohm's law gives I = V/R = 12/4 = 3 A.",
-      "difficulty": 2,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Ohm's Law",
-      "learningOutcome": "Use Ohm's law to calculate current.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "A current of 2 A flows for 5 minutes. How much charge passes a point in the circuit?",
-      "options": ["600 C", "10 C", "150 C", "3000 C"],
-      "correctAnswer": "600 C",
-      "explanation": "Convert 5 minutes to 300 s, then Q = It = 2 x 300 = 600 C.",
-      "difficulty": 2,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Charge and Current",
-      "learningOutcome": "Calculate electric charge transferred by a steady current.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "A device connected to 240 V draws a current of 0.50 A. What is its power?",
-      "options": ["120 W", "480 W", "240 W", "0.0021 W"],
-      "correctAnswer": "120 W",
-      "explanation": "Electrical power is P = VI = 240 x 0.50 = 120 W.",
-      "difficulty": 2,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Electrical Power",
-      "learningOutcome": "Calculate power from potential difference and current.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "What is the shape of the magnetic field around a long straight current-carrying wire?",
-      "options": ["Concentric circles centred on the wire", "Straight lines parallel to the wire only", "Uniform horizontal lines everywhere", "Radial lines pointing away from one end"],
-      "correctAnswer": "Concentric circles centred on the wire",
-      "explanation": "A straight current-carrying conductor produces circular magnetic field lines around the wire.",
-      "difficulty": 2,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Magnetic Fields Around Conductors",
-      "learningOutcome": "Describe the magnetic field pattern around a straight current-carrying conductor.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which change increases the force on a straight current-carrying conductor placed at right angles to a magnetic field?",
-      "options": ["Increasing the current in the conductor", "Reducing the conductor length to zero", "Turning off the magnetic field", "Replacing the conductor with dry wood"],
-      "correctAnswer": "Increasing the current in the conductor",
-      "explanation": "The force is F = BIL for a conductor at right angles, so increasing current increases the force.",
-      "difficulty": 2,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Motor Effect",
-      "learningOutcome": "Relate conductor force to current in a magnetic field.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "What energy conversion occurs in an electric generator?",
-      "options": ["Mechanical energy to electrical energy", "Electrical energy to gravitational energy", "Chemical energy to nuclear energy", "Thermal energy to magnetic monopoles"],
-      "correctAnswer": "Mechanical energy to electrical energy",
-      "explanation": "A generator uses electromagnetic induction to convert mechanical work into electrical energy.",
-      "difficulty": 2,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Generators",
-      "learningOutcome": "Identify energy conversion in an electric generator.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "A transformer has more turns on its secondary coil than on its primary coil. What type of transformer is it?",
-      "options": ["Step-up transformer", "Step-down transformer", "Isolation-free resistor", "Direct-current amplifier"],
-      "correctAnswer": "Step-up transformer",
-      "explanation": "More turns on the secondary coil than the primary coil gives a higher secondary voltage.",
-      "difficulty": 2,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Transformers",
-      "learningOutcome": "Identify a step-up transformer from its coil turns.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "How does photon energy change when the frequency of light increases?",
-      "options": ["It increases", "It decreases to zero", "It stays fixed for all colours", "It depends only on the source size"],
-      "correctAnswer": "It increases",
-      "explanation": "Photon energy is E = hf, so higher frequency means higher energy.",
-      "difficulty": 2,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Quantum Theory of Light",
-      "learningOutcome": "Relate photon energy to frequency.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Light below the threshold frequency shines on a clean metal surface. What happens in the photoelectric effect?",
-      "options": ["No photoelectrons are emitted", "Photoelectrons are emitted after a long delay", "The metal emits alpha particles", "The stopping potential becomes infinite"],
-      "correctAnswer": "No photoelectrons are emitted",
-      "explanation": "If photon frequency is below threshold, each photon has too little energy to release an electron.",
-      "difficulty": 2,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Photoelectric Effect",
-      "learningOutcome": "Explain the role of threshold frequency in photoelectric emission.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "What is an alpha particle?",
-      "options": ["A helium nucleus", "A high-speed electron", "A packet of visible light", "A neutron with no mass"],
-      "correctAnswer": "A helium nucleus",
-      "explanation": "An alpha particle contains two protons and two neutrons, the same as a helium nucleus.",
-      "difficulty": 2,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Nuclear Radiation",
-      "learningOutcome": "Identify alpha radiation by its particle composition.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which description matches nuclear fission?",
-      "options": ["A heavy nucleus splits into smaller nuclei and releases energy", "Two light nuclei combine only at room temperature", "An atom gains an electron in a chemical bond", "A magnet loses its north pole permanently"],
-      "correctAnswer": "A heavy nucleus splits into smaller nuclei and releases energy",
-      "explanation": "Fission is the splitting of a heavy nucleus, often releasing neutrons and a large amount of energy.",
-      "difficulty": 2,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Nuclear Energy",
-      "learningOutcome": "Distinguish nuclear fission from other nuclear and chemical changes.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which practice best reduces random error when measuring the period of a pendulum?",
-      "options": ["Time many oscillations and repeat the measurement", "Use only one swing and round to the nearest second", "Start timing before releasing the pendulum", "Change the length during the measurement"],
-      "correctAnswer": "Time many oscillations and repeat the measurement",
-      "explanation": "Timing several oscillations and repeating reduces the effect of reaction-time variation on the mean period.",
-      "difficulty": 2,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Measurement and Uncertainty",
-      "learningOutcome": "Choose methods that reduce random error in timing experiments.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "For an ohmic conductor, what does the gradient of a potential difference against current graph represent?",
-      "options": ["Resistance", "Charge", "Frequency", "Magnetic flux"],
-      "correctAnswer": "Resistance",
-      "explanation": "For a V against I graph, the gradient is V/I, which equals resistance for an ohmic conductor.",
-      "difficulty": 2,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Graphical Analysis",
-      "learningOutcome": "Interpret gradients from electrical measurement graphs.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "A car speeds up uniformly from 10 m/s to 25 m/s in 5 s. What is its acceleration?",
-      "options": ["3 m/s^2", "5 m/s^2", "7 m/s^2", "15 m/s^2"],
-      "correctAnswer": "3 m/s^2",
-      "explanation": "Acceleration is change in velocity divided by time: (25 - 10)/5 = 3 m/s^2.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Linear Motion",
-      "learningOutcome": "Calculate acceleration from a change in velocity over time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "A resultant force gives a 2.0 kg trolley an acceleration of 4.0 m/s^2. What is the resultant force?",
-      "options": ["8 N", "2 N", "0.5 N", "16 N"],
-      "correctAnswer": "8 N",
-      "explanation": "Newton's second law gives F = ma = 2.0 x 4.0 = 8 N.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Newton's Laws",
-      "learningOutcome": "Apply Newton's second law to calculate resultant force.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Using g = 10 N/kg, how much work is done in lifting a 5 kg mass vertically through 2 m?",
-      "options": ["100 J", "10 J", "25 J", "250 J"],
-      "correctAnswer": "100 J",
-      "explanation": "Work done against gravity is mgh = 5 x 10 x 2 = 100 J.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Work and Energy",
-      "learningOutcome": "Calculate work done against gravity.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "A machine does 600 J of useful work in 20 s. What is its useful power output?",
-      "options": ["30 W", "12 W", "580 W", "12000 W"],
-      "correctAnswer": "30 W",
-      "explanation": "Power is work done per unit time: P = 600/20 = 30 W.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Power",
-      "learningOutcome": "Calculate power from useful work and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "What is the momentum of a 0.40 kg ball moving at 15 m/s?",
-      "options": ["6.0 kg m/s", "0.027 kg m/s", "14.6 kg m/s", "37.5 kg m/s"],
-      "correctAnswer": "6.0 kg m/s",
-      "explanation": "Momentum is p = mv = 0.40 x 15 = 6.0 kg m/s.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Momentum",
-      "learningOutcome": "Calculate linear momentum from mass and velocity.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "A 0.15 kg ball changes velocity from 30 m/s east to 20 m/s west after hitting a wall. What is the magnitude of its change in momentum?",
-      "options": ["7.5 kg m/s", "1.5 kg m/s", "4.5 kg m/s", "50 kg m/s"],
-      "correctAnswer": "7.5 kg m/s",
-      "explanation": "Taking east as positive, change in velocity is -20 - 30 = -50 m/s, so the magnitude of change in momentum is 0.15 x 50 = 7.5 kg m/s.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Impulse and Momentum",
-      "learningOutcome": "Calculate change in momentum when velocity reverses direction.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "A cyclist moves round a circular track of radius 3 m at 9 m/s. What is the centripetal acceleration?",
-      "options": ["27 m/s^2", "3 m/s^2", "12 m/s^2", "81 m/s^2"],
-      "correctAnswer": "27 m/s^2",
-      "explanation": "Centripetal acceleration is a = v^2/r = 9^2/3 = 27 m/s^2.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Circular Motion",
-      "learningOutcome": "Calculate centripetal acceleration from speed and radius.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "A spring has a spring constant of 200 N/m. What force is needed to extend it by 0.050 m within its elastic limit?",
-      "options": ["10 N", "4 N", "200 N", "4000 N"],
-      "correctAnswer": "10 N",
-      "explanation": "Hooke's law gives F = kx = 200 x 0.050 = 10 N.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Elasticity",
-      "learningOutcome": "Use Hooke's law to calculate force on a spring.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "A 0.50 kg mass oscillates on a spring of spring constant 200 N/m. Using pi = 3.14, what is the approximate period?",
-      "options": ["0.31 s", "1.57 s", "3.14 s", "20 s"],
-      "correctAnswer": "0.31 s",
-      "explanation": "T = 2 pi sqrt(m/k) = 2 x 3.14 x sqrt(0.50/200), which is about 0.31 s.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Simple Harmonic Motion",
-      "learningOutcome": "Apply the mass-spring period formula for simple harmonic motion.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Using g = 10 N/kg, what gravitational potential energy is gained by a 1500 kg lift raised through 20 m?",
-      "options": ["300000 J", "30000 J", "750 J", "150000 J"],
-      "correctAnswer": "300000 J",
-      "explanation": "Gravitational potential energy gained is mgh = 1500 x 10 x 20 = 300000 J.",
-      "difficulty": 3,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Energy Conservation",
-      "learningOutcome": "Calculate gravitational potential energy for vertical lifting.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "A wave has wavelength 0.75 m and frequency 8 Hz. What is its speed?",
-      "options": ["6.0 m/s", "10.7 m/s", "0.094 m/s", "8.75 m/s"],
-      "correctAnswer": "6.0 m/s",
-      "explanation": "The wave speed is v = f lambda = 8 x 0.75 = 6.0 m/s.",
-      "difficulty": 3,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Wave Equation",
-      "learningOutcome": "Calculate wave speed from frequency and wavelength.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "An echo is heard 0.60 s after a shout. If sound travels at 340 m/s, how far away is the reflecting wall?",
-      "options": ["102 m", "204 m", "340 m", "56.7 m"],
-      "correctAnswer": "102 m",
-      "explanation": "The sound travels to the wall and back, so distance to the wall is vt/2 = 340 x 0.60 / 2 = 102 m.",
-      "difficulty": 3,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Sound Waves",
-      "learningOutcome": "Use echo timing to calculate distance.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "In a double-slit experiment, wavelength is 6.0 x 10^-7 m, screen distance is 2.0 m, and slit separation is 3.0 x 10^-4 m. What is the fringe spacing?",
-      "options": ["4.0 mm", "0.40 mm", "40 mm", "9.0 mm"],
-      "correctAnswer": "4.0 mm",
-      "explanation": "Fringe spacing x = lambda D/a = (6.0 x 10^-7 x 2.0)/(3.0 x 10^-4) = 4.0 x 10^-3 m, or 4.0 mm.",
-      "difficulty": 3,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Interference",
-      "learningOutcome": "Calculate fringe spacing in a double-slit interference pattern.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "An object is 30 cm from a converging lens of focal length 10 cm. What is the image distance?",
-      "options": ["15 cm", "7.5 cm", "20 cm", "40 cm"],
-      "correctAnswer": "15 cm",
-      "explanation": "Using 1/f = 1/u + 1/v, 1/v = 1/10 - 1/30 = 1/15, so v = 15 cm.",
-      "difficulty": 3,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Thin Lenses",
-      "learningOutcome": "Apply the thin lens formula to calculate image distance.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "An object is 30 cm from a lens and its real image is 15 cm from the lens. What is the magnification?",
-      "options": ["0.50", "2.0", "45", "15"],
-      "correctAnswer": "0.50",
-      "explanation": "The magnitude of magnification is v/u = 15/30 = 0.50.",
-      "difficulty": 3,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Image Magnification",
-      "learningOutcome": "Calculate magnification from object and image distances.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "A charge of 6 C passes a point in a wire in 3 s. What is the current?",
-      "options": ["2 A", "18 A", "0.5 A", "9 A"],
-      "correctAnswer": "2 A",
-      "explanation": "Current is charge per unit time, I = Q/t = 6/3 = 2 A.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Charge and Current",
-      "learningOutcome": "Calculate current from charge flow and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "A resistor carries 3 A when the potential difference across it is 9 V. What is its resistance?",
-      "options": ["3 ohm", "27 ohm", "12 ohm", "0.33 ohm"],
-      "correctAnswer": "3 ohm",
-      "explanation": "Resistance is R = V/I = 9/3 = 3 ohm.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Ohm's Law",
-      "learningOutcome": "Calculate resistance from potential difference and current.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A 1000 W heater is used for 2 hours. How much electrical energy is used?",
-      "options": ["2 kWh", "0.5 kWh", "2000 kWh", "120 kWh"],
-      "correctAnswer": "2 kWh",
-      "explanation": "Energy in kilowatt-hours is power in kilowatts multiplied by time in hours: 1 kW x 2 h = 2 kWh.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Electrical Energy",
-      "learningOutcome": "Calculate electrical energy consumption in kilowatt-hours.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Two lamps are connected in series to a battery. Which statement about the current is correct?",
-      "options": ["The same current passes through both lamps", "The first lamp uses up all the current", "Current is zero between the lamps", "The larger lamp must carry twice the current"],
-      "correctAnswer": "The same current passes through both lamps",
-      "explanation": "In a series circuit there is only one conducting path, so the same current passes through each component.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Series Circuits",
-      "learningOutcome": "Apply current rules for components in series.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "A 2 k ohm resistor and a 4 k ohm resistor are connected in series across 12 V. What is the potential difference across the 4 k ohm resistor?",
-      "options": ["8 V", "4 V", "6 V", "12 V"],
-      "correctAnswer": "8 V",
-      "explanation": "Voltage divides in proportion to resistance, so the 4 k ohm resistor gets 4/(2 + 4) x 12 = 8 V.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Potential Dividers",
-      "learningOutcome": "Use the potential divider rule for two series resistors.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "A 200 uF capacitor is connected to a 12 V supply. How much charge is stored when fully charged?",
-      "options": ["2.4 x 10^-3 C", "2.4 C", "1.67 x 10^-5 C", "212 C"],
-      "correctAnswer": "2.4 x 10^-3 C",
-      "explanation": "Q = CV = 200 x 10^-6 x 12 = 2.4 x 10^-3 C.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Capacitors",
-      "learningOutcome": "Calculate charge stored by a capacitor.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "What energy is stored in a 100 uF capacitor charged to 20 V?",
-      "options": ["0.020 J", "2.0 J", "0.0010 J", "200 J"],
-      "correctAnswer": "0.020 J",
-      "explanation": "Energy stored is E = 1/2 CV^2 = 0.5 x 100 x 10^-6 x 20^2 = 0.020 J.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Energy Stored in Capacitors",
-      "learningOutcome": "Calculate energy stored in a charged capacitor.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "A 0.20 m wire carries 5 A at right angles to a 0.40 T magnetic field. What force acts on the wire?",
-      "options": ["0.40 N", "1.0 N", "4.0 N", "0.025 N"],
-      "correctAnswer": "0.40 N",
-      "explanation": "The motor-effect force is F = BIL = 0.40 x 5 x 0.20 = 0.40 N.",
-      "difficulty": 3,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Motor Effect",
-      "learningOutcome": "Calculate force on a current-carrying conductor in a magnetic field.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "The magnetic flux through a 50-turn coil changes by 0.020 Wb in 0.10 s. What is the magnitude of the induced emf?",
-      "options": ["10 V", "0.004 V", "0.10 V", "100 V"],
-      "correctAnswer": "10 V",
-      "explanation": "Faraday's law gives emf = N deltaPhi/delta t = 50 x 0.020/0.10 = 10 V.",
-      "difficulty": 3,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Faraday's Law",
-      "learningOutcome": "Calculate induced emf from rate of change of magnetic flux linkage.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "A transformer has 600 primary turns and 1200 secondary turns. If the primary voltage is 240 V, what is the secondary voltage?",
-      "options": ["480 V", "120 V", "240 V", "1440 V"],
-      "correctAnswer": "480 V",
-      "explanation": "For an ideal transformer, Vs/Vp = Ns/Np = 1200/600 = 2, so Vs = 480 V.",
-      "difficulty": 3,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Transformers",
-      "learningOutcome": "Apply the transformer turns ratio to calculate secondary voltage.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "An alternating current has a period of 0.010 s. What is its frequency?",
-      "options": ["100 Hz", "10 Hz", "0.010 Hz", "1000 Hz"],
-      "correctAnswer": "100 Hz",
-      "explanation": "Frequency is f = 1/T = 1/0.010 = 100 Hz.",
-      "difficulty": 3,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Alternating Current",
-      "learningOutcome": "Calculate alternating-current frequency from period.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "A photon of energy 5 eV strikes a metal with work function 2 eV. What is the maximum kinetic energy of an emitted photoelectron?",
-      "options": ["3 eV", "7 eV", "2.5 eV", "10 eV"],
-      "correctAnswer": "3 eV",
-      "explanation": "Maximum kinetic energy is photon energy minus work function: 5 eV - 2 eV = 3 eV.",
-      "difficulty": 3,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Photoelectric Effect",
-      "learningOutcome": "Use the photoelectric equation to calculate maximum kinetic energy.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "A radioactive sample has a half-life of 6 hours. If it starts with 80 g, how much remains undecayed after 18 hours?",
-      "options": ["10 g", "20 g", "40 g", "5 g"],
-      "correctAnswer": "10 g",
-      "explanation": "Eighteen hours is three half-lives, so 80 g becomes 40 g, then 20 g, then 10 g.",
-      "difficulty": 3,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Radioactive Decay",
-      "learningOutcome": "Apply half-life to find the remaining undecayed mass.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "A detector records 460 counts per minute from a source and background together. The background count is 40 counts per minute. What is the corrected source count rate?",
-      "options": ["420 counts per minute", "500 counts per minute", "460 counts per minute", "40 counts per minute"],
-      "correctAnswer": "420 counts per minute",
-      "explanation": "Subtract the background count from the total count: 460 - 40 = 420 counts per minute.",
-      "difficulty": 3,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Radiation Detection",
-      "learningOutcome": "Correct radioactive count rate measurements for background radiation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "A spring extends by 0.040 m when an 8.0 N load is attached. What is the spring constant?",
-      "options": ["200 N/m", "0.005 N/m", "8.04 N/m", "320 N/m"],
-      "correctAnswer": "200 N/m",
-      "explanation": "Using F = kx, k = F/x = 8.0/0.040 = 200 N/m.",
-      "difficulty": 3,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Elasticity Experiments",
-      "learningOutcome": "Use force-extension measurements to calculate spring constant.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "A projectile is launched with an initial vertical velocity of 20 m/s. Using g = 10 m/s^2, what is its maximum height above the launch point?",
-      "options": ["20 m", "40 m", "10 m", "200 m"],
-      "correctAnswer": "20 m",
-      "explanation": "At maximum height vertical velocity is zero, so h = u^2/(2g) = 20^2/(2 x 10) = 20 m.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Projectile Motion",
-      "learningOutcome": "Analyze vertical projectile motion to calculate maximum height.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "A 2 kg trolley moving at 6 m/s collides with a stationary 1 kg trolley and they stick together. What is their common speed after collision?",
-      "options": ["4 m/s", "3 m/s", "6 m/s", "12 m/s"],
-      "correctAnswer": "4 m/s",
-      "explanation": "Momentum before is 2 x 6 = 12 kg m/s. Combined mass is 3 kg, so speed after collision is 12/3 = 4 m/s.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Collisions",
-      "learningOutcome": "Use conservation of momentum for a perfectly inelastic collision.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "In the collision where a 2 kg trolley at 6 m/s sticks to a stationary 1 kg trolley, how much kinetic energy is lost?",
-      "options": ["12 J", "24 J", "36 J", "6 J"],
-      "correctAnswer": "12 J",
-      "explanation": "Initial kinetic energy is 0.5 x 2 x 6^2 = 36 J. Final kinetic energy is 0.5 x 3 x 4^2 = 24 J, so 12 J is lost.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Energy in Collisions",
-      "learningOutcome": "Compare kinetic energy before and after an inelastic collision.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A vehicle moves round a banked curve of radius 50 m. If tan theta = 0.20 and g = 10 m/s^2, what speed needs no sideways friction?",
-      "options": ["10 m/s", "5 m/s", "20 m/s", "100 m/s"],
-      "correctAnswer": "10 m/s",
-      "explanation": "For a banked curve without sideways friction, v = sqrt(rg tan theta) = sqrt(50 x 10 x 0.20) = 10 m/s.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Circular Motion",
-      "learningOutcome": "Analyze forces on a vehicle moving round a banked curve.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "If gravitational field strength at Earth's surface is g, what is its approximate value at a distance 2R from Earth's centre, where R is Earth's radius?",
-      "options": ["g/4", "g/2", "2g", "4g"],
-      "correctAnswer": "g/4",
-      "explanation": "Gravitational field strength follows an inverse-square relationship, so doubling distance from the centre gives one quarter of the surface value.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Gravitation",
-      "learningOutcome": "Apply the inverse-square relationship for gravitational field strength.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "An engineer adds dampers to a bridge that may be forced by periodic wind gusts. What is the main purpose of the dampers?",
-      "options": ["To reduce large resonance amplitudes", "To make the bridge mass zero", "To increase the wind frequency only", "To remove gravitational force from the bridge"],
-      "correctAnswer": "To reduce large resonance amplitudes",
-      "explanation": "Damping dissipates energy, reducing the amplitude that can build up when the driving frequency is near resonance.",
-      "difficulty": 4,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Damping and Resonance",
-      "learningOutcome": "Explain how damping controls resonance in structures.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "A string fixed at both ends is 1.2 m long. If wave speed on the string is 120 m/s, what is the fundamental frequency?",
-      "options": ["50 Hz", "100 Hz", "144 Hz", "25 Hz"],
-      "correctAnswer": "50 Hz",
-      "explanation": "For the fundamental mode of a string fixed at both ends, lambda = 2L = 2.4 m, so f = 120/2.4 = 50 Hz.",
-      "difficulty": 4,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Stationary Waves",
-      "learningOutcome": "Calculate fundamental frequency for a stretched string.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A pipe closed at one end is 0.85 m long. Taking sound speed as 340 m/s, what is its fundamental frequency?",
-      "options": ["100 Hz", "200 Hz", "50 Hz", "400 Hz"],
-      "correctAnswer": "100 Hz",
-      "explanation": "For a pipe closed at one end, the fundamental wavelength is 4L = 3.4 m, so f = 340/3.4 = 100 Hz.",
-      "difficulty": 4,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Resonance in Air Columns",
-      "learningOutcome": "Calculate fundamental frequency for a closed pipe.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "A water wave passes through a gap. When is diffraction most noticeable?",
-      "options": ["When the gap width is comparable to the wavelength", "When the gap is infinitely wider than the wavelength", "When the wave has zero amplitude", "When the water is completely still"],
-      "correctAnswer": "When the gap width is comparable to the wavelength",
-      "explanation": "Diffraction is strongest when an aperture or obstacle has a size similar to the wavelength.",
-      "difficulty": 4,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Diffraction",
-      "learningOutcome": "Analyze how aperture size affects diffraction.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Two thin lenses in contact have powers +5 D and -2 D. What is the combined focal length?",
-      "options": ["0.33 m", "3.0 m", "0.20 m", "-0.50 m"],
-      "correctAnswer": "0.33 m",
-      "explanation": "Lens powers add, so total power is +3 D. Focal length f = 1/P = 1/3 m, about 0.33 m.",
-      "difficulty": 4,
-      "strandTitle": "Waves and Optics",
-      "subStrandTitle": "Lens Power",
-      "learningOutcome": "Analyze combined power and focal length of lenses in contact.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "A cell of emf 12 V has terminal potential difference 10 V when delivering 2 A. What is its internal resistance?",
-      "options": ["1 ohm", "5 ohm", "6 ohm", "11 ohm"],
-      "correctAnswer": "1 ohm",
-      "explanation": "Lost volts are E - V = 2 V. Since lost volts = Ir, r = 2/2 = 1 ohm.",
-      "difficulty": 4,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Internal Resistance",
-      "learningOutcome": "Calculate internal resistance from emf, terminal voltage, and current.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "A 12 V supply is connected across 2 ohm and 4 ohm resistors in series. What is the power dissipated in the 4 ohm resistor?",
-      "options": ["16 W", "8 W", "24 W", "4 W"],
-      "correctAnswer": "16 W",
-      "explanation": "Total resistance is 6 ohm, so current is 2 A. Power in the 4 ohm resistor is I^2R = 2^2 x 4 = 16 W.",
-      "difficulty": 4,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Circuit Power",
-      "learningOutcome": "Analyze a series circuit to calculate component power.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A balanced Wheatstone bridge has ratio arms 2 ohm and 3 ohm, and one lower arm is 4 ohm. What resistance must the other lower arm have for balance?",
-      "options": ["6 ohm", "2.7 ohm", "1.5 ohm", "12 ohm"],
-      "correctAnswer": "6 ohm",
-      "explanation": "For balance, P/Q = R/S. With 2/3 = 4/S, S = 6 ohm.",
-      "difficulty": 4,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Wheatstone Bridge",
-      "learningOutcome": "Use the Wheatstone bridge balance condition.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "A 20 uF capacitor is charged through a 100 k ohm resistor. What is the time constant of the circuit?",
-      "options": ["2.0 s", "0.20 s", "5.0 s", "2000 s"],
-      "correctAnswer": "2.0 s",
-      "explanation": "The time constant is RC = 100000 x 20 x 10^-6 = 2.0 s.",
-      "difficulty": 4,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "RC Circuits",
-      "learningOutcome": "Calculate the time constant for a resistor-capacitor circuit.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "An alternating voltage has a peak value of 325 V. What is its approximate rms value?",
-      "options": ["230 V", "325 V", "460 V", "115 V"],
-      "correctAnswer": "230 V",
-      "explanation": "For a sinusoidal supply, Vrms = Vpeak/sqrt(2), so 325/sqrt(2) is approximately 230 V.",
-      "difficulty": 4,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Alternating Current",
-      "learningOutcome": "Relate peak and rms values of a sinusoidal voltage.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "A straight conductor of length 0.40 m moves at 8 m/s at right angles to a 0.50 T magnetic field. What emf is induced across its ends?",
-      "options": ["1.6 V", "0.16 V", "3.2 V", "10 V"],
-      "correctAnswer": "1.6 V",
-      "explanation": "Motional emf is E = Blv = 0.50 x 0.40 x 8 = 1.6 V.",
-      "difficulty": 4,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Motional Emf",
-      "learningOutcome": "Calculate emf induced in a conductor moving through a magnetic field.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "The north pole of a magnet is pushed towards a coil connected to a galvanometer. What polarity is induced at the near face of the coil?",
-      "options": ["North pole", "South pole", "No pole because the magnet is moving", "Alternating north and south every half turn"],
-      "correctAnswer": "North pole",
-      "explanation": "By Lenz's law, the induced current opposes the approaching north pole, so the near face of the coil becomes a north pole.",
-      "difficulty": 4,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Lenz's Law",
-      "learningOutcome": "Predict induced polarity using Lenz's law.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A photoelectron has maximum kinetic energy 3.2 x 10^-19 J. Using e = 1.6 x 10^-19 C, what stopping potential is needed?",
-      "options": ["2.0 V", "0.50 V", "3.2 V", "5.1 V"],
-      "correctAnswer": "2.0 V",
-      "explanation": "Stopping potential satisfies eV = KE, so V = 3.2 x 10^-19 / 1.6 x 10^-19 = 2.0 V.",
-      "difficulty": 4,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Photoelectric Effect",
-      "learningOutcome": "Calculate stopping potential from maximum photoelectron kinetic energy.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "The momentum of a particle is doubled. What happens to its de Broglie wavelength?",
-      "options": ["It is halved", "It is doubled", "It becomes four times larger", "It is unchanged"],
-      "correctAnswer": "It is halved",
-      "explanation": "The de Broglie wavelength is lambda = h/p, so doubling momentum halves the wavelength.",
-      "difficulty": 4,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Matter Waves",
-      "learningOutcome": "Analyze the inverse relationship between particle momentum and de Broglie wavelength.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "A radioactive count rate falls from 800 counts per minute to 100 counts per minute in 12 days. What is the half-life?",
-      "options": ["4 days", "3 days", "6 days", "12 days"],
-      "correctAnswer": "4 days",
-      "explanation": "The count rate changes 800 to 400 to 200 to 100, which is three half-lives in 12 days. Each half-life is 4 days.",
-      "difficulty": 4,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Radioactive Decay",
-      "learningOutcome": "Analyze count-rate changes to determine half-life.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Which plan best determines g using a simple pendulum in a school laboratory?",
-      "options": ["Measure several lengths, time many oscillations for each, then plot T^2 against length", "Measure one swing at one length and divide the length by the time", "Use any mass and assume the period equals the mass", "Pull the bob through 90 degrees and record the largest speed"],
-      "correctAnswer": "Measure several lengths, time many oscillations for each, then plot T^2 against length",
-      "explanation": "For a simple pendulum, T^2 = 4 pi^2 L/g, so a T^2 against L graph gives a reliable gradient for finding g.",
-      "difficulty": 5,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Pendulum Investigation",
-      "learningOutcome": "Design a graph-based method for determining gravitational field strength.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which method best finds the internal resistance of a cell from experimental data?",
-      "options": ["Vary the load, measure terminal voltage and current, then use the gradient of a V against I graph", "Measure only the open-circuit voltage once", "Connect the cell directly across an ammeter for a long time", "Measure the mass of the cell before and after use"],
-      "correctAnswer": "Vary the load, measure terminal voltage and current, then use the gradient of a V against I graph",
-      "explanation": "For a cell, V = E - Ir, so the negative gradient of terminal voltage against current gives internal resistance.",
-      "difficulty": 5,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Electrical Measurements",
-      "learningOutcome": "Design an investigation to determine emf and internal resistance.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which observation is strongest evidence that light transfers energy in photons rather than only as a classical wave?",
-      "options": ["Photoelectrons are emitted only above a threshold frequency", "Water waves diffract around a barrier", "Sound gets quieter with distance", "A plane mirror forms a virtual image"],
-      "correctAnswer": "Photoelectrons are emitted only above a threshold frequency",
-      "explanation": "A threshold frequency shows that each electron needs one photon with enough energy, which classical wave intensity alone cannot explain.",
-      "difficulty": 5,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Evidence for Photons",
-      "learningOutcome": "Evaluate experimental evidence for the photon model of light.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Why do crumple zones in vehicles reduce injury risk during a collision?",
-      "options": ["They increase collision time, reducing average force for the same change in momentum", "They make momentum disappear before impact", "They remove the need for seat belts", "They increase acceleration so passengers stop sooner"],
-      "correctAnswer": "They increase collision time, reducing average force for the same change in momentum",
-      "explanation": "Impulse equals change in momentum. Increasing the stopping time reduces the average force on passengers.",
-      "difficulty": 5,
-      "strandTitle": "Mechanics",
-      "subStrandTitle": "Impulse and Safety",
-      "learningOutcome": "Evaluate safety features using impulse and momentum principles.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "For long-distance power transmission at fixed power, why are step-up transformers used near power stations?",
-      "options": ["They raise voltage and lower current, reducing I^2R losses in cables", "They make cable resistance exactly zero", "They convert alternating current into radioactive energy", "They lower voltage so current becomes larger in the lines"],
-      "correctAnswer": "They raise voltage and lower current, reducing I^2R losses in cables",
-      "explanation": "For the same transmitted power, higher voltage means lower current, and cable heating losses are proportional to I^2R.",
-      "difficulty": 5,
-      "strandTitle": "Magnetism and Electromagnetic Induction",
-      "subStrandTitle": "Power Transmission",
-      "learningOutcome": "Evaluate transformer use in efficient electrical power transmission.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A battery-powered lamp becomes very dim when switched on, and the terminal voltage of the battery drops sharply under load. What is the most likely explanation?",
-      "options": ["The battery has a large internal resistance", "The lamp has no resistance", "The circuit current is alternating at high frequency", "The voltmeter is measuring gravitational field strength"],
-      "correctAnswer": "The battery has a large internal resistance",
-      "explanation": "A large internal resistance causes a large lost voltage Ir inside the battery, leaving less terminal voltage for the lamp.",
-      "difficulty": 5,
-      "strandTitle": "Electricity",
-      "subStrandTitle": "Circuit Diagnosis",
-      "learningOutcome": "Diagnose circuit behaviour using internal resistance concepts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A rectifier output has too much ripple for a small DC device. Which design change would best smooth the output?",
-      "options": ["Add a larger capacitor in parallel with the load", "Remove all diodes from the rectifier", "Connect the load only to an open switch", "Replace the capacitor with an air gap"],
-      "correctAnswer": "Add a larger capacitor in parallel with the load",
-      "explanation": "A larger smoothing capacitor stores more charge and discharges more slowly between peaks, reducing ripple.",
-      "difficulty": 5,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Semiconductor Rectification",
-      "learningOutcome": "Select a circuit design change to improve rectified DC output.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "What is the role of control rods in a nuclear fission reactor?",
-      "options": ["They absorb neutrons to control the chain reaction rate", "They provide all the uranium fuel", "They reflect visible light into the turbine", "They turn gamma rays directly into steam"],
-      "correctAnswer": "They absorb neutrons to control the chain reaction rate",
-      "explanation": "Control rods absorb excess neutrons, allowing operators to slow or maintain the fission chain reaction.",
-      "difficulty": 5,
-      "strandTitle": "Modern Physics",
-      "subStrandTitle": "Nuclear Reactors",
-      "learningOutcome": "Evaluate how reactor components control nuclear fission.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A learner measures very small wire extensions using single load readings and gets scattered results. Which improvement best increases reliability?",
-      "options": ["Take readings for several loads and use the gradient of a force-extension graph", "Use fewer readings to finish faster", "Record extensions only to the nearest metre", "Change the wire material after every reading"],
-      "correctAnswer": "Take readings for several loads and use the gradient of a force-extension graph",
-      "explanation": "A graph uses all data points, reduces the effect of scatter, and gives a more reliable stiffness estimate than one reading.",
-      "difficulty": 5,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Reliability and Graphs",
-      "learningOutcome": "Evaluate experimental improvements for reliable elasticity measurements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which investigation design can determine the speed of sound most directly using electronic timing?",
-      "options": ["Place two microphones a known distance apart and measure the time delay of the same sound pulse", "Measure the colour of a loudspeaker cone while it vibrates", "Time one hand clap with a stopwatch held next to the source", "Weigh a tuning fork before and after it sounds"],
-      "correctAnswer": "Place two microphones a known distance apart and measure the time delay of the same sound pulse",
-      "explanation": "With microphone separation d and measured time delay t, the sound speed is found directly from v = d/t.",
-      "difficulty": 5,
-      "strandTitle": "Practical Physics",
-      "subStrandTitle": "Sound Measurement",
-      "learningOutcome": "Design an electronic timing method to determine the speed of sound.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "physics",
+ "subjectName": "Physics",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "What is the SI unit of angular velocity?",
+   "options": [
+    "rad/s",
+    "m/s",
+    "N m",
+    "kg m/s"
+   ],
+   "correctAnswer": "rad/s",
+   "explanation": "Angular velocity is angular displacement per unit time, so it is measured in radians per second.",
+   "difficulty": 1,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Circular Motion",
+   "learningOutcome": "Identify units used to describe rotational motion.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which quantity is conserved when no external torque acts on a rotating system?",
+   "options": [
+    "Angular momentum",
+    "Linear acceleration",
+    "Electric charge density",
+    "Refractive index"
+   ],
+   "correctAnswer": "Angular momentum",
+   "explanation": "A system with zero resultant external torque keeps a constant angular momentum.",
+   "difficulty": 1,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Rotational Motion",
+   "learningOutcome": "Recall conservation of angular momentum in rotating systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "In simple harmonic motion, what is the direction of the restoring force?",
+   "options": [
+    "Towards the equilibrium position",
+    "Away from the equilibrium position",
+    "Always vertically upward",
+    "Always opposite to the velocity only"
+   ],
+   "correctAnswer": "Towards the equilibrium position",
+   "explanation": "The restoring force in SHM is directed towards equilibrium and is proportional to displacement.",
+   "difficulty": 1,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Simple Harmonic Motion",
+   "learningOutcome": "Describe the restoring force that produces simple harmonic motion.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "How is gravitational field strength at a point defined?",
+   "options": [
+    "Gravitational force per unit mass",
+    "Mass per unit volume",
+    "Work done per unit charge",
+    "Change in velocity per unit displacement"
+   ],
+   "correctAnswer": "Gravitational force per unit mass",
+   "explanation": "Gravitational field strength is the force that a unit mass would experience at that point.",
+   "difficulty": 1,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Gravitation",
+   "learningOutcome": "Define gravitational field strength using force and mass.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "When does resonance occur in an oscillating system?",
+   "options": [
+    "When the driving frequency equals the natural frequency",
+    "When friction is completely absent from every system",
+    "When the amplitude is forced to zero",
+    "When mass is removed from a stationary object"
+   ],
+   "correctAnswer": "When the driving frequency equals the natural frequency",
+   "explanation": "Resonance produces a large response when the system is driven at its natural frequency.",
+   "difficulty": 1,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Forced Oscillations",
+   "learningOutcome": "Recognize the condition for resonance in oscillating systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which statement correctly describes electromagnetic waves in a vacuum?",
+   "options": [
+    "They are transverse waves",
+    "They require air to travel",
+    "They are always longitudinal waves",
+    "They carry no energy"
+   ],
+   "correctAnswer": "They are transverse waves",
+   "explanation": "Electromagnetic waves have electric and magnetic fields oscillating perpendicular to the direction of travel.",
+   "difficulty": 1,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Electromagnetic Waves",
+   "learningOutcome": "State the nature of electromagnetic waves in a vacuum.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "For two coherent waves, which path difference gives constructive interference?",
+   "options": [
+    "A whole number of wavelengths",
+    "An odd number of half wavelengths only",
+    "One quarter of a wavelength only",
+    "Any random path difference"
+   ],
+   "correctAnswer": "A whole number of wavelengths",
+   "explanation": "Constructive interference occurs when waves arrive in phase, which happens for path differences of n lambda.",
+   "difficulty": 1,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Interference",
+   "learningOutcome": "Recall the path difference condition for constructive interference.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "What is the critical angle for light moving from glass to air?",
+   "options": [
+    "The angle of incidence in glass for which the refracted ray is 90 degrees",
+    "The angle of reflection measured inside air",
+    "The angle at which light stops obeying reflection",
+    "The smallest angle made by a ray with a mirror surface"
+   ],
+   "correctAnswer": "The angle of incidence in glass for which the refracted ray is 90 degrees",
+   "explanation": "The critical angle is measured in the optically denser medium when the refracted ray just grazes the boundary.",
+   "difficulty": 1,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Total Internal Reflection",
+   "learningOutcome": "Define critical angle for light moving from a denser to a rarer medium.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which unit can be used for electric field strength?",
+   "options": [
+    "N/C",
+    "C/s",
+    "J kg",
+    "Wb/m"
+   ],
+   "correctAnswer": "N/C",
+   "explanation": "Electric field strength is force per unit charge, so newtons per coulomb is a correct unit.",
+   "difficulty": 1,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Electric Fields",
+   "learningOutcome": "Identify units of electric field strength.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "What does the capacitance of a capacitor measure?",
+   "options": [
+    "Charge stored per unit potential difference",
+    "Current supplied per unit magnetic field",
+    "Energy lost per unit distance",
+    "Resistance offered per unit length"
+   ],
+   "correctAnswer": "Charge stored per unit potential difference",
+   "explanation": "Capacitance is defined by C = Q/V, the charge stored for each volt across the capacitor.",
+   "difficulty": 1,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Capacitors",
+   "learningOutcome": "Define capacitance in terms of charge and potential difference.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "What is the SI unit of magnetic flux?",
+   "options": [
+    "Weber",
+    "Tesla",
+    "Henry",
+    "Volt"
+   ],
+   "correctAnswer": "Weber",
+   "explanation": "Magnetic flux is measured in webers, while magnetic flux density is measured in tesla.",
+   "difficulty": 1,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Magnetic Flux",
+   "learningOutcome": "Recall the SI unit of magnetic flux.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "What does Lenz's law state about an induced current?",
+   "options": [
+    "It flows in a direction that opposes the change producing it",
+    "It always flows clockwise around a coil",
+    "It is independent of magnetic flux change",
+    "It exists only in non-conductors"
+   ],
+   "correctAnswer": "It flows in a direction that opposes the change producing it",
+   "explanation": "Lenz's law is a conservation principle: the induced effect opposes the change in magnetic flux.",
+   "difficulty": 1,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Lenz's Law",
+   "learningOutcome": "State Lenz's law for induced current direction.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "In the photoelectric effect, what is the work function of a metal?",
+   "options": [
+    "The minimum energy needed to remove an electron from its surface",
+    "The maximum current through the metal wire",
+    "The power needed to heat the metal to melting point",
+    "The energy released by each radioactive nucleus"
+   ],
+   "correctAnswer": "The minimum energy needed to remove an electron from its surface",
+   "explanation": "The work function is the least photon energy required to liberate an electron from a metal surface.",
+   "difficulty": 1,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Photoelectric Effect",
+   "learningOutcome": "Define work function in photoelectric emission.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "What is meant by the half-life of a radioactive isotope?",
+   "options": [
+    "Time taken for half the undecayed nuclei to decay",
+    "Time taken for all nuclei to become stable",
+    "Half the time needed to ionise an atom",
+    "Time taken for radiation to travel half a metre"
+   ],
+   "correctAnswer": "Time taken for half the undecayed nuclei to decay",
+   "explanation": "Half-life measures the time for the number of undecayed radioactive nuclei to fall by half.",
+   "difficulty": 1,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Radioactivity",
+   "learningOutcome": "Recall the meaning of radioactive half-life.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "What is the main action of a semiconductor diode in a simple circuit?",
+   "options": [
+    "It allows current more easily in one direction than the other",
+    "It stores gravitational potential energy",
+    "It converts sound directly into nuclear energy",
+    "It makes resistance zero at room temperature"
+   ],
+   "correctAnswer": "It allows current more easily in one direction than the other",
+   "explanation": "A diode has a low resistance in forward bias and a high resistance in reverse bias.",
+   "difficulty": 1,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Semiconductor Devices",
+   "learningOutcome": "Describe the rectifying action of a semiconductor diode.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "A projectile moves without air resistance. What happens to its horizontal velocity after launch?",
+   "options": [
+    "It remains constant",
+    "It increases uniformly",
+    "It falls to zero immediately",
+    "It reverses at the highest point"
+   ],
+   "correctAnswer": "It remains constant",
+   "explanation": "With no horizontal resultant force, the horizontal component of velocity remains unchanged.",
+   "difficulty": 2,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Projectile Motion",
+   "learningOutcome": "Explain horizontal motion of a projectile in the absence of air resistance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "A stone tied to a string is whirled in a horizontal circle. In which direction is the centripetal force on the stone?",
+   "options": [
+    "Towards the centre of the circle",
+    "Along the tangent in the direction of motion",
+    "Vertically upward only",
+    "Away from the centre of the circle"
+   ],
+   "correctAnswer": "Towards the centre of the circle",
+   "explanation": "Centripetal force is the resultant force directed towards the centre that changes the direction of velocity.",
+   "difficulty": 2,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Circular Motion",
+   "learningOutcome": "Identify the direction of centripetal force in circular motion.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "For a satellite in a stable circular orbit around Earth, what provides the centripetal force?",
+   "options": [
+    "Earth's gravitational attraction",
+    "Air resistance from the upper atmosphere only",
+    "The satellite's solar panels",
+    "A permanent outward force from the orbit"
+   ],
+   "correctAnswer": "Earth's gravitational attraction",
+   "explanation": "Gravity acts towards Earth's centre and supplies the centripetal force needed for orbital motion.",
+   "difficulty": 2,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Gravitation",
+   "learningOutcome": "Relate gravitational force to satellite circular motion.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which set of factors determines the pressure at a point in a liquid at rest?",
+   "options": [
+    "Density, gravitational field strength, and depth",
+    "Container colour, surface area, and volume",
+    "Mass of the container, current, and voltage",
+    "Frequency, wavelength, and amplitude only"
+   ],
+   "correctAnswer": "Density, gravitational field strength, and depth",
+   "explanation": "Liquid pressure at depth h is given by p = rho g h, so density, g, and depth are the relevant factors.",
+   "difficulty": 2,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Fluid Pressure",
+   "learningOutcome": "Explain the factors affecting pressure in a liquid.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "A falling raindrop reaches terminal velocity. Which statement best explains this motion?",
+   "options": [
+    "Upward resistive forces balance its weight",
+    "Its mass has become zero",
+    "Gravity has stopped acting on it",
+    "Its acceleration is greater than g"
+   ],
+   "correctAnswer": "Upward resistive forces balance its weight",
+   "explanation": "At terminal velocity the resultant force is zero, so the object continues at constant speed.",
+   "difficulty": 2,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Forces in Fluids",
+   "learningOutcome": "Explain terminal velocity using balanced forces.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "A sound wave travels at 340 m/s and has a frequency of 680 Hz. What is its wavelength?",
+   "options": [
+    "0.50 m",
+    "2.0 m",
+    "340 m",
+    "1020 m"
+   ],
+   "correctAnswer": "0.50 m",
+   "explanation": "Using v = f lambda, lambda = 340/680 = 0.50 m.",
+   "difficulty": 2,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Wave Equation",
+   "learningOutcome": "Use the wave equation to calculate wavelength.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "A wave has a frequency of 50 Hz. What is its period?",
+   "options": [
+    "0.020 s",
+    "0.20 s",
+    "2.0 s",
+    "50 s"
+   ],
+   "correctAnswer": "0.020 s",
+   "explanation": "The period is T = 1/f = 1/50 = 0.020 s.",
+   "difficulty": 2,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Wave Period and Frequency",
+   "learningOutcome": "Calculate wave period from frequency.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Light travels at 3.0 x 10^8 m/s in a vacuum and 2.0 x 10^8 m/s in glass. What is the refractive index of the glass?",
+   "options": [
+    "1.5",
+    "0.67",
+    "5.0",
+    "6.0 x 10^16"
+   ],
+   "correctAnswer": "1.5",
+   "explanation": "Refractive index n = c/v = 3.0 x 10^8 divided by 2.0 x 10^8 = 1.5.",
+   "difficulty": 2,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Refraction",
+   "learningOutcome": "Calculate refractive index from speed of light in a medium.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "A converging lens forms an image of an object placed beyond its focal length. Which image description is generally correct?",
+   "options": [
+    "Real and inverted",
+    "Virtual and upright only",
+    "No image is formed",
+    "Real and always same size"
+   ],
+   "correctAnswer": "Real and inverted",
+   "explanation": "For an object beyond the focal length of a converging lens, refracted rays meet to form a real inverted image.",
+   "difficulty": 2,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Thin Lenses",
+   "learningOutcome": "Describe image formation by a converging lens.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which condition is required for total internal reflection?",
+   "options": [
+    "Light travels from a denser medium to a rarer medium and the angle of incidence exceeds the critical angle",
+    "Light travels from air to glass at any angle",
+    "The angle of incidence is zero degrees in all media",
+    "The reflecting surface is painted black"
+   ],
+   "correctAnswer": "Light travels from a denser medium to a rarer medium and the angle of incidence exceeds the critical angle",
+   "explanation": "Total internal reflection needs a denser-to-rarer boundary and an incidence angle greater than the critical angle.",
+   "difficulty": 2,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Total Internal Reflection",
+   "learningOutcome": "State the conditions needed for total internal reflection.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Two resistors of 3 ohm and 5 ohm are connected in series. What is their combined resistance?",
+   "options": [
+    "8 ohm",
+    "1.9 ohm",
+    "2 ohm",
+    "15 ohm"
+   ],
+   "correctAnswer": "8 ohm",
+   "explanation": "Series resistances add directly, so R = 3 + 5 = 8 ohm.",
+   "difficulty": 2,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Series Circuits",
+   "learningOutcome": "Calculate equivalent resistance for resistors in series.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "A 6 ohm resistor and a 3 ohm resistor are connected in parallel. What is the equivalent resistance?",
+   "options": [
+    "2 ohm",
+    "9 ohm",
+    "4.5 ohm",
+    "18 ohm"
+   ],
+   "correctAnswer": "2 ohm",
+   "explanation": "For parallel resistors, 1/R = 1/6 + 1/3 = 1/2, so R = 2 ohm.",
+   "difficulty": 2,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Parallel Circuits",
+   "learningOutcome": "Calculate equivalent resistance for two parallel resistors.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "What current flows through a 4 ohm resistor connected to a 12 V supply?",
+   "options": [
+    "3 A",
+    "0.33 A",
+    "16 A",
+    "48 A"
+   ],
+   "correctAnswer": "3 A",
+   "explanation": "Ohm's law gives I = V/R = 12/4 = 3 A.",
+   "difficulty": 2,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Ohm's Law",
+   "learningOutcome": "Use Ohm's law to calculate current.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "A current of 2 A flows for 5 minutes. How much charge passes a point in the circuit?",
+   "options": [
+    "600 C",
+    "10 C",
+    "150 C",
+    "3000 C"
+   ],
+   "correctAnswer": "600 C",
+   "explanation": "Convert 5 minutes to 300 s, then Q = It = 2 x 300 = 600 C.",
+   "difficulty": 2,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Charge and Current",
+   "learningOutcome": "Calculate electric charge transferred by a steady current.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "A device connected to 240 V draws a current of 0.50 A. What is its power?",
+   "options": [
+    "120 W",
+    "480 W",
+    "240 W",
+    "0.0021 W"
+   ],
+   "correctAnswer": "120 W",
+   "explanation": "Electrical power is P = VI = 240 x 0.50 = 120 W.",
+   "difficulty": 2,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Electrical Power",
+   "learningOutcome": "Calculate power from potential difference and current.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "What is the shape of the magnetic field around a long straight current-carrying wire?",
+   "options": [
+    "Concentric circles centred on the wire",
+    "Straight lines parallel to the wire only",
+    "Uniform horizontal lines everywhere",
+    "Radial lines pointing away from one end"
+   ],
+   "correctAnswer": "Concentric circles centred on the wire",
+   "explanation": "A straight current-carrying conductor produces circular magnetic field lines around the wire.",
+   "difficulty": 2,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Magnetic Fields Around Conductors",
+   "learningOutcome": "Describe the magnetic field pattern around a straight current-carrying conductor.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which change increases the force on a straight current-carrying conductor placed at right angles to a magnetic field?",
+   "options": [
+    "Increasing the current in the conductor",
+    "Reducing the conductor length to zero",
+    "Turning off the magnetic field",
+    "Replacing the conductor with dry wood"
+   ],
+   "correctAnswer": "Increasing the current in the conductor",
+   "explanation": "The force is F = BIL for a conductor at right angles, so increasing current increases the force.",
+   "difficulty": 2,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Motor Effect",
+   "learningOutcome": "Relate conductor force to current in a magnetic field.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "What energy conversion occurs in an electric generator?",
+   "options": [
+    "Mechanical energy to electrical energy",
+    "Electrical energy to gravitational energy",
+    "Chemical energy to nuclear energy",
+    "Thermal energy to magnetic monopoles"
+   ],
+   "correctAnswer": "Mechanical energy to electrical energy",
+   "explanation": "A generator uses electromagnetic induction to convert mechanical work into electrical energy.",
+   "difficulty": 2,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Generators",
+   "learningOutcome": "Identify energy conversion in an electric generator.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "A transformer has more turns on its secondary coil than on its primary coil. What type of transformer is it?",
+   "options": [
+    "Step-up transformer",
+    "Step-down transformer",
+    "Isolation-free resistor",
+    "Direct-current amplifier"
+   ],
+   "correctAnswer": "Step-up transformer",
+   "explanation": "More turns on the secondary coil than the primary coil gives a higher secondary voltage.",
+   "difficulty": 2,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Transformers",
+   "learningOutcome": "Identify a step-up transformer from its coil turns.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "How does photon energy change when the frequency of light increases?",
+   "options": [
+    "It increases",
+    "It decreases to zero",
+    "It stays fixed for all colours",
+    "It depends only on the source size"
+   ],
+   "correctAnswer": "It increases",
+   "explanation": "Photon energy is E = hf, so higher frequency means higher energy.",
+   "difficulty": 2,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Quantum Theory of Light",
+   "learningOutcome": "Relate photon energy to frequency.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Light below the threshold frequency shines on a clean metal surface. What happens in the photoelectric effect?",
+   "options": [
+    "No photoelectrons are emitted",
+    "Photoelectrons are emitted after a long delay",
+    "The metal emits alpha particles",
+    "The stopping potential becomes infinite"
+   ],
+   "correctAnswer": "No photoelectrons are emitted",
+   "explanation": "If photon frequency is below threshold, each photon has too little energy to release an electron.",
+   "difficulty": 2,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Photoelectric Effect",
+   "learningOutcome": "Explain the role of threshold frequency in photoelectric emission.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "What is an alpha particle?",
+   "options": [
+    "A helium nucleus",
+    "A high-speed electron",
+    "A packet of visible light",
+    "A neutron with no mass"
+   ],
+   "correctAnswer": "A helium nucleus",
+   "explanation": "An alpha particle contains two protons and two neutrons, the same as a helium nucleus.",
+   "difficulty": 2,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Nuclear Radiation",
+   "learningOutcome": "Identify alpha radiation by its particle composition.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which description matches nuclear fission?",
+   "options": [
+    "A heavy nucleus splits into smaller nuclei and releases energy",
+    "Two light nuclei combine only at room temperature",
+    "An atom gains an electron in a chemical bond",
+    "A magnet loses its north pole permanently"
+   ],
+   "correctAnswer": "A heavy nucleus splits into smaller nuclei and releases energy",
+   "explanation": "Fission is the splitting of a heavy nucleus, often releasing neutrons and a large amount of energy.",
+   "difficulty": 2,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Nuclear Energy",
+   "learningOutcome": "Distinguish nuclear fission from other nuclear and chemical changes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which practice best reduces random error when measuring the period of a pendulum?",
+   "options": [
+    "Time many oscillations and repeat the measurement",
+    "Use only one swing and round to the nearest second",
+    "Start timing before releasing the pendulum",
+    "Change the length during the measurement"
+   ],
+   "correctAnswer": "Time many oscillations and repeat the measurement",
+   "explanation": "Timing several oscillations and repeating reduces the effect of reaction-time variation on the mean period.",
+   "difficulty": 2,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Measurement and Uncertainty",
+   "learningOutcome": "Choose methods that reduce random error in timing experiments.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "For an ohmic conductor, what does the gradient of a potential difference against current graph represent?",
+   "options": [
+    "Resistance",
+    "Charge",
+    "Frequency",
+    "Magnetic flux"
+   ],
+   "correctAnswer": "Resistance",
+   "explanation": "For a V against I graph, the gradient is V/I, which equals resistance for an ohmic conductor.",
+   "difficulty": 2,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Graphical Analysis",
+   "learningOutcome": "Interpret gradients from electrical measurement graphs.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "A car speeds up uniformly from 10 m/s to 25 m/s in 5 s. What is its acceleration?",
+   "options": [
+    "3 m/s^2",
+    "5 m/s^2",
+    "7 m/s^2",
+    "15 m/s^2"
+   ],
+   "correctAnswer": "3 m/s^2",
+   "explanation": "Acceleration is change in velocity divided by time: (25 - 10)/5 = 3 m/s^2.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Linear Motion",
+   "learningOutcome": "Calculate acceleration from a change in velocity over time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "A resultant force gives a 2.0 kg trolley an acceleration of 4.0 m/s^2. What is the resultant force?",
+   "options": [
+    "8 N",
+    "2 N",
+    "0.5 N",
+    "16 N"
+   ],
+   "correctAnswer": "8 N",
+   "explanation": "Newton's second law gives F = ma = 2.0 x 4.0 = 8 N.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Newton's Laws",
+   "learningOutcome": "Apply Newton's second law to calculate resultant force.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Using g = 10 N/kg, how much work is done in lifting a 5 kg mass vertically through 2 m?",
+   "options": [
+    "100 J",
+    "10 J",
+    "25 J",
+    "250 J"
+   ],
+   "correctAnswer": "100 J",
+   "explanation": "Work done against gravity is mgh = 5 x 10 x 2 = 100 J.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Work and Energy",
+   "learningOutcome": "Calculate work done against gravity.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "A machine does 600 J of useful work in 20 s. What is its useful power output?",
+   "options": [
+    "30 W",
+    "12 W",
+    "580 W",
+    "12000 W"
+   ],
+   "correctAnswer": "30 W",
+   "explanation": "Power is work done per unit time: P = 600/20 = 30 W.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Power",
+   "learningOutcome": "Calculate power from useful work and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "What is the momentum of a 0.40 kg ball moving at 15 m/s?",
+   "options": [
+    "6.0 kg m/s",
+    "0.027 kg m/s",
+    "14.6 kg m/s",
+    "37.5 kg m/s"
+   ],
+   "correctAnswer": "6.0 kg m/s",
+   "explanation": "Momentum is p = mv = 0.40 x 15 = 6.0 kg m/s.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Momentum",
+   "learningOutcome": "Calculate linear momentum from mass and velocity.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "A 0.15 kg ball changes velocity from 30 m/s east to 20 m/s west after hitting a wall. What is the magnitude of its change in momentum?",
+   "options": [
+    "7.5 kg m/s",
+    "1.5 kg m/s",
+    "4.5 kg m/s",
+    "50 kg m/s"
+   ],
+   "correctAnswer": "7.5 kg m/s",
+   "explanation": "Taking east as positive, change in velocity is -20 - 30 = -50 m/s, so the magnitude of change in momentum is 0.15 x 50 = 7.5 kg m/s.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Impulse and Momentum",
+   "learningOutcome": "Calculate change in momentum when velocity reverses direction.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "A cyclist moves round a circular track of radius 3 m at 9 m/s. What is the centripetal acceleration?",
+   "options": [
+    "27 m/s^2",
+    "3 m/s^2",
+    "12 m/s^2",
+    "81 m/s^2"
+   ],
+   "correctAnswer": "27 m/s^2",
+   "explanation": "Centripetal acceleration is a = v^2/r = 9^2/3 = 27 m/s^2.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Circular Motion",
+   "learningOutcome": "Calculate centripetal acceleration from speed and radius.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A spring has a spring constant of 200 N/m. What force is needed to extend it by 0.050 m within its elastic limit?",
+   "options": [
+    "10 N",
+    "4 N",
+    "200 N",
+    "4000 N"
+   ],
+   "correctAnswer": "10 N",
+   "explanation": "Hooke's law gives F = kx = 200 x 0.050 = 10 N.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Elasticity",
+   "learningOutcome": "Use Hooke's law to calculate force on a spring.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "A 0.50 kg mass oscillates on a spring of spring constant 200 N/m. Using pi = 3.14, what is the approximate period?",
+   "options": [
+    "0.31 s",
+    "1.57 s",
+    "3.14 s",
+    "20 s"
+   ],
+   "correctAnswer": "0.31 s",
+   "explanation": "T = 2 pi sqrt(m/k) = 2 x 3.14 x sqrt(0.50/200), which is about 0.31 s.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Simple Harmonic Motion",
+   "learningOutcome": "Apply the mass-spring period formula for simple harmonic motion.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Using g = 10 N/kg, what gravitational potential energy is gained by a 1500 kg lift raised through 20 m?",
+   "options": [
+    "300000 J",
+    "30000 J",
+    "750 J",
+    "150000 J"
+   ],
+   "correctAnswer": "300000 J",
+   "explanation": "Gravitational potential energy gained is mgh = 1500 x 10 x 20 = 300000 J.",
+   "difficulty": 3,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Energy Conservation",
+   "learningOutcome": "Calculate gravitational potential energy for vertical lifting.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A wave has wavelength 0.75 m and frequency 8 Hz. What is its speed?",
+   "options": [
+    "6.0 m/s",
+    "10.7 m/s",
+    "0.094 m/s",
+    "8.75 m/s"
+   ],
+   "correctAnswer": "6.0 m/s",
+   "explanation": "The wave speed is v = f lambda = 8 x 0.75 = 6.0 m/s.",
+   "difficulty": 3,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Wave Equation",
+   "learningOutcome": "Calculate wave speed from frequency and wavelength.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "An echo is heard 0.60 s after a shout. If sound travels at 340 m/s, how far away is the reflecting wall?",
+   "options": [
+    "102 m",
+    "204 m",
+    "340 m",
+    "56.7 m"
+   ],
+   "correctAnswer": "102 m",
+   "explanation": "The sound travels to the wall and back, so distance to the wall is vt/2 = 340 x 0.60 / 2 = 102 m.",
+   "difficulty": 3,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Sound Waves",
+   "learningOutcome": "Use echo timing to calculate distance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "In a double-slit experiment, wavelength is 6.0 x 10^-7 m, screen distance is 2.0 m, and slit separation is 3.0 x 10^-4 m. What is the fringe spacing?",
+   "options": [
+    "4.0 mm",
+    "0.40 mm",
+    "40 mm",
+    "9.0 mm"
+   ],
+   "correctAnswer": "4.0 mm",
+   "explanation": "Fringe spacing x = lambda D/a = (6.0 x 10^-7 x 2.0)/(3.0 x 10^-4) = 4.0 x 10^-3 m, or 4.0 mm.",
+   "difficulty": 3,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Interference",
+   "learningOutcome": "Calculate fringe spacing in a double-slit interference pattern.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "An object is 30 cm from a converging lens of focal length 10 cm. What is the image distance?",
+   "options": [
+    "15 cm",
+    "7.5 cm",
+    "20 cm",
+    "40 cm"
+   ],
+   "correctAnswer": "15 cm",
+   "explanation": "Using 1/f = 1/u + 1/v, 1/v = 1/10 - 1/30 = 1/15, so v = 15 cm.",
+   "difficulty": 3,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Thin Lenses",
+   "learningOutcome": "Apply the thin lens formula to calculate image distance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "An object is 30 cm from a lens and its real image is 15 cm from the lens. What is the magnification?",
+   "options": [
+    "0.50",
+    "2.0",
+    "45",
+    "15"
+   ],
+   "correctAnswer": "0.50",
+   "explanation": "The magnitude of magnification is v/u = 15/30 = 0.50.",
+   "difficulty": 3,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Image Magnification",
+   "learningOutcome": "Calculate magnification from object and image distances.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A charge of 6 C passes a point in a wire in 3 s. What is the current?",
+   "options": [
+    "2 A",
+    "18 A",
+    "0.5 A",
+    "9 A"
+   ],
+   "correctAnswer": "2 A",
+   "explanation": "Current is charge per unit time, I = Q/t = 6/3 = 2 A.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Charge and Current",
+   "learningOutcome": "Calculate current from charge flow and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "A resistor carries 3 A when the potential difference across it is 9 V. What is its resistance?",
+   "options": [
+    "3 ohm",
+    "27 ohm",
+    "12 ohm",
+    "0.33 ohm"
+   ],
+   "correctAnswer": "3 ohm",
+   "explanation": "Resistance is R = V/I = 9/3 = 3 ohm.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Ohm's Law",
+   "learningOutcome": "Calculate resistance from potential difference and current.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A 1000 W heater is used for 2 hours. How much electrical energy is used?",
+   "options": [
+    "2 kWh",
+    "0.5 kWh",
+    "2000 kWh",
+    "120 kWh"
+   ],
+   "correctAnswer": "2 kWh",
+   "explanation": "Energy in kilowatt-hours is power in kilowatts multiplied by time in hours: 1 kW x 2 h = 2 kWh.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Electrical Energy",
+   "learningOutcome": "Calculate electrical energy consumption in kilowatt-hours.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Two lamps are connected in series to a battery. Which statement about the current is correct?",
+   "options": [
+    "The same current passes through both lamps",
+    "The first lamp uses up all the current",
+    "Current is zero between the lamps",
+    "The larger lamp must carry twice the current"
+   ],
+   "correctAnswer": "The same current passes through both lamps",
+   "explanation": "In a series circuit there is only one conducting path, so the same current passes through each component.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Series Circuits",
+   "learningOutcome": "Apply current rules for components in series.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A 2 k ohm resistor and a 4 k ohm resistor are connected in series across 12 V. What is the potential difference across the 4 k ohm resistor?",
+   "options": [
+    "8 V",
+    "4 V",
+    "6 V",
+    "12 V"
+   ],
+   "correctAnswer": "8 V",
+   "explanation": "Voltage divides in proportion to resistance, so the 4 k ohm resistor gets 4/(2 + 4) x 12 = 8 V.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Potential Dividers",
+   "learningOutcome": "Use the potential divider rule for two series resistors.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "A 200 uF capacitor is connected to a 12 V supply. How much charge is stored when fully charged?",
+   "options": [
+    "2.4 x 10^-3 C",
+    "2.4 C",
+    "1.67 x 10^-5 C",
+    "212 C"
+   ],
+   "correctAnswer": "2.4 x 10^-3 C",
+   "explanation": "Q = CV = 200 x 10^-6 x 12 = 2.4 x 10^-3 C.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Capacitors",
+   "learningOutcome": "Calculate charge stored by a capacitor.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "What energy is stored in a 100 uF capacitor charged to 20 V?",
+   "options": [
+    "0.020 J",
+    "2.0 J",
+    "0.0010 J",
+    "200 J"
+   ],
+   "correctAnswer": "0.020 J",
+   "explanation": "Energy stored is E = 1/2 CV^2 = 0.5 x 100 x 10^-6 x 20^2 = 0.020 J.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Energy Stored in Capacitors",
+   "learningOutcome": "Calculate energy stored in a charged capacitor.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "A 0.20 m wire carries 5 A at right angles to a 0.40 T magnetic field. What force acts on the wire?",
+   "options": [
+    "0.40 N",
+    "1.0 N",
+    "4.0 N",
+    "0.025 N"
+   ],
+   "correctAnswer": "0.40 N",
+   "explanation": "The motor-effect force is F = BIL = 0.40 x 5 x 0.20 = 0.40 N.",
+   "difficulty": 3,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Motor Effect",
+   "learningOutcome": "Calculate force on a current-carrying conductor in a magnetic field.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "The magnetic flux through a 50-turn coil changes by 0.020 Wb in 0.10 s. What is the magnitude of the induced emf?",
+   "options": [
+    "10 V",
+    "0.004 V",
+    "0.10 V",
+    "100 V"
+   ],
+   "correctAnswer": "10 V",
+   "explanation": "Faraday's law gives emf = N deltaPhi/delta t = 50 x 0.020/0.10 = 10 V.",
+   "difficulty": 3,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Faraday's Law",
+   "learningOutcome": "Calculate induced emf from rate of change of magnetic flux linkage.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "A transformer has 600 primary turns and 1200 secondary turns. If the primary voltage is 240 V, what is the secondary voltage?",
+   "options": [
+    "480 V",
+    "120 V",
+    "240 V",
+    "1440 V"
+   ],
+   "correctAnswer": "480 V",
+   "explanation": "For an ideal transformer, Vs/Vp = Ns/Np = 1200/600 = 2, so Vs = 480 V.",
+   "difficulty": 3,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Transformers",
+   "learningOutcome": "Apply the transformer turns ratio to calculate secondary voltage.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "An alternating current has a period of 0.010 s. What is its frequency?",
+   "options": [
+    "100 Hz",
+    "10 Hz",
+    "0.010 Hz",
+    "1000 Hz"
+   ],
+   "correctAnswer": "100 Hz",
+   "explanation": "Frequency is f = 1/T = 1/0.010 = 100 Hz.",
+   "difficulty": 3,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Alternating Current",
+   "learningOutcome": "Calculate alternating-current frequency from period.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "A photon of energy 5 eV strikes a metal with work function 2 eV. What is the maximum kinetic energy of an emitted photoelectron?",
+   "options": [
+    "3 eV",
+    "7 eV",
+    "2.5 eV",
+    "10 eV"
+   ],
+   "correctAnswer": "3 eV",
+   "explanation": "Maximum kinetic energy is photon energy minus work function: 5 eV - 2 eV = 3 eV.",
+   "difficulty": 3,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Photoelectric Effect",
+   "learningOutcome": "Use the photoelectric equation to calculate maximum kinetic energy.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A radioactive sample has a half-life of 6 hours. If it starts with 80 g, how much remains undecayed after 18 hours?",
+   "options": [
+    "10 g",
+    "20 g",
+    "40 g",
+    "5 g"
+   ],
+   "correctAnswer": "10 g",
+   "explanation": "Eighteen hours is three half-lives, so 80 g becomes 40 g, then 20 g, then 10 g.",
+   "difficulty": 3,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Radioactive Decay",
+   "learningOutcome": "Apply half-life to find the remaining undecayed mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "A detector records 460 counts per minute from a source and background together. The background count is 40 counts per minute. What is the corrected source count rate?",
+   "options": [
+    "420 counts per minute",
+    "500 counts per minute",
+    "460 counts per minute",
+    "40 counts per minute"
+   ],
+   "correctAnswer": "420 counts per minute",
+   "explanation": "Subtract the background count from the total count: 460 - 40 = 420 counts per minute.",
+   "difficulty": 3,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Radiation Detection",
+   "learningOutcome": "Correct radioactive count rate measurements for background radiation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "A spring extends by 0.040 m when an 8.0 N load is attached. What is the spring constant?",
+   "options": [
+    "200 N/m",
+    "0.005 N/m",
+    "8.04 N/m",
+    "320 N/m"
+   ],
+   "correctAnswer": "200 N/m",
+   "explanation": "Using F = kx, k = F/x = 8.0/0.040 = 200 N/m.",
+   "difficulty": 3,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Elasticity Experiments",
+   "learningOutcome": "Use force-extension measurements to calculate spring constant.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A projectile is launched with an initial vertical velocity of 20 m/s. Using g = 10 m/s^2, what is its maximum height above the launch point?",
+   "options": [
+    "20 m",
+    "40 m",
+    "10 m",
+    "200 m"
+   ],
+   "correctAnswer": "20 m",
+   "explanation": "At maximum height vertical velocity is zero, so h = u^2/(2g) = 20^2/(2 x 10) = 20 m.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Projectile Motion",
+   "learningOutcome": "Analyze vertical projectile motion to calculate maximum height.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "A 2 kg trolley moving at 6 m/s collides with a stationary 1 kg trolley and they stick together. What is their common speed after collision?",
+   "options": [
+    "4 m/s",
+    "3 m/s",
+    "6 m/s",
+    "12 m/s"
+   ],
+   "correctAnswer": "4 m/s",
+   "explanation": "Momentum before is 2 x 6 = 12 kg m/s. Combined mass is 3 kg, so speed after collision is 12/3 = 4 m/s.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Collisions",
+   "learningOutcome": "Use conservation of momentum for a perfectly inelastic collision.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "In the collision where a 2 kg trolley at 6 m/s sticks to a stationary 1 kg trolley, how much kinetic energy is lost?",
+   "options": [
+    "12 J",
+    "24 J",
+    "36 J",
+    "6 J"
+   ],
+   "correctAnswer": "12 J",
+   "explanation": "Initial kinetic energy is 0.5 x 2 x 6^2 = 36 J. Final kinetic energy is 0.5 x 3 x 4^2 = 24 J, so 12 J is lost.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Energy in Collisions",
+   "learningOutcome": "Compare kinetic energy before and after an inelastic collision.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A vehicle moves round a banked curve of radius 50 m. If tan theta = 0.20 and g = 10 m/s^2, what speed needs no sideways friction?",
+   "options": [
+    "10 m/s",
+    "5 m/s",
+    "20 m/s",
+    "100 m/s"
+   ],
+   "correctAnswer": "10 m/s",
+   "explanation": "For a banked curve without sideways friction, v = sqrt(rg tan theta) = sqrt(50 x 10 x 0.20) = 10 m/s.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Circular Motion",
+   "learningOutcome": "Analyze forces on a vehicle moving round a banked curve.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "If gravitational field strength at Earth's surface is g, what is its approximate value at a distance 2R from Earth's centre, where R is Earth's radius?",
+   "options": [
+    "g/4",
+    "g/2",
+    "2g",
+    "4g"
+   ],
+   "correctAnswer": "g/4",
+   "explanation": "Gravitational field strength follows an inverse-square relationship, so doubling distance from the centre gives one quarter of the surface value.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Gravitation",
+   "learningOutcome": "Apply the inverse-square relationship for gravitational field strength.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "An engineer adds dampers to a bridge that may be forced by periodic wind gusts. What is the main purpose of the dampers?",
+   "options": [
+    "To reduce large resonance amplitudes",
+    "To make the bridge mass zero",
+    "To increase the wind frequency only",
+    "To remove gravitational force from the bridge"
+   ],
+   "correctAnswer": "To reduce large resonance amplitudes",
+   "explanation": "Damping dissipates energy, reducing the amplitude that can build up when the driving frequency is near resonance.",
+   "difficulty": 4,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Damping and Resonance",
+   "learningOutcome": "Explain how damping controls resonance in structures.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "A string fixed at both ends is 1.2 m long. If wave speed on the string is 120 m/s, what is the fundamental frequency?",
+   "options": [
+    "50 Hz",
+    "100 Hz",
+    "144 Hz",
+    "25 Hz"
+   ],
+   "correctAnswer": "50 Hz",
+   "explanation": "For the fundamental mode of a string fixed at both ends, lambda = 2L = 2.4 m, so f = 120/2.4 = 50 Hz.",
+   "difficulty": 4,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Stationary Waves",
+   "learningOutcome": "Calculate fundamental frequency for a stretched string.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A pipe closed at one end is 0.85 m long. Taking sound speed as 340 m/s, what is its fundamental frequency?",
+   "options": [
+    "100 Hz",
+    "200 Hz",
+    "50 Hz",
+    "400 Hz"
+   ],
+   "correctAnswer": "100 Hz",
+   "explanation": "For a pipe closed at one end, the fundamental wavelength is 4L = 3.4 m, so f = 340/3.4 = 100 Hz.",
+   "difficulty": 4,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Resonance in Air Columns",
+   "learningOutcome": "Calculate fundamental frequency for a closed pipe.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "A water wave passes through a gap. When is diffraction most noticeable?",
+   "options": [
+    "When the gap width is comparable to the wavelength",
+    "When the gap is infinitely wider than the wavelength",
+    "When the wave has zero amplitude",
+    "When the water is completely still"
+   ],
+   "correctAnswer": "When the gap width is comparable to the wavelength",
+   "explanation": "Diffraction is strongest when an aperture or obstacle has a size similar to the wavelength.",
+   "difficulty": 4,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Diffraction",
+   "learningOutcome": "Analyze how aperture size affects diffraction.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Two thin lenses in contact have powers +5 D and -2 D. What is the combined focal length?",
+   "options": [
+    "0.33 m",
+    "3.0 m",
+    "0.20 m",
+    "-0.50 m"
+   ],
+   "correctAnswer": "0.33 m",
+   "explanation": "Lens powers add, so total power is +3 D. Focal length f = 1/P = 1/3 m, about 0.33 m.",
+   "difficulty": 4,
+   "strandTitle": "Waves and Optics",
+   "subStrandTitle": "Lens Power",
+   "learningOutcome": "Analyze combined power and focal length of lenses in contact.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A cell of emf 12 V has terminal potential difference 10 V when delivering 2 A. What is its internal resistance?",
+   "options": [
+    "1 ohm",
+    "5 ohm",
+    "6 ohm",
+    "11 ohm"
+   ],
+   "correctAnswer": "1 ohm",
+   "explanation": "Lost volts are E - V = 2 V. Since lost volts = Ir, r = 2/2 = 1 ohm.",
+   "difficulty": 4,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Internal Resistance",
+   "learningOutcome": "Calculate internal resistance from emf, terminal voltage, and current.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A 12 V supply is connected across 2 ohm and 4 ohm resistors in series. What is the power dissipated in the 4 ohm resistor?",
+   "options": [
+    "16 W",
+    "8 W",
+    "24 W",
+    "4 W"
+   ],
+   "correctAnswer": "16 W",
+   "explanation": "Total resistance is 6 ohm, so current is 2 A. Power in the 4 ohm resistor is I^2R = 2^2 x 4 = 16 W.",
+   "difficulty": 4,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Circuit Power",
+   "learningOutcome": "Analyze a series circuit to calculate component power.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A balanced Wheatstone bridge has ratio arms 2 ohm and 3 ohm, and one lower arm is 4 ohm. What resistance must the other lower arm have for balance?",
+   "options": [
+    "6 ohm",
+    "2.7 ohm",
+    "1.5 ohm",
+    "12 ohm"
+   ],
+   "correctAnswer": "6 ohm",
+   "explanation": "For balance, P/Q = R/S. With 2/3 = 4/S, S = 6 ohm.",
+   "difficulty": 4,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Wheatstone Bridge",
+   "learningOutcome": "Use the Wheatstone bridge balance condition.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A 20 uF capacitor is charged through a 100 k ohm resistor. What is the time constant of the circuit?",
+   "options": [
+    "2.0 s",
+    "0.20 s",
+    "5.0 s",
+    "2000 s"
+   ],
+   "correctAnswer": "2.0 s",
+   "explanation": "The time constant is RC = 100000 x 20 x 10^-6 = 2.0 s.",
+   "difficulty": 4,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "RC Circuits",
+   "learningOutcome": "Calculate the time constant for a resistor-capacitor circuit.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "An alternating voltage has a peak value of 325 V. What is its approximate rms value?",
+   "options": [
+    "230 V",
+    "325 V",
+    "460 V",
+    "115 V"
+   ],
+   "correctAnswer": "230 V",
+   "explanation": "For a sinusoidal supply, Vrms = Vpeak/sqrt(2), so 325/sqrt(2) is approximately 230 V.",
+   "difficulty": 4,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Alternating Current",
+   "learningOutcome": "Relate peak and rms values of a sinusoidal voltage.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A straight conductor of length 0.40 m moves at 8 m/s at right angles to a 0.50 T magnetic field. What emf is induced across its ends?",
+   "options": [
+    "1.6 V",
+    "0.16 V",
+    "3.2 V",
+    "10 V"
+   ],
+   "correctAnswer": "1.6 V",
+   "explanation": "Motional emf is E = Blv = 0.50 x 0.40 x 8 = 1.6 V.",
+   "difficulty": 4,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Motional Emf",
+   "learningOutcome": "Calculate emf induced in a conductor moving through a magnetic field.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "The north pole of a magnet is pushed towards a coil connected to a galvanometer. What polarity is induced at the near face of the coil?",
+   "options": [
+    "North pole",
+    "South pole",
+    "No pole because the magnet is moving",
+    "Alternating north and south every half turn"
+   ],
+   "correctAnswer": "North pole",
+   "explanation": "By Lenz's law, the induced current opposes the approaching north pole, so the near face of the coil becomes a north pole.",
+   "difficulty": 4,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Lenz's Law",
+   "learningOutcome": "Predict induced polarity using Lenz's law.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A photoelectron has maximum kinetic energy 3.2 x 10^-19 J. Using e = 1.6 x 10^-19 C, what stopping potential is needed?",
+   "options": [
+    "2.0 V",
+    "0.50 V",
+    "3.2 V",
+    "5.1 V"
+   ],
+   "correctAnswer": "2.0 V",
+   "explanation": "Stopping potential satisfies eV = KE, so V = 3.2 x 10^-19 / 1.6 x 10^-19 = 2.0 V.",
+   "difficulty": 4,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Photoelectric Effect",
+   "learningOutcome": "Calculate stopping potential from maximum photoelectron kinetic energy.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "The momentum of a particle is doubled. What happens to its de Broglie wavelength?",
+   "options": [
+    "It is halved",
+    "It is doubled",
+    "It becomes four times larger",
+    "It is unchanged"
+   ],
+   "correctAnswer": "It is halved",
+   "explanation": "The de Broglie wavelength is lambda = h/p, so doubling momentum halves the wavelength.",
+   "difficulty": 4,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Matter Waves",
+   "learningOutcome": "Analyze the inverse relationship between particle momentum and de Broglie wavelength.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A radioactive count rate falls from 800 counts per minute to 100 counts per minute in 12 days. What is the half-life?",
+   "options": [
+    "4 days",
+    "3 days",
+    "6 days",
+    "12 days"
+   ],
+   "correctAnswer": "4 days",
+   "explanation": "The count rate changes 800 to 400 to 200 to 100, which is three half-lives in 12 days. Each half-life is 4 days.",
+   "difficulty": 4,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Radioactive Decay",
+   "learningOutcome": "Analyze count-rate changes to determine half-life.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Which plan best determines g using a simple pendulum in a school laboratory?",
+   "options": [
+    "Measure several lengths, time many oscillations for each, then plot T^2 against length",
+    "Measure one swing at one length and divide the length by the time",
+    "Use any mass and assume the period equals the mass",
+    "Pull the bob through 90 degrees and record the largest speed"
+   ],
+   "correctAnswer": "Measure several lengths, time many oscillations for each, then plot T^2 against length",
+   "explanation": "For a simple pendulum, T^2 = 4 pi^2 L/g, so a T^2 against L graph gives a reliable gradient for finding g.",
+   "difficulty": 5,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Pendulum Investigation",
+   "learningOutcome": "Design a graph-based method for determining gravitational field strength.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which method best finds the internal resistance of a cell from experimental data?",
+   "options": [
+    "Vary the load, measure terminal voltage and current, then use the gradient of a V against I graph",
+    "Measure only the open-circuit voltage once",
+    "Connect the cell directly across an ammeter for a long time",
+    "Measure the mass of the cell before and after use"
+   ],
+   "correctAnswer": "Vary the load, measure terminal voltage and current, then use the gradient of a V against I graph",
+   "explanation": "For a cell, V = E - Ir, so the negative gradient of terminal voltage against current gives internal resistance.",
+   "difficulty": 5,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Electrical Measurements",
+   "learningOutcome": "Design an investigation to determine emf and internal resistance.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which observation is strongest evidence that light transfers energy in photons rather than only as a classical wave?",
+   "options": [
+    "Photoelectrons are emitted only above a threshold frequency",
+    "Water waves diffract around a barrier",
+    "Sound gets quieter with distance",
+    "A plane mirror forms a virtual image"
+   ],
+   "correctAnswer": "Photoelectrons are emitted only above a threshold frequency",
+   "explanation": "A threshold frequency shows that each electron needs one photon with enough energy, which classical wave intensity alone cannot explain.",
+   "difficulty": 5,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Evidence for Photons",
+   "learningOutcome": "Evaluate experimental evidence for the photon model of light.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Why do crumple zones in vehicles reduce injury risk during a collision?",
+   "options": [
+    "They increase collision time, reducing average force for the same change in momentum",
+    "They make momentum disappear before impact",
+    "They remove the need for seat belts",
+    "They increase acceleration so passengers stop sooner"
+   ],
+   "correctAnswer": "They increase collision time, reducing average force for the same change in momentum",
+   "explanation": "Impulse equals change in momentum. Increasing the stopping time reduces the average force on passengers.",
+   "difficulty": 5,
+   "strandTitle": "Mechanics",
+   "subStrandTitle": "Impulse and Safety",
+   "learningOutcome": "Evaluate safety features using impulse and momentum principles.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "For long-distance power transmission at fixed power, why are step-up transformers used near power stations?",
+   "options": [
+    "They raise voltage and lower current, reducing I^2R losses in cables",
+    "They make cable resistance exactly zero",
+    "They convert alternating current into radioactive energy",
+    "They lower voltage so current becomes larger in the lines"
+   ],
+   "correctAnswer": "They raise voltage and lower current, reducing I^2R losses in cables",
+   "explanation": "For the same transmitted power, higher voltage means lower current, and cable heating losses are proportional to I^2R.",
+   "difficulty": 5,
+   "strandTitle": "Magnetism and Electromagnetic Induction",
+   "subStrandTitle": "Power Transmission",
+   "learningOutcome": "Evaluate transformer use in efficient electrical power transmission.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A battery-powered lamp becomes very dim when switched on, and the terminal voltage of the battery drops sharply under load. What is the most likely explanation?",
+   "options": [
+    "The battery has a large internal resistance",
+    "The lamp has no resistance",
+    "The circuit current is alternating at high frequency",
+    "The voltmeter is measuring gravitational field strength"
+   ],
+   "correctAnswer": "The battery has a large internal resistance",
+   "explanation": "A large internal resistance causes a large lost voltage Ir inside the battery, leaving less terminal voltage for the lamp.",
+   "difficulty": 5,
+   "strandTitle": "Electricity",
+   "subStrandTitle": "Circuit Diagnosis",
+   "learningOutcome": "Diagnose circuit behaviour using internal resistance concepts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A rectifier output has too much ripple for a small DC device. Which design change would best smooth the output?",
+   "options": [
+    "Add a larger capacitor in parallel with the load",
+    "Remove all diodes from the rectifier",
+    "Connect the load only to an open switch",
+    "Replace the capacitor with an air gap"
+   ],
+   "correctAnswer": "Add a larger capacitor in parallel with the load",
+   "explanation": "A larger smoothing capacitor stores more charge and discharges more slowly between peaks, reducing ripple.",
+   "difficulty": 5,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Semiconductor Rectification",
+   "learningOutcome": "Select a circuit design change to improve rectified DC output.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "What is the role of control rods in a nuclear fission reactor?",
+   "options": [
+    "They absorb neutrons to control the chain reaction rate",
+    "They provide all the uranium fuel",
+    "They reflect visible light into the turbine",
+    "They turn gamma rays directly into steam"
+   ],
+   "correctAnswer": "They absorb neutrons to control the chain reaction rate",
+   "explanation": "Control rods absorb excess neutrons, allowing operators to slow or maintain the fission chain reaction.",
+   "difficulty": 5,
+   "strandTitle": "Modern Physics",
+   "subStrandTitle": "Nuclear Reactors",
+   "learningOutcome": "Evaluate how reactor components control nuclear fission.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A learner measures very small wire extensions using single load readings and gets scattered results. Which improvement best increases reliability?",
+   "options": [
+    "Take readings for several loads and use the gradient of a force-extension graph",
+    "Use fewer readings to finish faster",
+    "Record extensions only to the nearest metre",
+    "Change the wire material after every reading"
+   ],
+   "correctAnswer": "Take readings for several loads and use the gradient of a force-extension graph",
+   "explanation": "A graph uses all data points, reduces the effect of scatter, and gives a more reliable stiffness estimate than one reading.",
+   "difficulty": 5,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Reliability and Graphs",
+   "learningOutcome": "Evaluate experimental improvements for reliable elasticity measurements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which investigation design can determine the speed of sound most directly using electronic timing?",
+   "options": [
+    "Place two microphones a known distance apart and measure the time delay of the same sound pulse",
+    "Measure the colour of a loudspeaker cone while it vibrates",
+    "Time one hand clap with a stopwatch held next to the source",
+    "Weigh a tuning fork before and after it sounds"
+   ],
+   "correctAnswer": "Place two microphones a known distance apart and measure the time delay of the same sound pulse",
+   "explanation": "With microphone separation d and measured time delay t, the sound speed is found directly from v = d/t.",
+   "difficulty": 5,
+   "strandTitle": "Practical Physics",
+   "subStrandTitle": "Sound Measurement",
+   "learningOutcome": "Design an electronic timing method to determine the speed of sound.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

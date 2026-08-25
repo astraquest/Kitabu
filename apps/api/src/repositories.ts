@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import type { PoolClient, QueryResultRow } from 'pg';
 import { Chess } from 'chess.js';
 import { db } from './db.js';
@@ -445,6 +445,256 @@ export interface AdminUserRecord {
   subscriptionPlanCode: string | null;
   subscriptionPlanName: string | null;
   subscriptionStatus: string | null;
+}
+
+export interface HomeworkDraftQuestion {
+  bankId: string;
+  type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
+  text: string;
+  options: string[];
+  correctAnswer: string;
+  explanation: string;
+  source: 'quizbank' | 'ai';
+  candidateId?: string;
+}
+
+export interface HomeworkAssignmentDraftRecord {
+  id: string;
+  author_user_id: string;
+  school_id: string;
+  class_id: string | null;
+  country_code: string;
+  curriculum_code: string;
+  grade_level: string;
+  subject: string;
+  subject_id: string;
+  strand_title: string | null;
+  sub_strand_title: string | null;
+  title: string;
+  description: string;
+  due_at: Date | null;
+  requested_count: number;
+  questions: HomeworkDraftQuestion[];
+  ai_candidates: HomeworkDraftQuestion[];
+  status: 'review' | 'published' | 'abandoned';
+  published_assignment_id: string | null;
+}
+
+export interface AdminStudentAnalyticsRecord {
+  studentId: string;
+  generatedAt: string;
+  overallScore: number | null;
+  completedAssignments: number;
+  recentActivity: Array<{
+    id: string;
+    title: string;
+    kind: 'assignment' | 'weekly_exam' | 'lesson';
+    occurredAt: string;
+    score: number;
+  }>;
+  trend: Array<{ date: string; score: number | null }>;
+  remedial: {
+    totalAnswers: number;
+    wrongAnswers: number;
+    lastAnswerAt: string | null;
+    gaps: Array<{
+      subjectId: string;
+      subStrandKey: string;
+      totalAnswers: number;
+      wrongAnswers: number;
+      lastAnswerAt: string | null;
+    }>;
+  };
+}
+
+export type AdminUserDirectorySort = 'name' | 'createdAt' | 'lastActive';
+export type AdminUserDirectoryDirection = 'asc' | 'desc';
+
+export interface AdminUserDirectoryOverview {
+  summary: {
+    userCount: number;
+    onlineCount: number;
+    activeSubscriptionCount: number;
+  };
+  facets: {
+    counties: Array<{ county: string; count: number }>;
+    grades: Array<{ grade: string; count: number }>;
+    schools: Array<{ schoolId: string; school: string; count: number }>;
+    statuses: Array<{ status: 'Online' | 'Offline'; count: number }>;
+  };
+  highlights: {
+    recentlyJoined: { id: string; name: string; createdAt: string } | null;
+    recentlyActive: { id: string; name: string; lastActiveAt: string } | null;
+  };
+}
+
+function adminUserDirectoryWhereSql() {
+  return `
+       WHERE ($1::boolean = FALSE OR u.school_id = $2)
+         AND ($3::text IS NULL OR lower(u.full_name) LIKE '%' || lower($3) || '%'
+           OR lower(u.email) LIKE '%' || lower($3) || '%'
+           OR lower(COALESCE(s.name, '')) LIKE '%' || lower($3) || '%')
+         AND ($4::text[] IS NULL OR lower(btrim(COALESCE(u.county, ''))) = ANY($4::text[]))
+         AND ($5::text IS NULL OR u.grade_level = $5)
+         AND ($6::text IS NULL OR ($6 = 'none' AND u.school_id IS NULL) OR u.school_id::text = $6)
+         AND ($7::text IS NULL OR CASE WHEN u.presence_status = 'online'
+             AND u.presence_last_seen_at >= NOW() - INTERVAL '90 seconds' THEN 'Online' ELSE 'Offline' END = $7)
+         AND ($8::uuid IS NULL OR u.id = $8)`;
+}
+
+function adminUserDirectoryOrderBy(sort: AdminUserDirectorySort = 'name', direction: AdminUserDirectoryDirection = 'asc') {
+  const columns: Record<AdminUserDirectorySort, string> = {
+    name: 'full_name',
+    createdAt: 'created_at',
+    lastActive: 'last_activity'
+  };
+  return `directory_rows.${columns[sort] || columns.name} ${direction === 'desc' ? 'DESC' : 'ASC'} NULLS LAST, directory_rows.id ASC`;
+}
+
+function adminUserDirectoryRowsSql() {
+  return `
+    WITH role_rows AS (
+      SELECT user_id, ARRAY_AGG(DISTINCT role::text) AS roles
+        FROM user_roles
+       GROUP BY user_id
+    ),
+    activity_rows AS (
+      SELECT user_id, MAX(last_activity) AS last_activity
+        FROM (
+          SELECT student_id AS user_id, MAX(submitted_at) AS last_activity
+            FROM submissions
+           WHERE submitted_at IS NOT NULL
+           GROUP BY student_id
+          UNION ALL
+          SELECT user_id, MAX(updated_at) AS last_activity
+            FROM user_curriculum_progress
+           WHERE updated_at IS NOT NULL
+           GROUP BY user_id
+          UNION ALL
+          SELECT user_id, MAX(started_at) AS last_activity
+            FROM weekly_exam_attempts
+           WHERE started_at IS NOT NULL
+           GROUP BY user_id
+          UNION ALL
+          SELECT user_id, MAX(created_at) AS last_activity
+            FROM ai_usage_events
+           WHERE created_at IS NOT NULL
+           GROUP BY user_id
+        ) activity_sources
+       GROUP BY user_id
+    ),
+    subscription_rows AS (
+      SELECT
+        user_id,
+        BOOL_OR(status = 'active'
+          AND NOW() >= period_start
+          AND NOW() < period_end) AS has_active_subscription,
+        MAX(period_end) FILTER (WHERE status = 'active'
+          AND NOW() >= period_start
+          AND NOW() < period_end) AS active_subscription_period_end,
+        COALESCE(MAX(price_ksh_cents) FILTER (WHERE status = 'active'
+          AND NOW() >= period_start
+          AND NOW() < period_end), 0)::text AS active_subscription_price_ksh_cents
+      FROM subscriptions
+      GROUP BY user_id
+    ),
+    latest_subscription_rows AS (
+      SELECT DISTINCT ON (latest.user_id)
+        latest.user_id,
+        plan.code::text AS subscription_plan_code,
+        plan.name AS subscription_plan_name,
+        latest.status AS subscription_status
+      FROM subscriptions latest
+      LEFT JOIN subscription_plans plan ON plan.id = latest.plan_id
+      ORDER BY latest.user_id, latest.created_at DESC, latest.id ASC
+    ),
+    directory_rows AS (
+      SELECT
+        u.id,
+        u.full_name,
+        u.grade_level,
+        s.name AS school_name,
+        u.school_id,
+        u.email,
+        u.phone_number,
+        u.county,
+        roles.roles,
+        u.email_verified,
+        u.created_at,
+        GREATEST(activity.last_activity, u.updated_at) AS last_activity,
+        u.presence_status,
+        u.presence_last_seen_at,
+        u.watch_time_seconds::text AS watch_time_seconds,
+        COALESCE(subscription.has_active_subscription, FALSE) AS has_active_subscription,
+        subscription.active_subscription_period_end,
+        COALESCE(subscription.active_subscription_price_ksh_cents, '0') AS active_subscription_price_ksh_cents,
+        latest_subscription.subscription_plan_code,
+        latest_subscription.subscription_plan_name,
+        latest_subscription.subscription_status
+      FROM users u
+      JOIN user_roles student_role ON student_role.user_id = u.id AND student_role.role = 'student'
+      JOIN role_rows roles ON roles.user_id = u.id
+      LEFT JOIN schools s ON s.id = u.school_id
+      LEFT JOIN activity_rows activity ON activity.user_id = u.id
+      LEFT JOIN subscription_rows subscription ON subscription.user_id = u.id
+      LEFT JOIN latest_subscription_rows latest_subscription ON latest_subscription.user_id = u.id
+      ${adminUserDirectoryWhereSql()}
+    )`;
+}
+
+function mapAdminUserRecord(row: {
+  id: string;
+  full_name: string;
+  grade_level: string | null;
+  school_name: string | null;
+  school_id: string | null;
+  email: string;
+  phone_number: string | null;
+  county: string | null;
+  roles: AppRole[];
+  email_verified: boolean;
+  created_at: Date;
+  last_activity: Date | null;
+  presence_status: string;
+  presence_last_seen_at: Date | null;
+  watch_time_seconds: string;
+  has_active_subscription: boolean;
+  active_subscription_period_end: Date | null;
+  active_subscription_price_ksh_cents: string;
+  subscription_plan_code: string | null;
+  subscription_plan_name: string | null;
+  subscription_status: string | null;
+}): AdminUserRecord {
+  return {
+    id: row.id,
+    name: row.full_name,
+    grade: row.grade_level || 'N/A',
+    school: row.school_name || 'No School',
+    schoolId: row.school_id,
+    email: row.email,
+    phone: row.phone_number,
+    county: row.county,
+    roles: row.roles,
+    status:
+      row.presence_status === 'online' &&
+      row.presence_last_seen_at &&
+      row.presence_last_seen_at >= new Date(Date.now() - PRESENCE_FRESH_SECONDS * 1000)
+        ? 'Online'
+        : 'Offline',
+    color: row.email_verified ? 'green' : 'gray',
+    createdAt: row.created_at.toISOString(),
+    lastActive: formatActivityLabel(row.last_activity),
+    lastActiveAt: row.last_activity ? row.last_activity.toISOString() : null,
+    watchTimeSeconds: Number(row.watch_time_seconds || 0),
+    hasActiveSubscription: row.has_active_subscription,
+    activeSubscriptionPeriodEnd: row.active_subscription_period_end
+      ? row.active_subscription_period_end.toISOString()
+      : null,
+    activeSubscriptionPriceKshCents: Number(row.active_subscription_price_ksh_cents || 0),
+    subscriptionPlanCode: row.subscription_plan_code,
+    subscriptionPlanName: row.subscription_plan_name,
+    subscriptionStatus: row.has_active_subscription ? 'active' : row.subscription_status
+  };
 }
 
 export interface FeatureFlagRecord {
@@ -2776,19 +3026,56 @@ function mapSchoolRows(
   }));
 }
 
+export type SchoolDirectorySort = 'name' | 'learnerCount' | 'activeLearners' | 'engagement' | 'averageScore' | 'createdAt';
+export type SchoolDirectoryDirection = 'asc' | 'desc';
+
+function schoolCountyQueryValues(value?: string | null) {
+  const trimmed = value?.trim() || '';
+  if (!trimmed) return null;
+  const plain = trimmed.replace(/\s+county$/i, '').trim();
+  return Array.from(new Set([trimmed.toLowerCase(), plain.toLowerCase()]));
+}
+
+function schoolDirectoryOrderBy(sort: SchoolDirectorySort = 'name', direction: SchoolDirectoryDirection = 'asc') {
+  const columns: Record<SchoolDirectorySort, string> = {
+    name: 'name',
+    learnerCount: 'total_students',
+    activeLearners: 'pilot_engaged_students',
+    engagement: 'CASE WHEN total_students > 0 THEN pilot_engaged_students::numeric / total_students ELSE 0 END',
+    averageScore: 'pilot_average_mastery',
+    createdAt: 'created_at'
+  };
+  return `${columns[sort] || columns.name} ${direction === 'desc' ? 'DESC' : 'ASC'}, id ASC`;
+}
+
+function schoolDirectoryWhereSql() {
+  return `
+       WHERE ($1::boolean OR s.lead_status = 'customer')
+         AND ($2::text IS NULL OR lower(s.name) LIKE '%' || lower($2) || '%')
+         AND ($3::text[] IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = ANY($3::text[]))
+         AND ($4::text IS NULL OR $4 = ANY(COALESCE(s.available_grades, ARRAY[]::text[]))
+           OR EXISTS (SELECT 1 FROM users grade_user JOIN user_roles grade_role ON grade_role.user_id = grade_user.id AND grade_role.role = 'student'
+                      WHERE grade_user.school_id = s.id AND grade_user.grade_level = $4))`;
+}
+
 export async function listSchools(input: {
   includeProspects?: boolean;
   query?: string | null;
   county?: string | null;
+  grade?: string | null;
   schoolId?: string | null;
   limit?: number;
   offset?: number;
+  sort?: SchoolDirectorySort;
+  direction?: SchoolDirectoryDirection;
 } = {}) {
   const query = input.query?.trim() || null;
-  const county = input.county?.trim() || null;
+  const county = schoolCountyQueryValues(input.county);
+  const grade = input.grade?.trim() || null;
   const includeProspects = input.includeProspects ?? false;
   const limit = Math.min(Math.max(input.limit ?? 500, 1), 1000);
   const offset = Math.max(input.offset ?? 0, 0);
+  const orderBy = schoolDirectoryOrderBy(input.sort, input.direction);
   const [schoolsResult, gradeResult] = await Promise.all([
     db.query<{
       id: string;
@@ -2840,7 +3127,7 @@ export async function listSchools(input: {
       pilot_engaged_students: number;
       pilot_average_mastery: number;
     }>(
-      `SELECT
+      `WITH school_rows AS (SELECT
          s.id,
          s.name,
          s.slug,
@@ -2876,6 +3163,7 @@ export async function listSchools(input: {
          s.pilot_target_students,
          s.pilot_onboarding_stage,
          s.pilot_notes,
+         s.created_at,
          ap.id AS assigned_plan_id,
          ap.code AS assigned_plan_code,
          ap.name AS assigned_plan_name,
@@ -2905,17 +3193,16 @@ export async function listSchools(input: {
        LEFT JOIN school_discounts d ON d.id = s.discount_id
        LEFT JOIN users u ON u.school_id = s.id
        LEFT JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
-       WHERE ($1::boolean OR s.lead_status = 'customer')
-         AND ($2::text IS NULL OR lower(s.name) LIKE '%' || lower($2) || '%')
-         AND ($3::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($3))
-         AND ($4::uuid IS NULL OR s.id = $4)
+       ${schoolDirectoryWhereSql()}
+         AND ($5::uuid IS NULL OR s.id = $5)
        GROUP BY
          s.id,
          ap.id,
          d.id
-       ORDER BY s.name ASC
-       LIMIT $5 OFFSET $6`,
-      [includeProspects, query, county, input.schoolId ?? null, limit, offset]
+      ) SELECT * FROM school_rows
+       ORDER BY ${orderBy}
+       LIMIT $6 OFFSET $7`,
+      [includeProspects, query, county, grade, input.schoolId ?? null, limit, offset]
     ),
     db.query<{ school_id: string; grade_level: string | null; total: string }>(
       `SELECT u.school_id, u.grade_level, COUNT(*)::bigint AS total
@@ -2929,16 +3216,227 @@ export async function listSchools(input: {
   return mapSchoolRows(schoolsResult.rows, gradeResult.rows);
 }
 
-export async function countSchools(input: { includeProspects?: boolean; query?: string | null; county?: string | null } = {}) {
+export async function countSchools(input: { includeProspects?: boolean; query?: string | null; county?: string | null; grade?: string | null } = {}) {
+  const county = schoolCountyQueryValues(input.county);
   const result = await db.query<{ total: string }>(
     `SELECT COUNT(*)::bigint AS total
        FROM schools s
-      WHERE ($1::boolean OR s.lead_status = 'customer')
-        AND ($2::text IS NULL OR lower(s.name) LIKE '%' || lower($2) || '%')
-        AND ($3::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($3))`,
-    [input.includeProspects ?? false, input.query?.trim() || null, input.county?.trim() || null],
+       JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
+      ${schoolDirectoryWhereSql()}`,
+    [input.includeProspects ?? false, input.query?.trim() || null, county, input.grade?.trim() || null],
   );
   return Number(result.rows[0]?.total ?? 0);
+}
+
+export interface SchoolDirectoryOverview {
+  summary: {
+    schoolCount: number;
+    totalStudents: number;
+    activeLearners: number;
+    engagementRate: number;
+    averageScore: number;
+  };
+  countyFacets: Array<{ county: string; count: number }>;
+  gradeFacets: Array<{ grade: string; count: number }>;
+  highlights: {
+    mostActive: SchoolDirectoryHighlight | null;
+    leastActive: SchoolDirectoryHighlight | null;
+    bestPerforming: SchoolDirectoryHighlight | null;
+    worstPerforming: SchoolDirectoryHighlight | null;
+  };
+}
+
+export interface SchoolDirectoryHighlight {
+  schoolId: string;
+  name: string;
+  county: string;
+  totalStudents: number;
+  activeLearners: number;
+  engagementRate: number;
+  averageScore: number;
+}
+
+function schoolCountyLabel(value: string | null) {
+  const county = String(value || '').trim();
+  if (!county) return 'Unknown County';
+  return /county$/i.test(county) ? county : `${county} County`;
+}
+
+export async function getSchoolDirectoryOverview(input: {
+  includeProspects?: boolean;
+  query?: string | null;
+  county?: string | null;
+  grade?: string | null;
+} = {}): Promise<SchoolDirectoryOverview> {
+  const values = [
+    input.includeProspects ?? false,
+    input.query?.trim() || null,
+    schoolCountyQueryValues(input.county),
+    input.grade?.trim() || null
+  ];
+  const [summaryResult, countyResult, gradeResult, highlightsResult] = await Promise.all([
+    db.query<{
+      school_count: string;
+      total_students: string;
+      active_learners: string;
+      average_score: string;
+    }>(
+      `WITH filtered_schools AS (
+         SELECT s.id
+         FROM schools s
+         JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
+         ${schoolDirectoryWhereSql()}
+       )
+       SELECT
+         (SELECT COUNT(*) FROM filtered_schools)::bigint AS school_count,
+         (SELECT COUNT(DISTINCT u.id)
+            FROM users u
+            JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+           WHERE u.school_id IN (SELECT id FROM filtered_schools))::bigint AS total_students,
+         (SELECT COUNT(DISTINCT active_user.id)
+            FROM users active_user
+            JOIN user_roles active_role ON active_role.user_id = active_user.id AND active_role.role = 'student'
+           WHERE active_user.school_id IN (SELECT id FROM filtered_schools)
+             AND (
+               EXISTS (SELECT 1 FROM user_curriculum_progress p WHERE p.user_id = active_user.id AND p.updated_at >= NOW() - INTERVAL '7 days')
+               OR EXISTS (SELECT 1 FROM submissions sub WHERE sub.student_id = active_user.id AND sub.submitted_at >= NOW() - INTERVAL '7 days')
+               OR EXISTS (SELECT 1 FROM weekly_exam_attempts wa WHERE wa.user_id = active_user.id AND wa.started_at >= NOW() - INTERVAL '7 days')
+             ))::bigint AS active_learners,
+         COALESCE((SELECT ROUND(AVG(ms.mastery_score) * 100, 2)
+                     FROM mastery_scores ms
+                     JOIN users mastery_user ON mastery_user.id = ms.user_id
+                    WHERE mastery_user.school_id IN (SELECT id FROM filtered_schools)), 0)::float8 AS average_score`,
+      values
+    ),
+    db.query<{ county: string | null; count: string }>(
+      `SELECT COALESCE(NULLIF(btrim(COALESCE(s.county, s.location)), ''), 'Unknown County') AS county,
+              COUNT(*)::bigint AS count
+         FROM schools s
+         JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
+         ${schoolDirectoryWhereSql()}
+        GROUP BY 1
+        ORDER BY lower(county), county`,
+      values
+    ),
+    db.query<{ grade: string; count: string }>(
+      `WITH filtered_schools AS (
+             SELECT s.id
+             FROM schools s
+             JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
+             ${schoolDirectoryWhereSql()}
+           ), grade_values AS (
+             SELECT fs.id, grade
+             FROM filtered_schools fs
+             JOIN schools s ON s.id = fs.id
+             CROSS JOIN LATERAL unnest(COALESCE(s.available_grades, ARRAY[]::text[])) AS available(grade)
+             UNION
+             SELECT fs.id, u.grade_level
+             FROM filtered_schools fs
+             JOIN users u ON u.school_id = fs.id
+             JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+             WHERE u.grade_level IS NOT NULL
+           )
+           SELECT grade, COUNT(DISTINCT id)::bigint AS count
+             FROM grade_values
+            GROUP BY grade
+            ORDER BY grade`,
+      values
+    )
+    ,
+    db.query<{
+      kind: 'mostActive' | 'leastActive' | 'bestPerforming' | 'worstPerforming';
+      id: string;
+      name: string;
+      county: string | null;
+      total_students: string;
+      active_learners: string;
+      average_score: string;
+    }>(
+      `WITH school_metrics AS (
+         SELECT s.id,
+                s.name,
+                s.county,
+                COUNT(DISTINCT CASE WHEN ur.role = 'student' THEN u.id END)::bigint AS total_students,
+                (SELECT COUNT(DISTINCT active_user.id)::bigint
+                   FROM users active_user
+                   JOIN user_roles active_role ON active_role.user_id = active_user.id AND active_role.role = 'student'
+                  WHERE active_user.school_id = s.id
+                    AND (
+                      EXISTS (SELECT 1 FROM user_curriculum_progress p WHERE p.user_id = active_user.id AND p.updated_at >= NOW() - INTERVAL '7 days')
+                      OR EXISTS (SELECT 1 FROM submissions sub WHERE sub.student_id = active_user.id AND sub.submitted_at >= NOW() - INTERVAL '7 days')
+                      OR EXISTS (SELECT 1 FROM weekly_exam_attempts wa WHERE wa.user_id = active_user.id AND wa.started_at >= NOW() - INTERVAL '7 days')
+                    )) AS active_learners,
+                COALESCE((SELECT ROUND(AVG(ms.mastery_score) * 100, 2)::float8
+                            FROM mastery_scores ms
+                            JOIN users mastery_user ON mastery_user.id = ms.user_id
+                           WHERE mastery_user.school_id = s.id), 0)::float8 AS average_score
+           FROM schools s
+           JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
+           LEFT JOIN users u ON u.school_id = s.id
+           LEFT JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+           ${schoolDirectoryWhereSql()}
+          GROUP BY s.id
+       )
+       (SELECT 'mostActive'::text AS kind, id, name, county, total_students, active_learners, average_score
+         FROM school_metrics
+        ORDER BY active_learners DESC, id ASC
+        LIMIT 1)
+       UNION ALL
+       (SELECT 'leastActive'::text AS kind, id, name, county, total_students, active_learners, average_score
+         FROM school_metrics
+        ORDER BY active_learners ASC, id ASC
+        LIMIT 1)
+       UNION ALL
+       (SELECT 'bestPerforming'::text AS kind, id, name, county, total_students, active_learners, average_score
+         FROM school_metrics
+        ORDER BY average_score DESC, id ASC
+        LIMIT 1)
+       UNION ALL
+       (SELECT 'worstPerforming'::text AS kind, id, name, county, total_students, active_learners, average_score
+         FROM school_metrics
+        ORDER BY average_score ASC, id ASC
+        LIMIT 1)`,
+      values
+    )
+  ]);
+  const summaryRow = summaryResult.rows[0];
+  const schoolCount = Number(summaryRow?.school_count || 0);
+  const totalStudents = Number(summaryRow?.total_students || 0);
+  const activeLearners = Number(summaryRow?.active_learners || 0);
+  const highlights = Object.fromEntries(highlightsResult.rows.map(row => {
+    const totalStudentsForSchool = Number(row.total_students || 0);
+    const activeLearnersForSchool = Number(row.active_learners || 0);
+    return [row.kind, {
+      schoolId: row.id,
+      name: row.name,
+      county: schoolCountyLabel(row.county),
+      totalStudents: totalStudentsForSchool,
+      activeLearners: activeLearnersForSchool,
+      engagementRate: totalStudentsForSchool ? Number(((activeLearnersForSchool / totalStudentsForSchool) * 100).toFixed(2)) : 0,
+      averageScore: Number(row.average_score || 0)
+    } satisfies SchoolDirectoryHighlight];
+  })) as SchoolDirectoryOverview['highlights'];
+  return {
+    summary: {
+      schoolCount,
+      totalStudents,
+      activeLearners,
+      engagementRate: totalStudents ? Number(((activeLearners / totalStudents) * 100).toFixed(2)) : 0,
+      averageScore: Number(summaryRow?.average_score || 0)
+    },
+    countyFacets: Array.from(countyResult.rows.reduce((facets, row) => {
+      const county = schoolCountyLabel(row.county);
+      facets.set(county, (facets.get(county) || 0) + Number(row.count));
+      return facets;
+    }, new Map<string, number>()).entries()).map(([county, count]) => ({ county, count })),
+    gradeFacets: gradeResult.rows.map(row => ({ grade: row.grade, count: Number(row.count) })),
+    highlights: {
+      mostActive: highlights.mostActive || null,
+      leastActive: highlights.leastActive || null,
+      bestPerforming: highlights.bestPerforming || null,
+      worstPerforming: highlights.worstPerforming || null
+    }
+  };
 }
 
 export interface SchoolCatalogSearchResult {
@@ -2993,7 +3491,7 @@ export async function searchSchoolCatalog(input: {
        FROM schools s
        LEFT JOIN school_activity a ON a.school_id = s.id
       WHERE s.status <> 'inactive'
-        AND ($1::text IS NULL OR lower(btrim(COALESCE(s.county, s.location))) = lower($1))
+        AND ($1::text IS NULL OR regexp_replace(regexp_replace(lower(btrim(COALESCE(s.county, s.location))), '\\s+(county|city)$', '', 'i'), '\\s+county$', '', 'i') = regexp_replace(regexp_replace(lower(btrim($1)), '\\s+(county|city)$', '', 'i'), '\\s+county$', '', 'i'))
         AND ($2::text = '' OR lower(btrim(s.name)) LIKE '%' || replace(replace(replace(lower($2), '\\', '\\\\'), '%', '\\%'), '_', '\\_') || '%' ESCAPE '\\')
       ORDER BY relevance_tier,
                (LEAST(s.selection_count, 1000) * 10 + LEAST(COALESCE(a.active_enrollment, 0), 1000) * 25) DESC,
@@ -3232,6 +3730,57 @@ export async function createOrReuseOnboardingSchoolFromCatalog(
     throw new Error('Selected school catalog record could not be resolved');
   }
   return { schoolId: selectedSchool.id, reused: true };
+}
+
+export async function updateStudentSchoolFromDirectory(
+  client: MaybeClient,
+  input: { userId: string; schoolDirectoryId: string },
+) {
+  const resolved = await createOrReuseOnboardingSchoolFromCatalog(client, input.schoolDirectoryId);
+  const schoolResult = await q<{
+    id: string;
+    name: string;
+    county: string | null;
+    location: string;
+  }>(
+    client,
+    `SELECT id, name, county, location
+       FROM schools
+      WHERE id = $1
+        AND status <> 'inactive'
+      LIMIT 1`,
+    [resolved.schoolId],
+  );
+  const school = schoolResult.rows[0];
+  if (!school) {
+    return null;
+  }
+
+  const county = school.county?.trim() || school.location.trim();
+  const updated = await q<{ id: string }>(
+    client,
+    `UPDATE users
+        SET school_id = $2,
+            county = $3,
+            onboarding_personalization = COALESCE(onboarding_personalization, '{}'::jsonb)
+              || jsonb_build_object('school', $4::text, 'county', $3::text),
+            updated_at = NOW()
+      WHERE id = $1
+        AND EXISTS (
+          SELECT 1
+            FROM user_roles
+           WHERE user_id = $1
+             AND role = 'student'
+        )
+      RETURNING id`,
+    [input.userId, school.id, county, school.name],
+  );
+
+  if (!updated.rows[0]) {
+    return null;
+  }
+
+  return { schoolId: school.id, schoolName: school.name, county };
 }
 
 export async function updateSchool(
@@ -5559,11 +6108,30 @@ export async function failTtsJob(
   return result.rows[0];
 }
 
-export async function getAdminAiAnalytics(user: AuthenticatedUser) {
+export async function getAdminAiAnalytics(
+  user: AuthenticatedUser,
+  options: { period?: 'today' | 'week' | 'month'; feature?: string } = {}
+) {
   const schoolScoped = !user.roles.includes('platform_admin');
-  const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
-  const aiUsageScopedWhere = schoolScoped ? 'WHERE school_id = $1' : '';
-  const userJoinScopedWhere = schoolScoped ? 'WHERE a.school_id = $1' : '';
+  const period = options.period;
+  const feature = options.feature?.trim() || '';
+  const params: unknown[] = [];
+  if (schoolScoped) params.push(user.schoolId);
+  const schoolParam = schoolScoped ? '$1' : null;
+  const featureParam = feature ? `$${params.push(feature)}` : null;
+  const eventWhere = (alias: string, includeFeature = true) => {
+    const clauses: string[] = [];
+    if (period === 'today') clauses.push(`${alias}.created_at >= CURRENT_DATE`);
+    if (period === 'week') clauses.push(`${alias}.created_at >= DATE_TRUNC('week', CURRENT_DATE)`);
+    if (period === 'month') clauses.push(`${alias}.created_at >= DATE_TRUNC('month', CURRENT_DATE)`);
+    if (includeFeature && featureParam) clauses.push(`${alias}.feature = ${featureParam}`);
+    if (schoolParam) clauses.push(`${alias}.school_id = ${schoolParam}`);
+    return clauses.join(' AND ');
+  };
+  const eventWhereSql = (alias: string, includeFeature = true, prefix = 'WHERE') => {
+    const where = eventWhere(alias, includeFeature);
+    return where ? `${prefix} ${where}` : '';
+  };
 
   const topUsers = await db.query(
     `SELECT
@@ -5574,39 +6142,47 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
        COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
      FROM ai_usage_events a
      JOIN users u ON u.id = a.user_id
-     ${userJoinScopedWhere}
+     ${eventWhereSql('a')}
      GROUP BY u.id, u.full_name, u.email
-     ORDER BY spend_ksh_cents DESC
+     ORDER BY spend_ksh_cents DESC, u.id ASC
      LIMIT 10`,
-    scopedParams
+    params
   );
 
   const topFeatures = await db.query(
-     `SELECT
+    `SELECT
        feature,
        COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
        COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
        COUNT(DISTINCT user_id)::int AS active_ai_users
-     FROM ai_usage_events
-     ${aiUsageScopedWhere}
+     FROM ai_usage_events a
+     ${eventWhereSql('a')}
      GROUP BY feature
-     ORDER BY spend_ksh_cents DESC
+     ORDER BY spend_ksh_cents DESC, feature ASC
      LIMIT 10`,
-    scopedParams
+    params
+  );
+
+  const featureOptions = await db.query(
+    `SELECT DISTINCT a.feature
+     FROM ai_usage_events a
+     ${eventWhereSql('a', false)}${eventWhereSql('a', false) ? ' AND' : 'WHERE'} a.feature IS NOT NULL AND a.feature <> ''
+     ORDER BY a.feature ASC`,
+    params
   );
 
   const blockedEvents = await db.query(
     `SELECT COUNT(*)::int AS total
-     FROM ai_usage_events
-     ${schoolScoped ? "WHERE school_id = $1 AND status = 'blocked'" : "WHERE status = 'blocked'"}`,
-    scopedParams
+     FROM ai_usage_events a
+     ${eventWhereSql('a')}${eventWhereSql('a') ? ' AND' : 'WHERE'} a.status = 'blocked'`,
+    params
   );
 
   const trackedUsers = await db.query(
-    `SELECT COUNT(DISTINCT user_id)::int AS total
-     FROM ai_usage_events
-     ${aiUsageScopedWhere}`,
-    scopedParams
+    `SELECT COUNT(DISTINCT a.user_id)::int AS total
+     FROM ai_usage_events a
+     ${eventWhereSql('a')}`,
+    params
   );
 
   const blockedEventRows = await db.query(
@@ -5615,32 +6191,40 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
      FROM ai_usage_events a
      JOIN users u ON u.id = a.user_id
      LEFT JOIN schools s ON s.id = a.school_id
-     WHERE a.status = 'blocked'
-       ${schoolScoped ? 'AND a.school_id = $1' : ''}
-     ORDER BY a.created_at DESC
+     ${eventWhereSql('a')}${eventWhereSql('a') ? ' AND' : 'WHERE'} a.status = 'blocked'
+     ORDER BY a.created_at DESC, a.id ASC
      LIMIT 25`,
-    scopedParams
+    params
   );
 
   const costBySchool = await db.query(
     `SELECT
        s.id,
        s.name,
-       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
-       COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
-       COUNT(DISTINCT a.user_id)::int AS active_ai_users,
+       a.total_tokens,
+       a.spend_ksh_cents,
+       a.active_ai_users,
        CASE
-         WHEN COUNT(DISTINCT a.user_id) = 0 THEN 0
-         ELSE ROUND(COALESCE(SUM(a.total_tokens), 0)::numeric / COUNT(DISTINCT a.user_id))::bigint
+         WHEN a.active_ai_users = 0 THEN 0
+         ELSE ROUND(a.total_tokens::numeric / a.active_ai_users)::bigint
        END AS average_tokens_per_user,
        CASE
-         WHEN COUNT(DISTINCT a.user_id) = 0 THEN 0
-         ELSE ROUND(COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::numeric / COUNT(DISTINCT a.user_id))::bigint
+         WHEN a.active_ai_users = 0 THEN 0
+         ELSE ROUND(a.spend_ksh_cents::numeric / a.active_ai_users)::bigint
        END AS average_spend_ksh_cents_per_user
-     FROM schools s
-     LEFT JOIN ai_usage_events a ON a.school_id = s.id
-     GROUP BY s.id, s.name
-     ORDER BY spend_ksh_cents DESC`
+     FROM (
+       SELECT a.school_id,
+              COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+              COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
+              COUNT(DISTINCT a.user_id)::int AS active_ai_users
+       FROM ai_usage_events a
+       ${eventWhereSql('a')}
+       GROUP BY a.school_id
+     ) a
+     JOIN schools s ON s.id = a.school_id
+     ${schoolParam ? `WHERE s.id = ${schoolParam}` : ''}
+     ORDER BY spend_ksh_cents DESC, s.id ASC`,
+    params
   );
 
   const marginByUser = await db.query(
@@ -5650,55 +6234,79 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
        COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
        COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
        COALESCE(MAX(su.price_ksh_cents), 0)::bigint AS subscription_price_ksh_cents
-     FROM users u
-     LEFT JOIN ai_usage_events a ON a.user_id = u.id
-     LEFT JOIN subscriptions su ON su.user_id = u.id AND su.status = 'active' AND NOW() BETWEEN su.period_start AND su.period_end
-     ${schoolScoped ? 'WHERE u.school_id = $1' : ''}
+     FROM (
+       SELECT a.user_id,
+              COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+              COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+       FROM ai_usage_events a
+       ${eventWhereSql('a')}
+       GROUP BY a.user_id
+     ) a
+     JOIN users u ON u.id = a.user_id
+     LEFT JOIN (
+       SELECT user_id, MAX(price_ksh_cents)::bigint AS price_ksh_cents
+       FROM subscriptions
+       WHERE status = 'active' AND NOW() BETWEEN period_start AND period_end
+       GROUP BY user_id
+     ) su ON su.user_id = u.id
+     ${schoolParam ? `WHERE u.school_id = ${schoolParam}` : ''}
      GROUP BY u.id, u.full_name
-     ORDER BY spend_ksh_cents DESC
+     ORDER BY spend_ksh_cents DESC, u.id ASC
      LIMIT 20`,
-    scopedParams
+    params
   );
 
   const modelBreakdown = await db.query(
     `SELECT
-       COALESCE(NULLIF(model, ''), 'unknown') AS model,
-       COALESCE(NULLIF(provider, ''), 'unknown') AS provider,
+       COALESCE(NULLIF(a.model, ''), 'unknown') AS model,
+       COALESCE(NULLIF(a.provider, ''), 'unknown') AS provider,
        COUNT(*)::int AS events,
-       COUNT(DISTINCT user_id)::int AS active_ai_users,
-       COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
-       COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
+       COUNT(DISTINCT a.user_id)::int AS active_ai_users,
+       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
        CASE
-         WHEN SUM(SUM(total_tokens)) OVER () = 0 THEN 0
-         ELSE ROUND((SUM(total_tokens)::numeric / SUM(SUM(total_tokens)) OVER ()) * 100, 1)
+         WHEN SUM(SUM(a.total_tokens)) OVER () = 0 THEN 0
+         ELSE ROUND((SUM(a.total_tokens)::numeric / SUM(SUM(a.total_tokens)) OVER ()) * 100, 1)
        END AS token_share
-     FROM ai_usage_events
-     ${aiUsageScopedWhere}
-     GROUP BY provider, model
-     ORDER BY total_tokens DESC
+     FROM ai_usage_events a
+     ${eventWhereSql('a')}
+     GROUP BY a.provider, a.model
+     ORDER BY total_tokens DESC, provider ASC, model ASC
      LIMIT 10`,
-    scopedParams
+    params
   );
 
   const costTrend = await db.query(
     `SELECT
-       date_trunc('day', created_at)::date AS period,
-       COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
-       COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
-     FROM ai_usage_events
-     ${schoolScoped ? "WHERE school_id = $1 AND created_at >= NOW() - INTERVAL '30 days'" : "WHERE created_at >= NOW() - INTERVAL '30 days'"}
+       date_trunc('day', a.created_at)::date AS period,
+       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+     FROM ai_usage_events a
+     ${eventWhereSql('a')}
      GROUP BY period
      ORDER BY period ASC`,
-    scopedParams
+    params
   );
 
+  const now = new Date();
+  const periodLabel = period === 'today' ? 'Today' : period === 'week' ? 'This Week' : period === 'month' ? 'This Month' : 'All Time';
+  const from = period === 'today'
+    ? new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    : period === 'week'
+      ? new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7))
+      : period === 'month'
+        ? new Date(now.getFullYear(), now.getMonth(), 1)
+        : null;
   return {
+    dateRange: { period: period ?? 'all', label: periodLabel, from: from?.toISOString() ?? null, to: now.toISOString() },
+    selectedFeature: feature || null,
+    featureOptions: featureOptions.rows.map(row => row.feature).filter(Boolean),
     topUsers: topUsers.rows,
     topFeatures: topFeatures.rows,
     trackedUsers: Number(trackedUsers.rows[0]?.total ?? 0),
     blockedEvents: Number(blockedEvents.rows[0]?.total ?? 0),
     blockedEventRows: blockedEventRows.rows,
-    costBySchool: schoolScoped ? costBySchool.rows.filter(row => row.id === user.schoolId) : costBySchool.rows,
+    costBySchool: costBySchool.rows,
     marginByUser: marginByUser.rows,
     modelBreakdown: modelBreakdown.rows,
     costTrend: costTrend.rows
@@ -7612,6 +8220,299 @@ export async function findQuizBankQuestionById(questionId: string) {
   return result.rows[0] ?? null;
 }
 
+export type QuizMeSessionRecord = {
+  id: string;
+  user_id: string;
+  client_session_id: string;
+  country_code: string;
+  curriculum_code: string;
+  grade_level: string;
+  subject_id: string;
+  subject_name: string;
+  strand_title: string;
+  sub_strand_title: string;
+  requested_count: number;
+  created_at: Date;
+  completed_at: Date | null;
+  score: number | null;
+};
+
+export type QuizMeSessionQuestionRecord = QuizBankQuestionRecord & {
+  session_question_id: string;
+  position: number;
+};
+
+export type QuizMeAnswerRecord = {
+  id: string;
+  session_id: string;
+  session_question_id: string;
+  answer: string;
+  is_correct: boolean;
+  score: number;
+  feedback: string;
+  submitted_at: Date;
+};
+
+const quizBankQuestionColumns = `
+  q.id, q.country_code, q.curriculum_code, q.grade_level, q.subject_id, q.subject_name,
+  q.strand_title, q.sub_strand_title, q.learning_outcome, q.question_number, q.type,
+  q.prompt, q.options, q.correct_answer, q.explanation, q.difficulty, q.cognitive_level,
+  q.feature_tags, q.image_key`;
+
+export async function listQuizMeEligibleQuestions(input: {
+  userId: string;
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  subjectId: string[];
+  strandTitle: string;
+  subStrandTitle: string;
+  limit: number;
+}) {
+  const result = await db.query<QuizBankQuestionRecord>(
+    `SELECT ${quizBankQuestionColumns}
+       FROM quiz_bank_questions q
+      WHERE q.country_code = $1
+        AND q.curriculum_code = $2
+        AND q.grade_level = $3
+        AND q.subject_id = ANY($4::text[])
+        AND lower(btrim(q.strand_title)) = lower(btrim($5))
+        AND lower(btrim(q.sub_strand_title)) = lower(btrim($6))
+        AND q.feature_tags ? 'quiz_me'
+        AND NOT EXISTS (
+          SELECT 1
+            FROM quiz_me_session_questions sq
+            JOIN quiz_me_answers a ON a.session_question_id = sq.id
+           WHERE sq.question_id = q.id
+             AND EXISTS (SELECT 1 FROM quiz_me_sessions s WHERE s.id = sq.session_id AND s.user_id = $7)
+             AND a.is_correct = TRUE
+        )
+        AND (
+          NOT EXISTS (
+            SELECT 1
+              FROM quiz_me_session_questions sq
+              JOIN quiz_me_answers a ON a.session_question_id = sq.id
+             WHERE sq.question_id = q.id
+               AND EXISTS (SELECT 1 FROM quiz_me_sessions s WHERE s.id = sq.session_id AND s.user_id = $7)
+          )
+          OR (
+            SELECT MAX(a.submitted_at)
+              FROM quiz_me_session_questions sq
+              JOIN quiz_me_answers a ON a.session_question_id = sq.id
+             WHERE sq.question_id = q.id
+               AND EXISTS (SELECT 1 FROM quiz_me_sessions s WHERE s.id = sq.session_id AND s.user_id = $7)
+          ) <= NOW() - INTERVAL '24 hours'
+        )
+      ORDER BY CASE WHEN NOT EXISTS (
+        SELECT 1
+          FROM quiz_me_session_questions sq
+          JOIN quiz_me_answers a ON a.session_question_id = sq.id
+         WHERE sq.question_id = q.id
+           AND EXISTS (SELECT 1 FROM quiz_me_sessions s WHERE s.id = sq.session_id AND s.user_id = $7)
+      ) THEN 0 ELSE 1 END, q.question_number ASC, q.id ASC
+      LIMIT $8`,
+    [input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectId, input.strandTitle, input.subStrandTitle, input.userId, input.limit]
+  );
+  return result.rows;
+}
+
+export async function insertQuizMeGeneratedQuestions(client: MaybeClient, input: {
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  subjectId: string;
+  subjectName: string;
+  strandTitle: string;
+  subStrandTitle: string;
+  questions: Array<{
+    type: QuizBankQuestionRecord['type'];
+    prompt: string;
+    options: string[];
+    correctAnswer: string;
+    explanation: string;
+  }>;
+}) {
+  await q(client,
+    `SELECT pg_advisory_xact_lock(hashtext($1))`,
+    [`quizme-ai:${input.countryCode}:${input.curriculumCode}:${input.gradeLevel}:${input.subjectId}`]
+  );
+  const maxResult = await q<{ max: number | null }>(
+    client,
+    `SELECT MAX(question_number)::int AS max
+       FROM quiz_bank_questions
+      WHERE country_code = $1 AND curriculum_code = $2 AND grade_level = $3 AND subject_id = $4`,
+    [input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectId]
+  );
+  let nextQuestionNumber = Number(maxResult.rows[0]?.max ?? 0) + 1;
+  const inserted: string[] = [];
+  for (const question of input.questions) {
+    const duplicate = await q<{ id: string }>(
+      client,
+      `SELECT q.id
+         FROM quiz_bank_questions q
+        WHERE q.country_code = $1 AND q.curriculum_code = $2 AND q.grade_level = $3
+          AND q.subject_id = $4
+          AND lower(btrim(q.strand_title)) = lower(btrim($5))
+          AND lower(btrim(q.sub_strand_title)) = lower(btrim($6))
+          AND q.source = 'quizme-ai'
+          AND regexp_replace(lower(btrim(q.prompt)), '[[:space:]]+', ' ', 'g') = regexp_replace(lower(btrim($7)), '[[:space:]]+', ' ', 'g')
+        ORDER BY q.id ASC
+        LIMIT 1`,
+      [input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectId, input.strandTitle, input.subStrandTitle, question.prompt]
+    );
+    if (duplicate.rows[0]) {
+      inserted.push(duplicate.rows[0].id);
+      continue;
+    }
+    if (nextQuestionNumber > 1000) break;
+    const result = await q<{ id: string }>(
+      client,
+      `INSERT INTO quiz_bank_questions (
+         country_code, curriculum_code, grade_level, subject_id, subject_name,
+         strand_title, sub_strand_title, learning_outcome, question_number, type,
+         prompt, options, correct_answer, explanation, difficulty, cognitive_level,
+         feature_tags, source
+       ) VALUES ($1, $2, $3, $4, $5, $6, $7, '', $8, $9, $10, $11::jsonb, $12, $13, 2, 'understand', $14::jsonb, 'quizme-ai')
+       ON CONFLICT (country_code, curriculum_code, grade_level, subject_id, question_number)
+       DO NOTHING
+       RETURNING id`,
+      [input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectId, input.subjectName, input.strandTitle, input.subStrandTitle, nextQuestionNumber, question.type, question.prompt, JSON.stringify(question.options), question.correctAnswer, question.explanation, JSON.stringify(['quiz_me', 'take_quiz'])]
+    );
+    if (result.rows[0]) inserted.push(result.rows[0].id);
+    nextQuestionNumber += 1;
+  }
+  return inserted;
+}
+
+export async function findQuizMeSessionByClientId(userId: string, clientSessionId: string) {
+  const result = await db.query<QuizMeSessionRecord>(
+    `SELECT id, user_id, client_session_id, country_code, curriculum_code, grade_level,
+            subject_id, subject_name, strand_title, sub_strand_title, requested_count,
+            created_at, completed_at, score
+       FROM quiz_me_sessions
+      WHERE user_id = $1 AND client_session_id = $2`,
+    [userId, clientSessionId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findQuizMeSessionForUser(userId: string, sessionId: string) {
+  const result = await db.query<QuizMeSessionRecord>(
+    `SELECT id, user_id, client_session_id, country_code, curriculum_code, grade_level,
+            subject_id, subject_name, strand_title, sub_strand_title, requested_count,
+            created_at, completed_at, score
+       FROM quiz_me_sessions
+      WHERE id = $1 AND user_id = $2`,
+    [sessionId, userId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function createQuizMeSession(client: MaybeClient, input: {
+  userId: string;
+  clientSessionId: string;
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  subjectId: string;
+  subjectName: string;
+  strandTitle: string;
+  subStrandTitle: string;
+  requestedCount: number;
+}) {
+  const result = await q<QuizMeSessionRecord>(
+    client,
+    `INSERT INTO quiz_me_sessions (
+       user_id, client_session_id, country_code, curriculum_code, grade_level,
+       subject_id, subject_name, strand_title, sub_strand_title, requested_count
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+     RETURNING id, user_id, client_session_id, country_code, curriculum_code, grade_level,
+               subject_id, subject_name, strand_title, sub_strand_title, requested_count,
+               created_at, completed_at, score`,
+    [input.userId, input.clientSessionId, input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectId, input.subjectName, input.strandTitle, input.subStrandTitle, input.requestedCount]
+  );
+  return result.rows[0];
+}
+
+export async function addQuizMeSessionQuestions(client: MaybeClient, sessionId: string, questionIds: string[]) {
+  for (const [position, questionId] of questionIds.entries()) {
+    await q(client,
+      `INSERT INTO quiz_me_session_questions (session_id, question_id, position)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (session_id, question_id) DO NOTHING`,
+      [sessionId, questionId, position]
+    );
+  }
+}
+
+export async function listQuizMeSessionQuestions(userId: string, sessionId: string) {
+  const result = await db.query<QuizMeSessionQuestionRecord>(
+    `SELECT sq.id AS session_question_id, sq.position, ${quizBankQuestionColumns}
+       FROM quiz_me_session_questions sq
+       JOIN quiz_me_sessions s ON s.id = sq.session_id AND s.user_id = $1
+       JOIN quiz_bank_questions q ON q.id = sq.question_id
+      WHERE sq.session_id = $2
+      ORDER BY sq.position ASC`,
+    [userId, sessionId]
+  );
+  return result.rows;
+}
+
+export async function findQuizMeSessionQuestion(userId: string, sessionId: string, sessionQuestionId: string) {
+  const result = await db.query<QuizMeSessionQuestionRecord>(
+    `SELECT sq.id AS session_question_id, sq.position, ${quizBankQuestionColumns}
+       FROM quiz_me_session_questions sq
+       JOIN quiz_me_sessions s ON s.id = sq.session_id AND s.user_id = $1
+       JOIN quiz_bank_questions q ON q.id = sq.question_id
+      WHERE sq.session_id = $2 AND sq.id = $3`,
+    [userId, sessionId, sessionQuestionId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findQuizMeAnswer(sessionId: string, sessionQuestionId: string) {
+  const result = await db.query<QuizMeAnswerRecord>(
+    `SELECT id, session_id, session_question_id, answer, is_correct, score, feedback, submitted_at
+       FROM quiz_me_answers WHERE session_id = $1 AND session_question_id = $2`,
+    [sessionId, sessionQuestionId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function recordQuizMeAnswer(client: MaybeClient, input: {
+  sessionId: string;
+  sessionQuestionId: string;
+  answer: string;
+  isCorrect: boolean;
+  score: number;
+  feedback: string;
+}) {
+  const result = await q<QuizMeAnswerRecord>(
+    client,
+    `INSERT INTO quiz_me_answers (session_id, session_question_id, answer, is_correct, score, feedback)
+     VALUES ($1, $2, $3, $4, $5, $6)
+     ON CONFLICT (session_id, session_question_id) DO NOTHING
+     RETURNING id, session_id, session_question_id, answer, is_correct, score, feedback, submitted_at`,
+    [input.sessionId, input.sessionQuestionId, input.answer, input.isCorrect, input.score, input.feedback]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function completeQuizMeSession(client: MaybeClient, sessionId: string) {
+  const result = await q<QuizMeSessionRecord>(
+    client,
+    `UPDATE quiz_me_sessions s
+        SET completed_at = COALESCE(completed_at, NOW()),
+            score = (SELECT COALESCE(SUM(score), 0) FROM quiz_me_answers WHERE session_id = s.id)
+      WHERE id = $1
+      RETURNING id, user_id, client_session_id, country_code, curriculum_code, grade_level,
+                subject_id, subject_name, strand_title, sub_strand_title, requested_count,
+                created_at, completed_at, score`,
+    [sessionId]
+  );
+  return result.rows[0] ?? null;
+}
+
 export type AssessmentNarrationQuestionRecord = {
   id: number;
   type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
@@ -8140,6 +9041,255 @@ export async function listAssignmentSubmissionsForTeacher(
   }));
 }
 
+function homeworkQuestionFromBank(row: QuizBankQuestionRecord, source: 'quizbank' | 'ai' = 'quizbank'): HomeworkDraftQuestion {
+  return {
+    bankId: row.id,
+    type: row.type,
+    text: row.prompt,
+    options: row.options ?? [],
+    correctAnswer: row.correct_answer,
+    explanation: row.explanation,
+    source
+  };
+}
+
+export async function listHomeworkQuizBankQuestions(input: {
+  authorUserId: string;
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  subjectIds: string[];
+  strandTitle?: string;
+  subStrandTitle?: string;
+  limit: number;
+}) {
+  const result = await db.query<QuizBankQuestionRecord>(
+    `SELECT ${quizBankQuestionColumns}
+       FROM quiz_bank_questions q
+      WHERE q.country_code = $1
+        AND q.curriculum_code = $2
+        AND q.grade_level = $3
+        AND q.subject_id = ANY($4::text[])
+        AND q.feature_tags ? 'homework'
+        AND ($5::text IS NULL OR lower(btrim(q.strand_title)) = lower(btrim($5)))
+        AND ($6::text IS NULL OR lower(btrim(q.sub_strand_title)) = lower(btrim($6)))
+        AND NOT EXISTS (
+          SELECT 1 FROM assignment_question_usage used
+           WHERE used.author_user_id = $7 AND used.quiz_bank_question_id = q.id
+        )
+      ORDER BY q.question_number ASC, q.id ASC
+      LIMIT $8`,
+    [input.countryCode, input.curriculumCode, input.gradeLevel, input.subjectIds, input.strandTitle || null, input.subStrandTitle || null, input.authorUserId, input.limit]
+  );
+  return result.rows;
+}
+
+export async function createHomeworkAssignmentDraft(client: MaybeClient, input: {
+  user: AuthenticatedUser;
+  schoolId: string;
+  classId?: string | null;
+  countryCode: string;
+  curriculumCode: string;
+  gradeLevel: string;
+  subject: string;
+  subjectId: string;
+  strandTitle?: string | null;
+  subStrandTitle?: string | null;
+  title: string;
+  description: string;
+  dueAt?: Date | null;
+  requestedCount: number;
+  questions: HomeworkDraftQuestion[];
+  aiCandidates: HomeworkDraftQuestion[];
+}) {
+  const result = await q<HomeworkAssignmentDraftRecord>(
+    client,
+    `INSERT INTO homework_assignment_drafts (
+       author_user_id, school_id, class_id, country_code, curriculum_code, grade_level, subject, subject_id, strand_title,
+       sub_strand_title, title, description, due_at, requested_count, questions, ai_candidates
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15::jsonb, $16::jsonb)
+     RETURNING id, author_user_id, school_id, class_id, country_code, curriculum_code, grade_level, subject, subject_id,
+       strand_title, sub_strand_title, title, description, due_at, requested_count,
+       questions, ai_candidates, status, published_assignment_id`,
+    [input.user.id, input.schoolId, input.classId ?? null, input.countryCode, input.curriculumCode, input.gradeLevel, input.subject, input.subjectId, input.strandTitle ?? null, input.subStrandTitle ?? null, input.title, input.description, input.dueAt ?? null, input.requestedCount, JSON.stringify(input.questions), JSON.stringify(input.aiCandidates)]
+  );
+  return result.rows[0];
+}
+
+export async function findHomeworkAssignmentDraft(client: MaybeClient, user: AuthenticatedUser, draftId: string, forUpdate = false) {
+  const result = await q<HomeworkAssignmentDraftRecord>(
+    client,
+    `SELECT id, author_user_id, school_id, class_id, country_code, curriculum_code, grade_level, subject, subject_id,
+       strand_title, sub_strand_title, title, description, due_at, requested_count,
+       questions, ai_candidates, status, published_assignment_id
+       FROM homework_assignment_drafts
+      WHERE id = $1 AND ($2::boolean OR author_user_id = $3 OR ($4::boolean AND school_id = (SELECT school_id FROM users WHERE id = $3)))
+      ${forUpdate ? 'FOR UPDATE' : ''}`,
+    [draftId, user.roles.includes('platform_admin'), user.id, user.roles.includes('school_admin')]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function updateHomeworkAssignmentDraft(client: MaybeClient, user: AuthenticatedUser, draftId: string, input: {
+  title?: string;
+  description?: string;
+  dueAt?: Date | null;
+  approvedAiQuestionIds?: string[];
+  questions?: HomeworkDraftQuestion[];
+}) {
+  const draft = await findHomeworkAssignmentDraft(client, user, draftId, true);
+  if (!draft || draft.status !== 'review') throw new Error('Homework draft is not available for review');
+  const reviewed = input.questions ? validateHomeworkDraftEdits(draft, input.questions) : null;
+  const questions = reviewed?.questions ?? draft.questions;
+  const aiCandidates = reviewed?.aiCandidates ?? draft.ai_candidates;
+  const result = await q<HomeworkAssignmentDraftRecord>(client,
+    `UPDATE homework_assignment_drafts
+        SET title = COALESCE($2, title), description = COALESCE($3, description),
+            due_at = COALESCE($4, due_at), questions = $5::jsonb, ai_candidates = $6::jsonb, updated_at = NOW()
+      WHERE id = $1
+      RETURNING id, author_user_id, school_id, class_id, country_code, curriculum_code, grade_level, subject, subject_id,
+        strand_title, sub_strand_title, title, description, due_at, requested_count,
+        questions, ai_candidates, status, published_assignment_id`,
+    [draftId, input.title ?? null, input.description ?? null, input.dueAt ?? null, JSON.stringify(questions), JSON.stringify(aiCandidates)]
+  );
+  return result.rows[0];
+}
+
+function homeworkDraftQuestionKey(question: HomeworkDraftQuestion) {
+  return question.source === 'ai' ? `ai:${question.candidateId ?? ''}` : `bank:${question.bankId}`;
+}
+
+function validateHomeworkDraftQuestion(question: HomeworkDraftQuestion) {
+  if (!question.text.trim()) throw new Error('Homework question text is required');
+  const options = question.options.map(option => option.trim()).filter(Boolean);
+  const normalizedAnswer = question.correctAnswer.trim().toLocaleLowerCase();
+  if (question.type === 'MCQ') {
+    if (options.length < 2 || options.length > 6 || !options.some(option => option.toLocaleLowerCase() === normalizedAnswer)) throw new Error('MCQ answer must match one of its options');
+  } else if (question.type === 'TRUE_FALSE') {
+    if (options.length !== 2 || !options.some(option => option.toLocaleLowerCase() === 'true') || !options.some(option => option.toLocaleLowerCase() === 'false') || !['true', 'false'].includes(normalizedAnswer)) throw new Error('TRUE_FALSE questions require True and False options');
+  } else if (options.length) {
+    throw new Error('Open-answer questions cannot have options');
+  }
+  return { ...question, text: question.text.trim(), options, correctAnswer: question.correctAnswer.trim(), explanation: question.explanation.trim() };
+}
+
+function validateHomeworkDraftEdits(draft: HomeworkAssignmentDraftRecord, edits: HomeworkDraftQuestion[]) {
+  const originals = [...draft.questions, ...draft.ai_candidates];
+  if (edits.length !== originals.length) throw new Error('Reviewed homework must contain every draft question');
+  const originalKeys = new Set(originals.map(homeworkDraftQuestionKey));
+  const editKeys = new Set(edits.map(homeworkDraftQuestionKey));
+  if (editKeys.size !== edits.length || edits.some(question => !originalKeys.has(homeworkDraftQuestionKey(question)))) throw new Error('Reviewed homework contains an unknown question provenance');
+  const normalized = originals.map(original => {
+    const edit = edits.find(candidate => homeworkDraftQuestionKey(candidate) === homeworkDraftQuestionKey(original));
+    if (!edit || edit.source !== original.source || edit.bankId !== original.bankId || edit.candidateId !== original.candidateId) throw new Error('Question provenance cannot be changed during review');
+    return validateHomeworkDraftQuestion({ ...edit, bankId: original.bankId, candidateId: original.candidateId, source: original.source });
+  });
+  return {
+    questions: normalized.filter(question => question.source === 'quizbank'),
+    aiCandidates: normalized.filter(question => question.source === 'ai')
+  };
+}
+
+async function insertHomeworkAiQuestions(client: MaybeClient, draft: HomeworkAssignmentDraftRecord, candidates: HomeworkDraftQuestion[]) {
+  if (!candidates.length) return [] as string[];
+  await q(client, `SELECT pg_advisory_xact_lock(hashtext($1))`, [`homework-ai:${draft.school_id}:${draft.grade_level}:${draft.subject_id}`]);
+  const maxResult = await q<{ max: number | null }>(client,
+    `SELECT MAX(question_number)::int AS max FROM quiz_bank_questions WHERE country_code = $1 AND curriculum_code = $2 AND grade_level = $3 AND subject_id = $4`,
+    [draft.country_code, draft.curriculum_code, draft.grade_level, draft.subject_id]
+  );
+  let next = Number(maxResult.rows[0]?.max ?? 0) + 1;
+  const ids: string[] = [];
+  for (const candidate of candidates) {
+    const inserted = await q<{ id: string }>(client,
+      `INSERT INTO quiz_bank_questions (
+        country_code, curriculum_code, grade_level, subject_id, subject_name,
+        strand_title, sub_strand_title, learning_outcome, question_number, type,
+        prompt, options, correct_answer, explanation, difficulty, cognitive_level,
+        feature_tags, source
+      ) VALUES ($1, $2, $3, $4, $5, $6, COALESCE($7, ''), '', $8, $9, $10, $11::jsonb, $12, $13, 2, 'understand', '["homework"]'::jsonb, 'assignment-ai')
+      RETURNING id`,
+      [draft.country_code, draft.curriculum_code, draft.grade_level, draft.subject_id, draft.subject, draft.strand_title ?? '', draft.sub_strand_title, next, candidate.type, candidate.text, JSON.stringify(candidate.options), candidate.correctAnswer, candidate.explanation]
+    );
+    ids.push(inserted.rows[0].id);
+    next += 1;
+  }
+  return ids;
+}
+
+export async function publishHomeworkAssignmentDraft(client: MaybeClient, user: AuthenticatedUser, draftId: string, input: {
+  title?: string;
+  description?: string;
+  dueAt?: Date | null;
+  approvedAiQuestionIds?: string[];
+  questions?: HomeworkDraftQuestion[];
+  onCreated?: (transactionClient: MaybeClient, publication: { assignmentId: string; authorUserId: string }) => Promise<void>;
+}) {
+  let draft = await findHomeworkAssignmentDraft(client, user, draftId, true);
+  if (!draft) throw new Error('Homework draft not found');
+  if (draft.status === 'published' && draft.published_assignment_id) return { assignmentId: draft.published_assignment_id, created: false, authorUserId: draft.author_user_id };
+  if (draft.status !== 'review') throw new Error('Homework draft is not publishable');
+  if (input.questions) {
+    const reviewed = validateHomeworkDraftEdits(draft, input.questions);
+    draft = { ...draft, questions: reviewed.questions, ai_candidates: reviewed.aiCandidates };
+  }
+  const candidates = draft.ai_candidates ?? [];
+  const approved = new Set(input.approvedAiQuestionIds ?? []);
+  if (candidates.length && (!input.approvedAiQuestionIds || approved.size !== candidates.length)) {
+    throw new Error('Every AI candidate must be explicitly approved before publishing');
+  }
+  if (candidates.some(candidate => !candidate.candidateId || !approved.has(candidate.candidateId))) {
+    throw new Error('Every AI candidate must be explicitly approved before publishing');
+  }
+  const title = input.title?.trim() || draft.title;
+  const description = input.description ?? draft.description;
+  const dueAt = input.dueAt === undefined ? draft.due_at : input.dueAt;
+  const aiIds = await insertHomeworkAiQuestions(client, draft, candidates);
+  const bankQuestions = (draft.questions ?? []).filter(question => question.source === 'quizbank');
+  const allQuestions: HomeworkDraftQuestion[] = bankQuestions.concat(candidates.map((candidate, index) => ({ ...candidate, source: 'quizbank' as const, bankId: aiIds[index] })));
+  if (allQuestions.length !== draft.requested_count) throw new Error('Homework draft does not contain the requested question count');
+  const snapshot = allQuestions.map((question, index) => ({ id: index + 1, bankId: question.bankId, type: question.type, text: question.text, options: question.options, correctAnswer: question.correctAnswer, explanation: question.explanation }));
+  const snapshotHash = createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
+
+  const schoolResult = await q<{ id: string }>(client, `SELECT id FROM schools WHERE id = $1`, [draft.school_id]);
+  if (!schoolResult.rows[0]) throw new Error('Selected school was not found');
+  if (draft.class_id) {
+    const classResult = await q<{ id: string; grade_level: string }>(client,
+      `SELECT id, grade_level FROM classes WHERE id = $1 AND school_id = $2`, [draft.class_id, draft.school_id]);
+    if (!classResult.rows[0] || classResult.rows[0].grade_level !== draft.grade_level) throw new Error('Selected class is outside the assignment scope');
+  }
+  const assignmentResult = await q<{ id: string }>(client,
+    `INSERT INTO assignments (school_id, class_id, teacher_id, title, description, due_at, grade_level, subject, questions, source_draft_id, snapshot_hash)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb, $10, $11)
+     ON CONFLICT (source_draft_id) DO UPDATE SET id = assignments.id
+     RETURNING id`,
+    [draft.school_id, draft.class_id, draft.author_user_id, title, description, dueAt, draft.grade_level, draft.subject, JSON.stringify(snapshot), draft.id, snapshotHash]);
+  const assignmentId = assignmentResult.rows[0].id;
+  for (const [position, question] of allQuestions.entries()) {
+    await q(client,
+      `INSERT INTO assignment_question_usage (assignment_id, author_user_id, quiz_bank_question_id, position)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (assignment_id, quiz_bank_question_id) DO NOTHING`,
+      [assignmentId, draft.author_user_id, question.bankId, position]);
+  }
+  const usageCount = await q<{ count: string }>(client,
+    `SELECT COUNT(*)::text AS count FROM assignment_question_usage WHERE assignment_id = $1`, [assignmentId]);
+  if (Number(usageCount.rows[0]?.count ?? 0) !== allQuestions.length) {
+    throw new Error('One or more questions were already used by this author');
+  }
+  const studentRows = await q<{ id: string }>(client,
+    draft.class_id
+      ? `SELECT cs.student_id AS id FROM class_students cs JOIN users u ON u.id = cs.student_id WHERE cs.class_id = $1 AND u.school_id = $2`
+      : `SELECT u.id FROM users u JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student' WHERE u.school_id = $1 AND u.grade_level = $2`,
+    draft.class_id ? [draft.class_id, draft.school_id] : [draft.school_id, draft.grade_level]);
+  if (!studentRows.rows.length) throw new Error('No students are enrolled in the assignment scope');
+  for (const student of studentRows.rows) {
+    await q(client, `INSERT INTO submissions (assignment_id, student_id, status, answers) VALUES ($1, $2, 'Pending', '[]'::jsonb) ON CONFLICT (assignment_id, student_id) DO NOTHING`, [assignmentId, student.id]);
+  }
+  await q(client, `UPDATE homework_assignment_drafts SET status = 'published', published_assignment_id = $2, questions = $3::jsonb, ai_candidates = $4::jsonb, updated_at = NOW() WHERE id = $1`, [draft.id, assignmentId, JSON.stringify(draft.questions), JSON.stringify(draft.ai_candidates)]);
+  if (input.onCreated) await input.onCreated(client, { assignmentId, authorUserId: draft.author_user_id });
+  return { assignmentId, created: true, authorUserId: draft.author_user_id };
+}
+
 export async function createTeacherAssignment(
   client: MaybeClient,
   user: AuthenticatedUser,
@@ -8619,12 +9769,12 @@ export async function submitStudentAssignment(
   user: AuthenticatedUser,
   assignmentId: string,
   input: {
-    score: number;
+    score?: number;
     answers: Array<{
       questionId: number;
-      question: string;
+      question?: string;
       answer: string;
-      isCorrect: boolean;
+      isCorrect?: boolean;
     }>;
   }
 ) {
@@ -8632,9 +9782,10 @@ export async function submitStudentAssignment(
     id: string;
     due_at: Date | null;
     school_id: string;
+    questions: Array<{ id: number; text: string; correctAnswer?: string | boolean; options?: string[]; type?: string; explanation?: string }>;
   }>(
     client,
-    `SELECT id, due_at, school_id
+    `SELECT id, due_at, school_id, questions
      FROM assignments
      WHERE id = $1`,
     [assignmentId]
@@ -8648,6 +9799,22 @@ export async function submitStudentAssignment(
   if (assignment.school_id !== user.schoolId) {
     throw new Error('Assignment does not belong to the current school');
   }
+
+  const enrollment = await q<{ id: string }>(client,
+    `SELECT id FROM submissions WHERE assignment_id = $1 AND student_id = $2`,
+    [assignmentId, user.id]);
+  if (!enrollment.rows[0]) throw new Error('Student is not assigned this homework');
+
+  const answersByQuestion = new Map(input.answers.map(answer => [answer.questionId, answer.answer.trim()]));
+  const gradedAnswers = assignment.questions.map(question => {
+    const answer = answersByQuestion.get(question.id) ?? '';
+    const expected = String(question.correctAnswer ?? '').trim();
+    const isCorrect = answer.toLocaleLowerCase() === expected.toLocaleLowerCase();
+    return { questionId: question.id, question: question.text, submittedAnswer: answer, answer, isCorrect, correctAnswer: expected, explanation: String(question.explanation ?? '') };
+  });
+  const score = assignment.questions.length
+    ? Math.round((gradedAnswers.filter(answer => answer.isCorrect).length / assignment.questions.length) * 10000) / 100
+    : 0;
 
   const status =
     assignment.due_at && assignment.due_at.getTime() < Date.now() ? 'Late' : 'Completed';
@@ -8663,9 +9830,9 @@ export async function submitStudentAssignment(
        status = EXCLUDED.status,
        answers = EXCLUDED.answers
      RETURNING id`,
-    [assignmentId, user.id, input.score, status, JSON.stringify(input.answers)]
+    [assignmentId, user.id, score, status, JSON.stringify(gradedAnswers)]
   );
-  return { submissionId: submissionResult.rows[0]?.id ?? null };
+  return { submissionId: submissionResult.rows[0]?.id ?? null, score, grading: gradedAnswers.map(answer => ({ questionId: answer.questionId, submittedAnswer: answer.submittedAnswer, isCorrect: answer.isCorrect, correctAnswer: answer.correctAnswer, explanation: answer.explanation })) };
 }
 
 const PRESENCE_FRESH_SECONDS = 90;
@@ -9364,6 +10531,312 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     subscriptionPlanName: row.subscription_plan_name,
     subscriptionStatus: row.has_active_subscription ? 'active' : row.subscription_status
   }));
+}
+
+export async function getAdminUserDirectoryOverview(input: {
+  user: AuthenticatedUser;
+  query?: string | null;
+  county?: string | null;
+  grade?: string | null;
+  schoolId?: string | null;
+  status?: 'Online' | 'Offline' | null;
+  userId?: string | null;
+}): Promise<AdminUserDirectoryOverview> {
+  const schoolScoped = !input.user.roles.includes('platform_admin');
+  const result = await db.query<{
+    user_count: string;
+    online_count: string;
+    active_subscription_count: string;
+    county_facets: unknown;
+    grade_facets: unknown;
+    school_facets: unknown;
+    status_facets: unknown;
+    recently_joined: unknown;
+    recently_active: unknown;
+  }>(
+    `${adminUserDirectoryRowsSql()},
+      county_facets AS (
+        SELECT COALESCE(NULLIF(btrim(county), ''), 'Unknown County') AS county, COUNT(*)::bigint AS count
+          FROM directory_rows
+         GROUP BY 1
+      ),
+      grade_facets AS (
+        SELECT COALESCE(NULLIF(btrim(grade_level), ''), 'N/A') AS grade, COUNT(*)::bigint AS count
+          FROM directory_rows
+         GROUP BY 1
+      ),
+      school_facets AS (
+        SELECT school_id, COALESCE(NULLIF(btrim(school_name), ''), 'No School') AS school, COUNT(*)::bigint AS count
+          FROM directory_rows
+         GROUP BY school_id, 2
+      ),
+      status_facets AS (
+        SELECT CASE WHEN presence_status = 'online'
+                    AND presence_last_seen_at >= NOW() - INTERVAL '90 seconds' THEN 'Online' ELSE 'Offline' END AS status,
+               COUNT(*)::bigint AS count
+          FROM directory_rows
+         GROUP BY 1
+      )
+      SELECT
+        COUNT(*)::bigint AS user_count,
+        COUNT(*) FILTER (WHERE presence_status = 'online'
+          AND presence_last_seen_at >= NOW() - INTERVAL '90 seconds')::bigint AS online_count,
+        COUNT(*) FILTER (WHERE has_active_subscription)::bigint AS active_subscription_count,
+        COALESCE((SELECT jsonb_agg(jsonb_build_object('county', county, 'count', count) ORDER BY lower(county), county) FROM county_facets), '[]'::jsonb) AS county_facets,
+        COALESCE((SELECT jsonb_agg(jsonb_build_object('grade', grade, 'count', count) ORDER BY grade) FROM grade_facets), '[]'::jsonb) AS grade_facets,
+        COALESCE((SELECT jsonb_agg(jsonb_build_object('schoolId', school_id, 'school', school, 'count', count) ORDER BY lower(school), school) FROM school_facets), '[]'::jsonb) AS school_facets,
+        COALESCE((SELECT jsonb_agg(jsonb_build_object('status', status, 'count', count) ORDER BY status) FROM status_facets), '[]'::jsonb) AS status_facets,
+        (SELECT jsonb_build_object('id', id, 'name', full_name, 'createdAt', created_at) FROM directory_rows ORDER BY created_at DESC, id ASC LIMIT 1) AS recently_joined,
+        (SELECT jsonb_build_object('id', id, 'name', full_name, 'lastActiveAt', last_activity) FROM directory_rows WHERE last_activity IS NOT NULL ORDER BY last_activity DESC, id ASC LIMIT 1) AS recently_active
+      FROM directory_rows`,
+    [
+      schoolScoped,
+      input.user.schoolId,
+      input.query?.trim() || null,
+      schoolCountyQueryValues(input.county),
+      input.grade?.trim() || null,
+      input.schoolId || null,
+      input.status || null,
+      input.userId || null
+    ]
+  );
+  const row = result.rows[0];
+  const asArray = <T>(value: unknown): T[] => Array.isArray(value) ? value : [];
+  const countyMap = new Map<string, number>();
+  for (const facet of asArray<{ county?: unknown; count?: unknown }>(row?.county_facets)) {
+    const county = schoolCountyLabel(String(facet.county || ''));
+    countyMap.set(county, (countyMap.get(county) || 0) + Number(facet.count || 0));
+  }
+  const recentJoin = row?.recently_joined && typeof row.recently_joined === 'object' ? row.recently_joined as { id?: string; name?: string; createdAt?: string } : null;
+  const recentActive = row?.recently_active && typeof row.recently_active === 'object' ? row.recently_active as { id?: string; name?: string; lastActiveAt?: string } : null;
+  return {
+    summary: {
+      userCount: Number(row?.user_count || 0),
+      onlineCount: Number(row?.online_count || 0),
+      activeSubscriptionCount: Number(row?.active_subscription_count || 0)
+    },
+    facets: {
+      counties: Array.from(countyMap.entries()).map(([county, count]) => ({ county, count })).sort((left, right) => left.county.localeCompare(right.county)),
+      grades: asArray<{ grade?: unknown; count?: unknown }>(row?.grade_facets).map(facet => ({ grade: String(facet.grade || 'N/A'), count: Number(facet.count || 0) })),
+      schools: asArray<{ schoolId?: unknown; school?: unknown; count?: unknown }>(row?.school_facets).map(facet => ({ schoolId: String(facet.schoolId || 'none'), school: String(facet.school || 'No School'), count: Number(facet.count || 0) })),
+      statuses: asArray<{ status?: unknown; count?: unknown }>(row?.status_facets)
+        .filter(facet => facet.status === 'Online' || facet.status === 'Offline')
+        .map(facet => ({ status: facet.status as 'Online' | 'Offline', count: Number(facet.count || 0) }))
+    },
+    highlights: {
+      recentlyJoined: recentJoin?.id && recentJoin.createdAt ? { id: recentJoin.id, name: recentJoin.name || 'Student', createdAt: new Date(recentJoin.createdAt).toISOString() } : null,
+      recentlyActive: recentActive?.id && recentActive.lastActiveAt ? { id: recentActive.id, name: recentActive.name || 'Student', lastActiveAt: new Date(recentActive.lastActiveAt).toISOString() } : null
+    }
+  };
+}
+
+export async function listAdminUserDirectory(input: {
+  user: AuthenticatedUser;
+  query?: string | null;
+  county?: string | null;
+  grade?: string | null;
+  schoolId?: string | null;
+  status?: 'Online' | 'Offline' | null;
+  userId?: string | null;
+  limit?: number;
+  offset?: number;
+  sort?: AdminUserDirectorySort;
+  direction?: AdminUserDirectoryDirection;
+}) {
+  const schoolScoped = !input.user.roles.includes('platform_admin');
+  const limit = Math.min(Math.max(input.limit ?? 50, 1), 50);
+  const offset = Math.max(input.offset ?? 0, 0);
+  const [result, overview] = await Promise.all([
+    db.query<Parameters<typeof mapAdminUserRecord>[0]>(
+      `${adminUserDirectoryRowsSql()}
+      SELECT * FROM directory_rows
+       ORDER BY ${adminUserDirectoryOrderBy(input.sort, input.direction)}
+       LIMIT $9 OFFSET $10`,
+      [
+        schoolScoped,
+        input.user.schoolId,
+        input.query?.trim() || null,
+        schoolCountyQueryValues(input.county),
+        input.grade?.trim() || null,
+        input.schoolId || null,
+        input.status || null,
+        input.userId || null,
+        limit,
+        offset
+      ]
+    ),
+    getAdminUserDirectoryOverview(input)
+  ]);
+  const users = result.rows.map(mapAdminUserRecord);
+  return {
+    users,
+    total: overview.summary.userCount,
+    limit,
+    offset,
+    hasNext: offset + users.length < overview.summary.userCount,
+    summary: overview.summary,
+    facets: overview.facets,
+    highlights: overview.highlights
+  };
+}
+
+export async function getAdminStudentAnalytics(
+  user: AuthenticatedUser,
+  studentId: string
+): Promise<AdminStudentAnalyticsRecord | null> {
+  const schoolScoped = user.roles.includes('school_admin') || !user.roles.includes('platform_admin');
+  const target = await db.query<{ id: string }>(
+    `SELECT u.id
+       FROM users u
+      WHERE u.id = $1
+        AND EXISTS (
+          SELECT 1 FROM user_roles student_role
+           WHERE student_role.user_id = u.id AND student_role.role = 'student'
+        )
+        AND ($2::boolean = FALSE OR u.school_id = $3)`,
+    [studentId, schoolScoped, user.schoolId]
+  );
+  if (!target.rows[0]) return null;
+
+  const scoredActivitySql = `
+    SELECT sub.id, assignment.title, 'assignment'::text AS kind,
+           sub.submitted_at AS occurred_at, sub.score::numeric AS score
+      FROM submissions sub
+      JOIN assignments assignment ON assignment.id = sub.assignment_id
+     WHERE sub.student_id = $1
+       AND sub.status IN ('Completed', 'Late')
+       AND sub.submitted_at IS NOT NULL
+       AND sub.score IS NOT NULL
+    UNION ALL
+    SELECT attempt.id, exam.title, 'weekly_exam'::text AS kind,
+           attempt.submitted_at AS occurred_at, attempt.score::numeric AS score
+      FROM weekly_exam_attempts attempt
+      JOIN weekly_exams exam ON exam.id = attempt.exam_id
+     WHERE attempt.user_id = $1
+       AND attempt.status = 'completed'
+       AND attempt.submitted_at IS NOT NULL
+       AND attempt.score IS NOT NULL
+    UNION ALL
+    SELECT progress.sub_strand_id AS id,
+           CONCAT(strand.subject_name, ': ', sub_strand.title) AS title,
+           'lesson'::text AS kind,
+           progress.completed_at AS occurred_at,
+           progress.quiz_score::numeric AS score
+      FROM user_curriculum_progress progress
+      JOIN curriculum_sub_strands sub_strand ON sub_strand.id = progress.sub_strand_id
+      JOIN curriculum_strands strand ON strand.id = sub_strand.strand_id
+     WHERE progress.user_id = $1
+       AND progress.completed_at IS NOT NULL
+       AND progress.quiz_score IS NOT NULL
+    UNION ALL
+    SELECT attempt.id, attempt.lesson_key, 'lesson'::text AS kind,
+           attempt.completed_at AS occurred_at, attempt.checkpoint_score::numeric AS score
+      FROM progressive_lesson_attempts attempt
+     WHERE attempt.user_id = $1
+       AND attempt.status = 'completed'
+       AND attempt.completed_at IS NOT NULL
+       AND attempt.checkpoint_score IS NOT NULL`;
+
+  const [summary, activity, trend, remedialSummary, remedialGaps] = await Promise.all([
+    db.query<{ overall_score: string | null; completed_assignments: string }>(
+      `SELECT ROUND(AVG(activity.score)::numeric, 2)::text AS overall_score,
+              COUNT(*) FILTER (WHERE activity.kind = 'assignment')::text AS completed_assignments
+         FROM (${scoredActivitySql}) activity`,
+      [studentId]
+    ),
+    db.query<{
+      id: string;
+      title: string;
+      kind: 'assignment' | 'weekly_exam' | 'lesson';
+      occurred_at: Date;
+      score: string;
+    }>(
+      `SELECT id, title, kind, occurred_at, score::text AS score
+         FROM (${scoredActivitySql}) activity
+        ORDER BY occurred_at DESC
+        LIMIT 20`,
+      [studentId]
+    ),
+    db.query<{ date: string; score: string | null }>(
+      `WITH days AS (
+             SELECT generate_series(CURRENT_DATE - INTERVAL '6 days', CURRENT_DATE, INTERVAL '1 day')::date AS day
+           ), activity AS (${scoredActivitySql})
+       SELECT TO_CHAR(days.day, 'YYYY-MM-DD') AS date,
+              ROUND(AVG(activity.score)::numeric, 2)::text AS score
+         FROM days
+         LEFT JOIN activity ON activity.occurred_at::date = days.day
+        GROUP BY days.day
+        ORDER BY days.day ASC`,
+      [studentId]
+    ),
+    db.query<{ total_answers: string; wrong_answers: string; last_answer_at: Date | null }>(
+      `SELECT COUNT(*)::text AS total_answers,
+              COUNT(*) FILTER (WHERE da.is_correct = FALSE)::text AS wrong_answers,
+              MAX(da.created_at) AS last_answer_at
+         FROM diagnostic_answers da
+         JOIN diagnostic_sessions ds ON ds.id = da.session_id
+                                     AND ds.user_id = da.user_id
+        WHERE da.user_id = $1
+          AND ds.status = 'completed'
+          AND da.created_at >= DATE_TRUNC('day', CURRENT_DATE) - INTERVAL '6 days'`,
+      [studentId]
+    ),
+    db.query<{
+      subject_id: string;
+      sub_strand_key: string;
+      total_answers: string;
+      wrong_answers: string;
+      last_answer_at: Date | null;
+    }>(
+      `SELECT da.subject_id,
+              da.sub_strand_key,
+              COUNT(*)::text AS total_answers,
+              COUNT(*) FILTER (WHERE da.is_correct = FALSE)::text AS wrong_answers,
+              MAX(da.created_at) AS last_answer_at
+         FROM diagnostic_answers da
+         JOIN diagnostic_sessions ds ON ds.id = da.session_id
+                                     AND ds.user_id = da.user_id
+        WHERE da.user_id = $1
+          AND ds.status = 'completed'
+          AND da.created_at >= DATE_TRUNC('day', CURRENT_DATE) - INTERVAL '6 days'
+        GROUP BY da.subject_id, da.sub_strand_key
+       HAVING COUNT(*) FILTER (WHERE da.is_correct = FALSE) > 0
+        ORDER BY COUNT(*) FILTER (WHERE da.is_correct = FALSE) DESC, MAX(da.created_at) DESC`,
+      [studentId]
+    )
+  ]);
+
+  return {
+    studentId,
+    generatedAt: new Date().toISOString(),
+    overallScore: summary.rows[0]?.overall_score === null || summary.rows[0]?.overall_score === undefined
+      ? null
+      : Number(summary.rows[0].overall_score),
+    completedAssignments: Number(summary.rows[0]?.completed_assignments || 0),
+    recentActivity: activity.rows.map(row => ({
+      id: row.id,
+      title: row.title,
+      kind: row.kind,
+      occurredAt: row.occurred_at.toISOString(),
+      score: Number(row.score)
+    })),
+    trend: trend.rows.map(row => ({
+      date: row.date,
+      score: row.score === null || row.score === undefined ? null : Number(row.score)
+    })),
+    remedial: {
+      totalAnswers: Number(remedialSummary.rows[0]?.total_answers || 0),
+      wrongAnswers: Number(remedialSummary.rows[0]?.wrong_answers || 0),
+      lastAnswerAt: remedialSummary.rows[0]?.last_answer_at?.toISOString() || null,
+      gaps: remedialGaps.rows.map(row => ({
+        subjectId: row.subject_id,
+        subStrandKey: row.sub_strand_key,
+        totalAnswers: Number(row.total_answers),
+        wrongAnswers: Number(row.wrong_answers),
+        lastAnswerAt: row.last_answer_at?.toISOString() || null
+      }))
+    }
+  };
 }
 
 export async function updateAdminStudentProfile(

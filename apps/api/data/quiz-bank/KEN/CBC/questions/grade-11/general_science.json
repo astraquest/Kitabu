@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 11",
-  "subjectId": "general_science",
-  "subjectName": "General Science",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which SI unit is used to measure force?",
-      "options": ["Newton", "Joule", "Watt", "Pascal"],
-      "correctAnswer": "Newton",
-      "explanation": "Force is measured in newtons. A newton is the force needed to give a mass of one kilogram an acceleration of one metre per second squared.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Physical Quantities and Units",
-      "learningOutcome": "Identify SI units used for common physical quantities.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "In an investigation on how light intensity affects photosynthesis, which factor is the independent variable?",
-      "options": ["Light intensity", "Rate of photosynthesis", "Type of plant", "Volume of water used"],
-      "correctAnswer": "Light intensity",
-      "explanation": "The independent variable is the factor deliberately changed by the investigator. The response measured is the rate of photosynthesis.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Variables in Investigations",
-      "learningOutcome": "Distinguish independent, dependent, and controlled variables in experiments.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Why should a learner repeat measurements and calculate a mean value during a science practical?",
-      "options": ["To reduce the effect of random errors", "To change the independent variable many times", "To avoid recording units", "To make the apparatus heavier"],
-      "correctAnswer": "To reduce the effect of random errors",
-      "explanation": "Repeating measurements helps reveal unusual readings and makes the mean more reliable than a single measurement.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Accuracy and Reliability",
-      "learningOutcome": "Explain how repeated measurements improve reliability of scientific data.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "A cup and liquid together have a mass of 176 g. The empty cup has a mass of 42 g. What is the mass of the liquid?",
-      "options": ["134 g", "218 g", "88 g", "42 g"],
-      "correctAnswer": "134 g",
-      "explanation": "The mass of the liquid is found by subtracting the cup mass from the combined mass: 176 g minus 42 g equals 134 g.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Mass and Volume Measurement",
-      "learningOutcome": "Calculate the mass of a substance from direct measurement data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "A pendulum takes 18.0 s to complete 10 oscillations. What is the period of one oscillation?",
-      "options": ["1.8 s", "18.0 s", "10.0 s", "28.0 s"],
-      "correctAnswer": "1.8 s",
-      "explanation": "The period is total time divided by the number of oscillations. Dividing 18.0 s by 10 gives 1.8 s.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Time and Periodic Motion",
-      "learningOutcome": "Determine the period of an oscillating system from measured data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "A learner observes that water boils at a lower temperature on a high mountain than at sea level. Which conclusion is best supported?",
-      "options": ["Lower atmospheric pressure lowers the boiling point of water", "Mountain water contains no dissolved gases", "Thermometers stop working at high altitude", "Water molecules become heavier on mountains"],
-      "correctAnswer": "Lower atmospheric pressure lowers the boiling point of water",
-      "explanation": "Boiling occurs when vapour pressure equals external pressure. Lower atmospheric pressure allows boiling at a lower temperature.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Interpreting Observations",
-      "learningOutcome": "Draw evidence-based conclusions from observations of physical change.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which flaw would make a fertiliser investigation on maize seedlings unreliable?",
-      "options": ["Giving the fertilised plants more water than the control plants", "Using maize seeds from the same packet", "Measuring seedling height every two days", "Keeping both groups under the same light"],
-      "correctAnswer": "Giving the fertilised plants more water than the control plants",
-      "explanation": "A fair test should change only the fertiliser condition. Changing water as well makes it unclear which factor affected growth.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Fair Testing",
-      "learningOutcome": "Evaluate investigation designs for control of variables.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "A data set for seedling height is 12.1 cm, 12.0 cm, 12.2 cm, 18.7 cm, and 12.1 cm. What should the learner do first about 18.7 cm?",
-      "options": ["Check whether it was a recording or measurement error", "Delete it without comment", "Double every value in the table", "Use it as the only result"],
-      "correctAnswer": "Check whether it was a recording or measurement error",
-      "explanation": "The value is far from the pattern, so it may be anomalous. It should be checked before deciding how to treat it.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Data Quality",
-      "learningOutcome": "Analyse data sets to identify and respond to anomalous readings.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which plan best compares two brands of solar lamps in a school science project?",
-      "options": ["Charge both for the same time under the same light and measure how long each powers an identical bulb", "Charge one in sunlight and one in a cupboard, then ask learners which looks brighter", "Use different bulbs and stop timing when the first learner leaves", "Measure only the colour of the lamp casing"],
-      "correctAnswer": "Charge both for the same time under the same light and measure how long each powers an identical bulb",
-      "explanation": "The plan controls charging conditions and load while measuring a useful output. That makes the comparison fair and evidence-based.",
-      "difficulty": 5,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Planning Investigations",
-      "learningOutcome": "Design controlled investigations for comparing performance of simple technologies.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Why are SI units important when Kenyan learners share science results with other schools or countries?",
-      "options": ["They provide a common standard for comparing measurements", "They make all experiments have the same result", "They remove the need for instruments", "They change qualitative observations into opinions"],
-      "correctAnswer": "They provide a common standard for comparing measurements",
-      "explanation": "Standard units allow measurements from different places to be understood and compared without confusion.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Measurement",
-      "subStrandTitle": "Scientific Communication",
-      "learningOutcome": "Explain the role of standard units in scientific communication.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which organelle releases usable energy during aerobic respiration in eukaryotic cells?",
-      "options": ["Mitochondrion", "Nucleus", "Ribosome", "Golgi body"],
-      "correctAnswer": "Mitochondrion",
-      "explanation": "Mitochondria are the main sites of aerobic respiration, where energy from food is transferred to ATP.",
-      "difficulty": 1,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Cell Structure and Function",
-      "learningOutcome": "Identify cell organelles and state their functions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "What does it mean when the cell membrane is described as selectively permeable?",
-      "options": ["It allows some substances to pass more easily than others", "It prevents all substances from entering the cell", "It changes into a cell wall during osmosis", "It stores all genetic information"],
-      "correctAnswer": "It allows some substances to pass more easily than others",
-      "explanation": "A selectively permeable membrane controls movement across the cell boundary, helping maintain internal conditions.",
-      "difficulty": 2,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Cell Membranes",
-      "learningOutcome": "Explain the role of selective permeability in cells.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which statement best describes osmosis?",
-      "options": ["Movement of water through a partially permeable membrane from dilute solution to concentrated solution", "Movement of oxygen through air from cold regions to hot regions", "Movement of mineral ions using energy from respiration", "Movement of large food particles into a cell by engulfing"],
-      "correctAnswer": "Movement of water through a partially permeable membrane from dilute solution to concentrated solution",
-      "explanation": "Osmosis is a special type of diffusion involving water molecules moving across a partially permeable membrane.",
-      "difficulty": 2,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Diffusion and Osmosis",
-      "learningOutcome": "Describe osmosis using concentration gradients and membranes.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Red blood cells placed in a concentrated salt solution shrink. What explains this observation?",
-      "options": ["Water leaves the cells by osmosis", "Salt enters the nucleus and divides it", "The cell wall pulls inward", "Haemoglobin changes into starch"],
-      "correctAnswer": "Water leaves the cells by osmosis",
-      "explanation": "The concentrated salt solution has lower water potential than the cell contents, so water moves out through the membrane.",
-      "difficulty": 3,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Osmosis in Animal Cells",
-      "learningOutcome": "Apply osmosis to explain changes in animal cells placed in different solutions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Why do root hair cells sometimes use active transport to absorb mineral ions from soil water?",
-      "options": ["The ions may need to move against their concentration gradient using energy", "The ions are too large to exist in soil", "Active transport only happens in dead cells", "Water pressure turns minerals into glucose"],
-      "correctAnswer": "The ions may need to move against their concentration gradient using energy",
-      "explanation": "Active transport uses energy from respiration to move substances from lower concentration to higher concentration.",
-      "difficulty": 3,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Active Transport",
-      "learningOutcome": "Explain active transport in relation to mineral uptake by plants.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "An athlete sweats during a long race. Which homeostatic role does sweating support?",
-      "options": ["Maintaining body temperature through evaporative cooling", "Increasing the number of red blood cells instantly", "Turning lactic acid into oxygen at the skin", "Preventing all water loss from the body"],
-      "correctAnswer": "Maintaining body temperature through evaporative cooling",
-      "explanation": "Evaporation of sweat removes heat from the skin. This helps keep internal body temperature within a narrow range.",
-      "difficulty": 3,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Homeostasis",
-      "learningOutcome": "Relate sweating to thermoregulation in humans.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Why can a plant cell become turgid in fresh water while an animal cell may burst?",
-      "options": ["The plant cell wall resists bursting as water enters", "Animal cells have chloroplasts that pump water inward", "Plant cells lack a cell membrane", "Fresh water removes all cytoplasm from plant cells"],
-      "correctAnswer": "The plant cell wall resists bursting as water enters",
-      "explanation": "Both cells can gain water by osmosis, but the rigid plant cell wall provides support and pressure against further swelling.",
-      "difficulty": 4,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Osmosis in Plant and Animal Cells",
-      "learningOutcome": "Compare osmotic effects in plant and animal cells.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "How can long-term high blood glucose damage kidney function?",
-      "options": ["It can damage small blood vessels and filtering units in the kidneys", "It changes urine into bile before filtration", "It stops the heart from pumping blood to the lungs only", "It makes the kidneys produce red blood cells instead of urine"],
-      "correctAnswer": "It can damage small blood vessels and filtering units in the kidneys",
-      "explanation": "Persistently high glucose can harm capillaries and nephrons, reducing the kidneys' ability to filter blood effectively.",
-      "difficulty": 4,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Homeostasis and Disease",
-      "learningOutcome": "Analyse how disrupted homeostasis can affect organ function.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which model best represents negative feedback control in the body?",
-      "options": ["A thermostat switches a heater off when the room becomes too warm", "A door remains open whether the room is hot or cold", "A lamp becomes brighter whenever the battery weakens", "A thermometer changes the room temperature by itself"],
-      "correctAnswer": "A thermostat switches a heater off when the room becomes too warm",
-      "explanation": "Negative feedback reverses a change and returns a condition toward a set range, similar to a thermostat controlling heat.",
-      "difficulty": 5,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Feedback Mechanisms",
-      "learningOutcome": "Use models to represent negative feedback in homeostasis.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Why are many enzymes sensitive to changes in pH?",
-      "options": ["Extreme pH can change the shape of the active site", "pH changes the enzyme into a mineral ion", "All enzymes work only in pure water at pH 7", "pH removes the need for substrates"],
-      "correctAnswer": "Extreme pH can change the shape of the active site",
-      "explanation": "Enzyme activity depends on the shape of the active site. Large pH changes can denature the enzyme and reduce activity.",
-      "difficulty": 2,
-      "strandTitle": "Living Systems and Health",
-      "subStrandTitle": "Enzyme Activity",
-      "learningOutcome": "Explain the effect of pH on enzyme activity.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Where does chemical digestion of starch begin in the human digestive system?",
-      "options": ["Mouth", "Stomach", "Large intestine", "Rectum"],
-      "correctAnswer": "Mouth",
-      "explanation": "Salivary amylase in the mouth begins breaking starch into smaller sugars during chewing.",
-      "difficulty": 1,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Human Digestion",
-      "learningOutcome": "Identify where digestion of major food substances begins.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which description best defines a balanced diet?",
-      "options": ["Food containing all required nutrients in suitable proportions", "Food made only from carbohydrates", "Food eaten once a day regardless of nutrients", "Food with no water or minerals"],
-      "correctAnswer": "Food containing all required nutrients in suitable proportions",
-      "explanation": "A balanced diet supplies energy, body-building nutrients, protective nutrients, water, and fibre in amounts suitable for health.",
-      "difficulty": 2,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Balanced Diet",
-      "learningOutcome": "Describe the components and importance of a balanced diet.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Why does the small intestine have many villi?",
-      "options": ["To increase surface area for absorption of digested food", "To grind food into smaller pieces", "To store bile before it reaches the stomach", "To produce oxygen for red blood cells"],
-      "correctAnswer": "To increase surface area for absorption of digested food",
-      "explanation": "Villi provide a large surface area and a good blood supply, making absorption of digested nutrients efficient.",
-      "difficulty": 2,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Absorption of Digested Food",
-      "learningOutcome": "Explain adaptations of the small intestine for absorption.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "A food sample turns Benedict's solution brick-red after heating. Which nutrient is indicated?",
-      "options": ["Reducing sugar", "Protein", "Fat", "Vitamin C"],
-      "correctAnswer": "Reducing sugar",
-      "explanation": "Benedict's solution changes from blue to green, yellow, orange, or brick-red when heated with reducing sugars.",
-      "difficulty": 3,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Food Tests",
-      "learningOutcome": "Interpret results from common food tests.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which word equation summarizes aerobic respiration?",
-      "options": ["Glucose + oxygen -> carbon dioxide + water + energy", "Carbon dioxide + water -> glucose + oxygen", "Protein + oxygen -> starch + bile", "Water + nitrogen -> glucose + lactic acid"],
-      "correctAnswer": "Glucose + oxygen -> carbon dioxide + water + energy",
-      "explanation": "Aerobic respiration breaks down glucose using oxygen and releases energy, with carbon dioxide and water as products.",
-      "difficulty": 3,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Cellular Respiration",
-      "learningOutcome": "Represent aerobic respiration using a word equation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "During vigorous exercise, muscles may produce lactic acid. What condition leads to this?",
-      "options": ["Oxygen supply becomes too low for fully aerobic respiration", "The lungs stop all gas exchange permanently", "Glucose changes directly into protein in the skin", "Sweat glands absorb carbon dioxide from air"],
-      "correctAnswer": "Oxygen supply becomes too low for fully aerobic respiration",
-      "explanation": "When oxygen delivery cannot meet demand, some muscle cells release energy anaerobically and produce lactic acid.",
-      "difficulty": 3,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Anaerobic Respiration",
-      "learningOutcome": "Explain lactic acid production during intense exercise.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Why can boiling drinking water kill cholera-causing bacteria but fail to remove dissolved lead ions?",
-      "options": ["Heat kills many microorganisms but dissolved ions remain in the water", "Boiling changes lead ions into harmless oxygen gas", "Bacteria and lead ions are both removed by evaporation only", "Lead ions are living organisms that reproduce faster when heated"],
-      "correctAnswer": "Heat kills many microorganisms but dissolved ions remain in the water",
-      "explanation": "Boiling disinfects water by heat, but dissolved chemical contaminants require methods such as suitable filtration or treatment.",
-      "difficulty": 4,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Water Safety",
-      "learningOutcome": "Analyse strengths and limits of water treatment methods.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "A food vendor keeps cooked beans warm for several hours before serving. What is the main food safety risk?",
-      "options": ["Bacteria may multiply rapidly in warm food", "The beans will immediately become radioactive", "Proteins in beans turn into glass", "All minerals evaporate from the food"],
-      "correctAnswer": "Bacteria may multiply rapidly in warm food",
-      "explanation": "Warm, moist cooked food can support fast microbial growth if it is kept for long periods without safe temperature control.",
-      "difficulty": 4,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Food Hygiene",
-      "learningOutcome": "Evaluate food storage practices for microbial risk.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which plan best reduces malaria cases around a school compound?",
-      "options": ["Drain stagnant water, use bed nets, educate learners, and seek prompt treatment", "Spray perfume in classrooms and ignore mosquito breeding sites", "Close all windows during the day only", "Use antibiotics for every fever without diagnosis"],
-      "correctAnswer": "Drain stagnant water, use bed nets, educate learners, and seek prompt treatment",
-      "explanation": "Malaria prevention is strongest when vector control, personal protection, health education, and timely care are combined.",
-      "difficulty": 5,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Disease Prevention",
-      "learningOutcome": "Design integrated strategies for preventing vector-borne disease.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "How can vaccination help protect a community, not only the vaccinated person?",
-      "options": ["It reduces the number of people likely to spread the disease", "It makes mosquitoes unable to breed in water", "It replaces the need for clean water", "It changes bacteria into vitamins"],
-      "correctAnswer": "It reduces the number of people likely to spread the disease",
-      "explanation": "When many people are immune, disease transmission becomes less likely, helping protect people who may be vulnerable.",
-      "difficulty": 2,
-      "strandTitle": "Nutrition, Respiration and Health",
-      "subStrandTitle": "Immunity and Vaccination",
-      "learningOutcome": "Explain how vaccination supports public health.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "What hereditary material is found in chromosomes?",
-      "options": ["DNA", "Starch", "Cellulose", "Bile"],
-      "correctAnswer": "DNA",
-      "explanation": "Chromosomes are made mainly of DNA and proteins. DNA carries genetic information used in inheritance.",
-      "difficulty": 1,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Chromosomes and DNA",
-      "learningOutcome": "Identify DNA as the hereditary material in chromosomes.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which statement best describes a gene?",
-      "options": ["A section of DNA that carries information for a trait or protein", "A type of blood vessel found only in plants", "A mineral salt stored in bones", "A food test reagent used for starch"],
-      "correctAnswer": "A section of DNA that carries information for a trait or protein",
-      "explanation": "Genes are units of heredity. They contain coded instructions that influence traits through the proteins or products they specify.",
-      "difficulty": 2,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Genes and Traits",
-      "learningOutcome": "Explain the relationship between genes, DNA, and inherited traits.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Why is meiosis important in sexual reproduction?",
-      "options": ["It produces gametes with half the normal chromosome number", "It doubles the chromosome number in body cells every hour", "It changes all genes into enzymes", "It produces identical cells for wound healing only"],
-      "correctAnswer": "It produces gametes with half the normal chromosome number",
-      "explanation": "Meiosis forms haploid gametes. Fertilisation then restores the diploid chromosome number in the offspring.",
-      "difficulty": 2,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Cell Division",
-      "learningOutcome": "Describe the role of meiosis in maintaining chromosome number across generations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "In a monohybrid cross between two heterozygous parents, Tt x Tt, what is the probability of an offspring being tt?",
-      "options": ["1 in 4", "1 in 2", "3 in 4", "4 in 4"],
-      "correctAnswer": "1 in 4",
-      "explanation": "The possible genotypes are TT, Tt, Tt, and tt. One of the four combinations is tt.",
-      "difficulty": 3,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Simple Inheritance",
-      "learningOutcome": "Use a Punnett square to predict genotype probability.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which process helps explain why siblings from the same parents are genetically different?",
-      "options": ["Independent assortment of chromosomes during meiosis", "Boiling of gametes during fertilisation", "Digestion of DNA in the stomach", "Evaporation of chromosomes from body cells"],
-      "correctAnswer": "Independent assortment of chromosomes during meiosis",
-      "explanation": "During meiosis, chromosomes are distributed into gametes in different combinations, creating variation among offspring.",
-      "difficulty": 3,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Sources of Variation",
-      "learningOutcome": "Relate meiosis to genetic variation in offspring.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "A farmer chooses high-milk-yield cows and healthy bulls for breeding. Which scientific idea is being applied?",
-      "options": ["Selective breeding", "Neutralisation", "Electrolysis", "Transpiration"],
-      "correctAnswer": "Selective breeding",
-      "explanation": "Selective breeding involves choosing parents with desired traits so those traits are more likely to appear in offspring.",
-      "difficulty": 3,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Applied Genetics",
-      "learningOutcome": "Apply inheritance concepts to livestock and crop improvement.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which evidence best supports the idea that a plant height difference is environmental rather than genetic?",
-      "options": ["Clones of the same plant grow differently when given different fertiliser levels", "Plants from different species have different flower colours", "A tall plant and a short plant have different chromosome numbers", "Seeds from two varieties grow apart in separate counties"],
-      "correctAnswer": "Clones of the same plant grow differently when given different fertiliser levels",
-      "explanation": "Clones have the same genetic makeup, so differences under different fertiliser levels point strongly to environmental influence.",
-      "difficulty": 4,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Genetic and Environmental Variation",
-      "learningOutcome": "Analyse evidence for genetic and environmental causes of variation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "A trait appears in a child although neither parent shows it. What inheritance pattern could explain this?",
-      "options": ["The trait is recessive and both parents are carriers", "The trait is caused by a fuse in a circuit", "The child has no chromosomes", "The trait must be caused only by diet"],
-      "correctAnswer": "The trait is recessive and both parents are carriers",
-      "explanation": "A recessive trait can be hidden in carriers and appear when a child inherits the recessive allele from both parents.",
-      "difficulty": 4,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Inheritance Patterns",
-      "learningOutcome": "Analyse simple family inheritance patterns involving recessive traits.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which biotechnology strategy can ethically support food security for banana farmers?",
-      "options": ["Use tissue culture to produce disease-free planting materials and train farmers on safe handling", "Release untested organisms into farms without monitoring", "Ban all crop records and ignore disease symptoms", "Select planting material only by fruit colour in the market"],
-      "correctAnswer": "Use tissue culture to produce disease-free planting materials and train farmers on safe handling",
-      "explanation": "Tissue culture can multiply clean planting materials, but responsible use also needs training, monitoring, and attention to local farming needs.",
-      "difficulty": 5,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Biotechnology and Society",
-      "learningOutcome": "Evaluate biotechnology applications for agriculture and food security.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Why can a mutation be harmful, neutral, or beneficial?",
-      "options": ["Its effect depends on the gene changed and the environment", "Every mutation immediately kills the organism", "Mutations only happen in non-living objects", "A mutation always produces the same visible trait"],
-      "correctAnswer": "Its effect depends on the gene changed and the environment",
-      "explanation": "A mutation changes genetic information. Its impact depends on whether it affects function and whether the environment favours the change.",
-      "difficulty": 2,
-      "strandTitle": "Genetics, Variation and Biotechnology",
-      "subStrandTitle": "Mutation",
-      "learningOutcome": "Explain possible effects of mutation on organisms.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "What does the atomic number of an element represent?",
-      "options": ["Number of protons in each atom", "Number of molecules in a sample", "Mass of one litre of the element", "Number of compounds it can form"],
-      "correctAnswer": "Number of protons in each atom",
-      "explanation": "The atomic number is the proton number. It identifies the element and determines its place in the periodic table.",
-      "difficulty": 1,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Atomic Structure",
-      "learningOutcome": "State the meaning of atomic number.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which statement describes isotopes of the same element?",
-      "options": ["They have the same number of protons but different numbers of neutrons", "They have different numbers of protons and the same mass number", "They are compounds with identical formulas", "They are atoms with no nucleus"],
-      "correctAnswer": "They have the same number of protons but different numbers of neutrons",
-      "explanation": "Isotopes are atoms of the same element, so they have the same proton number, but their neutron numbers differ.",
-      "difficulty": 2,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Isotopes",
-      "learningOutcome": "Describe isotopes using protons and neutrons.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Why do Group 1 metals commonly form ions with a +1 charge?",
-      "options": ["They lose one outer electron", "They gain seven protons", "They share all electrons equally with water", "They have no electrons in neutral atoms"],
-      "correctAnswer": "They lose one outer electron",
-      "explanation": "Group 1 atoms have one valence electron. Losing it gives a stable positive ion with a single positive charge.",
-      "difficulty": 2,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Periodic Trends",
-      "learningOutcome": "Relate group number to ion formation in metals.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "What is the relative molecular mass of carbon dioxide, CO2, if C = 12 and O = 16?",
-      "options": ["44", "28", "32", "60"],
-      "correctAnswer": "44",
-      "explanation": "Carbon dioxide has one carbon atom and two oxygen atoms, so its relative molecular mass is 12 + 16 + 16 = 44.",
-      "difficulty": 3,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Relative Formula Mass",
-      "learningOutcome": "Calculate relative molecular mass from atomic masses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "What type of bonding is formed in sodium chloride?",
-      "options": ["Ionic bonding through electron transfer", "Covalent bonding through equal sharing only", "Metallic bonding between two non-metals", "Hydrogen bonding inside sodium atoms"],
-      "correctAnswer": "Ionic bonding through electron transfer",
-      "explanation": "Sodium transfers an electron to chlorine, forming oppositely charged ions that attract each other in an ionic lattice.",
-      "difficulty": 3,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Chemical Bonding",
-      "learningOutcome": "Describe ionic bonding in simple compounds.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Why do metals conduct electricity when solid?",
-      "options": ["They contain delocalised electrons that can move through the structure", "Their atoms have no nuclei", "They dissolve in air to form ions", "Their protons move freely from atom to atom"],
-      "correctAnswer": "They contain delocalised electrons that can move through the structure",
-      "explanation": "Metallic bonding includes mobile delocalised electrons. These electrons carry charge through the solid metal.",
-      "difficulty": 3,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Metallic Bonding",
-      "learningOutcome": "Explain electrical conductivity in metals using bonding structure.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Why does graphite conduct electricity while diamond does not, although both are forms of carbon?",
-      "options": ["Graphite has delocalised electrons between layers, while diamond's electrons are fixed in covalent bonds", "Diamond contains sodium ions, while graphite contains no atoms", "Graphite is always liquid at room temperature", "Diamond has no covalent bonds"],
-      "correctAnswer": "Graphite has delocalised electrons between layers, while diamond's electrons are fixed in covalent bonds",
-      "explanation": "In graphite, one electron from each carbon atom can move along layers. In diamond, electrons are held in a rigid covalent network.",
-      "difficulty": 4,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Structure and Properties",
-      "learningOutcome": "Analyse how bonding and structure affect properties of carbon allotropes.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Neon is very unreactive under normal conditions. Which explanation best accounts for this?",
-      "options": ["Its outer electron shell is full", "It has no protons in the nucleus", "It is always bonded to sodium", "It dissolves all metals instantly"],
-      "correctAnswer": "Its outer electron shell is full",
-      "explanation": "Noble gases such as neon have stable outer electron arrangements, so they have little tendency to gain, lose, or share electrons.",
-      "difficulty": 4,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Noble Gases",
-      "learningOutcome": "Analyse chemical stability using electron arrangement.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which explanation best accounts for water having a much higher boiling point than methane?",
-      "options": ["Water molecules form hydrogen bonds with each other", "Methane contains more oxygen atoms than water", "Water has no intermolecular forces", "Methane molecules are giant ionic lattices"],
-      "correctAnswer": "Water molecules form hydrogen bonds with each other",
-      "explanation": "Hydrogen bonds between water molecules are relatively strong intermolecular forces, so more energy is needed for boiling.",
-      "difficulty": 5,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Intermolecular Forces",
-      "learningOutcome": "Use intermolecular forces to explain differences in boiling point.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "How can a mixture of sand, salt, and water be separated most suitably in a school laboratory?",
-      "options": ["Filter to remove sand, then evaporate water to obtain salt", "Use a magnet to attract salt, then burn sand", "Add acid to change sand into salt", "Freeze the mixture and throw away the ice"],
-      "correctAnswer": "Filter to remove sand, then evaporate water to obtain salt",
-      "explanation": "Sand is insoluble and can be filtered out. Dissolved salt can be recovered from the filtrate by evaporating the water.",
-      "difficulty": 2,
-      "strandTitle": "Matter and Chemical Change",
-      "subStrandTitle": "Separation Techniques",
-      "learningOutcome": "Select appropriate methods for separating common mixtures.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "What does a pH value below 7 usually indicate?",
-      "options": ["An acidic solution", "A neutral solution", "An alkaline solution", "A pure metal"],
-      "correctAnswer": "An acidic solution",
-      "explanation": "On the pH scale, values below 7 are acidic, 7 is neutral, and values above 7 are alkaline.",
-      "difficulty": 1,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Acids, Bases and pH",
-      "learningOutcome": "Interpret pH values for acidic, neutral, and alkaline solutions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "What are the usual products when an acid reacts completely with a base?",
-      "options": ["Salt and water", "Oxygen and hydrogen", "Glucose and starch", "Carbon and nitrogen"],
-      "correctAnswer": "Salt and water",
-      "explanation": "Neutralisation between an acid and a base forms water and a salt whose ions come from the reacting acid and base.",
-      "difficulty": 2,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Neutralisation",
-      "learningOutcome": "Describe products of acid-base neutralisation reactions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "What is the role of a catalyst in a chemical reaction?",
-      "options": ["It increases reaction rate without being used up overall", "It changes every product into water", "It stops particles from colliding", "It makes a reaction ignore temperature"],
-      "correctAnswer": "It increases reaction rate without being used up overall",
-      "explanation": "A catalyst provides an alternative pathway with lower activation energy and is regenerated during the reaction.",
-      "difficulty": 2,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Rates of Reaction",
-      "learningOutcome": "Explain how catalysts affect reaction rates.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which equation is balanced for magnesium reacting with oxygen to form magnesium oxide?",
-      "options": ["2Mg + O2 -> 2MgO", "Mg + O2 -> MgO", "Mg2 + O -> MgO2", "2MgO -> Mg + O2"],
-      "correctAnswer": "2Mg + O2 -> 2MgO",
-      "explanation": "The balanced equation has two magnesium atoms and two oxygen atoms on both sides.",
-      "difficulty": 3,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Balancing Equations",
-      "learningOutcome": "Balance simple chemical equations by conserving atoms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "How many moles are present in 5.6 g of iron if the relative atomic mass of iron is 56?",
-      "options": ["0.10 mol", "10 mol", "56 mol", "313.6 mol"],
-      "correctAnswer": "0.10 mol",
-      "explanation": "Amount in moles equals mass divided by molar mass. 5.6 divided by 56 gives 0.10 mol.",
-      "difficulty": 3,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Moles and Mass",
-      "learningOutcome": "Calculate amount of substance from mass and relative atomic mass.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "In an acid-base titration, why is an indicator added to the flask?",
-      "options": ["To show when the reaction is near the end point", "To make the burette read zero automatically", "To remove all salt from the solution", "To increase the volume of acid secretly"],
-      "correctAnswer": "To show when the reaction is near the end point",
-      "explanation": "An indicator changes colour over a particular pH range, helping show when neutralisation is nearly complete.",
-      "difficulty": 3,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Titration",
-      "learningOutcome": "Explain the use of indicators in acid-base titration.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Why do crushed marble chips react faster with dilute hydrochloric acid than large marble chips of the same mass?",
-      "options": ["Crushed chips have a larger surface area exposed to acid", "Crushed chips have fewer calcium carbonate particles", "Large chips contain no carbonate ions", "Surface area has no effect on collision frequency"],
-      "correctAnswer": "Crushed chips have a larger surface area exposed to acid",
-      "explanation": "Increasing surface area allows more acid particles to collide with marble particles each second, increasing reaction rate.",
-      "difficulty": 4,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Collision Theory",
-      "learningOutcome": "Analyse how surface area affects reaction rate.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "For the equilibrium N2 + 3H2 <-> 2NH3, why does increasing pressure favour ammonia formation?",
-      "options": ["The product side has fewer gas molecules", "The reactant side has no gas molecules", "Pressure changes nitrogen into a liquid metal", "Ammonia formation produces more gas molecules"],
-      "correctAnswer": "The product side has fewer gas molecules",
-      "explanation": "Higher pressure favours the side with fewer gas particles. Two ammonia molecules are fewer than four reactant molecules.",
-      "difficulty": 4,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Reversible Reactions",
-      "learningOutcome": "Analyse the effect of pressure on gaseous equilibrium systems.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which plan best compares the effectiveness of two antacid tablets?",
-      "options": ["Add equal masses to equal volumes of the same acid and compare final pH or acid neutralised", "Use different acids, different tablet masses, and no measurements", "Taste both tablets and choose the sweeter one", "Compare only the colours of the tablet packets"],
-      "correctAnswer": "Add equal masses to equal volumes of the same acid and compare final pH or acid neutralised",
-      "explanation": "A fair comparison controls tablet mass and acid conditions while measuring a change linked to neutralisation.",
-      "difficulty": 5,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Planning Chemical Investigations",
-      "learningOutcome": "Design a controlled investigation for comparing neutralising capacity.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Why should acid be added slowly to water, rather than water poured into concentrated acid?",
-      "options": ["Dilution releases heat and slow addition to water reduces splashing risk", "Water makes acids colder by removing all ions", "Acid cannot mix with water under any conditions", "Adding acid to water creates explosive oxygen only"],
-      "correctAnswer": "Dilution releases heat and slow addition to water reduces splashing risk",
-      "explanation": "Diluting concentrated acid is exothermic. Adding acid slowly to a larger volume of water helps disperse heat safely.",
-      "difficulty": 2,
-      "strandTitle": "Chemical Reactions and Quantitative Science",
-      "subStrandTitle": "Laboratory Safety",
-      "learningOutcome": "Explain safe procedures for diluting acids.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which formula gives average speed?",
-      "options": ["Distance divided by time", "Mass divided by volume", "Force multiplied by area", "Current divided by voltage"],
-      "correctAnswer": "Distance divided by time",
-      "explanation": "Average speed is calculated by dividing total distance travelled by total time taken.",
-      "difficulty": 1,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Speed and Motion",
-      "learningOutcome": "State the relationship between speed, distance, and time.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "What does acceleration measure?",
-      "options": ["Rate of change of velocity", "Total distance only", "Amount of matter in an object", "Pressure in a liquid only"],
-      "correctAnswer": "Rate of change of velocity",
-      "explanation": "Acceleration describes how quickly velocity changes with time, including changes in speed or direction.",
-      "difficulty": 2,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Acceleration",
-      "learningOutcome": "Explain acceleration as change in velocity per unit time.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which statement expresses Newton's third law of motion?",
-      "options": ["For every action force, there is an equal and opposite reaction force on another body", "An object at rest has no mass", "Energy is destroyed whenever friction acts", "Acceleration is always zero when speed is high"],
-      "correctAnswer": "For every action force, there is an equal and opposite reaction force on another body",
-      "explanation": "Newton's third law describes force pairs that act on different bodies and are equal in size but opposite in direction.",
-      "difficulty": 2,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Newton's Laws",
-      "learningOutcome": "Describe Newton's third law using interacting bodies.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "A cyclist travels 150 m in 10 s. What is the cyclist's average speed?",
-      "options": ["15 m/s", "1500 m/s", "0.067 m/s", "160 m/s"],
-      "correctAnswer": "15 m/s",
-      "explanation": "Average speed equals distance divided by time. 150 m divided by 10 s gives 15 m/s.",
-      "difficulty": 3,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Speed Calculations",
-      "learningOutcome": "Calculate average speed from distance and time data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "A force of 20 N moves a trolley 3 m in the direction of the force. How much work is done?",
-      "options": ["60 J", "23 J", "6.7 J", "17 J"],
-      "correctAnswer": "60 J",
-      "explanation": "Work done equals force multiplied by distance moved in the force direction. 20 N multiplied by 3 m gives 60 J.",
-      "difficulty": 3,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Work Done",
-      "learningOutcome": "Calculate work done from force and distance.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "A 500 W motor runs for 40 s. How much energy does it transfer?",
-      "options": ["20000 J", "540 J", "12.5 J", "460 J"],
-      "correctAnswer": "20000 J",
-      "explanation": "Energy transferred equals power multiplied by time. 500 W multiplied by 40 s equals 20000 J.",
-      "difficulty": 3,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Power and Energy",
-      "learningOutcome": "Calculate energy transferred from power and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Why do seat belts reduce injury during a sudden stop?",
-      "options": ["They increase stopping time and reduce the average force on the body", "They remove the passenger's mass", "They make the car have no momentum", "They change kinetic energy into extra fuel"],
-      "correctAnswer": "They increase stopping time and reduce the average force on the body",
-      "explanation": "For a given change in momentum, increasing the time of impact reduces the average force experienced.",
-      "difficulty": 4,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Momentum and Safety",
-      "learningOutcome": "Analyse safety devices using force, time, and momentum ideas.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "What does a straight line with positive gradient on a velocity-time graph show?",
-      "options": ["Constant acceleration", "Constant displacement", "Zero velocity throughout", "Changing mass"],
-      "correctAnswer": "Constant acceleration",
-      "explanation": "The gradient of a velocity-time graph represents acceleration. A straight positive gradient shows constant acceleration.",
-      "difficulty": 4,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Motion Graphs",
-      "learningOutcome": "Interpret velocity-time graphs for acceleration.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which bicycle design choice best improves braking safety on wet roads?",
-      "options": ["Tyres with good tread and brakes adjusted to increase friction without locking the wheels", "Smooth tyres coated with oil", "Removing one brake to reduce mass", "Using plastic rims that soften in sunlight"],
-      "correctAnswer": "Tyres with good tread and brakes adjusted to increase friction without locking the wheels",
-      "explanation": "Good tread improves grip, and controlled braking helps avoid skidding while still increasing friction enough to slow the bicycle.",
-      "difficulty": 5,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Friction and Design",
-      "learningOutcome": "Apply friction concepts to design safer transport solutions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Why do simple machines such as levers not create energy?",
-      "options": ["They trade force and distance, with some energy lost through friction", "They multiply input energy without limit", "They remove gravity from the load", "They convert all matter into energy"],
-      "correctAnswer": "They trade force and distance, with some energy lost through friction",
-      "explanation": "Machines can make work easier by changing force or distance, but they cannot output more energy than is put in.",
-      "difficulty": 2,
-      "strandTitle": "Forces, Motion and Energy",
-      "subStrandTitle": "Simple Machines",
-      "learningOutcome": "Explain energy transfer and efficiency in simple machines.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "What is the SI unit of electric current?",
-      "options": ["Ampere", "Volt", "Ohm", "Coulomb"],
-      "correctAnswer": "Ampere",
-      "explanation": "Electric current is measured in amperes. It describes the rate at which electric charge flows.",
-      "difficulty": 1,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Electric Current",
-      "learningOutcome": "Identify the SI unit of electric current.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which relationship is stated by Ohm's law for a conductor at constant temperature?",
-      "options": ["V = IR", "P = mgh", "F = ma", "Density = mass/volume"],
-      "correctAnswer": "V = IR",
-      "explanation": "Ohm's law states that potential difference equals current multiplied by resistance for an ohmic conductor at constant temperature.",
-      "difficulty": 2,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Ohm's Law",
-      "learningOutcome": "State Ohm's law and identify its quantities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "How does a fuse protect an electrical circuit?",
-      "options": ["It melts and breaks the circuit when current is too high", "It stores unlimited charge for later use", "It changes alternating current into sound", "It removes the need for insulation"],
-      "correctAnswer": "It melts and breaks the circuit when current is too high",
-      "explanation": "A fuse contains a thin wire that heats and melts if excessive current flows, disconnecting the circuit.",
-      "difficulty": 2,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Electrical Safety",
-      "learningOutcome": "Explain the protective function of a fuse.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A resistor has a potential difference of 12 V across it and a current of 3 A through it. What is its resistance?",
-      "options": ["4 ohms", "36 ohms", "15 ohms", "0.25 ohms"],
-      "correctAnswer": "4 ohms",
-      "explanation": "Using R = V/I, resistance is 12 V divided by 3 A, which gives 4 ohms.",
-      "difficulty": 3,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Circuit Calculations",
-      "learningOutcome": "Calculate resistance from potential difference and current.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Two 6 ohm resistors are connected in parallel. What is their combined resistance?",
-      "options": ["3 ohms", "12 ohms", "6 ohms", "36 ohms"],
-      "correctAnswer": "3 ohms",
-      "explanation": "For two equal resistors in parallel, the combined resistance is half of one resistor. Half of 6 ohms is 3 ohms.",
-      "difficulty": 3,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Series and Parallel Circuits",
-      "learningOutcome": "Calculate total resistance for simple parallel circuits.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "What happens in an ideal step-up transformer?",
-      "options": ["Output voltage increases while output current decreases", "Both voltage and current increase without energy input", "Direct current is produced from a dry cell", "The core changes into copper wire"],
-      "correctAnswer": "Output voltage increases while output current decreases",
-      "explanation": "A step-up transformer has more turns on the secondary coil, increasing voltage. In an ideal transformer, power is conserved, so current decreases.",
-      "difficulty": 3,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Transformers",
-      "learningOutcome": "Describe voltage and current changes in a step-up transformer.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Why is electrical power transmitted over long distances at high voltage?",
-      "options": ["High voltage allows lower current, reducing heating losses in cables", "High voltage makes resistance zero in every cable", "High voltage changes copper into an insulator", "High voltage prevents all storms from affecting lines"],
-      "correctAnswer": "High voltage allows lower current, reducing heating losses in cables",
-      "explanation": "For the same power, increasing voltage lowers current. Lower current reduces energy lost as heat in transmission wires.",
-      "difficulty": 4,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Power Transmission",
-      "learningOutcome": "Analyse why high voltage is used in power transmission.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Why are classroom lights usually wired in parallel rather than in series?",
-      "options": ["Each light can receive the supply voltage and operate independently", "Parallel circuits make bulbs require no energy", "Series circuits always prevent current flow", "Parallel wiring removes the need for switches"],
-      "correctAnswer": "Each light can receive the supply voltage and operate independently",
-      "explanation": "In parallel, each lamp has its own path across the supply. One lamp can fail or be switched off without turning off all others.",
-      "difficulty": 4,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Domestic Circuits",
-      "learningOutcome": "Compare series and parallel arrangements for practical wiring.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which method best estimates the focal length of a convex lens using sunlight safely?",
-      "options": ["Focus light from a distant object onto a screen and measure the lens-to-screen distance", "Look directly at the Sun through the lens", "Put the lens in water and measure its mass", "Rub the lens on cloth until it becomes magnetic"],
-      "correctAnswer": "Focus light from a distant object onto a screen and measure the lens-to-screen distance",
-      "explanation": "A distant object forms an image near the focal plane. The safe method uses a screen and avoids looking at the Sun through the lens.",
-      "difficulty": 5,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Lenses and Light",
-      "learningOutcome": "Design a safe method for estimating focal length of a convex lens.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Why can sound not travel through a vacuum?",
-      "options": ["Sound needs particles of a medium to transmit vibrations", "Sound is made only of visible light", "Vacuum has too much air pressure", "Sound waves are stationary objects"],
-      "correctAnswer": "Sound needs particles of a medium to transmit vibrations",
-      "explanation": "Sound is a mechanical wave. It travels by vibrating particles in a medium such as air, water, or solids.",
-      "difficulty": 2,
-      "strandTitle": "Electricity, Magnetism and Waves",
-      "subStrandTitle": "Sound Waves",
-      "learningOutcome": "Explain why sound requires a material medium.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Which gas is a greenhouse gas?",
-      "options": ["Carbon dioxide", "Argon", "Neon", "Helium"],
-      "correctAnswer": "Carbon dioxide",
-      "explanation": "Carbon dioxide absorbs infrared radiation and contributes to the greenhouse effect in the atmosphere.",
-      "difficulty": 1,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Atmosphere and Climate",
-      "learningOutcome": "Identify examples of greenhouse gases.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "In the water cycle, what is the process called when water vapour changes into liquid droplets?",
-      "options": ["Condensation", "Transpiration", "Infiltration", "Sublimation"],
-      "correctAnswer": "Condensation",
-      "explanation": "Condensation occurs when water vapour cools and changes into liquid droplets, helping form clouds.",
-      "difficulty": 2,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Water Cycle",
-      "learningOutcome": "Describe key processes in the water cycle.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "How do excess nitrates and phosphates from farms contribute to eutrophication in a lake?",
-      "options": ["They promote algal blooms that can reduce oxygen in the water", "They turn all fish into algae immediately", "They remove all water from the lake", "They make the lake water boil at room temperature"],
-      "correctAnswer": "They promote algal blooms that can reduce oxygen in the water",
-      "explanation": "Excess nutrients encourage rapid algal growth. Decomposition of algae can use up oxygen and harm aquatic life.",
-      "difficulty": 2,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Water Pollution",
-      "learningOutcome": "Explain how nutrient pollution affects aquatic ecosystems.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "A soil sample has pH 4.8 and is too acidic for beans. Which amendment would most directly reduce the acidity?",
-      "options": ["Agricultural lime", "More acidic fertiliser", "Table sugar", "Plastic mulch only"],
-      "correctAnswer": "Agricultural lime",
-      "explanation": "Agricultural lime is alkaline and can neutralise excess soil acidity, raising pH toward a suitable range for many crops.",
-      "difficulty": 3,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Soil Chemistry",
-      "learningOutcome": "Apply pH knowledge to soil management decisions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A quadrat survey finds 240 grass plants in an area of 60 m2. What is the population density?",
-      "options": ["4 plants per m2", "300 plants per m2", "0.25 plants per m2", "180 plants per m2"],
-      "correctAnswer": "4 plants per m2",
-      "explanation": "Population density equals number of organisms divided by area. 240 divided by 60 gives 4 plants per m2.",
-      "difficulty": 3,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Ecological Sampling",
-      "learningOutcome": "Calculate population density from quadrat data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "What happens in a biogas digester?",
-      "options": ["Microorganisms break down organic waste without oxygen to produce methane-rich gas", "Sunlight changes plastic directly into petrol", "Water splits into hydrogen and oxygen without energy", "Sand turns into limestone by cooling"],
-      "correctAnswer": "Microorganisms break down organic waste without oxygen to produce methane-rich gas",
-      "explanation": "Biogas is produced by anaerobic decomposition of organic matter such as manure and food waste.",
-      "difficulty": 3,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Renewable Energy",
-      "learningOutcome": "Explain how organic waste can be converted into biogas.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "How do mangrove forests help protect coastal environments?",
-      "options": ["Their roots reduce wave energy, trap sediments, and provide habitats", "They increase plastic pollution in seawater", "They remove all salt from the ocean", "They stop tides from occurring"],
-      "correctAnswer": "Their roots reduce wave energy, trap sediments, and provide habitats",
-      "explanation": "Mangrove roots stabilise shorelines, slow water movement, trap sediments, and support many species.",
-      "difficulty": 4,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Coastal Ecosystems",
-      "learningOutcome": "Analyse ecosystem services provided by mangrove forests.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A remote school is choosing between a solar water pump and a diesel pump. Which comparison is most scientific?",
-      "options": ["Compare water output, initial cost, running cost, emissions, maintenance, and energy availability", "Choose the pump with the brightest paint", "Use diesel because all pumps must burn fuel", "Use solar because it works at full power every night without storage"],
-      "correctAnswer": "Compare water output, initial cost, running cost, emissions, maintenance, and energy availability",
-      "explanation": "A good technology decision uses evidence about performance, cost, reliability, and environmental impact.",
-      "difficulty": 4,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Energy Choices",
-      "learningOutcome": "Analyse scientific and sustainability factors in energy technology choices.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which school laboratory plan best reduces chemical waste?",
-      "options": ["Use microscale experiments, label waste containers, neutralise where appropriate, and follow disposal guidelines", "Pour all chemicals into the sink at the end of every lesson", "Mix unknown chemicals to reduce the number of bottles", "Burn all liquid waste in an open classroom"],
-      "correctAnswer": "Use microscale experiments, label waste containers, neutralise where appropriate, and follow disposal guidelines",
-      "explanation": "Waste reduction combines smaller quantities, separation of waste types, suitable treatment, and safe disposal procedures.",
-      "difficulty": 5,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Waste Management",
-      "learningOutcome": "Design safe and sustainable approaches to laboratory waste management.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Why can climate change affect the distribution of malaria?",
-      "options": ["Temperature and rainfall changes can alter mosquito breeding and survival conditions", "Malaria parasites feed only on carbon dioxide in clouds", "Warmer weather makes all diseases disappear", "Climate affects rocks but never living organisms"],
-      "correctAnswer": "Temperature and rainfall changes can alter mosquito breeding and survival conditions",
-      "explanation": "Mosquitoes and parasites are influenced by temperature, rainfall, and water availability, so changing climate can shift disease risk zones.",
-      "difficulty": 2,
-      "strandTitle": "Earth Systems, Environment and Sustainability",
-      "subStrandTitle": "Climate and Health",
-      "learningOutcome": "Explain links between climate factors and vector-borne disease risk.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of pasteurising milk?",
-      "options": ["To reduce harmful microorganisms while keeping the milk usable", "To change milk into a metal", "To remove all water and make salt", "To make milk radioactive for storage"],
-      "correctAnswer": "To reduce harmful microorganisms while keeping the milk usable",
-      "explanation": "Pasteurisation uses controlled heating to reduce disease-causing microorganisms without severely damaging the quality of milk.",
-      "difficulty": 1,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Food Processing",
-      "learningOutcome": "State the purpose of pasteurisation in food safety.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "What is biofortification in crop science?",
-      "options": ["Increasing nutrient content of crops through breeding or biotechnology", "Adding plastic beads to soil to make crops shiny", "Removing all minerals from grain", "Growing crops without sunlight or water"],
-      "correctAnswer": "Increasing nutrient content of crops through breeding or biotechnology",
-      "explanation": "Biofortification aims to improve the nutritional value of staple crops, such as increasing vitamin or mineral content.",
-      "difficulty": 2,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Food Security Technologies",
-      "learningOutcome": "Explain biofortification as a science-based approach to nutrition.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "How can remote sensing support crop management?",
-      "options": ["It can use reflected light data to monitor crop health and stress", "It replaces seeds with computer files", "It makes crops grow without soil nutrients", "It prevents clouds from forming over farms"],
-      "correctAnswer": "It can use reflected light data to monitor crop health and stress",
-      "explanation": "Sensors on satellites, drones, or aircraft can detect patterns linked to plant health, moisture, and stress.",
-      "difficulty": 2,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Agricultural Technology",
-      "learningOutcome": "Describe how sensor data can inform agricultural decisions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A disinfectant label recommends 10 mL of concentrate per litre of water. How much concentrate is needed for 5 litres of water?",
-      "options": ["50 mL", "5 mL", "10 mL", "500 mL"],
-      "correctAnswer": "50 mL",
-      "explanation": "The amount scales with volume. 10 mL per litre multiplied by 5 litres gives 50 mL.",
-      "difficulty": 3,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Measurement in Health and Safety",
-      "learningOutcome": "Apply ratio reasoning to prepare safe working solutions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "A water test shows high turbidity. What does this most likely mean?",
-      "options": ["The water contains many suspended particles", "The water has no particles at all", "The water is pure ethanol", "The water has zero temperature"],
-      "correctAnswer": "The water contains many suspended particles",
-      "explanation": "Turbidity measures cloudiness caused by suspended matter such as soil, organic particles, or microorganisms.",
-      "difficulty": 3,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Water Quality Testing",
-      "learningOutcome": "Interpret water quality indicators used in community health.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Why does a dark surface improve the performance of a simple solar dryer?",
-      "options": ["It absorbs more radiant energy and converts more of it into heat", "It reflects all sunlight away from the dryer", "It produces electricity without any device", "It prevents evaporation of water from food"],
-      "correctAnswer": "It absorbs more radiant energy and converts more of it into heat",
-      "explanation": "Dark surfaces absorb a larger fraction of incoming radiation, raising temperature and helping moisture evaporate from food.",
-      "difficulty": 3,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Solar Technologies",
-      "learningOutcome": "Apply energy absorption concepts to solar food preservation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Why can uncontrolled use of antibiotics increase resistant bacteria in a population?",
-      "options": ["Susceptible bacteria die while resistant bacteria survive and reproduce", "Antibiotics turn all bacteria into viruses", "Resistance disappears whenever medicine is misused", "Antibiotics make bacteria unable to pass traits to offspring"],
-      "correctAnswer": "Susceptible bacteria die while resistant bacteria survive and reproduce",
-      "explanation": "Antibiotic misuse creates selection pressure. Resistant bacteria are more likely to survive and pass on resistance traits.",
-      "difficulty": 4,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Antimicrobial Resistance",
-      "learningOutcome": "Analyse how selection pressure contributes to antimicrobial resistance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Why is open burning of plastic waste a poor waste-management practice?",
-      "options": ["It can release harmful fumes and wastes useful material that could be reduced, reused, or recycled", "It turns all plastics into clean drinking water", "It removes the need for waste sorting forever", "It produces only oxygen and nitrogen"],
-      "correctAnswer": "It can release harmful fumes and wastes useful material that could be reduced, reused, or recycled",
-      "explanation": "Open burning can expose people to toxic smoke and loses resources that may be managed through safer circular approaches.",
-      "difficulty": 4,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Materials and Waste",
-      "learningOutcome": "Evaluate environmental and health impacts of waste-management choices.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which low-cost system would best improve safety of turbid water for a school camping activity?",
-      "options": ["Allow settling, filter through clean layers, disinfect by boiling or chlorination, and store in a clean covered container", "Add soil to hide the particles and drink immediately", "Use only colour to judge safety", "Cool the water in shade and skip treatment"],
-      "correctAnswer": "Allow settling, filter through clean layers, disinfect by boiling or chlorination, and store in a clean covered container",
-      "explanation": "A combined system removes many suspended particles, kills many pathogens, and reduces recontamination during storage.",
-      "difficulty": 5,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Community Water Treatment",
-      "learningOutcome": "Design a simple multi-barrier approach for safer water use.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Why should scientific claims in adverts be checked against evidence?",
-      "options": ["Evidence from fair tests helps prevent misleading conclusions", "Adverts always contain complete laboratory reports", "Science does not use measurements", "A claim becomes true when many people repeat it"],
-      "correctAnswer": "Evidence from fair tests helps prevent misleading conclusions",
-      "explanation": "Scientific claims should be supported by reliable data from fair methods, not only by popularity or persuasive language.",
-      "difficulty": 2,
-      "strandTitle": "Applied Science, Technology and Society",
-      "subStrandTitle": "Science Communication",
-      "learningOutcome": "Evaluate everyday scientific claims using evidence and fair testing.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 11",
+ "subjectId": "general_science",
+ "subjectName": "General Science",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which SI unit is used to measure force?",
+   "options": [
+    "Newton",
+    "Joule",
+    "Watt",
+    "Pascal"
+   ],
+   "correctAnswer": "Newton",
+   "explanation": "Force is measured in newtons. A newton is the force needed to give a mass of one kilogram an acceleration of one metre per second squared.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Physical Quantities and Units",
+   "learningOutcome": "Identify SI units used for common physical quantities.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "In an investigation on how light intensity affects photosynthesis, which factor is the independent variable?",
+   "options": [
+    "Light intensity",
+    "Rate of photosynthesis",
+    "Type of plant",
+    "Volume of water used"
+   ],
+   "correctAnswer": "Light intensity",
+   "explanation": "The independent variable is the factor deliberately changed by the investigator. The response measured is the rate of photosynthesis.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Variables in Investigations",
+   "learningOutcome": "Distinguish independent, dependent, and controlled variables in experiments.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Why should a learner repeat measurements and calculate a mean value during a science practical?",
+   "options": [
+    "To reduce the effect of random errors",
+    "To change the independent variable many times",
+    "To avoid recording units",
+    "To make the apparatus heavier"
+   ],
+   "correctAnswer": "To reduce the effect of random errors",
+   "explanation": "Repeating measurements helps reveal unusual readings and makes the mean more reliable than a single measurement.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Accuracy and Reliability",
+   "learningOutcome": "Explain how repeated measurements improve reliability of scientific data.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "A cup and liquid together have a mass of 176 g. The empty cup has a mass of 42 g. What is the mass of the liquid?",
+   "options": [
+    "134 g",
+    "218 g",
+    "88 g",
+    "42 g"
+   ],
+   "correctAnswer": "134 g",
+   "explanation": "The mass of the liquid is found by subtracting the cup mass from the combined mass: 176 g minus 42 g equals 134 g.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Mass and Volume Measurement",
+   "learningOutcome": "Calculate the mass of a substance from direct measurement data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "A pendulum takes 18.0 s to complete 10 oscillations. What is the period of one oscillation?",
+   "options": [
+    "1.8 s",
+    "18.0 s",
+    "10.0 s",
+    "28.0 s"
+   ],
+   "correctAnswer": "1.8 s",
+   "explanation": "The period is total time divided by the number of oscillations. Dividing 18.0 s by 10 gives 1.8 s.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Time and Periodic Motion",
+   "learningOutcome": "Determine the period of an oscillating system from measured data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "A learner observes that water boils at a lower temperature on a high mountain than at sea level. Which conclusion is best supported?",
+   "options": [
+    "Lower atmospheric pressure lowers the boiling point of water",
+    "Mountain water contains no dissolved gases",
+    "Thermometers stop working at high altitude",
+    "Water molecules become heavier on mountains"
+   ],
+   "correctAnswer": "Lower atmospheric pressure lowers the boiling point of water",
+   "explanation": "Boiling occurs when vapour pressure equals external pressure. Lower atmospheric pressure allows boiling at a lower temperature.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Interpreting Observations",
+   "learningOutcome": "Draw evidence-based conclusions from observations of physical change.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which flaw would make a fertiliser investigation on maize seedlings unreliable?",
+   "options": [
+    "Giving the fertilised plants more water than the control plants",
+    "Using maize seeds from the same packet",
+    "Measuring seedling height every two days",
+    "Keeping both groups under the same light"
+   ],
+   "correctAnswer": "Giving the fertilised plants more water than the control plants",
+   "explanation": "A fair test should change only the fertiliser condition. Changing water as well makes it unclear which factor affected growth.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Fair Testing",
+   "learningOutcome": "Evaluate investigation designs for control of variables.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "A data set for seedling height is 12.1 cm, 12.0 cm, 12.2 cm, 18.7 cm, and 12.1 cm. What should the learner do first about 18.7 cm?",
+   "options": [
+    "Check whether it was a recording or measurement error",
+    "Delete it without comment",
+    "Double every value in the table",
+    "Use it as the only result"
+   ],
+   "correctAnswer": "Check whether it was a recording or measurement error",
+   "explanation": "The value is far from the pattern, so it may be anomalous. It should be checked before deciding how to treat it.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Data Quality",
+   "learningOutcome": "Analyse data sets to identify and respond to anomalous readings.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which plan best compares two brands of solar lamps in a school science project?",
+   "options": [
+    "Charge both for the same time under the same light and measure how long each powers an identical bulb",
+    "Charge one in sunlight and one in a cupboard, then ask learners which looks brighter",
+    "Use different bulbs and stop timing when the first learner leaves",
+    "Measure only the colour of the lamp casing"
+   ],
+   "correctAnswer": "Charge both for the same time under the same light and measure how long each powers an identical bulb",
+   "explanation": "The plan controls charging conditions and load while measuring a useful output. That makes the comparison fair and evidence-based.",
+   "difficulty": 5,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Planning Investigations",
+   "learningOutcome": "Design controlled investigations for comparing performance of simple technologies.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Why are SI units important when Kenyan learners share science results with other schools or countries?",
+   "options": [
+    "They provide a common standard for comparing measurements",
+    "They make all experiments have the same result",
+    "They remove the need for instruments",
+    "They change qualitative observations into opinions"
+   ],
+   "correctAnswer": "They provide a common standard for comparing measurements",
+   "explanation": "Standard units allow measurements from different places to be understood and compared without confusion.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Measurement",
+   "subStrandTitle": "Scientific Communication",
+   "learningOutcome": "Explain the role of standard units in scientific communication.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which organelle releases usable energy during aerobic respiration in eukaryotic cells?",
+   "options": [
+    "Mitochondrion",
+    "Nucleus",
+    "Ribosome",
+    "Golgi body"
+   ],
+   "correctAnswer": "Mitochondrion",
+   "explanation": "Mitochondria are the main sites of aerobic respiration, where energy from food is transferred to ATP.",
+   "difficulty": 1,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Cell Structure and Function",
+   "learningOutcome": "Identify cell organelles and state their functions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "What does it mean when the cell membrane is described as selectively permeable?",
+   "options": [
+    "It allows some substances to pass more easily than others",
+    "It prevents all substances from entering the cell",
+    "It changes into a cell wall during osmosis",
+    "It stores all genetic information"
+   ],
+   "correctAnswer": "It allows some substances to pass more easily than others",
+   "explanation": "A selectively permeable membrane controls movement across the cell boundary, helping maintain internal conditions.",
+   "difficulty": 2,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Cell Membranes",
+   "learningOutcome": "Explain the role of selective permeability in cells.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which statement best describes osmosis?",
+   "options": [
+    "Movement of water through a partially permeable membrane from dilute solution to concentrated solution",
+    "Movement of oxygen through air from cold regions to hot regions",
+    "Movement of mineral ions using energy from respiration",
+    "Movement of large food particles into a cell by engulfing"
+   ],
+   "correctAnswer": "Movement of water through a partially permeable membrane from dilute solution to concentrated solution",
+   "explanation": "Osmosis is a special type of diffusion involving water molecules moving across a partially permeable membrane.",
+   "difficulty": 2,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Diffusion and Osmosis",
+   "learningOutcome": "Describe osmosis using concentration gradients and membranes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Red blood cells placed in a concentrated salt solution shrink. What explains this observation?",
+   "options": [
+    "Water leaves the cells by osmosis",
+    "Salt enters the nucleus and divides it",
+    "The cell wall pulls inward",
+    "Haemoglobin changes into starch"
+   ],
+   "correctAnswer": "Water leaves the cells by osmosis",
+   "explanation": "The concentrated salt solution has lower water potential than the cell contents, so water moves out through the membrane.",
+   "difficulty": 3,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Osmosis in Animal Cells",
+   "learningOutcome": "Apply osmosis to explain changes in animal cells placed in different solutions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Why do root hair cells sometimes use active transport to absorb mineral ions from soil water?",
+   "options": [
+    "The ions may need to move against their concentration gradient using energy",
+    "The ions are too large to exist in soil",
+    "Active transport only happens in dead cells",
+    "Water pressure turns minerals into glucose"
+   ],
+   "correctAnswer": "The ions may need to move against their concentration gradient using energy",
+   "explanation": "Active transport uses energy from respiration to move substances from lower concentration to higher concentration.",
+   "difficulty": 3,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Active Transport",
+   "learningOutcome": "Explain active transport in relation to mineral uptake by plants.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "An athlete sweats during a long race. Which homeostatic role does sweating support?",
+   "options": [
+    "Maintaining body temperature through evaporative cooling",
+    "Increasing the number of red blood cells instantly",
+    "Turning lactic acid into oxygen at the skin",
+    "Preventing all water loss from the body"
+   ],
+   "correctAnswer": "Maintaining body temperature through evaporative cooling",
+   "explanation": "Evaporation of sweat removes heat from the skin. This helps keep internal body temperature within a narrow range.",
+   "difficulty": 3,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Homeostasis",
+   "learningOutcome": "Relate sweating to thermoregulation in humans.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Why can a plant cell become turgid in fresh water while an animal cell may burst?",
+   "options": [
+    "The plant cell wall resists bursting as water enters",
+    "Animal cells have chloroplasts that pump water inward",
+    "Plant cells lack a cell membrane",
+    "Fresh water removes all cytoplasm from plant cells"
+   ],
+   "correctAnswer": "The plant cell wall resists bursting as water enters",
+   "explanation": "Both cells can gain water by osmosis, but the rigid plant cell wall provides support and pressure against further swelling.",
+   "difficulty": 4,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Osmosis in Plant and Animal Cells",
+   "learningOutcome": "Compare osmotic effects in plant and animal cells.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "How can long-term high blood glucose damage kidney function?",
+   "options": [
+    "It can damage small blood vessels and filtering units in the kidneys",
+    "It changes urine into bile before filtration",
+    "It stops the heart from pumping blood to the lungs only",
+    "It makes the kidneys produce red blood cells instead of urine"
+   ],
+   "correctAnswer": "It can damage small blood vessels and filtering units in the kidneys",
+   "explanation": "Persistently high glucose can harm capillaries and nephrons, reducing the kidneys' ability to filter blood effectively.",
+   "difficulty": 4,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Homeostasis and Disease",
+   "learningOutcome": "Analyse how disrupted homeostasis can affect organ function.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which model best represents negative feedback control in the body?",
+   "options": [
+    "A thermostat switches a heater off when the room becomes too warm",
+    "A door remains open whether the room is hot or cold",
+    "A lamp becomes brighter whenever the battery weakens",
+    "A thermometer changes the room temperature by itself"
+   ],
+   "correctAnswer": "A thermostat switches a heater off when the room becomes too warm",
+   "explanation": "Negative feedback reverses a change and returns a condition toward a set range, similar to a thermostat controlling heat.",
+   "difficulty": 5,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Feedback Mechanisms",
+   "learningOutcome": "Use models to represent negative feedback in homeostasis.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Why are many enzymes sensitive to changes in pH?",
+   "options": [
+    "Extreme pH can change the shape of the active site",
+    "pH changes the enzyme into a mineral ion",
+    "All enzymes work only in pure water at pH 7",
+    "pH removes the need for substrates"
+   ],
+   "correctAnswer": "Extreme pH can change the shape of the active site",
+   "explanation": "Enzyme activity depends on the shape of the active site. Large pH changes can denature the enzyme and reduce activity.",
+   "difficulty": 2,
+   "strandTitle": "Living Systems and Health",
+   "subStrandTitle": "Enzyme Activity",
+   "learningOutcome": "Explain the effect of pH on enzyme activity.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Where does chemical digestion of starch begin in the human digestive system?",
+   "options": [
+    "Mouth",
+    "Stomach",
+    "Large intestine",
+    "Rectum"
+   ],
+   "correctAnswer": "Mouth",
+   "explanation": "Salivary amylase in the mouth begins breaking starch into smaller sugars during chewing.",
+   "difficulty": 1,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Human Digestion",
+   "learningOutcome": "Identify where digestion of major food substances begins.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which description best defines a balanced diet?",
+   "options": [
+    "Food containing all required nutrients in suitable proportions",
+    "Food made only from carbohydrates",
+    "Food eaten once a day regardless of nutrients",
+    "Food with no water or minerals"
+   ],
+   "correctAnswer": "Food containing all required nutrients in suitable proportions",
+   "explanation": "A balanced diet supplies energy, body-building nutrients, protective nutrients, water, and fibre in amounts suitable for health.",
+   "difficulty": 2,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Balanced Diet",
+   "learningOutcome": "Describe the components and importance of a balanced diet.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Why does the small intestine have many villi?",
+   "options": [
+    "To increase surface area for absorption of digested food",
+    "To grind food into smaller pieces",
+    "To store bile before it reaches the stomach",
+    "To produce oxygen for red blood cells"
+   ],
+   "correctAnswer": "To increase surface area for absorption of digested food",
+   "explanation": "Villi provide a large surface area and a good blood supply, making absorption of digested nutrients efficient.",
+   "difficulty": 2,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Absorption of Digested Food",
+   "learningOutcome": "Explain adaptations of the small intestine for absorption.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "A food sample turns Benedict's solution brick-red after heating. Which nutrient is indicated?",
+   "options": [
+    "Reducing sugar",
+    "Protein",
+    "Fat",
+    "Vitamin C"
+   ],
+   "correctAnswer": "Reducing sugar",
+   "explanation": "Benedict's solution changes from blue to green, yellow, orange, or brick-red when heated with reducing sugars.",
+   "difficulty": 3,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Food Tests",
+   "learningOutcome": "Interpret results from common food tests.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which word equation summarizes aerobic respiration?",
+   "options": [
+    "Glucose + oxygen -> carbon dioxide + water + energy",
+    "Carbon dioxide + water -> glucose + oxygen",
+    "Protein + oxygen -> starch + bile",
+    "Water + nitrogen -> glucose + lactic acid"
+   ],
+   "correctAnswer": "Glucose + oxygen -> carbon dioxide + water + energy",
+   "explanation": "Aerobic respiration breaks down glucose using oxygen and releases energy, with carbon dioxide and water as products.",
+   "difficulty": 3,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Cellular Respiration",
+   "learningOutcome": "Represent aerobic respiration using a word equation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "During vigorous exercise, muscles may produce lactic acid. What condition leads to this?",
+   "options": [
+    "Oxygen supply becomes too low for fully aerobic respiration",
+    "The lungs stop all gas exchange permanently",
+    "Glucose changes directly into protein in the skin",
+    "Sweat glands absorb carbon dioxide from air"
+   ],
+   "correctAnswer": "Oxygen supply becomes too low for fully aerobic respiration",
+   "explanation": "When oxygen delivery cannot meet demand, some muscle cells release energy anaerobically and produce lactic acid.",
+   "difficulty": 3,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Anaerobic Respiration",
+   "learningOutcome": "Explain lactic acid production during intense exercise.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Why can boiling drinking water kill cholera-causing bacteria but fail to remove dissolved lead ions?",
+   "options": [
+    "Heat kills many microorganisms but dissolved ions remain in the water",
+    "Boiling changes lead ions into harmless oxygen gas",
+    "Bacteria and lead ions are both removed by evaporation only",
+    "Lead ions are living organisms that reproduce faster when heated"
+   ],
+   "correctAnswer": "Heat kills many microorganisms but dissolved ions remain in the water",
+   "explanation": "Boiling disinfects water by heat, but dissolved chemical contaminants require methods such as suitable filtration or treatment.",
+   "difficulty": 4,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Water Safety",
+   "learningOutcome": "Analyse strengths and limits of water treatment methods.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "A food vendor keeps cooked beans warm for several hours before serving. What is the main food safety risk?",
+   "options": [
+    "Bacteria may multiply rapidly in warm food",
+    "The beans will immediately become radioactive",
+    "Proteins in beans turn into glass",
+    "All minerals evaporate from the food"
+   ],
+   "correctAnswer": "Bacteria may multiply rapidly in warm food",
+   "explanation": "Warm, moist cooked food can support fast microbial growth if it is kept for long periods without safe temperature control.",
+   "difficulty": 4,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Food Hygiene",
+   "learningOutcome": "Evaluate food storage practices for microbial risk.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which plan best reduces malaria cases around a school compound?",
+   "options": [
+    "Drain stagnant water, use bed nets, educate learners, and seek prompt treatment",
+    "Spray perfume in classrooms and ignore mosquito breeding sites",
+    "Close all windows during the day only",
+    "Use antibiotics for every fever without diagnosis"
+   ],
+   "correctAnswer": "Drain stagnant water, use bed nets, educate learners, and seek prompt treatment",
+   "explanation": "Malaria prevention is strongest when vector control, personal protection, health education, and timely care are combined.",
+   "difficulty": 5,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Disease Prevention",
+   "learningOutcome": "Design integrated strategies for preventing vector-borne disease.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "How can vaccination help protect a community, not only the vaccinated person?",
+   "options": [
+    "It reduces the number of people likely to spread the disease",
+    "It makes mosquitoes unable to breed in water",
+    "It replaces the need for clean water",
+    "It changes bacteria into vitamins"
+   ],
+   "correctAnswer": "It reduces the number of people likely to spread the disease",
+   "explanation": "When many people are immune, disease transmission becomes less likely, helping protect people who may be vulnerable.",
+   "difficulty": 2,
+   "strandTitle": "Nutrition, Respiration and Health",
+   "subStrandTitle": "Immunity and Vaccination",
+   "learningOutcome": "Explain how vaccination supports public health.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "What hereditary material is found in chromosomes?",
+   "options": [
+    "DNA",
+    "Starch",
+    "Cellulose",
+    "Bile"
+   ],
+   "correctAnswer": "DNA",
+   "explanation": "Chromosomes are made mainly of DNA and proteins. DNA carries genetic information used in inheritance.",
+   "difficulty": 1,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Chromosomes and DNA",
+   "learningOutcome": "Identify DNA as the hereditary material in chromosomes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which statement best describes a gene?",
+   "options": [
+    "A section of DNA that carries information for a trait or protein",
+    "A type of blood vessel found only in plants",
+    "A mineral salt stored in bones",
+    "A food test reagent used for starch"
+   ],
+   "correctAnswer": "A section of DNA that carries information for a trait or protein",
+   "explanation": "Genes are units of heredity. They contain coded instructions that influence traits through the proteins or products they specify.",
+   "difficulty": 2,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Genes and Traits",
+   "learningOutcome": "Explain the relationship between genes, DNA, and inherited traits.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Why is meiosis important in sexual reproduction?",
+   "options": [
+    "It produces gametes with half the normal chromosome number",
+    "It doubles the chromosome number in body cells every hour",
+    "It changes all genes into enzymes",
+    "It produces identical cells for wound healing only"
+   ],
+   "correctAnswer": "It produces gametes with half the normal chromosome number",
+   "explanation": "Meiosis forms haploid gametes. Fertilisation then restores the diploid chromosome number in the offspring.",
+   "difficulty": 2,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Cell Division",
+   "learningOutcome": "Describe the role of meiosis in maintaining chromosome number across generations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "In a monohybrid cross between two heterozygous parents, Tt x Tt, what is the probability of an offspring being tt?",
+   "options": [
+    "1 in 4",
+    "1 in 2",
+    "3 in 4",
+    "4 in 4"
+   ],
+   "correctAnswer": "1 in 4",
+   "explanation": "The possible genotypes are TT, Tt, Tt, and tt. One of the four combinations is tt.",
+   "difficulty": 3,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Simple Inheritance",
+   "learningOutcome": "Use a Punnett square to predict genotype probability.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which process helps explain why siblings from the same parents are genetically different?",
+   "options": [
+    "Independent assortment of chromosomes during meiosis",
+    "Boiling of gametes during fertilisation",
+    "Digestion of DNA in the stomach",
+    "Evaporation of chromosomes from body cells"
+   ],
+   "correctAnswer": "Independent assortment of chromosomes during meiosis",
+   "explanation": "During meiosis, chromosomes are distributed into gametes in different combinations, creating variation among offspring.",
+   "difficulty": 3,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Sources of Variation",
+   "learningOutcome": "Relate meiosis to genetic variation in offspring.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "A farmer chooses high-milk-yield cows and healthy bulls for breeding. Which scientific idea is being applied?",
+   "options": [
+    "Selective breeding",
+    "Neutralisation",
+    "Electrolysis",
+    "Transpiration"
+   ],
+   "correctAnswer": "Selective breeding",
+   "explanation": "Selective breeding involves choosing parents with desired traits so those traits are more likely to appear in offspring.",
+   "difficulty": 3,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Applied Genetics",
+   "learningOutcome": "Apply inheritance concepts to livestock and crop improvement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which evidence best supports the idea that a plant height difference is environmental rather than genetic?",
+   "options": [
+    "Clones of the same plant grow differently when given different fertiliser levels",
+    "Plants from different species have different flower colours",
+    "A tall plant and a short plant have different chromosome numbers",
+    "Seeds from two varieties grow apart in separate counties"
+   ],
+   "correctAnswer": "Clones of the same plant grow differently when given different fertiliser levels",
+   "explanation": "Clones have the same genetic makeup, so differences under different fertiliser levels point strongly to environmental influence.",
+   "difficulty": 4,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Genetic and Environmental Variation",
+   "learningOutcome": "Analyse evidence for genetic and environmental causes of variation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "A trait appears in a child although neither parent shows it. What inheritance pattern could explain this?",
+   "options": [
+    "The trait is recessive and both parents are carriers",
+    "The trait is caused by a fuse in a circuit",
+    "The child has no chromosomes",
+    "The trait must be caused only by diet"
+   ],
+   "correctAnswer": "The trait is recessive and both parents are carriers",
+   "explanation": "A recessive trait can be hidden in carriers and appear when a child inherits the recessive allele from both parents.",
+   "difficulty": 4,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Inheritance Patterns",
+   "learningOutcome": "Analyse simple family inheritance patterns involving recessive traits.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which biotechnology strategy can ethically support food security for banana farmers?",
+   "options": [
+    "Use tissue culture to produce disease-free planting materials and train farmers on safe handling",
+    "Release untested organisms into farms without monitoring",
+    "Ban all crop records and ignore disease symptoms",
+    "Select planting material only by fruit colour in the market"
+   ],
+   "correctAnswer": "Use tissue culture to produce disease-free planting materials and train farmers on safe handling",
+   "explanation": "Tissue culture can multiply clean planting materials, but responsible use also needs training, monitoring, and attention to local farming needs.",
+   "difficulty": 5,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Biotechnology and Society",
+   "learningOutcome": "Evaluate biotechnology applications for agriculture and food security.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Why can a mutation be harmful, neutral, or beneficial?",
+   "options": [
+    "Its effect depends on the gene changed and the environment",
+    "Every mutation immediately kills the organism",
+    "Mutations only happen in non-living objects",
+    "A mutation always produces the same visible trait"
+   ],
+   "correctAnswer": "Its effect depends on the gene changed and the environment",
+   "explanation": "A mutation changes genetic information. Its impact depends on whether it affects function and whether the environment favours the change.",
+   "difficulty": 2,
+   "strandTitle": "Genetics, Variation and Biotechnology",
+   "subStrandTitle": "Mutation",
+   "learningOutcome": "Explain possible effects of mutation on organisms.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "What does the atomic number of an element represent?",
+   "options": [
+    "Number of protons in each atom",
+    "Number of molecules in a sample",
+    "Mass of one litre of the element",
+    "Number of compounds it can form"
+   ],
+   "correctAnswer": "Number of protons in each atom",
+   "explanation": "The atomic number is the proton number. It identifies the element and determines its place in the periodic table.",
+   "difficulty": 1,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Atomic Structure",
+   "learningOutcome": "State the meaning of atomic number.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which statement describes isotopes of the same element?",
+   "options": [
+    "They have the same number of protons but different numbers of neutrons",
+    "They have different numbers of protons and the same mass number",
+    "They are compounds with identical formulas",
+    "They are atoms with no nucleus"
+   ],
+   "correctAnswer": "They have the same number of protons but different numbers of neutrons",
+   "explanation": "Isotopes are atoms of the same element, so they have the same proton number, but their neutron numbers differ.",
+   "difficulty": 2,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Isotopes",
+   "learningOutcome": "Describe isotopes using protons and neutrons.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Why do Group 1 metals commonly form ions with a +1 charge?",
+   "options": [
+    "They lose one outer electron",
+    "They gain seven protons",
+    "They share all electrons equally with water",
+    "They have no electrons in neutral atoms"
+   ],
+   "correctAnswer": "They lose one outer electron",
+   "explanation": "Group 1 atoms have one valence electron. Losing it gives a stable positive ion with a single positive charge.",
+   "difficulty": 2,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Periodic Trends",
+   "learningOutcome": "Relate group number to ion formation in metals.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "What is the relative molecular mass of carbon dioxide, CO2, if C = 12 and O = 16?",
+   "options": [
+    "44",
+    "28",
+    "32",
+    "60"
+   ],
+   "correctAnswer": "44",
+   "explanation": "Carbon dioxide has one carbon atom and two oxygen atoms, so its relative molecular mass is 12 + 16 + 16 = 44.",
+   "difficulty": 3,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Relative Formula Mass",
+   "learningOutcome": "Calculate relative molecular mass from atomic masses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "What type of bonding is formed in sodium chloride?",
+   "options": [
+    "Ionic bonding through electron transfer",
+    "Covalent bonding through equal sharing only",
+    "Metallic bonding between two non-metals",
+    "Hydrogen bonding inside sodium atoms"
+   ],
+   "correctAnswer": "Ionic bonding through electron transfer",
+   "explanation": "Sodium transfers an electron to chlorine, forming oppositely charged ions that attract each other in an ionic lattice.",
+   "difficulty": 3,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Chemical Bonding",
+   "learningOutcome": "Describe ionic bonding in simple compounds.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Why do metals conduct electricity when solid?",
+   "options": [
+    "They contain delocalised electrons that can move through the structure",
+    "Their atoms have no nuclei",
+    "They dissolve in air to form ions",
+    "Their protons move freely from atom to atom"
+   ],
+   "correctAnswer": "They contain delocalised electrons that can move through the structure",
+   "explanation": "Metallic bonding includes mobile delocalised electrons. These electrons carry charge through the solid metal.",
+   "difficulty": 3,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Metallic Bonding",
+   "learningOutcome": "Explain electrical conductivity in metals using bonding structure.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Why does graphite conduct electricity while diamond does not, although both are forms of carbon?",
+   "options": [
+    "Graphite has delocalised electrons between layers, while diamond's electrons are fixed in covalent bonds",
+    "Diamond contains sodium ions, while graphite contains no atoms",
+    "Graphite is always liquid at room temperature",
+    "Diamond has no covalent bonds"
+   ],
+   "correctAnswer": "Graphite has delocalised electrons between layers, while diamond's electrons are fixed in covalent bonds",
+   "explanation": "In graphite, one electron from each carbon atom can move along layers. In diamond, electrons are held in a rigid covalent network.",
+   "difficulty": 4,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Structure and Properties",
+   "learningOutcome": "Analyse how bonding and structure affect properties of carbon allotropes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Neon is very unreactive under normal conditions. Which explanation best accounts for this?",
+   "options": [
+    "Its outer electron shell is full",
+    "It has no protons in the nucleus",
+    "It is always bonded to sodium",
+    "It dissolves all metals instantly"
+   ],
+   "correctAnswer": "Its outer electron shell is full",
+   "explanation": "Noble gases such as neon have stable outer electron arrangements, so they have little tendency to gain, lose, or share electrons.",
+   "difficulty": 4,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Noble Gases",
+   "learningOutcome": "Analyse chemical stability using electron arrangement.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which explanation best accounts for water having a much higher boiling point than methane?",
+   "options": [
+    "Water molecules form hydrogen bonds with each other",
+    "Methane contains more oxygen atoms than water",
+    "Water has no intermolecular forces",
+    "Methane molecules are giant ionic lattices"
+   ],
+   "correctAnswer": "Water molecules form hydrogen bonds with each other",
+   "explanation": "Hydrogen bonds between water molecules are relatively strong intermolecular forces, so more energy is needed for boiling.",
+   "difficulty": 5,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Intermolecular Forces",
+   "learningOutcome": "Use intermolecular forces to explain differences in boiling point.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "How can a mixture of sand, salt, and water be separated most suitably in a school laboratory?",
+   "options": [
+    "Filter to remove sand, then evaporate water to obtain salt",
+    "Use a magnet to attract salt, then burn sand",
+    "Add acid to change sand into salt",
+    "Freeze the mixture and throw away the ice"
+   ],
+   "correctAnswer": "Filter to remove sand, then evaporate water to obtain salt",
+   "explanation": "Sand is insoluble and can be filtered out. Dissolved salt can be recovered from the filtrate by evaporating the water.",
+   "difficulty": 2,
+   "strandTitle": "Matter and Chemical Change",
+   "subStrandTitle": "Separation Techniques",
+   "learningOutcome": "Select appropriate methods for separating common mixtures.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "What does a pH value below 7 usually indicate?",
+   "options": [
+    "An acidic solution",
+    "A neutral solution",
+    "An alkaline solution",
+    "A pure metal"
+   ],
+   "correctAnswer": "An acidic solution",
+   "explanation": "On the pH scale, values below 7 are acidic, 7 is neutral, and values above 7 are alkaline.",
+   "difficulty": 1,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Acids, Bases and pH",
+   "learningOutcome": "Interpret pH values for acidic, neutral, and alkaline solutions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "What are the usual products when an acid reacts completely with a base?",
+   "options": [
+    "Salt and water",
+    "Oxygen and hydrogen",
+    "Glucose and starch",
+    "Carbon and nitrogen"
+   ],
+   "correctAnswer": "Salt and water",
+   "explanation": "Neutralisation between an acid and a base forms water and a salt whose ions come from the reacting acid and base.",
+   "difficulty": 2,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Neutralisation",
+   "learningOutcome": "Describe products of acid-base neutralisation reactions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "What is the role of a catalyst in a chemical reaction?",
+   "options": [
+    "It increases reaction rate without being used up overall",
+    "It changes every product into water",
+    "It stops particles from colliding",
+    "It makes a reaction ignore temperature"
+   ],
+   "correctAnswer": "It increases reaction rate without being used up overall",
+   "explanation": "A catalyst provides an alternative pathway with lower activation energy and is regenerated during the reaction.",
+   "difficulty": 2,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Rates of Reaction",
+   "learningOutcome": "Explain how catalysts affect reaction rates.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which equation is balanced for magnesium reacting with oxygen to form magnesium oxide?",
+   "options": [
+    "2Mg + O2 -> 2MgO",
+    "Mg + O2 -> MgO",
+    "Mg2 + O -> MgO2",
+    "2MgO -> Mg + O2"
+   ],
+   "correctAnswer": "2Mg + O2 -> 2MgO",
+   "explanation": "The balanced equation has two magnesium atoms and two oxygen atoms on both sides.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Balancing Equations",
+   "learningOutcome": "Balance simple chemical equations by conserving atoms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "How many moles are present in 5.6 g of iron if the relative atomic mass of iron is 56?",
+   "options": [
+    "0.10 mol",
+    "10 mol",
+    "56 mol",
+    "313.6 mol"
+   ],
+   "correctAnswer": "0.10 mol",
+   "explanation": "Amount in moles equals mass divided by molar mass. 5.6 divided by 56 gives 0.10 mol.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Moles and Mass",
+   "learningOutcome": "Calculate amount of substance from mass and relative atomic mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "In an acid-base titration, why is an indicator added to the flask?",
+   "options": [
+    "To show when the reaction is near the end point",
+    "To make the burette read zero automatically",
+    "To remove all salt from the solution",
+    "To increase the volume of acid secretly"
+   ],
+   "correctAnswer": "To show when the reaction is near the end point",
+   "explanation": "An indicator changes colour over a particular pH range, helping show when neutralisation is nearly complete.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Titration",
+   "learningOutcome": "Explain the use of indicators in acid-base titration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Why do crushed marble chips react faster with dilute hydrochloric acid than large marble chips of the same mass?",
+   "options": [
+    "Crushed chips have a larger surface area exposed to acid",
+    "Crushed chips have fewer calcium carbonate particles",
+    "Large chips contain no carbonate ions",
+    "Surface area has no effect on collision frequency"
+   ],
+   "correctAnswer": "Crushed chips have a larger surface area exposed to acid",
+   "explanation": "Increasing surface area allows more acid particles to collide with marble particles each second, increasing reaction rate.",
+   "difficulty": 4,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Collision Theory",
+   "learningOutcome": "Analyse how surface area affects reaction rate.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "For the equilibrium N2 + 3H2 <-> 2NH3, why does increasing pressure favour ammonia formation?",
+   "options": [
+    "The product side has fewer gas molecules",
+    "The reactant side has no gas molecules",
+    "Pressure changes nitrogen into a liquid metal",
+    "Ammonia formation produces more gas molecules"
+   ],
+   "correctAnswer": "The product side has fewer gas molecules",
+   "explanation": "Higher pressure favours the side with fewer gas particles. Two ammonia molecules are fewer than four reactant molecules.",
+   "difficulty": 4,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Reversible Reactions",
+   "learningOutcome": "Analyse the effect of pressure on gaseous equilibrium systems.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which plan best compares the effectiveness of two antacid tablets?",
+   "options": [
+    "Add equal masses to equal volumes of the same acid and compare final pH or acid neutralised",
+    "Use different acids, different tablet masses, and no measurements",
+    "Taste both tablets and choose the sweeter one",
+    "Compare only the colours of the tablet packets"
+   ],
+   "correctAnswer": "Add equal masses to equal volumes of the same acid and compare final pH or acid neutralised",
+   "explanation": "A fair comparison controls tablet mass and acid conditions while measuring a change linked to neutralisation.",
+   "difficulty": 5,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Planning Chemical Investigations",
+   "learningOutcome": "Design a controlled investigation for comparing neutralising capacity.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Why should acid be added slowly to water, rather than water poured into concentrated acid?",
+   "options": [
+    "Dilution releases heat and slow addition to water reduces splashing risk",
+    "Water makes acids colder by removing all ions",
+    "Acid cannot mix with water under any conditions",
+    "Adding acid to water creates explosive oxygen only"
+   ],
+   "correctAnswer": "Dilution releases heat and slow addition to water reduces splashing risk",
+   "explanation": "Diluting concentrated acid is exothermic. Adding acid slowly to a larger volume of water helps disperse heat safely.",
+   "difficulty": 2,
+   "strandTitle": "Chemical Reactions and Quantitative Science",
+   "subStrandTitle": "Laboratory Safety",
+   "learningOutcome": "Explain safe procedures for diluting acids.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which formula gives average speed?",
+   "options": [
+    "Distance divided by time",
+    "Mass divided by volume",
+    "Force multiplied by area",
+    "Current divided by voltage"
+   ],
+   "correctAnswer": "Distance divided by time",
+   "explanation": "Average speed is calculated by dividing total distance travelled by total time taken.",
+   "difficulty": 1,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Speed and Motion",
+   "learningOutcome": "State the relationship between speed, distance, and time.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "What does acceleration measure?",
+   "options": [
+    "Rate of change of velocity",
+    "Total distance only",
+    "Amount of matter in an object",
+    "Pressure in a liquid only"
+   ],
+   "correctAnswer": "Rate of change of velocity",
+   "explanation": "Acceleration describes how quickly velocity changes with time, including changes in speed or direction.",
+   "difficulty": 2,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Acceleration",
+   "learningOutcome": "Explain acceleration as change in velocity per unit time.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which statement expresses Newton's third law of motion?",
+   "options": [
+    "For every action force, there is an equal and opposite reaction force on another body",
+    "An object at rest has no mass",
+    "Energy is destroyed whenever friction acts",
+    "Acceleration is always zero when speed is high"
+   ],
+   "correctAnswer": "For every action force, there is an equal and opposite reaction force on another body",
+   "explanation": "Newton's third law describes force pairs that act on different bodies and are equal in size but opposite in direction.",
+   "difficulty": 2,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Newton's Laws",
+   "learningOutcome": "Describe Newton's third law using interacting bodies.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "A cyclist travels 150 m in 10 s. What is the cyclist's average speed?",
+   "options": [
+    "15 m/s",
+    "1500 m/s",
+    "0.067 m/s",
+    "160 m/s"
+   ],
+   "correctAnswer": "15 m/s",
+   "explanation": "Average speed equals distance divided by time. 150 m divided by 10 s gives 15 m/s.",
+   "difficulty": 3,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Speed Calculations",
+   "learningOutcome": "Calculate average speed from distance and time data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "A force of 20 N moves a trolley 3 m in the direction of the force. How much work is done?",
+   "options": [
+    "60 J",
+    "23 J",
+    "6.7 J",
+    "17 J"
+   ],
+   "correctAnswer": "60 J",
+   "explanation": "Work done equals force multiplied by distance moved in the force direction. 20 N multiplied by 3 m gives 60 J.",
+   "difficulty": 3,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Work Done",
+   "learningOutcome": "Calculate work done from force and distance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "A 500 W motor runs for 40 s. How much energy does it transfer?",
+   "options": [
+    "20000 J",
+    "540 J",
+    "12.5 J",
+    "460 J"
+   ],
+   "correctAnswer": "20000 J",
+   "explanation": "Energy transferred equals power multiplied by time. 500 W multiplied by 40 s equals 20000 J.",
+   "difficulty": 3,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Power and Energy",
+   "learningOutcome": "Calculate energy transferred from power and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Why do seat belts reduce injury during a sudden stop?",
+   "options": [
+    "They increase stopping time and reduce the average force on the body",
+    "They remove the passenger's mass",
+    "They make the car have no momentum",
+    "They change kinetic energy into extra fuel"
+   ],
+   "correctAnswer": "They increase stopping time and reduce the average force on the body",
+   "explanation": "For a given change in momentum, increasing the time of impact reduces the average force experienced.",
+   "difficulty": 4,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Momentum and Safety",
+   "learningOutcome": "Analyse safety devices using force, time, and momentum ideas.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "What does a straight line with positive gradient on a velocity-time graph show?",
+   "options": [
+    "Constant acceleration",
+    "Constant displacement",
+    "Zero velocity throughout",
+    "Changing mass"
+   ],
+   "correctAnswer": "Constant acceleration",
+   "explanation": "The gradient of a velocity-time graph represents acceleration. A straight positive gradient shows constant acceleration.",
+   "difficulty": 4,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Motion Graphs",
+   "learningOutcome": "Interpret velocity-time graphs for acceleration.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which bicycle design choice best improves braking safety on wet roads?",
+   "options": [
+    "Tyres with good tread and brakes adjusted to increase friction without locking the wheels",
+    "Smooth tyres coated with oil",
+    "Removing one brake to reduce mass",
+    "Using plastic rims that soften in sunlight"
+   ],
+   "correctAnswer": "Tyres with good tread and brakes adjusted to increase friction without locking the wheels",
+   "explanation": "Good tread improves grip, and controlled braking helps avoid skidding while still increasing friction enough to slow the bicycle.",
+   "difficulty": 5,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Friction and Design",
+   "learningOutcome": "Apply friction concepts to design safer transport solutions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Why do simple machines such as levers not create energy?",
+   "options": [
+    "They trade force and distance, with some energy lost through friction",
+    "They multiply input energy without limit",
+    "They remove gravity from the load",
+    "They convert all matter into energy"
+   ],
+   "correctAnswer": "They trade force and distance, with some energy lost through friction",
+   "explanation": "Machines can make work easier by changing force or distance, but they cannot output more energy than is put in.",
+   "difficulty": 2,
+   "strandTitle": "Forces, Motion and Energy",
+   "subStrandTitle": "Simple Machines",
+   "learningOutcome": "Explain energy transfer and efficiency in simple machines.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "What is the SI unit of electric current?",
+   "options": [
+    "Ampere",
+    "Volt",
+    "Ohm",
+    "Coulomb"
+   ],
+   "correctAnswer": "Ampere",
+   "explanation": "Electric current is measured in amperes. It describes the rate at which electric charge flows.",
+   "difficulty": 1,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Electric Current",
+   "learningOutcome": "Identify the SI unit of electric current.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which relationship is stated by Ohm's law for a conductor at constant temperature?",
+   "options": [
+    "V = IR",
+    "P = mgh",
+    "F = ma",
+    "Density = mass/volume"
+   ],
+   "correctAnswer": "V = IR",
+   "explanation": "Ohm's law states that potential difference equals current multiplied by resistance for an ohmic conductor at constant temperature.",
+   "difficulty": 2,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Ohm's Law",
+   "learningOutcome": "State Ohm's law and identify its quantities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "How does a fuse protect an electrical circuit?",
+   "options": [
+    "It melts and breaks the circuit when current is too high",
+    "It stores unlimited charge for later use",
+    "It changes alternating current into sound",
+    "It removes the need for insulation"
+   ],
+   "correctAnswer": "It melts and breaks the circuit when current is too high",
+   "explanation": "A fuse contains a thin wire that heats and melts if excessive current flows, disconnecting the circuit.",
+   "difficulty": 2,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Electrical Safety",
+   "learningOutcome": "Explain the protective function of a fuse.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A resistor has a potential difference of 12 V across it and a current of 3 A through it. What is its resistance?",
+   "options": [
+    "4 ohms",
+    "36 ohms",
+    "15 ohms",
+    "0.25 ohms"
+   ],
+   "correctAnswer": "4 ohms",
+   "explanation": "Using R = V/I, resistance is 12 V divided by 3 A, which gives 4 ohms.",
+   "difficulty": 3,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Circuit Calculations",
+   "learningOutcome": "Calculate resistance from potential difference and current.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Two 6 ohm resistors are connected in parallel. What is their combined resistance?",
+   "options": [
+    "3 ohms",
+    "12 ohms",
+    "6 ohms",
+    "36 ohms"
+   ],
+   "correctAnswer": "3 ohms",
+   "explanation": "For two equal resistors in parallel, the combined resistance is half of one resistor. Half of 6 ohms is 3 ohms.",
+   "difficulty": 3,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Series and Parallel Circuits",
+   "learningOutcome": "Calculate total resistance for simple parallel circuits.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "What happens in an ideal step-up transformer?",
+   "options": [
+    "Output voltage increases while output current decreases",
+    "Both voltage and current increase without energy input",
+    "Direct current is produced from a dry cell",
+    "The core changes into copper wire"
+   ],
+   "correctAnswer": "Output voltage increases while output current decreases",
+   "explanation": "A step-up transformer has more turns on the secondary coil, increasing voltage. In an ideal transformer, power is conserved, so current decreases.",
+   "difficulty": 3,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Transformers",
+   "learningOutcome": "Describe voltage and current changes in a step-up transformer.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Why is electrical power transmitted over long distances at high voltage?",
+   "options": [
+    "High voltage allows lower current, reducing heating losses in cables",
+    "High voltage makes resistance zero in every cable",
+    "High voltage changes copper into an insulator",
+    "High voltage prevents all storms from affecting lines"
+   ],
+   "correctAnswer": "High voltage allows lower current, reducing heating losses in cables",
+   "explanation": "For the same power, increasing voltage lowers current. Lower current reduces energy lost as heat in transmission wires.",
+   "difficulty": 4,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Power Transmission",
+   "learningOutcome": "Analyse why high voltage is used in power transmission.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Why are classroom lights usually wired in parallel rather than in series?",
+   "options": [
+    "Each light can receive the supply voltage and operate independently",
+    "Parallel circuits make bulbs require no energy",
+    "Series circuits always prevent current flow",
+    "Parallel wiring removes the need for switches"
+   ],
+   "correctAnswer": "Each light can receive the supply voltage and operate independently",
+   "explanation": "In parallel, each lamp has its own path across the supply. One lamp can fail or be switched off without turning off all others.",
+   "difficulty": 4,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Domestic Circuits",
+   "learningOutcome": "Compare series and parallel arrangements for practical wiring.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which method best estimates the focal length of a convex lens using sunlight safely?",
+   "options": [
+    "Focus light from a distant object onto a screen and measure the lens-to-screen distance",
+    "Look directly at the Sun through the lens",
+    "Put the lens in water and measure its mass",
+    "Rub the lens on cloth until it becomes magnetic"
+   ],
+   "correctAnswer": "Focus light from a distant object onto a screen and measure the lens-to-screen distance",
+   "explanation": "A distant object forms an image near the focal plane. The safe method uses a screen and avoids looking at the Sun through the lens.",
+   "difficulty": 5,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Lenses and Light",
+   "learningOutcome": "Design a safe method for estimating focal length of a convex lens.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Why can sound not travel through a vacuum?",
+   "options": [
+    "Sound needs particles of a medium to transmit vibrations",
+    "Sound is made only of visible light",
+    "Vacuum has too much air pressure",
+    "Sound waves are stationary objects"
+   ],
+   "correctAnswer": "Sound needs particles of a medium to transmit vibrations",
+   "explanation": "Sound is a mechanical wave. It travels by vibrating particles in a medium such as air, water, or solids.",
+   "difficulty": 2,
+   "strandTitle": "Electricity, Magnetism and Waves",
+   "subStrandTitle": "Sound Waves",
+   "learningOutcome": "Explain why sound requires a material medium.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Which gas is a greenhouse gas?",
+   "options": [
+    "Carbon dioxide",
+    "Argon",
+    "Neon",
+    "Helium"
+   ],
+   "correctAnswer": "Carbon dioxide",
+   "explanation": "Carbon dioxide absorbs infrared radiation and contributes to the greenhouse effect in the atmosphere.",
+   "difficulty": 1,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Atmosphere and Climate",
+   "learningOutcome": "Identify examples of greenhouse gases.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "In the water cycle, what is the process called when water vapour changes into liquid droplets?",
+   "options": [
+    "Condensation",
+    "Transpiration",
+    "Infiltration",
+    "Sublimation"
+   ],
+   "correctAnswer": "Condensation",
+   "explanation": "Condensation occurs when water vapour cools and changes into liquid droplets, helping form clouds.",
+   "difficulty": 2,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Water Cycle",
+   "learningOutcome": "Describe key processes in the water cycle.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "How do excess nitrates and phosphates from farms contribute to eutrophication in a lake?",
+   "options": [
+    "They promote algal blooms that can reduce oxygen in the water",
+    "They turn all fish into algae immediately",
+    "They remove all water from the lake",
+    "They make the lake water boil at room temperature"
+   ],
+   "correctAnswer": "They promote algal blooms that can reduce oxygen in the water",
+   "explanation": "Excess nutrients encourage rapid algal growth. Decomposition of algae can use up oxygen and harm aquatic life.",
+   "difficulty": 2,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Water Pollution",
+   "learningOutcome": "Explain how nutrient pollution affects aquatic ecosystems.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A soil sample has pH 4.8 and is too acidic for beans. Which amendment would most directly reduce the acidity?",
+   "options": [
+    "Agricultural lime",
+    "More acidic fertiliser",
+    "Table sugar",
+    "Plastic mulch only"
+   ],
+   "correctAnswer": "Agricultural lime",
+   "explanation": "Agricultural lime is alkaline and can neutralise excess soil acidity, raising pH toward a suitable range for many crops.",
+   "difficulty": 3,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Soil Chemistry",
+   "learningOutcome": "Apply pH knowledge to soil management decisions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A quadrat survey finds 240 grass plants in an area of 60 m2. What is the population density?",
+   "options": [
+    "4 plants per m2",
+    "300 plants per m2",
+    "0.25 plants per m2",
+    "180 plants per m2"
+   ],
+   "correctAnswer": "4 plants per m2",
+   "explanation": "Population density equals number of organisms divided by area. 240 divided by 60 gives 4 plants per m2.",
+   "difficulty": 3,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Ecological Sampling",
+   "learningOutcome": "Calculate population density from quadrat data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "What happens in a biogas digester?",
+   "options": [
+    "Microorganisms break down organic waste without oxygen to produce methane-rich gas",
+    "Sunlight changes plastic directly into petrol",
+    "Water splits into hydrogen and oxygen without energy",
+    "Sand turns into limestone by cooling"
+   ],
+   "correctAnswer": "Microorganisms break down organic waste without oxygen to produce methane-rich gas",
+   "explanation": "Biogas is produced by anaerobic decomposition of organic matter such as manure and food waste.",
+   "difficulty": 3,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Renewable Energy",
+   "learningOutcome": "Explain how organic waste can be converted into biogas.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "How do mangrove forests help protect coastal environments?",
+   "options": [
+    "Their roots reduce wave energy, trap sediments, and provide habitats",
+    "They increase plastic pollution in seawater",
+    "They remove all salt from the ocean",
+    "They stop tides from occurring"
+   ],
+   "correctAnswer": "Their roots reduce wave energy, trap sediments, and provide habitats",
+   "explanation": "Mangrove roots stabilise shorelines, slow water movement, trap sediments, and support many species.",
+   "difficulty": 4,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Coastal Ecosystems",
+   "learningOutcome": "Analyse ecosystem services provided by mangrove forests.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A remote school is choosing between a solar water pump and a diesel pump. Which comparison is most scientific?",
+   "options": [
+    "Compare water output, initial cost, running cost, emissions, maintenance, and energy availability",
+    "Choose the pump with the brightest paint",
+    "Use diesel because all pumps must burn fuel",
+    "Use solar because it works at full power every night without storage"
+   ],
+   "correctAnswer": "Compare water output, initial cost, running cost, emissions, maintenance, and energy availability",
+   "explanation": "A good technology decision uses evidence about performance, cost, reliability, and environmental impact.",
+   "difficulty": 4,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Energy Choices",
+   "learningOutcome": "Analyse scientific and sustainability factors in energy technology choices.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which school laboratory plan best reduces chemical waste?",
+   "options": [
+    "Use microscale experiments, label waste containers, neutralise where appropriate, and follow disposal guidelines",
+    "Pour all chemicals into the sink at the end of every lesson",
+    "Mix unknown chemicals to reduce the number of bottles",
+    "Burn all liquid waste in an open classroom"
+   ],
+   "correctAnswer": "Use microscale experiments, label waste containers, neutralise where appropriate, and follow disposal guidelines",
+   "explanation": "Waste reduction combines smaller quantities, separation of waste types, suitable treatment, and safe disposal procedures.",
+   "difficulty": 5,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Waste Management",
+   "learningOutcome": "Design safe and sustainable approaches to laboratory waste management.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Why can climate change affect the distribution of malaria?",
+   "options": [
+    "Temperature and rainfall changes can alter mosquito breeding and survival conditions",
+    "Malaria parasites feed only on carbon dioxide in clouds",
+    "Warmer weather makes all diseases disappear",
+    "Climate affects rocks but never living organisms"
+   ],
+   "correctAnswer": "Temperature and rainfall changes can alter mosquito breeding and survival conditions",
+   "explanation": "Mosquitoes and parasites are influenced by temperature, rainfall, and water availability, so changing climate can shift disease risk zones.",
+   "difficulty": 2,
+   "strandTitle": "Earth Systems, Environment and Sustainability",
+   "subStrandTitle": "Climate and Health",
+   "learningOutcome": "Explain links between climate factors and vector-borne disease risk.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of pasteurising milk?",
+   "options": [
+    "To reduce harmful microorganisms while keeping the milk usable",
+    "To change milk into a metal",
+    "To remove all water and make salt",
+    "To make milk radioactive for storage"
+   ],
+   "correctAnswer": "To reduce harmful microorganisms while keeping the milk usable",
+   "explanation": "Pasteurisation uses controlled heating to reduce disease-causing microorganisms without severely damaging the quality of milk.",
+   "difficulty": 1,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Food Processing",
+   "learningOutcome": "State the purpose of pasteurisation in food safety.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "What is biofortification in crop science?",
+   "options": [
+    "Increasing nutrient content of crops through breeding or biotechnology",
+    "Adding plastic beads to soil to make crops shiny",
+    "Removing all minerals from grain",
+    "Growing crops without sunlight or water"
+   ],
+   "correctAnswer": "Increasing nutrient content of crops through breeding or biotechnology",
+   "explanation": "Biofortification aims to improve the nutritional value of staple crops, such as increasing vitamin or mineral content.",
+   "difficulty": 2,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Food Security Technologies",
+   "learningOutcome": "Explain biofortification as a science-based approach to nutrition.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "How can remote sensing support crop management?",
+   "options": [
+    "It can use reflected light data to monitor crop health and stress",
+    "It replaces seeds with computer files",
+    "It makes crops grow without soil nutrients",
+    "It prevents clouds from forming over farms"
+   ],
+   "correctAnswer": "It can use reflected light data to monitor crop health and stress",
+   "explanation": "Sensors on satellites, drones, or aircraft can detect patterns linked to plant health, moisture, and stress.",
+   "difficulty": 2,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Agricultural Technology",
+   "learningOutcome": "Describe how sensor data can inform agricultural decisions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A disinfectant label recommends 10 mL of concentrate per litre of water. How much concentrate is needed for 5 litres of water?",
+   "options": [
+    "50 mL",
+    "5 mL",
+    "10 mL",
+    "500 mL"
+   ],
+   "correctAnswer": "50 mL",
+   "explanation": "The amount scales with volume. 10 mL per litre multiplied by 5 litres gives 50 mL.",
+   "difficulty": 3,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Measurement in Health and Safety",
+   "learningOutcome": "Apply ratio reasoning to prepare safe working solutions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A water test shows high turbidity. What does this most likely mean?",
+   "options": [
+    "The water contains many suspended particles",
+    "The water has no particles at all",
+    "The water is pure ethanol",
+    "The water has zero temperature"
+   ],
+   "correctAnswer": "The water contains many suspended particles",
+   "explanation": "Turbidity measures cloudiness caused by suspended matter such as soil, organic particles, or microorganisms.",
+   "difficulty": 3,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Water Quality Testing",
+   "learningOutcome": "Interpret water quality indicators used in community health.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Why does a dark surface improve the performance of a simple solar dryer?",
+   "options": [
+    "It absorbs more radiant energy and converts more of it into heat",
+    "It reflects all sunlight away from the dryer",
+    "It produces electricity without any device",
+    "It prevents evaporation of water from food"
+   ],
+   "correctAnswer": "It absorbs more radiant energy and converts more of it into heat",
+   "explanation": "Dark surfaces absorb a larger fraction of incoming radiation, raising temperature and helping moisture evaporate from food.",
+   "difficulty": 3,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Solar Technologies",
+   "learningOutcome": "Apply energy absorption concepts to solar food preservation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Why can uncontrolled use of antibiotics increase resistant bacteria in a population?",
+   "options": [
+    "Susceptible bacteria die while resistant bacteria survive and reproduce",
+    "Antibiotics turn all bacteria into viruses",
+    "Resistance disappears whenever medicine is misused",
+    "Antibiotics make bacteria unable to pass traits to offspring"
+   ],
+   "correctAnswer": "Susceptible bacteria die while resistant bacteria survive and reproduce",
+   "explanation": "Antibiotic misuse creates selection pressure. Resistant bacteria are more likely to survive and pass on resistance traits.",
+   "difficulty": 4,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Antimicrobial Resistance",
+   "learningOutcome": "Analyse how selection pressure contributes to antimicrobial resistance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Why is open burning of plastic waste a poor waste-management practice?",
+   "options": [
+    "It can release harmful fumes and wastes useful material that could be reduced, reused, or recycled",
+    "It turns all plastics into clean drinking water",
+    "It removes the need for waste sorting forever",
+    "It produces only oxygen and nitrogen"
+   ],
+   "correctAnswer": "It can release harmful fumes and wastes useful material that could be reduced, reused, or recycled",
+   "explanation": "Open burning can expose people to toxic smoke and loses resources that may be managed through safer circular approaches.",
+   "difficulty": 4,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Materials and Waste",
+   "learningOutcome": "Evaluate environmental and health impacts of waste-management choices.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which low-cost system would best improve safety of turbid water for a school camping activity?",
+   "options": [
+    "Allow settling, filter through clean layers, disinfect by boiling or chlorination, and store in a clean covered container",
+    "Add soil to hide the particles and drink immediately",
+    "Use only colour to judge safety",
+    "Cool the water in shade and skip treatment"
+   ],
+   "correctAnswer": "Allow settling, filter through clean layers, disinfect by boiling or chlorination, and store in a clean covered container",
+   "explanation": "A combined system removes many suspended particles, kills many pathogens, and reduces recontamination during storage.",
+   "difficulty": 5,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Community Water Treatment",
+   "learningOutcome": "Design a simple multi-barrier approach for safer water use.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Why should scientific claims in adverts be checked against evidence?",
+   "options": [
+    "Evidence from fair tests helps prevent misleading conclusions",
+    "Adverts always contain complete laboratory reports",
+    "Science does not use measurements",
+    "A claim becomes true when many people repeat it"
+   ],
+   "correctAnswer": "Evidence from fair tests helps prevent misleading conclusions",
+   "explanation": "Scientific claims should be supported by reliable data from fair methods, not only by popularity or persuasive language.",
+   "difficulty": 2,
+   "strandTitle": "Applied Science, Technology and Society",
+   "subStrandTitle": "Science Communication",
+   "learningOutcome": "Evaluate everyday scientific claims using evidence and fair testing.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

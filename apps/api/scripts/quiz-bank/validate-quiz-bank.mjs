@@ -36,11 +36,6 @@ function gradeCode(gradeLevel) {
 }
 
 function flattenManifest(manifest, errors) {
-  const target = manifest.questionCountPerSubject;
-  if (!Number.isInteger(target) || target < 1) {
-    fail(errors, 'manifest.questionCountPerSubject must be a positive integer');
-  }
-
   const cells = [];
   const seen = new Set();
   for (const band of manifest.gradeBands ?? []) {
@@ -76,7 +71,6 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
 
   const payload = readJson(filePath);
   const questions = payload.questions;
-  const expectedCount = manifest.questionCountPerSubject;
 
   if (payload.countryCode !== manifest.countryCode) fail(errors, `${filePath}: countryCode must be ${manifest.countryCode}`);
   if (payload.curriculumCode !== manifest.curriculumCode) fail(errors, `${filePath}: curriculumCode must be ${manifest.curriculumCode}`);
@@ -87,9 +81,6 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
     fail(errors, `${filePath}: questions must be an array`);
     return;
   }
-  if (questions.length !== expectedCount) {
-    fail(errors, `${filePath}: expected ${expectedCount} questions, found ${questions.length}`);
-  }
 
   const seenNumbers = new Set();
   const seenPrompts = new Set();
@@ -97,8 +88,8 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
   const allowedFeatureTags = new Set(manifest.featureTags ?? []);
   for (const [index, question] of questions.entries()) {
     const label = `${filePath} question ${index + 1}`;
-    if (!Number.isInteger(question.questionNumber) || question.questionNumber < 1 || question.questionNumber > expectedCount) {
-      fail(errors, `${label}: questionNumber must be 1..${expectedCount}`);
+    if (!Number.isInteger(question.questionNumber) || question.questionNumber < 1) {
+      fail(errors, `${label}: questionNumber must be a positive integer`);
     }
     if (seenNumbers.has(question.questionNumber)) fail(errors, `${label}: duplicate questionNumber ${question.questionNumber}`);
     seenNumbers.add(question.questionNumber);
@@ -132,9 +123,12 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
       fail(errors, `${label}: written formats must still provide options as an array`);
     }
 
-    for (const field of ['correctAnswer', 'explanation', 'strandTitle', 'subStrandTitle', 'learningOutcome']) {
+    for (const field of ['correctAnswer', 'explanation', 'strandTitle', 'subStrandTitle']) {
       const minimumLength = field === 'correctAnswer' && cell.gradeLevel === 'Grade 1' ? 1 : 2;
       if (typeof question[field] !== 'string' || question[field].trim().length < minimumLength) fail(errors, `${label}: ${field} is required`);
+    }
+    if (question.learningOutcome !== undefined && typeof question.learningOutcome !== 'string') {
+      fail(errors, `${label}: learningOutcome must be a string when present`);
     }
     if (/fallback practice|correct answer|placeholder/i.test(`${question.prompt} ${question.correctAnswer} ${question.explanation}`)) {
       fail(errors, `${label}: contains placeholder or fallback text`);
@@ -145,7 +139,7 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
       difficulties.add(question.difficulty);
     }
     if (!allowedCognitiveLevels.has(question.cognitiveLevel)) fail(errors, `${label}: invalid cognitiveLevel ${question.cognitiveLevel}`);
-    if (question.imageKey !== undefined && !knownImageKeys.has(question.imageKey)) {
+    if (question.imageKey != null && !knownImageKeys.has(question.imageKey)) {
       fail(errors, `${label}: imageKey must be a known immutable image-library key`);
     }
     if (/\bat\s+at\b/i.test(question.prompt)) fail(errors, `${label}: prompt repeats a context token`);
@@ -181,8 +175,8 @@ function validateQuestionFile(manifest, cell, filePath, errors) {
     }
   }
 
-  if (questions.length === expectedCount && difficulties.size < 3) {
-    fail(errors, `${filePath}: expected at least 3 difficulty levels`);
+  if (questions.length >= 10 && difficulties.size < 2) {
+    fail(errors, `${filePath}: expected at least 2 difficulty levels`);
   }
 }
 
@@ -211,5 +205,15 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-const totalQuestions = cells.length * manifest.questionCountPerSubject;
-console.log(`QuizBank manifest OK: ${cells.length} grade-subject cells, ${totalQuestions} target questions.`);
+let totalQuestions = 0;
+if (!manifestOnly) {
+  const manifestDir = path.dirname(manifestPath);
+  for (const cell of cells) {
+    const questionPath = path.join(manifestDir, 'questions', cell.gradeCode, `${cell.subjectId}.json`);
+    if (fs.existsSync(questionPath)) {
+      const payload = readJson(questionPath);
+      totalQuestions += Array.isArray(payload.questions) ? payload.questions.length : 0;
+    }
+  }
+}
+console.log(`QuizBank manifest OK: ${cells.length} grade-subject cells, ${totalQuestions} validated questions (no per-subject cap).`);

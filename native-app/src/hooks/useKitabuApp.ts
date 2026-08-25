@@ -16,7 +16,11 @@ import {
   INITIAL_USER_PROFILE,
   SUBJECTS,
 } from '../data/mockData';
-import { DEFAULT_GRADE } from '../constants/grades';
+import {
+  completeSubjectSelection,
+  DEFAULT_GRADE,
+  requiredSubjectCountForGrade,
+} from '../constants/grades';
 import {
   countryCodeForName,
   countryNameForCode,
@@ -43,6 +47,7 @@ import {
   refreshAccessSession,
   restoreStoredAuthSession,
   signupWithPassword,
+  updateMySchool,
   verifyPhoneAuthCode,
   authenticateWithGoogleToken,
 } from '../services/authService';
@@ -76,6 +81,7 @@ import {
   updateAdminSchoolPilot,
 } from '../services/appDataService';
 import { askHomeworkHelper, generateQuizData } from '../services/aiService';
+import { startQuizMeSession, submitQuizMeAnswer as submitQuizMeAnswerRequest } from '../services/quizMeService';
 import {
   downloadBookForOffline,
   getLibraryBooks,
@@ -93,7 +99,7 @@ import type {
   SubjectLearningPath,
 } from '../features/progressiveLearning/types';
 import {
-  createTeacherAssignment as createTeacherAssignmentRequest,
+  publishTeacherAssignmentDraft as publishTeacherAssignmentDraftRequest,
   getStudentAssignments,
   getTeacherAssignments,
   getTeacherStudents,
@@ -243,13 +249,9 @@ export function resolveAuthenticatedRole(
 
   return getValidStoredAuthRole(roles, storedRole) ?? resolveLastUsedAuthRole(roles);
 }
-const MAX_DASHBOARD_SUBJECTS = 5;
 const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
 const PAYMENT_MODAL_TRANSITION_DELAY_MS = Platform.OS === 'ios' ? 350 : 80;
 const DEFAULT_FOCUS_MODE_LIMIT_SECONDS = 7200;
-const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).map(
-  subject => subject.id,
-);
 
 const SUBJECT_FALLBACK_COLORS: Array<[string, string]> = [
   ['#2563EB', '#4338CA'],
@@ -880,10 +882,9 @@ export function useKitabuApp() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentGrade, setCurrentGrade] = useState(DEFAULT_GRADE);
+  const requiredDashboardSubjectCount = requiredSubjectCountForGrade(currentGrade);
   const [adminSelectedGrade, setAdminSelectedGrade] = useState(DEFAULT_GRADE);
-  const [dashboardSubjectIds, setDashboardSubjectIds] = useState<string[]>(
-    DEFAULT_DASHBOARD_SUBJECT_IDS,
-  );
+  const [dashboardSubjectIds, setDashboardSubjectIds] = useState<string[]>([]);
   const [subjectRecommendations, setSubjectRecommendations] =
     useState<SubjectRecommendationPayload | null>(null);
   const recordedRecommendationImpressions = useRef(new Set<string>());
@@ -919,6 +920,7 @@ export function useKitabuApp() {
   const [generatedQuizQuestions, setGeneratedQuizQuestions] =
     useState<Question[]>(INITIAL_QUIZ_QUESTIONS);
   const [generatedQuizNarrationSessionId, setGeneratedQuizNarrationSessionId] = useState<string | null>(null);
+  const [quizMeSessionId, setQuizMeSessionId] = useState<string | null>(null);
   const [curriculumData, setCurriculumData] = useState<
     Record<string, LearningStrand[]>
   >(INITIAL_CURRICULUM_DATA);
@@ -1318,7 +1320,7 @@ export function useKitabuApp() {
       setOnboardingMascotKey(restoredMascotKey);
       const storedSubjectIds = effectiveOnboardingPreferences.selectedSubjectIds
         ?.filter(subjectId => typeof subjectId === 'string' && subjectId.length > 0)
-        .slice(0, MAX_DASHBOARD_SUBJECTS);
+        .slice(0, requiredSubjectCountForGrade(storedSession?.user.grade ?? currentGrade));
       if (storedSubjectIds?.length) {
         setDashboardSubjectIds(storedSubjectIds);
       }
@@ -1697,13 +1699,16 @@ export function useKitabuApp() {
   );
   const dashboardSubjects = useMemo(() => {
     const curriculumSubjects = (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
-      .filter(bundle => bundle.strands.length > 0)
       .map(subjectFromCurriculumBundle);
     if (curriculumSubjects.length > 0) {
       const byId = new Map(curriculumSubjects.map(subject => [subject.id, subject]));
-      const preferredIds = subjectRecommendations?.dashboard.length
-        ? subjectRecommendations.dashboard.map(item => item.subjectId)
-        : dashboardSubjectIds;
+      const recommendationOrder = new Map(
+        (subjectRecommendations?.dashboard ?? []).map((item, index) => [item.subjectId, index]),
+      );
+      const preferredIds = [...dashboardSubjectIds].sort(
+        (left, right) => (recommendationOrder.get(left) ?? Number.MAX_SAFE_INTEGER)
+          - (recommendationOrder.get(right) ?? Number.MAX_SAFE_INTEGER),
+      );
       const selected: Subject[] = [];
       preferredIds.forEach(subjectId => {
         const canonicalId = normalizeDashboardSubjectIdForGrade(subjectId, currentGrade);
@@ -1711,21 +1716,49 @@ export function useKitabuApp() {
         if (subject && !selected.some(item => item.id === subject.id)) selected.push(subject);
       });
       curriculumSubjects.forEach(subject => {
-        if (selected.length < MAX_DASHBOARD_SUBJECTS && !selected.some(item => item.id === subject.id)) {
+        if (selected.length < requiredDashboardSubjectCount && !selected.some(item => item.id === subject.id)) {
           selected.push(subject);
         }
       });
-      return selected.slice(0, MAX_DASHBOARD_SUBJECTS);
+      return selected.slice(0, requiredDashboardSubjectCount);
     }
 
-    if (subjectRecommendations?.dashboard.length) {
-      return subjectRecommendations.dashboard.map(subjectFromRecommendation);
+    if (dashboardSubjectIds.length > 0) {
+      return dashboardSubjectIds.map((subjectId, index) => {
+        const recommendation = subjectRecommendations?.dashboard.find(item => item.subjectId === subjectId);
+        return recommendation
+          ? subjectFromRecommendation(recommendation, index)
+          : SUBJECTS.find(subject => subject.id === subjectId);
+      }).filter((subject): subject is Subject => Boolean(subject));
     }
 
-    return dashboardSubjectIds
-      .map(subjectId => SUBJECTS.find(subject => subject.id === subjectId))
-      .filter((subject): subject is Subject => Boolean(subject));
-  }, [curriculumSubjectBundlesByGrade, currentGrade, dashboardSubjectIds, subjectRecommendations]);
+    return [];
+  }, [curriculumSubjectBundlesByGrade, currentGrade, dashboardSubjectIds, requiredDashboardSubjectCount, subjectRecommendations]);
+
+  useEffect(() => {
+    if (!authSession?.user.roles.includes('student')) return;
+    const curriculumSubjects = (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
+      .map(subjectFromCurriculumBundle);
+    if (curriculumSubjects.length < requiredDashboardSubjectCount) return;
+
+    const savedIds = dashboardSubjectIds
+      .map(subjectId => normalizeDashboardSubjectIdForGrade(subjectId, currentGrade))
+    const completedIds = completeSubjectSelection(
+      savedIds,
+      curriculumSubjects.map(subject => subject.id),
+      requiredDashboardSubjectCount,
+    );
+    if (
+      completedIds.length !== requiredDashboardSubjectCount ||
+      completedIds.length === dashboardSubjectIds.length &&
+        completedIds.every((subjectId, index) => subjectId === dashboardSubjectIds[index])
+    ) {
+      return;
+    }
+
+    setDashboardSubjectIds(completedIds);
+    saveSubjectDisplayPreferences(completedIds, 'automatic').catch(() => undefined);
+  }, [authSession, currentGrade, curriculumSubjectBundlesByGrade, dashboardSubjectIds, requiredDashboardSubjectCount]);
   const chatSuggestedSubjects = useMemo(
     () => subjectRecommendations?.chat.length
       ? subjectRecommendations.chat.map(subjectFromRecommendation)
@@ -1734,7 +1767,6 @@ export function useKitabuApp() {
   );
   const availableSubjects = useMemo(() => {
     const curriculumSubjects = (curriculumSubjectBundlesByGrade[currentGrade] ?? [])
-      .filter(bundle => bundle.strands.length > 0)
       .map(subjectFromCurriculumBundle);
     if (curriculumSubjects.length > 0) return curriculumSubjects;
     const byId = new Map(SUBJECTS.map(subject => [subject.id, subject]));
@@ -2467,9 +2499,6 @@ export function useKitabuApp() {
       setPodcasts(nextPodcasts.length > 0 ? nextPodcasts : INITIAL_PODCASTS);
       if (nextSubjectRecommendations) {
         setSubjectRecommendations(nextSubjectRecommendations);
-        setDashboardSubjectIds(
-          nextSubjectRecommendations.dashboard.map(subject => subject.subjectId),
-        );
       }
     } catch {
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
@@ -2733,7 +2762,7 @@ export function useKitabuApp() {
       });
       setCurrentGrade(input.grade);
       if (selectedSubjectIds?.length) {
-        saveDashboardSubjects(selectedSubjectIds);
+        saveDashboardSubjects(selectedSubjectIds, input.grade);
       }
       if (
         resolvedLanguageCode ||
@@ -3111,21 +3140,23 @@ export function useKitabuApp() {
 
   function toggleDashboardSubject(subjectId: string) {
     const canonicalSubjectId = normalizeDashboardSubjectIdForGrade(subjectId, currentGrade);
-    const canonicalCurrentIds = dashboardSubjects.map(subject =>
-      normalizeDashboardSubjectIdForGrade(subject.id, currentGrade),
+    const canonicalCurrentIds = dashboardSubjectIds.map(savedSubjectId =>
+      normalizeDashboardSubjectIdForGrade(savedSubjectId, currentGrade),
     );
     const nextSubjectIds = canonicalCurrentIds.includes(canonicalSubjectId)
-      ? dashboardSubjectIds.length > 1
+      ? dashboardSubjectIds.length > requiredDashboardSubjectCount
         ? canonicalCurrentIds.filter(id => id !== canonicalSubjectId)
         : dashboardSubjectIds
-      : dashboardSubjectIds.length >= MAX_DASHBOARD_SUBJECTS
+      : dashboardSubjectIds.length >= requiredDashboardSubjectCount
         ? dashboardSubjectIds
         : [...canonicalCurrentIds, canonicalSubjectId];
 
     if (nextSubjectIds === dashboardSubjectIds) return;
     setDashboardSubjectIds(nextSubjectIds);
     setSubjectRecommendations(null);
-    saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
+    if (nextSubjectIds.length === requiredDashboardSubjectCount) {
+      saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
+    }
   }
 
   function swapDashboardSubject(replacedSubjectId: string, addedSubjectId: string) {
@@ -3137,8 +3168,8 @@ export function useKitabuApp() {
       addedSubjectId,
       currentGrade,
     );
-    const currentSubjectIds = dashboardSubjects.map(subject =>
-      normalizeDashboardSubjectIdForGrade(subject.id, currentGrade),
+    const currentSubjectIds = dashboardSubjectIds.map(subjectId =>
+      normalizeDashboardSubjectIdForGrade(subjectId, currentGrade),
     );
     if (
       replacedCanonicalId === addedCanonicalId ||
@@ -3156,11 +3187,12 @@ export function useKitabuApp() {
     saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
   }
 
-  function saveDashboardSubjects(subjectIds: string[]) {
+  function saveDashboardSubjects(subjectIds: string[], grade = currentGrade) {
+    const requiredCount = requiredSubjectCountForGrade(grade);
     const nextSubjectIds = subjectIds
-      .map(subjectId => normalizeDashboardSubjectIdForGrade(subjectId, currentGrade))
+      .map(subjectId => normalizeDashboardSubjectIdForGrade(subjectId, grade))
       .filter((subjectId, index, items) => Boolean(subjectId) && items.indexOf(subjectId) === index)
-      .slice(0, MAX_DASHBOARD_SUBJECTS);
+      .slice(0, requiredCount);
 
     if (nextSubjectIds.length > 0) {
       setDashboardSubjectIds(nextSubjectIds);
@@ -3776,7 +3808,7 @@ export function useKitabuApp() {
       completeProviderAuthentication(session, input?.role ?? signupRole);
       if (input) {
         if (input.selectedSubjectIds?.length) {
-          saveDashboardSubjects(input.selectedSubjectIds);
+          saveDashboardSubjects(input.selectedSubjectIds, input.grade);
         }
         const selectedSchool = input.schoolId
           ? schoolsList.find(school => school.id === input.schoolId)
@@ -4163,6 +4195,7 @@ export function useKitabuApp() {
     setIsLoading(true);
     setQuizGenerationError(null);
     setGeneratedQuizNarrationSessionId(null);
+    setQuizMeSessionId(null);
     setQuizGenerationProgress({ percentage: 0, stage: 'Preparing your quiz' });
     setQuizSource('quiz_me');
     setActiveQuizConfig(config);
@@ -4206,6 +4239,36 @@ export function useKitabuApp() {
         .finally(() => {
           setIsLoading(false);
         });
+      return;
+    }
+
+    if (config.format === 'quiz') {
+      startQuizMeSession({
+        grade: currentGrade,
+        subjectId: config.subjectId || config.subject,
+        subjectName: config.subject,
+        strand: config.strand,
+        subStrand: config.subStrand,
+        questionCount: config.questionCount,
+      })
+        .then(result => {
+          setQuizMeSessionId(result.sessionId);
+          setGeneratedQuizQuestions(result.questions.map(question => ({
+            id: question.id,
+            bankId: question.bankId,
+            sessionQuestionId: question.sessionQuestionId,
+            type: question.type,
+            text: question.text,
+            options: question.options,
+          })));
+          setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
+          navigateTo('take_quiz');
+        })
+        .catch(error => {
+          console.error('QuizMe session start failed', error);
+          setQuizGenerationError(error instanceof Error ? error.message : 'Quiz questions are temporarily unavailable. Please try again.');
+        })
+        .finally(() => setIsLoading(false));
       return;
     }
 
@@ -4253,6 +4316,13 @@ export function useKitabuApp() {
       });
   }
 
+  async function submitQuizMeAnswer(sessionQuestionId: string, answer: string) {
+    if (!quizMeSessionId) {
+      throw new Error('Quiz session is no longer available.');
+    }
+    return submitQuizMeAnswerRequest(quizMeSessionId, sessionQuestionId, answer);
+  }
+
   async function startSubjectQuiz(bypassSubscription = false) {
     if (!selectedSubject) {
       return;
@@ -4269,6 +4339,7 @@ export function useKitabuApp() {
     setIsLoading(true);
     setQuizGenerationError(null);
     setGeneratedQuizNarrationSessionId(null);
+    setQuizMeSessionId(null);
 
     const currentStrand = selectedSubjectStrands[activeStrandIndex];
     const completedSubStrand = currentStrand?.subStrands.find(sub => sub.isCompleted);
@@ -4353,11 +4424,9 @@ export function useKitabuApp() {
       questionId: question.id,
       question: question.text,
       answer: answers[index] || '',
-      isCorrect: String(question.correctAnswer ?? '').trim() === String(answers[index] || '').trim(),
     }));
 
     const submission = await submitStudentAssignmentRequest(selectedAssignment.id, {
-      score,
       answers: submissionAnswers,
     });
 
@@ -4374,6 +4443,7 @@ export function useKitabuApp() {
 
     setSelectedAssignment(null);
     navigateTo('homework_list');
+    return { score: submission.score, grading: submission.grading };
   }
 
   function addPoints(points: number) {
@@ -4387,14 +4457,36 @@ export function useKitabuApp() {
     }));
   }
 
-  function updateUserProfile(profileOrUpdater: UserProfile | ((current: UserProfile) => UserProfile)) {
+  async function updateUserProfile(
+    profileOrUpdater: UserProfile | ((current: UserProfile) => UserProfile),
+    options?: { schoolDirectoryId?: string | null },
+  ) {
     const nextProfile =
       typeof profileOrUpdater === 'function'
         ? profileOrUpdater(userProfile)
         : profileOrUpdater;
+
+    const currentSession = authSessionRef.current;
+    if (
+      currentSession?.user.roles.includes('student') &&
+      options?.schoolDirectoryId
+    ) {
+      const nextSession = await updateMySchool(options.schoolDirectoryId);
+      authSessionRef.current = nextSession;
+      setAuthSession(nextSession);
+      const persistedProfile = mapAuthSessionToProfile(nextSession);
+      setUserProfile({
+        ...nextProfile,
+        school: persistedProfile.school,
+        county: persistedProfile.county,
+        region: persistedProfile.region,
+      });
+      return;
+    }
+
     setUserProfile(nextProfile);
 
-    if (authSession?.user.roles.includes('teacher')) {
+    if (currentSession?.user.roles.includes('teacher')) {
       saveTeacherScope({
         grades: nextProfile.taughtGrades ?? [],
         subjects: nextProfile.taughtSubjects ?? [],
@@ -4471,8 +4563,15 @@ export function useKitabuApp() {
     await refreshCurriculumSubject(grade, subjectId);
   }
 
-  async function publishTeacherAssignment(assignment: Omit<Assignment, 'id' | 'status'>) {
-    await createTeacherAssignmentRequest(assignment);
+  async function publishTeacherAssignment(assignment: {
+    draftId: string;
+    title: string;
+    description: string;
+    dueDate: string;
+    approvedAiQuestionIds: string[];
+    questions: Assignment['questions'];
+  }) {
+    await publishTeacherAssignmentDraftRequest(assignment);
 
     if (authSession) {
       await Promise.all([
@@ -4868,6 +4967,7 @@ export function useKitabuApp() {
       generatedFlashcards,
       generatedQuizQuestions,
       generatedQuizNarrationSessionId,
+      quizMeSessionId,
       selectedSubjectStrands,
       hasStudied,
       curriculumData,
@@ -5037,6 +5137,7 @@ export function useKitabuApp() {
       updateBookProgress,
       toggleDownload,
       generateQuizMe,
+      submitQuizMeAnswer,
       startSubjectQuiz,
       startSubjectBrainTease,
       startAssignment,

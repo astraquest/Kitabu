@@ -1,1409 +1,2489 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "arabic",
-  "subjectName": "Arabic",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means library?",
-      "options": ["مكتبة", "مدرسة", "حديقة", "مطار"],
-      "correctAnswer": "مكتبة",
-      "explanation": "مكتبة means a library, while مدرسة means school and مطار means airport.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Everyday Places",
-      "learningOutcome": "Recognize common Arabic vocabulary for public places.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase is an appropriate morning greeting?",
-      "options": ["صباح الخير", "تصبح على خير", "إلى اللقاء", "مع السلامة"],
-      "correctAnswer": "صباح الخير",
-      "explanation": "صباح الخير is used to greet someone in the morning.",
-      "difficulty": 1,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Greetings and Polite Expressions",
-      "learningOutcome": "Use common Arabic greetings in suitable social contexts.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which option gives the feminine form of طالب?",
-      "options": ["طالبة", "طلاب", "طالبان", "طالبات"],
-      "correctAnswer": "طالبة",
-      "explanation": "The feminine singular of طالب is طالبة.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Gender",
-      "learningOutcome": "Identify masculine and feminine forms of familiar nouns.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which Arabic pronoun means we?",
-      "options": ["نحن", "أنا", "هو", "أنت"],
-      "correctAnswer": "نحن",
-      "explanation": "نحن is the first-person plural pronoun meaning we.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Personal Pronouns",
-      "learningOutcome": "Recognize personal pronouns used in Modern Standard Arabic.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means teacher?",
-      "options": ["معلم", "طبيب", "مهندس", "تاجر"],
-      "correctAnswer": "معلم",
-      "explanation": "معلم means teacher, while طبيب means doctor and مهندس means engineer.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Occupations",
-      "learningOutcome": "Identify Arabic vocabulary for common occupations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means book?",
-      "options": ["كتاب", "قلم", "باب", "كرسي"],
-      "correctAnswer": "كتاب",
-      "explanation": "كتاب means book; قلم means pen.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "School Items",
-      "learningOutcome": "Recognize Arabic nouns for classroom items.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which option is the Arabic plural of مدرسة?",
-      "options": ["مدارس", "مدرسان", "مدرستي", "مدرس"],
-      "correctAnswer": "مدارس",
-      "explanation": "مدارس is the broken plural of مدرسة.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Plural Forms",
-      "learningOutcome": "Recognize common plural forms of familiar Arabic nouns.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means today?",
-      "options": ["اليوم", "غدا", "أمس", "الآن"],
-      "correctAnswer": "اليوم",
-      "explanation": "اليوم refers to the present day.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Time Expressions",
-      "learningOutcome": "Identify basic Arabic expressions for time.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase is commonly used to say thank you?",
-      "options": ["شكرا", "عفوا", "مرحبا", "آسف"],
-      "correctAnswer": "شكرا",
-      "explanation": "شكرا is the usual expression for thanking someone.",
-      "difficulty": 1,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Polite Expressions",
-      "learningOutcome": "Use polite Arabic expressions in everyday communication.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which option means because in Arabic?",
-      "options": ["لأن", "لكن", "ثم", "أو"],
-      "correctAnswer": "لأن",
-      "explanation": "لأن introduces a reason or cause.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Connectors",
-      "learningOutcome": "Recognize basic connectors used to link Arabic ideas.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means newspaper?",
-      "options": ["صحيفة", "رسالة", "قصة", "خريطة"],
-      "correctAnswer": "صحيفة",
-      "explanation": "صحيفة means newspaper and is often used in media contexts.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Media Vocabulary",
-      "learningOutcome": "Identify Arabic words related to media and information.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which word is an Arabic adjective meaning beautiful?",
-      "options": ["جميل", "طويل", "سريع", "قديم"],
-      "correctAnswer": "جميل",
-      "explanation": "جميل describes something or someone as beautiful.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Descriptive Adjectives",
-      "learningOutcome": "Recognize common Arabic adjectives used in description.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means language?",
-      "options": ["لغة", "مدينة", "ثقافة", "عادة"],
-      "correctAnswer": "لغة",
-      "explanation": "لغة means language; ثقافة means culture.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Learning Vocabulary",
-      "learningOutcome": "Recognize Arabic words used when discussing language learning.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which option is the Arabic word for peace?",
-      "options": ["سلام", "طعام", "سفر", "عمل"],
-      "correctAnswer": "سلام",
-      "explanation": "سلام means peace and also appears in common greetings.",
-      "difficulty": 1,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Shared Expressions",
-      "learningOutcome": "Recognize Arabic words that appear in cultural and social expressions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means environment?",
-      "options": ["بيئة", "رياضة", "رحلة", "صناعة"],
-      "correctAnswer": "بيئة",
-      "explanation": "بيئة means environment and is used in topics about nature and society.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Academic Vocabulary",
-      "learningOutcome": "Recognize Arabic vocabulary used in academic and social topics.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Choose the sentence that correctly says The student is hardworking.",
-      "options": ["الطالب مجتهد", "الطالب مجتهدة", "الطالبة مجتهد", "الطلاب مجتهد"],
-      "correctAnswer": "الطالب مجتهد",
-      "explanation": "الطالب is masculine singular, so the adjective should be masculine singular: مجتهد.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Adjective Agreement",
-      "learningOutcome": "Apply gender and number agreement between nouns and adjectives.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence correctly means I visited the museum yesterday?",
-      "options": ["زرت المتحف أمس", "أزور المتحف غدا", "يزور المتحف اليوم", "زرنا المتحف الآن"],
-      "correctAnswer": "زرت المتحف أمس",
-      "explanation": "زرت is a past-tense first-person verb, and أمس means yesterday.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Past Tense Verbs",
-      "learningOutcome": "Use past-tense verbs with appropriate time expressions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: البنتان ___ إلى المدرسة?",
-      "options": ["تذهبان", "يذهب", "تذهب", "يذهبون"],
-      "correctAnswer": "تذهبان",
-      "explanation": "البنتان is feminine dual, so the verb form تذهبان matches it.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Dual Agreement",
-      "learningOutcome": "Select verb forms that agree with dual subjects.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which option forms a correct idafa meaning the school principal?",
-      "options": ["مدير المدرسة", "المدير المدرسة", "مدير المدرسةِ الجديدِة", "المدير مدرسة"],
-      "correctAnswer": "مدير المدرسة",
-      "explanation": "In a simple idafa, the first noun normally has no definite article while the second noun can be definite.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Idafa Construction",
-      "learningOutcome": "Form basic possessive noun phrases using idafa.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which Arabic connector best completes: درست كثيرا ___ نجحت في الامتحان?",
-      "options": ["لذلك", "لكن", "أو", "بينما"],
-      "correctAnswer": "لذلك",
-      "explanation": "لذلك means therefore and shows the result of studying hard.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Cause and Result Connectors",
-      "learningOutcome": "Use connectors to show cause and result in Arabic sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which option is the best Arabic request for asking permission to enter?",
-      "options": ["هل أستطيع الدخول؟", "أنا دخلت أمس", "لا تدخل الآن", "أين الباب؟"],
-      "correctAnswer": "هل أستطيع الدخول؟",
-      "explanation": "هل أستطيع الدخول؟ is a polite question asking whether entering is allowed.",
-      "difficulty": 2,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Polite Requests",
-      "learningOutcome": "Make polite requests and ask permission in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence uses the future marker correctly?",
-      "options": ["سأكتب التقرير غدا", "كتبت التقرير غدا", "أكتب التقرير أمس", "سكتبت التقرير الآن"],
-      "correctAnswer": "سأكتب التقرير غدا",
-      "explanation": "The prefix سـ marks a near future action, and غدا means tomorrow.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Future Tense",
-      "learningOutcome": "Use future markers with present-tense verbs in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which option correctly changes هو يدرس to the plural هم?",
-      "options": ["هم يدرسون", "هم تدرسون", "هم يدرس", "هم أدرس"],
-      "correctAnswer": "هم يدرسون",
-      "explanation": "With هم, the present-tense verb takes the plural ending ون.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Subject-Verb Agreement",
-      "learningOutcome": "Apply agreement between plural pronouns and present-tense verbs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which Arabic word is closest in meaning to سريع?",
-      "options": ["عاجل", "بطيء", "ضعيف", "بعيد"],
-      "correctAnswer": "عاجل",
-      "explanation": "سريع means fast, and عاجل can mean urgent or quick depending on context.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Synonyms",
-      "learningOutcome": "Identify synonyms and near-synonyms in Arabic vocabulary.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which Arabic word is the opposite of جديد?",
-      "options": ["قديم", "قريب", "مفيد", "نظيف"],
-      "correctAnswer": "قديم",
-      "explanation": "جديد means new, while قديم means old.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Antonyms",
-      "learningOutcome": "Use antonyms to expand Arabic vocabulary.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which sentence best translates The weather is very hot today?",
-      "options": ["الجو حار جدا اليوم", "الجو بارد جدا أمس", "الجو جميل غدا", "الجو ممطر كل أسبوع"],
-      "correctAnswer": "الجو حار جدا اليوم",
-      "explanation": "حار جدا means very hot, and اليوم means today.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Weather Expressions",
-      "learningOutcome": "Use Arabic expressions to describe weather and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which option correctly asks Where is the bus station?",
-      "options": ["أين محطة الحافلات؟", "متى تصل الحافلة؟", "كم سعر التذكرة؟", "من يقود الحافلة؟"],
-      "correctAnswer": "أين محطة الحافلات؟",
-      "explanation": "أين asks about place, so it fits a question about the location of the bus station.",
-      "difficulty": 2,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Travel Questions",
-      "learningOutcome": "Ask for directions and travel information in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: هذه ___ مفيدة?",
-      "options": ["مقالة", "كتاب", "طلاب", "درس"],
-      "correctAnswer": "مقالة",
-      "explanation": "هذه is used with feminine singular nouns, and مقالة is feminine singular.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Demonstratives",
-      "learningOutcome": "Match Arabic demonstratives with suitable nouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which sentence shows a simple nominal sentence?",
-      "options": ["الحديقة جميلة", "ذهب الولد إلى الحديقة", "اكتب الدرس الآن", "لن أسافر اليوم"],
-      "correctAnswer": "الحديقة جميلة",
-      "explanation": "A nominal sentence begins with a noun and does not need an explicit verb to state a description.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Nominal Sentences",
-      "learningOutcome": "Distinguish nominal sentences from verbal sentences in Arabic.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence is best for introducing a personal opinion politely?",
-      "options": ["في رأيي، القراءة مفيدة", "اخرس واسمع كلامي", "لا يهم رأيك أبدا", "أنا فقط أفهم الموضوع"],
-      "correctAnswer": "في رأيي، القراءة مفيدة",
-      "explanation": "في رأيي means in my opinion and introduces a view respectfully.",
-      "difficulty": 2,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Expressing Opinions",
-      "learningOutcome": "Express opinions politely in classroom discussion.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which option correctly means I agree with you?",
-      "options": ["أنا أتفق معك", "أنا أختلف معك", "أنا أراك غدا", "أنا أبحث عنك"],
-      "correctAnswer": "أنا أتفق معك",
-      "explanation": "أتفق معك means I agree with you.",
-      "difficulty": 2,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Discussion Language",
-      "learningOutcome": "Use Arabic phrases for agreement and disagreement.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which Arabic word best completes: أريد أن ___ رسالة إلكترونية?",
-      "options": ["أكتب", "آكل", "أشرب", "أنام"],
-      "correctAnswer": "أكتب",
-      "explanation": "A message is written, so أكتب completes the sentence logically.",
-      "difficulty": 2,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Functional Writing",
-      "learningOutcome": "Choose vocabulary suitable for everyday written communication.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which option is the correct Arabic question word for asking why?",
-      "options": ["لماذا", "أين", "متى", "كيف"],
-      "correctAnswer": "لماذا",
-      "explanation": "لماذا asks for a reason or cause.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Question Words",
-      "learningOutcome": "Use Arabic question words according to communicative purpose.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which option correctly translates The two teachers are present?",
-      "options": ["المعلمان حاضران", "المعلمون حاضرون", "المعلم حاضر", "المعلمتان حاضر"],
-      "correctAnswer": "المعلمان حاضران",
-      "explanation": "المعلمان is masculine dual, and حاضران agrees with it in number and gender.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Dual Nouns and Adjectives",
-      "learningOutcome": "Apply dual agreement in simple Arabic sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best expresses apology for being late?",
-      "options": ["أعتذر عن التأخير", "أشكرك على الهدية", "أرحب بكم جميعا", "أوافق على الخطة"],
-      "correctAnswer": "أعتذر عن التأخير",
-      "explanation": "أعتذر عن التأخير is a direct and polite apology for lateness.",
-      "difficulty": 2,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Apologies",
-      "learningOutcome": "Use appropriate Arabic expressions for apologies.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which Arabic word belongs to the same root family as كاتب?",
-      "options": ["مكتوب", "قادم", "سريع", "جالس"],
-      "correctAnswer": "مكتوب",
-      "explanation": "كاتب and مكتوب share the root ك ت ب, which relates to writing.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Word Families",
-      "learningOutcome": "Identify related Arabic words from a shared root.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: لن ___ عن المشروع?",
-      "options": ["أتأخر", "أتأخرت", "أتأخرون", "يتأخر"],
-      "correctAnswer": "أتأخر",
-      "explanation": "After لن, the verb remains in the present form with a future negative meaning.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Negative Particles",
-      "learningOutcome": "Use لن to express future negation in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which option is the best Arabic heading for a report about clean water?",
-      "options": ["الماء النظيف حق للجميع", "رحلتي إلى السوق", "وصفة كعكة بسيطة", "ألوان الملابس الجديدة"],
-      "correctAnswer": "الماء النظيف حق للجميع",
-      "explanation": "This heading directly matches the topic of clean water and social need.",
-      "difficulty": 2,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Main Idea",
-      "learningOutcome": "Choose headings that reflect the main idea of Arabic texts.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which option uses a respectful closing in a formal Arabic email?",
-      "options": ["مع خالص التحية", "أراك في الملعب", "هاتفي لا يعمل", "اشتريت خبزا"],
-      "correctAnswer": "مع خالص التحية",
-      "explanation": "مع خالص التحية is an appropriate formal closing in correspondence.",
-      "difficulty": 2,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Formal Correspondence",
-      "learningOutcome": "Use suitable openings and closings in formal Arabic messages.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which statement shows intercultural respect when learning Arabic names?",
-      "options": ["Ask politely how a person prefers their name pronounced", "Mock unfamiliar sounds until others laugh", "Replace every name with an English nickname", "Avoid using names from Arabic-speaking cultures"],
-      "correctAnswer": "Ask politely how a person prefers their name pronounced",
-      "explanation": "Respectful communication includes learning and using names as people prefer.",
-      "difficulty": 2,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Respectful Interaction",
-      "learningOutcome": "Demonstrate respect when communicating across languages and cultures.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly places the adjective after the noun?",
-      "options": ["قرأت قصة ممتعة", "قرأت ممتعة قصة", "ممتعة قرأت قصة", "قصة قرأت ممتعة"],
-      "correctAnswer": "قرأت قصة ممتعة",
-      "explanation": "In Arabic, attributive adjectives usually follow the nouns they describe.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Word Order",
-      "learningOutcome": "Arrange Arabic nouns and adjectives in standard order.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which option best translates The students discussed the problem calmly?",
-      "options": ["ناقش الطلاب المشكلة بهدوء", "نام الطلاب في المشكلة بهدوء", "كتب الطلاب المشكلة بسرعة", "رفض الطلاب الهدوء في المشكلة"],
-      "correctAnswer": "ناقش الطلاب المشكلة بهدوء",
-      "explanation": "ناقش means discussed, المشكلة means the problem, and بهدوء means calmly.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Sentence Translation",
-      "learningOutcome": "Translate complete Arabic sentences using accurate vocabulary and adverbs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "In the sentence يقرأ خالد الصحيفة كل صباح, what does كل صباح add?",
-      "options": ["Frequency of the action", "Place of the action", "Object ownership", "Reason for the action"],
-      "correctAnswer": "Frequency of the action",
-      "explanation": "كل صباح means every morning, so it tells how regularly the action happens.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Sentence Meaning",
-      "learningOutcome": "Interpret time expressions in standalone Arabic sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which option correctly joins the ideas: كان الطريق طويلا. وصلنا في الوقت المناسب?",
-      "options": ["كان الطريق طويلا لكننا وصلنا في الوقت المناسب", "كان الطريق طويلا لأننا وصلنا في الوقت المناسب", "كان الطريق طويلا أو وصلنا في الوقت المناسب", "كان الطريق طويلا ثم لم نصل في الوقت المناسب"],
-      "correctAnswer": "كان الطريق طويلا لكننا وصلنا في الوقت المناسب",
-      "explanation": "لكن shows contrast between the long road and arriving on time.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Contrast Connectors",
-      "learningOutcome": "Use connectors to combine Arabic clauses logically.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: إن القراءة ___ العقل?",
-      "options": ["تنمي", "ينمي", "نما", "نموا"],
-      "correctAnswer": "تنمي",
-      "explanation": "القراءة is feminine singular, so the verb تنمي agrees with it.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Verb Agreement",
-      "learningOutcome": "Select verbs that agree with abstract feminine nouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which sentence uses كان to describe a past state correctly?",
-      "options": ["كان الجو باردا في الصباح", "يكون الجو باردا غدا", "كن الجو باردا الآن", "كانت الجو باردا أمس"],
-      "correctAnswer": "كان الجو باردا في الصباح",
-      "explanation": "كان is used with الجو to describe that the weather was cold in the morning.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "كان and Its Sisters",
-      "learningOutcome": "Use كان to express past states in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which option best identifies the function of أما in أما اللغة العربية فهي غنية بالمفردات?",
-      "options": ["Introducing a topic for emphasis", "Asking a direct question", "Denying a past action", "Marking a command"],
-      "correctAnswer": "Introducing a topic for emphasis",
-      "explanation": "أما often introduces a topic that the sentence then comments on.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Discourse Markers",
-      "learningOutcome": "Interpret common discourse markers in Arabic sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase best completes a formal invitation: يشرفنا ___ حفل التخرج?",
-      "options": ["دعوتكم إلى", "نسيانكم في", "تأخيركم عن", "خروجكم من"],
-      "correctAnswer": "دعوتكم إلى",
-      "explanation": "يشرفنا دعوتكم إلى means we are honoured to invite you to a formal event.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Formal Invitations",
-      "learningOutcome": "Use formal Arabic expressions for invitations and announcements.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which sentence shows the passive meaning The lesson was explained?",
-      "options": ["شُرِح الدرس", "شرح المعلم الدرس", "يشرح الطالب الدرس", "اشرح الدرس الآن"],
-      "correctAnswer": "شُرِح الدرس",
-      "explanation": "شُرِح uses a passive form, so the focus is on the lesson being explained.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Passive Voice",
-      "learningOutcome": "Recognize passive verb forms in Arabic sentences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which option best expresses I prefer reading to watching television?",
-      "options": ["أفضل القراءة على مشاهدة التلفاز", "أفضل التلفاز في القراءة", "أقرأ التلفاز قبل المشاهدة", "أشاهد القراءة على التلفاز"],
-      "correctAnswer": "أفضل القراءة على مشاهدة التلفاز",
-      "explanation": "أفضل ... على is used to express preference for one thing over another.",
-      "difficulty": 3,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Expressing Preferences",
-      "learningOutcome": "Express preferences clearly in spoken and written Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Which word best completes the analogy: طبيب : مستشفى :: معلم : ___?",
-      "options": ["مدرسة", "مطبخ", "مطار", "حديقة"],
-      "correctAnswer": "مدرسة",
-      "explanation": "A doctor works in a hospital, and a teacher works in a school.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Semantic Relationships",
-      "learningOutcome": "Use relationships between words to infer suitable vocabulary.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which option correctly uses a relative pronoun?",
-      "options": ["هذا هو الكتاب الذي قرأته", "هذا هو الكتاب قرأت الذي", "هذا هو الكتاب الذين قرأته", "هذا هو الذي الكتاب قرأته"],
-      "correctAnswer": "هذا هو الكتاب الذي قرأته",
-      "explanation": "الذي refers back to the masculine singular noun الكتاب in a clear relative clause.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Relative Clauses",
-      "learningOutcome": "Use relative pronouns to connect Arabic clauses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Which option best summarizes the sentence: يحافظ الطلاب على البيئة بتنظيف المدرسة وزراعة الأشجار?",
-      "options": ["Students protect the environment through cleaning and planting", "Students avoid all school activities", "Students travel to another city", "Students sell trees at school"],
-      "correctAnswer": "Students protect the environment through cleaning and planting",
-      "explanation": "The sentence connects environmental care with cleaning the school and planting trees.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Summarising",
-      "learningOutcome": "Summarise the meaning of standalone Arabic informational sentences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence correctly uses ليس?",
-      "options": ["ليس الامتحان صعبا", "ليس الامتحان صعب", "ليست الامتحان صعبا", "لا الامتحان صعبا"],
-      "correctAnswer": "ليس الامتحان صعبا",
-      "explanation": "ليس negates a nominal sentence, and its predicate commonly appears with accusative marking.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Negating Nominal Sentences",
-      "learningOutcome": "Use ليس to negate nominal sentences accurately.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase signals a conclusion in an essay?",
-      "options": ["وفي الختام", "في بداية الطريق", "قبل الإفطار", "تحت الطاولة"],
-      "correctAnswer": "وفي الختام",
-      "explanation": "وفي الختام means in conclusion and is suitable for ending an essay.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Essay Structure",
-      "learningOutcome": "Use transition phrases to organise Arabic essays.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Which option correctly changes the sentence to feminine plural: الطالب نشيط?",
-      "options": ["الطالبات نشيطات", "الطالبات نشيط", "الطالبة نشيطون", "الطلاب نشيطات"],
-      "correctAnswer": "الطالبات نشيطات",
-      "explanation": "The feminine plural noun الطالبات takes the feminine plural adjective نشيطات.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Plural Agreement",
-      "learningOutcome": "Transform simple Arabic sentences while maintaining agreement.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which option best expresses a courteous disagreement in Arabic?",
-      "options": ["أحترم رأيك، لكنني أختلف معك", "رأيك لا قيمة له", "اسكت لأنني أرفض كلامك", "لا أريد أن أسمع شيئا"],
-      "correctAnswer": "أحترم رأيك، لكنني أختلف معك",
-      "explanation": "The sentence acknowledges the other view before giving a different opinion.",
-      "difficulty": 3,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Debate Etiquette",
-      "learningOutcome": "Use respectful Arabic language when disagreeing in discussion.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which sentence best uses an Arabic comparative form?",
-      "options": ["العلم أنفع من الجهل", "العلم نافع الجهل", "الجهل من أنفع العلم", "العلم منفعة الجهل"],
-      "correctAnswer": "العلم أنفع من الجهل",
-      "explanation": "أنفع من means more beneficial than and forms a comparison.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Comparative Forms",
-      "learningOutcome": "Use comparative structures to compare ideas in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which option best explains the register of من فضلك أرسل التقرير قبل الخميس?",
-      "options": ["Polite formal request", "Angry insult", "Casual joke", "Poetic praise"],
-      "correctAnswer": "Polite formal request",
-      "explanation": "من فضلك and أرسل التقرير make the sentence a polite request suitable for work or school.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Register",
-      "learningOutcome": "Infer tone and register from Arabic expressions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best translates The project was completed on time?",
-      "options": ["اكتمل المشروع في الوقت المحدد", "بدأ المشروع بعد الوقت المحدد", "فشل المشروع في المدرسة", "نسي المشروع الطلاب"],
-      "correctAnswer": "اكتمل المشروع في الوقت المحدد",
-      "explanation": "اكتمل means was completed, and في الوقت المحدد means on time.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Academic Translation",
-      "learningOutcome": "Translate school and project-related statements accurately.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which option best completes: يجب على المواطن أن ___ القانون?",
-      "options": ["يحترم", "يكسر", "ينسى", "يهمل"],
-      "correctAnswer": "يحترم",
-      "explanation": "يحترم القانون means respects the law, which fits civic responsibility.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Civic Vocabulary",
-      "learningOutcome": "Use Arabic vocabulary for civic and social responsibility.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses the object pronoun suffix for him?",
-      "options": ["قابلته في المكتبة", "قابلتها في المكتبة", "قابلتنا في المكتبة", "قابلتكما في المكتبة"],
-      "correctAnswer": "قابلته في المكتبة",
-      "explanation": "The suffix ـه refers to him as the object of the verb.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Attached Pronouns",
-      "learningOutcome": "Use attached pronouns to refer to objects in Arabic sentences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which option best identifies the topic of this sentence: تسهم التكنولوجيا في تحسين التعليم وتسهيل البحث?",
-      "options": ["The role of technology in education", "The history of ancient trade", "The taste of traditional food", "The rules of a sports match"],
-      "correctAnswer": "The role of technology in education",
-      "explanation": "The sentence says technology contributes to improving education and making research easier.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Topic Identification",
-      "learningOutcome": "Identify the topic of standalone Arabic informational sentences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: إذا درست بانتظام، ___ نتائج جيدة?",
-      "options": ["ستحقق", "حققت أمس", "تنام", "سافرت"],
-      "correctAnswer": "ستحقق",
-      "explanation": "The condition إذا درست بانتظام points to a likely future result.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Conditional Sentences",
-      "learningOutcome": "Complete Arabic conditional sentences with logical results.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase best supports an argument with evidence?",
-      "options": ["والدليل على ذلك أن", "لا أعرف شيئا عن", "ربما بعد العشاء", "أين وضعت القلم"],
-      "correctAnswer": "والدليل على ذلك أن",
-      "explanation": "والدليل على ذلك أن introduces evidence for a claim.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Argumentative Writing",
-      "learningOutcome": "Use phrases that introduce evidence in Arabic arguments.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which statement about Modern Standard Arabic is most accurate?",
-      "options": ["It is widely used in formal writing, news, and education", "It is never understood outside one city", "It has no connection to written Arabic", "It is used only for private family jokes"],
-      "correctAnswer": "It is widely used in formal writing, news, and education",
-      "explanation": "Modern Standard Arabic is a shared formal variety across many Arabic-speaking contexts.",
-      "difficulty": 3,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Language Varieties",
-      "learningOutcome": "Explain the role of Modern Standard Arabic in intercultural communication.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which option best translates We should protect public property?",
-      "options": ["ينبغي أن نحافظ على الممتلكات العامة", "ينبغي أن نكسر الممتلكات العامة", "ينبغي أن نبيع الهواء", "ينبغي أن ننسى الطريق"],
-      "correctAnswer": "ينبغي أن نحافظ على الممتلكات العامة",
-      "explanation": "نحافظ على means we protect or preserve, and الممتلكات العامة means public property.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Civic Expression",
-      "learningOutcome": "Translate statements about public responsibility into Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which sentence uses إلا to express exception?",
-      "options": ["حضر الطلاب إلا طالبا واحدا", "حضر الطلاب لأن طالبا واحدا", "حضر الطلاب ثم طالبا واحدا", "حضر الطلاب أو طالبا واحدا"],
-      "correctAnswer": "حضر الطلاب إلا طالبا واحدا",
-      "explanation": "إلا introduces an exception from the group of students who attended.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Exception Structures",
-      "learningOutcome": "Recognize and use exception structures in Arabic.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which option best completes: لا بد من ___ الوقت في المراجعة?",
-      "options": ["تنظيم", "إضاعة", "تكسير", "تأجيل"],
-      "correctAnswer": "تنظيم",
-      "explanation": "تنظيم الوقت means organising time, which fits revision planning.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Study Skills Vocabulary",
-      "learningOutcome": "Use Arabic vocabulary related to study habits and planning.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best describes a chart without needing to see one?",
-      "options": ["تزداد نسبة القراءة كل عام", "أين وضعت الحقيبة؟", "افتح النافذة من فضلك", "لون القميص أزرق"],
-      "correctAnswer": "تزداد نسبة القراءة كل عام",
-      "explanation": "The sentence describes a trend, which is useful when reporting data in words.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Describing Trends",
-      "learningOutcome": "Use Arabic expressions to describe trends and changes.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Which option best explains the implied meaning of لا تؤجل عمل اليوم إلى الغد?",
-      "options": ["Complete duties promptly instead of delaying them", "Sleep all day before beginning work", "Do tomorrow's work before today's work", "Avoid planning because time is not important"],
-      "correctAnswer": "Complete duties promptly instead of delaying them",
-      "explanation": "The proverb warns against postponing tasks that can be done now.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Proverbs and Implied Meaning",
-      "learningOutcome": "Infer the meaning of common Arabic sayings from context.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which option best revises the sentence for formal academic style: لازم نحافظ على البيئة?",
-      "options": ["ينبغي أن نحافظ على البيئة", "خلي البيئة كما هي", "ما في داعي للبيئة", "البيئة شيء وخلاص"],
-      "correctAnswer": "ينبغي أن نحافظ على البيئة",
-      "explanation": "ينبغي أن is more formal than لازم in academic Modern Standard Arabic.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Register and Style",
-      "learningOutcome": "Revise informal expressions into formal Arabic style.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Which option best explains why الكتاب المفيد is definite?",
-      "options": ["Both the noun and adjective carry the definite article", "Only the adjective is plural", "The phrase begins with a verb", "The noun is feminine dual"],
-      "correctAnswer": "Both the noun and adjective carry the definite article",
-      "explanation": "In a definite noun-adjective phrase, both parts commonly take ال.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Definiteness Agreement",
-      "learningOutcome": "Analyze definiteness agreement in Arabic noun-adjective phrases.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Which option best completes a balanced argument: من جهة، توفر التقنية فرصا للتعلم؛ ومن جهة أخرى، ___?",
-      "options": ["قد تسبب التشتت إذا أسيء استخدامها", "تمنع جميع أشكال القراءة", "لا علاقة لها بالتعليم أبدا", "تجعل المعلمين غير موجودين دائما"],
-      "correctAnswer": "قد تسبب التشتت إذا أسيء استخدامها",
-      "explanation": "A balanced argument gives a reasonable counterpoint without exaggeration.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Balanced Argument",
-      "learningOutcome": "Develop balanced Arabic arguments with nuanced supporting points.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which option best identifies the rhetorical purpose of repetition in العلم نور، العلم قوة?",
-      "options": ["Emphasising the value of knowledge", "Listing places to visit", "Marking a question for information", "Showing exact numerical data"],
-      "correctAnswer": "Emphasising the value of knowledge",
-      "explanation": "Repeating العلم makes the central idea more memorable and forceful.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Rhetorical Devices",
-      "learningOutcome": "Analyze how repetition supports meaning in Arabic expression.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which sentence best shows a conditional relationship with consequence?",
-      "options": ["من يجتهد ينجح", "الكتاب على الطاولة", "المدرسة قريبة من البيت", "قرأت الرواية أمس"],
-      "correctAnswer": "من يجتهد ينجح",
-      "explanation": "The sentence means whoever works hard succeeds, linking condition and result.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "General Conditional Structures",
-      "learningOutcome": "Analyze Arabic conditional structures and their logical meanings.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which option best translates Despite the difficulty, the team continued working?",
-      "options": ["رغم الصعوبة، واصل الفريق العمل", "بسبب السهولة، توقف الفريق عن العمل", "قبل الصعوبة، نام الفريق في العمل", "لولا العمل، صعب الفريق"],
-      "correctAnswer": "رغم الصعوبة، واصل الفريق العمل",
-      "explanation": "رغم الصعوبة expresses despite the difficulty, and واصل means continued.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Concessive Expressions",
-      "learningOutcome": "Translate concessive relationships accurately in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Which option best evaluates this claim: كل الشباب لا يحبون القراءة?",
-      "options": ["It overgeneralizes and should be qualified", "It is a precise research conclusion", "It proves that reading has no value", "It is a neutral timetable statement"],
-      "correctAnswer": "It overgeneralizes and should be qualified",
-      "explanation": "The word كل makes a broad claim about all young people, so a careful writer should qualify it.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Evaluating Claims",
-      "learningOutcome": "Evaluate broad claims and bias in Arabic statements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which option best shows intercultural competence when comparing Kenyan and Arab hospitality practices?",
-      "options": ["Describe similarities and differences without ranking one culture as superior", "Claim that one culture has no manners", "Use one family's habit to judge an entire region", "Avoid asking questions and rely on stereotypes"],
-      "correctAnswer": "Describe similarities and differences without ranking one culture as superior",
-      "explanation": "Intercultural competence requires respectful comparison, curiosity, and avoidance of stereotypes.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Cultural Comparison",
-      "learningOutcome": "Compare cultural practices respectfully using evidence and balanced language.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which option best explains the difference between كتاب الطالب and الطالب الكتاب?",
-      "options": ["كتاب الطالب forms an idafa meaning the student's book", "Both phrases mean exactly the same thing", "الطالب الكتاب is the standard idafa form", "كتاب الطالب is a verb phrase"],
-      "correctAnswer": "كتاب الطالب forms an idafa meaning the student's book",
-      "explanation": "كتاب الطالب places the possessed noun first and the possessor second in an idafa structure.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Idafa Analysis",
-      "learningOutcome": "Analyze meaning and word order in Arabic possessive structures.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Which sentence best combines cause and concession?",
-      "options": ["رغم أن المطر كان غزيرا، ذهبنا إلى المدرسة لأن الامتحان مهم", "ذهبنا إلى المدرسة والقلم أزرق", "المطر غزير أو الكتاب جديد", "لأن الامتحان مهم، التفاح حلو"],
-      "correctAnswer": "رغم أن المطر كان غزيرا، ذهبنا إلى المدرسة لأن الامتحان مهم",
-      "explanation": "رغم أن introduces concession, while لأن introduces the reason.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Complex Connectors",
-      "learningOutcome": "Combine Arabic clauses using multiple logical relationships.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Which option best revises this weak Arabic thesis: الإنترنت جيد?",
-      "options": ["يسهم الإنترنت في تحسين التعلم إذا استُخدم بوعي", "الإنترنت شيء موجود في العالم", "الإنترنت طويل جدا", "الإنترنت ليس قلما ولا كتابا"],
-      "correctAnswer": "يسهم الإنترنت في تحسين التعلم إذا استُخدم بوعي",
-      "explanation": "The revised thesis is specific, arguable, and limited to learning and responsible use.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Thesis Statements",
-      "learningOutcome": "Improve Arabic thesis statements for clarity and argument strength.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which option best identifies the likely audience for برجاء إرسال السيرة الذاتية قبل نهاية الأسبوع?",
-      "options": ["Applicants in a formal recruitment context", "Children playing a counting game", "Tourists ordering food in a cafe", "Friends choosing a football team"],
-      "correctAnswer": "Applicants in a formal recruitment context",
-      "explanation": "السيرة الذاتية and برجاء إرسال point to a formal job or application context.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Audience and Purpose",
-      "learningOutcome": "Infer audience and purpose from formal Arabic expressions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which Arabic option is the most accurate for sustainable development?",
-      "options": ["التنمية المستدامة", "الرياضة السريعة", "السياحة العشوائية", "المشكلة اليومية"],
-      "correctAnswer": "التنمية المستدامة",
-      "explanation": "التنمية المستدامة is the standard phrase for sustainable development.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary Development",
-      "subStrandTitle": "Global Issues Vocabulary",
-      "learningOutcome": "Use Arabic academic vocabulary for global and civic issues.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Which option best analyzes the function of حيث in أعيش في مدينة حيث تتوافر المكتبات?",
-      "options": ["It introduces a place-related clause", "It marks direct speech", "It negates the verb", "It gives a command"],
-      "correctAnswer": "It introduces a place-related clause",
-      "explanation": "حيث links the city to a clause describing what is available there.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Adverbial Clauses",
-      "learningOutcome": "Analyze how Arabic clause markers connect ideas.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which response is most suitable after someone says جزاك الله خيرا in a respectful conversation?",
-      "options": ["وإياك", "لا أريد", "كم الساعة؟", "أين السيارة؟"],
-      "correctAnswer": "وإياك",
-      "explanation": "وإياك is a common courteous response meaning and to you as well.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Courtesy Formulae",
-      "learningOutcome": "Respond appropriately to common Arabic courtesy expressions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which option best converts the direct statement قال الطالب: سأشارك في المسابقة into reported speech?",
-      "options": ["قال الطالب إنه سيشارك في المسابقة", "قال الطالب هل سيشارك في المسابقة", "قال الطالب شارك في المسابقة الآن", "قال الطالب لا مسابقة في المشاركة"],
-      "correctAnswer": "قال الطالب إنه سيشارك في المسابقة",
-      "explanation": "إنه سيشارك reports the student's statement while shifting it into indirect speech.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Reported Speech",
-      "learningOutcome": "Transform direct statements into reported speech in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which option best evaluates the translation of only as فقط in أريد الماء فقط?",
-      "options": ["It is accurate because فقط limits the request to water", "It is inaccurate because فقط always means yesterday", "It changes the sentence into a question", "It makes الماء plural"],
-      "correctAnswer": "It is accurate because فقط limits the request to water",
-      "explanation": "فقط restricts the meaning to one item or condition, so the sentence means I want only water.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Translation Accuracy",
-      "learningOutcome": "Evaluate the accuracy of Arabic-English translation choices.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which option best explains why خط عربي is culturally significant?",
-      "options": ["Arabic calligraphy is an important artistic tradition using written forms", "It is a type of modern traffic rule only", "It means a private phone number", "It is unrelated to language or art"],
-      "correctAnswer": "Arabic calligraphy is an important artistic tradition using written forms",
-      "explanation": "Arabic calligraphy connects language, art, and cultural heritage through stylised writing.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Calligraphy and Heritage",
-      "learningOutcome": "Describe cultural significance of Arabic calligraphy respectfully.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which option best completes a coherent paragraph about reading: القراءة توسع المعرفة. كما أنها ___?",
-      "options": ["تنمي القدرة على التفكير النقدي", "تكسر النوافذ في المساء", "تمنع الإنسان من التعلم", "تجعل اللغة بلا كلمات"],
-      "correctAnswer": "تنمي القدرة على التفكير النقدي",
-      "explanation": "The completion continues the same positive academic topic about reading.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Paragraph Coherence",
-      "learningOutcome": "Select sentences that maintain coherence in Arabic paragraphs.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Which option best creates a nuanced Arabic thesis about social media?",
-      "options": ["تؤثر وسائل التواصل في وعي الشباب إيجابا وسلبا بحسب طريقة استخدامها", "وسائل التواصل موجودة في الهواتف", "الشباب يستخدمون أشياء كثيرة", "الهاتف جهاز مستطيل غالبا"],
-      "correctAnswer": "تؤثر وسائل التواصل في وعي الشباب إيجابا وسلبا بحسب طريقة استخدامها",
-      "explanation": "The thesis is nuanced because it recognises both benefits and risks depending on use.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Argument Development",
-      "learningOutcome": "Create nuanced thesis statements for senior-level Arabic essays.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which option best analyzes the difference between ما زال الطالب يقرأ and قرأ الطالب?",
-      "options": ["The first shows continuing action, while the second reports a completed past action", "Both sentences are commands", "The first denies reading, while the second asks a question", "Both sentences refer only to future action"],
-      "correctAnswer": "The first shows continuing action, while the second reports a completed past action",
-      "explanation": "ما زال with a present verb indicates continuity, while قرأ is a completed past verb.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Language Use",
-      "subStrandTitle": "Aspect and Time",
-      "learningOutcome": "Analyze how Arabic structures express continuation and completed action.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which translation best preserves both meaning and formal tone for We appreciate your cooperation?",
-      "options": ["نقدر تعاونكم", "نحب لعبكم", "أنت تتعاون أمس", "تعاونك في الشارع فقط"],
-      "correctAnswer": "نقدر تعاونكم",
-      "explanation": "نقدر تعاونكم is concise, formal, and suitable for official communication.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Formal Translation",
-      "learningOutcome": "Select translations that preserve meaning, tone, and register.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which option best evaluates the sentence من لا يقرأ لا يتطور فكريا?",
-      "options": ["It presents a general claim linking reading with intellectual growth", "It gives exact statistics from a survey", "It asks for directions to a library", "It describes the colour of a book cover"],
-      "correctAnswer": "It presents a general claim linking reading with intellectual growth",
-      "explanation": "The sentence argues that lack of reading limits intellectual development.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Argument Analysis",
-      "learningOutcome": "Analyze claims and implied reasoning in Arabic statements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which option best combines these ideas into one sophisticated Arabic sentence: The school encouraged reading. Students borrowed more books.",
-      "options": ["شجعت المدرسة القراءة، مما أدى إلى استعارة الطلاب مزيدا من الكتب", "المدرسة كتاب والطلاب طاولة", "استعار الطلاب المدرسة لأن القراءة نامت", "لم تشجع المدرسة شيئا ولا كتب الطلاب"],
-      "correctAnswer": "شجعت المدرسة القراءة، مما أدى إلى استعارة الطلاب مزيدا من الكتب",
-      "explanation": "مما أدى إلى links the action with its result in a mature academic sentence.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Complex Sentence Construction",
-      "learningOutcome": "Create complex Arabic sentences that express cause and result.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Which option best explains the role of إنما in إنما الأمم بالأخلاق?",
-      "options": ["It restricts and emphasizes the basis of nations as morals", "It marks an ordinary place question", "It changes the sentence into a command", "It lists the names of countries"],
-      "correctAnswer": "It restricts and emphasizes the basis of nations as morals",
-      "explanation": "إنما is used for restriction and emphasis, giving the statement a strong rhetorical focus.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Advanced Particles",
-      "learningOutcome": "Analyze rhetorical meaning created by advanced Arabic particles.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Which option best demonstrates responsible intercultural research about an Arabic-speaking community?",
-      "options": ["Use reliable sources, compare perspectives, and avoid treating one example as universal", "Copy anonymous claims without checking them", "Assume all communities have identical customs", "Focus only on stereotypes from entertainment media"],
-      "correctAnswer": "Use reliable sources, compare perspectives, and avoid treating one example as universal",
-      "explanation": "Responsible research checks evidence and recognises diversity within Arabic-speaking communities.",
-      "difficulty": 5,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Research Ethics",
-      "learningOutcome": "Evaluate sources and avoid stereotyping in intercultural Arabic projects.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which option best revises the sentence التكنولوجيا مهمة to show clearer academic reasoning?",
-      "options": ["تعد التكنولوجيا مهمة لأنها تسهل الوصول إلى المعرفة وتدعم التعلم الذاتي", "التكنولوجيا مهمة لأنها تكنولوجيا", "التكنولوجيا موجودة في أماكن كثيرة فقط", "التكنولوجيا ليست طعاما ولا شرابا"],
-      "correctAnswer": "تعد التكنولوجيا مهمة لأنها تسهل الوصول إلى المعرفة وتدعم التعلم الذاتي",
-      "explanation": "The revision gives specific reasons, making the claim stronger and more academic.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Translation",
-      "subStrandTitle": "Academic Reasoning",
-      "learningOutcome": "Improve Arabic academic statements by adding clear reasons.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which option best analyzes the cohesion in أولا، نحدد المشكلة. ثانيا، نقترح الحل. أخيرا، نقيم النتائج?",
-      "options": ["Sequence markers organize the steps logically", "Random adjectives create a poem", "Commands remove the topic", "Plural nouns make the paragraph informal"],
-      "correctAnswer": "Sequence markers organize the steps logically",
-      "explanation": "أولا، ثانيا، and أخيرا guide the reader through ordered stages.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Text Interpretation",
-      "subStrandTitle": "Text Cohesion",
-      "learningOutcome": "Analyze how sequence markers create cohesion in Arabic texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which option best creates a respectful closing sentence for a formal Arabic speech?",
-      "options": ["أشكركم على حسن الاستماع، والسلام عليكم ورحمة الله وبركاته", "انتهى كلامي ولا يهمني رأيكم", "اذهبوا الآن بلا سؤال", "لا أعرف لماذا تكلمت اليوم"],
-      "correctAnswer": "أشكركم على حسن الاستماع، والسلام عليكم ورحمة الله وبركاته",
-      "explanation": "The sentence thanks the audience and closes with a respectful Arabic formula.",
-      "difficulty": 5,
-      "strandTitle": "Communication",
-      "subStrandTitle": "Formal Speech",
-      "learningOutcome": "Create suitable openings and closings for formal Arabic speeches.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "arabic",
+ "subjectName": "Arabic",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means library?",
+   "options": [
+    "مكتبة",
+    "مدرسة",
+    "حديقة",
+    "مطار"
+   ],
+   "correctAnswer": "مكتبة",
+   "explanation": "مكتبة means a library, while مدرسة means school and مطار means airport.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Everyday Places",
+   "learningOutcome": "Recognize common Arabic vocabulary for public places.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase is an appropriate morning greeting?",
+   "options": [
+    "صباح الخير",
+    "تصبح على خير",
+    "إلى اللقاء",
+    "مع السلامة"
+   ],
+   "correctAnswer": "صباح الخير",
+   "explanation": "صباح الخير is used to greet someone in the morning.",
+   "difficulty": 1,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Greetings and Polite Expressions",
+   "learningOutcome": "Use common Arabic greetings in suitable social contexts.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which option gives the feminine form of طالب?",
+   "options": [
+    "طالبة",
+    "طلاب",
+    "طالبان",
+    "طالبات"
+   ],
+   "correctAnswer": "طالبة",
+   "explanation": "The feminine singular of طالب is طالبة.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Gender",
+   "learningOutcome": "Identify masculine and feminine forms of familiar nouns.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which Arabic pronoun means we?",
+   "options": [
+    "نحن",
+    "أنا",
+    "هو",
+    "أنت"
+   ],
+   "correctAnswer": "نحن",
+   "explanation": "نحن is the first-person plural pronoun meaning we.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Personal Pronouns",
+   "learningOutcome": "Recognize personal pronouns used in Modern Standard Arabic.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means teacher?",
+   "options": [
+    "معلم",
+    "طبيب",
+    "مهندس",
+    "تاجر"
+   ],
+   "correctAnswer": "معلم",
+   "explanation": "معلم means teacher, while طبيب means doctor and مهندس means engineer.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Occupations",
+   "learningOutcome": "Identify Arabic vocabulary for common occupations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means book?",
+   "options": [
+    "كتاب",
+    "قلم",
+    "باب",
+    "كرسي"
+   ],
+   "correctAnswer": "كتاب",
+   "explanation": "كتاب means book; قلم means pen.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "School Items",
+   "learningOutcome": "Recognize Arabic nouns for classroom items.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which option is the Arabic plural of مدرسة?",
+   "options": [
+    "مدارس",
+    "مدرسان",
+    "مدرستي",
+    "مدرس"
+   ],
+   "correctAnswer": "مدارس",
+   "explanation": "مدارس is the broken plural of مدرسة.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Plural Forms",
+   "learningOutcome": "Recognize common plural forms of familiar Arabic nouns.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means today?",
+   "options": [
+    "اليوم",
+    "غدا",
+    "أمس",
+    "الآن"
+   ],
+   "correctAnswer": "اليوم",
+   "explanation": "اليوم refers to the present day.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Time Expressions",
+   "learningOutcome": "Identify basic Arabic expressions for time.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase is commonly used to say thank you?",
+   "options": [
+    "شكرا",
+    "عفوا",
+    "مرحبا",
+    "آسف"
+   ],
+   "correctAnswer": "شكرا",
+   "explanation": "شكرا is the usual expression for thanking someone.",
+   "difficulty": 1,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Polite Expressions",
+   "learningOutcome": "Use polite Arabic expressions in everyday communication.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which option means because in Arabic?",
+   "options": [
+    "لأن",
+    "لكن",
+    "ثم",
+    "أو"
+   ],
+   "correctAnswer": "لأن",
+   "explanation": "لأن introduces a reason or cause.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Connectors",
+   "learningOutcome": "Recognize basic connectors used to link Arabic ideas.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means newspaper?",
+   "options": [
+    "صحيفة",
+    "رسالة",
+    "قصة",
+    "خريطة"
+   ],
+   "correctAnswer": "صحيفة",
+   "explanation": "صحيفة means newspaper and is often used in media contexts.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Media Vocabulary",
+   "learningOutcome": "Identify Arabic words related to media and information.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which word is an Arabic adjective meaning beautiful?",
+   "options": [
+    "جميل",
+    "طويل",
+    "سريع",
+    "قديم"
+   ],
+   "correctAnswer": "جميل",
+   "explanation": "جميل describes something or someone as beautiful.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Descriptive Adjectives",
+   "learningOutcome": "Recognize common Arabic adjectives used in description.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means language?",
+   "options": [
+    "لغة",
+    "مدينة",
+    "ثقافة",
+    "عادة"
+   ],
+   "correctAnswer": "لغة",
+   "explanation": "لغة means language; ثقافة means culture.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Learning Vocabulary",
+   "learningOutcome": "Recognize Arabic words used when discussing language learning.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which option is the Arabic word for peace?",
+   "options": [
+    "سلام",
+    "طعام",
+    "سفر",
+    "عمل"
+   ],
+   "correctAnswer": "سلام",
+   "explanation": "سلام means peace and also appears in common greetings.",
+   "difficulty": 1,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Shared Expressions",
+   "learningOutcome": "Recognize Arabic words that appear in cultural and social expressions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means environment?",
+   "options": [
+    "بيئة",
+    "رياضة",
+    "رحلة",
+    "صناعة"
+   ],
+   "correctAnswer": "بيئة",
+   "explanation": "بيئة means environment and is used in topics about nature and society.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Academic Vocabulary",
+   "learningOutcome": "Recognize Arabic vocabulary used in academic and social topics.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Choose the sentence that correctly says The student is hardworking.",
+   "options": [
+    "الطالب مجتهد",
+    "الطالب مجتهدة",
+    "الطالبة مجتهد",
+    "الطلاب مجتهد"
+   ],
+   "correctAnswer": "الطالب مجتهد",
+   "explanation": "الطالب is masculine singular, so the adjective should be masculine singular: مجتهد.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Adjective Agreement",
+   "learningOutcome": "Apply gender and number agreement between nouns and adjectives.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence correctly means I visited the museum yesterday?",
+   "options": [
+    "زرت المتحف أمس",
+    "أزور المتحف غدا",
+    "يزور المتحف اليوم",
+    "زرنا المتحف الآن"
+   ],
+   "correctAnswer": "زرت المتحف أمس",
+   "explanation": "زرت is a past-tense first-person verb, and أمس means yesterday.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Past Tense Verbs",
+   "learningOutcome": "Use past-tense verbs with appropriate time expressions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: البنتان ___ إلى المدرسة?",
+   "options": [
+    "تذهبان",
+    "يذهب",
+    "تذهب",
+    "يذهبون"
+   ],
+   "correctAnswer": "تذهبان",
+   "explanation": "البنتان is feminine dual, so the verb form تذهبان matches it.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Dual Agreement",
+   "learningOutcome": "Select verb forms that agree with dual subjects.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which option forms a correct idafa meaning the school principal?",
+   "options": [
+    "مدير المدرسة",
+    "المدير المدرسة",
+    "مدير المدرسةِ الجديدِة",
+    "المدير مدرسة"
+   ],
+   "correctAnswer": "مدير المدرسة",
+   "explanation": "In a simple idafa, the first noun normally has no definite article while the second noun can be definite.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Idafa Construction",
+   "learningOutcome": "Form basic possessive noun phrases using idafa.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which Arabic connector best completes: درست كثيرا ___ نجحت في الامتحان?",
+   "options": [
+    "لذلك",
+    "لكن",
+    "أو",
+    "بينما"
+   ],
+   "correctAnswer": "لذلك",
+   "explanation": "لذلك means therefore and shows the result of studying hard.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Cause and Result Connectors",
+   "learningOutcome": "Use connectors to show cause and result in Arabic sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which option is the best Arabic request for asking permission to enter?",
+   "options": [
+    "هل أستطيع الدخول؟",
+    "أنا دخلت أمس",
+    "لا تدخل الآن",
+    "أين الباب؟"
+   ],
+   "correctAnswer": "هل أستطيع الدخول؟",
+   "explanation": "هل أستطيع الدخول؟ is a polite question asking whether entering is allowed.",
+   "difficulty": 2,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Polite Requests",
+   "learningOutcome": "Make polite requests and ask permission in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence uses the future marker correctly?",
+   "options": [
+    "سأكتب التقرير غدا",
+    "كتبت التقرير غدا",
+    "أكتب التقرير أمس",
+    "سكتبت التقرير الآن"
+   ],
+   "correctAnswer": "سأكتب التقرير غدا",
+   "explanation": "The prefix سـ marks a near future action, and غدا means tomorrow.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Future Tense",
+   "learningOutcome": "Use future markers with present-tense verbs in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which option correctly changes هو يدرس to the plural هم?",
+   "options": [
+    "هم يدرسون",
+    "هم تدرسون",
+    "هم يدرس",
+    "هم أدرس"
+   ],
+   "correctAnswer": "هم يدرسون",
+   "explanation": "With هم, the present-tense verb takes the plural ending ون.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Subject-Verb Agreement",
+   "learningOutcome": "Apply agreement between plural pronouns and present-tense verbs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which Arabic word is closest in meaning to سريع?",
+   "options": [
+    "عاجل",
+    "بطيء",
+    "ضعيف",
+    "بعيد"
+   ],
+   "correctAnswer": "عاجل",
+   "explanation": "سريع means fast, and عاجل can mean urgent or quick depending on context.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Synonyms",
+   "learningOutcome": "Identify synonyms and near-synonyms in Arabic vocabulary.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which Arabic word is the opposite of جديد?",
+   "options": [
+    "قديم",
+    "قريب",
+    "مفيد",
+    "نظيف"
+   ],
+   "correctAnswer": "قديم",
+   "explanation": "جديد means new, while قديم means old.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Antonyms",
+   "learningOutcome": "Use antonyms to expand Arabic vocabulary.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which sentence best translates The weather is very hot today?",
+   "options": [
+    "الجو حار جدا اليوم",
+    "الجو بارد جدا أمس",
+    "الجو جميل غدا",
+    "الجو ممطر كل أسبوع"
+   ],
+   "correctAnswer": "الجو حار جدا اليوم",
+   "explanation": "حار جدا means very hot, and اليوم means today.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Weather Expressions",
+   "learningOutcome": "Use Arabic expressions to describe weather and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which option correctly asks Where is the bus station?",
+   "options": [
+    "أين محطة الحافلات؟",
+    "متى تصل الحافلة؟",
+    "كم سعر التذكرة؟",
+    "من يقود الحافلة؟"
+   ],
+   "correctAnswer": "أين محطة الحافلات؟",
+   "explanation": "أين asks about place, so it fits a question about the location of the bus station.",
+   "difficulty": 2,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Travel Questions",
+   "learningOutcome": "Ask for directions and travel information in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: هذه ___ مفيدة?",
+   "options": [
+    "مقالة",
+    "كتاب",
+    "طلاب",
+    "درس"
+   ],
+   "correctAnswer": "مقالة",
+   "explanation": "هذه is used with feminine singular nouns, and مقالة is feminine singular.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Demonstratives",
+   "learningOutcome": "Match Arabic demonstratives with suitable nouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which sentence shows a simple nominal sentence?",
+   "options": [
+    "الحديقة جميلة",
+    "ذهب الولد إلى الحديقة",
+    "اكتب الدرس الآن",
+    "لن أسافر اليوم"
+   ],
+   "correctAnswer": "الحديقة جميلة",
+   "explanation": "A nominal sentence begins with a noun and does not need an explicit verb to state a description.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Nominal Sentences",
+   "learningOutcome": "Distinguish nominal sentences from verbal sentences in Arabic.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence is best for introducing a personal opinion politely?",
+   "options": [
+    "في رأيي، القراءة مفيدة",
+    "اخرس واسمع كلامي",
+    "لا يهم رأيك أبدا",
+    "أنا فقط أفهم الموضوع"
+   ],
+   "correctAnswer": "في رأيي، القراءة مفيدة",
+   "explanation": "في رأيي means in my opinion and introduces a view respectfully.",
+   "difficulty": 2,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Expressing Opinions",
+   "learningOutcome": "Express opinions politely in classroom discussion.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which option correctly means I agree with you?",
+   "options": [
+    "أنا أتفق معك",
+    "أنا أختلف معك",
+    "أنا أراك غدا",
+    "أنا أبحث عنك"
+   ],
+   "correctAnswer": "أنا أتفق معك",
+   "explanation": "أتفق معك means I agree with you.",
+   "difficulty": 2,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Discussion Language",
+   "learningOutcome": "Use Arabic phrases for agreement and disagreement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which Arabic word best completes: أريد أن ___ رسالة إلكترونية?",
+   "options": [
+    "أكتب",
+    "آكل",
+    "أشرب",
+    "أنام"
+   ],
+   "correctAnswer": "أكتب",
+   "explanation": "A message is written, so أكتب completes the sentence logically.",
+   "difficulty": 2,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Functional Writing",
+   "learningOutcome": "Choose vocabulary suitable for everyday written communication.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which option is the correct Arabic question word for asking why?",
+   "options": [
+    "لماذا",
+    "أين",
+    "متى",
+    "كيف"
+   ],
+   "correctAnswer": "لماذا",
+   "explanation": "لماذا asks for a reason or cause.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Question Words",
+   "learningOutcome": "Use Arabic question words according to communicative purpose.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which option correctly translates The two teachers are present?",
+   "options": [
+    "المعلمان حاضران",
+    "المعلمون حاضرون",
+    "المعلم حاضر",
+    "المعلمتان حاضر"
+   ],
+   "correctAnswer": "المعلمان حاضران",
+   "explanation": "المعلمان is masculine dual, and حاضران agrees with it in number and gender.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Dual Nouns and Adjectives",
+   "learningOutcome": "Apply dual agreement in simple Arabic sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best expresses apology for being late?",
+   "options": [
+    "أعتذر عن التأخير",
+    "أشكرك على الهدية",
+    "أرحب بكم جميعا",
+    "أوافق على الخطة"
+   ],
+   "correctAnswer": "أعتذر عن التأخير",
+   "explanation": "أعتذر عن التأخير is a direct and polite apology for lateness.",
+   "difficulty": 2,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Apologies",
+   "learningOutcome": "Use appropriate Arabic expressions for apologies.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which Arabic word belongs to the same root family as كاتب?",
+   "options": [
+    "مكتوب",
+    "قادم",
+    "سريع",
+    "جالس"
+   ],
+   "correctAnswer": "مكتوب",
+   "explanation": "كاتب and مكتوب share the root ك ت ب, which relates to writing.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Word Families",
+   "learningOutcome": "Identify related Arabic words from a shared root.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: لن ___ عن المشروع?",
+   "options": [
+    "أتأخر",
+    "أتأخرت",
+    "أتأخرون",
+    "يتأخر"
+   ],
+   "correctAnswer": "أتأخر",
+   "explanation": "After لن, the verb remains in the present form with a future negative meaning.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Negative Particles",
+   "learningOutcome": "Use لن to express future negation in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which option is the best Arabic heading for a report about clean water?",
+   "options": [
+    "الماء النظيف حق للجميع",
+    "رحلتي إلى السوق",
+    "وصفة كعكة بسيطة",
+    "ألوان الملابس الجديدة"
+   ],
+   "correctAnswer": "الماء النظيف حق للجميع",
+   "explanation": "This heading directly matches the topic of clean water and social need.",
+   "difficulty": 2,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Main Idea",
+   "learningOutcome": "Choose headings that reflect the main idea of Arabic texts.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which option uses a respectful closing in a formal Arabic email?",
+   "options": [
+    "مع خالص التحية",
+    "أراك في الملعب",
+    "هاتفي لا يعمل",
+    "اشتريت خبزا"
+   ],
+   "correctAnswer": "مع خالص التحية",
+   "explanation": "مع خالص التحية is an appropriate formal closing in correspondence.",
+   "difficulty": 2,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Formal Correspondence",
+   "learningOutcome": "Use suitable openings and closings in formal Arabic messages.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which statement shows intercultural respect when learning Arabic names?",
+   "options": [
+    "Ask politely how a person prefers their name pronounced",
+    "Mock unfamiliar sounds until others laugh",
+    "Replace every name with an English nickname",
+    "Avoid using names from Arabic-speaking cultures"
+   ],
+   "correctAnswer": "Ask politely how a person prefers their name pronounced",
+   "explanation": "Respectful communication includes learning and using names as people prefer.",
+   "difficulty": 2,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Respectful Interaction",
+   "learningOutcome": "Demonstrate respect when communicating across languages and cultures.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly places the adjective after the noun?",
+   "options": [
+    "قرأت قصة ممتعة",
+    "قرأت ممتعة قصة",
+    "ممتعة قرأت قصة",
+    "قصة قرأت ممتعة"
+   ],
+   "correctAnswer": "قرأت قصة ممتعة",
+   "explanation": "In Arabic, attributive adjectives usually follow the nouns they describe.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Word Order",
+   "learningOutcome": "Arrange Arabic nouns and adjectives in standard order.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which option best translates The students discussed the problem calmly?",
+   "options": [
+    "ناقش الطلاب المشكلة بهدوء",
+    "نام الطلاب في المشكلة بهدوء",
+    "كتب الطلاب المشكلة بسرعة",
+    "رفض الطلاب الهدوء في المشكلة"
+   ],
+   "correctAnswer": "ناقش الطلاب المشكلة بهدوء",
+   "explanation": "ناقش means discussed, المشكلة means the problem, and بهدوء means calmly.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Sentence Translation",
+   "learningOutcome": "Translate complete Arabic sentences using accurate vocabulary and adverbs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "In the sentence يقرأ خالد الصحيفة كل صباح, what does كل صباح add?",
+   "options": [
+    "Frequency of the action",
+    "Place of the action",
+    "Object ownership",
+    "Reason for the action"
+   ],
+   "correctAnswer": "Frequency of the action",
+   "explanation": "كل صباح means every morning, so it tells how regularly the action happens.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Sentence Meaning",
+   "learningOutcome": "Interpret time expressions in standalone Arabic sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which option correctly joins the ideas: كان الطريق طويلا. وصلنا في الوقت المناسب?",
+   "options": [
+    "كان الطريق طويلا لكننا وصلنا في الوقت المناسب",
+    "كان الطريق طويلا لأننا وصلنا في الوقت المناسب",
+    "كان الطريق طويلا أو وصلنا في الوقت المناسب",
+    "كان الطريق طويلا ثم لم نصل في الوقت المناسب"
+   ],
+   "correctAnswer": "كان الطريق طويلا لكننا وصلنا في الوقت المناسب",
+   "explanation": "لكن shows contrast between the long road and arriving on time.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Contrast Connectors",
+   "learningOutcome": "Use connectors to combine Arabic clauses logically.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: إن القراءة ___ العقل?",
+   "options": [
+    "تنمي",
+    "ينمي",
+    "نما",
+    "نموا"
+   ],
+   "correctAnswer": "تنمي",
+   "explanation": "القراءة is feminine singular, so the verb تنمي agrees with it.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Verb Agreement",
+   "learningOutcome": "Select verbs that agree with abstract feminine nouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which sentence uses كان to describe a past state correctly?",
+   "options": [
+    "كان الجو باردا في الصباح",
+    "يكون الجو باردا غدا",
+    "كن الجو باردا الآن",
+    "كانت الجو باردا أمس"
+   ],
+   "correctAnswer": "كان الجو باردا في الصباح",
+   "explanation": "كان is used with الجو to describe that the weather was cold in the morning.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "كان and Its Sisters",
+   "learningOutcome": "Use كان to express past states in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which option best identifies the function of أما in أما اللغة العربية فهي غنية بالمفردات?",
+   "options": [
+    "Introducing a topic for emphasis",
+    "Asking a direct question",
+    "Denying a past action",
+    "Marking a command"
+   ],
+   "correctAnswer": "Introducing a topic for emphasis",
+   "explanation": "أما often introduces a topic that the sentence then comments on.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Discourse Markers",
+   "learningOutcome": "Interpret common discourse markers in Arabic sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase best completes a formal invitation: يشرفنا ___ حفل التخرج?",
+   "options": [
+    "دعوتكم إلى",
+    "نسيانكم في",
+    "تأخيركم عن",
+    "خروجكم من"
+   ],
+   "correctAnswer": "دعوتكم إلى",
+   "explanation": "يشرفنا دعوتكم إلى means we are honoured to invite you to a formal event.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Formal Invitations",
+   "learningOutcome": "Use formal Arabic expressions for invitations and announcements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which sentence shows the passive meaning The lesson was explained?",
+   "options": [
+    "شُرِح الدرس",
+    "شرح المعلم الدرس",
+    "يشرح الطالب الدرس",
+    "اشرح الدرس الآن"
+   ],
+   "correctAnswer": "شُرِح الدرس",
+   "explanation": "شُرِح uses a passive form, so the focus is on the lesson being explained.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Passive Voice",
+   "learningOutcome": "Recognize passive verb forms in Arabic sentences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which option best expresses I prefer reading to watching television?",
+   "options": [
+    "أفضل القراءة على مشاهدة التلفاز",
+    "أفضل التلفاز في القراءة",
+    "أقرأ التلفاز قبل المشاهدة",
+    "أشاهد القراءة على التلفاز"
+   ],
+   "correctAnswer": "أفضل القراءة على مشاهدة التلفاز",
+   "explanation": "أفضل ... على is used to express preference for one thing over another.",
+   "difficulty": 3,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Expressing Preferences",
+   "learningOutcome": "Express preferences clearly in spoken and written Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Which word best completes the analogy: طبيب : مستشفى :: معلم : ___?",
+   "options": [
+    "مدرسة",
+    "مطبخ",
+    "مطار",
+    "حديقة"
+   ],
+   "correctAnswer": "مدرسة",
+   "explanation": "A doctor works in a hospital, and a teacher works in a school.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Semantic Relationships",
+   "learningOutcome": "Use relationships between words to infer suitable vocabulary.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which option correctly uses a relative pronoun?",
+   "options": [
+    "هذا هو الكتاب الذي قرأته",
+    "هذا هو الكتاب قرأت الذي",
+    "هذا هو الكتاب الذين قرأته",
+    "هذا هو الذي الكتاب قرأته"
+   ],
+   "correctAnswer": "هذا هو الكتاب الذي قرأته",
+   "explanation": "الذي refers back to the masculine singular noun الكتاب in a clear relative clause.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Relative Clauses",
+   "learningOutcome": "Use relative pronouns to connect Arabic clauses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Which option best summarizes the sentence: يحافظ الطلاب على البيئة بتنظيف المدرسة وزراعة الأشجار?",
+   "options": [
+    "Students protect the environment through cleaning and planting",
+    "Students avoid all school activities",
+    "Students travel to another city",
+    "Students sell trees at school"
+   ],
+   "correctAnswer": "Students protect the environment through cleaning and planting",
+   "explanation": "The sentence connects environmental care with cleaning the school and planting trees.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Summarising",
+   "learningOutcome": "Summarise the meaning of standalone Arabic informational sentences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence correctly uses ليس?",
+   "options": [
+    "ليس الامتحان صعبا",
+    "ليس الامتحان صعب",
+    "ليست الامتحان صعبا",
+    "لا الامتحان صعبا"
+   ],
+   "correctAnswer": "ليس الامتحان صعبا",
+   "explanation": "ليس negates a nominal sentence, and its predicate commonly appears with accusative marking.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Negating Nominal Sentences",
+   "learningOutcome": "Use ليس to negate nominal sentences accurately.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase signals a conclusion in an essay?",
+   "options": [
+    "وفي الختام",
+    "في بداية الطريق",
+    "قبل الإفطار",
+    "تحت الطاولة"
+   ],
+   "correctAnswer": "وفي الختام",
+   "explanation": "وفي الختام means in conclusion and is suitable for ending an essay.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Essay Structure",
+   "learningOutcome": "Use transition phrases to organise Arabic essays.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Which option correctly changes the sentence to feminine plural: الطالب نشيط?",
+   "options": [
+    "الطالبات نشيطات",
+    "الطالبات نشيط",
+    "الطالبة نشيطون",
+    "الطلاب نشيطات"
+   ],
+   "correctAnswer": "الطالبات نشيطات",
+   "explanation": "The feminine plural noun الطالبات takes the feminine plural adjective نشيطات.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Plural Agreement",
+   "learningOutcome": "Transform simple Arabic sentences while maintaining agreement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which option best expresses a courteous disagreement in Arabic?",
+   "options": [
+    "أحترم رأيك، لكنني أختلف معك",
+    "رأيك لا قيمة له",
+    "اسكت لأنني أرفض كلامك",
+    "لا أريد أن أسمع شيئا"
+   ],
+   "correctAnswer": "أحترم رأيك، لكنني أختلف معك",
+   "explanation": "The sentence acknowledges the other view before giving a different opinion.",
+   "difficulty": 3,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Debate Etiquette",
+   "learningOutcome": "Use respectful Arabic language when disagreeing in discussion.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which sentence best uses an Arabic comparative form?",
+   "options": [
+    "العلم أنفع من الجهل",
+    "العلم نافع الجهل",
+    "الجهل من أنفع العلم",
+    "العلم منفعة الجهل"
+   ],
+   "correctAnswer": "العلم أنفع من الجهل",
+   "explanation": "أنفع من means more beneficial than and forms a comparison.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Comparative Forms",
+   "learningOutcome": "Use comparative structures to compare ideas in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which option best explains the register of من فضلك أرسل التقرير قبل الخميس?",
+   "options": [
+    "Polite formal request",
+    "Angry insult",
+    "Casual joke",
+    "Poetic praise"
+   ],
+   "correctAnswer": "Polite formal request",
+   "explanation": "من فضلك and أرسل التقرير make the sentence a polite request suitable for work or school.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Register",
+   "learningOutcome": "Infer tone and register from Arabic expressions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best translates The project was completed on time?",
+   "options": [
+    "اكتمل المشروع في الوقت المحدد",
+    "بدأ المشروع بعد الوقت المحدد",
+    "فشل المشروع في المدرسة",
+    "نسي المشروع الطلاب"
+   ],
+   "correctAnswer": "اكتمل المشروع في الوقت المحدد",
+   "explanation": "اكتمل means was completed, and في الوقت المحدد means on time.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Academic Translation",
+   "learningOutcome": "Translate school and project-related statements accurately.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which option best completes: يجب على المواطن أن ___ القانون?",
+   "options": [
+    "يحترم",
+    "يكسر",
+    "ينسى",
+    "يهمل"
+   ],
+   "correctAnswer": "يحترم",
+   "explanation": "يحترم القانون means respects the law, which fits civic responsibility.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Civic Vocabulary",
+   "learningOutcome": "Use Arabic vocabulary for civic and social responsibility.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses the object pronoun suffix for him?",
+   "options": [
+    "قابلته في المكتبة",
+    "قابلتها في المكتبة",
+    "قابلتنا في المكتبة",
+    "قابلتكما في المكتبة"
+   ],
+   "correctAnswer": "قابلته في المكتبة",
+   "explanation": "The suffix ـه refers to him as the object of the verb.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Attached Pronouns",
+   "learningOutcome": "Use attached pronouns to refer to objects in Arabic sentences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which option best identifies the topic of this sentence: تسهم التكنولوجيا في تحسين التعليم وتسهيل البحث?",
+   "options": [
+    "The role of technology in education",
+    "The history of ancient trade",
+    "The taste of traditional food",
+    "The rules of a sports match"
+   ],
+   "correctAnswer": "The role of technology in education",
+   "explanation": "The sentence says technology contributes to improving education and making research easier.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Topic Identification",
+   "learningOutcome": "Identify the topic of standalone Arabic informational sentences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: إذا درست بانتظام، ___ نتائج جيدة?",
+   "options": [
+    "ستحقق",
+    "حققت أمس",
+    "تنام",
+    "سافرت"
+   ],
+   "correctAnswer": "ستحقق",
+   "explanation": "The condition إذا درست بانتظام points to a likely future result.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Conditional Sentences",
+   "learningOutcome": "Complete Arabic conditional sentences with logical results.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase best supports an argument with evidence?",
+   "options": [
+    "والدليل على ذلك أن",
+    "لا أعرف شيئا عن",
+    "ربما بعد العشاء",
+    "أين وضعت القلم"
+   ],
+   "correctAnswer": "والدليل على ذلك أن",
+   "explanation": "والدليل على ذلك أن introduces evidence for a claim.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Argumentative Writing",
+   "learningOutcome": "Use phrases that introduce evidence in Arabic arguments.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which statement about Modern Standard Arabic is most accurate?",
+   "options": [
+    "It is widely used in formal writing, news, and education",
+    "It is never understood outside one city",
+    "It has no connection to written Arabic",
+    "It is used only for private family jokes"
+   ],
+   "correctAnswer": "It is widely used in formal writing, news, and education",
+   "explanation": "Modern Standard Arabic is a shared formal variety across many Arabic-speaking contexts.",
+   "difficulty": 3,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Language Varieties",
+   "learningOutcome": "Explain the role of Modern Standard Arabic in intercultural communication.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which option best translates We should protect public property?",
+   "options": [
+    "ينبغي أن نحافظ على الممتلكات العامة",
+    "ينبغي أن نكسر الممتلكات العامة",
+    "ينبغي أن نبيع الهواء",
+    "ينبغي أن ننسى الطريق"
+   ],
+   "correctAnswer": "ينبغي أن نحافظ على الممتلكات العامة",
+   "explanation": "نحافظ على means we protect or preserve, and الممتلكات العامة means public property.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Civic Expression",
+   "learningOutcome": "Translate statements about public responsibility into Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which sentence uses إلا to express exception?",
+   "options": [
+    "حضر الطلاب إلا طالبا واحدا",
+    "حضر الطلاب لأن طالبا واحدا",
+    "حضر الطلاب ثم طالبا واحدا",
+    "حضر الطلاب أو طالبا واحدا"
+   ],
+   "correctAnswer": "حضر الطلاب إلا طالبا واحدا",
+   "explanation": "إلا introduces an exception from the group of students who attended.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Exception Structures",
+   "learningOutcome": "Recognize and use exception structures in Arabic.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which option best completes: لا بد من ___ الوقت في المراجعة?",
+   "options": [
+    "تنظيم",
+    "إضاعة",
+    "تكسير",
+    "تأجيل"
+   ],
+   "correctAnswer": "تنظيم",
+   "explanation": "تنظيم الوقت means organising time, which fits revision planning.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Study Skills Vocabulary",
+   "learningOutcome": "Use Arabic vocabulary related to study habits and planning.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best describes a chart without needing to see one?",
+   "options": [
+    "تزداد نسبة القراءة كل عام",
+    "أين وضعت الحقيبة؟",
+    "افتح النافذة من فضلك",
+    "لون القميص أزرق"
+   ],
+   "correctAnswer": "تزداد نسبة القراءة كل عام",
+   "explanation": "The sentence describes a trend, which is useful when reporting data in words.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Describing Trends",
+   "learningOutcome": "Use Arabic expressions to describe trends and changes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which option best explains the implied meaning of لا تؤجل عمل اليوم إلى الغد?",
+   "options": [
+    "Complete duties promptly instead of delaying them",
+    "Sleep all day before beginning work",
+    "Do tomorrow's work before today's work",
+    "Avoid planning because time is not important"
+   ],
+   "correctAnswer": "Complete duties promptly instead of delaying them",
+   "explanation": "The proverb warns against postponing tasks that can be done now.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Proverbs and Implied Meaning",
+   "learningOutcome": "Infer the meaning of common Arabic sayings from context.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which option best revises the sentence for formal academic style: لازم نحافظ على البيئة?",
+   "options": [
+    "ينبغي أن نحافظ على البيئة",
+    "خلي البيئة كما هي",
+    "ما في داعي للبيئة",
+    "البيئة شيء وخلاص"
+   ],
+   "correctAnswer": "ينبغي أن نحافظ على البيئة",
+   "explanation": "ينبغي أن is more formal than لازم in academic Modern Standard Arabic.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Register and Style",
+   "learningOutcome": "Revise informal expressions into formal Arabic style.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Which option best explains why الكتاب المفيد is definite?",
+   "options": [
+    "Both the noun and adjective carry the definite article",
+    "Only the adjective is plural",
+    "The phrase begins with a verb",
+    "The noun is feminine dual"
+   ],
+   "correctAnswer": "Both the noun and adjective carry the definite article",
+   "explanation": "In a definite noun-adjective phrase, both parts commonly take ال.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Definiteness Agreement",
+   "learningOutcome": "Analyze definiteness agreement in Arabic noun-adjective phrases.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Which option best completes a balanced argument: من جهة، توفر التقنية فرصا للتعلم؛ ومن جهة أخرى، ___?",
+   "options": [
+    "قد تسبب التشتت إذا أسيء استخدامها",
+    "تمنع جميع أشكال القراءة",
+    "لا علاقة لها بالتعليم أبدا",
+    "تجعل المعلمين غير موجودين دائما"
+   ],
+   "correctAnswer": "قد تسبب التشتت إذا أسيء استخدامها",
+   "explanation": "A balanced argument gives a reasonable counterpoint without exaggeration.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Balanced Argument",
+   "learningOutcome": "Develop balanced Arabic arguments with nuanced supporting points.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which option best identifies the rhetorical purpose of repetition in العلم نور، العلم قوة?",
+   "options": [
+    "Emphasising the value of knowledge",
+    "Listing places to visit",
+    "Marking a question for information",
+    "Showing exact numerical data"
+   ],
+   "correctAnswer": "Emphasising the value of knowledge",
+   "explanation": "Repeating العلم makes the central idea more memorable and forceful.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Rhetorical Devices",
+   "learningOutcome": "Analyze how repetition supports meaning in Arabic expression.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which sentence best shows a conditional relationship with consequence?",
+   "options": [
+    "من يجتهد ينجح",
+    "الكتاب على الطاولة",
+    "المدرسة قريبة من البيت",
+    "قرأت الرواية أمس"
+   ],
+   "correctAnswer": "من يجتهد ينجح",
+   "explanation": "The sentence means whoever works hard succeeds, linking condition and result.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "General Conditional Structures",
+   "learningOutcome": "Analyze Arabic conditional structures and their logical meanings.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which option best translates Despite the difficulty, the team continued working?",
+   "options": [
+    "رغم الصعوبة، واصل الفريق العمل",
+    "بسبب السهولة، توقف الفريق عن العمل",
+    "قبل الصعوبة، نام الفريق في العمل",
+    "لولا العمل، صعب الفريق"
+   ],
+   "correctAnswer": "رغم الصعوبة، واصل الفريق العمل",
+   "explanation": "رغم الصعوبة expresses despite the difficulty, and واصل means continued.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Concessive Expressions",
+   "learningOutcome": "Translate concessive relationships accurately in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Which option best evaluates this claim: كل الشباب لا يحبون القراءة?",
+   "options": [
+    "It overgeneralizes and should be qualified",
+    "It is a precise research conclusion",
+    "It proves that reading has no value",
+    "It is a neutral timetable statement"
+   ],
+   "correctAnswer": "It overgeneralizes and should be qualified",
+   "explanation": "The word كل makes a broad claim about all young people, so a careful writer should qualify it.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Evaluating Claims",
+   "learningOutcome": "Evaluate broad claims and bias in Arabic statements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which option best shows intercultural competence when comparing Kenyan and Arab hospitality practices?",
+   "options": [
+    "Describe similarities and differences without ranking one culture as superior",
+    "Claim that one culture has no manners",
+    "Use one family's habit to judge an entire region",
+    "Avoid asking questions and rely on stereotypes"
+   ],
+   "correctAnswer": "Describe similarities and differences without ranking one culture as superior",
+   "explanation": "Intercultural competence requires respectful comparison, curiosity, and avoidance of stereotypes.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Cultural Comparison",
+   "learningOutcome": "Compare cultural practices respectfully using evidence and balanced language.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which option best explains the difference between كتاب الطالب and الطالب الكتاب?",
+   "options": [
+    "كتاب الطالب forms an idafa meaning the student's book",
+    "Both phrases mean exactly the same thing",
+    "الطالب الكتاب is the standard idafa form",
+    "كتاب الطالب is a verb phrase"
+   ],
+   "correctAnswer": "كتاب الطالب forms an idafa meaning the student's book",
+   "explanation": "كتاب الطالب places the possessed noun first and the possessor second in an idafa structure.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Idafa Analysis",
+   "learningOutcome": "Analyze meaning and word order in Arabic possessive structures.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Which sentence best combines cause and concession?",
+   "options": [
+    "رغم أن المطر كان غزيرا، ذهبنا إلى المدرسة لأن الامتحان مهم",
+    "ذهبنا إلى المدرسة والقلم أزرق",
+    "المطر غزير أو الكتاب جديد",
+    "لأن الامتحان مهم، التفاح حلو"
+   ],
+   "correctAnswer": "رغم أن المطر كان غزيرا، ذهبنا إلى المدرسة لأن الامتحان مهم",
+   "explanation": "رغم أن introduces concession, while لأن introduces the reason.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Complex Connectors",
+   "learningOutcome": "Combine Arabic clauses using multiple logical relationships.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Which option best revises this weak Arabic thesis: الإنترنت جيد?",
+   "options": [
+    "يسهم الإنترنت في تحسين التعلم إذا استُخدم بوعي",
+    "الإنترنت شيء موجود في العالم",
+    "الإنترنت طويل جدا",
+    "الإنترنت ليس قلما ولا كتابا"
+   ],
+   "correctAnswer": "يسهم الإنترنت في تحسين التعلم إذا استُخدم بوعي",
+   "explanation": "The revised thesis is specific, arguable, and limited to learning and responsible use.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Thesis Statements",
+   "learningOutcome": "Improve Arabic thesis statements for clarity and argument strength.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which option best identifies the likely audience for برجاء إرسال السيرة الذاتية قبل نهاية الأسبوع?",
+   "options": [
+    "Applicants in a formal recruitment context",
+    "Children playing a counting game",
+    "Tourists ordering food in a cafe",
+    "Friends choosing a football team"
+   ],
+   "correctAnswer": "Applicants in a formal recruitment context",
+   "explanation": "السيرة الذاتية and برجاء إرسال point to a formal job or application context.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Audience and Purpose",
+   "learningOutcome": "Infer audience and purpose from formal Arabic expressions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which Arabic option is the most accurate for sustainable development?",
+   "options": [
+    "التنمية المستدامة",
+    "الرياضة السريعة",
+    "السياحة العشوائية",
+    "المشكلة اليومية"
+   ],
+   "correctAnswer": "التنمية المستدامة",
+   "explanation": "التنمية المستدامة is the standard phrase for sustainable development.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary Development",
+   "subStrandTitle": "Global Issues Vocabulary",
+   "learningOutcome": "Use Arabic academic vocabulary for global and civic issues.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Which option best analyzes the function of حيث in أعيش في مدينة حيث تتوافر المكتبات?",
+   "options": [
+    "It introduces a place-related clause",
+    "It marks direct speech",
+    "It negates the verb",
+    "It gives a command"
+   ],
+   "correctAnswer": "It introduces a place-related clause",
+   "explanation": "حيث links the city to a clause describing what is available there.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Adverbial Clauses",
+   "learningOutcome": "Analyze how Arabic clause markers connect ideas.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which response is most suitable after someone says جزاك الله خيرا in a respectful conversation?",
+   "options": [
+    "وإياك",
+    "لا أريد",
+    "كم الساعة؟",
+    "أين السيارة؟"
+   ],
+   "correctAnswer": "وإياك",
+   "explanation": "وإياك is a common courteous response meaning and to you as well.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Courtesy Formulae",
+   "learningOutcome": "Respond appropriately to common Arabic courtesy expressions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which option best converts the direct statement قال الطالب: سأشارك في المسابقة into reported speech?",
+   "options": [
+    "قال الطالب إنه سيشارك في المسابقة",
+    "قال الطالب هل سيشارك في المسابقة",
+    "قال الطالب شارك في المسابقة الآن",
+    "قال الطالب لا مسابقة في المشاركة"
+   ],
+   "correctAnswer": "قال الطالب إنه سيشارك في المسابقة",
+   "explanation": "إنه سيشارك reports the student's statement while shifting it into indirect speech.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Reported Speech",
+   "learningOutcome": "Transform direct statements into reported speech in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which option best evaluates the translation of only as فقط in أريد الماء فقط?",
+   "options": [
+    "It is accurate because فقط limits the request to water",
+    "It is inaccurate because فقط always means yesterday",
+    "It changes the sentence into a question",
+    "It makes الماء plural"
+   ],
+   "correctAnswer": "It is accurate because فقط limits the request to water",
+   "explanation": "فقط restricts the meaning to one item or condition, so the sentence means I want only water.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Translation Accuracy",
+   "learningOutcome": "Evaluate the accuracy of Arabic-English translation choices.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which option best explains why خط عربي is culturally significant?",
+   "options": [
+    "Arabic calligraphy is an important artistic tradition using written forms",
+    "It is a type of modern traffic rule only",
+    "It means a private phone number",
+    "It is unrelated to language or art"
+   ],
+   "correctAnswer": "Arabic calligraphy is an important artistic tradition using written forms",
+   "explanation": "Arabic calligraphy connects language, art, and cultural heritage through stylised writing.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Calligraphy and Heritage",
+   "learningOutcome": "Describe cultural significance of Arabic calligraphy respectfully.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which option best completes a coherent paragraph about reading: القراءة توسع المعرفة. كما أنها ___?",
+   "options": [
+    "تنمي القدرة على التفكير النقدي",
+    "تكسر النوافذ في المساء",
+    "تمنع الإنسان من التعلم",
+    "تجعل اللغة بلا كلمات"
+   ],
+   "correctAnswer": "تنمي القدرة على التفكير النقدي",
+   "explanation": "The completion continues the same positive academic topic about reading.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Paragraph Coherence",
+   "learningOutcome": "Select sentences that maintain coherence in Arabic paragraphs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Which option best creates a nuanced Arabic thesis about social media?",
+   "options": [
+    "تؤثر وسائل التواصل في وعي الشباب إيجابا وسلبا بحسب طريقة استخدامها",
+    "وسائل التواصل موجودة في الهواتف",
+    "الشباب يستخدمون أشياء كثيرة",
+    "الهاتف جهاز مستطيل غالبا"
+   ],
+   "correctAnswer": "تؤثر وسائل التواصل في وعي الشباب إيجابا وسلبا بحسب طريقة استخدامها",
+   "explanation": "The thesis is nuanced because it recognises both benefits and risks depending on use.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Argument Development",
+   "learningOutcome": "Create nuanced thesis statements for senior-level Arabic essays.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which option best analyzes the difference between ما زال الطالب يقرأ and قرأ الطالب?",
+   "options": [
+    "The first shows continuing action, while the second reports a completed past action",
+    "Both sentences are commands",
+    "The first denies reading, while the second asks a question",
+    "Both sentences refer only to future action"
+   ],
+   "correctAnswer": "The first shows continuing action, while the second reports a completed past action",
+   "explanation": "ما زال with a present verb indicates continuity, while قرأ is a completed past verb.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Language Use",
+   "subStrandTitle": "Aspect and Time",
+   "learningOutcome": "Analyze how Arabic structures express continuation and completed action.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which translation best preserves both meaning and formal tone for We appreciate your cooperation?",
+   "options": [
+    "نقدر تعاونكم",
+    "نحب لعبكم",
+    "أنت تتعاون أمس",
+    "تعاونك في الشارع فقط"
+   ],
+   "correctAnswer": "نقدر تعاونكم",
+   "explanation": "نقدر تعاونكم is concise, formal, and suitable for official communication.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Formal Translation",
+   "learningOutcome": "Select translations that preserve meaning, tone, and register.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which option best evaluates the sentence من لا يقرأ لا يتطور فكريا?",
+   "options": [
+    "It presents a general claim linking reading with intellectual growth",
+    "It gives exact statistics from a survey",
+    "It asks for directions to a library",
+    "It describes the colour of a book cover"
+   ],
+   "correctAnswer": "It presents a general claim linking reading with intellectual growth",
+   "explanation": "The sentence argues that lack of reading limits intellectual development.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Argument Analysis",
+   "learningOutcome": "Analyze claims and implied reasoning in Arabic statements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which option best combines these ideas into one sophisticated Arabic sentence: The school encouraged reading. Students borrowed more books.",
+   "options": [
+    "شجعت المدرسة القراءة، مما أدى إلى استعارة الطلاب مزيدا من الكتب",
+    "المدرسة كتاب والطلاب طاولة",
+    "استعار الطلاب المدرسة لأن القراءة نامت",
+    "لم تشجع المدرسة شيئا ولا كتب الطلاب"
+   ],
+   "correctAnswer": "شجعت المدرسة القراءة، مما أدى إلى استعارة الطلاب مزيدا من الكتب",
+   "explanation": "مما أدى إلى links the action with its result in a mature academic sentence.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Complex Sentence Construction",
+   "learningOutcome": "Create complex Arabic sentences that express cause and result.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which option best explains the role of إنما in إنما الأمم بالأخلاق?",
+   "options": [
+    "It restricts and emphasizes the basis of nations as morals",
+    "It marks an ordinary place question",
+    "It changes the sentence into a command",
+    "It lists the names of countries"
+   ],
+   "correctAnswer": "It restricts and emphasizes the basis of nations as morals",
+   "explanation": "إنما is used for restriction and emphasis, giving the statement a strong rhetorical focus.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Advanced Particles",
+   "learningOutcome": "Analyze rhetorical meaning created by advanced Arabic particles.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Which option best demonstrates responsible intercultural research about an Arabic-speaking community?",
+   "options": [
+    "Use reliable sources, compare perspectives, and avoid treating one example as universal",
+    "Copy anonymous claims without checking them",
+    "Assume all communities have identical customs",
+    "Focus only on stereotypes from entertainment media"
+   ],
+   "correctAnswer": "Use reliable sources, compare perspectives, and avoid treating one example as universal",
+   "explanation": "Responsible research checks evidence and recognises diversity within Arabic-speaking communities.",
+   "difficulty": 5,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Research Ethics",
+   "learningOutcome": "Evaluate sources and avoid stereotyping in intercultural Arabic projects.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which option best revises the sentence التكنولوجيا مهمة to show clearer academic reasoning?",
+   "options": [
+    "تعد التكنولوجيا مهمة لأنها تسهل الوصول إلى المعرفة وتدعم التعلم الذاتي",
+    "التكنولوجيا مهمة لأنها تكنولوجيا",
+    "التكنولوجيا موجودة في أماكن كثيرة فقط",
+    "التكنولوجيا ليست طعاما ولا شرابا"
+   ],
+   "correctAnswer": "تعد التكنولوجيا مهمة لأنها تسهل الوصول إلى المعرفة وتدعم التعلم الذاتي",
+   "explanation": "The revision gives specific reasons, making the claim stronger and more academic.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Translation",
+   "subStrandTitle": "Academic Reasoning",
+   "learningOutcome": "Improve Arabic academic statements by adding clear reasons.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which option best analyzes the cohesion in أولا، نحدد المشكلة. ثانيا، نقترح الحل. أخيرا، نقيم النتائج?",
+   "options": [
+    "Sequence markers organize the steps logically",
+    "Random adjectives create a poem",
+    "Commands remove the topic",
+    "Plural nouns make the paragraph informal"
+   ],
+   "correctAnswer": "Sequence markers organize the steps logically",
+   "explanation": "أولا، ثانيا، and أخيرا guide the reader through ordered stages.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Text Interpretation",
+   "subStrandTitle": "Text Cohesion",
+   "learningOutcome": "Analyze how sequence markers create cohesion in Arabic texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which option best creates a respectful closing sentence for a formal Arabic speech?",
+   "options": [
+    "أشكركم على حسن الاستماع، والسلام عليكم ورحمة الله وبركاته",
+    "انتهى كلامي ولا يهمني رأيكم",
+    "اذهبوا الآن بلا سؤال",
+    "لا أعرف لماذا تكلمت اليوم"
+   ],
+   "correctAnswer": "أشكركم على حسن الاستماع، والسلام عليكم ورحمة الله وبركاته",
+   "explanation": "The sentence thanks the audience and closes with a respectful Arabic formula.",
+   "difficulty": 5,
+   "strandTitle": "Communication",
+   "subStrandTitle": "Formal Speech",
+   "learningOutcome": "Create suitable openings and closings for formal Arabic speeches.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

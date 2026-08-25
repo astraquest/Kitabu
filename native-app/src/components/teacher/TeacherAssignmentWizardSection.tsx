@@ -18,6 +18,7 @@ function dueDatePreview(days: number) {
 }
 
 import { Assignment } from '../../types/app';
+import type { TeacherClassOption } from '../../services/teacherService';
 import { TeacherInlineSelect } from './TeacherInlineSelect';
 import { TeacherSpinner } from './TeacherSpinner';
 
@@ -37,6 +38,9 @@ interface TeacherAssignmentWizardSectionProps {
   wizardSubjectOpen: boolean;
   wizardStrandOpen: boolean;
   wizardSubStrandOpen: boolean;
+  wizardClassOpen: boolean;
+  classId: string | null;
+  classOptions: TeacherClassOption[];
   draft: {
     title: string;
     description: string;
@@ -56,6 +60,8 @@ interface TeacherAssignmentWizardSectionProps {
   onToggleSubjectOpen: () => void;
   onToggleStrandOpen: () => void;
   onToggleSubStrandOpen: () => void;
+  onToggleClassOpen: () => void;
+  onSetClassId: (value: string | null) => void;
   onGenerate: () => void;
   onUpdateDraftTitle: (value: string) => void;
   onUpdateDraftDescription: (value: string) => void;
@@ -82,6 +88,9 @@ export function TeacherAssignmentWizardSection({
   wizardSubjectOpen,
   wizardStrandOpen,
   wizardSubStrandOpen,
+  wizardClassOpen,
+  classId,
+  classOptions,
   draft,
   dueInDays,
   subjectStrands,
@@ -97,6 +106,8 @@ export function TeacherAssignmentWizardSection({
   onToggleSubjectOpen,
   onToggleStrandOpen,
   onToggleSubStrandOpen,
+  onToggleClassOpen,
+  onSetClassId,
   onGenerate,
   onUpdateDraftTitle,
   onUpdateDraftDescription,
@@ -106,6 +117,13 @@ export function TeacherAssignmentWizardSection({
   onUpdateCorrectAnswer,
   onPublish,
 }: TeacherAssignmentWizardSectionProps) {
+  const allLearnersLabel = `All learners in ${grade}`;
+  const classOptionLabels = classOptions.map(option => ({
+    option,
+    label: `${option.name} (${option.gradeLevel})`,
+  }));
+  const selectedClass = classOptions.find(option => option.id === classId);
+
   return (
     <View style={styles.wizardRoot}>
       <View style={styles.modalGrabber} />
@@ -164,6 +182,22 @@ export function TeacherAssignmentWizardSection({
                   />
                 </View>
               </View>
+
+              <TeacherInlineSelect
+                styles={styles}
+                label="Learners"
+                value={selectedClass ? `${selectedClass.name} (${selectedClass.gradeLevel})` : allLearnersLabel}
+                open={wizardClassOpen}
+                options={[allLearnersLabel, ...classOptionLabels.map(item => item.label)]}
+                onToggle={onToggleClassOpen}
+                onSelect={value => {
+                  if (value === allLearnersLabel) {
+                    onSetClassId(null);
+                    return;
+                  }
+                  onSetClassId(classOptionLabels.find(item => item.label === value)?.option.id ?? null);
+                }}
+              />
 
               <TeacherInlineSelect
                 styles={styles}
@@ -271,7 +305,7 @@ export function TeacherAssignmentWizardSection({
 
             {draft?.questions.map((question, index) => (
               <View key={question.id} style={styles.questionCard}>
-                <Text style={styles.typeBadge}>{question.type}</Text>
+                <Text style={styles.typeBadge}>{question.source === 'ai' ? 'AI candidate - review' : 'QuizBank'}</Text>
 
                 <View style={styles.questionHeaderBlock}>
                   <Text style={styles.questionHeaderLabel}>{`Question ${index + 1}`}</Text>
@@ -329,7 +363,7 @@ export function TeacherAssignmentWizardSection({
                 <Text style={styles.primaryText}>Publishing...</Text>
               </>
             ) : (
-              <Text style={styles.primaryText}>Publish to Students</Text>
+              <Text style={styles.primaryText}>Approve & Publish to Students</Text>
             )}
           </Pressable>
         </View>

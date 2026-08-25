@@ -1,109 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 10",
-  "subjectId": "performing_arts",
-  "subjectName": "Performing Arts",
-  "questions": [
-    {"questionNumber":1,"type":"MCQ","prompt":"Which learning area is most directly concerned with acting, directing, staging, and screen performance?","options":["Performing Arts","Metalwork","Home Science","Geography"],"correctAnswer":"Performing Arts","explanation":"Performing Arts studies live and recorded performance forms such as theatre, spoken word, dance, and film practice.","difficulty":1,"strandTitle":"Foundations of Performing Arts","subStrandTitle":"Meaning and Scope of Performing Arts","learningOutcome":"Identify the scope of Performing Arts in senior school.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":2,"type":"MCQ","prompt":"Which person interprets a script and guides actors, movement, pacing, and stage meaning?","options":["Director","Ticket clerk","Audience member","Printer"],"correctAnswer":"Director","explanation":"A director shapes the production by guiding performance choices and coordinating the artistic interpretation of the script.","difficulty":1,"strandTitle":"Foundations of Performing Arts","subStrandTitle":"Production Roles","learningOutcome":"Identify key roles in a theatre or film production team.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":3,"type":"MCQ","prompt":"What is a script in theatre and film?","options":["A written plan of dialogue, action, and performance directions","A list of school furniture only","A camera battery label","A costume storage box"],"correctAnswer":"A written plan of dialogue, action, and performance directions","explanation":"A script records what performers say and do, giving a production a clear structure before rehearsal or filming.","difficulty":1,"strandTitle":"Creating Performance","subStrandTitle":"Script and Screenplay Basics","learningOutcome":"Define a script as a foundation for performance creation.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":4,"type":"MCQ","prompt":"Which term refers to the people watching a live performance?","options":["Audience","Cast list","Props table","Editing suite"],"correctAnswer":"Audience","explanation":"The audience receives and responds to the performance, helping complete the communication process in theatre.","difficulty":1,"strandTitle":"Foundations of Performing Arts","subStrandTitle":"Audience and Performance Context","learningOutcome":"Identify the role of the audience in performance.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":5,"type":"MCQ","prompt":"Which item is an example of a prop in a school play?","options":["A letter carried by a character","The whole audience","The school timetable","The director's idea only"],"correctAnswer":"A letter carried by a character","explanation":"A prop is an object handled or used by performers to support action and meaning on stage or screen.","difficulty":1,"strandTitle":"Theatre Production","subStrandTitle":"Props and Set Elements","learningOutcome":"Identify props used in performance.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":6,"type":"MCQ","prompt":"What is dialogue in a play or film?","options":["Words spoken by characters","Seats arranged for guests","The colour of curtains","A list of camera prices"],"correctAnswer":"Words spoken by characters","explanation":"Dialogue is the spoken exchange between characters and is used to reveal action, relationships, and conflict.","difficulty":1,"strandTitle":"Creating Performance","subStrandTitle":"Dialogue Writing","learningOutcome":"Identify dialogue as a basic element of dramatic writing.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":7,"type":"MCQ","prompt":"Which term means a performer's planned position and movement on stage?","options":["Blocking","Budgeting","Cropping","Printing"],"correctAnswer":"Blocking","explanation":"Blocking organises where performers stand, enter, exit, and move so that the action is clear to the audience.","difficulty":1,"strandTitle":"Performance Skills","subStrandTitle":"Stage Movement and Blocking","learningOutcome":"Define blocking in stage performance.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":8,"type":"MCQ","prompt":"Which person usually performs a role in front of the camera or audience?","options":["Actor","Accountant only","Lighting cable","Poster frame"],"correctAnswer":"Actor","explanation":"An actor uses voice, body, imagination, and interaction to portray a character in a performance.","difficulty":1,"strandTitle":"Foundations of Performing Arts","subStrandTitle":"Performance Roles","learningOutcome":"Identify the performer role in theatre and film.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":9,"type":"MCQ","prompt":"Which film shot shows a person or object from very near to highlight detail or emotion?","options":["Close-up shot","Wide establishing shot","Aerial map","Blank frame"],"correctAnswer":"Close-up shot","explanation":"A close-up directs attention to facial expression, a hand movement, or an important object.","difficulty":1,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Shot Types","learningOutcome":"Recognise basic camera shot types used in film.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":10,"type":"MCQ","prompt":"What is rehearsal in Performing Arts?","options":["Practising a performance before presentation","Selling tickets after the show","Painting a wall with no plan","Deleting the script"],"correctAnswer":"Practising a performance before presentation","explanation":"Rehearsal allows performers and production teams to refine timing, movement, voice, and interpretation before presentation.","difficulty":1,"strandTitle":"Performance Skills","subStrandTitle":"Rehearsal Process","learningOutcome":"State the purpose of rehearsal in performance preparation.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":11,"type":"MCQ","prompt":"Which theatre space has audience members mainly facing the stage from one side?","options":["Proscenium stage","Editing room","Costume rack","Storage cabinet"],"correctAnswer":"Proscenium stage","explanation":"A proscenium arrangement separates stage and audience with the audience viewing mainly from the front.","difficulty":1,"strandTitle":"Theatre Production","subStrandTitle":"Stage Spaces","learningOutcome":"Identify common theatre performance spaces.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":12,"type":"MCQ","prompt":"Which document shows planned camera shots before filming begins?","options":["Storyboard","Attendance register","Receipt book","Wardrobe label"],"correctAnswer":"Storyboard","explanation":"A storyboard arranges key shots in sequence so the film team can plan framing, action, and transitions.","difficulty":1,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Storyboarding","learningOutcome":"Identify a storyboard as a planning tool for film.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":13,"type":"MCQ","prompt":"What is characterisation in drama?","options":["Creating and presenting a believable character","Counting the number of chairs","Printing a programme cover only","Turning off all lights"],"correctAnswer":"Creating and presenting a believable character","explanation":"Characterisation combines voice, movement, dialogue, costume, motivation, and relationships to build a role.","difficulty":1,"strandTitle":"Creating Performance","subStrandTitle":"Characterisation","learningOutcome":"Define characterisation in dramatic performance.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":14,"type":"MCQ","prompt":"Which term refers to the problem or struggle that drives dramatic action?","options":["Conflict","Curtain size","Lens cap","Ticket price"],"correctAnswer":"Conflict","explanation":"Conflict creates tension and motivates characters to make choices that move the story forward.","difficulty":1,"strandTitle":"Creating Performance","subStrandTitle":"Plot and Conflict","learningOutcome":"Identify conflict as an element of dramatic structure.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":15,"type":"MCQ","prompt":"Which performance form uses rhythm, gesture, voice, and poetic language to present ideas before an audience?","options":["Spoken word poetry","Ledger balancing","Soil testing","Circuit drawing"],"correctAnswer":"Spoken word poetry","explanation":"Spoken word poetry is designed for oral performance and often uses voice, rhythm, gesture, and imagery.","difficulty":1,"strandTitle":"Creating Performance","subStrandTitle":"Spoken Word Poetry","learningOutcome":"Recognise spoken word as a performance form.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":16,"type":"MCQ","prompt":"Why is voice projection important in live theatre?","options":["It helps the audience hear words clearly without strain","It replaces the need for character motivation","It makes costumes unnecessary","It prevents actors from moving"],"correctAnswer":"It helps the audience hear words clearly without strain","explanation":"Projection supports clear communication by carrying the voice to the audience while protecting the performer's throat.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Voice and Speech","learningOutcome":"Explain the importance of voice projection in live performance.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":17,"type":"MCQ","prompt":"Why should a performer warm up before rehearsal or presentation?","options":["To prepare the voice and body for safe expressive work","To avoid reading the script","To make the audience leave early","To remove all stage directions"],"correctAnswer":"To prepare the voice and body for safe expressive work","explanation":"Warm-ups reduce strain, focus attention, and prepare breathing, articulation, and movement for performance.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Preparation and Warm-up","learningOutcome":"Explain safe preparation practices for performers.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":18,"type":"MCQ","prompt":"Why is a play's setting important to performers and designers?","options":["It gives time, place, and social context for performance choices","It deletes the need for actors","It guarantees a larger audience","It replaces dialogue with silence"],"correctAnswer":"It gives time, place, and social context for performance choices","explanation":"Setting guides costume, language, set design, movement, and the mood of the scene.","difficulty":2,"strandTitle":"Creating Performance","subStrandTitle":"Setting and Context","learningOutcome":"Explain how setting influences performance creation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":19,"type":"MCQ","prompt":"How does costume help an audience understand a character?","options":["It suggests status, culture, occupation, period, or personality","It removes all need for acting choices","It makes every character identical","It controls camera memory"],"correctAnswer":"It suggests status, culture, occupation, period, or personality","explanation":"Costume communicates visual clues that support character, setting, and dramatic meaning.","difficulty":2,"strandTitle":"Theatre Production","subStrandTitle":"Costume and Makeup","learningOutcome":"Explain how costume contributes to character and meaning.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":20,"type":"MCQ","prompt":"Why is improvisation useful during early performance creation?","options":["It helps performers explore ideas, characters, and action before fixing a script","It replaces all rehearsal discipline","It makes planning impossible","It removes audience response"],"correctAnswer":"It helps performers explore ideas, characters, and action before fixing a script","explanation":"Improvisation encourages creativity and discovery, giving material that can later be shaped into a structured performance.","difficulty":2,"strandTitle":"Creating Performance","subStrandTitle":"Improvisation","learningOutcome":"Explain the role of improvisation in developing performance material.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":21,"type":"MCQ","prompt":"Why does a film team use an establishing shot near the start of a scene?","options":["To show the location and context before closer action","To hide all characters permanently","To replace the script with a poster","To record sound without pictures"],"correctAnswer":"To show the location and context before closer action","explanation":"An establishing shot helps viewers understand where the scene takes place and how characters relate to the space.","difficulty":2,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Shot Types and Meaning","learningOutcome":"Explain the purpose of establishing shots in film scenes.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":22,"type":"MCQ","prompt":"What does pace control in a spoken word performance?","options":["The speed and rhythm with which ideas are delivered","The price of the microphone","The size of the stage curtain","The number of printed tickets"],"correctAnswer":"The speed and rhythm with which ideas are delivered","explanation":"Pace affects emphasis, suspense, clarity, and emotional impact during oral performance.","difficulty":2,"strandTitle":"Creating Performance","subStrandTitle":"Spoken Word Delivery","learningOutcome":"Describe how pace affects spoken word performance.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":23,"type":"MCQ","prompt":"Why should a stage manager keep a prompt copy of the script?","options":["To track cues, entrances, exits, and technical notes during production","To replace the director in every artistic decision","To hide the play from actors","To record exam marks"],"correctAnswer":"To track cues, entrances, exits, and technical notes during production","explanation":"A prompt copy helps coordinate the performance so performers and technical teams work in sequence.","difficulty":2,"strandTitle":"Theatre Production","subStrandTitle":"Stage Management","learningOutcome":"Explain documentation used in managing a theatre production.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":24,"type":"MCQ","prompt":"Which statement best explains theme in a play or film?","options":["The central idea or issue explored through the story","The height of the stage only","The camera brand used by the crew","The number of seats in the hall"],"correctAnswer":"The central idea or issue explored through the story","explanation":"Theme is the deeper idea, concern, or message developed through plot, character, conflict, and images.","difficulty":2,"strandTitle":"Creating Performance","subStrandTitle":"Theme and Message","learningOutcome":"Explain theme as a dramatic element.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":25,"type":"MCQ","prompt":"Why is continuity important when filming a scene in several shots?","options":["It keeps action, costume, props, and screen direction consistent","It forces all shots to be identical wide shots","It removes the need for editing","It prevents actors from learning lines"],"correctAnswer":"It keeps action, costume, props, and screen direction consistent","explanation":"Continuity helps viewers believe the scene is unfolding smoothly even when shots are recorded separately.","difficulty":2,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Continuity","learningOutcome":"Explain the purpose of continuity in film production.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":26,"type":"MCQ","prompt":"How does lighting support a stage scene?","options":["It controls visibility, mood, focus, and time of day","It writes dialogue for the actors","It replaces rehearsal notes","It prints the programme"],"correctAnswer":"It controls visibility, mood, focus, and time of day","explanation":"Lighting is both practical and expressive because it helps the audience see and interpret the action.","difficulty":2,"strandTitle":"Theatre Production","subStrandTitle":"Lighting Design","learningOutcome":"Explain functions of lighting in stage performance.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":27,"type":"MCQ","prompt":"Why should performers respect cultural sources when adapting a Kenyan oral narrative?","options":["To preserve meaning and avoid misrepresentation of community heritage","To make the story impossible to perform","To remove all local language references","To copy without understanding"],"correctAnswer":"To preserve meaning and avoid misrepresentation of community heritage","explanation":"Respectful adaptation recognises the value of cultural knowledge while shaping it responsibly for a new audience.","difficulty":2,"strandTitle":"Creating Performance","subStrandTitle":"Traditional Kenyan Theatre and Oral Narratives","learningOutcome":"Explain ethical use of cultural material in performance creation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":28,"type":"MCQ","prompt":"What is the purpose of feedback after a rehearsal run-through?","options":["To identify strengths and areas to improve before presentation","To embarrass performers instead of helping them grow","To cancel all creative decisions automatically","To replace the audience with a checklist"],"correctAnswer":"To identify strengths and areas to improve before presentation","explanation":"Constructive feedback helps the group refine performance choices, timing, clarity, and teamwork.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Rehearsal Evaluation","learningOutcome":"Explain the value of constructive feedback during rehearsal.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":29,"type":"MCQ","prompt":"Why is teamwork essential in theatre and film production?","options":["Many creative and technical roles must coordinate to present one performance","Only one person can do every task at once","It removes all personal responsibility","It makes planning unnecessary"],"correctAnswer":"Many creative and technical roles must coordinate to present one performance","explanation":"Performers, designers, technicians, managers, and directors depend on one another for a coherent production.","difficulty":2,"strandTitle":"Foundations of Performing Arts","subStrandTitle":"Collaboration and Production Culture","learningOutcome":"Explain collaboration as a core value in Performing Arts.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":30,"type":"MCQ","prompt":"How does a low camera angle often affect the viewer's impression of a character?","options":["It can make the character appear powerful or dominant","It always makes the character invisible","It removes facial expression","It turns the shot into a written script"],"correctAnswer":"It can make the character appear powerful or dominant","explanation":"Camera angle influences meaning; looking up at a character can suggest power, confidence, or threat.","difficulty":2,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Camera Angles","learningOutcome":"Explain how camera angle can shape character meaning.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":31,"type":"MCQ","prompt":"Why should a performer listen carefully to other actors on stage?","options":["To respond truthfully and maintain believable interaction","To wait for the audience to write the script","To ignore cues deliberately","To avoid character relationships"],"correctAnswer":"To respond truthfully and maintain believable interaction","explanation":"Active listening helps actors react in time, keep the scene alive, and support ensemble performance.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Ensemble Acting","learningOutcome":"Explain active listening as a performance skill.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":32,"type":"MCQ","prompt":"Which statement best explains mise-en-scene in film?","options":["The arrangement of setting, costume, lighting, props, and performers in a shot","The price of cinema tickets","The microphone volume only","The number of files on a computer"],"correctAnswer":"The arrangement of setting, costume, lighting, props, and performers in a shot","explanation":"Mise-en-scene describes the visible elements placed before the camera to create meaning.","difficulty":2,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Visual Composition","learningOutcome":"Describe mise-en-scene as part of screen meaning.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":33,"type":"MCQ","prompt":"Why should a performance review include evidence from the production?","options":["It supports judgement with specific examples from acting, design, or direction","It makes the review longer without meaning","It allows the reviewer to avoid watching","It turns the review into a ticket"],"correctAnswer":"It supports judgement with specific examples from acting, design, or direction","explanation":"Evidence makes a review fair and useful because claims are linked to observable performance choices.","difficulty":2,"strandTitle":"Responding and Appreciation","subStrandTitle":"Performance Critique","learningOutcome":"Explain the importance of evidence in performance critique.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":34,"type":"MCQ","prompt":"Why are entrances and exits planned during blocking?","options":["They organise how characters join and leave action clearly","They prevent characters from speaking","They replace the plot","They make the stage unsafe"],"correctAnswer":"They organise how characters join and leave action clearly","explanation":"Clear entrances and exits support story flow, spacing, cue timing, and audience understanding.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Stage Movement and Blocking","learningOutcome":"Explain why stage movement needs planning.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":35,"type":"MCQ","prompt":"What does editing mainly do in a film production?","options":["Selects and arranges recorded shots into a coherent sequence","Builds the school hall stage","Acts every role in the film","Designs all costumes before writing"],"correctAnswer":"Selects and arranges recorded shots into a coherent sequence","explanation":"Editing shapes rhythm, continuity, meaning, and story by organising shots and sound after recording.","difficulty":2,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Editing Basics","learningOutcome":"Describe the role of editing in film storytelling.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":36,"type":"MCQ","prompt":"Why is articulation important in speech performance?","options":["It makes words distinct and easier for listeners to understand","It changes a stage into a cinema","It hides the theme","It removes all emotional expression"],"correctAnswer":"It makes words distinct and easier for listeners to understand","explanation":"Clear articulation helps audiences follow meaning, especially in large spaces or fast-paced scenes.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Voice and Speech","learningOutcome":"Explain articulation as a speech performance skill.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":37,"type":"MCQ","prompt":"How can sound effects support a scene set during heavy rain?","options":["They help create atmosphere and make the setting believable","They prove the actors know all lines","They replace character motivation","They remove the need for audience focus"],"correctAnswer":"They help create atmosphere and make the setting believable","explanation":"Sound effects can suggest weather, place, time, and offstage action when used appropriately.","difficulty":2,"strandTitle":"Theatre Production","subStrandTitle":"Sound Design","learningOutcome":"Explain how sound supports dramatic atmosphere.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":38,"type":"MCQ","prompt":"Why should a production team prepare a realistic budget?","options":["To plan resources, control costs, and avoid waste","To make rehearsals impossible","To replace creative choices with random spending","To hide expenses from the team"],"correctAnswer":"To plan resources, control costs, and avoid waste","explanation":"Budgeting helps a production use available money responsibly for costumes, props, publicity, transport, and technical needs.","difficulty":2,"strandTitle":"Performing Arts Enterprise","subStrandTitle":"Production Planning and Budgeting","learningOutcome":"Explain why budgeting matters in performance production.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":39,"type":"MCQ","prompt":"Why is copyright important when using a published play or recorded music in a performance?","options":["It protects creators' rights and guides lawful use of their work","It allows anyone to claim ownership of another person's work","It prevents original writing by learners","It removes the need to credit sources"],"correctAnswer":"It protects creators' rights and guides lawful use of their work","explanation":"Copyright encourages ethical creative practice by recognising ownership, permission, and fair use conditions.","difficulty":2,"strandTitle":"Responding and Appreciation","subStrandTitle":"Ethics and Intellectual Property","learningOutcome":"Explain copyright as an ethical issue in Performing Arts.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":40,"type":"MCQ","prompt":"How does a tableau communicate meaning on stage?","options":["Performers freeze in a carefully arranged image that shows a moment or idea","Performers leave the theatre before the story begins","The camera records only empty chairs","The audience writes the dialogue aloud"],"correctAnswer":"Performers freeze in a carefully arranged image that shows a moment or idea","explanation":"A tableau uses stillness, levels, facial expression, and spacing to focus audience attention on a key meaning.","difficulty":2,"strandTitle":"Performance Skills","subStrandTitle":"Body, Gesture, and Still Images","learningOutcome":"Describe tableau as a non-verbal performance technique.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":41,"type":"MCQ","prompt":"A group is adapting a folktale about greed for a school audience. Which first step best supports responsible creation?","options":["Identify the source, main lesson, characters, and cultural context before scripting","Copy random jokes from online videos","Ignore the meaning of the original story","Begin with expensive costumes before reading"],"correctAnswer":"Identify the source, main lesson, characters, and cultural context before scripting","explanation":"Understanding source material helps learners adapt it respectfully while keeping the story's purpose clear.","difficulty":3,"strandTitle":"Creating Performance","subStrandTitle":"Traditional Kenyan Theatre and Oral Narratives","learningOutcome":"Apply responsible adaptation steps to oral narrative material.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":42,"type":"MCQ","prompt":"A scene feels flat because every line is spoken at the same speed and volume. Which performance choice should be improved?","options":["Vocal variation","Ticket numbering","Stage sweeping only","Camera storage"],"correctAnswer":"Vocal variation","explanation":"Changing pace, pitch, pause, stress, and volume helps communicate emotion and meaning.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Voice and Speech","learningOutcome":"Apply vocal techniques to improve dramatic delivery.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":43,"type":"MCQ","prompt":"A director wants to show that one character controls a meeting. Which blocking choice best supports this idea?","options":["Place the character at the centre or head position while others face them","Hide the character behind the audience throughout","Make all actors turn away from the action","Remove every entrance and exit"],"correctAnswer":"Place the character at the centre or head position while others face them","explanation":"Stage position and focus can communicate power relationships without adding extra dialogue.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Stage Movement and Blocking","learningOutcome":"Use blocking to communicate character relationships.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":44,"type":"MCQ","prompt":"Learners are filming a conversation between two characters. Which shot pattern best helps viewers follow who is speaking?","options":["Shot-reverse-shot between the two characters","Random shots of feet only","One long shot of an empty wall","A black screen with no sound"],"correctAnswer":"Shot-reverse-shot between the two characters","explanation":"Shot-reverse-shot alternates views of speakers and is commonly used to show conversation clearly.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Continuity Editing","learningOutcome":"Apply basic shot sequencing to film dialogue scenes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":45,"type":"MCQ","prompt":"A spoken word performer wants to emphasise the phrase 'clean water for every home'. Which technique is most suitable?","options":["Pause before the phrase and stress its key words","Rush through the phrase quietly","Turn away and mumble every word","Skip the phrase during performance"],"correctAnswer":"Pause before the phrase and stress its key words","explanation":"Pause and stress draw attention to important ideas and help the audience remember the message.","difficulty":3,"strandTitle":"Creating Performance","subStrandTitle":"Spoken Word Delivery","learningOutcome":"Apply vocal emphasis to communicate a spoken word message.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":46,"type":"MCQ","prompt":"A production has no money for a realistic shop set. Which design choice is most practical for a school performance?","options":["Use selected signs, counters, and props to suggest the shop","Cancel the play because there is no full building","Use dangerous borrowed furniture without checking it","Ask actors to explain every missing object"],"correctAnswer":"Use selected signs, counters, and props to suggest the shop","explanation":"Suggestive set design can create place clearly while staying affordable, safe, and flexible.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Set Design and Resources","learningOutcome":"Apply resourceful set design to a school performance context.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":47,"type":"MCQ","prompt":"A character enters after receiving bad news but the actor smiles throughout. Which acting element needs stronger attention?","options":["Emotional truth and motivation","Ticket sales","Camera charging","Poster spelling only"],"correctAnswer":"Emotional truth and motivation","explanation":"The performer should align facial expression, movement, and voice with the character's situation and intention.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Characterisation","learningOutcome":"Apply motivation to create believable character behaviour.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":48,"type":"MCQ","prompt":"A film scene changes from a classroom to a football field. Which transition is most direct and clear?","options":["Cut from the classroom action to an establishing shot of the field","Repeat the same classroom close-up for five minutes","Delete all location clues","Use only a blank title with no image"],"correctAnswer":"Cut from the classroom action to an establishing shot of the field","explanation":"An establishing shot after a cut quickly orients viewers to the new location.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Transitions and Scene Structure","learningOutcome":"Apply transitions to communicate a change of place in film.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":49,"type":"MCQ","prompt":"During rehearsal, two actors keep speaking over each other's important lines. Which solution best improves clarity?","options":["Mark cues and practise listening for the end of each line","Increase the number of props in the scene","Move the audience further away","Remove all pauses from the script"],"correctAnswer":"Mark cues and practise listening for the end of each line","explanation":"Cue awareness and listening help actors time responses so the audience can follow the dialogue.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Cueing and Timing","learningOutcome":"Apply cue discipline to improve ensemble performance.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":50,"type":"MCQ","prompt":"A scene about a night guard must look dim but still visible. Which lighting choice is best?","options":["Use low-intensity focused light rather than complete darkness","Switch off every light for the whole scene","Shine bright light directly into the audience's eyes","Use only daylight in a closed room"],"correctAnswer":"Use low-intensity focused light rather than complete darkness","explanation":"Stage lighting must balance mood with visibility so the audience can see important action safely.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Lighting Design","learningOutcome":"Apply lighting choices to communicate mood and maintain visibility.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":51,"type":"MCQ","prompt":"A group wants to devise a scene about responsible use of social media. Which process is most suitable?","options":["Research the issue, improvise scenarios, select strong moments, then script and rehearse","Film random clips with no message","Copy another school's entire performance","Start publicity before deciding the topic"],"correctAnswer":"Research the issue, improvise scenarios, select strong moments, then script and rehearse","explanation":"Devising grows from research, exploration, selection, structuring, rehearsal, and refinement.","difficulty":3,"strandTitle":"Creating Performance","subStrandTitle":"Devised Theatre","learningOutcome":"Apply devising steps to create a performance on a contemporary issue.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":52,"type":"MCQ","prompt":"A prop letter must be read by the actor but not fully seen by the audience. Which design choice is sensible?","options":["Write enough visible text for the actor and make the outside look believable","Leave the paper completely blank on both sides","Use a heavy metal sheet as the letter","Let the audience read it silently for ten minutes"],"correctAnswer":"Write enough visible text for the actor and make the outside look believable","explanation":"A practical prop supports performance needs while appearing convincing within the scene.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Props and Practical Detail","learningOutcome":"Apply prop design to support actor action and audience belief.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":53,"type":"MCQ","prompt":"An actor playing an elderly character uses a slightly slower walk, careful posture, and measured speech. Which technique is being applied?","options":["Physical and vocal characterisation","Film exporting","Ticket pricing","Curtain repair"],"correctAnswer":"Physical and vocal characterisation","explanation":"Voice and body choices help portray age, health, mood, and social identity when used respectfully.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Characterisation","learningOutcome":"Apply physical and vocal choices to portray character.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":54,"type":"MCQ","prompt":"A film group records an interview beside a noisy road. Which action best improves sound quality?","options":["Move to a quieter place or position the microphone closer to the speaker","Record farther away from the speaker","Ask the speaker to face away from the microphone","Ignore sound because pictures are enough"],"correctAnswer":"Move to a quieter place or position the microphone closer to the speaker","explanation":"Good location choice and microphone placement reduce unwanted noise and make dialogue clearer.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Production Sound","learningOutcome":"Apply basic sound recording practices to film production.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":55,"type":"MCQ","prompt":"A learner wants a poem line to create a strong image of drought. Which line best uses imagery for performance?","options":["The cracked earth waits with an empty mouth","Drought is a topic in this poem","I will now talk about dry weather","There is no image here"],"correctAnswer":"The cracked earth waits with an empty mouth","explanation":"Imagery uses vivid language that helps listeners picture and feel the idea being performed.","difficulty":3,"strandTitle":"Creating Performance","subStrandTitle":"Spoken Word Poetry","learningOutcome":"Apply imagery to strengthen spoken word writing.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":56,"type":"MCQ","prompt":"A costume for a village elder needs to suggest dignity without copying sacred attire carelessly. Which approach is best?","options":["Use respectful, general design clues and consult reliable cultural knowledge","Use any sacred item because it looks impressive","Mock the culture for comic effect","Choose unrelated sports uniform"],"correctAnswer":"Use respectful, general design clues and consult reliable cultural knowledge","explanation":"Cultural costume choices should be respectful, researched, and suited to the performance purpose.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Costume and Cultural Sensitivity","learningOutcome":"Apply respectful costume design to culturally rooted performance.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":57,"type":"MCQ","prompt":"A director wants to show tension between two friends after a disagreement. Which staging choice best supports this?","options":["Place them apart, avoid direct eye contact at first, then let distance change as they reconcile","Make them stand very close and laugh throughout","Have both face the back wall and freeze for the whole scene","Remove all movement and dialogue"],"correctAnswer":"Place them apart, avoid direct eye contact at first, then let distance change as they reconcile","explanation":"Distance, eye contact, and movement can reveal emotional relationships and changing conflict.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Blocking and Relationship","learningOutcome":"Use stage space to communicate relationship and conflict.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":58,"type":"MCQ","prompt":"A storyboard frame shows a learner looking nervously at an exam paper. Which shot best captures facial anxiety?","options":["Close-up of the learner's face","Extreme wide shot from outside the school gate","Shot of an empty ceiling","Back view of a closed cupboard"],"correctAnswer":"Close-up of the learner's face","explanation":"A close-up is effective when the main purpose is to show facial expression and emotion.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Storyboarding and Shot Selection","learningOutcome":"Select suitable shots for communicating emotion in film.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":59,"type":"MCQ","prompt":"A play includes a short choral speaking section. Which rehearsal focus is most important?","options":["Unified rhythm, clear articulation, and balanced voices","Individual actors shouting unrelated lines","Costume colour only","Camera angle only"],"correctAnswer":"Unified rhythm, clear articulation, and balanced voices","explanation":"Choral speaking depends on ensemble timing, shared rhythm, and clarity so the group sounds intentional.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Choral Speaking","learningOutcome":"Apply ensemble speech skills in choral performance.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":60,"type":"MCQ","prompt":"A production team must inform learners about auditions. Which publicity method is most appropriate inside a school?","options":["A clear notice with role requirements, venue, date, time, and contact person","A hidden note in a locked room","A rumour without audition details","A poster with no date or venue"],"correctAnswer":"A clear notice with role requirements, venue, date, time, and contact person","explanation":"Effective publicity gives practical information so interested participants know how to attend and prepare.","difficulty":3,"strandTitle":"Performing Arts Enterprise","subStrandTitle":"Publicity and Audience Development","learningOutcome":"Apply clear communication when publicising a performance activity.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":61,"type":"MCQ","prompt":"During filming, an actor exits screen right in one shot. To maintain direction in the next shot, what should the actor generally do?","options":["Enter from screen left if continuing the same movement across space","Enter from the same side without reason","Appear from the ceiling area","Stay outside the frame forever"],"correctAnswer":"Enter from screen left if continuing the same movement across space","explanation":"Screen direction helps viewers understand continuous movement from one shot to the next.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Screen Direction and Continuity","learningOutcome":"Apply screen-direction continuity in simple film scenes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":62,"type":"MCQ","prompt":"A stage combat moment requires one actor to fall safely. Which practice is most suitable?","options":["Choreograph the movement slowly, rehearse it safely, and use agreed cues","Let actors surprise each other during the show","Use real force to make it look true","Perform it without supervision or rehearsal"],"correctAnswer":"Choreograph the movement slowly, rehearse it safely, and use agreed cues","explanation":"Stage action that suggests danger must be carefully planned and rehearsed to protect performers.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Safety in Performance","learningOutcome":"Apply safety principles to staged physical action.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":63,"type":"MCQ","prompt":"A short film needs to show that two events happen at the same time in different locations. Which editing method is suitable?","options":["Cross-cutting between the two locations","Repeating one still photograph only","Deleting all action from one location","Using unrelated shots of clouds only"],"correctAnswer":"Cross-cutting between the two locations","explanation":"Cross-cutting alternates between locations or actions to suggest simultaneity or comparison.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Editing for Story","learningOutcome":"Apply cross-cutting to show parallel action.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":64,"type":"MCQ","prompt":"A performer often forgets lines after a cue. Which strategy is best for rehearsal?","options":["Practise cue-to-line links and understand the intention behind each line","Memorise only isolated words without context","Avoid all run-throughs","Ask another actor to say every line"],"correctAnswer":"Practise cue-to-line links and understand the intention behind each line","explanation":"Lines are easier to retain when the performer knows the cue, action, and purpose of the speech.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Memorisation and Cueing","learningOutcome":"Apply effective strategies for learning lines.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":65,"type":"MCQ","prompt":"A group wants to turn a news report about tree planting into drama. Which choice best avoids a lecture-like scene?","options":["Create characters with goals and conflict around the tree planting issue","Read the report aloud without any dramatic action","List facts while standing still for ten minutes","Remove all character relationships"],"correctAnswer":"Create characters with goals and conflict around the tree planting issue","explanation":"Dramatic action needs characters, objectives, obstacles, and choices rather than only information delivery.","difficulty":3,"strandTitle":"Creating Performance","subStrandTitle":"Dramatising Contemporary Issues","learningOutcome":"Apply dramatic structure to a social or environmental issue.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":66,"type":"MCQ","prompt":"A film crew has one afternoon to shoot a school scene. Which planning document best organises who is needed, where, and when?","options":["Call sheet","Costume label only","Audience review","Final poster"],"correctAnswer":"Call sheet","explanation":"A call sheet gives cast and crew practical information such as schedule, location, roles, and contacts.","difficulty":3,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Production Planning","learningOutcome":"Use production documents to organise a simple film shoot.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":67,"type":"MCQ","prompt":"A scene should shift from comedy to serious reflection. Which performance choice best helps the shift?","options":["Slow the pace, reduce playful movement, and use more focused vocal tone","Keep slapstick movement unchanged throughout","Ask the audience to ignore the change","Brighten every action without altering delivery"],"correctAnswer":"Slow the pace, reduce playful movement, and use more focused vocal tone","explanation":"Changes in pace, movement, and vocal tone can guide the audience into a new mood.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Mood and Tone","learningOutcome":"Apply performance choices to communicate changes in mood.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":68,"type":"MCQ","prompt":"A director asks actors to identify what their characters want in each scene. Which concept are they working on?","options":["Objective","Lens focus","Seat plan","Budget balance"],"correctAnswer":"Objective","explanation":"A character objective is what the character wants to achieve and it drives action in the scene.","difficulty":3,"strandTitle":"Performance Skills","subStrandTitle":"Acting Objectives","learningOutcome":"Apply character objectives to guide performance choices.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":69,"type":"MCQ","prompt":"A classroom performance uses a drumbeat from offstage to signal an approaching ceremony. What function does the sound serve?","options":["Cueing atmosphere and offstage action","Replacing all character speech permanently","Showing the ticket price","Changing the school calendar"],"correctAnswer":"Cueing atmosphere and offstage action","explanation":"Sound can prepare the audience for action not yet visible and shape cultural or emotional atmosphere.","difficulty":3,"strandTitle":"Theatre Production","subStrandTitle":"Sound Cues and Atmosphere","learningOutcome":"Use sound cues to support action and setting.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":70,"type":"MCQ","prompt":"A learner reviewing a performance says, 'The ending was effective because the actors formed a silent circle around the repaired water tap.' Which review skill is shown?","options":["Using a specific performance detail to support judgement","Giving a vague opinion with no evidence","Ignoring the final stage image","Listing unrelated ticket prices"],"correctAnswer":"Using a specific performance detail to support judgement","explanation":"A strong review connects evaluation to observable details from the production.","difficulty":3,"strandTitle":"Responding and Appreciation","subStrandTitle":"Performance Critique","learningOutcome":"Apply evidence-based judgement when reviewing a performance.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":71,"type":"MCQ","prompt":"A play about school bullying includes a comic teacher who distracts from the victim's experience. What is the strongest revision focus?","options":["Balance humour with the seriousness of the theme and the character's journey","Add more unrelated jokes to every scene","Remove all conflict from the story","Ignore audience understanding"],"correctAnswer":"Balance humour with the seriousness of the theme and the character's journey","explanation":"Tone should serve the theme; misplaced comedy can weaken empathy and confuse the message.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Theme, Tone, and Revision","learningOutcome":"Analyse how tone affects the communication of a performance theme.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":72,"type":"MCQ","prompt":"In a filmed argument, one actor looks screen left in close-up and the other also looks screen left in response. What problem may viewers experience?","options":["They may seem to face the same direction instead of looking at each other","They will automatically understand the geography better","The scene will become a stage musical","The dialogue will become clearer because of eye-line mismatch"],"correctAnswer":"They may seem to face the same direction instead of looking at each other","explanation":"Eye-line continuity helps viewers understand spatial relationships during filmed dialogue.","difficulty":4,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Eye-line and Spatial Continuity","learningOutcome":"Analyse continuity problems in filmed conversation scenes.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":73,"type":"MCQ","prompt":"A performance about corruption uses only direct speeches to the audience and no character choices. What is the main dramatic weakness?","options":["It tells the issue but lacks action, conflict, and transformation","It has too many believable character decisions","It overuses visual storytelling","It contains too much motivated silence"],"correctAnswer":"It tells the issue but lacks action, conflict, and transformation","explanation":"Drama becomes stronger when ideas are embodied through characters making choices under pressure.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Dramatic Action and Structure","learningOutcome":"Analyse the difference between message delivery and dramatic action.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":74,"type":"MCQ","prompt":"A stage scene places the most important conversation at the far corner while minor action happens centre stage. What is the likely issue?","options":["Audience focus is pulled away from the main dramatic action","The set automatically becomes more realistic","The actors become louder without effort","The script becomes shorter"],"correctAnswer":"Audience focus is pulled away from the main dramatic action","explanation":"Blocking should guide attention to the most important action at each moment.","difficulty":4,"strandTitle":"Performance Skills","subStrandTitle":"Focus and Composition","learningOutcome":"Analyse how stage composition affects audience focus.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":75,"type":"MCQ","prompt":"Two groups perform the same folktale. Group A copies narration exactly; Group B keeps the lesson but uses present-day school characters. Which judgement is strongest?","options":["Group B shows adaptation because it transforms source material for a new context","Group A is always more creative because it changes nothing","Both groups have removed the original lesson completely","Group B cannot be theatre because it uses school characters"],"correctAnswer":"Group B shows adaptation because it transforms source material for a new context","explanation":"Adaptation may preserve core meaning while changing setting, characters, language, or structure for a target audience.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Adaptation","learningOutcome":"Analyse approaches to adapting traditional material for contemporary performance.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":76,"type":"MCQ","prompt":"A film shows a learner studying late, then cuts to the same learner sleeping in class. What meaning does the edit most likely create?","options":["A cause-and-effect link between late study and tiredness","A change to a completely unrelated character","A guarantee that no time has passed","A live stage entrance"],"correctAnswer":"A cause-and-effect link between late study and tiredness","explanation":"Editing can connect events so viewers infer cause, contrast, or consequence between shots.","difficulty":4,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Editing and Meaning","learningOutcome":"Analyse how shot order creates meaning in film.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":77,"type":"MCQ","prompt":"A critic says the set was beautiful but never explains whether it supported the story. What is missing from the critique?","options":["A link between design choices and dramatic purpose","A list of actor phone numbers","A longer description of ticket colours","A demand that every set be expensive"],"correctAnswer":"A link between design choices and dramatic purpose","explanation":"Useful critique evaluates how performance elements serve theme, character, mood, and audience understanding.","difficulty":4,"strandTitle":"Responding and Appreciation","subStrandTitle":"Performance Critique","learningOutcome":"Analyse the quality of performance evaluation comments.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":78,"type":"MCQ","prompt":"A student actor uses a comic accent to represent a real Kenyan community and classmates laugh at the community rather than the character. What is the main ethical concern?","options":["The performance may stereotype or disrespect a community","The scene has too much accurate research","The actor used clear articulation","The costume matched the character's occupation"],"correctAnswer":"The performance may stereotype or disrespect a community","explanation":"Performers should avoid choices that mock identities or reduce communities to harmful stereotypes.","difficulty":4,"strandTitle":"Responding and Appreciation","subStrandTitle":"Ethics and Representation","learningOutcome":"Analyse ethical issues in character portrayal and representation.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":79,"type":"MCQ","prompt":"A monologue has strong words but the performer paces randomly and looks down throughout. What is the main performance gap?","options":["Physical delivery does not support the spoken message","The words are automatically unimportant","The stage manager has no role","The audience should not see facial expression"],"correctAnswer":"Physical delivery does not support the spoken message","explanation":"Gesture, posture, eye focus, and movement should be chosen to strengthen the meaning of a monologue.","difficulty":4,"strandTitle":"Performance Skills","subStrandTitle":"Monologue Performance","learningOutcome":"Analyse the relationship between physical delivery and spoken meaning.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":80,"type":"MCQ","prompt":"A short film uses loud background music during every dialogue scene, making words difficult to hear. What production judgement is best?","options":["The sound mix should prioritise intelligible dialogue where speech carries meaning","Music should always be louder than speech","Dialogue is unnecessary in any school film","The scene needs more camera shake instead"],"correctAnswer":"The sound mix should prioritise intelligible dialogue where speech carries meaning","explanation":"Sound levels should serve storytelling; music supports mood but should not hide essential speech.","difficulty":4,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Sound Editing and Mixing","learningOutcome":"Analyse how sound balance affects film communication.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":81,"type":"MCQ","prompt":"A play has a strong opening and ending, but scenes in the middle repeat the same argument without change. What structural issue is present?","options":["Weak progression of conflict and character development","Too much variety in objectives","Excessive resolution in every scene","Perfect escalation of dramatic action"],"correctAnswer":"Weak progression of conflict and character development","explanation":"Middle scenes should develop obstacles, choices, discoveries, or consequences rather than repeat the same beat.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Plot Development","learningOutcome":"Analyse progression in dramatic structure.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":82,"type":"MCQ","prompt":"A production uses a real flame on stage to show a cooking scene in a school hall. What is the strongest safety judgement?","options":["Replace it with a safe simulated effect and follow venue safety rules","Use the flame because realism is always more important","Ask the audience to sit closer to the flame","Ignore teacher supervision if actors are confident"],"correctAnswer":"Replace it with a safe simulated effect and follow venue safety rules","explanation":"School productions should prioritise safety and can use design alternatives to suggest dangerous actions.","difficulty":4,"strandTitle":"Theatre Production","subStrandTitle":"Production Safety and Risk Assessment","learningOutcome":"Evaluate safety risks in school performance production.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":83,"type":"MCQ","prompt":"A film director wants viewers to feel trapped with a character in a narrow corridor. Which visual choice best supports that intention?","options":["Tight framing with limited visible space around the character","A wide open field shot with no walls","Random shots of unrelated objects","Bright comedy lighting in every frame"],"correctAnswer":"Tight framing with limited visible space around the character","explanation":"Framing can create emotional meaning by controlling how much space viewers see around a character.","difficulty":4,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Framing and Mood","learningOutcome":"Analyse how framing choices create mood in film.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":84,"type":"MCQ","prompt":"A group uses call-and-response, song fragments, dance, and narration from an oral story in a stage piece. Which theatre influence is most evident?","options":["Traditional African performance conventions","Silent spreadsheet formatting","Purely mechanical drawing","Unrelated laboratory procedure"],"correctAnswer":"Traditional African performance conventions","explanation":"Traditional African performance commonly integrates narration, music, movement, audience response, and communal storytelling.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Traditional Kenyan Theatre and Performance Forms","learningOutcome":"Analyse features of traditional performance in contemporary staging.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":85,"type":"MCQ","prompt":"A review praises an actor's loud voice but notes that every emotion sounded angry. What acting issue is being identified?","options":["Limited vocal range and emotional variation","Excellent contrast in tone","Accurate film continuity","Strong costume research only"],"correctAnswer":"Limited vocal range and emotional variation","explanation":"Effective acting uses varied vocal qualities to express different intentions, emotions, and moments of change.","difficulty":4,"strandTitle":"Responding and Appreciation","subStrandTitle":"Evaluating Acting","learningOutcome":"Analyse vocal performance in acting evaluation.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":86,"type":"MCQ","prompt":"A devised scene ends with a character suddenly changing behaviour without any earlier clue. What revision would best strengthen the performance?","options":["Add motivated events or discoveries that make the change believable","Remove all earlier scenes","Make the change even more random","Tell the audience to accept it without evidence"],"correctAnswer":"Add motivated events or discoveries that make the change believable","explanation":"Character change is stronger when the audience can trace the causes through earlier action.","difficulty":4,"strandTitle":"Creating Performance","subStrandTitle":"Character Arc and Motivation","learningOutcome":"Analyse motivation and consistency in character development.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":87,"type":"MCQ","prompt":"A stage design fills the acting area with large decorations so actors cannot move safely. What is the main design problem?","options":["The set ignores performance space and safety needs","The set has too little decoration","The actors should not move in drama","The lighting will automatically solve the problem"],"correctAnswer":"The set ignores performance space and safety needs","explanation":"Set design should support action, visibility, safety, and meaning rather than block essential movement.","difficulty":4,"strandTitle":"Theatre Production","subStrandTitle":"Set Design and Practicality","learningOutcome":"Analyse practical constraints in stage design.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":88,"type":"MCQ","prompt":"A film scene begins with a close-up of a broken trophy before the character enters crying. What does this visual choice most likely do?","options":["Foreshadows or symbolises the character's loss","Shows that the trophy is unrelated to the scene","Proves that no emotion will follow","Turns the scene into live theatre only"],"correctAnswer":"Foreshadows or symbolises the character's loss","explanation":"An object shown before action can prepare meaning and carry symbolic importance in screen storytelling.","difficulty":4,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Visual Symbolism","learningOutcome":"Analyse symbolic use of objects in film scenes.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":89,"type":"MCQ","prompt":"A production budget spends almost all funds on posters but leaves no money for essential props and transport. What is the best evaluation?","options":["The budget does not match production priorities and practical needs","The budget is balanced because publicity always comes first","The team should remove all planning documents","The production no longer needs performers"],"correctAnswer":"The budget does not match production priorities and practical needs","explanation":"Budget decisions should support the full production process, including rehearsal, performance resources, safety, and audience communication.","difficulty":4,"strandTitle":"Performing Arts Enterprise","subStrandTitle":"Budget Evaluation","learningOutcome":"Evaluate whether a production budget supports stated performance needs.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":90,"type":"MCQ","prompt":"A school performance invites audience participation, but actors do not know how to continue after audience responses. What is the main preparation gap?","options":["The group did not plan and rehearse rules for interaction","Audience participation can never work in theatre","The set should be more expensive","The scene needs no performer listening"],"correctAnswer":"The group did not plan and rehearse rules for interaction","explanation":"Interactive performance needs clear structure, performer flexibility, and boundaries so audience input supports the story.","difficulty":4,"strandTitle":"Performance Skills","subStrandTitle":"Audience Interaction","learningOutcome":"Analyse preparation needs for interactive performance.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":91,"type":"MCQ","prompt":"A team must create a five-minute performance on peaceful conflict resolution for Grade 10 learners. Which concept gives the strongest creative brief?","options":["Two classmates compete for leadership, learn to listen, and resolve the conflict through mediated dialogue","Actors stand in a line and define peace from a dictionary","The group copies a random internet skit without permission","The performance has no conflict because peace is the theme"],"correctAnswer":"Two classmates compete for leadership, learn to listen, and resolve the conflict through mediated dialogue","explanation":"A strong brief gives characters, conflict, audience, theme, and a dramatic path for transformation.","difficulty":5,"strandTitle":"Creating Performance","subStrandTitle":"Creative Brief and Devising","learningOutcome":"Create a focused performance concept from a contemporary issue.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":92,"type":"MCQ","prompt":"You are designing a short film about examination pressure without using narration. Which plan best shows rather than tells the theme?","options":["Use repeated shots of a ticking clock, unfinished notes, tense silence, and a calmer ending after asking for help","Open with a character explaining every message to camera","Place a title saying 'stress' on every shot","Remove all visual details and only list facts"],"correctAnswer":"Use repeated shots of a ticking clock, unfinished notes, tense silence, and a calmer ending after asking for help","explanation":"Film can communicate theme through images, sound, rhythm, and action instead of direct explanation.","difficulty":5,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Visual Storytelling","learningOutcome":"Create a screen storytelling plan using visual and sound clues.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":93,"type":"MCQ","prompt":"A group needs to modernise a traditional trickster tale for a school festival while keeping its moral lesson. Which adaptation choice is strongest?","options":["Set it in a student council campaign where cleverness has consequences and the original lesson remains clear","Change every event until the moral disappears","Use only costumes from the past with no performance choices","Avoid acknowledging that it came from oral tradition"],"correctAnswer":"Set it in a student council campaign where cleverness has consequences and the original lesson remains clear","explanation":"Effective adaptation transforms context while retaining the source's core conflict, lesson, and cultural respect.","difficulty":5,"strandTitle":"Creating Performance","subStrandTitle":"Adaptation and Transformation","learningOutcome":"Create an adaptation approach that preserves core meaning while updating context.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":94,"type":"MCQ","prompt":"A theatre group has ten performers but only three speaking roles. Which staging solution best uses the whole ensemble meaningfully?","options":["Create chorus, movement, crowd, soundscape, and tableau roles that support the central action","Make seven performers sit backstage with no task","Give everyone the same lines at the same time throughout","Remove the main characters to create equal speaking time"],"correctAnswer":"Create chorus, movement, crowd, soundscape, and tableau roles that support the central action","explanation":"Ensemble creation can distribute meaningful performance work without weakening the story structure.","difficulty":5,"strandTitle":"Performance Skills","subStrandTitle":"Ensemble Creation","learningOutcome":"Design ensemble roles that support a performance concept.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":95,"type":"MCQ","prompt":"A production team is choosing between a realistic market set and a symbolic set of baskets, cloth, and sound cues. Which criterion should guide the decision?","options":["Which design best supports theme, budget, safety, scene changes, and audience understanding","Which option uses the most objects regardless of meaning","Which option is hardest to move","Which option ignores the director's concept"],"correctAnswer":"Which design best supports theme, budget, safety, scene changes, and audience understanding","explanation":"Design evaluation should balance artistic meaning with practical production constraints.","difficulty":5,"strandTitle":"Theatre Production","subStrandTitle":"Design Concept and Evaluation","learningOutcome":"Evaluate and select a stage design approach for a production concept.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":96,"type":"MCQ","prompt":"A class must produce a performance using a story from a community elder. Which plan best protects ethical practice?","options":["Seek permission, record source details, represent the story respectfully, and credit the contributor","Use the story without asking because it is interesting","Change the elder's name and claim the story as original","Mock unfamiliar customs to make the audience laugh"],"correctAnswer":"Seek permission, record source details, represent the story respectfully, and credit the contributor","explanation":"Ethical performance practice values consent, attribution, respectful representation, and cultural responsibility.","difficulty":5,"strandTitle":"Responding and Appreciation","subStrandTitle":"Ethics, Research, and Cultural Heritage","learningOutcome":"Evaluate ethical steps when using community-sourced performance material.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":97,"type":"MCQ","prompt":"A five-shot film sequence must show a learner deciding to apologise after a quarrel. Which sequence has the clearest dramatic progression?","options":["Quarrel, lonely reflection, memory of hurtful words, decision to write a message, meeting to apologise","Random school gate, empty desk, unrelated song, running feet, blank wall","Apology first, quarrel after, no reaction, unrelated poster, sudden ending","Five identical shots of the learner smiling"],"correctAnswer":"Quarrel, lonely reflection, memory of hurtful words, decision to write a message, meeting to apologise","explanation":"A coherent sequence shows conflict, reflection, decision, action, and resolution.","difficulty":5,"strandTitle":"Film Production and Screen Language","subStrandTitle":"Sequence Design","learningOutcome":"Create a shot sequence that communicates character change.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":98,"type":"MCQ","prompt":"A performance on climate action risks sounding like a lecture. Which creative strategy best makes it dramatic?","options":["Build a story around characters whose choices about a polluted stream create conflict and consequences","Have each actor read a paragraph from a report without interaction","Project a list of facts and end immediately","Remove all obstacles so everyone agrees from the start"],"correctAnswer":"Build a story around characters whose choices about a polluted stream create conflict and consequences","explanation":"Thematic performance is stronger when ideas are embodied through character objectives, obstacles, and consequences.","difficulty":5,"strandTitle":"Creating Performance","subStrandTitle":"Dramatising Pertinent Contemporary Issues","learningOutcome":"Create dramatic action from a social or environmental theme.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":99,"type":"MCQ","prompt":"A group is evaluating whether their final rehearsal is ready for an audience. Which checklist is most complete?","options":["Clear story, audible speech, safe movement, working cues, prepared props, respectful content, and timed running order","Only colourful costumes and loud music","Only ticket sales and food arrangements","Only the number of actors in the group"],"correctAnswer":"Clear story, audible speech, safe movement, working cues, prepared props, respectful content, and timed running order","explanation":"Readiness involves artistic clarity, technical coordination, safety, ethics, resources, and time management.","difficulty":5,"strandTitle":"Theatre Production","subStrandTitle":"Final Rehearsal and Readiness","learningOutcome":"Evaluate production readiness before public presentation.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":100,"type":"MCQ","prompt":"You must design a fair rubric for assessing a Grade 10 group performance. Which set of criteria is strongest?","options":["Creativity, performance skill, collaboration, technical support, theme clarity, safety, and reflection","Only volume of applause","Only the cost of costumes","Only how many lines each performer speaks"],"correctAnswer":"Creativity, performance skill, collaboration, technical support, theme clarity, safety, and reflection","explanation":"A fair rubric assesses several dimensions of both process and product, not just popularity or expense.","difficulty":5,"strandTitle":"Responding and Appreciation","subStrandTitle":"Assessment and Reflection","learningOutcome":"Create criteria for fair evaluation of a group performance.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]}
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 10",
+ "subjectId": "performing_arts",
+ "subjectName": "Performing Arts",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which learning area is most directly concerned with acting, directing, staging, and screen performance?",
+   "options": [
+    "Performing Arts",
+    "Metalwork",
+    "Home Science",
+    "Geography"
+   ],
+   "correctAnswer": "Performing Arts",
+   "explanation": "Performing Arts studies live and recorded performance forms such as theatre, spoken word, dance, and film practice.",
+   "difficulty": 1,
+   "strandTitle": "Foundations of Performing Arts",
+   "subStrandTitle": "Meaning and Scope of Performing Arts",
+   "learningOutcome": "Identify the scope of Performing Arts in senior school.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which person interprets a script and guides actors, movement, pacing, and stage meaning?",
+   "options": [
+    "Director",
+    "Ticket clerk",
+    "Audience member",
+    "Printer"
+   ],
+   "correctAnswer": "Director",
+   "explanation": "A director shapes the production by guiding performance choices and coordinating the artistic interpretation of the script.",
+   "difficulty": 1,
+   "strandTitle": "Foundations of Performing Arts",
+   "subStrandTitle": "Production Roles",
+   "learningOutcome": "Identify key roles in a theatre or film production team.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "What is a script in theatre and film?",
+   "options": [
+    "A written plan of dialogue, action, and performance directions",
+    "A list of school furniture only",
+    "A camera battery label",
+    "A costume storage box"
+   ],
+   "correctAnswer": "A written plan of dialogue, action, and performance directions",
+   "explanation": "A script records what performers say and do, giving a production a clear structure before rehearsal or filming.",
+   "difficulty": 1,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Script and Screenplay Basics",
+   "learningOutcome": "Define a script as a foundation for performance creation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which term refers to the people watching a live performance?",
+   "options": [
+    "Audience",
+    "Cast list",
+    "Props table",
+    "Editing suite"
+   ],
+   "correctAnswer": "Audience",
+   "explanation": "The audience receives and responds to the performance, helping complete the communication process in theatre.",
+   "difficulty": 1,
+   "strandTitle": "Foundations of Performing Arts",
+   "subStrandTitle": "Audience and Performance Context",
+   "learningOutcome": "Identify the role of the audience in performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which item is an example of a prop in a school play?",
+   "options": [
+    "A letter carried by a character",
+    "The whole audience",
+    "The school timetable",
+    "The director's idea only"
+   ],
+   "correctAnswer": "A letter carried by a character",
+   "explanation": "A prop is an object handled or used by performers to support action and meaning on stage or screen.",
+   "difficulty": 1,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Props and Set Elements",
+   "learningOutcome": "Identify props used in performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "What is dialogue in a play or film?",
+   "options": [
+    "Words spoken by characters",
+    "Seats arranged for guests",
+    "The colour of curtains",
+    "A list of camera prices"
+   ],
+   "correctAnswer": "Words spoken by characters",
+   "explanation": "Dialogue is the spoken exchange between characters and is used to reveal action, relationships, and conflict.",
+   "difficulty": 1,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Dialogue Writing",
+   "learningOutcome": "Identify dialogue as a basic element of dramatic writing.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which term means a performer's planned position and movement on stage?",
+   "options": [
+    "Blocking",
+    "Budgeting",
+    "Cropping",
+    "Printing"
+   ],
+   "correctAnswer": "Blocking",
+   "explanation": "Blocking organises where performers stand, enter, exit, and move so that the action is clear to the audience.",
+   "difficulty": 1,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Stage Movement and Blocking",
+   "learningOutcome": "Define blocking in stage performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which person usually performs a role in front of the camera or audience?",
+   "options": [
+    "Actor",
+    "Accountant only",
+    "Lighting cable",
+    "Poster frame"
+   ],
+   "correctAnswer": "Actor",
+   "explanation": "An actor uses voice, body, imagination, and interaction to portray a character in a performance.",
+   "difficulty": 1,
+   "strandTitle": "Foundations of Performing Arts",
+   "subStrandTitle": "Performance Roles",
+   "learningOutcome": "Identify the performer role in theatre and film.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which film shot shows a person or object from very near to highlight detail or emotion?",
+   "options": [
+    "Close-up shot",
+    "Wide establishing shot",
+    "Aerial map",
+    "Blank frame"
+   ],
+   "correctAnswer": "Close-up shot",
+   "explanation": "A close-up directs attention to facial expression, a hand movement, or an important object.",
+   "difficulty": 1,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Shot Types",
+   "learningOutcome": "Recognise basic camera shot types used in film.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "What is rehearsal in Performing Arts?",
+   "options": [
+    "Practising a performance before presentation",
+    "Selling tickets after the show",
+    "Painting a wall with no plan",
+    "Deleting the script"
+   ],
+   "correctAnswer": "Practising a performance before presentation",
+   "explanation": "Rehearsal allows performers and production teams to refine timing, movement, voice, and interpretation before presentation.",
+   "difficulty": 1,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Rehearsal Process",
+   "learningOutcome": "State the purpose of rehearsal in performance preparation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which theatre space has audience members mainly facing the stage from one side?",
+   "options": [
+    "Proscenium stage",
+    "Editing room",
+    "Costume rack",
+    "Storage cabinet"
+   ],
+   "correctAnswer": "Proscenium stage",
+   "explanation": "A proscenium arrangement separates stage and audience with the audience viewing mainly from the front.",
+   "difficulty": 1,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Stage Spaces",
+   "learningOutcome": "Identify common theatre performance spaces.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which document shows planned camera shots before filming begins?",
+   "options": [
+    "Storyboard",
+    "Attendance register",
+    "Receipt book",
+    "Wardrobe label"
+   ],
+   "correctAnswer": "Storyboard",
+   "explanation": "A storyboard arranges key shots in sequence so the film team can plan framing, action, and transitions.",
+   "difficulty": 1,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Storyboarding",
+   "learningOutcome": "Identify a storyboard as a planning tool for film.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What is characterisation in drama?",
+   "options": [
+    "Creating and presenting a believable character",
+    "Counting the number of chairs",
+    "Printing a programme cover only",
+    "Turning off all lights"
+   ],
+   "correctAnswer": "Creating and presenting a believable character",
+   "explanation": "Characterisation combines voice, movement, dialogue, costume, motivation, and relationships to build a role.",
+   "difficulty": 1,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Characterisation",
+   "learningOutcome": "Define characterisation in dramatic performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which term refers to the problem or struggle that drives dramatic action?",
+   "options": [
+    "Conflict",
+    "Curtain size",
+    "Lens cap",
+    "Ticket price"
+   ],
+   "correctAnswer": "Conflict",
+   "explanation": "Conflict creates tension and motivates characters to make choices that move the story forward.",
+   "difficulty": 1,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Plot and Conflict",
+   "learningOutcome": "Identify conflict as an element of dramatic structure.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which performance form uses rhythm, gesture, voice, and poetic language to present ideas before an audience?",
+   "options": [
+    "Spoken word poetry",
+    "Ledger balancing",
+    "Soil testing",
+    "Circuit drawing"
+   ],
+   "correctAnswer": "Spoken word poetry",
+   "explanation": "Spoken word poetry is designed for oral performance and often uses voice, rhythm, gesture, and imagery.",
+   "difficulty": 1,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Spoken Word Poetry",
+   "learningOutcome": "Recognise spoken word as a performance form.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Why is voice projection important in live theatre?",
+   "options": [
+    "It helps the audience hear words clearly without strain",
+    "It replaces the need for character motivation",
+    "It makes costumes unnecessary",
+    "It prevents actors from moving"
+   ],
+   "correctAnswer": "It helps the audience hear words clearly without strain",
+   "explanation": "Projection supports clear communication by carrying the voice to the audience while protecting the performer's throat.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Voice and Speech",
+   "learningOutcome": "Explain the importance of voice projection in live performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Why should a performer warm up before rehearsal or presentation?",
+   "options": [
+    "To prepare the voice and body for safe expressive work",
+    "To avoid reading the script",
+    "To make the audience leave early",
+    "To remove all stage directions"
+   ],
+   "correctAnswer": "To prepare the voice and body for safe expressive work",
+   "explanation": "Warm-ups reduce strain, focus attention, and prepare breathing, articulation, and movement for performance.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Preparation and Warm-up",
+   "learningOutcome": "Explain safe preparation practices for performers.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Why is a play's setting important to performers and designers?",
+   "options": [
+    "It gives time, place, and social context for performance choices",
+    "It deletes the need for actors",
+    "It guarantees a larger audience",
+    "It replaces dialogue with silence"
+   ],
+   "correctAnswer": "It gives time, place, and social context for performance choices",
+   "explanation": "Setting guides costume, language, set design, movement, and the mood of the scene.",
+   "difficulty": 2,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Setting and Context",
+   "learningOutcome": "Explain how setting influences performance creation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "How does costume help an audience understand a character?",
+   "options": [
+    "It suggests status, culture, occupation, period, or personality",
+    "It removes all need for acting choices",
+    "It makes every character identical",
+    "It controls camera memory"
+   ],
+   "correctAnswer": "It suggests status, culture, occupation, period, or personality",
+   "explanation": "Costume communicates visual clues that support character, setting, and dramatic meaning.",
+   "difficulty": 2,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Costume and Makeup",
+   "learningOutcome": "Explain how costume contributes to character and meaning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Why is improvisation useful during early performance creation?",
+   "options": [
+    "It helps performers explore ideas, characters, and action before fixing a script",
+    "It replaces all rehearsal discipline",
+    "It makes planning impossible",
+    "It removes audience response"
+   ],
+   "correctAnswer": "It helps performers explore ideas, characters, and action before fixing a script",
+   "explanation": "Improvisation encourages creativity and discovery, giving material that can later be shaped into a structured performance.",
+   "difficulty": 2,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Improvisation",
+   "learningOutcome": "Explain the role of improvisation in developing performance material.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Why does a film team use an establishing shot near the start of a scene?",
+   "options": [
+    "To show the location and context before closer action",
+    "To hide all characters permanently",
+    "To replace the script with a poster",
+    "To record sound without pictures"
+   ],
+   "correctAnswer": "To show the location and context before closer action",
+   "explanation": "An establishing shot helps viewers understand where the scene takes place and how characters relate to the space.",
+   "difficulty": 2,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Shot Types and Meaning",
+   "learningOutcome": "Explain the purpose of establishing shots in film scenes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "What does pace control in a spoken word performance?",
+   "options": [
+    "The speed and rhythm with which ideas are delivered",
+    "The price of the microphone",
+    "The size of the stage curtain",
+    "The number of printed tickets"
+   ],
+   "correctAnswer": "The speed and rhythm with which ideas are delivered",
+   "explanation": "Pace affects emphasis, suspense, clarity, and emotional impact during oral performance.",
+   "difficulty": 2,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Spoken Word Delivery",
+   "learningOutcome": "Describe how pace affects spoken word performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Why should a stage manager keep a prompt copy of the script?",
+   "options": [
+    "To track cues, entrances, exits, and technical notes during production",
+    "To replace the director in every artistic decision",
+    "To hide the play from actors",
+    "To record exam marks"
+   ],
+   "correctAnswer": "To track cues, entrances, exits, and technical notes during production",
+   "explanation": "A prompt copy helps coordinate the performance so performers and technical teams work in sequence.",
+   "difficulty": 2,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Stage Management",
+   "learningOutcome": "Explain documentation used in managing a theatre production.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which statement best explains theme in a play or film?",
+   "options": [
+    "The central idea or issue explored through the story",
+    "The height of the stage only",
+    "The camera brand used by the crew",
+    "The number of seats in the hall"
+   ],
+   "correctAnswer": "The central idea or issue explored through the story",
+   "explanation": "Theme is the deeper idea, concern, or message developed through plot, character, conflict, and images.",
+   "difficulty": 2,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Theme and Message",
+   "learningOutcome": "Explain theme as a dramatic element.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Why is continuity important when filming a scene in several shots?",
+   "options": [
+    "It keeps action, costume, props, and screen direction consistent",
+    "It forces all shots to be identical wide shots",
+    "It removes the need for editing",
+    "It prevents actors from learning lines"
+   ],
+   "correctAnswer": "It keeps action, costume, props, and screen direction consistent",
+   "explanation": "Continuity helps viewers believe the scene is unfolding smoothly even when shots are recorded separately.",
+   "difficulty": 2,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Continuity",
+   "learningOutcome": "Explain the purpose of continuity in film production.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "How does lighting support a stage scene?",
+   "options": [
+    "It controls visibility, mood, focus, and time of day",
+    "It writes dialogue for the actors",
+    "It replaces rehearsal notes",
+    "It prints the programme"
+   ],
+   "correctAnswer": "It controls visibility, mood, focus, and time of day",
+   "explanation": "Lighting is both practical and expressive because it helps the audience see and interpret the action.",
+   "difficulty": 2,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Lighting Design",
+   "learningOutcome": "Explain functions of lighting in stage performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Why should performers respect cultural sources when adapting a Kenyan oral narrative?",
+   "options": [
+    "To preserve meaning and avoid misrepresentation of community heritage",
+    "To make the story impossible to perform",
+    "To remove all local language references",
+    "To copy without understanding"
+   ],
+   "correctAnswer": "To preserve meaning and avoid misrepresentation of community heritage",
+   "explanation": "Respectful adaptation recognises the value of cultural knowledge while shaping it responsibly for a new audience.",
+   "difficulty": 2,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Traditional Kenyan Theatre and Oral Narratives",
+   "learningOutcome": "Explain ethical use of cultural material in performance creation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "What is the purpose of feedback after a rehearsal run-through?",
+   "options": [
+    "To identify strengths and areas to improve before presentation",
+    "To embarrass performers instead of helping them grow",
+    "To cancel all creative decisions automatically",
+    "To replace the audience with a checklist"
+   ],
+   "correctAnswer": "To identify strengths and areas to improve before presentation",
+   "explanation": "Constructive feedback helps the group refine performance choices, timing, clarity, and teamwork.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Rehearsal Evaluation",
+   "learningOutcome": "Explain the value of constructive feedback during rehearsal.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Why is teamwork essential in theatre and film production?",
+   "options": [
+    "Many creative and technical roles must coordinate to present one performance",
+    "Only one person can do every task at once",
+    "It removes all personal responsibility",
+    "It makes planning unnecessary"
+   ],
+   "correctAnswer": "Many creative and technical roles must coordinate to present one performance",
+   "explanation": "Performers, designers, technicians, managers, and directors depend on one another for a coherent production.",
+   "difficulty": 2,
+   "strandTitle": "Foundations of Performing Arts",
+   "subStrandTitle": "Collaboration and Production Culture",
+   "learningOutcome": "Explain collaboration as a core value in Performing Arts.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "How does a low camera angle often affect the viewer's impression of a character?",
+   "options": [
+    "It can make the character appear powerful or dominant",
+    "It always makes the character invisible",
+    "It removes facial expression",
+    "It turns the shot into a written script"
+   ],
+   "correctAnswer": "It can make the character appear powerful or dominant",
+   "explanation": "Camera angle influences meaning; looking up at a character can suggest power, confidence, or threat.",
+   "difficulty": 2,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Camera Angles",
+   "learningOutcome": "Explain how camera angle can shape character meaning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Why should a performer listen carefully to other actors on stage?",
+   "options": [
+    "To respond truthfully and maintain believable interaction",
+    "To wait for the audience to write the script",
+    "To ignore cues deliberately",
+    "To avoid character relationships"
+   ],
+   "correctAnswer": "To respond truthfully and maintain believable interaction",
+   "explanation": "Active listening helps actors react in time, keep the scene alive, and support ensemble performance.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Ensemble Acting",
+   "learningOutcome": "Explain active listening as a performance skill.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which statement best explains mise-en-scene in film?",
+   "options": [
+    "The arrangement of setting, costume, lighting, props, and performers in a shot",
+    "The price of cinema tickets",
+    "The microphone volume only",
+    "The number of files on a computer"
+   ],
+   "correctAnswer": "The arrangement of setting, costume, lighting, props, and performers in a shot",
+   "explanation": "Mise-en-scene describes the visible elements placed before the camera to create meaning.",
+   "difficulty": 2,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Visual Composition",
+   "learningOutcome": "Describe mise-en-scene as part of screen meaning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Why should a performance review include evidence from the production?",
+   "options": [
+    "It supports judgement with specific examples from acting, design, or direction",
+    "It makes the review longer without meaning",
+    "It allows the reviewer to avoid watching",
+    "It turns the review into a ticket"
+   ],
+   "correctAnswer": "It supports judgement with specific examples from acting, design, or direction",
+   "explanation": "Evidence makes a review fair and useful because claims are linked to observable performance choices.",
+   "difficulty": 2,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Performance Critique",
+   "learningOutcome": "Explain the importance of evidence in performance critique.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Why are entrances and exits planned during blocking?",
+   "options": [
+    "They organise how characters join and leave action clearly",
+    "They prevent characters from speaking",
+    "They replace the plot",
+    "They make the stage unsafe"
+   ],
+   "correctAnswer": "They organise how characters join and leave action clearly",
+   "explanation": "Clear entrances and exits support story flow, spacing, cue timing, and audience understanding.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Stage Movement and Blocking",
+   "learningOutcome": "Explain why stage movement needs planning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "What does editing mainly do in a film production?",
+   "options": [
+    "Selects and arranges recorded shots into a coherent sequence",
+    "Builds the school hall stage",
+    "Acts every role in the film",
+    "Designs all costumes before writing"
+   ],
+   "correctAnswer": "Selects and arranges recorded shots into a coherent sequence",
+   "explanation": "Editing shapes rhythm, continuity, meaning, and story by organising shots and sound after recording.",
+   "difficulty": 2,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Editing Basics",
+   "learningOutcome": "Describe the role of editing in film storytelling.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Why is articulation important in speech performance?",
+   "options": [
+    "It makes words distinct and easier for listeners to understand",
+    "It changes a stage into a cinema",
+    "It hides the theme",
+    "It removes all emotional expression"
+   ],
+   "correctAnswer": "It makes words distinct and easier for listeners to understand",
+   "explanation": "Clear articulation helps audiences follow meaning, especially in large spaces or fast-paced scenes.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Voice and Speech",
+   "learningOutcome": "Explain articulation as a speech performance skill.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "How can sound effects support a scene set during heavy rain?",
+   "options": [
+    "They help create atmosphere and make the setting believable",
+    "They prove the actors know all lines",
+    "They replace character motivation",
+    "They remove the need for audience focus"
+   ],
+   "correctAnswer": "They help create atmosphere and make the setting believable",
+   "explanation": "Sound effects can suggest weather, place, time, and offstage action when used appropriately.",
+   "difficulty": 2,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Sound Design",
+   "learningOutcome": "Explain how sound supports dramatic atmosphere.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Why should a production team prepare a realistic budget?",
+   "options": [
+    "To plan resources, control costs, and avoid waste",
+    "To make rehearsals impossible",
+    "To replace creative choices with random spending",
+    "To hide expenses from the team"
+   ],
+   "correctAnswer": "To plan resources, control costs, and avoid waste",
+   "explanation": "Budgeting helps a production use available money responsibly for costumes, props, publicity, transport, and technical needs.",
+   "difficulty": 2,
+   "strandTitle": "Performing Arts Enterprise",
+   "subStrandTitle": "Production Planning and Budgeting",
+   "learningOutcome": "Explain why budgeting matters in performance production.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Why is copyright important when using a published play or recorded music in a performance?",
+   "options": [
+    "It protects creators' rights and guides lawful use of their work",
+    "It allows anyone to claim ownership of another person's work",
+    "It prevents original writing by learners",
+    "It removes the need to credit sources"
+   ],
+   "correctAnswer": "It protects creators' rights and guides lawful use of their work",
+   "explanation": "Copyright encourages ethical creative practice by recognising ownership, permission, and fair use conditions.",
+   "difficulty": 2,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Ethics and Intellectual Property",
+   "learningOutcome": "Explain copyright as an ethical issue in Performing Arts.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "How does a tableau communicate meaning on stage?",
+   "options": [
+    "Performers freeze in a carefully arranged image that shows a moment or idea",
+    "Performers leave the theatre before the story begins",
+    "The camera records only empty chairs",
+    "The audience writes the dialogue aloud"
+   ],
+   "correctAnswer": "Performers freeze in a carefully arranged image that shows a moment or idea",
+   "explanation": "A tableau uses stillness, levels, facial expression, and spacing to focus audience attention on a key meaning.",
+   "difficulty": 2,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Body, Gesture, and Still Images",
+   "learningOutcome": "Describe tableau as a non-verbal performance technique.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "A group is adapting a folktale about greed for a school audience. Which first step best supports responsible creation?",
+   "options": [
+    "Identify the source, main lesson, characters, and cultural context before scripting",
+    "Copy random jokes from online videos",
+    "Ignore the meaning of the original story",
+    "Begin with expensive costumes before reading"
+   ],
+   "correctAnswer": "Identify the source, main lesson, characters, and cultural context before scripting",
+   "explanation": "Understanding source material helps learners adapt it respectfully while keeping the story's purpose clear.",
+   "difficulty": 3,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Traditional Kenyan Theatre and Oral Narratives",
+   "learningOutcome": "Apply responsible adaptation steps to oral narrative material.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "A scene feels flat because every line is spoken at the same speed and volume. Which performance choice should be improved?",
+   "options": [
+    "Vocal variation",
+    "Ticket numbering",
+    "Stage sweeping only",
+    "Camera storage"
+   ],
+   "correctAnswer": "Vocal variation",
+   "explanation": "Changing pace, pitch, pause, stress, and volume helps communicate emotion and meaning.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Voice and Speech",
+   "learningOutcome": "Apply vocal techniques to improve dramatic delivery.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "A director wants to show that one character controls a meeting. Which blocking choice best supports this idea?",
+   "options": [
+    "Place the character at the centre or head position while others face them",
+    "Hide the character behind the audience throughout",
+    "Make all actors turn away from the action",
+    "Remove every entrance and exit"
+   ],
+   "correctAnswer": "Place the character at the centre or head position while others face them",
+   "explanation": "Stage position and focus can communicate power relationships without adding extra dialogue.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Stage Movement and Blocking",
+   "learningOutcome": "Use blocking to communicate character relationships.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Learners are filming a conversation between two characters. Which shot pattern best helps viewers follow who is speaking?",
+   "options": [
+    "Shot-reverse-shot between the two characters",
+    "Random shots of feet only",
+    "One long shot of an empty wall",
+    "A black screen with no sound"
+   ],
+   "correctAnswer": "Shot-reverse-shot between the two characters",
+   "explanation": "Shot-reverse-shot alternates views of speakers and is commonly used to show conversation clearly.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Continuity Editing",
+   "learningOutcome": "Apply basic shot sequencing to film dialogue scenes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "A spoken word performer wants to emphasise the phrase 'clean water for every home'. Which technique is most suitable?",
+   "options": [
+    "Pause before the phrase and stress its key words",
+    "Rush through the phrase quietly",
+    "Turn away and mumble every word",
+    "Skip the phrase during performance"
+   ],
+   "correctAnswer": "Pause before the phrase and stress its key words",
+   "explanation": "Pause and stress draw attention to important ideas and help the audience remember the message.",
+   "difficulty": 3,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Spoken Word Delivery",
+   "learningOutcome": "Apply vocal emphasis to communicate a spoken word message.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "A production has no money for a realistic shop set. Which design choice is most practical for a school performance?",
+   "options": [
+    "Use selected signs, counters, and props to suggest the shop",
+    "Cancel the play because there is no full building",
+    "Use dangerous borrowed furniture without checking it",
+    "Ask actors to explain every missing object"
+   ],
+   "correctAnswer": "Use selected signs, counters, and props to suggest the shop",
+   "explanation": "Suggestive set design can create place clearly while staying affordable, safe, and flexible.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Set Design and Resources",
+   "learningOutcome": "Apply resourceful set design to a school performance context.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "A character enters after receiving bad news but the actor smiles throughout. Which acting element needs stronger attention?",
+   "options": [
+    "Emotional truth and motivation",
+    "Ticket sales",
+    "Camera charging",
+    "Poster spelling only"
+   ],
+   "correctAnswer": "Emotional truth and motivation",
+   "explanation": "The performer should align facial expression, movement, and voice with the character's situation and intention.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Characterisation",
+   "learningOutcome": "Apply motivation to create believable character behaviour.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A film scene changes from a classroom to a football field. Which transition is most direct and clear?",
+   "options": [
+    "Cut from the classroom action to an establishing shot of the field",
+    "Repeat the same classroom close-up for five minutes",
+    "Delete all location clues",
+    "Use only a blank title with no image"
+   ],
+   "correctAnswer": "Cut from the classroom action to an establishing shot of the field",
+   "explanation": "An establishing shot after a cut quickly orients viewers to the new location.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Transitions and Scene Structure",
+   "learningOutcome": "Apply transitions to communicate a change of place in film.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "During rehearsal, two actors keep speaking over each other's important lines. Which solution best improves clarity?",
+   "options": [
+    "Mark cues and practise listening for the end of each line",
+    "Increase the number of props in the scene",
+    "Move the audience further away",
+    "Remove all pauses from the script"
+   ],
+   "correctAnswer": "Mark cues and practise listening for the end of each line",
+   "explanation": "Cue awareness and listening help actors time responses so the audience can follow the dialogue.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Cueing and Timing",
+   "learningOutcome": "Apply cue discipline to improve ensemble performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "A scene about a night guard must look dim but still visible. Which lighting choice is best?",
+   "options": [
+    "Use low-intensity focused light rather than complete darkness",
+    "Switch off every light for the whole scene",
+    "Shine bright light directly into the audience's eyes",
+    "Use only daylight in a closed room"
+   ],
+   "correctAnswer": "Use low-intensity focused light rather than complete darkness",
+   "explanation": "Stage lighting must balance mood with visibility so the audience can see important action safely.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Lighting Design",
+   "learningOutcome": "Apply lighting choices to communicate mood and maintain visibility.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A group wants to devise a scene about responsible use of social media. Which process is most suitable?",
+   "options": [
+    "Research the issue, improvise scenarios, select strong moments, then script and rehearse",
+    "Film random clips with no message",
+    "Copy another school's entire performance",
+    "Start publicity before deciding the topic"
+   ],
+   "correctAnswer": "Research the issue, improvise scenarios, select strong moments, then script and rehearse",
+   "explanation": "Devising grows from research, exploration, selection, structuring, rehearsal, and refinement.",
+   "difficulty": 3,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Devised Theatre",
+   "learningOutcome": "Apply devising steps to create a performance on a contemporary issue.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "A prop letter must be read by the actor but not fully seen by the audience. Which design choice is sensible?",
+   "options": [
+    "Write enough visible text for the actor and make the outside look believable",
+    "Leave the paper completely blank on both sides",
+    "Use a heavy metal sheet as the letter",
+    "Let the audience read it silently for ten minutes"
+   ],
+   "correctAnswer": "Write enough visible text for the actor and make the outside look believable",
+   "explanation": "A practical prop supports performance needs while appearing convincing within the scene.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Props and Practical Detail",
+   "learningOutcome": "Apply prop design to support actor action and audience belief.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "An actor playing an elderly character uses a slightly slower walk, careful posture, and measured speech. Which technique is being applied?",
+   "options": [
+    "Physical and vocal characterisation",
+    "Film exporting",
+    "Ticket pricing",
+    "Curtain repair"
+   ],
+   "correctAnswer": "Physical and vocal characterisation",
+   "explanation": "Voice and body choices help portray age, health, mood, and social identity when used respectfully.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Characterisation",
+   "learningOutcome": "Apply physical and vocal choices to portray character.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "A film group records an interview beside a noisy road. Which action best improves sound quality?",
+   "options": [
+    "Move to a quieter place or position the microphone closer to the speaker",
+    "Record farther away from the speaker",
+    "Ask the speaker to face away from the microphone",
+    "Ignore sound because pictures are enough"
+   ],
+   "correctAnswer": "Move to a quieter place or position the microphone closer to the speaker",
+   "explanation": "Good location choice and microphone placement reduce unwanted noise and make dialogue clearer.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Production Sound",
+   "learningOutcome": "Apply basic sound recording practices to film production.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "A learner wants a poem line to create a strong image of drought. Which line best uses imagery for performance?",
+   "options": [
+    "The cracked earth waits with an empty mouth",
+    "Drought is a topic in this poem",
+    "I will now talk about dry weather",
+    "There is no image here"
+   ],
+   "correctAnswer": "The cracked earth waits with an empty mouth",
+   "explanation": "Imagery uses vivid language that helps listeners picture and feel the idea being performed.",
+   "difficulty": 3,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Spoken Word Poetry",
+   "learningOutcome": "Apply imagery to strengthen spoken word writing.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A costume for a village elder needs to suggest dignity without copying sacred attire carelessly. Which approach is best?",
+   "options": [
+    "Use respectful, general design clues and consult reliable cultural knowledge",
+    "Use any sacred item because it looks impressive",
+    "Mock the culture for comic effect",
+    "Choose unrelated sports uniform"
+   ],
+   "correctAnswer": "Use respectful, general design clues and consult reliable cultural knowledge",
+   "explanation": "Cultural costume choices should be respectful, researched, and suited to the performance purpose.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Costume and Cultural Sensitivity",
+   "learningOutcome": "Apply respectful costume design to culturally rooted performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "A director wants to show tension between two friends after a disagreement. Which staging choice best supports this?",
+   "options": [
+    "Place them apart, avoid direct eye contact at first, then let distance change as they reconcile",
+    "Make them stand very close and laugh throughout",
+    "Have both face the back wall and freeze for the whole scene",
+    "Remove all movement and dialogue"
+   ],
+   "correctAnswer": "Place them apart, avoid direct eye contact at first, then let distance change as they reconcile",
+   "explanation": "Distance, eye contact, and movement can reveal emotional relationships and changing conflict.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Blocking and Relationship",
+   "learningOutcome": "Use stage space to communicate relationship and conflict.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A storyboard frame shows a learner looking nervously at an exam paper. Which shot best captures facial anxiety?",
+   "options": [
+    "Close-up of the learner's face",
+    "Extreme wide shot from outside the school gate",
+    "Shot of an empty ceiling",
+    "Back view of a closed cupboard"
+   ],
+   "correctAnswer": "Close-up of the learner's face",
+   "explanation": "A close-up is effective when the main purpose is to show facial expression and emotion.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Storyboarding and Shot Selection",
+   "learningOutcome": "Select suitable shots for communicating emotion in film.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "A play includes a short choral speaking section. Which rehearsal focus is most important?",
+   "options": [
+    "Unified rhythm, clear articulation, and balanced voices",
+    "Individual actors shouting unrelated lines",
+    "Costume colour only",
+    "Camera angle only"
+   ],
+   "correctAnswer": "Unified rhythm, clear articulation, and balanced voices",
+   "explanation": "Choral speaking depends on ensemble timing, shared rhythm, and clarity so the group sounds intentional.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Choral Speaking",
+   "learningOutcome": "Apply ensemble speech skills in choral performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A production team must inform learners about auditions. Which publicity method is most appropriate inside a school?",
+   "options": [
+    "A clear notice with role requirements, venue, date, time, and contact person",
+    "A hidden note in a locked room",
+    "A rumour without audition details",
+    "A poster with no date or venue"
+   ],
+   "correctAnswer": "A clear notice with role requirements, venue, date, time, and contact person",
+   "explanation": "Effective publicity gives practical information so interested participants know how to attend and prepare.",
+   "difficulty": 3,
+   "strandTitle": "Performing Arts Enterprise",
+   "subStrandTitle": "Publicity and Audience Development",
+   "learningOutcome": "Apply clear communication when publicising a performance activity.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "During filming, an actor exits screen right in one shot. To maintain direction in the next shot, what should the actor generally do?",
+   "options": [
+    "Enter from screen left if continuing the same movement across space",
+    "Enter from the same side without reason",
+    "Appear from the ceiling area",
+    "Stay outside the frame forever"
+   ],
+   "correctAnswer": "Enter from screen left if continuing the same movement across space",
+   "explanation": "Screen direction helps viewers understand continuous movement from one shot to the next.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Screen Direction and Continuity",
+   "learningOutcome": "Apply screen-direction continuity in simple film scenes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "A stage combat moment requires one actor to fall safely. Which practice is most suitable?",
+   "options": [
+    "Choreograph the movement slowly, rehearse it safely, and use agreed cues",
+    "Let actors surprise each other during the show",
+    "Use real force to make it look true",
+    "Perform it without supervision or rehearsal"
+   ],
+   "correctAnswer": "Choreograph the movement slowly, rehearse it safely, and use agreed cues",
+   "explanation": "Stage action that suggests danger must be carefully planned and rehearsed to protect performers.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Safety in Performance",
+   "learningOutcome": "Apply safety principles to staged physical action.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "A short film needs to show that two events happen at the same time in different locations. Which editing method is suitable?",
+   "options": [
+    "Cross-cutting between the two locations",
+    "Repeating one still photograph only",
+    "Deleting all action from one location",
+    "Using unrelated shots of clouds only"
+   ],
+   "correctAnswer": "Cross-cutting between the two locations",
+   "explanation": "Cross-cutting alternates between locations or actions to suggest simultaneity or comparison.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Editing for Story",
+   "learningOutcome": "Apply cross-cutting to show parallel action.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "A performer often forgets lines after a cue. Which strategy is best for rehearsal?",
+   "options": [
+    "Practise cue-to-line links and understand the intention behind each line",
+    "Memorise only isolated words without context",
+    "Avoid all run-throughs",
+    "Ask another actor to say every line"
+   ],
+   "correctAnswer": "Practise cue-to-line links and understand the intention behind each line",
+   "explanation": "Lines are easier to retain when the performer knows the cue, action, and purpose of the speech.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Memorisation and Cueing",
+   "learningOutcome": "Apply effective strategies for learning lines.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "A group wants to turn a news report about tree planting into drama. Which choice best avoids a lecture-like scene?",
+   "options": [
+    "Create characters with goals and conflict around the tree planting issue",
+    "Read the report aloud without any dramatic action",
+    "List facts while standing still for ten minutes",
+    "Remove all character relationships"
+   ],
+   "correctAnswer": "Create characters with goals and conflict around the tree planting issue",
+   "explanation": "Dramatic action needs characters, objectives, obstacles, and choices rather than only information delivery.",
+   "difficulty": 3,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Dramatising Contemporary Issues",
+   "learningOutcome": "Apply dramatic structure to a social or environmental issue.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "A film crew has one afternoon to shoot a school scene. Which planning document best organises who is needed, where, and when?",
+   "options": [
+    "Call sheet",
+    "Costume label only",
+    "Audience review",
+    "Final poster"
+   ],
+   "correctAnswer": "Call sheet",
+   "explanation": "A call sheet gives cast and crew practical information such as schedule, location, roles, and contacts.",
+   "difficulty": 3,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Production Planning",
+   "learningOutcome": "Use production documents to organise a simple film shoot.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "A scene should shift from comedy to serious reflection. Which performance choice best helps the shift?",
+   "options": [
+    "Slow the pace, reduce playful movement, and use more focused vocal tone",
+    "Keep slapstick movement unchanged throughout",
+    "Ask the audience to ignore the change",
+    "Brighten every action without altering delivery"
+   ],
+   "correctAnswer": "Slow the pace, reduce playful movement, and use more focused vocal tone",
+   "explanation": "Changes in pace, movement, and vocal tone can guide the audience into a new mood.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Mood and Tone",
+   "learningOutcome": "Apply performance choices to communicate changes in mood.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A director asks actors to identify what their characters want in each scene. Which concept are they working on?",
+   "options": [
+    "Objective",
+    "Lens focus",
+    "Seat plan",
+    "Budget balance"
+   ],
+   "correctAnswer": "Objective",
+   "explanation": "A character objective is what the character wants to achieve and it drives action in the scene.",
+   "difficulty": 3,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Acting Objectives",
+   "learningOutcome": "Apply character objectives to guide performance choices.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "A classroom performance uses a drumbeat from offstage to signal an approaching ceremony. What function does the sound serve?",
+   "options": [
+    "Cueing atmosphere and offstage action",
+    "Replacing all character speech permanently",
+    "Showing the ticket price",
+    "Changing the school calendar"
+   ],
+   "correctAnswer": "Cueing atmosphere and offstage action",
+   "explanation": "Sound can prepare the audience for action not yet visible and shape cultural or emotional atmosphere.",
+   "difficulty": 3,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Sound Cues and Atmosphere",
+   "learningOutcome": "Use sound cues to support action and setting.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "A learner reviewing a performance says, 'The ending was effective because the actors formed a silent circle around the repaired water tap.' Which review skill is shown?",
+   "options": [
+    "Using a specific performance detail to support judgement",
+    "Giving a vague opinion with no evidence",
+    "Ignoring the final stage image",
+    "Listing unrelated ticket prices"
+   ],
+   "correctAnswer": "Using a specific performance detail to support judgement",
+   "explanation": "A strong review connects evaluation to observable details from the production.",
+   "difficulty": 3,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Performance Critique",
+   "learningOutcome": "Apply evidence-based judgement when reviewing a performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A play about school bullying includes a comic teacher who distracts from the victim's experience. What is the strongest revision focus?",
+   "options": [
+    "Balance humour with the seriousness of the theme and the character's journey",
+    "Add more unrelated jokes to every scene",
+    "Remove all conflict from the story",
+    "Ignore audience understanding"
+   ],
+   "correctAnswer": "Balance humour with the seriousness of the theme and the character's journey",
+   "explanation": "Tone should serve the theme; misplaced comedy can weaken empathy and confuse the message.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Theme, Tone, and Revision",
+   "learningOutcome": "Analyse how tone affects the communication of a performance theme.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "In a filmed argument, one actor looks screen left in close-up and the other also looks screen left in response. What problem may viewers experience?",
+   "options": [
+    "They may seem to face the same direction instead of looking at each other",
+    "They will automatically understand the geography better",
+    "The scene will become a stage musical",
+    "The dialogue will become clearer because of eye-line mismatch"
+   ],
+   "correctAnswer": "They may seem to face the same direction instead of looking at each other",
+   "explanation": "Eye-line continuity helps viewers understand spatial relationships during filmed dialogue.",
+   "difficulty": 4,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Eye-line and Spatial Continuity",
+   "learningOutcome": "Analyse continuity problems in filmed conversation scenes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A performance about corruption uses only direct speeches to the audience and no character choices. What is the main dramatic weakness?",
+   "options": [
+    "It tells the issue but lacks action, conflict, and transformation",
+    "It has too many believable character decisions",
+    "It overuses visual storytelling",
+    "It contains too much motivated silence"
+   ],
+   "correctAnswer": "It tells the issue but lacks action, conflict, and transformation",
+   "explanation": "Drama becomes stronger when ideas are embodied through characters making choices under pressure.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Dramatic Action and Structure",
+   "learningOutcome": "Analyse the difference between message delivery and dramatic action.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A stage scene places the most important conversation at the far corner while minor action happens centre stage. What is the likely issue?",
+   "options": [
+    "Audience focus is pulled away from the main dramatic action",
+    "The set automatically becomes more realistic",
+    "The actors become louder without effort",
+    "The script becomes shorter"
+   ],
+   "correctAnswer": "Audience focus is pulled away from the main dramatic action",
+   "explanation": "Blocking should guide attention to the most important action at each moment.",
+   "difficulty": 4,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Focus and Composition",
+   "learningOutcome": "Analyse how stage composition affects audience focus.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Two groups perform the same folktale. Group A copies narration exactly; Group B keeps the lesson but uses present-day school characters. Which judgement is strongest?",
+   "options": [
+    "Group B shows adaptation because it transforms source material for a new context",
+    "Group A is always more creative because it changes nothing",
+    "Both groups have removed the original lesson completely",
+    "Group B cannot be theatre because it uses school characters"
+   ],
+   "correctAnswer": "Group B shows adaptation because it transforms source material for a new context",
+   "explanation": "Adaptation may preserve core meaning while changing setting, characters, language, or structure for a target audience.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Adaptation",
+   "learningOutcome": "Analyse approaches to adapting traditional material for contemporary performance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A film shows a learner studying late, then cuts to the same learner sleeping in class. What meaning does the edit most likely create?",
+   "options": [
+    "A cause-and-effect link between late study and tiredness",
+    "A change to a completely unrelated character",
+    "A guarantee that no time has passed",
+    "A live stage entrance"
+   ],
+   "correctAnswer": "A cause-and-effect link between late study and tiredness",
+   "explanation": "Editing can connect events so viewers infer cause, contrast, or consequence between shots.",
+   "difficulty": 4,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Editing and Meaning",
+   "learningOutcome": "Analyse how shot order creates meaning in film.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "A critic says the set was beautiful but never explains whether it supported the story. What is missing from the critique?",
+   "options": [
+    "A link between design choices and dramatic purpose",
+    "A list of actor phone numbers",
+    "A longer description of ticket colours",
+    "A demand that every set be expensive"
+   ],
+   "correctAnswer": "A link between design choices and dramatic purpose",
+   "explanation": "Useful critique evaluates how performance elements serve theme, character, mood, and audience understanding.",
+   "difficulty": 4,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Performance Critique",
+   "learningOutcome": "Analyse the quality of performance evaluation comments.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A student actor uses a comic accent to represent a real Kenyan community and classmates laugh at the community rather than the character. What is the main ethical concern?",
+   "options": [
+    "The performance may stereotype or disrespect a community",
+    "The scene has too much accurate research",
+    "The actor used clear articulation",
+    "The costume matched the character's occupation"
+   ],
+   "correctAnswer": "The performance may stereotype or disrespect a community",
+   "explanation": "Performers should avoid choices that mock identities or reduce communities to harmful stereotypes.",
+   "difficulty": 4,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Ethics and Representation",
+   "learningOutcome": "Analyse ethical issues in character portrayal and representation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "A monologue has strong words but the performer paces randomly and looks down throughout. What is the main performance gap?",
+   "options": [
+    "Physical delivery does not support the spoken message",
+    "The words are automatically unimportant",
+    "The stage manager has no role",
+    "The audience should not see facial expression"
+   ],
+   "correctAnswer": "Physical delivery does not support the spoken message",
+   "explanation": "Gesture, posture, eye focus, and movement should be chosen to strengthen the meaning of a monologue.",
+   "difficulty": 4,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Monologue Performance",
+   "learningOutcome": "Analyse the relationship between physical delivery and spoken meaning.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "A short film uses loud background music during every dialogue scene, making words difficult to hear. What production judgement is best?",
+   "options": [
+    "The sound mix should prioritise intelligible dialogue where speech carries meaning",
+    "Music should always be louder than speech",
+    "Dialogue is unnecessary in any school film",
+    "The scene needs more camera shake instead"
+   ],
+   "correctAnswer": "The sound mix should prioritise intelligible dialogue where speech carries meaning",
+   "explanation": "Sound levels should serve storytelling; music supports mood but should not hide essential speech.",
+   "difficulty": 4,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Sound Editing and Mixing",
+   "learningOutcome": "Analyse how sound balance affects film communication.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A play has a strong opening and ending, but scenes in the middle repeat the same argument without change. What structural issue is present?",
+   "options": [
+    "Weak progression of conflict and character development",
+    "Too much variety in objectives",
+    "Excessive resolution in every scene",
+    "Perfect escalation of dramatic action"
+   ],
+   "correctAnswer": "Weak progression of conflict and character development",
+   "explanation": "Middle scenes should develop obstacles, choices, discoveries, or consequences rather than repeat the same beat.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Plot Development",
+   "learningOutcome": "Analyse progression in dramatic structure.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A production uses a real flame on stage to show a cooking scene in a school hall. What is the strongest safety judgement?",
+   "options": [
+    "Replace it with a safe simulated effect and follow venue safety rules",
+    "Use the flame because realism is always more important",
+    "Ask the audience to sit closer to the flame",
+    "Ignore teacher supervision if actors are confident"
+   ],
+   "correctAnswer": "Replace it with a safe simulated effect and follow venue safety rules",
+   "explanation": "School productions should prioritise safety and can use design alternatives to suggest dangerous actions.",
+   "difficulty": 4,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Production Safety and Risk Assessment",
+   "learningOutcome": "Evaluate safety risks in school performance production.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A film director wants viewers to feel trapped with a character in a narrow corridor. Which visual choice best supports that intention?",
+   "options": [
+    "Tight framing with limited visible space around the character",
+    "A wide open field shot with no walls",
+    "Random shots of unrelated objects",
+    "Bright comedy lighting in every frame"
+   ],
+   "correctAnswer": "Tight framing with limited visible space around the character",
+   "explanation": "Framing can create emotional meaning by controlling how much space viewers see around a character.",
+   "difficulty": 4,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Framing and Mood",
+   "learningOutcome": "Analyse how framing choices create mood in film.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A group uses call-and-response, song fragments, dance, and narration from an oral story in a stage piece. Which theatre influence is most evident?",
+   "options": [
+    "Traditional African performance conventions",
+    "Silent spreadsheet formatting",
+    "Purely mechanical drawing",
+    "Unrelated laboratory procedure"
+   ],
+   "correctAnswer": "Traditional African performance conventions",
+   "explanation": "Traditional African performance commonly integrates narration, music, movement, audience response, and communal storytelling.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Traditional Kenyan Theatre and Performance Forms",
+   "learningOutcome": "Analyse features of traditional performance in contemporary staging.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A review praises an actor's loud voice but notes that every emotion sounded angry. What acting issue is being identified?",
+   "options": [
+    "Limited vocal range and emotional variation",
+    "Excellent contrast in tone",
+    "Accurate film continuity",
+    "Strong costume research only"
+   ],
+   "correctAnswer": "Limited vocal range and emotional variation",
+   "explanation": "Effective acting uses varied vocal qualities to express different intentions, emotions, and moments of change.",
+   "difficulty": 4,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Evaluating Acting",
+   "learningOutcome": "Analyse vocal performance in acting evaluation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A devised scene ends with a character suddenly changing behaviour without any earlier clue. What revision would best strengthen the performance?",
+   "options": [
+    "Add motivated events or discoveries that make the change believable",
+    "Remove all earlier scenes",
+    "Make the change even more random",
+    "Tell the audience to accept it without evidence"
+   ],
+   "correctAnswer": "Add motivated events or discoveries that make the change believable",
+   "explanation": "Character change is stronger when the audience can trace the causes through earlier action.",
+   "difficulty": 4,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Character Arc and Motivation",
+   "learningOutcome": "Analyse motivation and consistency in character development.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "A stage design fills the acting area with large decorations so actors cannot move safely. What is the main design problem?",
+   "options": [
+    "The set ignores performance space and safety needs",
+    "The set has too little decoration",
+    "The actors should not move in drama",
+    "The lighting will automatically solve the problem"
+   ],
+   "correctAnswer": "The set ignores performance space and safety needs",
+   "explanation": "Set design should support action, visibility, safety, and meaning rather than block essential movement.",
+   "difficulty": 4,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Set Design and Practicality",
+   "learningOutcome": "Analyse practical constraints in stage design.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A film scene begins with a close-up of a broken trophy before the character enters crying. What does this visual choice most likely do?",
+   "options": [
+    "Foreshadows or symbolises the character's loss",
+    "Shows that the trophy is unrelated to the scene",
+    "Proves that no emotion will follow",
+    "Turns the scene into live theatre only"
+   ],
+   "correctAnswer": "Foreshadows or symbolises the character's loss",
+   "explanation": "An object shown before action can prepare meaning and carry symbolic importance in screen storytelling.",
+   "difficulty": 4,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Visual Symbolism",
+   "learningOutcome": "Analyse symbolic use of objects in film scenes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "A production budget spends almost all funds on posters but leaves no money for essential props and transport. What is the best evaluation?",
+   "options": [
+    "The budget does not match production priorities and practical needs",
+    "The budget is balanced because publicity always comes first",
+    "The team should remove all planning documents",
+    "The production no longer needs performers"
+   ],
+   "correctAnswer": "The budget does not match production priorities and practical needs",
+   "explanation": "Budget decisions should support the full production process, including rehearsal, performance resources, safety, and audience communication.",
+   "difficulty": 4,
+   "strandTitle": "Performing Arts Enterprise",
+   "subStrandTitle": "Budget Evaluation",
+   "learningOutcome": "Evaluate whether a production budget supports stated performance needs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A school performance invites audience participation, but actors do not know how to continue after audience responses. What is the main preparation gap?",
+   "options": [
+    "The group did not plan and rehearse rules for interaction",
+    "Audience participation can never work in theatre",
+    "The set should be more expensive",
+    "The scene needs no performer listening"
+   ],
+   "correctAnswer": "The group did not plan and rehearse rules for interaction",
+   "explanation": "Interactive performance needs clear structure, performer flexibility, and boundaries so audience input supports the story.",
+   "difficulty": 4,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Audience Interaction",
+   "learningOutcome": "Analyse preparation needs for interactive performance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A team must create a five-minute performance on peaceful conflict resolution for Grade 10 learners. Which concept gives the strongest creative brief?",
+   "options": [
+    "Two classmates compete for leadership, learn to listen, and resolve the conflict through mediated dialogue",
+    "Actors stand in a line and define peace from a dictionary",
+    "The group copies a random internet skit without permission",
+    "The performance has no conflict because peace is the theme"
+   ],
+   "correctAnswer": "Two classmates compete for leadership, learn to listen, and resolve the conflict through mediated dialogue",
+   "explanation": "A strong brief gives characters, conflict, audience, theme, and a dramatic path for transformation.",
+   "difficulty": 5,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Creative Brief and Devising",
+   "learningOutcome": "Create a focused performance concept from a contemporary issue.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "You are designing a short film about examination pressure without using narration. Which plan best shows rather than tells the theme?",
+   "options": [
+    "Use repeated shots of a ticking clock, unfinished notes, tense silence, and a calmer ending after asking for help",
+    "Open with a character explaining every message to camera",
+    "Place a title saying 'stress' on every shot",
+    "Remove all visual details and only list facts"
+   ],
+   "correctAnswer": "Use repeated shots of a ticking clock, unfinished notes, tense silence, and a calmer ending after asking for help",
+   "explanation": "Film can communicate theme through images, sound, rhythm, and action instead of direct explanation.",
+   "difficulty": 5,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Visual Storytelling",
+   "learningOutcome": "Create a screen storytelling plan using visual and sound clues.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A group needs to modernise a traditional trickster tale for a school festival while keeping its moral lesson. Which adaptation choice is strongest?",
+   "options": [
+    "Set it in a student council campaign where cleverness has consequences and the original lesson remains clear",
+    "Change every event until the moral disappears",
+    "Use only costumes from the past with no performance choices",
+    "Avoid acknowledging that it came from oral tradition"
+   ],
+   "correctAnswer": "Set it in a student council campaign where cleverness has consequences and the original lesson remains clear",
+   "explanation": "Effective adaptation transforms context while retaining the source's core conflict, lesson, and cultural respect.",
+   "difficulty": 5,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Adaptation and Transformation",
+   "learningOutcome": "Create an adaptation approach that preserves core meaning while updating context.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A theatre group has ten performers but only three speaking roles. Which staging solution best uses the whole ensemble meaningfully?",
+   "options": [
+    "Create chorus, movement, crowd, soundscape, and tableau roles that support the central action",
+    "Make seven performers sit backstage with no task",
+    "Give everyone the same lines at the same time throughout",
+    "Remove the main characters to create equal speaking time"
+   ],
+   "correctAnswer": "Create chorus, movement, crowd, soundscape, and tableau roles that support the central action",
+   "explanation": "Ensemble creation can distribute meaningful performance work without weakening the story structure.",
+   "difficulty": 5,
+   "strandTitle": "Performance Skills",
+   "subStrandTitle": "Ensemble Creation",
+   "learningOutcome": "Design ensemble roles that support a performance concept.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A production team is choosing between a realistic market set and a symbolic set of baskets, cloth, and sound cues. Which criterion should guide the decision?",
+   "options": [
+    "Which design best supports theme, budget, safety, scene changes, and audience understanding",
+    "Which option uses the most objects regardless of meaning",
+    "Which option is hardest to move",
+    "Which option ignores the director's concept"
+   ],
+   "correctAnswer": "Which design best supports theme, budget, safety, scene changes, and audience understanding",
+   "explanation": "Design evaluation should balance artistic meaning with practical production constraints.",
+   "difficulty": 5,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Design Concept and Evaluation",
+   "learningOutcome": "Evaluate and select a stage design approach for a production concept.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A class must produce a performance using a story from a community elder. Which plan best protects ethical practice?",
+   "options": [
+    "Seek permission, record source details, represent the story respectfully, and credit the contributor",
+    "Use the story without asking because it is interesting",
+    "Change the elder's name and claim the story as original",
+    "Mock unfamiliar customs to make the audience laugh"
+   ],
+   "correctAnswer": "Seek permission, record source details, represent the story respectfully, and credit the contributor",
+   "explanation": "Ethical performance practice values consent, attribution, respectful representation, and cultural responsibility.",
+   "difficulty": 5,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Ethics, Research, and Cultural Heritage",
+   "learningOutcome": "Evaluate ethical steps when using community-sourced performance material.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A five-shot film sequence must show a learner deciding to apologise after a quarrel. Which sequence has the clearest dramatic progression?",
+   "options": [
+    "Quarrel, lonely reflection, memory of hurtful words, decision to write a message, meeting to apologise",
+    "Random school gate, empty desk, unrelated song, running feet, blank wall",
+    "Apology first, quarrel after, no reaction, unrelated poster, sudden ending",
+    "Five identical shots of the learner smiling"
+   ],
+   "correctAnswer": "Quarrel, lonely reflection, memory of hurtful words, decision to write a message, meeting to apologise",
+   "explanation": "A coherent sequence shows conflict, reflection, decision, action, and resolution.",
+   "difficulty": 5,
+   "strandTitle": "Film Production and Screen Language",
+   "subStrandTitle": "Sequence Design",
+   "learningOutcome": "Create a shot sequence that communicates character change.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "A performance on climate action risks sounding like a lecture. Which creative strategy best makes it dramatic?",
+   "options": [
+    "Build a story around characters whose choices about a polluted stream create conflict and consequences",
+    "Have each actor read a paragraph from a report without interaction",
+    "Project a list of facts and end immediately",
+    "Remove all obstacles so everyone agrees from the start"
+   ],
+   "correctAnswer": "Build a story around characters whose choices about a polluted stream create conflict and consequences",
+   "explanation": "Thematic performance is stronger when ideas are embodied through character objectives, obstacles, and consequences.",
+   "difficulty": 5,
+   "strandTitle": "Creating Performance",
+   "subStrandTitle": "Dramatising Pertinent Contemporary Issues",
+   "learningOutcome": "Create dramatic action from a social or environmental theme.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A group is evaluating whether their final rehearsal is ready for an audience. Which checklist is most complete?",
+   "options": [
+    "Clear story, audible speech, safe movement, working cues, prepared props, respectful content, and timed running order",
+    "Only colourful costumes and loud music",
+    "Only ticket sales and food arrangements",
+    "Only the number of actors in the group"
+   ],
+   "correctAnswer": "Clear story, audible speech, safe movement, working cues, prepared props, respectful content, and timed running order",
+   "explanation": "Readiness involves artistic clarity, technical coordination, safety, ethics, resources, and time management.",
+   "difficulty": 5,
+   "strandTitle": "Theatre Production",
+   "subStrandTitle": "Final Rehearsal and Readiness",
+   "learningOutcome": "Evaluate production readiness before public presentation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "You must design a fair rubric for assessing a Grade 10 group performance. Which set of criteria is strongest?",
+   "options": [
+    "Creativity, performance skill, collaboration, technical support, theme clarity, safety, and reflection",
+    "Only volume of applause",
+    "Only the cost of costumes",
+    "Only how many lines each performer speaks"
+   ],
+   "correctAnswer": "Creativity, performance skill, collaboration, technical support, theme clarity, safety, and reflection",
+   "explanation": "A fair rubric assesses several dimensions of both process and product, not just popularity or expense.",
+   "difficulty": 5,
+   "strandTitle": "Responding and Appreciation",
+   "subStrandTitle": "Assessment and Reflection",
+   "learningOutcome": "Create criteria for fair evaluation of a group performance.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

@@ -1,1409 +1,2516 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 10",
-  "subjectId": "arabic",
-  "subjectName": "Arabic",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which Arabic letter represents the sound /b/ as in 'book'?",
-      "options": ["ب - baa", "ت - taa", "ن - noon", "ي - yaa"],
-      "correctAnswer": "ب - baa",
-      "explanation": "The letter ب is called baa and represents the /b/ sound.",
-      "difficulty": 1,
-      "strandTitle": "Alphabet and Script",
-      "subStrandTitle": "Letter Recognition",
-      "learningOutcome": "Recognize basic Arabic letters and their sounds.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which Arabic letter is called alif?",
-      "options": ["ا - alif", "م - meem", "س - seen", "ل - laam"],
-      "correctAnswer": "ا - alif",
-      "explanation": "Alif is written as ا and is often used with long vowel sounds.",
-      "difficulty": 1,
-      "strandTitle": "Alphabet and Script",
-      "subStrandTitle": "Letter Names",
-      "learningOutcome": "Identify common Arabic letter names and symbols.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which letter in Arabic is read from right to left first in the word كتاب?",
-      "options": ["ك - kaaf", "ت - taa", "ا - alif", "ب - baa"],
-      "correctAnswer": "ك - kaaf",
-      "explanation": "Arabic is read from right to left, so the first letter of كتاب is ك.",
-      "difficulty": 1,
-      "strandTitle": "Alphabet and Script",
-      "subStrandTitle": "Direction of Writing",
-      "learningOutcome": "Apply the right-to-left direction when reading Arabic words.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which option shows the Arabic greeting for 'peace be upon you'?",
-      "options": ["السلام عليكم", "شكرا", "مع السلامة", "أنا بخير"],
-      "correctAnswer": "السلام عليكم",
-      "explanation": "السلام عليكم is a common respectful greeting used when meeting someone.",
-      "difficulty": 1,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Common Greetings",
-      "learningOutcome": "Use simple Arabic greetings in everyday interaction.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "What does شكرا mean in English?",
-      "options": ["Thank you", "Goodbye", "Excuse me", "Welcome"],
-      "correctAnswer": "Thank you",
-      "explanation": "شكرا is used to thank someone politely.",
-      "difficulty": 1,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Polite Expressions",
-      "learningOutcome": "Understand simple Arabic courtesy expressions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'school'?",
-      "options": ["مدرسة", "بيت", "سوق", "قلم"],
-      "correctAnswer": "مدرسة",
-      "explanation": "مدرسة means school and is useful for classroom communication.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "School Vocabulary",
-      "learningOutcome": "Identify familiar Arabic words related to school life.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'pen'?",
-      "options": ["قلم", "كتاب", "باب", "كرسي"],
-      "correctAnswer": "قلم",
-      "explanation": "قلم means pen, a common object in the classroom.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Classroom Objects",
-      "learningOutcome": "Recognize Arabic names for common classroom objects.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which Arabic numeral represents the number three?",
-      "options": ["٣ - three", "٢ - two", "٤ - four", "٥ - five"],
-      "correctAnswer": "٣ - three",
-      "explanation": "The Arabic-Indic numeral ٣ represents the number three.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Numbers",
-      "learningOutcome": "Recognize Arabic-Indic numerals used in simple contexts.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which word is the Arabic pronoun for 'I'?",
-      "options": ["أنا", "هو", "هي", "نحن"],
-      "correctAnswer": "أنا",
-      "explanation": "أنا is the first-person singular pronoun meaning I.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Personal Pronouns",
-      "learningOutcome": "Identify basic Arabic personal pronouns.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which phrase means 'Good morning' in Arabic?",
-      "options": ["صباح الخير", "مساء الخير", "إلى اللقاء", "من فضلك"],
-      "correctAnswer": "صباح الخير",
-      "explanation": "صباح الخير is used as a morning greeting.",
-      "difficulty": 1,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Time-Based Greetings",
-      "learningOutcome": "Choose appropriate Arabic greetings for different times of day.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'house' or 'home'?",
-      "options": ["بيت", "ولد", "بنت", "شارع"],
-      "correctAnswer": "بيت",
-      "explanation": "بيت means house or home and appears in many beginner sentences.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Home Vocabulary",
-      "learningOutcome": "Recognize simple Arabic words for familiar places.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which Arabic letter has one dot below it?",
-      "options": ["ب - baa", "ت - taa", "ث - thaa", "ن - noon"],
-      "correctAnswer": "ب - baa",
-      "explanation": "The letter ب has one dot below, while ت and ث have dots above.",
-      "difficulty": 1,
-      "strandTitle": "Alphabet and Script",
-      "subStrandTitle": "Letter Shapes",
-      "learningOutcome": "Distinguish Arabic letters by dot placement.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'student' for a male learner?",
-      "options": ["طالب", "طالبة", "معلمة", "مدرسة"],
-      "correctAnswer": "طالب",
-      "explanation": "طالب means a male student; طالبة means a female student.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "People at School",
-      "learningOutcome": "Identify Arabic words for learners and teachers.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which phrase is commonly used to say 'Goodbye' in Arabic?",
-      "options": ["مع السلامة", "أهلا وسهلا", "كيف حالك؟", "مرحبا"],
-      "correctAnswer": "مع السلامة",
-      "explanation": "مع السلامة is a polite expression used when leaving.",
-      "difficulty": 1,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Leave-Taking",
-      "learningOutcome": "Use basic Arabic expressions for ending a conversation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'water'?",
-      "options": ["ماء", "طعام", "خبز", "حليب"],
-      "correctAnswer": "ماء",
-      "explanation": "ماء means water, a common word in daily communication.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Food and Drink",
-      "learningOutcome": "Recognize basic Arabic vocabulary for food and drink.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Which response best answers the question كيف حالك؟",
-      "options": ["أنا بخير", "اسمي علي", "هذا كتاب", "أين المدرسة؟"],
-      "correctAnswer": "أنا بخير",
-      "explanation": "كيف حالك؟ asks how someone is, so أنا بخير means I am fine.",
-      "difficulty": 2,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Responding to Greetings",
-      "learningOutcome": "Respond appropriately to simple Arabic social questions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: اسمي ____.",
-      "options": ["عائشة", "في", "إلى", "من"],
-      "correctAnswer": "عائشة",
-      "explanation": "اسمي means my name is, so it is followed by a person's name.",
-      "difficulty": 2,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Self-Introduction",
-      "learningOutcome": "Introduce oneself using simple Arabic sentence frames.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which word makes the phrase 'the book' in Arabic?",
-      "options": ["الكتاب", "كتاب", "كتابي", "كتب"],
-      "correctAnswer": "الكتاب",
-      "explanation": "The definite article ال is attached to the noun, so الكتاب means the book.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Definite Article",
-      "learningOutcome": "Use ال to mark simple definite nouns in Arabic.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which Arabic word is feminine because it ends with taa marbuta?",
-      "options": ["مدرسة", "قلم", "باب", "كتاب"],
-      "correctAnswer": "مدرسة",
-      "explanation": "Many feminine Arabic nouns end with ة, known as taa marbuta.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Gender of Nouns",
-      "learningOutcome": "Recognize common feminine noun markers in Arabic.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which Arabic question word means 'where'?",
-      "options": ["أين", "متى", "ماذا", "من"],
-      "correctAnswer": "أين",
-      "explanation": "أين asks about place, such as أين المدرسة؟ meaning where is the school?",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Question Words",
-      "learningOutcome": "Choose suitable Arabic question words for simple questions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which sentence means 'I am from Kenya'?",
-      "options": ["أنا من كينيا", "أنا في كينيا", "أنا إلى كينيا", "أنا كينيا من"],
-      "correctAnswer": "أنا من كينيا",
-      "explanation": "من means from, so أنا من كينيا means I am from Kenya.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Countries and Identity",
-      "learningOutcome": "State nationality or origin using simple Arabic phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which option correctly means 'two books' in Arabic?",
-      "options": ["كتابان", "كتاب", "كتب", "الكتاب"],
-      "correctAnswer": "كتابان",
-      "explanation": "The ending ان often marks the dual form for two items in simple nominative examples.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Singular, Dual, and Plural",
-      "learningOutcome": "Recognize simple singular, dual, and plural noun forms.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'teacher' for a female teacher?",
-      "options": ["معلمة", "معلم", "طالب", "ولد"],
-      "correctAnswer": "معلمة",
-      "explanation": "معلمة is used for a female teacher, while معلم is used for a male teacher.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "People at School",
-      "learningOutcome": "Use gender-appropriate Arabic words for people at school.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which phrase is a polite way to ask for something in Arabic?",
-      "options": ["من فضلك", "لا أعرف", "أين هو؟", "هذا قلمي"],
-      "correctAnswer": "من فضلك",
-      "explanation": "من فضلك means please and helps make requests polite.",
-      "difficulty": 2,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Polite Requests",
-      "learningOutcome": "Use courteous Arabic expressions when making simple requests.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'today'?",
-      "options": ["اليوم", "غدا", "أمس", "الآن"],
-      "correctAnswer": "اليوم",
-      "explanation": "اليوم means today; غدا means tomorrow and أمس means yesterday.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Time Expressions",
-      "learningOutcome": "Understand simple Arabic words for time and sequence.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: هذا ____.",
-      "options": ["قلم", "قلمان", "أقلام", "طالبة"],
-      "correctAnswer": "قلم",
-      "explanation": "هذا is used here with a singular masculine noun, so هذا قلم means this is a pen.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Demonstratives",
-      "learningOutcome": "Use هذا and هذه with simple nouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: هذه ____.",
-      "options": ["مدرسة", "كتاب", "باب", "ولد"],
-      "correctAnswer": "مدرسة",
-      "explanation": "هذه is used here with a singular feminine noun such as مدرسة.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Demonstratives",
-      "learningOutcome": "Match Arabic demonstratives with noun gender.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'market'?",
-      "options": ["سوق", "بحر", "حديقة", "مطار"],
-      "correctAnswer": "سوق",
-      "explanation": "سوق means market and can be used when discussing shopping or town life.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Places in the Community",
-      "learningOutcome": "Identify Arabic words for common community places.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase means 'I do not understand'?",
-      "options": ["لا أفهم", "أنا أفهم", "افتح الكتاب", "أحب العربية"],
-      "correctAnswer": "لا أفهم",
-      "explanation": "لا before the verb can make a simple negative statement in the present tense.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Negation",
-      "learningOutcome": "Use لا to form simple negative statements.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which word means 'and' in Arabic?",
-      "options": ["و - wa", "في", "على", "مع"],
-      "correctAnswer": "و - wa",
-      "explanation": "The letter و can function as and when it joins words or phrases.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Connectors",
-      "learningOutcome": "Use simple connectors to join Arabic words and phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'with'?",
-      "options": ["مع", "إلى", "عن", "بعد"],
-      "correctAnswer": "مع",
-      "explanation": "مع means with, as in مع صديقي meaning with my friend.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Prepositions",
-      "learningOutcome": "Recognize basic Arabic prepositions in familiar phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which option is the Arabic word for 'red'?",
-      "options": ["أحمر", "أخضر", "أزرق", "أبيض"],
-      "correctAnswer": "أحمر",
-      "explanation": "أحمر means red and is a common colour adjective.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Colours",
-      "learningOutcome": "Identify common Arabic colour words.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which Arabic word means 'family'?",
-      "options": ["أسرة", "نافذة", "دفتر", "طريق"],
-      "correctAnswer": "أسرة",
-      "explanation": "أسرة means family and is used in topics about home and relationships.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Family Vocabulary",
-      "learningOutcome": "Understand basic Arabic words for family and home life.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which sentence means 'The classroom is clean'?",
-      "options": ["الفصل نظيف", "الفصل كبير", "الفصل بعيد", "الفصل مغلق"],
-      "correctAnswer": "الفصل نظيف",
-      "explanation": "نظيف means clean, so الفصل نظيف describes a clean classroom.",
-      "difficulty": 2,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Simple Sentences",
-      "learningOutcome": "Understand short Arabic sentences about school settings.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which phrase best matches a respectful reply to شكرا?",
-      "options": ["عفوا", "إلى اللقاء", "لا بأس", "كم الساعة؟"],
-      "correctAnswer": "عفوا",
-      "explanation": "عفوا can mean you are welcome after someone says شكرا.",
-      "difficulty": 2,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Polite Responses",
-      "learningOutcome": "Choose appropriate Arabic replies in polite exchanges.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Choose the best Arabic sentence for 'This is a new book.'",
-      "options": ["هذا كتاب جديد", "هذه كتاب جديد", "هذا جديدة كتاب", "كتاب هذا جديدة"],
-      "correctAnswer": "هذا كتاب جديد",
-      "explanation": "كتاب is masculine singular, so هذا and جديد agree with it in this simple sentence.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Noun-Adjective Agreement",
-      "learningOutcome": "Build simple Arabic noun-adjective sentences with agreement.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Choose the best Arabic sentence for 'This is a new school.'",
-      "options": ["هذه مدرسة جديدة", "هذا مدرسة جديد", "هذه مدرسة جديد", "مدرسة هذه جديد"],
-      "correctAnswer": "هذه مدرسة جديدة",
-      "explanation": "مدرسة is feminine singular, so هذه and جديدة fit the noun.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Noun-Adjective Agreement",
-      "learningOutcome": "Apply gender agreement in simple Arabic descriptions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which option correctly asks 'What is your name?' in Arabic?",
-      "options": ["ما اسمك؟", "أين اسمك؟", "من اسمك؟", "هل اسمك؟"],
-      "correctAnswer": "ما اسمك؟",
-      "explanation": "ما asks what, so ما اسمك؟ is used to ask for a person's name.",
-      "difficulty": 3,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Personal Questions",
-      "learningOutcome": "Form basic Arabic questions for introductions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Read the sentence: أنا أدرس العربية في المدرسة. Where does the learner study Arabic?",
-      "options": ["في المدرسة", "في السوق", "في البيت", "في المطار"],
-      "correctAnswer": "في المدرسة",
-      "explanation": "The phrase في المدرسة means at school, which gives the place of study.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Information from Sentences",
-      "learningOutcome": "Extract key information from short Arabic sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: أذهب إلى المدرسة ____ الصباح.",
-      "options": ["في", "على", "من", "مع"],
-      "correctAnswer": "في",
-      "explanation": "في is used for time expressions such as في الصباح, meaning in the morning.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Prepositions of Time",
-      "learningOutcome": "Use common prepositions in simple Arabic time expressions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence means 'I love Arabic'?",
-      "options": ["أحب العربية", "أكتب العربية", "أقرأ العربية", "أسمع العربية"],
-      "correctAnswer": "أحب العربية",
-      "explanation": "أحب means I love, so أحب العربية expresses liking Arabic.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Likes and Preferences",
-      "learningOutcome": "Express simple likes and preferences in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which option correctly forms the plural of طالب in a common beginner form?",
-      "options": ["طلاب", "طالبة", "طالبان", "طالبا"],
-      "correctAnswer": "طلاب",
-      "explanation": "طلاب is a common plural form meaning students.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Plural Nouns",
-      "learningOutcome": "Recognize common Arabic plural forms for school vocabulary.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Which option correctly translates 'the big house'?",
-      "options": ["البيت الكبير", "بيت الكبير", "الكبير بيت", "البيت كبيرة"],
-      "correctAnswer": "البيت الكبير",
-      "explanation": "In Arabic, the adjective usually follows the noun and matches it, so البيت الكبير is the big house.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Adjective Position",
-      "learningOutcome": "Place adjectives after nouns in simple Arabic phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly says 'The girl is in the library'?",
-      "options": ["البنت في المكتبة", "البنت على المكتبة", "البنت من المكتبة", "البنت مع المكتبة"],
-      "correctAnswer": "البنت في المكتبة",
-      "explanation": "في means in or at, so it fits a location such as the library.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Prepositions of Place",
-      "learningOutcome": "Use Arabic prepositions to describe location.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Read: عندي قلم وكتاب. What does the learner have?",
-      "options": ["A pen and a book", "A chair and a table", "A bag and water", "A door and a window"],
-      "correctAnswer": "A pen and a book",
-      "explanation": "قلم means pen and كتاب means book, joined by و meaning and.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Classroom Sentence Meaning",
-      "learningOutcome": "Interpret short Arabic sentences using familiar vocabulary.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which option correctly gives the feminine form of جديد?",
-      "options": ["جديدة", "جديدان", "جدد", "جديدون"],
-      "correctAnswer": "جديدة",
-      "explanation": "The feminine singular form commonly adds ة, giving جديدة.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Adjective Gender",
-      "learningOutcome": "Form simple feminine adjectives in Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which option is the best Arabic translation of 'Open the book, please'?",
-      "options": ["افتح الكتاب من فضلك", "اكتب الكتاب من فضلك", "أين الكتاب من فضلك", "هذا الكتاب من فضلك"],
-      "correctAnswer": "افتح الكتاب من فضلك",
-      "explanation": "افتح means open, and من فضلك makes the command polite.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Classroom Instructions",
-      "learningOutcome": "Understand and use common Arabic classroom instructions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best means 'I write in the notebook'?",
-      "options": ["أكتب في الدفتر", "أقرأ في الدفتر", "أذهب إلى الدفتر", "أجلس على الدفتر"],
-      "correctAnswer": "أكتب في الدفتر",
-      "explanation": "أكتب means I write, and في الدفتر means in the notebook.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Simple Action Sentences",
-      "learningOutcome": "Write simple Arabic sentences about classroom actions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: نحن ____ في نيروبي.",
-      "options": ["نسكن", "أسكن", "يسكن", "تسكن"],
-      "correctAnswer": "نسكن",
-      "explanation": "نحن means we, so نسكن means we live.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Present Tense Verbs",
-      "learningOutcome": "Match common present tense verb forms with pronouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: هو ____ كرة القدم.",
-      "options": ["يلعب", "ألعب", "نلعب", "تلعب"],
-      "correctAnswer": "يلعب",
-      "explanation": "هو is a masculine singular pronoun, so يلعب means he plays.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Verb-Pronoun Agreement",
-      "learningOutcome": "Choose present tense verb forms that agree with Arabic pronouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence: هي ____ القصة.",
-      "options": ["تقرأ", "يقرأ", "أقرأ", "نقرأ"],
-      "correctAnswer": "تقرأ",
-      "explanation": "هي takes the present tense form تقرأ, meaning she reads.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Verb-Pronoun Agreement",
-      "learningOutcome": "Apply Arabic present tense agreement in simple sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence is a question asking about place?",
-      "options": ["أين المكتبة؟", "المكتبة كبيرة", "هذه مكتبة", "أنا في المكتبة"],
-      "correctAnswer": "أين المكتبة؟",
-      "explanation": "أين signals a question about location.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Question Formation",
-      "learningOutcome": "Form and recognize simple Arabic location questions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Which sentence best answers: أين تسكن؟",
-      "options": ["أسكن في مومباسا", "اسمي مريم", "أدرس العربية", "هذا بيتي"],
-      "correctAnswer": "أسكن في مومباسا",
-      "explanation": "أين تسكن؟ asks where do you live, so a place answer fits best.",
-      "difficulty": 3,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Personal Information",
-      "learningOutcome": "Answer simple Arabic questions about home and location.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which option correctly changes كتاب to 'my book'?",
-      "options": ["كتابي", "كتابك", "كتابه", "كتابها"],
-      "correctAnswer": "كتابي",
-      "explanation": "The suffix ي can show possession by the speaker, so كتابي means my book.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Possessive Suffixes",
-      "learningOutcome": "Use simple possessive suffixes with familiar Arabic nouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which option correctly changes بيت to 'your house' when speaking to one male learner?",
-      "options": ["بيتك", "بيتي", "بيته", "بيتها"],
-      "correctAnswer": "بيتك",
-      "explanation": "The suffix ك can mean your in this simple masculine singular context.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Possessive Suffixes",
-      "learningOutcome": "Recognize simple possessive forms in everyday Arabic.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Read: في مدرستي مكتبة وحديقة. What two places are in the school?",
-      "options": ["A library and a garden", "A market and an airport", "A sea and a mountain", "A hospital and a bank"],
-      "correctAnswer": "A library and a garden",
-      "explanation": "مكتبة means library and حديقة means garden.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Short Descriptions",
-      "learningOutcome": "Identify details in short Arabic descriptions of school life.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best describes a sunny day?",
-      "options": ["الجو مشمس", "الجو بارد جدا", "الجو ممطر", "الجو غائم"],
-      "correctAnswer": "الجو مشمس",
-      "explanation": "مشمس means sunny and is used to describe weather.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Weather",
-      "learningOutcome": "Use simple Arabic adjectives to describe weather.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: أتناول الفطور ____ الصباح.",
-      "options": ["في", "إلى", "عن", "تحت"],
-      "correctAnswer": "في",
-      "explanation": "في الصباح means in the morning and fits a daily routine sentence.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Daily Routine",
-      "learningOutcome": "Describe daily routines using simple Arabic time phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence means 'I go to school by bus'?",
-      "options": ["أذهب إلى المدرسة بالحافلة", "أذهب إلى السوق بالقلم", "أذهب في البيت بالحافلة", "أقرأ المدرسة بالحافلة"],
-      "correctAnswer": "أذهب إلى المدرسة بالحافلة",
-      "explanation": "أذهب إلى المدرسة means I go to school, and بالحافلة means by bus.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Transport",
-      "learningOutcome": "Use Arabic phrases for movement and transport in daily contexts.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses لا for present-tense negation?",
-      "options": ["لا أتكلم الفرنسية", "ليس أتكلم الفرنسية", "ما أتكلم الفرنسية الآن", "لن أتكلم الفرنسية أمس"],
-      "correctAnswer": "لا أتكلم الفرنسية",
-      "explanation": "لا is commonly used to negate present-tense verbs in simple learner sentences.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Present-Tense Negation",
-      "learningOutcome": "Form simple negative Arabic sentences with لا.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which option correctly asks 'Do you study Arabic?'",
-      "options": ["هل تدرس العربية؟", "أين تدرس العربية؟", "ماذا تدرس العربية؟", "من تدرس العربية؟"],
-      "correctAnswer": "هل تدرس العربية؟",
-      "explanation": "هل introduces a yes-no question in Arabic.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Yes-No Questions",
-      "learningOutcome": "Use هل to form basic yes-no questions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which response best answers: هل تحب القراءة؟",
-      "options": ["نعم، أحب القراءة", "في المكتبة", "هذا كتاب", "اسمي يوسف"],
-      "correctAnswer": "نعم، أحب القراءة",
-      "explanation": "A question beginning with هل can be answered with نعم or لا plus a suitable statement.",
-      "difficulty": 3,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Simple Conversation",
-      "learningOutcome": "Answer Arabic yes-no questions in short conversations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase best translates 'after school'?",
-      "options": ["بعد المدرسة", "قبل المدرسة", "في المدرسة", "مع المدرسة"],
-      "correctAnswer": "بعد المدرسة",
-      "explanation": "بعد means after, so بعد المدرسة means after school.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Time Sequence",
-      "learningOutcome": "Use Arabic sequence words in everyday descriptions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which sentence means 'Before the lesson, I read the book'?",
-      "options": ["قبل الدرس أقرأ الكتاب", "بعد الدرس أقرأ الكتاب", "في الدرس أغلق الكتاب", "مع الدرس أكتب الكتاب"],
-      "correctAnswer": "قبل الدرس أقرأ الكتاب",
-      "explanation": "قبل الدرس means before the lesson and sets the time of the action.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Time in Sentences",
-      "learningOutcome": "Interpret sequence words in short Arabic sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes: عندي ____ كتب.",
-      "options": ["ثلاثة", "واحد", "هذه", "هذا"],
-      "correctAnswer": "ثلاثة",
-      "explanation": "ثلاثة fits with the plural noun كتب to say I have three books in a simple learner phrase.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Numbers with Nouns",
-      "learningOutcome": "Use numbers with familiar Arabic classroom nouns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which word best completes the family sentence: أبي و____ في البيت.",
-      "options": ["أمي", "قلمي", "كتابي", "فصلي"],
-      "correctAnswer": "أمي",
-      "explanation": "أبي means my father and أمي means my mother, so the pair fits a family sentence.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Family Sentences",
-      "learningOutcome": "Use family vocabulary in simple Arabic sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which option is best for the sentence 'My sister is a student'?",
-      "options": ["أختي طالبة", "أخي طالبة", "أختي طالب", "أبي طالبة"],
-      "correctAnswer": "أختي طالبة",
-      "explanation": "أختي means my sister, and طالبة is the feminine form of student.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Gender Agreement in Sentences",
-      "learningOutcome": "Apply gender agreement in simple family and school sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which sentence is best for writing a simple Arabic classroom rule?",
-      "options": ["استمع إلى المعلم", "أنا من كينيا", "الجو مشمس", "هذا بيتي"],
-      "correctAnswer": "استمع إلى المعلم",
-      "explanation": "استمع إلى المعلم means listen to the teacher and works as a classroom rule.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Classroom Rules",
-      "learningOutcome": "Write short Arabic instructions for classroom behaviour.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which Arabic phrase is suitable at the beginning of a short message to a friend?",
-      "options": ["صديقي العزيز", "النتيجة النهائية", "في الصفحة الأخيرة", "السوق الكبير"],
-      "correctAnswer": "صديقي العزيز",
-      "explanation": "صديقي العزيز means my dear friend and can open a friendly message.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Short Messages",
-      "learningOutcome": "Choose suitable openings for short Arabic personal messages.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which ending is most suitable for a short Arabic note to a classmate?",
-      "options": ["مع تحياتي", "أين القلم؟", "هذا فصل", "في الصباح"],
-      "correctAnswer": "مع تحياتي",
-      "explanation": "مع تحياتي means with my regards and is suitable for closing a short note.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Short Messages",
-      "learningOutcome": "Use simple Arabic closings in written communication.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Which option corrects the agreement error in هذه طالب جديد?",
-      "options": ["هذا طالب جديد", "هذه طالب جديدة", "هذا طالبة جديد", "هذه الطلاب جديد"],
-      "correctAnswer": "هذا طالب جديد",
-      "explanation": "طالب is masculine singular, so هذا and جديد should be used with it.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Error Correction",
-      "learningOutcome": "Correct simple Arabic gender agreement errors.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which option corrects the word order in كبير البيت?",
-      "options": ["البيت الكبير", "الكبير البيت", "بيت الكبير", "الكبيرة البيت"],
-      "correctAnswer": "البيت الكبير",
-      "explanation": "The adjective normally follows the noun, and both words take ال in a definite noun phrase.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Noun Phrase Order",
-      "learningOutcome": "Analyze and correct adjective order in Arabic noun phrases.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Read: اسمي سلمى. أنا من كينيا. أدرس العربية في المدرسة. What is the speaker studying?",
-      "options": ["Arabic", "Kiswahili", "History", "Mathematics"],
-      "correctAnswer": "Arabic",
-      "explanation": "The phrase أدرس العربية means I study Arabic.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Short Paragraphs",
-      "learningOutcome": "Find specific information in a short Arabic self-introduction.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Read: في الصباح أذهب إلى المدرسة، وبعد الظهر ألعب كرة القدم. When does the speaker play football?",
-      "options": ["After noon", "In the morning", "At night", "Before school"],
-      "correctAnswer": "After noon",
-      "explanation": "بعد الظهر means after noon or in the afternoon.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Routine Paragraphs",
-      "learningOutcome": "Interpret time expressions in short Arabic routine texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best combines 'I read' and 'I write' using و?",
-      "options": ["أقرأ وأكتب", "أقرأ في أكتب", "أقرأ إلى أكتب", "أقرأ من أكتب"],
-      "correctAnswer": "أقرأ وأكتب",
-      "explanation": "و joins the two verbs naturally: أقرأ وأكتب means I read and write.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Sentence Combining",
-      "learningOutcome": "Combine simple Arabic clauses using basic connectors.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which sentence is most suitable in a formal classroom conversation with a teacher?",
-      "options": ["هل تسمح لي بالسؤال؟", "أنت لا تعرف شيئا", "أريد الكلام الآن فقط", "اسمعني ولا تتكلم"],
-      "correctAnswer": "هل تسمح لي بالسؤال؟",
-      "explanation": "هل تسمح لي بالسؤال؟ politely asks permission to ask a question.",
-      "difficulty": 4,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Register and Politeness",
-      "learningOutcome": "Select respectful Arabic expressions for formal classroom situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which option best corrects the pronoun-verb mismatch in نحن أدرس العربية?",
-      "options": ["نحن ندرس العربية", "نحن يدرس العربية", "نحن تدرس العربية", "نحن أدرس العربية"],
-      "correctAnswer": "نحن ندرس العربية",
-      "explanation": "نحن needs the verb form ندرس to mean we study.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Verb Agreement",
-      "learningOutcome": "Analyze pronoun-verb agreement in Arabic present tense sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Which option shows the best sequence for a short Arabic self-introduction?",
-      "options": ["Greeting, name, origin, school subject", "Name, goodbye, unrelated object, greeting", "Question, colour list, command, number", "Weather, market price, letter shape, goodbye"],
-      "correctAnswer": "Greeting, name, origin, school subject",
-      "explanation": "A clear self-introduction starts with a greeting and then gives relevant personal details.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Paragraph Organization",
-      "learningOutcome": "Organize simple Arabic self-introduction paragraphs logically.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best describes a learner's weekly habit?",
-      "options": ["أدرس العربية كل يوم اثنين", "أدرس العربية الآن فقط", "درست العربية أمس فقط", "سأدرس العربية بعد عشر سنوات"],
-      "correctAnswer": "أدرس العربية كل يوم اثنين",
-      "explanation": "كل يوم اثنين shows a repeated weekly habit on Mondays.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Routines and Frequency",
-      "learningOutcome": "Describe repeated habits using simple Arabic time expressions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which sentence best fits a short Arabic description of Nairobi as a city?",
-      "options": ["نيروبي مدينة كبيرة", "نيروبي كتاب جديد", "نيروبي قلم صغير", "نيروبي طالبة مجتهدة"],
-      "correctAnswer": "نيروبي مدينة كبيرة",
-      "explanation": "مدينة كبيرة means a big city and fits a description of Nairobi.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Awareness",
-      "subStrandTitle": "Kenyan Places in Arabic",
-      "learningOutcome": "Use Arabic to describe familiar Kenyan places respectfully.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "A classmate says صباح الخير at 7:30 a.m. Which response is most appropriate?",
-      "options": ["صباح النور", "مساء الخير", "تصبح على خير", "إلى اللقاء"],
-      "correctAnswer": "صباح النور",
-      "explanation": "صباح النور is a common response to صباح الخير in the morning.",
-      "difficulty": 4,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Contextual Responses",
-      "learningOutcome": "Choose context-appropriate Arabic responses in daily interactions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Which option best changes the statement أنت طالب into a question?",
-      "options": ["هل أنت طالب؟", "أنت هل طالب", "طالب أنت هل", "أين أنت طالب؟"],
-      "correctAnswer": "هل أنت طالب؟",
-      "explanation": "هل is placed at the start to form a yes-no question.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Question Transformation",
-      "learningOutcome": "Transform simple Arabic statements into questions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which pair correctly matches the Arabic word with its meaning?",
-      "options": ["مكتبة - library", "مطار - garden", "حديقة - airport", "سوق - school"],
-      "correctAnswer": "مكتبة - library",
-      "explanation": "مكتبة means library; the other pairs mismatch common place words.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Place Vocabulary",
-      "learningOutcome": "Differentiate Arabic words for public places and school spaces.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence avoids ambiguity when asking for a book politely?",
-      "options": ["أعطني الكتاب من فضلك", "كتاب من فضلك", "أنا كتاب من فضلك", "أنت الكتاب من فضلك"],
-      "correctAnswer": "أعطني الكتاب من فضلك",
-      "explanation": "أعطني الكتاب من فضلك clearly says give me the book, please.",
-      "difficulty": 4,
-      "strandTitle": "Greetings and Social Language",
-      "subStrandTitle": "Polite Requests",
-      "learningOutcome": "Construct clear and polite Arabic requests for classroom needs.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Read: أحب القراءة، لكن لا أحب الضوضاء في المكتبة. What does the speaker dislike?",
-      "options": ["Noise in the library", "Reading books", "The library building", "Quiet study"],
-      "correctAnswer": "Noise in the library",
-      "explanation": "لا أحب الضوضاء means I do not like noise.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Opinion Sentences",
-      "learningOutcome": "Infer likes and dislikes from short Arabic sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which sentence best compares two school subjects in simple Arabic?",
-      "options": ["العربية سهلة والرياضيات صعبة", "العربية كتاب والرياضيات قلم", "العربية في والرياضيات من", "العربية أمس والرياضيات غدا"],
-      "correctAnswer": "العربية سهلة والرياضيات صعبة",
-      "explanation": "The sentence uses adjectives سهلة and صعبة to compare how the subjects feel.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary and Daily Communication",
-      "subStrandTitle": "Opinions and Comparison",
-      "learningOutcome": "Express simple opinions about school subjects in Arabic.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which phrase best shows awareness of Arabic writing direction on a classroom poster?",
-      "options": ["Arrange Arabic words from right to left", "Write every Arabic word vertically", "Start each Arabic sentence from the left margin", "Reverse every Arabic letter shape"],
-      "correctAnswer": "Arrange Arabic words from right to left",
-      "explanation": "Arabic words and sentences are normally arranged from right to left.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Script Layout",
-      "learningOutcome": "Apply Arabic writing direction when preparing short written texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which option best corrects the demonstrative in هذا طالبة مجتهدة?",
-      "options": ["هذه طالبة مجتهدة", "هذا طالبة مجتهد", "هذه طالب مجتهدة", "هذا الطلاب مجتهدة"],
-      "correctAnswer": "هذه طالبة مجتهدة",
-      "explanation": "طالبة is feminine singular, so هذه and مجتهدة agree with it.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Demonstrative Agreement",
-      "learningOutcome": "Correct demonstrative and adjective agreement in Arabic sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which option best completes a short Arabic invitation to join a study group?",
-      "options": ["تعال معنا إلى المكتبة", "أغلق الباب وحدك", "لا تدرس معنا أبدا", "الكتاب على الطاولة"],
-      "correctAnswer": "تعال معنا إلى المكتبة",
-      "explanation": "تعال معنا إلى المكتبة means come with us to the library and fits an invitation.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Awareness",
-      "subStrandTitle": "Collaborative Language",
-      "learningOutcome": "Use courteous Arabic phrases for cooperative school activities.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best summarizes the text: أنا ليلى. أعيش في كيسومو. أحب مدرستي.",
-      "options": ["ليلى تعيش في كيسومو وتحب مدرستها", "ليلى تعيش في نيروبي وتكره مدرستها", "ليلى معلمة في كيسومو", "ليلى تذهب إلى السوق كل يوم"],
-      "correctAnswer": "ليلى تعيش في كيسومو وتحب مدرستها",
-      "explanation": "The summary keeps the speaker's name, place, and positive feeling about school.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Comprehension",
-      "subStrandTitle": "Summarizing Short Texts",
-      "learningOutcome": "Summarize key details from short Arabic personal texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A learner must write three Arabic sentences about school. Which set is the most coherent?",
-      "options": ["هذه مدرستي. فيها مكتبة. أحب القراءة فيها.", "هذه مدرستي. البحر بعيد. القلم أحمر فقط.", "أنا طالب. أين السوق؟ مع السلامة الآن.", "الجو مشمس. اسمي كتاب. في الحافلة قلم."],
-      "correctAnswer": "هذه مدرستي. فيها مكتبة. أحب القراءة فيها.",
-      "explanation": "The sentences stay on one topic: the school, its library, and reading there.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Coherent Short Paragraphs",
-      "learningOutcome": "Select coherent Arabic sentences for a short paragraph on a familiar topic.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which sentence best expands أنا طالب into a richer Grade 10 self-introduction?",
-      "options": ["أنا طالب في الصف العاشر وأدرس العربية في كينيا", "أنا طالب قلم باب كتاب", "أنا طالب أمس في أحمر", "أنا طالب إلى من على"],
-      "correctAnswer": "أنا طالب في الصف العاشر وأدرس العربية في كينيا",
-      "explanation": "The expanded sentence adds grade, subject, and place while remaining grammatical.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Sentence Expansion",
-      "learningOutcome": "Expand basic Arabic statements with relevant personal details.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which Arabic text is best for a short polite notice asking learners to keep the library quiet?",
-      "options": ["من فضلكم، حافظوا على الهدوء في المكتبة", "الكتاب جديد في السوق الكبير", "أنا أحب كرة القدم بعد المدرسة", "هل تسكن في مومباسا؟"],
-      "correctAnswer": "من فضلكم، حافظوا على الهدوء في المكتبة",
-      "explanation": "The notice is polite and directly asks learners to keep quiet in the library.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Functional Writing",
-      "learningOutcome": "Create short Arabic notices for familiar school contexts.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which option best revises أنا أذهب مدرسة for clearer Arabic?",
-      "options": ["أنا أذهب إلى المدرسة", "أنا أذهب من المدرسة فقط", "أنا مدرسة أذهب إلى", "أنا إلى أذهب مدرسة"],
-      "correctAnswer": "أنا أذهب إلى المدرسة",
-      "explanation": "إلى is needed before the destination, and المدرسة is the definite destination in this sentence.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Sentence Revision",
-      "learningOutcome": "Revise learner sentences to improve Arabic preposition use and clarity.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which option best transforms the notes 'name: Hassan, place: Nakuru, subject: Arabic' into one Arabic sentence?",
-      "options": ["اسمي حسن وأسكن في ناكورو وأدرس العربية", "حسن ناكورو العربية فقط", "أنا من العربية وأسكن في حسن", "ناكورو اسمي العربية في حسن"],
-      "correctAnswer": "اسمي حسن وأسكن في ناكورو وأدرس العربية",
-      "explanation": "The sentence combines the name, place, and subject with clear verbs and connectors.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Using Notes to Write",
-      "learningOutcome": "Turn simple notes into a clear Arabic sentence.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Which Arabic sentence best shows intercultural respect when meeting a visitor who speaks Arabic?",
-      "options": ["أهلا وسهلا بك في مدرستنا", "لا نريد أن نسمع لغتك", "تكلم بسرعة ولا تشرح", "أنت غريب عن المدرسة"],
-      "correctAnswer": "أهلا وسهلا بك في مدرستنا",
-      "explanation": "The sentence welcomes the visitor respectfully to the school.",
-      "difficulty": 5,
-      "strandTitle": "Culture and Intercultural Awareness",
-      "subStrandTitle": "Respectful Interaction",
-      "learningOutcome": "Use Arabic expressions that support respectful intercultural communication.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Which option best completes a short Arabic email subject line for homework?",
-      "options": ["واجب العربية للصف العاشر", "أنا في السوق الآن", "الحديقة خضراء جدا", "هل تحب العصير؟"],
-      "correctAnswer": "واجب العربية للصف العاشر",
-      "explanation": "واجب العربية للصف العاشر clearly identifies Arabic homework for Grade 10.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Digital Communication",
-      "learningOutcome": "Write clear Arabic headings for simple digital messages.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which option best combines time, action, and place into one Arabic sentence?",
-      "options": ["في المساء أقرأ في البيت", "في المساء البيت أقرأ في", "أقرأ المساء بيت في", "البيت مساء أقرأ من"],
-      "correctAnswer": "في المساء أقرأ في البيت",
-      "explanation": "The sentence clearly states when, what action happens, and where it happens.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Sentence Building",
-      "learningOutcome": "Create Arabic sentences that combine time, action, and place.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which option best turns the idea 'I like Arabic because it helps communication' into Arabic?",
-      "options": ["أحب العربية لأنها تساعد على التواصل", "أحب العربية لأنها قلم جديد", "أحب العربية لأنها في السوق", "أحب العربية لأنها لا أقرأ"],
-      "correctAnswer": "أحب العربية لأنها تساعد على التواصل",
-      "explanation": "لأنها introduces a reason, and تساعد على التواصل means it helps communication.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Giving Reasons",
-      "learningOutcome": "Write simple Arabic opinion sentences with reasons.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which short Arabic paragraph is best for introducing a Kenyan school club?",
-      "options": ["نحن في نادي العربية. نقرأ قصصا قصيرة ونتعلم كلمات جديدة كل أسبوع.", "نادي العربية قلم واحد. السوق بعيد وأمس المطر.", "أنا لا أعرف. هذا باب في كتاب أحمر.", "هل أنت من الحافلة؟ مع السلامة قبل الاسم."],
-      "correctAnswer": "نحن في نادي العربية. نقرأ قصصا قصيرة ونتعلم كلمات جديدة كل أسبوع.",
-      "explanation": "The paragraph gives a clear club identity and describes relevant weekly activities.",
-      "difficulty": 5,
-      "strandTitle": "Culture and Intercultural Awareness",
-      "subStrandTitle": "School Language Communities",
-      "learningOutcome": "Compose coherent Arabic text about language learning activities in school.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 10",
+ "subjectId": "arabic",
+ "subjectName": "Arabic",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which Arabic letter represents the sound /b/ as in 'book'?",
+   "options": [
+    "ب - baa",
+    "ت - taa",
+    "ن - noon",
+    "ي - yaa"
+   ],
+   "correctAnswer": "ب - baa",
+   "explanation": "The letter ب is called baa and represents the /b/ sound.",
+   "difficulty": 1,
+   "strandTitle": "Alphabet and Script",
+   "subStrandTitle": "Letter Recognition",
+   "learningOutcome": "Recognize basic Arabic letters and their sounds.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which Arabic letter is called alif?",
+   "options": [
+    "ا - alif",
+    "م - meem",
+    "س - seen",
+    "ل - laam"
+   ],
+   "correctAnswer": "ا - alif",
+   "explanation": "Alif is written as ا and is often used with long vowel sounds.",
+   "difficulty": 1,
+   "strandTitle": "Alphabet and Script",
+   "subStrandTitle": "Letter Names",
+   "learningOutcome": "Identify common Arabic letter names and symbols.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which letter in Arabic is read from right to left first in the word كتاب?",
+   "options": [
+    "ك - kaaf",
+    "ت - taa",
+    "ا - alif",
+    "ب - baa"
+   ],
+   "correctAnswer": "ك - kaaf",
+   "explanation": "Arabic is read from right to left, so the first letter of كتاب is ك.",
+   "difficulty": 1,
+   "strandTitle": "Alphabet and Script",
+   "subStrandTitle": "Direction of Writing",
+   "learningOutcome": "Apply the right-to-left direction when reading Arabic words.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which option shows the Arabic greeting for 'peace be upon you'?",
+   "options": [
+    "السلام عليكم",
+    "شكرا",
+    "مع السلامة",
+    "أنا بخير"
+   ],
+   "correctAnswer": "السلام عليكم",
+   "explanation": "السلام عليكم is a common respectful greeting used when meeting someone.",
+   "difficulty": 1,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Common Greetings",
+   "learningOutcome": "Use simple Arabic greetings in everyday interaction.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "What does شكرا mean in English?",
+   "options": [
+    "Thank you",
+    "Goodbye",
+    "Excuse me",
+    "Welcome"
+   ],
+   "correctAnswer": "Thank you",
+   "explanation": "شكرا is used to thank someone politely.",
+   "difficulty": 1,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Polite Expressions",
+   "learningOutcome": "Understand simple Arabic courtesy expressions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'school'?",
+   "options": [
+    "مدرسة",
+    "بيت",
+    "سوق",
+    "قلم"
+   ],
+   "correctAnswer": "مدرسة",
+   "explanation": "مدرسة means school and is useful for classroom communication.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "School Vocabulary",
+   "learningOutcome": "Identify familiar Arabic words related to school life.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'pen'?",
+   "options": [
+    "قلم",
+    "كتاب",
+    "باب",
+    "كرسي"
+   ],
+   "correctAnswer": "قلم",
+   "explanation": "قلم means pen, a common object in the classroom.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Classroom Objects",
+   "learningOutcome": "Recognize Arabic names for common classroom objects.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which Arabic numeral represents the number three?",
+   "options": [
+    "٣ - three",
+    "٢ - two",
+    "٤ - four",
+    "٥ - five"
+   ],
+   "correctAnswer": "٣ - three",
+   "explanation": "The Arabic-Indic numeral ٣ represents the number three.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Numbers",
+   "learningOutcome": "Recognize Arabic-Indic numerals used in simple contexts.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which word is the Arabic pronoun for 'I'?",
+   "options": [
+    "أنا",
+    "هو",
+    "هي",
+    "نحن"
+   ],
+   "correctAnswer": "أنا",
+   "explanation": "أنا is the first-person singular pronoun meaning I.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Personal Pronouns",
+   "learningOutcome": "Identify basic Arabic personal pronouns.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which phrase means 'Good morning' in Arabic?",
+   "options": [
+    "صباح الخير",
+    "مساء الخير",
+    "إلى اللقاء",
+    "من فضلك"
+   ],
+   "correctAnswer": "صباح الخير",
+   "explanation": "صباح الخير is used as a morning greeting.",
+   "difficulty": 1,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Time-Based Greetings",
+   "learningOutcome": "Choose appropriate Arabic greetings for different times of day.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'house' or 'home'?",
+   "options": [
+    "بيت",
+    "ولد",
+    "بنت",
+    "شارع"
+   ],
+   "correctAnswer": "بيت",
+   "explanation": "بيت means house or home and appears in many beginner sentences.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Home Vocabulary",
+   "learningOutcome": "Recognize simple Arabic words for familiar places.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which Arabic letter has one dot below it?",
+   "options": [
+    "ب - baa",
+    "ت - taa",
+    "ث - thaa",
+    "ن - noon"
+   ],
+   "correctAnswer": "ب - baa",
+   "explanation": "The letter ب has one dot below, while ت and ث have dots above.",
+   "difficulty": 1,
+   "strandTitle": "Alphabet and Script",
+   "subStrandTitle": "Letter Shapes",
+   "learningOutcome": "Distinguish Arabic letters by dot placement.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'student' for a male learner?",
+   "options": [
+    "طالب",
+    "طالبة",
+    "معلمة",
+    "مدرسة"
+   ],
+   "correctAnswer": "طالب",
+   "explanation": "طالب means a male student; طالبة means a female student.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "People at School",
+   "learningOutcome": "Identify Arabic words for learners and teachers.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which phrase is commonly used to say 'Goodbye' in Arabic?",
+   "options": [
+    "مع السلامة",
+    "أهلا وسهلا",
+    "كيف حالك؟",
+    "مرحبا"
+   ],
+   "correctAnswer": "مع السلامة",
+   "explanation": "مع السلامة is a polite expression used when leaving.",
+   "difficulty": 1,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Leave-Taking",
+   "learningOutcome": "Use basic Arabic expressions for ending a conversation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'water'?",
+   "options": [
+    "ماء",
+    "طعام",
+    "خبز",
+    "حليب"
+   ],
+   "correctAnswer": "ماء",
+   "explanation": "ماء means water, a common word in daily communication.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Food and Drink",
+   "learningOutcome": "Recognize basic Arabic vocabulary for food and drink.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Which response best answers the question كيف حالك؟",
+   "options": [
+    "أنا بخير",
+    "اسمي علي",
+    "هذا كتاب",
+    "أين المدرسة؟"
+   ],
+   "correctAnswer": "أنا بخير",
+   "explanation": "كيف حالك؟ asks how someone is, so أنا بخير means I am fine.",
+   "difficulty": 2,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Responding to Greetings",
+   "learningOutcome": "Respond appropriately to simple Arabic social questions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: اسمي ____.",
+   "options": [
+    "عائشة",
+    "في",
+    "إلى",
+    "من"
+   ],
+   "correctAnswer": "عائشة",
+   "explanation": "اسمي means my name is, so it is followed by a person's name.",
+   "difficulty": 2,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Self-Introduction",
+   "learningOutcome": "Introduce oneself using simple Arabic sentence frames.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which word makes the phrase 'the book' in Arabic?",
+   "options": [
+    "الكتاب",
+    "كتاب",
+    "كتابي",
+    "كتب"
+   ],
+   "correctAnswer": "الكتاب",
+   "explanation": "The definite article ال is attached to the noun, so الكتاب means the book.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Definite Article",
+   "learningOutcome": "Use ال to mark simple definite nouns in Arabic.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which Arabic word is feminine because it ends with taa marbuta?",
+   "options": [
+    "مدرسة",
+    "قلم",
+    "باب",
+    "كتاب"
+   ],
+   "correctAnswer": "مدرسة",
+   "explanation": "Many feminine Arabic nouns end with ة, known as taa marbuta.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Gender of Nouns",
+   "learningOutcome": "Recognize common feminine noun markers in Arabic.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which Arabic question word means 'where'?",
+   "options": [
+    "أين",
+    "متى",
+    "ماذا",
+    "من"
+   ],
+   "correctAnswer": "أين",
+   "explanation": "أين asks about place, such as أين المدرسة؟ meaning where is the school?",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Question Words",
+   "learningOutcome": "Choose suitable Arabic question words for simple questions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which sentence means 'I am from Kenya'?",
+   "options": [
+    "أنا من كينيا",
+    "أنا في كينيا",
+    "أنا إلى كينيا",
+    "أنا كينيا من"
+   ],
+   "correctAnswer": "أنا من كينيا",
+   "explanation": "من means from, so أنا من كينيا means I am from Kenya.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Countries and Identity",
+   "learningOutcome": "State nationality or origin using simple Arabic phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which option correctly means 'two books' in Arabic?",
+   "options": [
+    "كتابان",
+    "كتاب",
+    "كتب",
+    "الكتاب"
+   ],
+   "correctAnswer": "كتابان",
+   "explanation": "The ending ان often marks the dual form for two items in simple nominative examples.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Singular, Dual, and Plural",
+   "learningOutcome": "Recognize simple singular, dual, and plural noun forms.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'teacher' for a female teacher?",
+   "options": [
+    "معلمة",
+    "معلم",
+    "طالب",
+    "ولد"
+   ],
+   "correctAnswer": "معلمة",
+   "explanation": "معلمة is used for a female teacher, while معلم is used for a male teacher.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "People at School",
+   "learningOutcome": "Use gender-appropriate Arabic words for people at school.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which phrase is a polite way to ask for something in Arabic?",
+   "options": [
+    "من فضلك",
+    "لا أعرف",
+    "أين هو؟",
+    "هذا قلمي"
+   ],
+   "correctAnswer": "من فضلك",
+   "explanation": "من فضلك means please and helps make requests polite.",
+   "difficulty": 2,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Polite Requests",
+   "learningOutcome": "Use courteous Arabic expressions when making simple requests.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'today'?",
+   "options": [
+    "اليوم",
+    "غدا",
+    "أمس",
+    "الآن"
+   ],
+   "correctAnswer": "اليوم",
+   "explanation": "اليوم means today; غدا means tomorrow and أمس means yesterday.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Time Expressions",
+   "learningOutcome": "Understand simple Arabic words for time and sequence.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: هذا ____.",
+   "options": [
+    "قلم",
+    "قلمان",
+    "أقلام",
+    "طالبة"
+   ],
+   "correctAnswer": "قلم",
+   "explanation": "هذا is used here with a singular masculine noun, so هذا قلم means this is a pen.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Demonstratives",
+   "learningOutcome": "Use هذا and هذه with simple nouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: هذه ____.",
+   "options": [
+    "مدرسة",
+    "كتاب",
+    "باب",
+    "ولد"
+   ],
+   "correctAnswer": "مدرسة",
+   "explanation": "هذه is used here with a singular feminine noun such as مدرسة.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Demonstratives",
+   "learningOutcome": "Match Arabic demonstratives with noun gender.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'market'?",
+   "options": [
+    "سوق",
+    "بحر",
+    "حديقة",
+    "مطار"
+   ],
+   "correctAnswer": "سوق",
+   "explanation": "سوق means market and can be used when discussing shopping or town life.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Places in the Community",
+   "learningOutcome": "Identify Arabic words for common community places.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase means 'I do not understand'?",
+   "options": [
+    "لا أفهم",
+    "أنا أفهم",
+    "افتح الكتاب",
+    "أحب العربية"
+   ],
+   "correctAnswer": "لا أفهم",
+   "explanation": "لا before the verb can make a simple negative statement in the present tense.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Negation",
+   "learningOutcome": "Use لا to form simple negative statements.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which word means 'and' in Arabic?",
+   "options": [
+    "و - wa",
+    "في",
+    "على",
+    "مع"
+   ],
+   "correctAnswer": "و - wa",
+   "explanation": "The letter و can function as and when it joins words or phrases.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Connectors",
+   "learningOutcome": "Use simple connectors to join Arabic words and phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'with'?",
+   "options": [
+    "مع",
+    "إلى",
+    "عن",
+    "بعد"
+   ],
+   "correctAnswer": "مع",
+   "explanation": "مع means with, as in مع صديقي meaning with my friend.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Prepositions",
+   "learningOutcome": "Recognize basic Arabic prepositions in familiar phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which option is the Arabic word for 'red'?",
+   "options": [
+    "أحمر",
+    "أخضر",
+    "أزرق",
+    "أبيض"
+   ],
+   "correctAnswer": "أحمر",
+   "explanation": "أحمر means red and is a common colour adjective.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Colours",
+   "learningOutcome": "Identify common Arabic colour words.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which Arabic word means 'family'?",
+   "options": [
+    "أسرة",
+    "نافذة",
+    "دفتر",
+    "طريق"
+   ],
+   "correctAnswer": "أسرة",
+   "explanation": "أسرة means family and is used in topics about home and relationships.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Family Vocabulary",
+   "learningOutcome": "Understand basic Arabic words for family and home life.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which sentence means 'The classroom is clean'?",
+   "options": [
+    "الفصل نظيف",
+    "الفصل كبير",
+    "الفصل بعيد",
+    "الفصل مغلق"
+   ],
+   "correctAnswer": "الفصل نظيف",
+   "explanation": "نظيف means clean, so الفصل نظيف describes a clean classroom.",
+   "difficulty": 2,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Simple Sentences",
+   "learningOutcome": "Understand short Arabic sentences about school settings.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which phrase best matches a respectful reply to شكرا?",
+   "options": [
+    "عفوا",
+    "إلى اللقاء",
+    "لا بأس",
+    "كم الساعة؟"
+   ],
+   "correctAnswer": "عفوا",
+   "explanation": "عفوا can mean you are welcome after someone says شكرا.",
+   "difficulty": 2,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Polite Responses",
+   "learningOutcome": "Choose appropriate Arabic replies in polite exchanges.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Choose the best Arabic sentence for 'This is a new book.'",
+   "options": [
+    "هذا كتاب جديد",
+    "هذه كتاب جديد",
+    "هذا جديدة كتاب",
+    "كتاب هذا جديدة"
+   ],
+   "correctAnswer": "هذا كتاب جديد",
+   "explanation": "كتاب is masculine singular, so هذا and جديد agree with it in this simple sentence.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Noun-Adjective Agreement",
+   "learningOutcome": "Build simple Arabic noun-adjective sentences with agreement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Choose the best Arabic sentence for 'This is a new school.'",
+   "options": [
+    "هذه مدرسة جديدة",
+    "هذا مدرسة جديد",
+    "هذه مدرسة جديد",
+    "مدرسة هذه جديد"
+   ],
+   "correctAnswer": "هذه مدرسة جديدة",
+   "explanation": "مدرسة is feminine singular, so هذه and جديدة fit the noun.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Noun-Adjective Agreement",
+   "learningOutcome": "Apply gender agreement in simple Arabic descriptions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which option correctly asks 'What is your name?' in Arabic?",
+   "options": [
+    "ما اسمك؟",
+    "أين اسمك؟",
+    "من اسمك؟",
+    "هل اسمك؟"
+   ],
+   "correctAnswer": "ما اسمك؟",
+   "explanation": "ما asks what, so ما اسمك؟ is used to ask for a person's name.",
+   "difficulty": 3,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Personal Questions",
+   "learningOutcome": "Form basic Arabic questions for introductions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Read the sentence: أنا أدرس العربية في المدرسة. Where does the learner study Arabic?",
+   "options": [
+    "في المدرسة",
+    "في السوق",
+    "في البيت",
+    "في المطار"
+   ],
+   "correctAnswer": "في المدرسة",
+   "explanation": "The phrase في المدرسة means at school, which gives the place of study.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Information from Sentences",
+   "learningOutcome": "Extract key information from short Arabic sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: أذهب إلى المدرسة ____ الصباح.",
+   "options": [
+    "في",
+    "على",
+    "من",
+    "مع"
+   ],
+   "correctAnswer": "في",
+   "explanation": "في is used for time expressions such as في الصباح, meaning in the morning.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Prepositions of Time",
+   "learningOutcome": "Use common prepositions in simple Arabic time expressions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence means 'I love Arabic'?",
+   "options": [
+    "أحب العربية",
+    "أكتب العربية",
+    "أقرأ العربية",
+    "أسمع العربية"
+   ],
+   "correctAnswer": "أحب العربية",
+   "explanation": "أحب means I love, so أحب العربية expresses liking Arabic.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Likes and Preferences",
+   "learningOutcome": "Express simple likes and preferences in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which option correctly forms the plural of طالب in a common beginner form?",
+   "options": [
+    "طلاب",
+    "طالبة",
+    "طالبان",
+    "طالبا"
+   ],
+   "correctAnswer": "طلاب",
+   "explanation": "طلاب is a common plural form meaning students.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Plural Nouns",
+   "learningOutcome": "Recognize common Arabic plural forms for school vocabulary.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Which option correctly translates 'the big house'?",
+   "options": [
+    "البيت الكبير",
+    "بيت الكبير",
+    "الكبير بيت",
+    "البيت كبيرة"
+   ],
+   "correctAnswer": "البيت الكبير",
+   "explanation": "In Arabic, the adjective usually follows the noun and matches it, so البيت الكبير is the big house.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Adjective Position",
+   "learningOutcome": "Place adjectives after nouns in simple Arabic phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly says 'The girl is in the library'?",
+   "options": [
+    "البنت في المكتبة",
+    "البنت على المكتبة",
+    "البنت من المكتبة",
+    "البنت مع المكتبة"
+   ],
+   "correctAnswer": "البنت في المكتبة",
+   "explanation": "في means in or at, so it fits a location such as the library.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Prepositions of Place",
+   "learningOutcome": "Use Arabic prepositions to describe location.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Read: عندي قلم وكتاب. What does the learner have?",
+   "options": [
+    "A pen and a book",
+    "A chair and a table",
+    "A bag and water",
+    "A door and a window"
+   ],
+   "correctAnswer": "A pen and a book",
+   "explanation": "قلم means pen and كتاب means book, joined by و meaning and.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Classroom Sentence Meaning",
+   "learningOutcome": "Interpret short Arabic sentences using familiar vocabulary.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which option correctly gives the feminine form of جديد?",
+   "options": [
+    "جديدة",
+    "جديدان",
+    "جدد",
+    "جديدون"
+   ],
+   "correctAnswer": "جديدة",
+   "explanation": "The feminine singular form commonly adds ة, giving جديدة.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Adjective Gender",
+   "learningOutcome": "Form simple feminine adjectives in Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which option is the best Arabic translation of 'Open the book, please'?",
+   "options": [
+    "افتح الكتاب من فضلك",
+    "اكتب الكتاب من فضلك",
+    "أين الكتاب من فضلك",
+    "هذا الكتاب من فضلك"
+   ],
+   "correctAnswer": "افتح الكتاب من فضلك",
+   "explanation": "افتح means open, and من فضلك makes the command polite.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Classroom Instructions",
+   "learningOutcome": "Understand and use common Arabic classroom instructions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best means 'I write in the notebook'?",
+   "options": [
+    "أكتب في الدفتر",
+    "أقرأ في الدفتر",
+    "أذهب إلى الدفتر",
+    "أجلس على الدفتر"
+   ],
+   "correctAnswer": "أكتب في الدفتر",
+   "explanation": "أكتب means I write, and في الدفتر means in the notebook.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Simple Action Sentences",
+   "learningOutcome": "Write simple Arabic sentences about classroom actions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: نحن ____ في نيروبي.",
+   "options": [
+    "نسكن",
+    "أسكن",
+    "يسكن",
+    "تسكن"
+   ],
+   "correctAnswer": "نسكن",
+   "explanation": "نحن means we, so نسكن means we live.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Present Tense Verbs",
+   "learningOutcome": "Match common present tense verb forms with pronouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: هو ____ كرة القدم.",
+   "options": [
+    "يلعب",
+    "ألعب",
+    "نلعب",
+    "تلعب"
+   ],
+   "correctAnswer": "يلعب",
+   "explanation": "هو is a masculine singular pronoun, so يلعب means he plays.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Verb-Pronoun Agreement",
+   "learningOutcome": "Choose present tense verb forms that agree with Arabic pronouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence: هي ____ القصة.",
+   "options": [
+    "تقرأ",
+    "يقرأ",
+    "أقرأ",
+    "نقرأ"
+   ],
+   "correctAnswer": "تقرأ",
+   "explanation": "هي takes the present tense form تقرأ, meaning she reads.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Verb-Pronoun Agreement",
+   "learningOutcome": "Apply Arabic present tense agreement in simple sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence is a question asking about place?",
+   "options": [
+    "أين المكتبة؟",
+    "المكتبة كبيرة",
+    "هذه مكتبة",
+    "أنا في المكتبة"
+   ],
+   "correctAnswer": "أين المكتبة؟",
+   "explanation": "أين signals a question about location.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Question Formation",
+   "learningOutcome": "Form and recognize simple Arabic location questions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Which sentence best answers: أين تسكن؟",
+   "options": [
+    "أسكن في مومباسا",
+    "اسمي مريم",
+    "أدرس العربية",
+    "هذا بيتي"
+   ],
+   "correctAnswer": "أسكن في مومباسا",
+   "explanation": "أين تسكن؟ asks where do you live, so a place answer fits best.",
+   "difficulty": 3,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Personal Information",
+   "learningOutcome": "Answer simple Arabic questions about home and location.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which option correctly changes كتاب to 'my book'?",
+   "options": [
+    "كتابي",
+    "كتابك",
+    "كتابه",
+    "كتابها"
+   ],
+   "correctAnswer": "كتابي",
+   "explanation": "The suffix ي can show possession by the speaker, so كتابي means my book.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Possessive Suffixes",
+   "learningOutcome": "Use simple possessive suffixes with familiar Arabic nouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which option correctly changes بيت to 'your house' when speaking to one male learner?",
+   "options": [
+    "بيتك",
+    "بيتي",
+    "بيته",
+    "بيتها"
+   ],
+   "correctAnswer": "بيتك",
+   "explanation": "The suffix ك can mean your in this simple masculine singular context.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Possessive Suffixes",
+   "learningOutcome": "Recognize simple possessive forms in everyday Arabic.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Read: في مدرستي مكتبة وحديقة. What two places are in the school?",
+   "options": [
+    "A library and a garden",
+    "A market and an airport",
+    "A sea and a mountain",
+    "A hospital and a bank"
+   ],
+   "correctAnswer": "A library and a garden",
+   "explanation": "مكتبة means library and حديقة means garden.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Short Descriptions",
+   "learningOutcome": "Identify details in short Arabic descriptions of school life.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best describes a sunny day?",
+   "options": [
+    "الجو مشمس",
+    "الجو بارد جدا",
+    "الجو ممطر",
+    "الجو غائم"
+   ],
+   "correctAnswer": "الجو مشمس",
+   "explanation": "مشمس means sunny and is used to describe weather.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Weather",
+   "learningOutcome": "Use simple Arabic adjectives to describe weather.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: أتناول الفطور ____ الصباح.",
+   "options": [
+    "في",
+    "إلى",
+    "عن",
+    "تحت"
+   ],
+   "correctAnswer": "في",
+   "explanation": "في الصباح means in the morning and fits a daily routine sentence.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Daily Routine",
+   "learningOutcome": "Describe daily routines using simple Arabic time phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence means 'I go to school by bus'?",
+   "options": [
+    "أذهب إلى المدرسة بالحافلة",
+    "أذهب إلى السوق بالقلم",
+    "أذهب في البيت بالحافلة",
+    "أقرأ المدرسة بالحافلة"
+   ],
+   "correctAnswer": "أذهب إلى المدرسة بالحافلة",
+   "explanation": "أذهب إلى المدرسة means I go to school, and بالحافلة means by bus.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Transport",
+   "learningOutcome": "Use Arabic phrases for movement and transport in daily contexts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses لا for present-tense negation?",
+   "options": [
+    "لا أتكلم الفرنسية",
+    "ليس أتكلم الفرنسية",
+    "ما أتكلم الفرنسية الآن",
+    "لن أتكلم الفرنسية أمس"
+   ],
+   "correctAnswer": "لا أتكلم الفرنسية",
+   "explanation": "لا is commonly used to negate present-tense verbs in simple learner sentences.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Present-Tense Negation",
+   "learningOutcome": "Form simple negative Arabic sentences with لا.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which option correctly asks 'Do you study Arabic?'",
+   "options": [
+    "هل تدرس العربية؟",
+    "أين تدرس العربية؟",
+    "ماذا تدرس العربية؟",
+    "من تدرس العربية؟"
+   ],
+   "correctAnswer": "هل تدرس العربية؟",
+   "explanation": "هل introduces a yes-no question in Arabic.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Yes-No Questions",
+   "learningOutcome": "Use هل to form basic yes-no questions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which response best answers: هل تحب القراءة؟",
+   "options": [
+    "نعم، أحب القراءة",
+    "في المكتبة",
+    "هذا كتاب",
+    "اسمي يوسف"
+   ],
+   "correctAnswer": "نعم، أحب القراءة",
+   "explanation": "A question beginning with هل can be answered with نعم or لا plus a suitable statement.",
+   "difficulty": 3,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Simple Conversation",
+   "learningOutcome": "Answer Arabic yes-no questions in short conversations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase best translates 'after school'?",
+   "options": [
+    "بعد المدرسة",
+    "قبل المدرسة",
+    "في المدرسة",
+    "مع المدرسة"
+   ],
+   "correctAnswer": "بعد المدرسة",
+   "explanation": "بعد means after, so بعد المدرسة means after school.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Time Sequence",
+   "learningOutcome": "Use Arabic sequence words in everyday descriptions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which sentence means 'Before the lesson, I read the book'?",
+   "options": [
+    "قبل الدرس أقرأ الكتاب",
+    "بعد الدرس أقرأ الكتاب",
+    "في الدرس أغلق الكتاب",
+    "مع الدرس أكتب الكتاب"
+   ],
+   "correctAnswer": "قبل الدرس أقرأ الكتاب",
+   "explanation": "قبل الدرس means before the lesson and sets the time of the action.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Time in Sentences",
+   "learningOutcome": "Interpret sequence words in short Arabic sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes: عندي ____ كتب.",
+   "options": [
+    "ثلاثة",
+    "واحد",
+    "هذه",
+    "هذا"
+   ],
+   "correctAnswer": "ثلاثة",
+   "explanation": "ثلاثة fits with the plural noun كتب to say I have three books in a simple learner phrase.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Numbers with Nouns",
+   "learningOutcome": "Use numbers with familiar Arabic classroom nouns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which word best completes the family sentence: أبي و____ في البيت.",
+   "options": [
+    "أمي",
+    "قلمي",
+    "كتابي",
+    "فصلي"
+   ],
+   "correctAnswer": "أمي",
+   "explanation": "أبي means my father and أمي means my mother, so the pair fits a family sentence.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Family Sentences",
+   "learningOutcome": "Use family vocabulary in simple Arabic sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which option is best for the sentence 'My sister is a student'?",
+   "options": [
+    "أختي طالبة",
+    "أخي طالبة",
+    "أختي طالب",
+    "أبي طالبة"
+   ],
+   "correctAnswer": "أختي طالبة",
+   "explanation": "أختي means my sister, and طالبة is the feminine form of student.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Gender Agreement in Sentences",
+   "learningOutcome": "Apply gender agreement in simple family and school sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which sentence is best for writing a simple Arabic classroom rule?",
+   "options": [
+    "استمع إلى المعلم",
+    "أنا من كينيا",
+    "الجو مشمس",
+    "هذا بيتي"
+   ],
+   "correctAnswer": "استمع إلى المعلم",
+   "explanation": "استمع إلى المعلم means listen to the teacher and works as a classroom rule.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Classroom Rules",
+   "learningOutcome": "Write short Arabic instructions for classroom behaviour.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which Arabic phrase is suitable at the beginning of a short message to a friend?",
+   "options": [
+    "صديقي العزيز",
+    "النتيجة النهائية",
+    "في الصفحة الأخيرة",
+    "السوق الكبير"
+   ],
+   "correctAnswer": "صديقي العزيز",
+   "explanation": "صديقي العزيز means my dear friend and can open a friendly message.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Short Messages",
+   "learningOutcome": "Choose suitable openings for short Arabic personal messages.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which ending is most suitable for a short Arabic note to a classmate?",
+   "options": [
+    "مع تحياتي",
+    "أين القلم؟",
+    "هذا فصل",
+    "في الصباح"
+   ],
+   "correctAnswer": "مع تحياتي",
+   "explanation": "مع تحياتي means with my regards and is suitable for closing a short note.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Short Messages",
+   "learningOutcome": "Use simple Arabic closings in written communication.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which option corrects the agreement error in هذه طالب جديد?",
+   "options": [
+    "هذا طالب جديد",
+    "هذه طالب جديدة",
+    "هذا طالبة جديد",
+    "هذه الطلاب جديد"
+   ],
+   "correctAnswer": "هذا طالب جديد",
+   "explanation": "طالب is masculine singular, so هذا and جديد should be used with it.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Error Correction",
+   "learningOutcome": "Correct simple Arabic gender agreement errors.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which option corrects the word order in كبير البيت?",
+   "options": [
+    "البيت الكبير",
+    "الكبير البيت",
+    "بيت الكبير",
+    "الكبيرة البيت"
+   ],
+   "correctAnswer": "البيت الكبير",
+   "explanation": "The adjective normally follows the noun, and both words take ال in a definite noun phrase.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Noun Phrase Order",
+   "learningOutcome": "Analyze and correct adjective order in Arabic noun phrases.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Read: اسمي سلمى. أنا من كينيا. أدرس العربية في المدرسة. What is the speaker studying?",
+   "options": [
+    "Arabic",
+    "Kiswahili",
+    "History",
+    "Mathematics"
+   ],
+   "correctAnswer": "Arabic",
+   "explanation": "The phrase أدرس العربية means I study Arabic.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Short Paragraphs",
+   "learningOutcome": "Find specific information in a short Arabic self-introduction.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Read: في الصباح أذهب إلى المدرسة، وبعد الظهر ألعب كرة القدم. When does the speaker play football?",
+   "options": [
+    "After noon",
+    "In the morning",
+    "At night",
+    "Before school"
+   ],
+   "correctAnswer": "After noon",
+   "explanation": "بعد الظهر means after noon or in the afternoon.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Routine Paragraphs",
+   "learningOutcome": "Interpret time expressions in short Arabic routine texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best combines 'I read' and 'I write' using و?",
+   "options": [
+    "أقرأ وأكتب",
+    "أقرأ في أكتب",
+    "أقرأ إلى أكتب",
+    "أقرأ من أكتب"
+   ],
+   "correctAnswer": "أقرأ وأكتب",
+   "explanation": "و joins the two verbs naturally: أقرأ وأكتب means I read and write.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Sentence Combining",
+   "learningOutcome": "Combine simple Arabic clauses using basic connectors.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which sentence is most suitable in a formal classroom conversation with a teacher?",
+   "options": [
+    "هل تسمح لي بالسؤال؟",
+    "أنت لا تعرف شيئا",
+    "أريد الكلام الآن فقط",
+    "اسمعني ولا تتكلم"
+   ],
+   "correctAnswer": "هل تسمح لي بالسؤال؟",
+   "explanation": "هل تسمح لي بالسؤال؟ politely asks permission to ask a question.",
+   "difficulty": 4,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Register and Politeness",
+   "learningOutcome": "Select respectful Arabic expressions for formal classroom situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which option best corrects the pronoun-verb mismatch in نحن أدرس العربية?",
+   "options": [
+    "نحن ندرس العربية",
+    "نحن يدرس العربية",
+    "نحن تدرس العربية",
+    "نحن أدرس العربية"
+   ],
+   "correctAnswer": "نحن ندرس العربية",
+   "explanation": "نحن needs the verb form ندرس to mean we study.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Verb Agreement",
+   "learningOutcome": "Analyze pronoun-verb agreement in Arabic present tense sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Which option shows the best sequence for a short Arabic self-introduction?",
+   "options": [
+    "Greeting, name, origin, school subject",
+    "Name, goodbye, unrelated object, greeting",
+    "Question, colour list, command, number",
+    "Weather, market price, letter shape, goodbye"
+   ],
+   "correctAnswer": "Greeting, name, origin, school subject",
+   "explanation": "A clear self-introduction starts with a greeting and then gives relevant personal details.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Paragraph Organization",
+   "learningOutcome": "Organize simple Arabic self-introduction paragraphs logically.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best describes a learner's weekly habit?",
+   "options": [
+    "أدرس العربية كل يوم اثنين",
+    "أدرس العربية الآن فقط",
+    "درست العربية أمس فقط",
+    "سأدرس العربية بعد عشر سنوات"
+   ],
+   "correctAnswer": "أدرس العربية كل يوم اثنين",
+   "explanation": "كل يوم اثنين shows a repeated weekly habit on Mondays.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Routines and Frequency",
+   "learningOutcome": "Describe repeated habits using simple Arabic time expressions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which sentence best fits a short Arabic description of Nairobi as a city?",
+   "options": [
+    "نيروبي مدينة كبيرة",
+    "نيروبي كتاب جديد",
+    "نيروبي قلم صغير",
+    "نيروبي طالبة مجتهدة"
+   ],
+   "correctAnswer": "نيروبي مدينة كبيرة",
+   "explanation": "مدينة كبيرة means a big city and fits a description of Nairobi.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Awareness",
+   "subStrandTitle": "Kenyan Places in Arabic",
+   "learningOutcome": "Use Arabic to describe familiar Kenyan places respectfully.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A classmate says صباح الخير at 7:30 a.m. Which response is most appropriate?",
+   "options": [
+    "صباح النور",
+    "مساء الخير",
+    "تصبح على خير",
+    "إلى اللقاء"
+   ],
+   "correctAnswer": "صباح النور",
+   "explanation": "صباح النور is a common response to صباح الخير in the morning.",
+   "difficulty": 4,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Contextual Responses",
+   "learningOutcome": "Choose context-appropriate Arabic responses in daily interactions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Which option best changes the statement أنت طالب into a question?",
+   "options": [
+    "هل أنت طالب؟",
+    "أنت هل طالب",
+    "طالب أنت هل",
+    "أين أنت طالب؟"
+   ],
+   "correctAnswer": "هل أنت طالب؟",
+   "explanation": "هل is placed at the start to form a yes-no question.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Question Transformation",
+   "learningOutcome": "Transform simple Arabic statements into questions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which pair correctly matches the Arabic word with its meaning?",
+   "options": [
+    "مكتبة - library",
+    "مطار - garden",
+    "حديقة - airport",
+    "سوق - school"
+   ],
+   "correctAnswer": "مكتبة - library",
+   "explanation": "مكتبة means library; the other pairs mismatch common place words.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Place Vocabulary",
+   "learningOutcome": "Differentiate Arabic words for public places and school spaces.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence avoids ambiguity when asking for a book politely?",
+   "options": [
+    "أعطني الكتاب من فضلك",
+    "كتاب من فضلك",
+    "أنا كتاب من فضلك",
+    "أنت الكتاب من فضلك"
+   ],
+   "correctAnswer": "أعطني الكتاب من فضلك",
+   "explanation": "أعطني الكتاب من فضلك clearly says give me the book, please.",
+   "difficulty": 4,
+   "strandTitle": "Greetings and Social Language",
+   "subStrandTitle": "Polite Requests",
+   "learningOutcome": "Construct clear and polite Arabic requests for classroom needs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Read: أحب القراءة، لكن لا أحب الضوضاء في المكتبة. What does the speaker dislike?",
+   "options": [
+    "Noise in the library",
+    "Reading books",
+    "The library building",
+    "Quiet study"
+   ],
+   "correctAnswer": "Noise in the library",
+   "explanation": "لا أحب الضوضاء means I do not like noise.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Opinion Sentences",
+   "learningOutcome": "Infer likes and dislikes from short Arabic sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which sentence best compares two school subjects in simple Arabic?",
+   "options": [
+    "العربية سهلة والرياضيات صعبة",
+    "العربية كتاب والرياضيات قلم",
+    "العربية في والرياضيات من",
+    "العربية أمس والرياضيات غدا"
+   ],
+   "correctAnswer": "العربية سهلة والرياضيات صعبة",
+   "explanation": "The sentence uses adjectives سهلة and صعبة to compare how the subjects feel.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary and Daily Communication",
+   "subStrandTitle": "Opinions and Comparison",
+   "learningOutcome": "Express simple opinions about school subjects in Arabic.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which phrase best shows awareness of Arabic writing direction on a classroom poster?",
+   "options": [
+    "Arrange Arabic words from right to left",
+    "Write every Arabic word vertically",
+    "Start each Arabic sentence from the left margin",
+    "Reverse every Arabic letter shape"
+   ],
+   "correctAnswer": "Arrange Arabic words from right to left",
+   "explanation": "Arabic words and sentences are normally arranged from right to left.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Script Layout",
+   "learningOutcome": "Apply Arabic writing direction when preparing short written texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which option best corrects the demonstrative in هذا طالبة مجتهدة?",
+   "options": [
+    "هذه طالبة مجتهدة",
+    "هذا طالبة مجتهد",
+    "هذه طالب مجتهدة",
+    "هذا الطلاب مجتهدة"
+   ],
+   "correctAnswer": "هذه طالبة مجتهدة",
+   "explanation": "طالبة is feminine singular, so هذه and مجتهدة agree with it.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Demonstrative Agreement",
+   "learningOutcome": "Correct demonstrative and adjective agreement in Arabic sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which option best completes a short Arabic invitation to join a study group?",
+   "options": [
+    "تعال معنا إلى المكتبة",
+    "أغلق الباب وحدك",
+    "لا تدرس معنا أبدا",
+    "الكتاب على الطاولة"
+   ],
+   "correctAnswer": "تعال معنا إلى المكتبة",
+   "explanation": "تعال معنا إلى المكتبة means come with us to the library and fits an invitation.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Awareness",
+   "subStrandTitle": "Collaborative Language",
+   "learningOutcome": "Use courteous Arabic phrases for cooperative school activities.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best summarizes the text: أنا ليلى. أعيش في كيسومو. أحب مدرستي.",
+   "options": [
+    "ليلى تعيش في كيسومو وتحب مدرستها",
+    "ليلى تعيش في نيروبي وتكره مدرستها",
+    "ليلى معلمة في كيسومو",
+    "ليلى تذهب إلى السوق كل يوم"
+   ],
+   "correctAnswer": "ليلى تعيش في كيسومو وتحب مدرستها",
+   "explanation": "The summary keeps the speaker's name, place, and positive feeling about school.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Comprehension",
+   "subStrandTitle": "Summarizing Short Texts",
+   "learningOutcome": "Summarize key details from short Arabic personal texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A learner must write three Arabic sentences about school. Which set is the most coherent?",
+   "options": [
+    "هذه مدرستي. فيها مكتبة. أحب القراءة فيها.",
+    "هذه مدرستي. البحر بعيد. القلم أحمر فقط.",
+    "أنا طالب. أين السوق؟ مع السلامة الآن.",
+    "الجو مشمس. اسمي كتاب. في الحافلة قلم."
+   ],
+   "correctAnswer": "هذه مدرستي. فيها مكتبة. أحب القراءة فيها.",
+   "explanation": "The sentences stay on one topic: the school, its library, and reading there.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Coherent Short Paragraphs",
+   "learningOutcome": "Select coherent Arabic sentences for a short paragraph on a familiar topic.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which sentence best expands أنا طالب into a richer Grade 10 self-introduction?",
+   "options": [
+    "أنا طالب في الصف العاشر وأدرس العربية في كينيا",
+    "أنا طالب قلم باب كتاب",
+    "أنا طالب أمس في أحمر",
+    "أنا طالب إلى من على"
+   ],
+   "correctAnswer": "أنا طالب في الصف العاشر وأدرس العربية في كينيا",
+   "explanation": "The expanded sentence adds grade, subject, and place while remaining grammatical.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Sentence Expansion",
+   "learningOutcome": "Expand basic Arabic statements with relevant personal details.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which Arabic text is best for a short polite notice asking learners to keep the library quiet?",
+   "options": [
+    "من فضلكم، حافظوا على الهدوء في المكتبة",
+    "الكتاب جديد في السوق الكبير",
+    "أنا أحب كرة القدم بعد المدرسة",
+    "هل تسكن في مومباسا؟"
+   ],
+   "correctAnswer": "من فضلكم، حافظوا على الهدوء في المكتبة",
+   "explanation": "The notice is polite and directly asks learners to keep quiet in the library.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Functional Writing",
+   "learningOutcome": "Create short Arabic notices for familiar school contexts.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which option best revises أنا أذهب مدرسة for clearer Arabic?",
+   "options": [
+    "أنا أذهب إلى المدرسة",
+    "أنا أذهب من المدرسة فقط",
+    "أنا مدرسة أذهب إلى",
+    "أنا إلى أذهب مدرسة"
+   ],
+   "correctAnswer": "أنا أذهب إلى المدرسة",
+   "explanation": "إلى is needed before the destination, and المدرسة is the definite destination in this sentence.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Sentence Revision",
+   "learningOutcome": "Revise learner sentences to improve Arabic preposition use and clarity.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which option best transforms the notes 'name: Hassan, place: Nakuru, subject: Arabic' into one Arabic sentence?",
+   "options": [
+    "اسمي حسن وأسكن في ناكورو وأدرس العربية",
+    "حسن ناكورو العربية فقط",
+    "أنا من العربية وأسكن في حسن",
+    "ناكورو اسمي العربية في حسن"
+   ],
+   "correctAnswer": "اسمي حسن وأسكن في ناكورو وأدرس العربية",
+   "explanation": "The sentence combines the name, place, and subject with clear verbs and connectors.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Using Notes to Write",
+   "learningOutcome": "Turn simple notes into a clear Arabic sentence.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which Arabic sentence best shows intercultural respect when meeting a visitor who speaks Arabic?",
+   "options": [
+    "أهلا وسهلا بك في مدرستنا",
+    "لا نريد أن نسمع لغتك",
+    "تكلم بسرعة ولا تشرح",
+    "أنت غريب عن المدرسة"
+   ],
+   "correctAnswer": "أهلا وسهلا بك في مدرستنا",
+   "explanation": "The sentence welcomes the visitor respectfully to the school.",
+   "difficulty": 5,
+   "strandTitle": "Culture and Intercultural Awareness",
+   "subStrandTitle": "Respectful Interaction",
+   "learningOutcome": "Use Arabic expressions that support respectful intercultural communication.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Which option best completes a short Arabic email subject line for homework?",
+   "options": [
+    "واجب العربية للصف العاشر",
+    "أنا في السوق الآن",
+    "الحديقة خضراء جدا",
+    "هل تحب العصير؟"
+   ],
+   "correctAnswer": "واجب العربية للصف العاشر",
+   "explanation": "واجب العربية للصف العاشر clearly identifies Arabic homework for Grade 10.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Digital Communication",
+   "learningOutcome": "Write clear Arabic headings for simple digital messages.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which option best combines time, action, and place into one Arabic sentence?",
+   "options": [
+    "في المساء أقرأ في البيت",
+    "في المساء البيت أقرأ في",
+    "أقرأ المساء بيت في",
+    "البيت مساء أقرأ من"
+   ],
+   "correctAnswer": "في المساء أقرأ في البيت",
+   "explanation": "The sentence clearly states when, what action happens, and where it happens.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Sentence Building",
+   "learningOutcome": "Create Arabic sentences that combine time, action, and place.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which option best turns the idea 'I like Arabic because it helps communication' into Arabic?",
+   "options": [
+    "أحب العربية لأنها تساعد على التواصل",
+    "أحب العربية لأنها قلم جديد",
+    "أحب العربية لأنها في السوق",
+    "أحب العربية لأنها لا أقرأ"
+   ],
+   "correctAnswer": "أحب العربية لأنها تساعد على التواصل",
+   "explanation": "لأنها introduces a reason, and تساعد على التواصل means it helps communication.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Giving Reasons",
+   "learningOutcome": "Write simple Arabic opinion sentences with reasons.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which short Arabic paragraph is best for introducing a Kenyan school club?",
+   "options": [
+    "نحن في نادي العربية. نقرأ قصصا قصيرة ونتعلم كلمات جديدة كل أسبوع.",
+    "نادي العربية قلم واحد. السوق بعيد وأمس المطر.",
+    "أنا لا أعرف. هذا باب في كتاب أحمر.",
+    "هل أنت من الحافلة؟ مع السلامة قبل الاسم."
+   ],
+   "correctAnswer": "نحن في نادي العربية. نقرأ قصصا قصيرة ونتعلم كلمات جديدة كل أسبوع.",
+   "explanation": "The paragraph gives a clear club identity and describes relevant weekly activities.",
+   "difficulty": 5,
+   "strandTitle": "Culture and Intercultural Awareness",
+   "subStrandTitle": "School Language Communities",
+   "learningOutcome": "Compose coherent Arabic text about language learning activities in school.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

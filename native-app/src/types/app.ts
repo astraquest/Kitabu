@@ -239,6 +239,9 @@ export type QuestionType = 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
 export interface Question {
   id: number;
   bankId?: string;
+  source?: 'quizbank' | 'ai';
+  candidateId?: string;
+  sessionQuestionId?: string;
   type: QuestionType;
   text: string;
   options?: string[];
@@ -324,6 +327,7 @@ export interface UserProfile {
   status?: string;
   points?: number;
   voiceName?: OnboardingVoiceName;
+  adminAnalyticsEnabled?: boolean;
 }
 
 export interface ContentPage {
@@ -465,6 +469,30 @@ export interface AdminPortalUser {
   hasActiveSubscription?: boolean;
   activeSubscriptionPeriodEnd?: string | null;
   activeSubscriptionPriceKshCents?: number;
+}
+
+export type AdminStudentActivityKind = 'assignment' | 'weekly_exam' | 'lesson';
+
+export interface AdminStudentAnalyticsActivity {
+  id: string;
+  title: string;
+  kind: AdminStudentActivityKind;
+  occurredAt: string;
+  score: number;
+}
+
+export interface AdminStudentAnalyticsTrendDay {
+  date: string;
+  score: number | null;
+}
+
+export interface AdminStudentAnalytics {
+  studentId: string;
+  generatedAt: string;
+  overallScore: number | null;
+  completedAssignments: number;
+  recentActivity: AdminStudentAnalyticsActivity[];
+  trend: AdminStudentAnalyticsTrendDay[];
 }
 
 export interface AdminAiUsageRow {

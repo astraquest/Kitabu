@@ -85,6 +85,10 @@ import {
   createAssessmentNarrationSession,
   createBannerAnnouncement,
   createTeacherAssignment,
+  createHomeworkAssignmentDraft,
+  listHomeworkQuizBankQuestions,
+  publishHomeworkAssignmentDraft,
+  updateHomeworkAssignmentDraft,
   createSelfServiceUser,
   createParentHouseholdChildren,
   createAiUsageEvent,
@@ -160,7 +164,10 @@ import {
   findDailyStudentWelcomeDelivery,
   getAiGenerationCacheEntry,
   getReferenceLibraryDocumentForTemplateGeneration,
+  getAdminStudentAnalytics,
+  getSchoolDirectoryOverview,
   listAdminUsers,
+  listAdminUserDirectory,
   listChessMatches,
   listChessMoves,
   listChessOnlineOpponents,
@@ -194,6 +201,17 @@ import {
   listAssignmentParentNotificationRecipients,
   listLearningPodcastsForUser,
   listQuizBankQuestions,
+  listQuizMeEligibleQuestions,
+  findQuizMeSessionByClientId,
+  findQuizMeSessionForUser,
+  createQuizMeSession,
+  addQuizMeSessionQuestions,
+  listQuizMeSessionQuestions,
+  insertQuizMeGeneratedQuestions,
+  findQuizMeSessionQuestion,
+  findQuizMeAnswer,
+  recordQuizMeAnswer,
+  completeQuizMeSession,
   listSchoolDiscounts,
   listSchools,
   searchSchoolCatalog,
@@ -250,6 +268,7 @@ import {
   updateSchoolPilot,
   updateSchoolDiscount,
   updateAdminStudentProfile,
+  updateStudentSchoolFromDirectory,
   updateUserCurriculumScope,
   setAdminStudentSubscriptionStatus,
   assignSchoolsToSalesAgent,
@@ -280,9 +299,11 @@ import {
 import {
   buildSubjectRecommendations,
   canonicalSubjectId,
+  isExactSubjectSelection,
+  requiredSubjectCountForGrade,
   subjectNameFromId
 } from './subjectRecommendations.js';
-import type { WeeklyExamQuestionRecord, WeeklyExamRecord } from './repositories.js';
+import type { WeeklyExamQuestionRecord, WeeklyExamRecord, QuizMeAnswerRecord } from './repositories.js';
 import { isSmsConfigured, notifyUser, sendSmsMessage } from './notifications.js';
 import {
   getGoogleClientIds,
@@ -355,6 +376,8 @@ import {
   isKenyaCbcScope,
   resolveCurriculumScope
 } from './curriculumScope.js';
+import { parseQuizMeGeneratedQuestions, quizMeQuestionKey, type QuizMeGeneratedQuestion } from './quizMe.js';
+import { resolveQuizBankSubjectIds } from './quizBank.js';
 
 const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu2.twa';
 const KITABU_PLAY_SHA256_CERT_FINGERPRINT =
@@ -698,6 +721,22 @@ const schoolParamsSchema = z.object({
 });
 
 const adminStudentParamsSchema = z.object({ userId: z.string().uuid() });
+const adminUserDirectoryQuerySchema = z.object({
+  query: z.string().trim().max(120).optional(),
+  county: z.string().trim().max(80).optional(),
+  grade: z.string().trim().max(40).optional(),
+  schoolId: z.union([z.string().uuid(), z.literal('none')]).optional(),
+  status: z.enum(['Online', 'Offline']).optional(),
+  sort: z.enum(['name', 'createdAt', 'lastActive']).default('name'),
+  direction: z.enum(['asc', 'desc']).default('asc'),
+  limit: z.coerce.number().int().min(1).max(50).default(50),
+  offset: z.coerce.number().int().min(0).default(0),
+  userId: z.string().uuid().optional()
+});
+const adminAiUsageQuerySchema = z.object({
+  period: z.enum(['today', 'week', 'month']).optional(),
+  feature: z.string().trim().max(120).optional()
+});
 const adminStudentProfileSchema = z.object({
   fullName: personNameSchema,
   grade: z.string().trim().min(2).max(40).nullable(),
@@ -894,7 +933,10 @@ const onboardingSchema = z.object({
 
 const subjectDisplayPreferencesSchema = z.object({
   mode: z.enum(['automatic', 'manual']),
-  subjectIds: z.array(z.string().trim().min(1).max(120)).min(1).max(5)
+  subjectIds: z.array(z.string().trim().min(1).max(120)).min(1).max(9)
+});
+const studentSchoolSchema = z.object({
+  schoolDirectoryId: z.string().uuid(),
 });
 
 const subjectRecommendationQuerySchema = z.object({
@@ -909,7 +951,7 @@ const subjectRecommendationEventsSchema = z.object({
     eventType: z.enum(['impression', 'selection']),
     subjectId: z.string().trim().min(1).max(120),
     subjectName: z.string().trim().min(1).max(120),
-    position: z.number().int().min(1).max(5),
+    position: z.number().int().min(1).max(9),
     reason: z.string().trim().min(1).max(80),
     strategyVersion: z.string().trim().min(1).max(40)
   })).min(1).max(10)
@@ -964,6 +1006,37 @@ const teacherAssignmentSchema = z.object({
   })).min(1)
 });
 
+const homeworkDraftSchema = z.object({
+  title: z.string().trim().min(2).max(160).optional(),
+  description: z.string().trim().max(2000).optional().default(''),
+  subject: z.string().trim().min(2).max(80),
+  gradeLevel: z.string().trim().min(2).max(40),
+  strand: z.string().trim().max(160).optional(),
+  subStrand: z.string().trim().max(160).optional(),
+  classId: databaseUuidString.nullable().optional(),
+  dueDate: z.string().datetime().nullable().optional(),
+  requestedCount: z.number().int().min(1).max(100).default(10)
+}).strict();
+
+const homeworkDraftQuestionEditSchema = z.object({
+  bankId: z.string().trim().optional(),
+  candidateId: z.string().uuid().optional(),
+  source: z.enum(['quizbank', 'ai']),
+  type: z.enum(['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY']),
+  text: z.string().trim().min(1).max(4000),
+  options: z.array(z.string().trim().min(1).max(500)).max(6),
+  correctAnswer: z.string().trim().min(1).max(1000),
+  explanation: z.string().max(4000)
+}).strict();
+
+const homeworkDraftUpdateSchema = z.object({
+  title: z.string().trim().min(2).max(160).optional(),
+  description: z.string().trim().max(2000).optional(),
+  dueDate: z.string().datetime().nullable().optional(),
+  approvedAiQuestionIds: z.array(z.string().uuid()).optional(),
+  questions: z.array(homeworkDraftQuestionEditSchema).optional()
+}).strict();
+
 const teachingScopeSchema = z.object({
   grades: z.array(z.string().trim().min(2).max(40)).max(20).default([]),
   subjects: z.array(z.string().trim().min(1).max(80)).max(40).default([]),
@@ -1012,12 +1085,12 @@ const assignmentParamsSchema = z.object({
 });
 
 const studentAssignmentSubmissionSchema = z.object({
-  score: z.number().min(0).max(100),
+  score: z.number().min(0).max(100).optional(),
   answers: z.array(z.object({
     questionId: z.number().int(),
-    question: z.string().trim().min(1),
+    question: z.string().trim().min(1).optional(),
     answer: z.string(),
-    isCorrect: z.boolean()
+    isCorrect: z.boolean().optional()
   }))
 });
 
@@ -1783,7 +1856,11 @@ const onboardingSchoolSchema = z.object({
 const schoolDirectoryQuerySchema = z.object({
   county: z.string().trim().max(80).optional(),
   query: z.string().trim().max(120).default(''),
-  limit: z.coerce.number().int().min(1).max(50).default(24),
+  grade: z.string().trim().max(40).optional(),
+  sort: z.enum(['name', 'learnerCount', 'activeLearners', 'engagement', 'averageScore', 'createdAt']).default('name'),
+  direction: z.enum(['asc', 'desc']).default('asc'),
+  includeOverview: z.enum(['true', 'false']).default('false').transform(value => value === 'true'),
+  limit: z.coerce.number().int().min(1).max(50).default(50),
   offset: z.coerce.number().int().min(0).max(100000).default(0)
 });
 
@@ -1986,6 +2063,27 @@ const quizBankQuerySchema = z.object({
   grade: z.string().min(1),
   subjectId: z.string().min(1).optional(),
   limit: z.coerce.number().int().min(1).max(100).default(100)
+});
+
+const quizMeStartSchema = z.object({
+  clientSessionId: z.string().uuid(),
+  grade: z.string().trim().min(1).max(40),
+  subjectId: z.string().trim().min(1).max(120),
+  subjectName: z.string().trim().min(1).max(120),
+  strand: z.string().trim().min(1).max(200),
+  subStrand: z.string().trim().min(1).max(200),
+  questionCount: z.number().int().min(1).max(50)
+});
+
+const quizMeAnswerSchema = z.object({
+  answer: z.string().max(4000),
+  clientAnswerId: z.string().uuid().optional()
+});
+
+const quizMeSessionParamsSchema = z.object({ sessionId: z.string().uuid() });
+const quizMeQuestionParamsSchema = z.object({
+  sessionId: z.string().uuid(),
+  questionId: z.string().uuid()
 });
 
 export interface BuildServerOptions {
@@ -2788,6 +2886,20 @@ function serializeQuizBankQuestion(
       imageKey: question.image_key,
       imageUrl: imageLibraryRenderUrl(process.env.KITABU_SUPABASE_URL, 'question-images', question.image_key)
     } : {})
+  };
+}
+
+function serializeQuizMeQuestion(question: Awaited<ReturnType<typeof listQuizMeSessionQuestions>>[number]) {
+  return {
+    id: question.position + 1,
+    sessionQuestionId: question.session_question_id,
+    bankId: question.id,
+    type: question.type,
+    text: question.prompt,
+    options: question.options,
+    difficulty: question.difficulty,
+    strand: question.strand_title,
+    subStrand: question.sub_strand_title
   };
 }
 
@@ -5519,6 +5631,7 @@ Requirements:
     const recommendations = buildSubjectRecommendations({
       userId: request.user!.id,
       dateKey: new Date().toISOString().slice(0, 10),
+      grade,
       onboardingSubjects: [...subjectsById.values()],
       manualSubjectIds: signals.settings?.manual_subject_ids ?? [],
       mode: signals.settings?.mode ?? 'automatic',
@@ -5550,6 +5663,9 @@ Requirements:
     }
 
     const body = subjectDisplayPreferencesSchema.parse(request.body);
+    if (!isExactSubjectSelection(request.user!.grade, body.subjectIds)) {
+      return reply.badRequest(`Subject preferences require exactly ${requiredSubjectCountForGrade(request.user!.grade)} unique subjects for ${request.user!.grade ?? 'your grade'}`);
+    }
     await withTransaction(client => upsertLearnerSubjectDisplayPreferences(client, {
       userId: request.user!.id,
       mode: body.mode,
@@ -6607,6 +6723,278 @@ Return valid JSON with this shape:
     return { recorded };
   });
 
+  app.patch('/me/school', { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['student']);
+    if (precondition) return precondition;
+
+    const body = studentSchoolSchema.parse(request.body);
+    let school: Awaited<ReturnType<typeof updateStudentSchoolFromDirectory>>;
+    try {
+      school = await withTransaction(async client => {
+        const updated = await updateStudentSchoolFromDirectory(client, {
+          userId: request.user!.id,
+          schoolDirectoryId: body.schoolDirectoryId,
+        });
+        if (!updated) {
+          throw new Error('Selected school could not be assigned to this learner');
+        }
+        await createAuditLog(
+          client,
+          request.user!.id,
+          updated.schoolId,
+          'student.school.updated',
+          { schoolDirectoryId: body.schoolDirectoryId, county: updated.county },
+          'school',
+          updated.schoolId,
+        );
+        return updated;
+      });
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'School could not be updated');
+    }
+
+    const refreshedUser = await findUserById(request.user!.id);
+    if (!refreshedUser) {
+      return reply.notFound('User not found');
+    }
+
+    const accessToken = await signAccessToken({
+      sub: refreshedUser.id,
+      schoolId: refreshedUser.schoolId,
+      sid: request.user!.sessionId ?? undefined,
+      email: refreshedUser.email,
+      phoneNumber: refreshedUser.phoneNumber ?? null,
+      phoneVerified: refreshedUser.phoneVerified,
+      fullName: refreshedUser.fullName,
+      emailVerified: refreshedUser.emailVerified,
+      roles: refreshedUser.roles,
+      gender: refreshedUser.gender,
+      grade: refreshedUser.grade ?? null,
+      countryCode: refreshedUser.countryCode ?? 'KEN',
+      curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
+      onboardingCompleted: refreshedUser.onboardingCompleted,
+      stepUp: refreshedUser.stepUp,
+      mustRotatePassword: refreshedUser.mustRotatePassword,
+      isBreakGlass: refreshedUser.isBreakGlass,
+    });
+
+    return {
+      accessToken,
+      school,
+      user: {
+        id: refreshedUser.id,
+        schoolId: refreshedUser.schoolId,
+        sessionId: request.user!.sessionId,
+        email: refreshedUser.email,
+        fullName: refreshedUser.fullName,
+        emailVerified: refreshedUser.emailVerified,
+        mascotKey: refreshedUser.mascotKey,
+        roles: refreshedUser.roles,
+        gender: refreshedUser.gender,
+        grade: refreshedUser.grade ?? null,
+        countryCode: refreshedUser.countryCode ?? 'KEN',
+        curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
+        onboardingCompleted: refreshedUser.onboardingCompleted,
+        onboardingPersonalization: refreshedUser.onboardingPersonalization ?? null,
+      },
+    };
+  });
+
+  app.post('/quiz-me/sessions', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) => request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
+      }
+    }
+  }, async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const body = quizMeStartSchema.parse(request.body);
+    const subjectIds = resolveQuizBankSubjectIds(body.subjectId) ?? [body.subjectId];
+    const subjectId = subjectIds[0];
+    const existing = await findQuizMeSessionByClientId(request.user!.id, body.clientSessionId);
+    if (existing) {
+      const existingQuestions = await listQuizMeSessionQuestions(request.user!.id, existing.id);
+      return {
+        sessionId: existing.id,
+        grade: existing.grade_level,
+        subjectId: existing.subject_id,
+        subjectName: existing.subject_name,
+        strand: existing.strand_title,
+        subStrand: existing.sub_strand_title,
+        questionCount: existingQuestions.length,
+        questions: existingQuestions.map(serializeQuizMeQuestion)
+      };
+    }
+
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const bankQuestions = await listQuizMeEligibleQuestions({
+      userId: request.user!.id,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
+      gradeLevel: body.grade,
+      subjectId: subjectIds,
+      strandTitle: body.strand,
+      subStrandTitle: body.subStrand,
+      limit: body.questionCount
+    });
+    const deficit = body.questionCount - bankQuestions.length;
+    let generatedQuestions: QuizMeGeneratedQuestion[] = [];
+    if (deficit > 0) {
+      const aiResult = await runSubscriptionScopedAiText({
+        request,
+        reply,
+        curriculumScope: scope,
+        body: {
+          prompt: `Generate exactly ${deficit} curriculum-aligned quiz questions for ${body.grade} ${body.subjectName}. Strand: ${body.strand}. Sub-strand: ${body.subStrand}. Return JSON with a questions array. Each item must have type, text, options, correctAnswer, and explanation. Use only MCQ, TRUE_FALSE, SHORT_ANSWER, or ESSAY.`,
+          responseMimeType: 'application/json',
+          feature: 'quiz_generation',
+          context: {
+            grade: body.grade,
+            subjectId,
+            subjectName: body.subjectName,
+            strandTitle: body.strand,
+            subStrandTitle: body.subStrand,
+            questionCount: deficit,
+            generationType: 'quiz_me_deficit'
+          }
+        }
+      });
+      if (aiResult.error || !aiResult.text) {
+        if (aiResult.error) return aiResult.error;
+        return reply.serviceUnavailable('Quiz questions are temporarily unavailable. Please try again.');
+      }
+      generatedQuestions = parseQuizMeGeneratedQuestions(aiResult.text, deficit) ?? [];
+      if (generatedQuestions.length !== deficit) {
+        return reply.status(422).send({ message: 'Generated quiz questions could not be safely prepared. Please try again.' });
+      }
+      const duplicateCheck = await db.query<{ prompt: string }>(
+        `SELECT prompt FROM quiz_bank_questions
+          WHERE country_code = $1 AND curriculum_code = $2 AND grade_level = $3
+            AND subject_id = $4
+            AND lower(btrim(strand_title)) = lower(btrim($5))
+            AND lower(btrim(sub_strand_title)) = lower(btrim($6))`,
+        [scope.countryCode, scope.curriculumCode, body.grade, subjectId, body.strand, body.subStrand]
+      );
+      const duplicateKeys = new Set(duplicateCheck.rows.map(row => quizMeQuestionKey(row.prompt)));
+      if (generatedQuestions.some(question => duplicateKeys.has(quizMeQuestionKey(question.prompt)))) {
+        return reply.status(422).send({ message: 'Generated quiz questions duplicated existing content. Please try again.' });
+      }
+    }
+
+    try {
+      const session = await withTransaction(async client => {
+        const generatedIds = generatedQuestions.length
+          ? await insertQuizMeGeneratedQuestions(client, {
+              countryCode: scope.countryCode,
+              curriculumCode: scope.curriculumCode,
+              gradeLevel: body.grade,
+              subjectId,
+              subjectName: body.subjectName,
+              strandTitle: body.strand,
+              subStrandTitle: body.subStrand,
+              questions: generatedQuestions
+            })
+          : [];
+        if (generatedIds.length !== generatedQuestions.length) {
+          throw new Error('QuizBank has no available question slots for generated content');
+        }
+        const created = await createQuizMeSession(client, {
+          userId: request.user!.id,
+          clientSessionId: body.clientSessionId,
+          countryCode: scope.countryCode,
+          curriculumCode: scope.curriculumCode,
+          gradeLevel: body.grade,
+          subjectId,
+          subjectName: body.subjectName,
+          strandTitle: body.strand,
+          subStrandTitle: body.subStrand,
+          requestedCount: body.questionCount
+        });
+        await addQuizMeSessionQuestions(client, created.id, [...bankQuestions.map(question => question.id), ...generatedIds]);
+        return created;
+      });
+      const questions = await listQuizMeSessionQuestions(request.user!.id, session.id);
+      if (questions.length !== body.questionCount) {
+        return reply.serviceUnavailable('Quiz questions are temporarily unavailable. Please try again.');
+      }
+      return {
+        sessionId: session.id,
+        grade: session.grade_level,
+        subjectId: session.subject_id,
+        subjectName: session.subject_name,
+        strand: session.strand_title,
+        subStrand: session.sub_strand_title,
+        questionCount: questions.length,
+        questions: questions.map(serializeQuizMeQuestion)
+      };
+    } catch (error) {
+      const retry = await findQuizMeSessionByClientId(request.user!.id, body.clientSessionId);
+      if (retry) {
+        const questions = await listQuizMeSessionQuestions(request.user!.id, retry.id);
+        return {
+          sessionId: retry.id,
+          grade: retry.grade_level,
+          subjectId: retry.subject_id,
+          subjectName: retry.subject_name,
+          strand: retry.strand_title,
+          subStrand: retry.sub_strand_title,
+          questionCount: questions.length,
+          questions: questions.map(serializeQuizMeQuestion)
+        };
+      }
+      request.log.warn({ err: error }, 'QuizMe session creation failed');
+      return reply.serviceUnavailable('Quiz questions are temporarily unavailable. Please try again.');
+    }
+  });
+
+  app.post('/quiz-me/sessions/:sessionId/questions/:questionId/answer', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) return;
+    const params = quizMeQuestionParamsSchema.parse(request.params);
+    const body = quizMeAnswerSchema.parse(request.body);
+    const question = await findQuizMeSessionQuestion(request.user!.id, params.sessionId, params.questionId);
+    if (!question) return reply.notFound('Quiz question not found');
+    const prior = await findQuizMeAnswer(params.sessionId, params.questionId);
+    if (prior) {
+      return { sessionQuestionId: params.questionId, isCorrect: prior.is_correct, score: prior.score, feedback: prior.feedback, correctAnswer: question.correct_answer, alreadySubmitted: true };
+    }
+    const normalizedAnswer = body.answer.trim();
+    let isCorrect = false;
+    let feedback = question.explanation || '';
+    if (question.type === 'MCQ' || question.type === 'TRUE_FALSE' || question.type === 'SHORT_ANSWER') {
+      isCorrect = quizMeQuestionKey(normalizedAnswer) === quizMeQuestionKey(question.correct_answer);
+    } else {
+      feedback = 'Essay answers require teacher review and are not automatically marked correct.';
+    }
+    const answer = await withTransaction(async client => {
+      const inserted = await recordQuizMeAnswer(client, {
+        sessionId: params.sessionId,
+        sessionQuestionId: params.questionId,
+        answer: normalizedAnswer,
+        isCorrect,
+        score: isCorrect ? 1 : 0,
+        feedback
+      });
+      if (inserted) {
+        const session = await findQuizMeSessionForUser(request.user!.id, params.sessionId);
+        if (session) {
+          const countResult = await client.query<{ count: string }>('SELECT COUNT(*)::int AS count FROM quiz_me_answers WHERE session_id = $1', [params.sessionId]);
+          if (Number(countResult.rows[0]?.count ?? 0) >= session.requested_count) await completeQuizMeSession(client, params.sessionId);
+        }
+        return inserted;
+      }
+      return await client.query<QuizMeAnswerRecord>(
+        `SELECT id, session_id, session_question_id, answer, is_correct, score, feedback, submitted_at
+           FROM quiz_me_answers WHERE session_id = $1 AND session_question_id = $2`,
+        [params.sessionId, params.questionId]
+      ).then(result => result.rows[0]);
+    });
+    return { sessionQuestionId: params.questionId, isCorrect: answer.is_correct, score: answer.score, feedback: answer.feedback, correctAnswer: question.correct_answer, alreadySubmitted: false };
+  });
+
   app.get('/schools', async () => {
     const schools = await listSchools();
     return {
@@ -6896,7 +7284,12 @@ Return valid JSON with this shape:
         gradeLevel: item.grade_level,
         dueDate: item.due_at ? item.due_at.toISOString() : null,
         status: item.status,
-        questions: item.questions,
+        questions: item.questions.map(question => ({
+          id: question.id,
+          type: question.type,
+          text: question.text,
+          options: question.options ?? []
+        })),
         score: item.score,
         submittedDate: item.submitted_at ? item.submitted_at.toISOString() : null
       }))
@@ -6916,12 +7309,12 @@ Return valid JSON with this shape:
       const result = await submitStudentAssignment(client, request.user!, params.assignmentId, body);
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'assignment.submitted', {
         assignmentId: params.assignmentId,
-        score: body.score
+        score: result.score
       });
       return result;
     });
 
-    return { success: true, submissionId: submission.submissionId };
+    return { success: true, submissionId: submission.submissionId, score: submission.score, grading: submission.grading };
   });
 
   app.get('/parent/dashboard', async (request, reply) => {
@@ -7030,6 +7423,23 @@ Return valid JSON with this shape:
     };
   });
 
+  app.get('/teacher/classes', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) return precondition;
+    if (!request.user!.schoolId) return { classes: [] };
+    const classes = await db.query<{ id: string; name: string; grade_level: string }>(
+      `SELECT c.id, c.name, c.grade_level
+         FROM classes c
+        WHERE c.school_id = $1
+          AND ($2::boolean OR $3::boolean OR EXISTS (
+            SELECT 1 FROM class_teachers ct WHERE ct.class_id = c.id AND ct.teacher_id = $4
+          ))
+        ORDER BY c.grade_level ASC, c.name ASC`,
+      [request.user!.schoolId, request.user!.roles.includes('school_admin'), request.user!.roles.includes('platform_admin'), request.user!.id]
+    );
+    return { classes: classes.rows.map(item => ({ id: item.id, name: item.name, gradeLevel: item.grade_level })) };
+  });
+
   app.get('/teacher/assignments', async (request, reply) => {
     const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
     if (precondition) {
@@ -7074,13 +7484,151 @@ Return valid JSON with this shape:
     };
   });
 
+  app.post('/teacher/assignment-drafts', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) => request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
+      }
+    }
+  }, async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) return precondition;
+    const body = homeworkDraftSchema.parse(request.body);
+    if (!request.user!.schoolId) return reply.forbidden('A school scope is required to create homework');
+    const normalizedSubjectId = body.subject.trim().toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    const subjectIds = resolveQuizBankSubjectIds(normalizedSubjectId) ?? [normalizedSubjectId];
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const bank = await listHomeworkQuizBankQuestions({
+      authorUserId: request.user!.id,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
+      gradeLevel: body.gradeLevel,
+      subjectIds,
+      strandTitle: body.strand,
+      subStrandTitle: body.subStrand,
+      limit: body.requestedCount
+    });
+    const deficit = body.requestedCount - bank.length;
+    const aiCandidates: Array<{
+      bankId: string;
+      candidateId: string;
+      type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
+      text: string;
+      options: string[];
+      correctAnswer: string;
+      explanation: string;
+      source: 'ai';
+    }> = [];
+    if (deficit > 0) {
+      const aiResult = await runSubscriptionScopedAiText({
+        request,
+        reply,
+        curriculumScope: scope,
+        body: {
+          prompt: `Generate exactly ${deficit} homework questions for ${body.gradeLevel} ${body.subject}. Strand: ${body.strand || 'all strands'}. Sub-strand: ${body.subStrand || 'all sub-strands'}. Return JSON with a questions array. Each item must have type, text, options, correctAnswer, and explanation. Use only MCQ, TRUE_FALSE, SHORT_ANSWER, or ESSAY.`,
+          responseMimeType: 'application/json',
+          feature: 'assignment_generation',
+          context: { grade: body.gradeLevel, subjectId: subjectIds[0], subjectName: body.subject, strandTitle: body.strand || '', subStrandTitle: body.subStrand || '', questionCount: deficit, generationType: 'homework_quizbank_deficit' }
+        }
+      });
+      if (aiResult.error || !aiResult.text) return aiResult.error ?? reply.serviceUnavailable('Homework questions are temporarily unavailable. Please try again.');
+      const generated = parseQuizMeGeneratedQuestions(aiResult.text, deficit);
+      if (!generated || generated.length !== deficit) return reply.status(422).send({ message: 'Generated homework questions could not be safely prepared.' });
+      generated.forEach(question => aiCandidates.push({ bankId: '', candidateId: randomUUID(), type: question.type, text: question.prompt, options: question.options, correctAnswer: question.correctAnswer, explanation: question.explanation, source: 'ai' }));
+    }
+    const questions = bank.map(question => ({
+      bankId: question.id,
+      type: question.type,
+      text: question.prompt,
+      options: question.options ?? [],
+      correctAnswer: question.correct_answer,
+      explanation: question.explanation,
+      source: 'quizbank' as const
+    }));
+    const draft = await withTransaction(async client => {
+      if (body.classId) {
+        const classResult = await client.query<{ id: string }>(`SELECT id FROM classes WHERE id = $1 AND school_id = $2 AND grade_level = $3`, [body.classId, request.user!.schoolId, body.gradeLevel]);
+        if (!classResult.rows[0]) throw new Error('Selected class is outside the assignment scope');
+        if (request.user!.roles.includes('teacher')) {
+          const teacherResult = await client.query<{ id: string }>(`SELECT class_id AS id FROM class_teachers WHERE class_id = $1 AND teacher_id = $2`, [body.classId, request.user!.id]);
+          if (!teacherResult.rows[0]) throw new Error('Teacher is not assigned to the selected class');
+        }
+      }
+      if (request.user!.roles.includes('teacher') && !request.user!.roles.includes('school_admin') && !request.user!.roles.includes('platform_admin')) {
+        const scopeResult = await client.query<{ has_scopes: boolean; matches_scope: boolean }>(`SELECT EXISTS (SELECT 1 FROM teacher_teaching_scopes WHERE teacher_user_id = $1) AS has_scopes, EXISTS (SELECT 1 FROM teacher_teaching_scopes WHERE teacher_user_id = $1 AND grade_level = $2 AND lower(subject_name) = lower($3)) AS matches_scope`, [request.user!.id, body.gradeLevel, body.subject]);
+        if (scopeResult.rows[0]?.has_scopes && !scopeResult.rows[0]?.matches_scope) throw new Error('Teacher is not assigned to this grade and subject');
+      }
+      return createHomeworkAssignmentDraft(client, {
+        user: request.user!, schoolId: request.user!.schoolId!, classId: body.classId, countryCode: scope.countryCode, curriculumCode: scope.curriculumCode, gradeLevel: body.gradeLevel, subject: body.subject, subjectId: subjectIds[0],
+        strandTitle: body.strand, subStrandTitle: body.subStrand, title: body.title || `${body.subject} homework`, description: body.description,
+        dueAt: body.dueDate ? new Date(body.dueDate) : null, requestedCount: body.requestedCount, questions, aiCandidates
+      });
+    });
+    return reply.status(201).send({ draftId: draft.id, status: draft.status, title: draft.title, description: draft.description, dueDate: draft.due_at?.toISOString() ?? null, gradeLevel: draft.grade_level, subject: draft.subject, requestedCount: draft.requested_count, questions: draft.questions, aiCandidates: draft.ai_candidates });
+  });
+
+  app.patch('/teacher/assignment-drafts/:assignmentId', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) return precondition;
+    const params = assignmentParamsSchema.parse(request.params);
+    const body = homeworkDraftUpdateSchema.parse(request.body);
+    const updated = await withTransaction(client => updateHomeworkAssignmentDraft(client, request.user!, params.assignmentId, {
+      title: body.title, description: body.description, dueAt: body.dueDate === undefined ? undefined : body.dueDate ? new Date(body.dueDate) : null, approvedAiQuestionIds: body.approvedAiQuestionIds,
+      questions: body.questions?.map(question => ({ ...question, bankId: question.bankId ?? '' }))
+    }));
+    return { draftId: updated.id, status: updated.status, title: updated.title, description: updated.description, dueDate: updated.due_at?.toISOString() ?? null, questions: updated.questions, aiCandidates: updated.ai_candidates };
+  });
+
+  app.post('/teacher/assignment-drafts/:assignmentId/publish', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) return precondition;
+    const params = assignmentParamsSchema.parse(request.params);
+    const body = homeworkDraftUpdateSchema.parse(request.body);
+    try {
+      const publication = await withTransaction(client => publishHomeworkAssignmentDraft(client, request.user!, params.assignmentId, {
+        title: body.title, description: body.description, dueAt: body.dueDate === undefined ? undefined : body.dueDate ? new Date(body.dueDate) : null, approvedAiQuestionIds: body.approvedAiQuestionIds,
+        questions: body.questions?.map(question => ({ ...question, bankId: question.bankId ?? '' })),
+        onCreated: (transactionClient, created) => createAuditLog(transactionClient, request.user!.id, request.user!.schoolId, 'teacher.assignment.created', {
+          assignmentId: created.assignmentId,
+          authorUserId: created.authorUserId,
+          publishedByUserId: request.user!.id
+        })
+      }));
+      if (publication.created) {
+        const recipients = await withTransaction(client => listAssignmentParentNotificationRecipients(client, publication.assignmentId));
+        void enqueueSpeechCues([body.title || 'Homework assignment'], 'teacher_assignment')
+          .catch(error => request.log.warn({ err: error }, 'Assignment TTS enqueue failed'));
+        await Promise.allSettled(recipients.map(recipient =>
+          withTransaction(client => notifyUser(client, {
+            userId: recipient.parent_user_id,
+            type: 'assignment.created',
+            title: 'New homework assignment',
+            body: `${recipient.child_name} received new homework.`,
+            forceInApp: true,
+            metadata: { assignmentId: publication.assignmentId }
+          }))
+        ));
+      }
+      return { success: true, assignmentId: publication.assignmentId };
+    } catch (error) {
+      if (error instanceof Error && /not found|not publishable|approved|scope|students|requested/.test(error.message)) return reply.badRequest(error.message);
+      request.log.warn({ err: error }, 'Homework draft publication failed');
+      return reply.serviceUnavailable('Homework assignment could not be published.');
+    }
+  });
+
   app.post('/teacher/assignments', async (request, reply) => {
     const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
     if (precondition) {
       return precondition;
     }
+    return reply
+      .status(410)
+      .send({ message: 'Direct assignment publishing has been retired. Create and review a QuizBank homework draft first.' });
 
-    const body = teacherAssignmentSchema.parse(request.body);
+    /* const body = teacherAssignmentSchema.parse(request.body);
 
     const assignment = await withTransaction(async client => {
       const createdAssignmentId = await createTeacherAssignment(client, request.user!, {
@@ -7141,7 +7689,7 @@ Return valid JSON with this shape:
       )
     );
 
-    return reply.status(201).send({ assignmentId: assignment.assignmentId });
+    return reply.status(201).send({ assignmentId: assignment.assignmentId }); */
   });
 
   app.post('/teacher/teaching-scope', async (request, reply) => {
@@ -7356,6 +7904,16 @@ Return valid JSON with this shape:
     });
   });
 
+  app.get('/admin/users/directory', async (request, reply) => {
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
+    const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
+      requireStepUp: needsStepUp
+    });
+    if (precondition) return precondition;
+    const params = adminUserDirectoryQuerySchema.parse(request.query);
+    return listAdminUserDirectory({ user: request.user!, ...params });
+  });
+
   app.get('/admin/users', async (request, reply) => {
     const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
     const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
@@ -7367,6 +7925,23 @@ Return valid JSON with this shape:
 
     const users = await listAdminUsers(request.user!);
     return { users };
+  });
+
+  app.get('/admin/users/:userId/analytics', async (request, reply) => {
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
+    const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
+      requireStepUp: needsStepUp
+    });
+    if (precondition) {
+      return precondition;
+    }
+
+    const params = adminStudentParamsSchema.parse(request.params);
+    const analytics = await getAdminStudentAnalytics(request.user!, params.userId);
+    if (!analytics) {
+      return reply.notFound('Student not found');
+    }
+    return { analytics };
   });
 
   app.patch('/admin/users/:userId/profile', { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } }, async (request, reply) => {
@@ -7707,6 +8282,12 @@ Return valid JSON with this shape:
     }
 
     const body = onboardingSchema.parse(request.body);
+    if (
+      request.user!.roles.includes('student') &&
+      !isExactSubjectSelection(body.grade, body.subjectIds)
+    ) {
+      return reply.badRequest(`Student onboarding requires exactly ${requiredSubjectCountForGrade(body.grade)} subjects for ${body.grade}`);
+    }
     const curriculumScope = resolveCurriculumScope(body);
     const normalizedPhone = body.mpesaPhoneNumber
       ? formatKenyanPhoneNumber(body.mpesaPhoneNumber)
@@ -7844,14 +8425,32 @@ Return valid JSON with this shape:
     }
 
     const params = schoolDirectoryQuerySchema.parse(request.query);
-    const [schools, total] = await Promise.all([listSchools({
+    const [schools, directoryMeta] = await Promise.all([listSchools({
       includeProspects: true,
       query: params.query,
       county: params.county,
+      grade: params.grade,
+      sort: params.sort,
+      direction: params.direction,
       limit: params.limit,
       offset: params.offset
-    }), countSchools({ includeProspects: true, query: params.query, county: params.county })]);
-    return { schools: schools.map(serializeSchool), total, limit: params.limit, offset: params.offset, hasNext: params.offset + schools.length < total };
+    }), params.includeOverview
+      ? getSchoolDirectoryOverview({ includeProspects: true, query: params.query, county: params.county, grade: params.grade })
+      : countSchools({ includeProspects: true, query: params.query, county: params.county, grade: params.grade })]);
+    const overview = typeof directoryMeta === 'number' ? null : directoryMeta;
+    const total = typeof directoryMeta === 'number' ? directoryMeta : directoryMeta.summary.schoolCount;
+    return {
+      schools: schools.map(serializeSchool),
+      total,
+      limit: params.limit,
+      offset: params.offset,
+      hasNext: params.offset + schools.length < total,
+      ...(overview ? {
+        facets: { counties: overview.countyFacets, grades: overview.gradeFacets },
+        summary: overview.summary,
+        highlights: overview.highlights
+      } : {})
+    };
   });
 
   app.get('/admin/subscription-plans', async (request, reply) => {
@@ -9003,7 +9602,8 @@ Return valid JSON with this shape:
     if (schoolContextError) {
       return;
     }
-    return getAdminAiAnalytics(request.user!);
+    const query = adminAiUsageQuerySchema.parse(request.query);
+    return getAdminAiAnalytics(request.user!, query);
   });
 
   app.get('/admin/analytics/subject-engagement', {

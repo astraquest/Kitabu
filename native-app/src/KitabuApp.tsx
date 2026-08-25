@@ -516,12 +516,13 @@ export function KitabuApp() {
           onStartFocusMode={actions.startFocusMode}
           onOpenFocusModeSettings={actions.openFocusModeSettings}
           user={state.userProfile}
-          onSave={updatedUser => {
-            actions.setUserProfile(updatedUser);
+          onSave={async (updatedUser, options) => {
+            await actions.setUserProfile(updatedUser, options);
             if (updatedUser.grade && updatedUser.grade !== state.currentGrade) {
               actions.setCurrentGrade(updatedUser.grade);
             }
           }}
+          onSearchSchools={actions.searchOnboardingSchools}
           schools={state.schoolsList}
           allSubjects={state.subjects}
           selectedSubjectIds={state.dashboardSubjectIds}
@@ -868,6 +869,8 @@ function renderScreen(
           strandName={state.activeQuizConfig?.strand || state.selectedSubStrand?.title || 'General Review'}
           questions={state.generatedQuizQuestions}
           narrationSessionId={state.generatedQuizNarrationSessionId}
+          quizMeSessionId={state.quizSource === 'quiz_me' ? state.quizMeSessionId : null}
+          onSubmitAnswer={state.quizSource === 'quiz_me' ? actions.submitQuizMeAnswer : undefined}
           mascotKey={state.activeMascotKey}
           voiceName={state.activeUserProfile.voiceName}
           onClose={() => {

@@ -14,8 +14,16 @@ interface HomeworkQuizScreenProps {
   assignment: Assignment;
   voiceName?: OnboardingVoiceName;
   onClose: () => void;
-  onSubmit: (score: number, answers: Record<number, string>) => void;
+  onSubmit: (score: number, answers: Record<number, string>) => void | Promise<{ score: number; grading: GradedAnswer[] } | void>;
 }
+
+type GradedAnswer = {
+  questionId: number;
+  submittedAnswer: string;
+  isCorrect: boolean;
+  correctAnswer: string;
+  explanation: string;
+};
 
 type QuizStatus = 'active' | 'scored' | 'review';
 
@@ -39,6 +47,9 @@ export function HomeworkQuizScreen({
     assignment.status === 'completed' ? 'review' : 'active',
   );
   const [score, setScore] = useState(assignment.score || 0);
+  const [gradedAnswers, setGradedAnswers] = useState<Record<number, GradedAnswer>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [questionStartTime, setQuestionStartTime] = useState(Date.now());
   const [rushWarning, setRushWarning] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
@@ -205,6 +216,39 @@ export function HomeworkQuizScreen({
     return correctCount;
   }
 
+  function completeSubmission(result: { score: number; grading: GradedAnswer[] } | void, finalScore: number) {
+    if (result) {
+      setScore(result.score);
+      setGradedAnswers(Object.fromEntries(result.grading.map(answer => [answer.questionId, answer])));
+    } else {
+      setScore(finalScore);
+    }
+    setStatus('scored');
+  }
+
+  function submitAnswers() {
+    const finalScore = calculateScore();
+    setSubmissionError(null);
+    try {
+      const pending = onSubmit(finalScore, answers);
+      // Keep the legacy synchronous callback contract usable in tests and
+      // embedded callers, while real API submissions remain awaitable.
+      if (!pending) {
+        completeSubmission(undefined, finalScore);
+        return;
+      }
+      setIsSubmitting(true);
+      (pending as Promise<{ score: number; grading: GradedAnswer[] } | void>)
+        .then(result => completeSubmission(result, finalScore))
+        .catch(() => {
+          setSubmissionError('Your homework could not be submitted. Check your connection and try again.');
+        })
+        .finally(() => setIsSubmitting(false));
+    } catch {
+      setSubmissionError('Your homework could not be submitted. Check your connection and try again.');
+    }
+  }
+
   function handleNext() {
     if (status === 'active' && Date.now() - questionStartTime < 5000) {
       setRushWarning(true);
@@ -216,10 +260,7 @@ export function HomeworkQuizScreen({
       return;
     }
 
-    const finalScore = calculateScore();
-    setScore(finalScore);
-    setStatus('scored');
-    onSubmit(finalScore, answers);
+    submitAnswers();
   }
 
   function handleSkipQuestion() {
@@ -233,10 +274,7 @@ export function HomeworkQuizScreen({
       return;
     }
 
-    const finalScore = calculateScore();
-    setScore(finalScore);
-    setStatus('scored');
-    onSubmit(finalScore, answers);
+    submitAnswers();
   }
 
   async function beginVoiceRecording() {
@@ -299,7 +337,9 @@ export function HomeworkQuizScreen({
 
   async function explainAnswer() {
     const userAnswer = answers[currentQuestionIndex] || 'No answer selected';
-    const correctAnswer = String(currentQuestion.correctAnswer ?? '');
+    const gradedAnswer = gradedAnswers[currentQuestion.id];
+    if (!gradedAnswer) return;
+    const correctAnswer = gradedAnswer.correctAnswer;
     const learnerGrade = assignment.gradeLevel || DEFAULT_GRADE;
 
     setExplanationModal({ isOpen: true, isLoading: true, text: '' });
@@ -331,14 +371,15 @@ export function HomeworkQuizScreen({
   }
 
   if (status === 'scored') {
-    const percentage = Math.round((score / totalQuestions) * 100);
+    // The API returns the authoritative score as a percentage from 0 to 100.
+    const percentage = Math.round(score);
 
     return (
       <View style={styles.scoreWrap}>
         <Text style={styles.scoreEmoji}>{percentage >= 80 ? '🎉' : '📘'}</Text>
         <Text style={styles.scoreTitle}>Quiz submitted</Text>
         <Text style={styles.scoreText}>
-          You scored {score} out of {totalQuestions} ({percentage}%).
+          You scored {percentage}%.
         </Text>
         <Pressable
           onPress={() => {
@@ -383,6 +424,11 @@ export function HomeworkQuizScreen({
           <Text style={styles.warningText}>Slow down. Think for 5 seconds first.</Text>
         </View>
       ) : null}
+      {submissionError ? (
+        <View style={styles.warning}>
+          <Text style={styles.warningText}>{submissionError}</Text>
+        </View>
+      ) : null}
 
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.questionPanel}>
@@ -398,7 +444,7 @@ export function HomeworkQuizScreen({
           {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
             options.map((option, index) => {
               const isSelected = selectedAnswer === option;
-              const isCorrect = option === currentQuestion.correctAnswer;
+              const isCorrect = isReview && option === gradedAnswers[currentQuestion.id]?.correctAnswer;
 
               return (
                 <Pressable
@@ -513,7 +559,7 @@ export function HomeworkQuizScreen({
           </View>
         ) : null}
 
-        {isReview && currentQuestion.explanation ? (
+        {isReview && gradedAnswers[currentQuestion.id]?.explanation ? (
           <View style={styles.explanationCard}>
             <View style={styles.explanationHead}>
               <Text style={styles.explanationTitle}>Explanation</Text>
@@ -524,7 +570,7 @@ export function HomeworkQuizScreen({
                 <Text style={styles.explainButtonText}>Ask AI</Text>
               </Pressable>
             </View>
-            <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
+            <Text style={styles.explanationText}>{gradedAnswers[currentQuestion.id]?.explanation}</Text>
             <AssessmentNarrationControls
               descriptorId={`homework:${assignment.id}:${currentQuestion.id}`}
               segment="explanation"
@@ -542,7 +588,7 @@ export function HomeworkQuizScreen({
           </Pressable>
         ) : null}
         <Pressable
-          disabled={!selectedAnswer || isRecording || isTranscribing}
+          disabled={!selectedAnswer || isRecording || isTranscribing || isSubmitting}
           onPress={() => {
             if (isReview && currentQuestionIndex === totalQuestions - 1) {
               return;
@@ -565,7 +611,7 @@ export function HomeworkQuizScreen({
                 ? 'Review complete'
                 : 'Next question'
               : currentQuestionIndex === totalQuestions - 1
-                ? 'Submit'
+                ? isSubmitting ? 'Submitting...' : 'Submit'
                 : 'Next'}
           </Text>
         </Pressable>
@@ -580,7 +626,7 @@ export function HomeworkQuizScreen({
           gradeLevel: assignment.gradeLevel,
           question: currentQuestion.text,
           selectedAnswer: answers[currentQuestionIndex] ?? null,
-          correctAnswer: String(currentQuestion.correctAnswer ?? ''),
+          correctAnswer: gradedAnswers[currentQuestion.id]?.correctAnswer ?? '',
           questionIndex: currentQuestionIndex,
         }}
         onClose={() => setExplanationModal(null)}

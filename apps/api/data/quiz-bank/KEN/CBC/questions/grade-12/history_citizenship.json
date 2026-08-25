@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "history_citizenship",
-  "subjectName": "History & Citizenship",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which item is a primary source for studying the wording of Kenya's Constitution?",
-      "options": ["The official constitutional text", "A student's revision summary", "A modern opinion column", "A classroom wall chart"],
-      "correctAnswer": "The official constitutional text",
-      "explanation": "A primary source comes directly from the period, institution, or event being studied. The official text preserves the exact legal wording.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Primary and Secondary Sources",
-      "learningOutcome": "Identify appropriate sources for advanced historical and civic inquiry.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Why is provenance important when evaluating a historical source?",
-      "options": ["It shows who created the source, when, where, and for what purpose", "It proves that every old source is fully accurate", "It removes the need to compare sources", "It changes a source from oral evidence into archaeology"],
-      "correctAnswer": "It shows who created the source, when, where, and for what purpose",
-      "explanation": "Provenance helps a historian judge perspective, reliability, and possible bias before using evidence.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Source Evaluation",
-      "learningOutcome": "Explain how provenance supports assessment of historical evidence.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "A learner studies a colonial-era newspaper report about a labour strike. Which detail should be checked first to judge the report's perspective?",
-      "options": ["The newspaper's ownership, audience, and date of publication", "The number of words in the headline", "The brightness of the scanned page", "The learner's favourite paragraph"],
-      "correctAnswer": "The newspaper's ownership, audience, and date of publication",
-      "explanation": "Ownership, audience, and timing can shape how events are framed and which voices are included or excluded.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Perspective and Bias",
-      "learningOutcome": "Apply source evaluation skills to accounts of contested events.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Two witnesses describe the same public protest differently. Which approach best supports historical interpretation?",
-      "options": ["Compare each account's context, purpose, and supporting evidence", "Accept the account written in the longest sentences", "Ignore both accounts because they disagree", "Use only the account that matches a classmate's view"],
-      "correctAnswer": "Compare each account's context, purpose, and supporting evidence",
-      "explanation": "Disagreement is interpreted by examining context and evidence, not by choosing a source for convenience.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Corroboration and Interpretation",
-      "learningOutcome": "Analyze conflicting accounts using context and corroborating evidence.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which research plan best investigates how a constitutional reform affected ordinary citizens?",
-      "options": ["Use legal texts, parliamentary debates, interviews, court cases, and service records", "Use one social media comment and stop the inquiry", "Ask only people who already share one opinion", "Avoid official and community sources completely"],
-      "correctAnswer": "Use legal texts, parliamentary debates, interviews, court cases, and service records",
-      "explanation": "A strong inquiry uses varied sources to connect formal change with lived experience and public outcomes.",
-      "difficulty": 5,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Research Design",
-      "learningOutcome": "Design a balanced inquiry using multiple types of historical and civic evidence.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "What does chronology mainly help historians to establish?",
-      "options": ["The sequence of events and changes over time", "The moral worth of every participant", "The exact feelings of all past actors", "The replacement of evidence with memory"],
-      "correctAnswer": "The sequence of events and changes over time",
-      "explanation": "Chronology arranges events in time order so that continuity, change, cause, and consequence can be studied.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Chronology and Periodization",
-      "learningOutcome": "Use chronology to organize and interpret historical developments.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Why should oral testimony be compared with written and material evidence?",
-      "options": ["To confirm details, identify gaps, and understand different perspectives", "To prove oral testimony is always false", "To remove community memory from history", "To make all sources use identical words"],
-      "correctAnswer": "To confirm details, identify gaps, and understand different perspectives",
-      "explanation": "Corroboration strengthens interpretation by checking claims across different kinds of evidence.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Oral Evidence",
-      "learningOutcome": "Explain the value and limits of oral evidence in historical study.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "A museum label says an iron hoe was used for farming. Which evidence would most directly support that claim?",
-      "options": ["Wear marks and soil traces on the hoe blade", "The colour of the display cabinet", "The number of visitors at the museum", "A modern logo on the museum ticket"],
-      "correctAnswer": "Wear marks and soil traces on the hoe blade",
-      "explanation": "Physical traces can connect an artefact to its use more directly than display details.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Material Culture",
-      "learningOutcome": "Use artefact evidence to support claims about past livelihoods.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why historians use periodization?",
-      "options": ["It groups long histories into meaningful phases while recognizing that boundaries are interpretive", "It proves that change happens on one exact day only", "It stops historians from studying continuity", "It replaces evidence with fixed labels"],
-      "correctAnswer": "It groups long histories into meaningful phases while recognizing that boundaries are interpretive",
-      "explanation": "Periodization helps organize complex change, but historians must explain why chosen boundaries make sense.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Periodization",
-      "learningOutcome": "Analyze how period labels shape interpretation of historical change.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which plan would create the most balanced exhibit on Kenya's independence struggle?",
-      "options": ["Include nationalist voices, colonial records, court files, photographs, and community memories", "Display only one leader's portrait without context", "Use only modern slogans as evidence", "Avoid sources that show disagreement"],
-      "correctAnswer": "Include nationalist voices, colonial records, court files, photographs, and community memories",
-      "explanation": "A balanced exhibit presents multiple forms of evidence and shows the complexity of historical experience.",
-      "difficulty": 5,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Public History",
-      "learningOutcome": "Create evidence-based ways of presenting contested historical topics to the public.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "What is historical continuity?",
-      "options": ["The survival of patterns, institutions, or practices over time", "A source written without a date", "A sudden event with no earlier causes", "A list of unrelated names"],
-      "correctAnswer": "The survival of patterns, institutions, or practices over time",
-      "explanation": "Continuity refers to features that persist even as other aspects of society change.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Change and Continuity",
-      "learningOutcome": "Recognize continuity and change in historical developments.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Why is bias not the same as uselessness in a historical source?",
-      "options": ["Bias can reveal the author's interests while still providing evidence to analyze", "Bias always makes a source perfectly neutral", "Bias means the source has no author", "Bias turns every written record into an artefact"],
-      "correctAnswer": "Bias can reveal the author's interests while still providing evidence to analyze",
-      "explanation": "A biased source can still show attitudes, priorities, and claims if it is handled critically.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Bias and Reliability",
-      "learningOutcome": "Explain how historians use biased sources critically.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "A learner wants to study population movement into a town from 1963 to 2000. Which evidence combination is most useful?",
-      "options": ["Census data, maps, oral interviews, and local administrative records", "A single song with no date", "One photograph of a bus stop", "A list of sports fixtures only"],
-      "correctAnswer": "Census data, maps, oral interviews, and local administrative records",
-      "explanation": "Population movement is best studied with quantitative records, spatial evidence, and lived memories.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Demographic Evidence",
-      "learningOutcome": "Select evidence for investigating population change and migration.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "How should a historian treat a nationalist memoir and a colonial administrative report about the same event?",
-      "options": ["Analyze each source's purpose, audience, omissions, and supporting evidence", "Reject both because they were produced by interested parties", "Use only the source with official letterhead", "Assume the memoir is fiction and the report is complete truth"],
-      "correctAnswer": "Analyze each source's purpose, audience, omissions, and supporting evidence",
-      "explanation": "Both sources can contain valuable evidence and bias, so they should be compared critically.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Competing Narratives",
-      "learningOutcome": "Analyze different narratives of the same historical event.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which project best preserves local history while respecting evidence and community consent?",
-      "options": ["Record interviews with permission, archive transcripts, photograph sites, and verify claims", "Publish private family stories without consent", "Invent missing details to make the story exciting", "Discard sources that mention disagreement"],
-      "correctAnswer": "Record interviews with permission, archive transcripts, photograph sites, and verify claims",
-      "explanation": "Ethical preservation protects participants and keeps the record useful for future inquiry.",
-      "difficulty": 5,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Heritage Documentation",
-      "learningOutcome": "Create ethical methods for documenting and preserving community history.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "What does radiocarbon dating help archaeologists estimate?",
-      "options": ["The age of once-living material", "The exact name of every toolmaker", "The opinion of a modern visitor", "The colour a site will have after excavation"],
-      "correctAnswer": "The age of once-living material",
-      "explanation": "Radiocarbon dating estimates the age of organic remains, helping place evidence in time.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Archaeological Methods",
-      "learningOutcome": "Identify methods used to date and interpret archaeological evidence.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Why is conservation important after archaeological excavation?",
-      "options": ["It protects fragile evidence from damage and loss", "It makes all artefacts new again", "It removes the need to record the site", "It allows artefacts to be handled without care"],
-      "correctAnswer": "It protects fragile evidence from damage and loss",
-      "explanation": "Excavated materials can deteriorate quickly, so conservation keeps them available for study and public learning.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Conservation of Evidence",
-      "learningOutcome": "Explain why historical and archaeological evidence must be conserved.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "A class links drought, taxation, and labour migration when studying a colonial period. Which historical concept are they mainly applying?",
-      "options": ["Causation with multiple interacting factors", "A list of isolated dates", "Decoration of a timeline", "Translation of a proverb"],
-      "correctAnswer": "Causation with multiple interacting factors",
-      "explanation": "Complex historical outcomes often result from several causes interacting over time.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Causation",
-      "learningOutcome": "Apply multi-causal reasoning to historical explanations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "A colonial archive contains many official letters but few accounts from women workers. What should a historian conclude first?",
-      "options": ["The archive reflects power and record-keeping choices that may silence some voices", "Women workers had no historical role", "Official letters are the only possible evidence", "The archive cannot be used for any question"],
-      "correctAnswer": "The archive reflects power and record-keeping choices that may silence some voices",
-      "explanation": "Archives preserve some voices more than others, so historians must ask what is missing as well as what is present.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Archival Silences",
-      "learningOutcome": "Analyze how power affects the survival and visibility of historical evidence.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which action best shows historical empathy in a class debate about a past conflict?",
-      "options": ["Explaining choices using the evidence, values, and constraints of that period", "Excusing all harmful actions without evidence", "Judging every actor only by today's headlines", "Ignoring the experiences of affected communities"],
-      "correctAnswer": "Explaining choices using the evidence, values, and constraints of that period",
-      "explanation": "Historical empathy means understanding people in context while still using evidence and ethical judgment.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Empathy",
-      "learningOutcome": "Apply contextual understanding when discussing past human choices.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which trade network connected the Kenyan coast with Arabia, India, and other parts of the Indian Ocean world?",
-      "options": ["Indian Ocean trade", "Trans-Saharan gold trade", "Atlantic triangular trade", "Silk Road caravan trade"],
-      "correctAnswer": "Indian Ocean trade",
-      "explanation": "Indian Ocean trade linked East African coastal towns with wider maritime commerce and cultural exchange.",
-      "difficulty": 1,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Trade and Cultural Interaction",
-      "learningOutcome": "Identify major historical interactions that shaped Kenyan societies.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Why were age-set systems important in many precolonial Kenyan communities?",
-      "options": ["They organized social duties, leadership roles, defence, and stages of life", "They replaced all forms of family life", "They were colonial tax offices", "They were modern political parties"],
-      "correctAnswer": "They organized social duties, leadership roles, defence, and stages of life",
-      "explanation": "Age-set systems helped structure responsibilities and identity within several communities.",
-      "difficulty": 2,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Precolonial Social Organization",
-      "learningOutcome": "Explain institutions that shaped precolonial Kenyan communities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "How did colonial hut and poll taxes affect many African households in Kenya?",
-      "options": ["They pushed many people toward wage labour to obtain cash", "They ended the need for cash in rural areas", "They abolished all colonial labour demands", "They made every household tax-free"],
-      "correctAnswer": "They pushed many people toward wage labour to obtain cash",
-      "explanation": "Cash taxes forced many households to seek wage work within the colonial economy.",
-      "difficulty": 3,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Colonial Economy",
-      "learningOutcome": "Apply knowledge of colonial policies to explain economic and social change.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which effect of land alienation in colonial Kenya is most historically significant?",
-      "options": ["It disrupted African land use and strengthened settler agriculture in selected areas", "It gave all communities equal access to settler farms", "It ended disputes over land permanently", "It removed agriculture from the colonial economy"],
-      "correctAnswer": "It disrupted African land use and strengthened settler agriculture in selected areas",
-      "explanation": "Land alienation changed settlement, labour, and production patterns and became a major source of grievance.",
-      "difficulty": 4,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Land and Colonial Rule",
-      "learningOutcome": "Analyze the social and economic effects of colonial land policies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which inquiry question would best support a balanced study of the Mau Mau period?",
-      "options": ["How did fighters, loyalists, settlers, colonial officials, and civilians experience the conflict?", "Which single group should be studied while all others are ignored?", "How can evidence be replaced with slogans?", "Why should court records be avoided completely?"],
-      "correctAnswer": "How did fighters, loyalists, settlers, colonial officials, and civilians experience the conflict?",
-      "explanation": "A balanced inquiry examines different roles, experiences, and sources without reducing a complex conflict to one voice.",
-      "difficulty": 5,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Resistance and Nationalism",
-      "learningOutcome": "Design balanced historical questions about resistance, nationalism, and conflict.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which railway was central to British colonial expansion into the interior of East Africa?",
-      "options": ["The Uganda Railway", "The Cape-Cairo Metro", "The Atlantic Coastal Line", "The Sahara Express"],
-      "correctAnswer": "The Uganda Railway",
-      "explanation": "The Uganda Railway supported colonial administration, trade, settlement, and military movement into the interior.",
-      "difficulty": 1,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Colonial Infrastructure",
-      "learningOutcome": "Identify infrastructure that shaped colonial rule and economic change.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Why did colonial governments build roads, railways, and ports?",
-      "options": ["To move goods, officials, troops, and labour more efficiently", "To end all forms of trade", "To prevent settlers from reaching farms", "To make African political organizations unnecessary"],
-      "correctAnswer": "To move goods, officials, troops, and labour more efficiently",
-      "explanation": "Transport infrastructure served administrative, military, and economic goals of colonial rule.",
-      "difficulty": 2,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Colonial Infrastructure",
-      "learningOutcome": "Explain why infrastructure mattered to colonial administration and commerce.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "A colonial administrator appoints local chiefs to collect taxes and enforce regulations. Which system is this closest to?",
-      "options": ["Indirect rule", "Universal suffrage", "Judicial review", "Pan-African congress"],
-      "correctAnswer": "Indirect rule",
-      "explanation": "Indirect rule used selected local authorities to implement colonial policy at community level.",
-      "difficulty": 3,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Colonial Administration",
-      "learningOutcome": "Apply concepts of colonial administration to historical examples.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which statement best captures African responses to colonial rule in Kenya?",
-      "options": ["Responses varied and included resistance, negotiation, adaptation, and collaboration", "All communities responded in exactly the same way", "There was no organized African response", "Every response was recorded fully by colonial officers"],
-      "correctAnswer": "Responses varied and included resistance, negotiation, adaptation, and collaboration",
-      "explanation": "African responses differed by place, period, leadership, interests, and local conditions.",
-      "difficulty": 4,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "African Agency under Colonial Rule",
-      "learningOutcome": "Analyze varied African responses to colonial policies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which source set would best support an advanced study of Kenyan nationalism before independence?",
-      "options": ["Party records, speeches, petitions, newspapers, court files, and oral accounts", "Only one modern textbook sentence", "A map with no dates or labels", "A list of unrelated world capitals"],
-      "correctAnswer": "Party records, speeches, petitions, newspapers, court files, and oral accounts",
-      "explanation": "Nationalism involved organizations, ideas, state responses, and public participation, so varied evidence is needed.",
-      "difficulty": 5,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Nationalism and Independence",
-      "learningOutcome": "Create a source base for investigating nationalist movements.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which city hosted major constitutional negotiations before Kenya's independence?",
-      "options": ["London", "Cairo", "Delhi", "Accra"],
-      "correctAnswer": "London",
-      "explanation": "The Lancaster House constitutional conferences in London shaped Kenya's transition to independence.",
-      "difficulty": 1,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Independence Negotiations",
-      "learningOutcome": "Recall key settings and processes in Kenya's independence transition.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Why were constitutional negotiations important before independence?",
-      "options": ["They set rules for representation, rights, government structure, and transfer of power", "They replaced all political debate after independence", "They ended the need for courts", "They made citizenship unnecessary"],
-      "correctAnswer": "They set rules for representation, rights, government structure, and transfer of power",
-      "explanation": "Constitutional talks established the legal framework for independence and future governance.",
-      "difficulty": 2,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Independence Negotiations",
-      "learningOutcome": "Explain the role of constitutional talks in state formation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "A community builds a school through voluntary local contributions after independence. Which Kenyan idea does this best illustrate?",
-      "options": ["Harambee", "Apartheid", "Mercantilism", "Feudalism"],
-      "correctAnswer": "Harambee",
-      "explanation": "Harambee refers to collective self-help and community contribution toward development projects.",
-      "difficulty": 3,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Post-Independence Development",
-      "learningOutcome": "Apply post-independence concepts to examples of community development.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which issue made land resettlement a major post-independence challenge in Kenya?",
-      "options": ["Colonial-era land alienation had created unequal access and strong claims to land", "Kenya had no farming communities before independence", "Land had no economic or cultural importance", "All colonial land records were identical and uncontested"],
-      "correctAnswer": "Colonial-era land alienation had created unequal access and strong claims to land",
-      "explanation": "Land questions after independence were shaped by earlier dispossession, settlement, ownership records, and community claims.",
-      "difficulty": 4,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Land and Post-Independence Change",
-      "learningOutcome": "Analyze historical roots of post-independence land issues.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which project would best help learners study memories of independence in their county?",
-      "options": ["Interview elders with consent, compare accounts with archives, and map local commemorative sites", "Copy one national holiday speech without checking local evidence", "Ask only one person and treat the account as complete", "Avoid dates, names, and places in the final report"],
-      "correctAnswer": "Interview elders with consent, compare accounts with archives, and map local commemorative sites",
-      "explanation": "Local independence history is strengthened by ethical interviews, corroboration, and attention to place.",
-      "difficulty": 5,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Local Histories of Independence",
-      "learningOutcome": "Create a local inquiry into independence memories and public commemoration.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "What was one major feature of colonial education in Kenya?",
-      "options": ["Access and curriculum often reflected racial, class, gender, and labour needs", "It offered identical opportunities to every learner", "It was unrelated to colonial administration", "It removed all social inequalities"],
-      "correctAnswer": "Access and curriculum often reflected racial, class, gender, and labour needs",
-      "explanation": "Colonial education was shaped by unequal policy goals and the labour needs of the colonial economy.",
-      "difficulty": 1,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Education and Social Change",
-      "learningOutcome": "Identify major features of colonial social policy.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "How did councils of elders contribute to governance in many precolonial Kenyan societies?",
-      "options": ["They helped settle disputes, guide customs, and advise on community decisions", "They operated as modern county assemblies", "They issued national passports", "They abolished all family authority"],
-      "correctAnswer": "They helped settle disputes, guide customs, and advise on community decisions",
-      "explanation": "Councils of elders often provided social regulation, conflict resolution, and community leadership.",
-      "difficulty": 2,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Precolonial Governance",
-      "learningOutcome": "Explain institutions of governance in precolonial communities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "A historian connects Swahili language growth to contact among African, Arab, and Persian traders along the coast. Which process is being described?",
-      "options": ["Cultural interaction through trade", "Isolation from all outsiders", "Abolition of coastal towns", "Replacement of evidence by legend"],
-      "correctAnswer": "Cultural interaction through trade",
-      "explanation": "Coastal trade encouraged exchange in language, religion, architecture, and social life.",
-      "difficulty": 3,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Coastal History",
-      "learningOutcome": "Apply knowledge of trade contacts to cultural change on the Kenyan coast.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which comparison best shows continuity and change from the colonial to post-independence state?",
-      "options": ["Some administrative boundaries and offices continued, while sovereignty and political representation changed", "All colonial institutions disappeared overnight", "Nothing changed after independence", "Only foreign governments made decisions after independence"],
-      "correctAnswer": "Some administrative boundaries and offices continued, while sovereignty and political representation changed",
-      "explanation": "Independence brought major constitutional change, but some administrative structures and practices persisted.",
-      "difficulty": 4,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Continuity and Change after Independence",
-      "learningOutcome": "Analyze continuity and change in Kenya's transition from colonial rule.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "A learner evaluates whether a post-independence development policy improved rural livelihoods. Which evidence is most relevant?",
-      "options": ["Household income records, service access data, local interviews, and policy documents", "Only the colour of the policy booklet", "One unrelated international sports result", "A list of county names without indicators"],
-      "correctAnswer": "Household income records, service access data, local interviews, and policy documents",
-      "explanation": "Policy impact should be assessed with evidence about goals, implementation, outcomes, and lived experience.",
-      "difficulty": 3,
-      "strandTitle": "Kenyan History and State Formation",
-      "subStrandTitle": "Development Policy Evaluation",
-      "learningOutcome": "Apply evidence to evaluate historical development policies.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "What is the supreme law of Kenya?",
-      "options": ["The Constitution of Kenya", "A county by-law", "A school rule book", "A campaign poster"],
-      "correctAnswer": "The Constitution of Kenya",
-      "explanation": "The Constitution is the highest legal authority, and other laws must be consistent with it.",
-      "difficulty": 1,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Supremacy of the Constitution",
-      "learningOutcome": "Identify the place of the Constitution in Kenya's legal order.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "What does popular sovereignty mean in Kenya's constitutional order?",
-      "options": ["All sovereign power belongs to the people and is exercised directly or through representatives", "All power belongs permanently to one office", "Citizens cannot participate in public affairs", "Courts may ignore the Constitution"],
-      "correctAnswer": "All sovereign power belongs to the people and is exercised directly or through representatives",
-      "explanation": "Popular sovereignty places the people as the source of public authority under the Constitution.",
-      "difficulty": 2,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Sovereignty of the People",
-      "learningOutcome": "Explain the meaning of popular sovereignty in constitutional governance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "A county invites residents to comment before approving a development plan. Which constitutional principle is mainly being applied?",
-      "options": ["Public participation", "Secret legislation", "Collective punishment", "Hereditary rule"],
-      "correctAnswer": "Public participation",
-      "explanation": "Public participation allows citizens to contribute views before public decisions are made.",
-      "difficulty": 3,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "National Values and Principles",
-      "learningOutcome": "Apply constitutional values to examples of public decision-making.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Why is separation of powers important in constitutional democracy?",
-      "options": ["It divides state authority to reduce concentration and support checks and balances", "It allows one branch to control all public power", "It abolishes the need for accountability", "It removes citizens from governance"],
-      "correctAnswer": "It divides state authority to reduce concentration and support checks and balances",
-      "explanation": "Separating legislative, executive, and judicial powers helps prevent abuse and supports accountability.",
-      "difficulty": 4,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Separation of Powers",
-      "learningOutcome": "Analyze how separation of powers supports accountable governance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which school activity best models constitutionalism for learners?",
-      "options": ["Drafting rules through consultation, applying them fairly, and allowing appeals", "Letting one learner change rules without notice", "Punishing learners before hearing them", "Keeping all school rules secret"],
-      "correctAnswer": "Drafting rules through consultation, applying them fairly, and allowing appeals",
-      "explanation": "Constitutionalism requires limited power, known rules, fairness, participation, and accountability.",
-      "difficulty": 5,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Constitutional Practice",
-      "learningOutcome": "Create civic practices that model constitutional values in school settings.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which institution interprets the law and resolves legal disputes in Kenya?",
-      "options": ["The Judiciary", "A political rally", "A private club", "A market committee"],
-      "correctAnswer": "The Judiciary",
-      "explanation": "The Judiciary applies and interprets the law through courts and related judicial processes.",
-      "difficulty": 1,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "The Judiciary",
-      "learningOutcome": "Identify the role of the Judiciary in constitutional governance.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Why is judicial independence important?",
-      "options": ["It helps courts decide cases according to law and evidence rather than improper pressure", "It allows judges to ignore the Constitution", "It prevents citizens from going to court", "It makes court reasons unnecessary"],
-      "correctAnswer": "It helps courts decide cases according to law and evidence rather than improper pressure",
-      "explanation": "Independent courts protect fairness, rights, and the rule of law by resisting improper influence.",
-      "difficulty": 2,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Judicial Independence",
-      "learningOutcome": "Explain why independent courts matter in a constitutional democracy.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "A law is challenged because citizens claim it violates the Bill of Rights. Which process is being used?",
-      "options": ["Constitutional review by the courts", "Informal gossip", "Archaeological excavation", "Cultural performance"],
-      "correctAnswer": "Constitutional review by the courts",
-      "explanation": "Courts can examine whether laws or actions comply with the Constitution and protected rights.",
-      "difficulty": 3,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Constitutional Review",
-      "learningOutcome": "Apply constitutional review to disputes about rights and public power.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which example best shows checks and balances?",
-      "options": ["A legislature questions public spending while courts can review unlawful action", "An official spends public funds without records", "All branches obey one unelected private group", "Citizens are blocked from asking questions"],
-      "correctAnswer": "A legislature questions public spending while courts can review unlawful action",
-      "explanation": "Checks and balances allow institutions to monitor and limit one another within the law.",
-      "difficulty": 4,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Checks and Balances",
-      "learningOutcome": "Analyze examples of institutional accountability in government.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which feature should be included in a learner-created model constitution for a club?",
-      "options": ["Clear offices, election rules, rights of members, duties, and dispute procedures", "Unwritten powers held by one permanent leader", "Rules that change secretly after each meeting", "A ban on all member participation"],
-      "correctAnswer": "Clear offices, election rules, rights of members, duties, and dispute procedures",
-      "explanation": "A useful constitution defines power, participation, accountability, rights, and procedures clearly.",
-      "difficulty": 5,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Constitution-Making",
-      "learningOutcome": "Create simple constitutional rules that promote accountable leadership.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "What does the rule of law require?",
-      "options": ["Everyone, including public officers, is subject to the law", "Only private citizens must obey laws", "Law can be ignored when inconvenient", "Public power needs no legal basis"],
-      "correctAnswer": "Everyone, including public officers, is subject to the law",
-      "explanation": "The rule of law means public and private action must be governed by known and fairly applied laws.",
-      "difficulty": 1,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Rule of Law",
-      "learningOutcome": "Identify the meaning of the rule of law.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Why are independent commissions included in Kenya's constitutional framework?",
-      "options": ["To support accountability, protect constitutional values, and reduce improper influence", "To replace all elected institutions permanently", "To make public records unnecessary", "To control courts in every case"],
-      "correctAnswer": "To support accountability, protect constitutional values, and reduce improper influence",
-      "explanation": "Independent commissions provide oversight and specialized constitutional functions outside ordinary political control.",
-      "difficulty": 2,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Independent Commissions",
-      "learningOutcome": "Explain the role of independent commissions in constitutional governance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "A person is accused of an offence and asks to be heard before punishment. Which constitutional idea is involved?",
-      "options": ["Due process and fair hearing", "Collective guilt", "Secret taxation", "Historical periodization"],
-      "correctAnswer": "Due process and fair hearing",
-      "explanation": "Due process requires fair procedures before a person's rights or interests are limited.",
-      "difficulty": 3,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Fair Administrative Action",
-      "learningOutcome": "Apply due process principles to civic and legal situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which comparison between the National Assembly and the Senate is most accurate?",
-      "options": ["The National Assembly represents constituencies while the Senate represents counties", "Both houses are county executive committees", "The Senate is a court of appeal for all civil cases", "The National Assembly is a county public service board"],
-      "correctAnswer": "The National Assembly represents constituencies while the Senate represents counties",
-      "explanation": "Kenya's bicameral Parliament includes a National Assembly linked to constituencies and a Senate linked to counties.",
-      "difficulty": 4,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Parliament and Representation",
-      "learningOutcome": "Analyze representation in Kenya's bicameral parliamentary system.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which civic education plan best helps citizens understand constitutional rights and duties?",
-      "options": ["Use plain-language materials, local examples, question sessions, and nonpartisan facilitation", "Use secret meetings open to one group only", "Avoid questions about rights and public offices", "Replace the Constitution with rumours"],
-      "correctAnswer": "Use plain-language materials, local examples, question sessions, and nonpartisan facilitation",
-      "explanation": "Effective civic education is accessible, factual, participatory, and nonpartisan.",
-      "difficulty": 5,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Civic Education",
-      "learningOutcome": "Create civic education approaches that support informed citizenship.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "How many county governments are established under Kenya's 2010 Constitution?",
-      "options": ["47", "8", "12", "290"],
-      "correctAnswer": "47",
-      "explanation": "Kenya has 47 county governments under the devolved system created by the 2010 Constitution.",
-      "difficulty": 1,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Devolved Government",
-      "learningOutcome": "Recall key facts about Kenya's devolved system of government.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Why was devolution introduced in Kenya's constitutional framework?",
-      "options": ["To bring services closer to people, promote participation, and share resources more equitably", "To abolish all national institutions", "To prevent local public participation", "To make counties independent countries"],
-      "correctAnswer": "To bring services closer to people, promote participation, and share resources more equitably",
-      "explanation": "Devolution distributes functions and resources between national and county levels while keeping one republic.",
-      "difficulty": 2,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Objectives of Devolution",
-      "learningOutcome": "Explain the purposes of devolution in Kenya.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A county executive prepares a health facility improvement plan while residents give views in a public forum. Which governance idea is shown?",
-      "options": ["Devolved planning with citizen participation", "A foreign treaty negotiation", "A private inheritance process", "A military alliance"],
-      "correctAnswer": "Devolved planning with citizen participation",
-      "explanation": "County planning should involve public input and focus on service delivery within county functions.",
-      "difficulty": 3,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "County Planning",
-      "learningOutcome": "Apply devolution principles to county service planning.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which situation best illustrates a tension between rights and public interest?",
-      "options": ["Balancing freedom of assembly with lawful measures to protect safety and access", "Reading a public holiday notice", "Arranging library books alphabetically", "Counting seats in a classroom"],
-      "correctAnswer": "Balancing freedom of assembly with lawful measures to protect safety and access",
-      "explanation": "Some rights may be regulated by law for legitimate aims, but limits must be justified and proportionate.",
-      "difficulty": 4,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Rights and Limitations",
-      "learningOutcome": "Analyze how rights may be balanced with lawful public interests.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which response is most appropriate when citizens believe a public body has acted unlawfully?",
-      "options": ["Use lawful channels such as petitions, complaints, public participation, or court action", "Destroy public property immediately", "Spread unverified claims as facts", "Assume public bodies can never be questioned"],
-      "correctAnswer": "Use lawful channels such as petitions, complaints, public participation, or court action",
-      "explanation": "Constitutionalism supports accountability through lawful, evidence-based civic and legal action.",
-      "difficulty": 3,
-      "strandTitle": "Constitutionalism and Governance",
-      "subStrandTitle": "Accountability Mechanisms",
-      "learningOutcome": "Apply lawful mechanisms for challenging public action.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "What is citizenship?",
-      "options": ["Legal membership in a state with rights and responsibilities", "A temporary classroom role only", "A private business licence", "A form of archaeological dating"],
-      "correctAnswer": "Legal membership in a state with rights and responsibilities",
-      "explanation": "Citizenship connects a person to a state and carries civic rights, protections, and duties.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Citizenship",
-      "learningOutcome": "Define citizenship and its connection to rights and duties.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Why do rights and responsibilities belong together in citizenship education?",
-      "options": ["Rights protect people while responsibilities guide lawful and respectful participation", "Rights remove every duty toward others", "Responsibilities cancel all rights", "Citizenship is only about documents"],
-      "correctAnswer": "Rights protect people while responsibilities guide lawful and respectful participation",
-      "explanation": "Democratic citizenship requires both protection of individual dignity and responsible action within society.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Rights and Responsibilities",
-      "learningOutcome": "Explain the relationship between rights, duties, and civic participation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "A voter compares candidate manifestos, checks facts, and listens to public debates before voting. Which civic practice is shown?",
-      "options": ["Informed electoral participation", "Vote buying", "Historical excavation", "Secret lawmaking"],
-      "correctAnswer": "Informed electoral participation",
-      "explanation": "Informed voters use evidence and public debate to make choices in elections.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Elections and Participation",
-      "learningOutcome": "Apply principles of informed participation to electoral choices.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which set of practices best supports credible elections?",
-      "options": ["Secret ballot, transparent counting, voter education, and impartial administration", "Open intimidation, hidden results, and bribery", "Changing rules after voting begins", "Preventing eligible citizens from registering without legal reason"],
-      "correctAnswer": "Secret ballot, transparent counting, voter education, and impartial administration",
-      "explanation": "Credible elections depend on fairness, transparency, informed voters, and lawful administration.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Electoral Integrity",
-      "learningOutcome": "Analyze conditions that support free, fair, and credible elections.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which student-led project best promotes integrity in public life without partisan persuasion?",
-      "options": ["Create a factual poster campaign on reporting bribery and protecting public resources", "Campaign for one political party during class time", "Spread rumours about public officers", "Encourage classmates to ignore procurement rules"],
-      "correctAnswer": "Create a factual poster campaign on reporting bribery and protecting public resources",
-      "explanation": "Integrity education can be nonpartisan by focusing on lawful conduct, public resources, and reporting channels.",
-      "difficulty": 5,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Ethics and Integrity",
-      "learningOutcome": "Create nonpartisan civic actions that promote integrity and accountability.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "What is one main purpose of taxation?",
-      "options": ["To raise revenue for public goods and services", "To replace all citizen rights", "To abolish public budgeting", "To make laws unnecessary"],
-      "correctAnswer": "To raise revenue for public goods and services",
-      "explanation": "Taxes finance services such as infrastructure, security, health, education, and administration.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Taxation and Public Services",
-      "learningOutcome": "Identify why governments collect taxes.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Why do public finance principles emphasize openness and accountability?",
-      "options": ["They help citizens know how public money is raised, allocated, and used", "They require budgets to be kept secret forever", "They stop audits from being conducted", "They prevent public services from being planned"],
-      "correctAnswer": "They help citizens know how public money is raised, allocated, and used",
-      "explanation": "Openness and accountability allow citizens and institutions to monitor public revenue and expenditure.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Public Finance Principles",
-      "learningOutcome": "Explain why transparency matters in public finance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "A county assembly questions county spending and debates a county law. Which functions are shown?",
-      "options": ["Oversight and legislation", "Foreign policy and treaty signing", "Court sentencing and appeals", "Military command and deployment"],
-      "correctAnswer": "Oversight and legislation",
-      "explanation": "County assemblies make county laws, represent residents, and oversee county executive action.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "County Assemblies",
-      "learningOutcome": "Apply knowledge of county assembly functions to civic examples.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which comparison between national and county functions is most accurate?",
-      "options": ["National government handles defence, while counties handle county health services", "Counties conduct foreign affairs, while national government runs village markets only", "Both levels perform exactly the same functions without distinction", "County governments command the national armed forces"],
-      "correctAnswer": "National government handles defence, while counties handle county health services",
-      "explanation": "Kenya's Constitution distributes functions between national and county governments, including defence nationally and county health services locally.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Distribution of Functions",
-      "learningOutcome": "Analyze how functions are shared between national and county governments.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which county budget process best supports public accountability?",
-      "options": ["Publish draft proposals, invite public views, record responses, and report final allocations", "Approve the budget secretly and release no documents", "Let contractors write the budget alone", "Ignore audits and public questions"],
-      "correctAnswer": "Publish draft proposals, invite public views, record responses, and report final allocations",
-      "explanation": "Accountable budgeting requires accessible information, public input, clear records, and follow-up reporting.",
-      "difficulty": 5,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Participatory Budgeting",
-      "learningOutcome": "Create accountable procedures for public participation in budgeting.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Which document commonly helps prove a Kenyan citizen's identity for civic and official services?",
-      "options": ["National identity card", "Shopping receipt", "Bus ticket", "Sports jersey"],
-      "correctAnswer": "National identity card",
-      "explanation": "Identity documents help citizens access services and participate in civic processes that require identification.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Identity and Citizenship Documents",
-      "learningOutcome": "Identify documents used in civic identification.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Why is leadership integrity important in public service?",
-      "options": ["It builds trust, reduces abuse of office, and protects public resources", "It makes audits unnecessary", "It allows officials to avoid accountability", "It gives private interests automatic control of public funds"],
-      "correctAnswer": "It builds trust, reduces abuse of office, and protects public resources",
-      "explanation": "Integrity supports public confidence and ensures authority is exercised for public purposes.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Leadership and Integrity",
-      "learningOutcome": "Explain the importance of ethical leadership in public institutions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "A learner checks the source, date, author, and evidence behind a viral claim before sharing it. Which skill is being used?",
-      "options": ["Media literacy", "Tax assessment", "Treaty ratification", "Archaeological excavation"],
-      "correctAnswer": "Media literacy",
-      "explanation": "Media literacy helps citizens evaluate information and avoid spreading misinformation.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Media and Civic Information",
-      "learningOutcome": "Apply media literacy to civic communication.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Which approach best promotes national cohesion in a diverse society?",
-      "options": ["Respect diversity while upholding shared constitutional values and equal citizenship", "Rank communities as more or less deserving", "Use stereotypes as official policy", "Prevent peaceful cultural expression"],
-      "correctAnswer": "Respect diversity while upholding shared constitutional values and equal citizenship",
-      "explanation": "Cohesion grows when diversity is respected and all citizens are treated with equal dignity under common values.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "National Cohesion",
-      "learningOutcome": "Analyze civic practices that support unity in diversity.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which peace-building plan is most suitable for a school conflict between clubs?",
-      "options": ["Hold a mediated dialogue, agree on rules, document commitments, and review progress", "Let rumours decide the outcome", "Punish all members without hearing them", "Encourage each side to avoid all communication forever"],
-      "correctAnswer": "Hold a mediated dialogue, agree on rules, document commitments, and review progress",
-      "explanation": "Peaceful conflict resolution uses listening, fair process, clear agreements, and follow-up.",
-      "difficulty": 5,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Conflict Resolution",
-      "learningOutcome": "Create peaceful procedures for resolving civic and community disputes.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "What is public property?",
-      "options": ["Resources owned or held for use by the public", "A private gift for one official only", "An item with no owner and no rules", "A family secret kept outside the law"],
-      "correctAnswer": "Resources owned or held for use by the public",
-      "explanation": "Public property includes resources and facilities maintained for public benefit and protected by law.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Public Resources",
-      "learningOutcome": "Identify the meaning of public property and public resources.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Why should citizens protect public property?",
-      "options": ["It supports shared services and reduces waste of public resources", "It belongs to no one and can be damaged freely", "It only benefits private contractors", "It has no connection to taxes or services"],
-      "correctAnswer": "It supports shared services and reduces waste of public resources",
-      "explanation": "Damage to public property reduces services and can require public money to repair or replace it.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Stewardship of Public Resources",
-      "learningOutcome": "Explain civic responsibility in protecting shared resources.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A community questions why a road project is delayed despite budget approval. Which lawful action is most relevant?",
-      "options": ["Request project records and raise the issue through public participation or oversight channels", "Destroy construction equipment", "Invent financial figures online", "Ignore the issue because public funds cannot be questioned"],
-      "correctAnswer": "Request project records and raise the issue through public participation or oversight channels",
-      "explanation": "Citizens can seek information and use lawful accountability channels to monitor public projects.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Project Monitoring",
-      "learningOutcome": "Apply civic accountability tools to public project monitoring.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which question best analyzes fairness in resource allocation?",
-      "options": ["Do allocation criteria consider need, population, cost, equity, and public input?", "Which area has the loudest supporters only?", "Can records be hidden until complaints stop?", "Can one group receive everything without explanation?"],
-      "correctAnswer": "Do allocation criteria consider need, population, cost, equity, and public input?",
-      "explanation": "Fair allocation should be assessed using transparent criteria, evidence of need, and participation.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Equity in Resource Allocation",
-      "learningOutcome": "Analyze fairness and transparency in public resource allocation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which monitoring tool would best help learners track whether a county project is delivered as promised?",
-      "options": ["A checklist comparing budget, timeline, contractor updates, site visits, and official reports", "A rumour chart with no sources", "A single photograph without a date", "A private list that ignores public documents"],
-      "correctAnswer": "A checklist comparing budget, timeline, contractor updates, site visits, and official reports",
-      "explanation": "A structured monitoring tool connects public commitments to observable progress and documented evidence.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
-      "subStrandTitle": "Civic Oversight Tools",
-      "learningOutcome": "Apply evidence-based tools for monitoring public service delivery.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "What is Pan-Africanism mainly concerned with?",
-      "options": ["Solidarity, cooperation, and dignity among Africans and people of African descent", "Isolation of every African country from all neighbours", "Abolition of all cultural exchange", "The study of rocks only"],
-      "correctAnswer": "Solidarity, cooperation, and dignity among Africans and people of African descent",
-      "explanation": "Pan-Africanism emphasizes unity, shared interests, liberation, and cooperation among African peoples.",
-      "difficulty": 1,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Pan-Africanism",
-      "learningOutcome": "Identify the meaning and aims of Pan-Africanism.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Why did the Organization of African Unity matter in African history?",
-      "options": ["It promoted African unity, decolonization, and cooperation among independent states", "It was a colonial company controlling East African railways", "It replaced every national constitution", "It prevented all diplomacy between African states"],
-      "correctAnswer": "It promoted African unity, decolonization, and cooperation among independent states",
-      "explanation": "The OAU, founded in 1963, supported continental cooperation and anti-colonial struggles before being succeeded by the African Union.",
-      "difficulty": 2,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Continental Organizations",
-      "learningOutcome": "Explain the historical role of continental organizations in Africa.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A country joins a regional bloc to reduce trade barriers and coordinate infrastructure. Which goal is being pursued?",
-      "options": ["Regional integration", "Historical isolation", "Judicial sentencing", "Archaeological conservation"],
-      "correctAnswer": "Regional integration",
-      "explanation": "Regional integration encourages cooperation in trade, movement, infrastructure, and policy among neighbouring states.",
-      "difficulty": 3,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Regional Integration",
-      "learningOutcome": "Apply the concept of regional integration to economic and political cooperation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which statement best analyzes a possible benefit and challenge of regional integration?",
-      "options": ["It can expand markets, but states must coordinate laws, infrastructure, and revenue interests", "It always removes all borders and all disagreements immediately", "It prevents trade among member states", "It has no effect on citizens or businesses"],
-      "correctAnswer": "It can expand markets, but states must coordinate laws, infrastructure, and revenue interests",
-      "explanation": "Integration can create opportunities while requiring careful negotiation of policies and national interests.",
-      "difficulty": 4,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Regional Integration",
-      "learningOutcome": "Analyze benefits and challenges of regional cooperation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Which class project best investigates the impact of regional trade on Kenyan producers?",
-      "options": ["Compare export data, interview producers, map transport routes, and review regional trade rules", "Use only a flag drawing as evidence", "Ask one buyer and ignore all records", "Avoid prices, routes, and policies"],
-      "correctAnswer": "Compare export data, interview producers, map transport routes, and review regional trade rules",
-      "explanation": "A strong project combines economic data, lived experience, geography, and policy evidence.",
-      "difficulty": 5,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Trade and Regional Economies",
-      "learningOutcome": "Create evidence-based inquiries into regional trade and local livelihoods.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which global organization was founded in 1945 to promote peace, cooperation, and security among states?",
-      "options": ["United Nations", "East African Legislative Assembly", "Kenya National Archives", "County Assembly Forum"],
-      "correctAnswer": "United Nations",
-      "explanation": "The United Nations was created after the Second World War to support international peace and cooperation.",
-      "difficulty": 1,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "International Organizations",
-      "learningOutcome": "Recall major international organizations and their broad purposes.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Why do states use diplomacy?",
-      "options": ["To manage relations, negotiate interests, resolve disputes, and cooperate peacefully", "To eliminate all international communication", "To replace domestic courts with rumours", "To prevent treaties from being discussed"],
-      "correctAnswer": "To manage relations, negotiate interests, resolve disputes, and cooperate peacefully",
-      "explanation": "Diplomacy provides formal and informal channels for peaceful international engagement.",
-      "difficulty": 2,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Diplomacy and Foreign Relations",
-      "learningOutcome": "Explain the role of diplomacy in relations among states.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A historian studies how Cold War rivalries influenced aid, alliances, and conflicts in African states. Which context is being applied?",
-      "options": ["Global ideological competition after the Second World War", "Prehistoric stone tool production only", "County budgeting under devolution", "A local school election"],
-      "correctAnswer": "Global ideological competition after the Second World War",
-      "explanation": "The Cold War shaped international relations through competition between capitalist and socialist blocs.",
-      "difficulty": 3,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "The Cold War and Africa",
-      "learningOutcome": "Apply global context to African political and economic developments.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "What did non-alignment generally mean for newly independent states during the Cold War?",
-      "options": ["Avoiding permanent exclusive alignment with either major power bloc", "Joining every military alliance at the same time", "Refusing all diplomatic relations", "Ending all participation in the United Nations"],
-      "correctAnswer": "Avoiding permanent exclusive alignment with either major power bloc",
-      "explanation": "Non-alignment sought policy independence in a world divided by Cold War blocs.",
-      "difficulty": 4,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Non-Alignment",
-      "learningOutcome": "Analyze foreign policy choices available to newly independent states.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which research question best supports a balanced study of globalization's effects in Kenya?",
-      "options": ["How have global markets, technology, migration, and culture created both opportunities and risks?", "How can all global contact be described as identical?", "Why should economic data be ignored?", "Which single rumour explains all global change?"],
-      "correctAnswer": "How have global markets, technology, migration, and culture created both opportunities and risks?",
-      "explanation": "Globalization should be studied through multiple dimensions and evidence of varied effects.",
-      "difficulty": 5,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Globalization",
-      "learningOutcome": "Create balanced questions for evaluating globalization and local change.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "What is a treaty?",
-      "options": ["A formal agreement between states or international actors under international law", "A private diary entry with no legal effect", "A classroom seating plan", "A type of stone artefact"],
-      "correctAnswer": "A formal agreement between states or international actors under international law",
-      "explanation": "Treaties record agreed obligations and cooperation between recognized international actors.",
-      "difficulty": 1,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "International Law and Treaties",
-      "learningOutcome": "Identify basic concepts used in international relations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Why do states enter international agreements on refugees?",
-      "options": ["To coordinate protection, responsibilities, and humanitarian standards across borders", "To deny that forced migration exists", "To remove all national laws", "To make citizenship records irrelevant"],
-      "correctAnswer": "To coordinate protection, responsibilities, and humanitarian standards across borders",
-      "explanation": "Refugee protection often requires cooperation because displacement crosses national borders.",
-      "difficulty": 2,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Humanitarian Cooperation",
-      "learningOutcome": "Explain why cross-border humanitarian issues require cooperation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A drought affects pastoralist communities across a border, so two governments share early-warning data and coordinate response plans. Which interaction is shown?",
-      "options": ["Cross-border cooperation on a shared challenge", "Complete diplomatic breakdown", "A local club election", "A court appeal about private property only"],
-      "correctAnswer": "Cross-border cooperation on a shared challenge",
-      "explanation": "Environmental and livelihood challenges often cross borders and require coordinated planning.",
-      "difficulty": 3,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Shared Environmental Challenges",
-      "learningOutcome": "Apply regional cooperation to environmental and livelihood issues.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which analysis best links Indian Ocean trade to cultural change on the East African coast?",
-      "options": ["Long-distance trade encouraged exchange in language, religion, architecture, and urban life", "Trade prevented all contact between coastal towns", "Coastal culture developed without any interaction", "Only inland communities shaped coastal languages"],
-      "correctAnswer": "Long-distance trade encouraged exchange in language, religion, architecture, and urban life",
-      "explanation": "Maritime exchange connected people, goods, ideas, and institutions across the Indian Ocean.",
-      "difficulty": 4,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Indian Ocean Connections",
-      "learningOutcome": "Analyze cultural effects of regional and global trade networks.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which plan would best investigate Kenya's participation in peace support operations?",
-      "options": ["Review official records, mission mandates, veteran interviews, and regional security context", "Use only a fictional action story", "Count uniforms in a parade and ignore documents", "Avoid all dates and mission purposes"],
-      "correctAnswer": "Review official records, mission mandates, veteran interviews, and regional security context",
-      "explanation": "Peace support operations should be studied through mandates, records, participant experience, and regional context.",
-      "difficulty": 5,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Peace and Security Cooperation",
-      "learningOutcome": "Create a source-based inquiry into regional peace and security roles.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "What is multilateralism?",
-      "options": ["Cooperation among three or more states or institutions on shared issues", "A private contract between two neighbours", "A ban on all international meetings", "A method of dating fossils"],
-      "correctAnswer": "Cooperation among three or more states or institutions on shared issues",
-      "explanation": "Multilateralism uses broader cooperation to address issues that one state cannot handle alone.",
-      "difficulty": 1,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Multilateral Cooperation",
-      "learningOutcome": "Identify concepts used to describe international cooperation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Why can diaspora communities influence a country's development and global links?",
-      "options": ["They may send remittances, share skills, build networks, and support cultural exchange", "They always end all contact with their country of origin", "They remove the need for domestic institutions", "They make diplomacy impossible"],
-      "correctAnswer": "They may send remittances, share skills, build networks, and support cultural exchange",
-      "explanation": "Diaspora links can affect economies, knowledge exchange, culture, and international relationships.",
-      "difficulty": 2,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Migration and Diaspora",
-      "learningOutcome": "Explain how migration and diaspora networks shape development and relations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "A learner compares two reports about an international conflict, checking authorship, evidence, loaded language, and missing voices. Which skill is being applied?",
-      "options": ["Critical source analysis", "Automatic acceptance of propaganda", "Tax collection", "County zoning"],
-      "correctAnswer": "Critical source analysis",
-      "explanation": "International issues require careful analysis of source purpose, evidence, language, and omissions.",
-      "difficulty": 3,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Global Media and Conflict",
-      "learningOutcome": "Apply source criticism to global conflict reporting.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which question best analyzes the effect of international trade agreements on citizens?",
-      "options": ["How do prices, jobs, consumer choice, standards, and local producers change after implementation?", "Which flag colours appear in the agreement ceremony?", "Can all trade effects be assumed before evidence is gathered?", "Why should farmers and consumers be excluded from study?"],
-      "correctAnswer": "How do prices, jobs, consumer choice, standards, and local producers change after implementation?",
-      "explanation": "Trade agreements affect citizens through economic opportunities, costs, standards, and sector-specific impacts.",
-      "difficulty": 4,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "International Trade Agreements",
-      "learningOutcome": "Analyze social and economic effects of international agreements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which final project would best show Grade 12 mastery of regional and global historical interpretation?",
-      "options": ["Compare sources on one regional issue, explain context, weigh perspectives, and present evidence-based conclusions", "Copy one online paragraph without citing it", "Avoid dates, actors, causes, and evidence", "Present only one viewpoint and ban questions"],
-      "correctAnswer": "Compare sources on one regional issue, explain context, weigh perspectives, and present evidence-based conclusions",
-      "explanation": "Advanced interpretation requires evidence, context, comparison of perspectives, and clear reasoning.",
-      "difficulty": 5,
-      "strandTitle": "Regional and Global Interactions",
-      "subStrandTitle": "Historical Interpretation Project",
-      "learningOutcome": "Create a balanced interpretation of a regional or global historical issue.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "history_citizenship",
+ "subjectName": "History & Citizenship",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which item is a primary source for studying the wording of Kenya's Constitution?",
+   "options": [
+    "The official constitutional text",
+    "A student's revision summary",
+    "A modern opinion column",
+    "A classroom wall chart"
+   ],
+   "correctAnswer": "The official constitutional text",
+   "explanation": "A primary source comes directly from the period, institution, or event being studied. The official text preserves the exact legal wording.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Primary and Secondary Sources",
+   "learningOutcome": "Identify appropriate sources for advanced historical and civic inquiry.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Why is provenance important when evaluating a historical source?",
+   "options": [
+    "It shows who created the source, when, where, and for what purpose",
+    "It proves that every old source is fully accurate",
+    "It removes the need to compare sources",
+    "It changes a source from oral evidence into archaeology"
+   ],
+   "correctAnswer": "It shows who created the source, when, where, and for what purpose",
+   "explanation": "Provenance helps a historian judge perspective, reliability, and possible bias before using evidence.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Source Evaluation",
+   "learningOutcome": "Explain how provenance supports assessment of historical evidence.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "A learner studies a colonial-era newspaper report about a labour strike. Which detail should be checked first to judge the report's perspective?",
+   "options": [
+    "The newspaper's ownership, audience, and date of publication",
+    "The number of words in the headline",
+    "The brightness of the scanned page",
+    "The learner's favourite paragraph"
+   ],
+   "correctAnswer": "The newspaper's ownership, audience, and date of publication",
+   "explanation": "Ownership, audience, and timing can shape how events are framed and which voices are included or excluded.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Perspective and Bias",
+   "learningOutcome": "Apply source evaluation skills to accounts of contested events.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Two witnesses describe the same public protest differently. Which approach best supports historical interpretation?",
+   "options": [
+    "Compare each account's context, purpose, and supporting evidence",
+    "Accept the account written in the longest sentences",
+    "Ignore both accounts because they disagree",
+    "Use only the account that matches a classmate's view"
+   ],
+   "correctAnswer": "Compare each account's context, purpose, and supporting evidence",
+   "explanation": "Disagreement is interpreted by examining context and evidence, not by choosing a source for convenience.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Corroboration and Interpretation",
+   "learningOutcome": "Analyze conflicting accounts using context and corroborating evidence.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which research plan best investigates how a constitutional reform affected ordinary citizens?",
+   "options": [
+    "Use legal texts, parliamentary debates, interviews, court cases, and service records",
+    "Use one social media comment and stop the inquiry",
+    "Ask only people who already share one opinion",
+    "Avoid official and community sources completely"
+   ],
+   "correctAnswer": "Use legal texts, parliamentary debates, interviews, court cases, and service records",
+   "explanation": "A strong inquiry uses varied sources to connect formal change with lived experience and public outcomes.",
+   "difficulty": 5,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Research Design",
+   "learningOutcome": "Design a balanced inquiry using multiple types of historical and civic evidence.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "What does chronology mainly help historians to establish?",
+   "options": [
+    "The sequence of events and changes over time",
+    "The moral worth of every participant",
+    "The exact feelings of all past actors",
+    "The replacement of evidence with memory"
+   ],
+   "correctAnswer": "The sequence of events and changes over time",
+   "explanation": "Chronology arranges events in time order so that continuity, change, cause, and consequence can be studied.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Chronology and Periodization",
+   "learningOutcome": "Use chronology to organize and interpret historical developments.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Why should oral testimony be compared with written and material evidence?",
+   "options": [
+    "To confirm details, identify gaps, and understand different perspectives",
+    "To prove oral testimony is always false",
+    "To remove community memory from history",
+    "To make all sources use identical words"
+   ],
+   "correctAnswer": "To confirm details, identify gaps, and understand different perspectives",
+   "explanation": "Corroboration strengthens interpretation by checking claims across different kinds of evidence.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Oral Evidence",
+   "learningOutcome": "Explain the value and limits of oral evidence in historical study.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "A museum label says an iron hoe was used for farming. Which evidence would most directly support that claim?",
+   "options": [
+    "Wear marks and soil traces on the hoe blade",
+    "The colour of the display cabinet",
+    "The number of visitors at the museum",
+    "A modern logo on the museum ticket"
+   ],
+   "correctAnswer": "Wear marks and soil traces on the hoe blade",
+   "explanation": "Physical traces can connect an artefact to its use more directly than display details.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Material Culture",
+   "learningOutcome": "Use artefact evidence to support claims about past livelihoods.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why historians use periodization?",
+   "options": [
+    "It groups long histories into meaningful phases while recognizing that boundaries are interpretive",
+    "It proves that change happens on one exact day only",
+    "It stops historians from studying continuity",
+    "It replaces evidence with fixed labels"
+   ],
+   "correctAnswer": "It groups long histories into meaningful phases while recognizing that boundaries are interpretive",
+   "explanation": "Periodization helps organize complex change, but historians must explain why chosen boundaries make sense.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Periodization",
+   "learningOutcome": "Analyze how period labels shape interpretation of historical change.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which plan would create the most balanced exhibit on Kenya's independence struggle?",
+   "options": [
+    "Include nationalist voices, colonial records, court files, photographs, and community memories",
+    "Display only one leader's portrait without context",
+    "Use only modern slogans as evidence",
+    "Avoid sources that show disagreement"
+   ],
+   "correctAnswer": "Include nationalist voices, colonial records, court files, photographs, and community memories",
+   "explanation": "A balanced exhibit presents multiple forms of evidence and shows the complexity of historical experience.",
+   "difficulty": 5,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Public History",
+   "learningOutcome": "Create evidence-based ways of presenting contested historical topics to the public.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "What is historical continuity?",
+   "options": [
+    "The survival of patterns, institutions, or practices over time",
+    "A source written without a date",
+    "A sudden event with no earlier causes",
+    "A list of unrelated names"
+   ],
+   "correctAnswer": "The survival of patterns, institutions, or practices over time",
+   "explanation": "Continuity refers to features that persist even as other aspects of society change.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Change and Continuity",
+   "learningOutcome": "Recognize continuity and change in historical developments.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Why is bias not the same as uselessness in a historical source?",
+   "options": [
+    "Bias can reveal the author's interests while still providing evidence to analyze",
+    "Bias always makes a source perfectly neutral",
+    "Bias means the source has no author",
+    "Bias turns every written record into an artefact"
+   ],
+   "correctAnswer": "Bias can reveal the author's interests while still providing evidence to analyze",
+   "explanation": "A biased source can still show attitudes, priorities, and claims if it is handled critically.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Bias and Reliability",
+   "learningOutcome": "Explain how historians use biased sources critically.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "A learner wants to study population movement into a town from 1963 to 2000. Which evidence combination is most useful?",
+   "options": [
+    "Census data, maps, oral interviews, and local administrative records",
+    "A single song with no date",
+    "One photograph of a bus stop",
+    "A list of sports fixtures only"
+   ],
+   "correctAnswer": "Census data, maps, oral interviews, and local administrative records",
+   "explanation": "Population movement is best studied with quantitative records, spatial evidence, and lived memories.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Demographic Evidence",
+   "learningOutcome": "Select evidence for investigating population change and migration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "How should a historian treat a nationalist memoir and a colonial administrative report about the same event?",
+   "options": [
+    "Analyze each source's purpose, audience, omissions, and supporting evidence",
+    "Reject both because they were produced by interested parties",
+    "Use only the source with official letterhead",
+    "Assume the memoir is fiction and the report is complete truth"
+   ],
+   "correctAnswer": "Analyze each source's purpose, audience, omissions, and supporting evidence",
+   "explanation": "Both sources can contain valuable evidence and bias, so they should be compared critically.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Competing Narratives",
+   "learningOutcome": "Analyze different narratives of the same historical event.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which project best preserves local history while respecting evidence and community consent?",
+   "options": [
+    "Record interviews with permission, archive transcripts, photograph sites, and verify claims",
+    "Publish private family stories without consent",
+    "Invent missing details to make the story exciting",
+    "Discard sources that mention disagreement"
+   ],
+   "correctAnswer": "Record interviews with permission, archive transcripts, photograph sites, and verify claims",
+   "explanation": "Ethical preservation protects participants and keeps the record useful for future inquiry.",
+   "difficulty": 5,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Heritage Documentation",
+   "learningOutcome": "Create ethical methods for documenting and preserving community history.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "What does radiocarbon dating help archaeologists estimate?",
+   "options": [
+    "The age of once-living material",
+    "The exact name of every toolmaker",
+    "The opinion of a modern visitor",
+    "The colour a site will have after excavation"
+   ],
+   "correctAnswer": "The age of once-living material",
+   "explanation": "Radiocarbon dating estimates the age of organic remains, helping place evidence in time.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Archaeological Methods",
+   "learningOutcome": "Identify methods used to date and interpret archaeological evidence.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Why is conservation important after archaeological excavation?",
+   "options": [
+    "It protects fragile evidence from damage and loss",
+    "It makes all artefacts new again",
+    "It removes the need to record the site",
+    "It allows artefacts to be handled without care"
+   ],
+   "correctAnswer": "It protects fragile evidence from damage and loss",
+   "explanation": "Excavated materials can deteriorate quickly, so conservation keeps them available for study and public learning.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Conservation of Evidence",
+   "learningOutcome": "Explain why historical and archaeological evidence must be conserved.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "A class links drought, taxation, and labour migration when studying a colonial period. Which historical concept are they mainly applying?",
+   "options": [
+    "Causation with multiple interacting factors",
+    "A list of isolated dates",
+    "Decoration of a timeline",
+    "Translation of a proverb"
+   ],
+   "correctAnswer": "Causation with multiple interacting factors",
+   "explanation": "Complex historical outcomes often result from several causes interacting over time.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Causation",
+   "learningOutcome": "Apply multi-causal reasoning to historical explanations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "A colonial archive contains many official letters but few accounts from women workers. What should a historian conclude first?",
+   "options": [
+    "The archive reflects power and record-keeping choices that may silence some voices",
+    "Women workers had no historical role",
+    "Official letters are the only possible evidence",
+    "The archive cannot be used for any question"
+   ],
+   "correctAnswer": "The archive reflects power and record-keeping choices that may silence some voices",
+   "explanation": "Archives preserve some voices more than others, so historians must ask what is missing as well as what is present.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Archival Silences",
+   "learningOutcome": "Analyze how power affects the survival and visibility of historical evidence.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which action best shows historical empathy in a class debate about a past conflict?",
+   "options": [
+    "Explaining choices using the evidence, values, and constraints of that period",
+    "Excusing all harmful actions without evidence",
+    "Judging every actor only by today's headlines",
+    "Ignoring the experiences of affected communities"
+   ],
+   "correctAnswer": "Explaining choices using the evidence, values, and constraints of that period",
+   "explanation": "Historical empathy means understanding people in context while still using evidence and ethical judgment.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Empathy",
+   "learningOutcome": "Apply contextual understanding when discussing past human choices.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which trade network connected the Kenyan coast with Arabia, India, and other parts of the Indian Ocean world?",
+   "options": [
+    "Indian Ocean trade",
+    "Trans-Saharan gold trade",
+    "Atlantic triangular trade",
+    "Silk Road caravan trade"
+   ],
+   "correctAnswer": "Indian Ocean trade",
+   "explanation": "Indian Ocean trade linked East African coastal towns with wider maritime commerce and cultural exchange.",
+   "difficulty": 1,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Trade and Cultural Interaction",
+   "learningOutcome": "Identify major historical interactions that shaped Kenyan societies.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Why were age-set systems important in many precolonial Kenyan communities?",
+   "options": [
+    "They organized social duties, leadership roles, defence, and stages of life",
+    "They replaced all forms of family life",
+    "They were colonial tax offices",
+    "They were modern political parties"
+   ],
+   "correctAnswer": "They organized social duties, leadership roles, defence, and stages of life",
+   "explanation": "Age-set systems helped structure responsibilities and identity within several communities.",
+   "difficulty": 2,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Precolonial Social Organization",
+   "learningOutcome": "Explain institutions that shaped precolonial Kenyan communities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "How did colonial hut and poll taxes affect many African households in Kenya?",
+   "options": [
+    "They pushed many people toward wage labour to obtain cash",
+    "They ended the need for cash in rural areas",
+    "They abolished all colonial labour demands",
+    "They made every household tax-free"
+   ],
+   "correctAnswer": "They pushed many people toward wage labour to obtain cash",
+   "explanation": "Cash taxes forced many households to seek wage work within the colonial economy.",
+   "difficulty": 3,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Colonial Economy",
+   "learningOutcome": "Apply knowledge of colonial policies to explain economic and social change.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which effect of land alienation in colonial Kenya is most historically significant?",
+   "options": [
+    "It disrupted African land use and strengthened settler agriculture in selected areas",
+    "It gave all communities equal access to settler farms",
+    "It ended disputes over land permanently",
+    "It removed agriculture from the colonial economy"
+   ],
+   "correctAnswer": "It disrupted African land use and strengthened settler agriculture in selected areas",
+   "explanation": "Land alienation changed settlement, labour, and production patterns and became a major source of grievance.",
+   "difficulty": 4,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Land and Colonial Rule",
+   "learningOutcome": "Analyze the social and economic effects of colonial land policies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which inquiry question would best support a balanced study of the Mau Mau period?",
+   "options": [
+    "How did fighters, loyalists, settlers, colonial officials, and civilians experience the conflict?",
+    "Which single group should be studied while all others are ignored?",
+    "How can evidence be replaced with slogans?",
+    "Why should court records be avoided completely?"
+   ],
+   "correctAnswer": "How did fighters, loyalists, settlers, colonial officials, and civilians experience the conflict?",
+   "explanation": "A balanced inquiry examines different roles, experiences, and sources without reducing a complex conflict to one voice.",
+   "difficulty": 5,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Resistance and Nationalism",
+   "learningOutcome": "Design balanced historical questions about resistance, nationalism, and conflict.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which railway was central to British colonial expansion into the interior of East Africa?",
+   "options": [
+    "The Uganda Railway",
+    "The Cape-Cairo Metro",
+    "The Atlantic Coastal Line",
+    "The Sahara Express"
+   ],
+   "correctAnswer": "The Uganda Railway",
+   "explanation": "The Uganda Railway supported colonial administration, trade, settlement, and military movement into the interior.",
+   "difficulty": 1,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Colonial Infrastructure",
+   "learningOutcome": "Identify infrastructure that shaped colonial rule and economic change.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Why did colonial governments build roads, railways, and ports?",
+   "options": [
+    "To move goods, officials, troops, and labour more efficiently",
+    "To end all forms of trade",
+    "To prevent settlers from reaching farms",
+    "To make African political organizations unnecessary"
+   ],
+   "correctAnswer": "To move goods, officials, troops, and labour more efficiently",
+   "explanation": "Transport infrastructure served administrative, military, and economic goals of colonial rule.",
+   "difficulty": 2,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Colonial Infrastructure",
+   "learningOutcome": "Explain why infrastructure mattered to colonial administration and commerce.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "A colonial administrator appoints local chiefs to collect taxes and enforce regulations. Which system is this closest to?",
+   "options": [
+    "Indirect rule",
+    "Universal suffrage",
+    "Judicial review",
+    "Pan-African congress"
+   ],
+   "correctAnswer": "Indirect rule",
+   "explanation": "Indirect rule used selected local authorities to implement colonial policy at community level.",
+   "difficulty": 3,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Colonial Administration",
+   "learningOutcome": "Apply concepts of colonial administration to historical examples.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which statement best captures African responses to colonial rule in Kenya?",
+   "options": [
+    "Responses varied and included resistance, negotiation, adaptation, and collaboration",
+    "All communities responded in exactly the same way",
+    "There was no organized African response",
+    "Every response was recorded fully by colonial officers"
+   ],
+   "correctAnswer": "Responses varied and included resistance, negotiation, adaptation, and collaboration",
+   "explanation": "African responses differed by place, period, leadership, interests, and local conditions.",
+   "difficulty": 4,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "African Agency under Colonial Rule",
+   "learningOutcome": "Analyze varied African responses to colonial policies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which source set would best support an advanced study of Kenyan nationalism before independence?",
+   "options": [
+    "Party records, speeches, petitions, newspapers, court files, and oral accounts",
+    "Only one modern textbook sentence",
+    "A map with no dates or labels",
+    "A list of unrelated world capitals"
+   ],
+   "correctAnswer": "Party records, speeches, petitions, newspapers, court files, and oral accounts",
+   "explanation": "Nationalism involved organizations, ideas, state responses, and public participation, so varied evidence is needed.",
+   "difficulty": 5,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Nationalism and Independence",
+   "learningOutcome": "Create a source base for investigating nationalist movements.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which city hosted major constitutional negotiations before Kenya's independence?",
+   "options": [
+    "London",
+    "Cairo",
+    "Delhi",
+    "Accra"
+   ],
+   "correctAnswer": "London",
+   "explanation": "The Lancaster House constitutional conferences in London shaped Kenya's transition to independence.",
+   "difficulty": 1,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Independence Negotiations",
+   "learningOutcome": "Recall key settings and processes in Kenya's independence transition.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Why were constitutional negotiations important before independence?",
+   "options": [
+    "They set rules for representation, rights, government structure, and transfer of power",
+    "They replaced all political debate after independence",
+    "They ended the need for courts",
+    "They made citizenship unnecessary"
+   ],
+   "correctAnswer": "They set rules for representation, rights, government structure, and transfer of power",
+   "explanation": "Constitutional talks established the legal framework for independence and future governance.",
+   "difficulty": 2,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Independence Negotiations",
+   "learningOutcome": "Explain the role of constitutional talks in state formation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "A community builds a school through voluntary local contributions after independence. Which Kenyan idea does this best illustrate?",
+   "options": [
+    "Harambee",
+    "Apartheid",
+    "Mercantilism",
+    "Feudalism"
+   ],
+   "correctAnswer": "Harambee",
+   "explanation": "Harambee refers to collective self-help and community contribution toward development projects.",
+   "difficulty": 3,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Post-Independence Development",
+   "learningOutcome": "Apply post-independence concepts to examples of community development.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which issue made land resettlement a major post-independence challenge in Kenya?",
+   "options": [
+    "Colonial-era land alienation had created unequal access and strong claims to land",
+    "Kenya had no farming communities before independence",
+    "Land had no economic or cultural importance",
+    "All colonial land records were identical and uncontested"
+   ],
+   "correctAnswer": "Colonial-era land alienation had created unequal access and strong claims to land",
+   "explanation": "Land questions after independence were shaped by earlier dispossession, settlement, ownership records, and community claims.",
+   "difficulty": 4,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Land and Post-Independence Change",
+   "learningOutcome": "Analyze historical roots of post-independence land issues.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which project would best help learners study memories of independence in their county?",
+   "options": [
+    "Interview elders with consent, compare accounts with archives, and map local commemorative sites",
+    "Copy one national holiday speech without checking local evidence",
+    "Ask only one person and treat the account as complete",
+    "Avoid dates, names, and places in the final report"
+   ],
+   "correctAnswer": "Interview elders with consent, compare accounts with archives, and map local commemorative sites",
+   "explanation": "Local independence history is strengthened by ethical interviews, corroboration, and attention to place.",
+   "difficulty": 5,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Local Histories of Independence",
+   "learningOutcome": "Create a local inquiry into independence memories and public commemoration.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "What was one major feature of colonial education in Kenya?",
+   "options": [
+    "Access and curriculum often reflected racial, class, gender, and labour needs",
+    "It offered identical opportunities to every learner",
+    "It was unrelated to colonial administration",
+    "It removed all social inequalities"
+   ],
+   "correctAnswer": "Access and curriculum often reflected racial, class, gender, and labour needs",
+   "explanation": "Colonial education was shaped by unequal policy goals and the labour needs of the colonial economy.",
+   "difficulty": 1,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Education and Social Change",
+   "learningOutcome": "Identify major features of colonial social policy.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "How did councils of elders contribute to governance in many precolonial Kenyan societies?",
+   "options": [
+    "They helped settle disputes, guide customs, and advise on community decisions",
+    "They operated as modern county assemblies",
+    "They issued national passports",
+    "They abolished all family authority"
+   ],
+   "correctAnswer": "They helped settle disputes, guide customs, and advise on community decisions",
+   "explanation": "Councils of elders often provided social regulation, conflict resolution, and community leadership.",
+   "difficulty": 2,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Precolonial Governance",
+   "learningOutcome": "Explain institutions of governance in precolonial communities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "A historian connects Swahili language growth to contact among African, Arab, and Persian traders along the coast. Which process is being described?",
+   "options": [
+    "Cultural interaction through trade",
+    "Isolation from all outsiders",
+    "Abolition of coastal towns",
+    "Replacement of evidence by legend"
+   ],
+   "correctAnswer": "Cultural interaction through trade",
+   "explanation": "Coastal trade encouraged exchange in language, religion, architecture, and social life.",
+   "difficulty": 3,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Coastal History",
+   "learningOutcome": "Apply knowledge of trade contacts to cultural change on the Kenyan coast.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which comparison best shows continuity and change from the colonial to post-independence state?",
+   "options": [
+    "Some administrative boundaries and offices continued, while sovereignty and political representation changed",
+    "All colonial institutions disappeared overnight",
+    "Nothing changed after independence",
+    "Only foreign governments made decisions after independence"
+   ],
+   "correctAnswer": "Some administrative boundaries and offices continued, while sovereignty and political representation changed",
+   "explanation": "Independence brought major constitutional change, but some administrative structures and practices persisted.",
+   "difficulty": 4,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Continuity and Change after Independence",
+   "learningOutcome": "Analyze continuity and change in Kenya's transition from colonial rule.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "A learner evaluates whether a post-independence development policy improved rural livelihoods. Which evidence is most relevant?",
+   "options": [
+    "Household income records, service access data, local interviews, and policy documents",
+    "Only the colour of the policy booklet",
+    "One unrelated international sports result",
+    "A list of county names without indicators"
+   ],
+   "correctAnswer": "Household income records, service access data, local interviews, and policy documents",
+   "explanation": "Policy impact should be assessed with evidence about goals, implementation, outcomes, and lived experience.",
+   "difficulty": 3,
+   "strandTitle": "Kenyan History and State Formation",
+   "subStrandTitle": "Development Policy Evaluation",
+   "learningOutcome": "Apply evidence to evaluate historical development policies.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "What is the supreme law of Kenya?",
+   "options": [
+    "The Constitution of Kenya",
+    "A county by-law",
+    "A school rule book",
+    "A campaign poster"
+   ],
+   "correctAnswer": "The Constitution of Kenya",
+   "explanation": "The Constitution is the highest legal authority, and other laws must be consistent with it.",
+   "difficulty": 1,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Supremacy of the Constitution",
+   "learningOutcome": "Identify the place of the Constitution in Kenya's legal order.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "What does popular sovereignty mean in Kenya's constitutional order?",
+   "options": [
+    "All sovereign power belongs to the people and is exercised directly or through representatives",
+    "All power belongs permanently to one office",
+    "Citizens cannot participate in public affairs",
+    "Courts may ignore the Constitution"
+   ],
+   "correctAnswer": "All sovereign power belongs to the people and is exercised directly or through representatives",
+   "explanation": "Popular sovereignty places the people as the source of public authority under the Constitution.",
+   "difficulty": 2,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Sovereignty of the People",
+   "learningOutcome": "Explain the meaning of popular sovereignty in constitutional governance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "A county invites residents to comment before approving a development plan. Which constitutional principle is mainly being applied?",
+   "options": [
+    "Public participation",
+    "Secret legislation",
+    "Collective punishment",
+    "Hereditary rule"
+   ],
+   "correctAnswer": "Public participation",
+   "explanation": "Public participation allows citizens to contribute views before public decisions are made.",
+   "difficulty": 3,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "National Values and Principles",
+   "learningOutcome": "Apply constitutional values to examples of public decision-making.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Why is separation of powers important in constitutional democracy?",
+   "options": [
+    "It divides state authority to reduce concentration and support checks and balances",
+    "It allows one branch to control all public power",
+    "It abolishes the need for accountability",
+    "It removes citizens from governance"
+   ],
+   "correctAnswer": "It divides state authority to reduce concentration and support checks and balances",
+   "explanation": "Separating legislative, executive, and judicial powers helps prevent abuse and supports accountability.",
+   "difficulty": 4,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Separation of Powers",
+   "learningOutcome": "Analyze how separation of powers supports accountable governance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which school activity best models constitutionalism for learners?",
+   "options": [
+    "Drafting rules through consultation, applying them fairly, and allowing appeals",
+    "Letting one learner change rules without notice",
+    "Punishing learners before hearing them",
+    "Keeping all school rules secret"
+   ],
+   "correctAnswer": "Drafting rules through consultation, applying them fairly, and allowing appeals",
+   "explanation": "Constitutionalism requires limited power, known rules, fairness, participation, and accountability.",
+   "difficulty": 5,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Constitutional Practice",
+   "learningOutcome": "Create civic practices that model constitutional values in school settings.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which institution interprets the law and resolves legal disputes in Kenya?",
+   "options": [
+    "The Judiciary",
+    "A political rally",
+    "A private club",
+    "A market committee"
+   ],
+   "correctAnswer": "The Judiciary",
+   "explanation": "The Judiciary applies and interprets the law through courts and related judicial processes.",
+   "difficulty": 1,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "The Judiciary",
+   "learningOutcome": "Identify the role of the Judiciary in constitutional governance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Why is judicial independence important?",
+   "options": [
+    "It helps courts decide cases according to law and evidence rather than improper pressure",
+    "It allows judges to ignore the Constitution",
+    "It prevents citizens from going to court",
+    "It makes court reasons unnecessary"
+   ],
+   "correctAnswer": "It helps courts decide cases according to law and evidence rather than improper pressure",
+   "explanation": "Independent courts protect fairness, rights, and the rule of law by resisting improper influence.",
+   "difficulty": 2,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Judicial Independence",
+   "learningOutcome": "Explain why independent courts matter in a constitutional democracy.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A law is challenged because citizens claim it violates the Bill of Rights. Which process is being used?",
+   "options": [
+    "Constitutional review by the courts",
+    "Informal gossip",
+    "Archaeological excavation",
+    "Cultural performance"
+   ],
+   "correctAnswer": "Constitutional review by the courts",
+   "explanation": "Courts can examine whether laws or actions comply with the Constitution and protected rights.",
+   "difficulty": 3,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Constitutional Review",
+   "learningOutcome": "Apply constitutional review to disputes about rights and public power.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which example best shows checks and balances?",
+   "options": [
+    "A legislature questions public spending while courts can review unlawful action",
+    "An official spends public funds without records",
+    "All branches obey one unelected private group",
+    "Citizens are blocked from asking questions"
+   ],
+   "correctAnswer": "A legislature questions public spending while courts can review unlawful action",
+   "explanation": "Checks and balances allow institutions to monitor and limit one another within the law.",
+   "difficulty": 4,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Checks and Balances",
+   "learningOutcome": "Analyze examples of institutional accountability in government.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which feature should be included in a learner-created model constitution for a club?",
+   "options": [
+    "Clear offices, election rules, rights of members, duties, and dispute procedures",
+    "Unwritten powers held by one permanent leader",
+    "Rules that change secretly after each meeting",
+    "A ban on all member participation"
+   ],
+   "correctAnswer": "Clear offices, election rules, rights of members, duties, and dispute procedures",
+   "explanation": "A useful constitution defines power, participation, accountability, rights, and procedures clearly.",
+   "difficulty": 5,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Constitution-Making",
+   "learningOutcome": "Create simple constitutional rules that promote accountable leadership.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "What does the rule of law require?",
+   "options": [
+    "Everyone, including public officers, is subject to the law",
+    "Only private citizens must obey laws",
+    "Law can be ignored when inconvenient",
+    "Public power needs no legal basis"
+   ],
+   "correctAnswer": "Everyone, including public officers, is subject to the law",
+   "explanation": "The rule of law means public and private action must be governed by known and fairly applied laws.",
+   "difficulty": 1,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Rule of Law",
+   "learningOutcome": "Identify the meaning of the rule of law.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Why are independent commissions included in Kenya's constitutional framework?",
+   "options": [
+    "To support accountability, protect constitutional values, and reduce improper influence",
+    "To replace all elected institutions permanently",
+    "To make public records unnecessary",
+    "To control courts in every case"
+   ],
+   "correctAnswer": "To support accountability, protect constitutional values, and reduce improper influence",
+   "explanation": "Independent commissions provide oversight and specialized constitutional functions outside ordinary political control.",
+   "difficulty": 2,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Independent Commissions",
+   "learningOutcome": "Explain the role of independent commissions in constitutional governance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "A person is accused of an offence and asks to be heard before punishment. Which constitutional idea is involved?",
+   "options": [
+    "Due process and fair hearing",
+    "Collective guilt",
+    "Secret taxation",
+    "Historical periodization"
+   ],
+   "correctAnswer": "Due process and fair hearing",
+   "explanation": "Due process requires fair procedures before a person's rights or interests are limited.",
+   "difficulty": 3,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Fair Administrative Action",
+   "learningOutcome": "Apply due process principles to civic and legal situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which comparison between the National Assembly and the Senate is most accurate?",
+   "options": [
+    "The National Assembly represents constituencies while the Senate represents counties",
+    "Both houses are county executive committees",
+    "The Senate is a court of appeal for all civil cases",
+    "The National Assembly is a county public service board"
+   ],
+   "correctAnswer": "The National Assembly represents constituencies while the Senate represents counties",
+   "explanation": "Kenya's bicameral Parliament includes a National Assembly linked to constituencies and a Senate linked to counties.",
+   "difficulty": 4,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Parliament and Representation",
+   "learningOutcome": "Analyze representation in Kenya's bicameral parliamentary system.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which civic education plan best helps citizens understand constitutional rights and duties?",
+   "options": [
+    "Use plain-language materials, local examples, question sessions, and nonpartisan facilitation",
+    "Use secret meetings open to one group only",
+    "Avoid questions about rights and public offices",
+    "Replace the Constitution with rumours"
+   ],
+   "correctAnswer": "Use plain-language materials, local examples, question sessions, and nonpartisan facilitation",
+   "explanation": "Effective civic education is accessible, factual, participatory, and nonpartisan.",
+   "difficulty": 5,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Civic Education",
+   "learningOutcome": "Create civic education approaches that support informed citizenship.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "How many county governments are established under Kenya's 2010 Constitution?",
+   "options": [
+    "47",
+    "8",
+    "12",
+    "290"
+   ],
+   "correctAnswer": "47",
+   "explanation": "Kenya has 47 county governments under the devolved system created by the 2010 Constitution.",
+   "difficulty": 1,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Devolved Government",
+   "learningOutcome": "Recall key facts about Kenya's devolved system of government.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Why was devolution introduced in Kenya's constitutional framework?",
+   "options": [
+    "To bring services closer to people, promote participation, and share resources more equitably",
+    "To abolish all national institutions",
+    "To prevent local public participation",
+    "To make counties independent countries"
+   ],
+   "correctAnswer": "To bring services closer to people, promote participation, and share resources more equitably",
+   "explanation": "Devolution distributes functions and resources between national and county levels while keeping one republic.",
+   "difficulty": 2,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Objectives of Devolution",
+   "learningOutcome": "Explain the purposes of devolution in Kenya.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A county executive prepares a health facility improvement plan while residents give views in a public forum. Which governance idea is shown?",
+   "options": [
+    "Devolved planning with citizen participation",
+    "A foreign treaty negotiation",
+    "A private inheritance process",
+    "A military alliance"
+   ],
+   "correctAnswer": "Devolved planning with citizen participation",
+   "explanation": "County planning should involve public input and focus on service delivery within county functions.",
+   "difficulty": 3,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "County Planning",
+   "learningOutcome": "Apply devolution principles to county service planning.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which situation best illustrates a tension between rights and public interest?",
+   "options": [
+    "Balancing freedom of assembly with lawful measures to protect safety and access",
+    "Reading a public holiday notice",
+    "Arranging library books alphabetically",
+    "Counting seats in a classroom"
+   ],
+   "correctAnswer": "Balancing freedom of assembly with lawful measures to protect safety and access",
+   "explanation": "Some rights may be regulated by law for legitimate aims, but limits must be justified and proportionate.",
+   "difficulty": 4,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Rights and Limitations",
+   "learningOutcome": "Analyze how rights may be balanced with lawful public interests.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which response is most appropriate when citizens believe a public body has acted unlawfully?",
+   "options": [
+    "Use lawful channels such as petitions, complaints, public participation, or court action",
+    "Destroy public property immediately",
+    "Spread unverified claims as facts",
+    "Assume public bodies can never be questioned"
+   ],
+   "correctAnswer": "Use lawful channels such as petitions, complaints, public participation, or court action",
+   "explanation": "Constitutionalism supports accountability through lawful, evidence-based civic and legal action.",
+   "difficulty": 3,
+   "strandTitle": "Constitutionalism and Governance",
+   "subStrandTitle": "Accountability Mechanisms",
+   "learningOutcome": "Apply lawful mechanisms for challenging public action.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "What is citizenship?",
+   "options": [
+    "Legal membership in a state with rights and responsibilities",
+    "A temporary classroom role only",
+    "A private business licence",
+    "A form of archaeological dating"
+   ],
+   "correctAnswer": "Legal membership in a state with rights and responsibilities",
+   "explanation": "Citizenship connects a person to a state and carries civic rights, protections, and duties.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Citizenship",
+   "learningOutcome": "Define citizenship and its connection to rights and duties.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Why do rights and responsibilities belong together in citizenship education?",
+   "options": [
+    "Rights protect people while responsibilities guide lawful and respectful participation",
+    "Rights remove every duty toward others",
+    "Responsibilities cancel all rights",
+    "Citizenship is only about documents"
+   ],
+   "correctAnswer": "Rights protect people while responsibilities guide lawful and respectful participation",
+   "explanation": "Democratic citizenship requires both protection of individual dignity and responsible action within society.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Rights and Responsibilities",
+   "learningOutcome": "Explain the relationship between rights, duties, and civic participation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "A voter compares candidate manifestos, checks facts, and listens to public debates before voting. Which civic practice is shown?",
+   "options": [
+    "Informed electoral participation",
+    "Vote buying",
+    "Historical excavation",
+    "Secret lawmaking"
+   ],
+   "correctAnswer": "Informed electoral participation",
+   "explanation": "Informed voters use evidence and public debate to make choices in elections.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Elections and Participation",
+   "learningOutcome": "Apply principles of informed participation to electoral choices.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which set of practices best supports credible elections?",
+   "options": [
+    "Secret ballot, transparent counting, voter education, and impartial administration",
+    "Open intimidation, hidden results, and bribery",
+    "Changing rules after voting begins",
+    "Preventing eligible citizens from registering without legal reason"
+   ],
+   "correctAnswer": "Secret ballot, transparent counting, voter education, and impartial administration",
+   "explanation": "Credible elections depend on fairness, transparency, informed voters, and lawful administration.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Electoral Integrity",
+   "learningOutcome": "Analyze conditions that support free, fair, and credible elections.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which student-led project best promotes integrity in public life without partisan persuasion?",
+   "options": [
+    "Create a factual poster campaign on reporting bribery and protecting public resources",
+    "Campaign for one political party during class time",
+    "Spread rumours about public officers",
+    "Encourage classmates to ignore procurement rules"
+   ],
+   "correctAnswer": "Create a factual poster campaign on reporting bribery and protecting public resources",
+   "explanation": "Integrity education can be nonpartisan by focusing on lawful conduct, public resources, and reporting channels.",
+   "difficulty": 5,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Ethics and Integrity",
+   "learningOutcome": "Create nonpartisan civic actions that promote integrity and accountability.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "What is one main purpose of taxation?",
+   "options": [
+    "To raise revenue for public goods and services",
+    "To replace all citizen rights",
+    "To abolish public budgeting",
+    "To make laws unnecessary"
+   ],
+   "correctAnswer": "To raise revenue for public goods and services",
+   "explanation": "Taxes finance services such as infrastructure, security, health, education, and administration.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Taxation and Public Services",
+   "learningOutcome": "Identify why governments collect taxes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Why do public finance principles emphasize openness and accountability?",
+   "options": [
+    "They help citizens know how public money is raised, allocated, and used",
+    "They require budgets to be kept secret forever",
+    "They stop audits from being conducted",
+    "They prevent public services from being planned"
+   ],
+   "correctAnswer": "They help citizens know how public money is raised, allocated, and used",
+   "explanation": "Openness and accountability allow citizens and institutions to monitor public revenue and expenditure.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Public Finance Principles",
+   "learningOutcome": "Explain why transparency matters in public finance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A county assembly questions county spending and debates a county law. Which functions are shown?",
+   "options": [
+    "Oversight and legislation",
+    "Foreign policy and treaty signing",
+    "Court sentencing and appeals",
+    "Military command and deployment"
+   ],
+   "correctAnswer": "Oversight and legislation",
+   "explanation": "County assemblies make county laws, represent residents, and oversee county executive action.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "County Assemblies",
+   "learningOutcome": "Apply knowledge of county assembly functions to civic examples.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which comparison between national and county functions is most accurate?",
+   "options": [
+    "National government handles defence, while counties handle county health services",
+    "Counties conduct foreign affairs, while national government runs village markets only",
+    "Both levels perform exactly the same functions without distinction",
+    "County governments command the national armed forces"
+   ],
+   "correctAnswer": "National government handles defence, while counties handle county health services",
+   "explanation": "Kenya's Constitution distributes functions between national and county governments, including defence nationally and county health services locally.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Distribution of Functions",
+   "learningOutcome": "Analyze how functions are shared between national and county governments.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which county budget process best supports public accountability?",
+   "options": [
+    "Publish draft proposals, invite public views, record responses, and report final allocations",
+    "Approve the budget secretly and release no documents",
+    "Let contractors write the budget alone",
+    "Ignore audits and public questions"
+   ],
+   "correctAnswer": "Publish draft proposals, invite public views, record responses, and report final allocations",
+   "explanation": "Accountable budgeting requires accessible information, public input, clear records, and follow-up reporting.",
+   "difficulty": 5,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Participatory Budgeting",
+   "learningOutcome": "Create accountable procedures for public participation in budgeting.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which document commonly helps prove a Kenyan citizen's identity for civic and official services?",
+   "options": [
+    "National identity card",
+    "Shopping receipt",
+    "Bus ticket",
+    "Sports jersey"
+   ],
+   "correctAnswer": "National identity card",
+   "explanation": "Identity documents help citizens access services and participate in civic processes that require identification.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Identity and Citizenship Documents",
+   "learningOutcome": "Identify documents used in civic identification.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Why is leadership integrity important in public service?",
+   "options": [
+    "It builds trust, reduces abuse of office, and protects public resources",
+    "It makes audits unnecessary",
+    "It allows officials to avoid accountability",
+    "It gives private interests automatic control of public funds"
+   ],
+   "correctAnswer": "It builds trust, reduces abuse of office, and protects public resources",
+   "explanation": "Integrity supports public confidence and ensures authority is exercised for public purposes.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Leadership and Integrity",
+   "learningOutcome": "Explain the importance of ethical leadership in public institutions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A learner checks the source, date, author, and evidence behind a viral claim before sharing it. Which skill is being used?",
+   "options": [
+    "Media literacy",
+    "Tax assessment",
+    "Treaty ratification",
+    "Archaeological excavation"
+   ],
+   "correctAnswer": "Media literacy",
+   "explanation": "Media literacy helps citizens evaluate information and avoid spreading misinformation.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Media and Civic Information",
+   "learningOutcome": "Apply media literacy to civic communication.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Which approach best promotes national cohesion in a diverse society?",
+   "options": [
+    "Respect diversity while upholding shared constitutional values and equal citizenship",
+    "Rank communities as more or less deserving",
+    "Use stereotypes as official policy",
+    "Prevent peaceful cultural expression"
+   ],
+   "correctAnswer": "Respect diversity while upholding shared constitutional values and equal citizenship",
+   "explanation": "Cohesion grows when diversity is respected and all citizens are treated with equal dignity under common values.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "National Cohesion",
+   "learningOutcome": "Analyze civic practices that support unity in diversity.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which peace-building plan is most suitable for a school conflict between clubs?",
+   "options": [
+    "Hold a mediated dialogue, agree on rules, document commitments, and review progress",
+    "Let rumours decide the outcome",
+    "Punish all members without hearing them",
+    "Encourage each side to avoid all communication forever"
+   ],
+   "correctAnswer": "Hold a mediated dialogue, agree on rules, document commitments, and review progress",
+   "explanation": "Peaceful conflict resolution uses listening, fair process, clear agreements, and follow-up.",
+   "difficulty": 5,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Conflict Resolution",
+   "learningOutcome": "Create peaceful procedures for resolving civic and community disputes.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "What is public property?",
+   "options": [
+    "Resources owned or held for use by the public",
+    "A private gift for one official only",
+    "An item with no owner and no rules",
+    "A family secret kept outside the law"
+   ],
+   "correctAnswer": "Resources owned or held for use by the public",
+   "explanation": "Public property includes resources and facilities maintained for public benefit and protected by law.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Public Resources",
+   "learningOutcome": "Identify the meaning of public property and public resources.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Why should citizens protect public property?",
+   "options": [
+    "It supports shared services and reduces waste of public resources",
+    "It belongs to no one and can be damaged freely",
+    "It only benefits private contractors",
+    "It has no connection to taxes or services"
+   ],
+   "correctAnswer": "It supports shared services and reduces waste of public resources",
+   "explanation": "Damage to public property reduces services and can require public money to repair or replace it.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Stewardship of Public Resources",
+   "learningOutcome": "Explain civic responsibility in protecting shared resources.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A community questions why a road project is delayed despite budget approval. Which lawful action is most relevant?",
+   "options": [
+    "Request project records and raise the issue through public participation or oversight channels",
+    "Destroy construction equipment",
+    "Invent financial figures online",
+    "Ignore the issue because public funds cannot be questioned"
+   ],
+   "correctAnswer": "Request project records and raise the issue through public participation or oversight channels",
+   "explanation": "Citizens can seek information and use lawful accountability channels to monitor public projects.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Project Monitoring",
+   "learningOutcome": "Apply civic accountability tools to public project monitoring.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which question best analyzes fairness in resource allocation?",
+   "options": [
+    "Do allocation criteria consider need, population, cost, equity, and public input?",
+    "Which area has the loudest supporters only?",
+    "Can records be hidden until complaints stop?",
+    "Can one group receive everything without explanation?"
+   ],
+   "correctAnswer": "Do allocation criteria consider need, population, cost, equity, and public input?",
+   "explanation": "Fair allocation should be assessed using transparent criteria, evidence of need, and participation.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Equity in Resource Allocation",
+   "learningOutcome": "Analyze fairness and transparency in public resource allocation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which monitoring tool would best help learners track whether a county project is delivered as promised?",
+   "options": [
+    "A checklist comparing budget, timeline, contractor updates, site visits, and official reports",
+    "A rumour chart with no sources",
+    "A single photograph without a date",
+    "A private list that ignores public documents"
+   ],
+   "correctAnswer": "A checklist comparing budget, timeline, contractor updates, site visits, and official reports",
+   "explanation": "A structured monitoring tool connects public commitments to observable progress and documented evidence.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Public Finance, and Civic Responsibility",
+   "subStrandTitle": "Civic Oversight Tools",
+   "learningOutcome": "Apply evidence-based tools for monitoring public service delivery.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "What is Pan-Africanism mainly concerned with?",
+   "options": [
+    "Solidarity, cooperation, and dignity among Africans and people of African descent",
+    "Isolation of every African country from all neighbours",
+    "Abolition of all cultural exchange",
+    "The study of rocks only"
+   ],
+   "correctAnswer": "Solidarity, cooperation, and dignity among Africans and people of African descent",
+   "explanation": "Pan-Africanism emphasizes unity, shared interests, liberation, and cooperation among African peoples.",
+   "difficulty": 1,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Pan-Africanism",
+   "learningOutcome": "Identify the meaning and aims of Pan-Africanism.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Why did the Organization of African Unity matter in African history?",
+   "options": [
+    "It promoted African unity, decolonization, and cooperation among independent states",
+    "It was a colonial company controlling East African railways",
+    "It replaced every national constitution",
+    "It prevented all diplomacy between African states"
+   ],
+   "correctAnswer": "It promoted African unity, decolonization, and cooperation among independent states",
+   "explanation": "The OAU, founded in 1963, supported continental cooperation and anti-colonial struggles before being succeeded by the African Union.",
+   "difficulty": 2,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Continental Organizations",
+   "learningOutcome": "Explain the historical role of continental organizations in Africa.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A country joins a regional bloc to reduce trade barriers and coordinate infrastructure. Which goal is being pursued?",
+   "options": [
+    "Regional integration",
+    "Historical isolation",
+    "Judicial sentencing",
+    "Archaeological conservation"
+   ],
+   "correctAnswer": "Regional integration",
+   "explanation": "Regional integration encourages cooperation in trade, movement, infrastructure, and policy among neighbouring states.",
+   "difficulty": 3,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Regional Integration",
+   "learningOutcome": "Apply the concept of regional integration to economic and political cooperation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which statement best analyzes a possible benefit and challenge of regional integration?",
+   "options": [
+    "It can expand markets, but states must coordinate laws, infrastructure, and revenue interests",
+    "It always removes all borders and all disagreements immediately",
+    "It prevents trade among member states",
+    "It has no effect on citizens or businesses"
+   ],
+   "correctAnswer": "It can expand markets, but states must coordinate laws, infrastructure, and revenue interests",
+   "explanation": "Integration can create opportunities while requiring careful negotiation of policies and national interests.",
+   "difficulty": 4,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Regional Integration",
+   "learningOutcome": "Analyze benefits and challenges of regional cooperation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Which class project best investigates the impact of regional trade on Kenyan producers?",
+   "options": [
+    "Compare export data, interview producers, map transport routes, and review regional trade rules",
+    "Use only a flag drawing as evidence",
+    "Ask one buyer and ignore all records",
+    "Avoid prices, routes, and policies"
+   ],
+   "correctAnswer": "Compare export data, interview producers, map transport routes, and review regional trade rules",
+   "explanation": "A strong project combines economic data, lived experience, geography, and policy evidence.",
+   "difficulty": 5,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Trade and Regional Economies",
+   "learningOutcome": "Create evidence-based inquiries into regional trade and local livelihoods.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which global organization was founded in 1945 to promote peace, cooperation, and security among states?",
+   "options": [
+    "United Nations",
+    "East African Legislative Assembly",
+    "Kenya National Archives",
+    "County Assembly Forum"
+   ],
+   "correctAnswer": "United Nations",
+   "explanation": "The United Nations was created after the Second World War to support international peace and cooperation.",
+   "difficulty": 1,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "International Organizations",
+   "learningOutcome": "Recall major international organizations and their broad purposes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Why do states use diplomacy?",
+   "options": [
+    "To manage relations, negotiate interests, resolve disputes, and cooperate peacefully",
+    "To eliminate all international communication",
+    "To replace domestic courts with rumours",
+    "To prevent treaties from being discussed"
+   ],
+   "correctAnswer": "To manage relations, negotiate interests, resolve disputes, and cooperate peacefully",
+   "explanation": "Diplomacy provides formal and informal channels for peaceful international engagement.",
+   "difficulty": 2,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Diplomacy and Foreign Relations",
+   "learningOutcome": "Explain the role of diplomacy in relations among states.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A historian studies how Cold War rivalries influenced aid, alliances, and conflicts in African states. Which context is being applied?",
+   "options": [
+    "Global ideological competition after the Second World War",
+    "Prehistoric stone tool production only",
+    "County budgeting under devolution",
+    "A local school election"
+   ],
+   "correctAnswer": "Global ideological competition after the Second World War",
+   "explanation": "The Cold War shaped international relations through competition between capitalist and socialist blocs.",
+   "difficulty": 3,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "The Cold War and Africa",
+   "learningOutcome": "Apply global context to African political and economic developments.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "What did non-alignment generally mean for newly independent states during the Cold War?",
+   "options": [
+    "Avoiding permanent exclusive alignment with either major power bloc",
+    "Joining every military alliance at the same time",
+    "Refusing all diplomatic relations",
+    "Ending all participation in the United Nations"
+   ],
+   "correctAnswer": "Avoiding permanent exclusive alignment with either major power bloc",
+   "explanation": "Non-alignment sought policy independence in a world divided by Cold War blocs.",
+   "difficulty": 4,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Non-Alignment",
+   "learningOutcome": "Analyze foreign policy choices available to newly independent states.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which research question best supports a balanced study of globalization's effects in Kenya?",
+   "options": [
+    "How have global markets, technology, migration, and culture created both opportunities and risks?",
+    "How can all global contact be described as identical?",
+    "Why should economic data be ignored?",
+    "Which single rumour explains all global change?"
+   ],
+   "correctAnswer": "How have global markets, technology, migration, and culture created both opportunities and risks?",
+   "explanation": "Globalization should be studied through multiple dimensions and evidence of varied effects.",
+   "difficulty": 5,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Globalization",
+   "learningOutcome": "Create balanced questions for evaluating globalization and local change.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "What is a treaty?",
+   "options": [
+    "A formal agreement between states or international actors under international law",
+    "A private diary entry with no legal effect",
+    "A classroom seating plan",
+    "A type of stone artefact"
+   ],
+   "correctAnswer": "A formal agreement between states or international actors under international law",
+   "explanation": "Treaties record agreed obligations and cooperation between recognized international actors.",
+   "difficulty": 1,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "International Law and Treaties",
+   "learningOutcome": "Identify basic concepts used in international relations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Why do states enter international agreements on refugees?",
+   "options": [
+    "To coordinate protection, responsibilities, and humanitarian standards across borders",
+    "To deny that forced migration exists",
+    "To remove all national laws",
+    "To make citizenship records irrelevant"
+   ],
+   "correctAnswer": "To coordinate protection, responsibilities, and humanitarian standards across borders",
+   "explanation": "Refugee protection often requires cooperation because displacement crosses national borders.",
+   "difficulty": 2,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Humanitarian Cooperation",
+   "learningOutcome": "Explain why cross-border humanitarian issues require cooperation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A drought affects pastoralist communities across a border, so two governments share early-warning data and coordinate response plans. Which interaction is shown?",
+   "options": [
+    "Cross-border cooperation on a shared challenge",
+    "Complete diplomatic breakdown",
+    "A local club election",
+    "A court appeal about private property only"
+   ],
+   "correctAnswer": "Cross-border cooperation on a shared challenge",
+   "explanation": "Environmental and livelihood challenges often cross borders and require coordinated planning.",
+   "difficulty": 3,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Shared Environmental Challenges",
+   "learningOutcome": "Apply regional cooperation to environmental and livelihood issues.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which analysis best links Indian Ocean trade to cultural change on the East African coast?",
+   "options": [
+    "Long-distance trade encouraged exchange in language, religion, architecture, and urban life",
+    "Trade prevented all contact between coastal towns",
+    "Coastal culture developed without any interaction",
+    "Only inland communities shaped coastal languages"
+   ],
+   "correctAnswer": "Long-distance trade encouraged exchange in language, religion, architecture, and urban life",
+   "explanation": "Maritime exchange connected people, goods, ideas, and institutions across the Indian Ocean.",
+   "difficulty": 4,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Indian Ocean Connections",
+   "learningOutcome": "Analyze cultural effects of regional and global trade networks.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which plan would best investigate Kenya's participation in peace support operations?",
+   "options": [
+    "Review official records, mission mandates, veteran interviews, and regional security context",
+    "Use only a fictional action story",
+    "Count uniforms in a parade and ignore documents",
+    "Avoid all dates and mission purposes"
+   ],
+   "correctAnswer": "Review official records, mission mandates, veteran interviews, and regional security context",
+   "explanation": "Peace support operations should be studied through mandates, records, participant experience, and regional context.",
+   "difficulty": 5,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Peace and Security Cooperation",
+   "learningOutcome": "Create a source-based inquiry into regional peace and security roles.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "What is multilateralism?",
+   "options": [
+    "Cooperation among three or more states or institutions on shared issues",
+    "A private contract between two neighbours",
+    "A ban on all international meetings",
+    "A method of dating fossils"
+   ],
+   "correctAnswer": "Cooperation among three or more states or institutions on shared issues",
+   "explanation": "Multilateralism uses broader cooperation to address issues that one state cannot handle alone.",
+   "difficulty": 1,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Multilateral Cooperation",
+   "learningOutcome": "Identify concepts used to describe international cooperation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Why can diaspora communities influence a country's development and global links?",
+   "options": [
+    "They may send remittances, share skills, build networks, and support cultural exchange",
+    "They always end all contact with their country of origin",
+    "They remove the need for domestic institutions",
+    "They make diplomacy impossible"
+   ],
+   "correctAnswer": "They may send remittances, share skills, build networks, and support cultural exchange",
+   "explanation": "Diaspora links can affect economies, knowledge exchange, culture, and international relationships.",
+   "difficulty": 2,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Migration and Diaspora",
+   "learningOutcome": "Explain how migration and diaspora networks shape development and relations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "A learner compares two reports about an international conflict, checking authorship, evidence, loaded language, and missing voices. Which skill is being applied?",
+   "options": [
+    "Critical source analysis",
+    "Automatic acceptance of propaganda",
+    "Tax collection",
+    "County zoning"
+   ],
+   "correctAnswer": "Critical source analysis",
+   "explanation": "International issues require careful analysis of source purpose, evidence, language, and omissions.",
+   "difficulty": 3,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Global Media and Conflict",
+   "learningOutcome": "Apply source criticism to global conflict reporting.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which question best analyzes the effect of international trade agreements on citizens?",
+   "options": [
+    "How do prices, jobs, consumer choice, standards, and local producers change after implementation?",
+    "Which flag colours appear in the agreement ceremony?",
+    "Can all trade effects be assumed before evidence is gathered?",
+    "Why should farmers and consumers be excluded from study?"
+   ],
+   "correctAnswer": "How do prices, jobs, consumer choice, standards, and local producers change after implementation?",
+   "explanation": "Trade agreements affect citizens through economic opportunities, costs, standards, and sector-specific impacts.",
+   "difficulty": 4,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "International Trade Agreements",
+   "learningOutcome": "Analyze social and economic effects of international agreements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which final project would best show Grade 12 mastery of regional and global historical interpretation?",
+   "options": [
+    "Compare sources on one regional issue, explain context, weigh perspectives, and present evidence-based conclusions",
+    "Copy one online paragraph without citing it",
+    "Avoid dates, actors, causes, and evidence",
+    "Present only one viewpoint and ban questions"
+   ],
+   "correctAnswer": "Compare sources on one regional issue, explain context, weigh perspectives, and present evidence-based conclusions",
+   "explanation": "Advanced interpretation requires evidence, context, comparison of perspectives, and clear reasoning.",
+   "difficulty": 5,
+   "strandTitle": "Regional and Global Interactions",
+   "subStrandTitle": "Historical Interpretation Project",
+   "learningOutcome": "Create a balanced interpretation of a regional or global historical issue.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

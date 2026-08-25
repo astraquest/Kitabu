@@ -1,1409 +1,2756 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 8",
-  "subjectId": "mathematics",
-  "subjectName": "Mathematics",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which integer represents 7 metres below sea level?",
-      "options": ["-7", "7", "0", "14"],
-      "correctAnswer": "-7",
-      "explanation": "Positions below sea level are represented by negative integers, so 7 metres below sea level is -7.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Identify integers in different real life situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "A learner starts at -3 on a number line and moves 8 steps to the right. Where does the learner land?",
-      "options": ["5 on the number line", "-11 on the number line", "11 on the number line", "-5 on the number line"],
-      "correctAnswer": "5 on the number line",
-      "explanation": "Moving right means adding. -3 + 8 = 5.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Represent integers on a number line in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Work out -12 + 7.",
-      "options": ["-5", "5", "-19", "19"],
-      "correctAnswer": "-5",
-      "explanation": "Adding 7 to -12 moves 7 steps towards zero, giving -5.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Carry out addition of integers in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Work out 6 - (-9).",
-      "options": ["15", "-3", "3", "-15"],
-      "correctAnswer": "15",
-      "explanation": "Subtracting a negative number is the same as adding its positive value: 6 - (-9) = 6 + 9 = 15.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Carry out subtraction of integers in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "The temperature in Limuru changed from -2 degrees C to 5 degrees C. What was the increase?",
-      "options": ["7 degrees C", "3 degrees C", "-7 degrees C", "5 degrees C"],
-      "correctAnswer": "7 degrees C",
-      "explanation": "The change is 5 - (-2), which is 7 degrees C.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Use integers to solve real life problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which value is equal to -4 + (-6)?",
-      "options": ["-10", "10", "2", "-2"],
-      "correctAnswer": "-10",
-      "explanation": "Adding two negative integers keeps the sign negative and adds their sizes: 4 + 6 = 10.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Integers",
-      "learningOutcome": "Carry out operations involving integers.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Work out 2/3 + 1/4.",
-      "options": ["11/12", "3/7", "5/7", "7/12"],
-      "correctAnswer": "11/12",
-      "explanation": "The common denominator is 12. 2/3 = 8/12 and 1/4 = 3/12, so the sum is 11/12.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Carry out combined operations on fractions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Work out 5/6 - 1/3.",
-      "options": ["1/2", "4/3", "2/6", "5/3"],
-      "correctAnswer": "1/2",
-      "explanation": "Change 1/3 to 2/6. Then 5/6 - 2/6 = 3/6 = 1/2.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Carry out operations on fractions in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "A class planted vegetables on 3/4 of a 28 metre plot. How many metres of the plot were planted?",
-      "options": ["21 m", "24 m", "18 m", "14 m"],
-      "correctAnswer": "21 m",
-      "explanation": "Three quarters of 28 is 28 x 3/4 = 21.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Apply fractions to solve real life problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Work out (1/2 + 3/4) - 1/4.",
-      "options": ["1 whole", "1/2", "3/4", "1 1/2"],
-      "correctAnswer": "1 whole",
-      "explanation": "First add inside the brackets: 1/2 + 3/4 = 5/4. Then 5/4 - 1/4 = 4/4 = 1.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Use the correct order of operations in fractions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Work out 3/5 divided by 9/10.",
-      "options": ["2/3", "27/50", "6/5", "3/2"],
-      "correctAnswer": "2/3",
-      "explanation": "Divide by multiplying by the reciprocal: 3/5 x 10/9 = 30/45 = 2/3.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Carry out operations on fractions in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "A farm harvested 2 1/2 sacks of beans on Monday and 1 3/4 sacks on Tuesday. How many sacks were harvested in total?",
-      "options": ["4 1/4", "3 1/4", "4 3/4", "3 3/4"],
-      "correctAnswer": "4 1/4",
-      "explanation": "2 1/2 is 2 2/4. Then 2 2/4 + 1 3/4 = 3 5/4 = 4 1/4.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Fractions",
-      "learningOutcome": "Apply operations on fractions to real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Convert 3/8 into a decimal.",
-      "options": ["0.375", "0.38", "0.625", "0.75"],
-      "correctAnswer": "0.375",
-      "explanation": "Dividing 3 by 8 gives 0.375.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Convert fractions to decimals in different situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which fraction is equal to the recurring decimal 0.666...?",
-      "options": ["2/3", "6/10", "1/6", "3/5"],
-      "correctAnswer": "2/3",
-      "explanation": "The recurring decimal 0.666... is the decimal form of 2/3.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Convert recurring decimals into fractions in different situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Round 45.678 to two decimal places.",
-      "options": ["45.68", "45.67", "45.70", "45.60"],
-      "correctAnswer": "45.68",
-      "explanation": "The third decimal digit is 8, so the hundredths digit rounds up from 7 to 8.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Round off a decimal number to a required number of decimal places.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Write 0.00456 in standard form.",
-      "options": ["4.56 x 10^-3", "4.56 x 10^3", "45.6 x 10^-3", "0.456 x 10^-2"],
-      "correctAnswer": "4.56 x 10^-3",
-      "explanation": "Move the decimal point 3 places to the right to get 4.56, so the power of 10 is -3.",
-      "difficulty": 4,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Express numbers in standard form in different situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Work out 3.4 + 2.15 x 2.",
-      "options": ["7.70", "11.10", "6.80", "5.55"],
-      "correctAnswer": "7.70",
-      "explanation": "Multiplication is done first: 2.15 x 2 = 4.30. Then 3.4 + 4.30 = 7.70.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Carry out combined operations on decimals in the correct order.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Express 7280 to two significant figures.",
-      "options": ["7300", "7200", "7280", "7000"],
-      "correctAnswer": "7300",
-      "explanation": "The first two significant figures are 7 and 2. The next digit is 8, so 72 rounds to 73 hundreds.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Decimals",
-      "learningOutcome": "Express numbers to a required significant figure in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "What is 17 squared?",
-      "options": ["289", "34", "144", "324"],
-      "correctAnswer": "289",
-      "explanation": "17 squared means 17 x 17, which is 289.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Squares and Square Roots",
-      "learningOutcome": "Work out the squares of numbers from tables in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "What is the square root of 196?",
-      "options": ["14", "16", "98", "12"],
-      "correctAnswer": "14",
-      "explanation": "The square root of 196 is 14 because 14 x 14 = 196.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Squares and Square Roots",
-      "learningOutcome": "Work out the square roots of numbers from tables in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "A square garden has an area of 225 square metres. What is the length of one side?",
-      "options": ["15 m", "25 m", "45 m", "30 m"],
-      "correctAnswer": "15 m",
-      "explanation": "The side of a square is the square root of its area. The square root of 225 is 15.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Squares and Square Roots",
-      "learningOutcome": "Apply square roots in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Work out 2 squared plus 5 squared.",
-      "options": ["29", "49", "14", "20"],
-      "correctAnswer": "29",
-      "explanation": "2 squared is 4 and 5 squared is 25. Their sum is 29.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Squares and Square Roots",
-      "learningOutcome": "Work out squares of numbers in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Work out the square root of 625 plus 8 squared.",
-      "options": ["89", "33", "72", "105"],
-      "correctAnswer": "89",
-      "explanation": "The square root of 625 is 25 and 8 squared is 64. 25 + 64 = 89.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Squares and Square Roots",
-      "learningOutcome": "Work out squares and square roots of numbers in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "A bus travels 180 km in 3 hours. What is its average speed?",
-      "options": ["60 km/h", "54 km/h", "90 km/h", "183 km/h"],
-      "correctAnswer": "60 km/h",
-      "explanation": "Average speed is distance divided by time: 180 km divided by 3 hours is 60 km/h.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Work out rates in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Simplify the ratio 12:18.",
-      "options": ["2:3", "3:2", "6:9", "4:6"],
-      "correctAnswer": "2:3",
-      "explanation": "Divide both parts by their highest common factor, 6. The ratio becomes 2:3.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Work out ratios in different situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "KSh 480 is shared in the ratio 5:7. How much does the first person receive?",
-      "options": ["KSh 200", "KSh 280", "KSh 240", "KSh 180"],
-      "correctAnswer": "KSh 200",
-      "explanation": "The total number of parts is 12. Each part is KSh 480 divided by 12, which is KSh 40, so 5 parts is KSh 200.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Divide quantities in given ratios in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Increase KSh 800 by 15 percent.",
-      "options": ["KSh 920", "KSh 815", "KSh 680", "KSh 120"],
-      "correctAnswer": "KSh 920",
-      "explanation": "15 percent of 800 is 120. Adding the increase gives 800 + 120 = 920.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Work out percentage increase of quantities in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "A bicycle priced at KSh 2500 is reduced by 12 percent. What is the new price?",
-      "options": ["KSh 2200", "KSh 2300", "KSh 2800", "KSh 300"],
-      "correctAnswer": "KSh 2200",
-      "explanation": "12 percent of 2500 is 300. The reduced price is 2500 - 300 = 2200.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Work out percentage decrease of quantities in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which situation shows direct proportion?",
-      "options": ["Cost and number of identical notebooks bought", "Number of workers and time taken for the same job", "Age of a learner and shoe size every month", "Temperature and number of pupils in class"],
-      "correctAnswer": "Cost and number of identical notebooks bought",
-      "explanation": "If the price per notebook is fixed, buying more notebooks increases the total cost in the same ratio.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Identify direct proportions in real life situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Six workers can complete a task in 8 days. If the same task is shared equally by 12 workers, how many days should it take?",
-      "options": ["4 days", "16 days", "10 days", "6 days"],
-      "correctAnswer": "4 days",
-      "explanation": "Doubling the number of workers halves the time for the same amount of work, so 8 days becomes 4 days.",
-      "difficulty": 4,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Work out indirect proportions in real life situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Express the fraction 3/8 as a ratio.",
-      "options": ["3:8", "8:3", "3:11", "5:8"],
-      "correctAnswer": "3:8",
-      "explanation": "A fraction a/b can be written as the ratio a:b, so 3/8 is 3:8.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Express fractions as ratios in real life situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "If 4 kg of flour makes 60 chapatis, how many chapatis can 10 kg of flour make at the same rate?",
-      "options": ["150", "120", "100", "240"],
-      "correctAnswer": "150",
-      "explanation": "One kilogram makes 60 divided by 4, which is 15 chapatis. Ten kilograms make 10 x 15 = 150 chapatis.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
-      "learningOutcome": "Use proportions to solve real life problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Factorize 6x + 9.",
-      "options": ["3(2x + 3)", "6(x + 9)", "9(x + 6)", "3(2x + 9)"],
-      "correctAnswer": "3(2x + 3)",
-      "explanation": "The common factor of 6x and 9 is 3, so 6x + 9 = 3(2x + 3).",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Factorize algebraic expressions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Factorize x^2 + 5x.",
-      "options": ["x(x + 5)", "5(x + x)", "x(5x + 1)", "x^2(1 + 5)"],
-      "correctAnswer": "x(x + 5)",
-      "explanation": "Both terms contain x, so take x as the common factor: x^2 + 5x = x(x + 5).",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Factorize algebraic expressions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Simplify 6a^2 divided by 3a.",
-      "options": ["2a", "3a", "2a^2", "9a"],
-      "correctAnswer": "2a",
-      "explanation": "Divide the coefficients and subtract powers of a: 6a^2 divided by 3a = 2a.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Simplify algebraic fractions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Evaluate 3x - 2y when x = 4 and y = 5.",
-      "options": ["2 units", "22 units", "-2 units", "14 units"],
-      "correctAnswer": "2 units",
-      "explanation": "Substitute the values: 3(4) - 2(5) = 12 - 10 = 2.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Evaluate algebraic expressions by substituting numerical values.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Simplify 7p + 3q - 2p + q.",
-      "options": ["5p + 4q", "9p + 4q", "5p + 2q", "8pq"],
-      "correctAnswer": "5p + 4q",
-      "explanation": "Combine like terms: 7p - 2p = 5p and 3q + q = 4q.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Simplify algebraic expressions by grouping like terms.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Simplify (x + 2x)/3.",
-      "options": ["x only", "3x", "x/3", "2x"],
-      "correctAnswer": "x only",
-      "explanation": "The numerator is x + 2x = 3x. Dividing 3x by 3 gives x.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Simplify algebraic fractions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Factorize 4m - 12n.",
-      "options": ["4(m - 3n)", "4(m - 12n)", "12(4m - n)", "m(4 - 12n)"],
-      "correctAnswer": "4(m - 3n)",
-      "explanation": "The common factor is 4. Dividing the terms by 4 gives m and 3n.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Factorize algebraic expressions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Solve the simultaneous equations x + y = 11 and x - y = 3.",
-      "options": ["x = 7, y = 4", "x = 4, y = 7", "x = 8, y = 3", "x = 11, y = 3"],
-      "correctAnswer": "x = 7, y = 4",
-      "explanation": "Adding the two equations gives 2x = 14, so x = 7. Then y = 4.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Solve linear equations in two unknowns by elimination method.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Solve the simultaneous equations 2x + y = 13 and x - y = 2.",
-      "options": ["x = 5, y = 3", "x = 3, y = 5", "x = 6, y = 1", "x = 4, y = 5"],
-      "correctAnswer": "x = 5, y = 3",
-      "explanation": "From x - y = 2, y = x - 2. Substitute in 2x + y = 13 to get 3x - 2 = 13, so x = 5 and y = 3.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Solve linear equations in two unknowns by substitution method.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "When 3x + 2y = 16 and x - 2y = 4 are added, which equation is obtained?",
-      "options": ["4x = 20", "2x = 12", "4y = 20", "3x = 16"],
-      "correctAnswer": "4x = 20",
-      "explanation": "Adding the equations eliminates y because 2y and -2y add to 0. The result is 4x = 20.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Solve linear equations in two unknowns by elimination method.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Two pens and one ruler cost KSh 65. One pen and one ruler cost KSh 40. What is the cost of one pen?",
-      "options": ["KSh 25", "KSh 15", "KSh 40", "KSh 105"],
-      "correctAnswer": "KSh 25",
-      "explanation": "Subtracting the second cost from the first removes the ruler and leaves the cost of one pen: 65 - 40 = 25.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Apply linear equations in two unknowns in real life situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Solve 4a + 2b = 22 and a + b = 8.",
-      "options": ["a = 3, b = 5", "a = 5, b = 3", "a = 4, b = 4", "a = 2, b = 6"],
-      "correctAnswer": "a = 3, b = 5",
-      "explanation": "From a + b = 8, b = 8 - a. Substitution gives 4a + 2(8 - a) = 22, so a = 3 and b = 5.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Solve linear equations in two unknowns by substitution method.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Three mangoes and two oranges cost KSh 110. If a mango costs x shillings and an orange costs y shillings, which equation represents this statement?",
-      "options": ["3x + 2y = 110", "2x + 3y = 110", "3x - 2y = 110", "5xy = 110"],
-      "correctAnswer": "3x + 2y = 110",
-      "explanation": "Three mangoes cost 3x and two oranges cost 2y, so the total cost is 3x + 2y.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Form linear equations in two unknowns in real life situations.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which pair of equations is satisfied by x = 2 and y = 5?",
-      "options": ["x + y = 7 and 3x - y = 1", "x + y = 5 and x - y = 3", "2x + y = 12 and x + y = 8", "x - y = 7 and 3x + y = 1"],
-      "correctAnswer": "x + y = 7 and 3x - y = 1",
-      "explanation": "Substituting x = 2 and y = 5 gives 2 + 5 = 7 and 3(2) - 5 = 1.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Recognize solutions of linear equations in two unknowns.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Find the circumference of a circle with radius 7 cm using pi = 22/7.",
-      "options": ["44 cm", "22 cm", "154 cm", "14 cm"],
-      "correctAnswer": "44 cm",
-      "explanation": "Circumference is 2 x pi x radius. 2 x 22/7 x 7 = 44 cm.",
-      "difficulty": 2,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Work out the circumference of a circle in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Find the circumference of a circle with diameter 14 cm using pi = 22/7.",
-      "options": ["44 cm", "28 cm", "88 cm", "154 cm"],
-      "correctAnswer": "44 cm",
-      "explanation": "Circumference is pi x diameter. 22/7 x 14 = 44 cm.",
-      "difficulty": 2,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Work out the circumference of a circle in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Find the length of a 90 degree arc in a circle of radius 14 cm using pi = 22/7.",
-      "options": ["22 cm", "44 cm", "11 cm", "88 cm"],
-      "correctAnswer": "22 cm",
-      "explanation": "A 90 degree arc is one quarter of the circumference. The circumference is 88 cm, so the arc is 22 cm.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Work out the length of an arc of a circle in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Find the perimeter of a 60 degree sector of radius 21 cm using pi = 22/7.",
-      "options": ["64 cm", "42 cm", "22 cm", "86 cm"],
-      "correctAnswer": "64 cm",
-      "explanation": "The arc length is 60/360 of 132 cm, which is 22 cm. The perimeter is 21 + 21 + 22 = 64 cm.",
-      "difficulty": 5,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Calculate the perimeter of a sector of a circle in different situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "A circular track has circumference 88 m. Find its radius using pi = 22/7.",
-      "options": ["14 m", "28 m", "7 m", "44 m"],
-      "correctAnswer": "14 m",
-      "explanation": "Using C = 2 x pi x r, 88 = 2 x 22/7 x r. This gives r = 14 m.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Use circle measurements to solve real life problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "A semicircular flower bed has radius 10 m. Find its perimeter using pi = 3.14.",
-      "options": ["51.4 m", "31.4 m", "62.8 m", "41.4 m"],
-      "correctAnswer": "51.4 m",
-      "explanation": "The perimeter of a semicircle is half the circumference plus the diameter: 31.4 + 20 = 51.4 m.",
-      "difficulty": 4,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Calculate the perimeter of a sector of a circle in real life situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Find the area of a circle with radius 7 cm using pi = 22/7.",
-      "options": ["154 cm2", "44 cm2", "49 cm2", "308 cm2"],
-      "correctAnswer": "154 cm2",
-      "explanation": "Area is pi x r x r. 22/7 x 7 x 7 = 154 cm2.",
-      "difficulty": 2,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Calculate the area of a circle in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Find the area of a 90 degree sector of radius 14 cm using pi = 22/7.",
-      "options": ["154 cm2", "616 cm2", "44 cm2", "308 cm2"],
-      "correctAnswer": "154 cm2",
-      "explanation": "A 90 degree sector is one quarter of the circle. The circle area is 616 cm2, so the sector area is 154 cm2.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Work out the area of a sector of a circle in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Find the surface area of a cube with side 5 cm.",
-      "options": ["150 cm2", "25 cm2", "125 cm2", "100 cm2"],
-      "correctAnswer": "150 cm2",
-      "explanation": "A cube has 6 equal square faces. Its surface area is 6 x 5 x 5 = 150 cm2.",
-      "difficulty": 2,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Work out the surface area of cubes in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Find the surface area of a cuboid measuring 6 cm by 4 cm by 3 cm.",
-      "options": ["108 cm2", "72 cm2", "144 cm2", "54 cm2"],
-      "correctAnswer": "108 cm2",
-      "explanation": "Surface area is 2(lw + lh + wh). 2(24 + 18 + 12) = 108 cm2.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Work out the surface area of cuboids in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Find the total surface area of a closed cylinder with radius 7 cm and height 10 cm using pi = 22/7.",
-      "options": ["748 cm2", "440 cm2", "308 cm2", "528 cm2"],
-      "correctAnswer": "748 cm2",
-      "explanation": "Total surface area is 2 x pi x r x (r + h). 2 x 22/7 x 7 x 17 = 748 cm2.",
-      "difficulty": 5,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Work out the surface area of cylinders in real life situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A triangular prism is 10 cm long. Its triangular end is a right triangle with sides 3 cm, 4 cm and 5 cm. Find its total surface area.",
-      "options": ["132 cm2", "120 cm2", "60 cm2", "144 cm2"],
-      "correctAnswer": "132 cm2",
-      "explanation": "The rectangular faces total 10(3 + 4 + 5) = 120 cm2. The two triangular ends total 2 x 1/2 x 3 x 4 = 12 cm2, so the total is 132 cm2.",
-      "difficulty": 5,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Determine the surface area of a triangular prism in different situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "An irregular shape covers 34 full squares and 8 half squares on a square grid. What is its estimated area?",
-      "options": ["38 square units", "42 square units", "34 square units", "50 square units"],
-      "correctAnswer": "38 square units",
-      "explanation": "Eight half squares make 4 full squares. 34 + 4 = 38 square units.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Area",
-      "learningOutcome": "Work out the area of irregular shapes using square grids.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Find the simple interest on KSh 8000 at 10 percent per annum for 2 years.",
-      "options": ["KSh 1600", "KSh 800", "KSh 9600", "KSh 1800"],
-      "correctAnswer": "KSh 1600",
-      "explanation": "Simple interest is PRT/100. 8000 x 10 x 2 / 100 = 1600.",
-      "difficulty": 2,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Money",
-      "learningOutcome": "Calculate simple interest in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "KSh 8000 earns simple interest at 10 percent per annum for 2 years. What is the total amount?",
-      "options": ["KSh 9600", "KSh 1600", "KSh 8800", "KSh 10000"],
-      "correctAnswer": "KSh 9600",
-      "explanation": "The interest is KSh 1600. The amount is principal plus interest: 8000 + 1600 = 9600.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Money",
-      "learningOutcome": "Calculate simple interest and amount in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "KSh 10000 is invested at 5 percent compound interest per annum for 2 years. What interest is earned?",
-      "options": ["KSh 1025", "KSh 1000", "KSh 11025", "KSh 500"],
-      "correctAnswer": "KSh 1025",
-      "explanation": "The amount after 2 years is 10000 x 1.05 x 1.05 = 11025. The interest is 11025 - 10000 = 1025.",
-      "difficulty": 5,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Money",
-      "learningOutcome": "Calculate compound interest per annum step by step up to three years.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "A machine worth KSh 50000 depreciates by 10 percent per year. What is its value after 2 years?",
-      "options": ["KSh 40500", "KSh 40000", "KSh 45000", "KSh 55000"],
-      "correctAnswer": "KSh 40500",
-      "explanation": "After one year the value is 50000 x 0.9 = 45000. After the second year it is 45000 x 0.9 = 40500.",
-      "difficulty": 4,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Money",
-      "learningOutcome": "Work out depreciation per annum step by step up to three years.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "A radio is bought on hire purchase with a deposit of KSh 6000 and 12 monthly instalments of KSh 1200. What is the hire purchase price?",
-      "options": ["KSh 20400", "KSh 14400", "KSh 7200", "KSh 18000"],
-      "correctAnswer": "KSh 20400",
-      "explanation": "The instalments total 12 x 1200 = 14400. Add the deposit: 14400 + 6000 = 20400.",
-      "difficulty": 3,
-      "strandTitle": "Measurements",
-      "subStrandTitle": "Money",
-      "learningOutcome": "Work out hire purchase in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which tools are most suitable for constructing a perpendicular bisector accurately?",
-      "options": ["A ruler and a pair of compasses", "A calculator and a ruler", "A protractor only", "A tape measure only"],
-      "correctAnswer": "A ruler and a pair of compasses",
-      "explanation": "A perpendicular bisector is accurately constructed using equal arcs from a pair of compasses and a straight line from a ruler.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Construct perpendicular lines in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "What is the sum of the interior angles of a pentagon?",
-      "options": ["540 degrees", "360 degrees", "720 degrees", "180 degrees"],
-      "correctAnswer": "540 degrees",
-      "explanation": "The sum of interior angles of an n-sided polygon is (n - 2) x 180 degrees. For 5 sides, this is 3 x 180 = 540 degrees.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Identify angle properties of polygons in different situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "What is each interior angle of a regular hexagon?",
-      "options": ["120 degrees", "60 degrees", "90 degrees", "135 degrees"],
-      "correctAnswer": "120 degrees",
-      "explanation": "A regular hexagon has interior angle sum 720 degrees. Dividing by 6 gives 120 degrees.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Identify angle properties of regular polygons up to a hexagon.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "What is each exterior angle of a regular pentagon?",
-      "options": ["72 degrees", "108 degrees", "60 degrees", "90 degrees"],
-      "correctAnswer": "72 degrees",
-      "explanation": "Exterior angles of any polygon add to 360 degrees. For a regular pentagon, 360 divided by 5 is 72 degrees.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Identify angle properties of polygons in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "What is the name of a circle that passes through all three vertices of a triangle?",
-      "options": ["Circumcircle", "Incircle", "Semicircle", "Sector"],
-      "correctAnswer": "Circumcircle",
-      "explanation": "A circumcircle is constructed to pass through all the vertices of a triangle.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Construct circles passing through the vertices of a triangle.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "What is the name of a circle that touches all three sides of a triangle?",
-      "options": ["Incircle", "Circumcircle", "Arc", "Chord"],
-      "correctAnswer": "Incircle",
-      "explanation": "An incircle lies inside a triangle and touches each of its three sides.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Construct circles touching the sides of a triangle.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "A 12 cm line is divided in the ratio 1:2. What are the two lengths?",
-      "options": ["4 cm and 8 cm", "6 cm and 6 cm", "3 cm and 9 cm", "5 cm and 7 cm"],
-      "correctAnswer": "4 cm and 8 cm",
-      "explanation": "The total number of parts is 3. Each part is 12 divided by 3, which is 4 cm, so the lengths are 4 cm and 8 cm.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Divide a line proportionally in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which ordered pair represents x = -3 and y = 4?",
-      "options": ["(-3, 4)", "(4, -3)", "(3, -4)", "(-4, 3)"],
-      "correctAnswer": "(-3, 4)",
-      "explanation": "Coordinates are written as (horizontal value, vertical value), so x = -3 and y = 4 is (-3, 4).",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Identify points on the Cartesian plane in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "In which quadrant is the point (-5, -2)?",
-      "options": ["Third quadrant", "First quadrant", "Second quadrant", "Fourth quadrant"],
-      "correctAnswer": "Third quadrant",
-      "explanation": "A point with a negative x-coordinate and a negative y-coordinate lies in the third quadrant.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Identify points on the Cartesian plane in different situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "For the equation y = 2x + 1, what is y when x = 3?",
-      "options": ["7 units", "6 units", "5 units", "9 units"],
-      "correctAnswer": "7 units",
-      "explanation": "Substitute x = 3: y = 2(3) + 1 = 7.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Generate values in a table for a linear equation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "For y = 3x - 2, what are the y-values when x = -1, 0 and 1?",
-      "options": ["-5, -2, 1", "-1, 0, 1", "5, 2, -1", "-3, -2, -1"],
-      "correctAnswer": "-5, -2, 1",
-      "explanation": "Substitute each x-value: 3(-1) - 2 = -5, 3(0) - 2 = -2, and 3(1) - 2 = 1.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Generate a table of values for a linear equation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "What is the point of intersection of the lines x + y = 6 and x - y = 2?",
-      "options": ["(4, 2)", "(2, 4)", "(3, 3)", "(6, 2)"],
-      "correctAnswer": "(4, 2)",
-      "explanation": "Solving the equations gives x = 4 and y = 2, so the lines meet at (4, 2).",
-      "difficulty": 4,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Solve simultaneous linear equations graphically in different situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "What type of line is represented by y = 4 on a Cartesian plane?",
-      "options": ["A horizontal line", "A vertical line", "A diagonal line through the origin", "A curved line"],
-      "correctAnswer": "A horizontal line",
-      "explanation": "All points on y = 4 have the same y-coordinate, so the graph is a horizontal line.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Draw linear graphs from equations on a Cartesian plane.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A graph scale says 1 cm represents 5 learners. How many centimetres should represent 25 learners?",
-      "options": ["5 cm", "20 cm", "10 cm", "4 cm"],
-      "correctAnswer": "5 cm",
-      "explanation": "Divide 25 learners by 5 learners per centimetre to get 5 cm.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinates and Graphs",
-      "learningOutcome": "Determine an appropriate scale for a linear graph.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "On a map, 1 cm represents 2 km. What actual distance is represented by 6 cm?",
-      "options": ["12 km", "8 km", "3 km", "6 km"],
-      "correctAnswer": "12 km",
-      "explanation": "Each centimetre represents 2 km, so 6 cm represents 6 x 2 = 12 km.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Convert scale length to actual length in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "An actual distance of 500 m is represented by 5 cm on a drawing. What is the scale ratio?",
-      "options": ["1:10000", "1:1000", "1:500", "1:100"],
-      "correctAnswer": "1:10000",
-      "explanation": "Convert 500 m to 50000 cm. The ratio 5:50000 simplifies to 1:10000.",
-      "difficulty": 5,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Write linear scales in ratio form in different situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "A map has a scale of 1:50000. What actual distance is represented by 3 cm on the map?",
-      "options": ["1.5 km", "15 km", "150 km", "0.15 km"],
-      "correctAnswer": "1.5 km",
-      "explanation": "3 cm represents 150000 cm. This is 1500 m, which is 1.5 km.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Interpret linear scales in ratio form in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Convert the statement scale 1 cm represents 4 m into ratio form.",
-      "options": ["1:400", "1:4", "4:1", "1:40"],
-      "correctAnswer": "1:400",
-      "explanation": "Convert 4 m to 400 cm. The scale is therefore 1 cm to 400 cm, or 1:400.",
-      "difficulty": 5,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Convert linear scale from statement form to ratio form.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A classroom is 8 m long. Using the scale 1 cm represents 2 m, what length should be drawn?",
-      "options": ["4 cm", "16 cm", "6 cm", "10 cm"],
-      "correctAnswer": "4 cm",
-      "explanation": "Divide the actual length by 2 m per centimetre: 8 divided by 2 = 4 cm.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Convert actual length to scale length in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "A road is 18 km long. On a map, 1 cm represents 3 km. What map length represents the road?",
-      "options": ["6 cm", "54 cm", "15 cm", "21 cm"],
-      "correctAnswer": "6 cm",
-      "explanation": "Divide 18 km by 3 km per centimetre to get 6 cm.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Represent length to a given scale in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A rectangle is drawn 6 cm by 4 cm using the scale 1 cm represents 5 m. What are the actual dimensions?",
-      "options": ["30 m by 20 m", "11 m by 9 m", "12 m by 8 m", "60 m by 40 m"],
-      "correctAnswer": "30 m by 20 m",
-      "explanation": "Multiply each drawing length by 5 m. 6 cm represents 30 m and 4 cm represents 20 m.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Apply scale drawing in real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which solid has two circular faces and one curved surface?",
-      "options": ["Cylinder", "Cone", "Cube", "Pyramid"],
-      "correctAnswer": "Cylinder",
-      "explanation": "A cylinder has two equal circular faces joined by one curved surface.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Common Solids",
-      "learningOutcome": "Identify common solids from the environment.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "How many equal square faces are in the net of a cube?",
-      "options": ["6 faces", "4 faces", "8 faces", "12 faces"],
-      "correctAnswer": "6 faces",
-      "explanation": "A cube has 6 equal square faces, so its net contains 6 squares.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Common Solids",
-      "learningOutcome": "Sketch nets of cubes in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A cuboid measures 8 cm by 5 cm by 4 cm. What is its surface area?",
-      "options": ["184 cm2", "160 cm2", "92 cm2", "320 cm2"],
-      "correctAnswer": "184 cm2",
-      "explanation": "Surface area is 2(lw + lh + wh). 2(40 + 32 + 20) = 184 cm2.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Common Solids",
-      "learningOutcome": "Work out surface area of solids from nets in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "On the top face of a cuboid, the sides are 6 cm and 8 cm. What is the shortest distance between opposite corners on that face?",
-      "options": ["10 cm", "14 cm", "12 cm", "48 cm"],
-      "correctAnswer": "10 cm",
-      "explanation": "The diagonal of the rectangular face forms a right triangle. 6 squared plus 8 squared is 100, so the distance is 10 cm.",
-      "difficulty": 5,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Common Solids",
-      "learningOutcome": "Determine the distance between two points on the surface of a solid.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which shapes make up the net of a cone?",
-      "options": ["A sector and a circle", "Six equal squares", "Two circles and a rectangle", "Four triangles and a square"],
-      "correctAnswer": "A sector and a circle",
-      "explanation": "A cone opens into a circular base and a sector that forms the curved surface.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Common Solids",
-      "learningOutcome": "Sketch nets of cones in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Find the mean of 6, 8, 10 and 12.",
-      "options": ["9 units", "10 units", "8 units", "36 units"],
-      "correctAnswer": "9 units",
-      "explanation": "Add the values to get 36, then divide by 4 values. The mean is 9.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Calculate the mean of a set of discrete data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Find the median of 5, 9, 4, 7 and 12.",
-      "options": ["7 only", "9 only", "5 only", "4 only"],
-      "correctAnswer": "7 only",
-      "explanation": "Arrange the data as 4, 5, 7, 9, 12. The middle value is 7.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Determine the median of a set of discrete data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Find the mode of 3, 4, 4, 6, 7, 7, 7 and 8.",
-      "options": ["7 only", "4 only", "6 only", "8 only"],
-      "correctAnswer": "7 only",
-      "explanation": "The mode is the value that appears most often. The number 7 appears three times.",
-      "difficulty": 1,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Identify the mode of a set of discrete data.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A bar graph uses a scale of 1 unit for 5 learners. How many learners are shown by a bar 7 units high?",
-      "options": ["35 learners", "12 learners", "25 learners", "40 learners"],
-      "correctAnswer": "35 learners",
-      "explanation": "Each unit represents 5 learners, so 7 units represent 7 x 5 = 35 learners.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Interpret bar graphs of data from real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "A line graph shows 12 seedlings on Monday and 18 seedlings on Tuesday. What was the increase?",
-      "options": ["6 seedlings", "30 seedlings", "18 seedlings", "12 seedlings"],
-      "correctAnswer": "6 seedlings",
-      "explanation": "The increase is 18 - 12 = 6 seedlings.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Interpret line graphs of data from real life situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A table records maize harvests as January 18 bags, February 25 bags and March 22 bags. Which month had the highest harvest?",
-      "options": ["February", "January", "March", "All months were equal"],
-      "correctAnswer": "February",
-      "explanation": "February has 25 bags, which is greater than 18 bags and 22 bags.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Data Presentation and Interpretation",
-      "learningOutcome": "Interpret data from real life situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "What is the probability of getting a head when tossing a fair coin once?",
-      "options": ["1/2", "1", "0", "2"],
-      "correctAnswer": "1/2",
-      "explanation": "A fair coin has two equally likely outcomes, head and tail, so the probability of a head is 1/2.",
-      "difficulty": 1,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Probability",
-      "learningOutcome": "Express probability outcomes in fractions in different situations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "What is the probability of rolling an even number on a fair six-sided die?",
-      "options": ["1/2", "1/3", "2/3", "1/6"],
-      "correctAnswer": "1/2",
-      "explanation": "The even outcomes are 2, 4 and 6. That is 3 favourable outcomes out of 6, which simplifies to 1/2.",
-      "difficulty": 2,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Probability",
-      "learningOutcome": "Express probability outcomes in fractions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A bag has 3 red balls, 2 blue balls and 5 green balls. What is the probability of picking a blue ball at random?",
-      "options": ["1/5", "2/5", "3/10", "1/2"],
-      "correctAnswer": "1/5",
-      "explanation": "There are 10 balls altogether and 2 are blue. The probability is 2/10, which simplifies to 1/5.",
-      "difficulty": 3,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Probability",
-      "learningOutcome": "Express probability outcomes in fractions in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "In 40 throws of a die, the number 6 appeared 12 times. What is the experimental probability of getting a 6?",
-      "options": ["3/10", "1/6", "12/52", "2/5"],
-      "correctAnswer": "3/10",
-      "explanation": "Experimental probability is successful outcomes divided by total trials: 12/40 = 3/10.",
-      "difficulty": 3,
-      "strandTitle": "Data Handling and Probability",
-      "subStrandTitle": "Probability",
-      "learningOutcome": "Write experimental probability outcomes in different situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 8",
+ "subjectId": "mathematics",
+ "subjectName": "Mathematics",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which integer represents 7 metres below sea level?",
+   "options": [
+    "-7",
+    "7",
+    "0",
+    "14"
+   ],
+   "correctAnswer": "-7",
+   "explanation": "Positions below sea level are represented by negative integers, so 7 metres below sea level is -7.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Identify integers in different real life situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "A learner starts at -3 on a number line and moves 8 steps to the right. Where does the learner land?",
+   "options": [
+    "5 on the number line",
+    "-11 on the number line",
+    "11 on the number line",
+    "-5 on the number line"
+   ],
+   "correctAnswer": "5 on the number line",
+   "explanation": "Moving right means adding. -3 + 8 = 5.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Represent integers on a number line in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Work out -12 + 7.",
+   "options": [
+    "-5",
+    "5",
+    "-19",
+    "19"
+   ],
+   "correctAnswer": "-5",
+   "explanation": "Adding 7 to -12 moves 7 steps towards zero, giving -5.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Carry out addition of integers in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Work out 6 - (-9).",
+   "options": [
+    "15",
+    "-3",
+    "3",
+    "-15"
+   ],
+   "correctAnswer": "15",
+   "explanation": "Subtracting a negative number is the same as adding its positive value: 6 - (-9) = 6 + 9 = 15.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Carry out subtraction of integers in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "The temperature in Limuru changed from -2 degrees C to 5 degrees C. What was the increase?",
+   "options": [
+    "7 degrees C",
+    "3 degrees C",
+    "-7 degrees C",
+    "5 degrees C"
+   ],
+   "correctAnswer": "7 degrees C",
+   "explanation": "The change is 5 - (-2), which is 7 degrees C.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Use integers to solve real life problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which value is equal to -4 + (-6)?",
+   "options": [
+    "-10",
+    "10",
+    "2",
+    "-2"
+   ],
+   "correctAnswer": "-10",
+   "explanation": "Adding two negative integers keeps the sign negative and adds their sizes: 4 + 6 = 10.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Integers",
+   "learningOutcome": "Carry out operations involving integers.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Work out 2/3 + 1/4.",
+   "options": [
+    "11/12",
+    "3/7",
+    "5/7",
+    "7/12"
+   ],
+   "correctAnswer": "11/12",
+   "explanation": "The common denominator is 12. 2/3 = 8/12 and 1/4 = 3/12, so the sum is 11/12.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Carry out combined operations on fractions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Work out 5/6 - 1/3.",
+   "options": [
+    "1/2",
+    "4/3",
+    "2/6",
+    "5/3"
+   ],
+   "correctAnswer": "1/2",
+   "explanation": "Change 1/3 to 2/6. Then 5/6 - 2/6 = 3/6 = 1/2.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Carry out operations on fractions in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "A class planted vegetables on 3/4 of a 28 metre plot. How many metres of the plot were planted?",
+   "options": [
+    "21 m",
+    "24 m",
+    "18 m",
+    "14 m"
+   ],
+   "correctAnswer": "21 m",
+   "explanation": "Three quarters of 28 is 28 x 3/4 = 21.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Apply fractions to solve real life problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Work out (1/2 + 3/4) - 1/4.",
+   "options": [
+    "1 whole",
+    "1/2",
+    "3/4",
+    "1 1/2"
+   ],
+   "correctAnswer": "1 whole",
+   "explanation": "First add inside the brackets: 1/2 + 3/4 = 5/4. Then 5/4 - 1/4 = 4/4 = 1.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Use the correct order of operations in fractions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Work out 3/5 divided by 9/10.",
+   "options": [
+    "2/3",
+    "27/50",
+    "6/5",
+    "3/2"
+   ],
+   "correctAnswer": "2/3",
+   "explanation": "Divide by multiplying by the reciprocal: 3/5 x 10/9 = 30/45 = 2/3.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Carry out operations on fractions in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "A farm harvested 2 1/2 sacks of beans on Monday and 1 3/4 sacks on Tuesday. How many sacks were harvested in total?",
+   "options": [
+    "4 1/4",
+    "3 1/4",
+    "4 3/4",
+    "3 3/4"
+   ],
+   "correctAnswer": "4 1/4",
+   "explanation": "2 1/2 is 2 2/4. Then 2 2/4 + 1 3/4 = 3 5/4 = 4 1/4.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Fractions",
+   "learningOutcome": "Apply operations on fractions to real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Convert 3/8 into a decimal.",
+   "options": [
+    "0.375",
+    "0.38",
+    "0.625",
+    "0.75"
+   ],
+   "correctAnswer": "0.375",
+   "explanation": "Dividing 3 by 8 gives 0.375.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Convert fractions to decimals in different situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which fraction is equal to the recurring decimal 0.666...?",
+   "options": [
+    "2/3",
+    "6/10",
+    "1/6",
+    "3/5"
+   ],
+   "correctAnswer": "2/3",
+   "explanation": "The recurring decimal 0.666... is the decimal form of 2/3.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Convert recurring decimals into fractions in different situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Round 45.678 to two decimal places.",
+   "options": [
+    "45.68",
+    "45.67",
+    "45.70",
+    "45.60"
+   ],
+   "correctAnswer": "45.68",
+   "explanation": "The third decimal digit is 8, so the hundredths digit rounds up from 7 to 8.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Round off a decimal number to a required number of decimal places.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Write 0.00456 in standard form.",
+   "options": [
+    "4.56 x 10^-3",
+    "4.56 x 10^3",
+    "45.6 x 10^-3",
+    "0.456 x 10^-2"
+   ],
+   "correctAnswer": "4.56 x 10^-3",
+   "explanation": "Move the decimal point 3 places to the right to get 4.56, so the power of 10 is -3.",
+   "difficulty": 4,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Express numbers in standard form in different situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Work out 3.4 + 2.15 x 2.",
+   "options": [
+    "7.70",
+    "11.10",
+    "6.80",
+    "5.55"
+   ],
+   "correctAnswer": "7.70",
+   "explanation": "Multiplication is done first: 2.15 x 2 = 4.30. Then 3.4 + 4.30 = 7.70.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Carry out combined operations on decimals in the correct order.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Express 7280 to two significant figures.",
+   "options": [
+    "7300",
+    "7200",
+    "7280",
+    "7000"
+   ],
+   "correctAnswer": "7300",
+   "explanation": "The first two significant figures are 7 and 2. The next digit is 8, so 72 rounds to 73 hundreds.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Decimals",
+   "learningOutcome": "Express numbers to a required significant figure in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "What is 17 squared?",
+   "options": [
+    "289",
+    "34",
+    "144",
+    "324"
+   ],
+   "correctAnswer": "289",
+   "explanation": "17 squared means 17 x 17, which is 289.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Squares and Square Roots",
+   "learningOutcome": "Work out the squares of numbers from tables in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "What is the square root of 196?",
+   "options": [
+    "14",
+    "16",
+    "98",
+    "12"
+   ],
+   "correctAnswer": "14",
+   "explanation": "The square root of 196 is 14 because 14 x 14 = 196.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Squares and Square Roots",
+   "learningOutcome": "Work out the square roots of numbers from tables in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "A square garden has an area of 225 square metres. What is the length of one side?",
+   "options": [
+    "15 m",
+    "25 m",
+    "45 m",
+    "30 m"
+   ],
+   "correctAnswer": "15 m",
+   "explanation": "The side of a square is the square root of its area. The square root of 225 is 15.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Squares and Square Roots",
+   "learningOutcome": "Apply square roots in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Work out 2 squared plus 5 squared.",
+   "options": [
+    "29",
+    "49",
+    "14",
+    "20"
+   ],
+   "correctAnswer": "29",
+   "explanation": "2 squared is 4 and 5 squared is 25. Their sum is 29.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Squares and Square Roots",
+   "learningOutcome": "Work out squares of numbers in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Work out the square root of 625 plus 8 squared.",
+   "options": [
+    "89",
+    "33",
+    "72",
+    "105"
+   ],
+   "correctAnswer": "89",
+   "explanation": "The square root of 625 is 25 and 8 squared is 64. 25 + 64 = 89.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Squares and Square Roots",
+   "learningOutcome": "Work out squares and square roots of numbers in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "A bus travels 180 km in 3 hours. What is its average speed?",
+   "options": [
+    "60 km/h",
+    "54 km/h",
+    "90 km/h",
+    "183 km/h"
+   ],
+   "correctAnswer": "60 km/h",
+   "explanation": "Average speed is distance divided by time: 180 km divided by 3 hours is 60 km/h.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Work out rates in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Simplify the ratio 12:18.",
+   "options": [
+    "2:3",
+    "3:2",
+    "6:9",
+    "4:6"
+   ],
+   "correctAnswer": "2:3",
+   "explanation": "Divide both parts by their highest common factor, 6. The ratio becomes 2:3.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Work out ratios in different situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "KSh 480 is shared in the ratio 5:7. How much does the first person receive?",
+   "options": [
+    "KSh 200",
+    "KSh 280",
+    "KSh 240",
+    "KSh 180"
+   ],
+   "correctAnswer": "KSh 200",
+   "explanation": "The total number of parts is 12. Each part is KSh 480 divided by 12, which is KSh 40, so 5 parts is KSh 200.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Divide quantities in given ratios in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Increase KSh 800 by 15 percent.",
+   "options": [
+    "KSh 920",
+    "KSh 815",
+    "KSh 680",
+    "KSh 120"
+   ],
+   "correctAnswer": "KSh 920",
+   "explanation": "15 percent of 800 is 120. Adding the increase gives 800 + 120 = 920.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Work out percentage increase of quantities in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "A bicycle priced at KSh 2500 is reduced by 12 percent. What is the new price?",
+   "options": [
+    "KSh 2200",
+    "KSh 2300",
+    "KSh 2800",
+    "KSh 300"
+   ],
+   "correctAnswer": "KSh 2200",
+   "explanation": "12 percent of 2500 is 300. The reduced price is 2500 - 300 = 2200.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Work out percentage decrease of quantities in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which situation shows direct proportion?",
+   "options": [
+    "Cost and number of identical notebooks bought",
+    "Number of workers and time taken for the same job",
+    "Age of a learner and shoe size every month",
+    "Temperature and number of pupils in class"
+   ],
+   "correctAnswer": "Cost and number of identical notebooks bought",
+   "explanation": "If the price per notebook is fixed, buying more notebooks increases the total cost in the same ratio.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Identify direct proportions in real life situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Six workers can complete a task in 8 days. If the same task is shared equally by 12 workers, how many days should it take?",
+   "options": [
+    "4 days",
+    "16 days",
+    "10 days",
+    "6 days"
+   ],
+   "correctAnswer": "4 days",
+   "explanation": "Doubling the number of workers halves the time for the same amount of work, so 8 days becomes 4 days.",
+   "difficulty": 4,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Work out indirect proportions in real life situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Express the fraction 3/8 as a ratio.",
+   "options": [
+    "3:8",
+    "8:3",
+    "3:11",
+    "5:8"
+   ],
+   "correctAnswer": "3:8",
+   "explanation": "A fraction a/b can be written as the ratio a:b, so 3/8 is 3:8.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Express fractions as ratios in real life situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "If 4 kg of flour makes 60 chapatis, how many chapatis can 10 kg of flour make at the same rate?",
+   "options": [
+    "150",
+    "120",
+    "100",
+    "240"
+   ],
+   "correctAnswer": "150",
+   "explanation": "One kilogram makes 60 divided by 4, which is 15 chapatis. Ten kilograms make 10 x 15 = 150 chapatis.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Rates, Ratios, Proportions and Percentages",
+   "learningOutcome": "Use proportions to solve real life problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Factorize 6x + 9.",
+   "options": [
+    "3(2x + 3)",
+    "6(x + 9)",
+    "9(x + 6)",
+    "3(2x + 9)"
+   ],
+   "correctAnswer": "3(2x + 3)",
+   "explanation": "The common factor of 6x and 9 is 3, so 6x + 9 = 3(2x + 3).",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Factorize algebraic expressions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Factorize x^2 + 5x.",
+   "options": [
+    "x(x + 5)",
+    "5(x + x)",
+    "x(5x + 1)",
+    "x^2(1 + 5)"
+   ],
+   "correctAnswer": "x(x + 5)",
+   "explanation": "Both terms contain x, so take x as the common factor: x^2 + 5x = x(x + 5).",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Factorize algebraic expressions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Simplify 6a^2 divided by 3a.",
+   "options": [
+    "2a",
+    "3a",
+    "2a^2",
+    "9a"
+   ],
+   "correctAnswer": "2a",
+   "explanation": "Divide the coefficients and subtract powers of a: 6a^2 divided by 3a = 2a.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Simplify algebraic fractions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Evaluate 3x - 2y when x = 4 and y = 5.",
+   "options": [
+    "2 units",
+    "22 units",
+    "-2 units",
+    "14 units"
+   ],
+   "correctAnswer": "2 units",
+   "explanation": "Substitute the values: 3(4) - 2(5) = 12 - 10 = 2.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Evaluate algebraic expressions by substituting numerical values.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Simplify 7p + 3q - 2p + q.",
+   "options": [
+    "5p + 4q",
+    "9p + 4q",
+    "5p + 2q",
+    "8pq"
+   ],
+   "correctAnswer": "5p + 4q",
+   "explanation": "Combine like terms: 7p - 2p = 5p and 3q + q = 4q.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Simplify algebraic expressions by grouping like terms.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Simplify (x + 2x)/3.",
+   "options": [
+    "x only",
+    "3x",
+    "x/3",
+    "2x"
+   ],
+   "correctAnswer": "x only",
+   "explanation": "The numerator is x + 2x = 3x. Dividing 3x by 3 gives x.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Simplify algebraic fractions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Factorize 4m - 12n.",
+   "options": [
+    "4(m - 3n)",
+    "4(m - 12n)",
+    "12(4m - n)",
+    "m(4 - 12n)"
+   ],
+   "correctAnswer": "4(m - 3n)",
+   "explanation": "The common factor is 4. Dividing the terms by 4 gives m and 3n.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Factorize algebraic expressions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Solve the simultaneous equations x + y = 11 and x - y = 3.",
+   "options": [
+    "x = 7, y = 4",
+    "x = 4, y = 7",
+    "x = 8, y = 3",
+    "x = 11, y = 3"
+   ],
+   "correctAnswer": "x = 7, y = 4",
+   "explanation": "Adding the two equations gives 2x = 14, so x = 7. Then y = 4.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Solve linear equations in two unknowns by elimination method.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Solve the simultaneous equations 2x + y = 13 and x - y = 2.",
+   "options": [
+    "x = 5, y = 3",
+    "x = 3, y = 5",
+    "x = 6, y = 1",
+    "x = 4, y = 5"
+   ],
+   "correctAnswer": "x = 5, y = 3",
+   "explanation": "From x - y = 2, y = x - 2. Substitute in 2x + y = 13 to get 3x - 2 = 13, so x = 5 and y = 3.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Solve linear equations in two unknowns by substitution method.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "When 3x + 2y = 16 and x - 2y = 4 are added, which equation is obtained?",
+   "options": [
+    "4x = 20",
+    "2x = 12",
+    "4y = 20",
+    "3x = 16"
+   ],
+   "correctAnswer": "4x = 20",
+   "explanation": "Adding the equations eliminates y because 2y and -2y add to 0. The result is 4x = 20.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Solve linear equations in two unknowns by elimination method.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Two pens and one ruler cost KSh 65. One pen and one ruler cost KSh 40. What is the cost of one pen?",
+   "options": [
+    "KSh 25",
+    "KSh 15",
+    "KSh 40",
+    "KSh 105"
+   ],
+   "correctAnswer": "KSh 25",
+   "explanation": "Subtracting the second cost from the first removes the ruler and leaves the cost of one pen: 65 - 40 = 25.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Apply linear equations in two unknowns in real life situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Solve 4a + 2b = 22 and a + b = 8.",
+   "options": [
+    "a = 3, b = 5",
+    "a = 5, b = 3",
+    "a = 4, b = 4",
+    "a = 2, b = 6"
+   ],
+   "correctAnswer": "a = 3, b = 5",
+   "explanation": "From a + b = 8, b = 8 - a. Substitution gives 4a + 2(8 - a) = 22, so a = 3 and b = 5.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Solve linear equations in two unknowns by substitution method.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Three mangoes and two oranges cost KSh 110. If a mango costs x shillings and an orange costs y shillings, which equation represents this statement?",
+   "options": [
+    "3x + 2y = 110",
+    "2x + 3y = 110",
+    "3x - 2y = 110",
+    "5xy = 110"
+   ],
+   "correctAnswer": "3x + 2y = 110",
+   "explanation": "Three mangoes cost 3x and two oranges cost 2y, so the total cost is 3x + 2y.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Form linear equations in two unknowns in real life situations.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which pair of equations is satisfied by x = 2 and y = 5?",
+   "options": [
+    "x + y = 7 and 3x - y = 1",
+    "x + y = 5 and x - y = 3",
+    "2x + y = 12 and x + y = 8",
+    "x - y = 7 and 3x + y = 1"
+   ],
+   "correctAnswer": "x + y = 7 and 3x - y = 1",
+   "explanation": "Substituting x = 2 and y = 5 gives 2 + 5 = 7 and 3(2) - 5 = 1.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Recognize solutions of linear equations in two unknowns.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Find the circumference of a circle with radius 7 cm using pi = 22/7.",
+   "options": [
+    "44 cm",
+    "22 cm",
+    "154 cm",
+    "14 cm"
+   ],
+   "correctAnswer": "44 cm",
+   "explanation": "Circumference is 2 x pi x radius. 2 x 22/7 x 7 = 44 cm.",
+   "difficulty": 2,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Work out the circumference of a circle in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Find the circumference of a circle with diameter 14 cm using pi = 22/7.",
+   "options": [
+    "44 cm",
+    "28 cm",
+    "88 cm",
+    "154 cm"
+   ],
+   "correctAnswer": "44 cm",
+   "explanation": "Circumference is pi x diameter. 22/7 x 14 = 44 cm.",
+   "difficulty": 2,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Work out the circumference of a circle in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Find the length of a 90 degree arc in a circle of radius 14 cm using pi = 22/7.",
+   "options": [
+    "22 cm",
+    "44 cm",
+    "11 cm",
+    "88 cm"
+   ],
+   "correctAnswer": "22 cm",
+   "explanation": "A 90 degree arc is one quarter of the circumference. The circumference is 88 cm, so the arc is 22 cm.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Work out the length of an arc of a circle in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Find the perimeter of a 60 degree sector of radius 21 cm using pi = 22/7.",
+   "options": [
+    "64 cm",
+    "42 cm",
+    "22 cm",
+    "86 cm"
+   ],
+   "correctAnswer": "64 cm",
+   "explanation": "The arc length is 60/360 of 132 cm, which is 22 cm. The perimeter is 21 + 21 + 22 = 64 cm.",
+   "difficulty": 5,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Calculate the perimeter of a sector of a circle in different situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A circular track has circumference 88 m. Find its radius using pi = 22/7.",
+   "options": [
+    "14 m",
+    "28 m",
+    "7 m",
+    "44 m"
+   ],
+   "correctAnswer": "14 m",
+   "explanation": "Using C = 2 x pi x r, 88 = 2 x 22/7 x r. This gives r = 14 m.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Use circle measurements to solve real life problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "A semicircular flower bed has radius 10 m. Find its perimeter using pi = 3.14.",
+   "options": [
+    "51.4 m",
+    "31.4 m",
+    "62.8 m",
+    "41.4 m"
+   ],
+   "correctAnswer": "51.4 m",
+   "explanation": "The perimeter of a semicircle is half the circumference plus the diameter: 31.4 + 20 = 51.4 m.",
+   "difficulty": 4,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Calculate the perimeter of a sector of a circle in real life situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Find the area of a circle with radius 7 cm using pi = 22/7.",
+   "options": [
+    "154 cm2",
+    "44 cm2",
+    "49 cm2",
+    "308 cm2"
+   ],
+   "correctAnswer": "154 cm2",
+   "explanation": "Area is pi x r x r. 22/7 x 7 x 7 = 154 cm2.",
+   "difficulty": 2,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Calculate the area of a circle in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Find the area of a 90 degree sector of radius 14 cm using pi = 22/7.",
+   "options": [
+    "154 cm2",
+    "616 cm2",
+    "44 cm2",
+    "308 cm2"
+   ],
+   "correctAnswer": "154 cm2",
+   "explanation": "A 90 degree sector is one quarter of the circle. The circle area is 616 cm2, so the sector area is 154 cm2.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Work out the area of a sector of a circle in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Find the surface area of a cube with side 5 cm.",
+   "options": [
+    "150 cm2",
+    "25 cm2",
+    "125 cm2",
+    "100 cm2"
+   ],
+   "correctAnswer": "150 cm2",
+   "explanation": "A cube has 6 equal square faces. Its surface area is 6 x 5 x 5 = 150 cm2.",
+   "difficulty": 2,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Work out the surface area of cubes in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Find the surface area of a cuboid measuring 6 cm by 4 cm by 3 cm.",
+   "options": [
+    "108 cm2",
+    "72 cm2",
+    "144 cm2",
+    "54 cm2"
+   ],
+   "correctAnswer": "108 cm2",
+   "explanation": "Surface area is 2(lw + lh + wh). 2(24 + 18 + 12) = 108 cm2.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Work out the surface area of cuboids in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Find the total surface area of a closed cylinder with radius 7 cm and height 10 cm using pi = 22/7.",
+   "options": [
+    "748 cm2",
+    "440 cm2",
+    "308 cm2",
+    "528 cm2"
+   ],
+   "correctAnswer": "748 cm2",
+   "explanation": "Total surface area is 2 x pi x r x (r + h). 2 x 22/7 x 7 x 17 = 748 cm2.",
+   "difficulty": 5,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Work out the surface area of cylinders in real life situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A triangular prism is 10 cm long. Its triangular end is a right triangle with sides 3 cm, 4 cm and 5 cm. Find its total surface area.",
+   "options": [
+    "132 cm2",
+    "120 cm2",
+    "60 cm2",
+    "144 cm2"
+   ],
+   "correctAnswer": "132 cm2",
+   "explanation": "The rectangular faces total 10(3 + 4 + 5) = 120 cm2. The two triangular ends total 2 x 1/2 x 3 x 4 = 12 cm2, so the total is 132 cm2.",
+   "difficulty": 5,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Determine the surface area of a triangular prism in different situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "An irregular shape covers 34 full squares and 8 half squares on a square grid. What is its estimated area?",
+   "options": [
+    "38 square units",
+    "42 square units",
+    "34 square units",
+    "50 square units"
+   ],
+   "correctAnswer": "38 square units",
+   "explanation": "Eight half squares make 4 full squares. 34 + 4 = 38 square units.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Area",
+   "learningOutcome": "Work out the area of irregular shapes using square grids.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Find the simple interest on KSh 8000 at 10 percent per annum for 2 years.",
+   "options": [
+    "KSh 1600",
+    "KSh 800",
+    "KSh 9600",
+    "KSh 1800"
+   ],
+   "correctAnswer": "KSh 1600",
+   "explanation": "Simple interest is PRT/100. 8000 x 10 x 2 / 100 = 1600.",
+   "difficulty": 2,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Money",
+   "learningOutcome": "Calculate simple interest in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "KSh 8000 earns simple interest at 10 percent per annum for 2 years. What is the total amount?",
+   "options": [
+    "KSh 9600",
+    "KSh 1600",
+    "KSh 8800",
+    "KSh 10000"
+   ],
+   "correctAnswer": "KSh 9600",
+   "explanation": "The interest is KSh 1600. The amount is principal plus interest: 8000 + 1600 = 9600.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Money",
+   "learningOutcome": "Calculate simple interest and amount in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "KSh 10000 is invested at 5 percent compound interest per annum for 2 years. What interest is earned?",
+   "options": [
+    "KSh 1025",
+    "KSh 1000",
+    "KSh 11025",
+    "KSh 500"
+   ],
+   "correctAnswer": "KSh 1025",
+   "explanation": "The amount after 2 years is 10000 x 1.05 x 1.05 = 11025. The interest is 11025 - 10000 = 1025.",
+   "difficulty": 5,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Money",
+   "learningOutcome": "Calculate compound interest per annum step by step up to three years.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "A machine worth KSh 50000 depreciates by 10 percent per year. What is its value after 2 years?",
+   "options": [
+    "KSh 40500",
+    "KSh 40000",
+    "KSh 45000",
+    "KSh 55000"
+   ],
+   "correctAnswer": "KSh 40500",
+   "explanation": "After one year the value is 50000 x 0.9 = 45000. After the second year it is 45000 x 0.9 = 40500.",
+   "difficulty": 4,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Money",
+   "learningOutcome": "Work out depreciation per annum step by step up to three years.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "A radio is bought on hire purchase with a deposit of KSh 6000 and 12 monthly instalments of KSh 1200. What is the hire purchase price?",
+   "options": [
+    "KSh 20400",
+    "KSh 14400",
+    "KSh 7200",
+    "KSh 18000"
+   ],
+   "correctAnswer": "KSh 20400",
+   "explanation": "The instalments total 12 x 1200 = 14400. Add the deposit: 14400 + 6000 = 20400.",
+   "difficulty": 3,
+   "strandTitle": "Measurements",
+   "subStrandTitle": "Money",
+   "learningOutcome": "Work out hire purchase in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which tools are most suitable for constructing a perpendicular bisector accurately?",
+   "options": [
+    "A ruler and a pair of compasses",
+    "A calculator and a ruler",
+    "A protractor only",
+    "A tape measure only"
+   ],
+   "correctAnswer": "A ruler and a pair of compasses",
+   "explanation": "A perpendicular bisector is accurately constructed using equal arcs from a pair of compasses and a straight line from a ruler.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Construct perpendicular lines in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "What is the sum of the interior angles of a pentagon?",
+   "options": [
+    "540 degrees",
+    "360 degrees",
+    "720 degrees",
+    "180 degrees"
+   ],
+   "correctAnswer": "540 degrees",
+   "explanation": "The sum of interior angles of an n-sided polygon is (n - 2) x 180 degrees. For 5 sides, this is 3 x 180 = 540 degrees.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Identify angle properties of polygons in different situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "What is each interior angle of a regular hexagon?",
+   "options": [
+    "120 degrees",
+    "60 degrees",
+    "90 degrees",
+    "135 degrees"
+   ],
+   "correctAnswer": "120 degrees",
+   "explanation": "A regular hexagon has interior angle sum 720 degrees. Dividing by 6 gives 120 degrees.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Identify angle properties of regular polygons up to a hexagon.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "What is each exterior angle of a regular pentagon?",
+   "options": [
+    "72 degrees",
+    "108 degrees",
+    "60 degrees",
+    "90 degrees"
+   ],
+   "correctAnswer": "72 degrees",
+   "explanation": "Exterior angles of any polygon add to 360 degrees. For a regular pentagon, 360 divided by 5 is 72 degrees.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Identify angle properties of polygons in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "What is the name of a circle that passes through all three vertices of a triangle?",
+   "options": [
+    "Circumcircle",
+    "Incircle",
+    "Semicircle",
+    "Sector"
+   ],
+   "correctAnswer": "Circumcircle",
+   "explanation": "A circumcircle is constructed to pass through all the vertices of a triangle.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Construct circles passing through the vertices of a triangle.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "What is the name of a circle that touches all three sides of a triangle?",
+   "options": [
+    "Incircle",
+    "Circumcircle",
+    "Arc",
+    "Chord"
+   ],
+   "correctAnswer": "Incircle",
+   "explanation": "An incircle lies inside a triangle and touches each of its three sides.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Construct circles touching the sides of a triangle.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A 12 cm line is divided in the ratio 1:2. What are the two lengths?",
+   "options": [
+    "4 cm and 8 cm",
+    "6 cm and 6 cm",
+    "3 cm and 9 cm",
+    "5 cm and 7 cm"
+   ],
+   "correctAnswer": "4 cm and 8 cm",
+   "explanation": "The total number of parts is 3. Each part is 12 divided by 3, which is 4 cm, so the lengths are 4 cm and 8 cm.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Divide a line proportionally in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which ordered pair represents x = -3 and y = 4?",
+   "options": [
+    "(-3, 4)",
+    "(4, -3)",
+    "(3, -4)",
+    "(-4, 3)"
+   ],
+   "correctAnswer": "(-3, 4)",
+   "explanation": "Coordinates are written as (horizontal value, vertical value), so x = -3 and y = 4 is (-3, 4).",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Identify points on the Cartesian plane in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "In which quadrant is the point (-5, -2)?",
+   "options": [
+    "Third quadrant",
+    "First quadrant",
+    "Second quadrant",
+    "Fourth quadrant"
+   ],
+   "correctAnswer": "Third quadrant",
+   "explanation": "A point with a negative x-coordinate and a negative y-coordinate lies in the third quadrant.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Identify points on the Cartesian plane in different situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "For the equation y = 2x + 1, what is y when x = 3?",
+   "options": [
+    "7 units",
+    "6 units",
+    "5 units",
+    "9 units"
+   ],
+   "correctAnswer": "7 units",
+   "explanation": "Substitute x = 3: y = 2(3) + 1 = 7.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Generate values in a table for a linear equation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "For y = 3x - 2, what are the y-values when x = -1, 0 and 1?",
+   "options": [
+    "-5, -2, 1",
+    "-1, 0, 1",
+    "5, 2, -1",
+    "-3, -2, -1"
+   ],
+   "correctAnswer": "-5, -2, 1",
+   "explanation": "Substitute each x-value: 3(-1) - 2 = -5, 3(0) - 2 = -2, and 3(1) - 2 = 1.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Generate a table of values for a linear equation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "What is the point of intersection of the lines x + y = 6 and x - y = 2?",
+   "options": [
+    "(4, 2)",
+    "(2, 4)",
+    "(3, 3)",
+    "(6, 2)"
+   ],
+   "correctAnswer": "(4, 2)",
+   "explanation": "Solving the equations gives x = 4 and y = 2, so the lines meet at (4, 2).",
+   "difficulty": 4,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Solve simultaneous linear equations graphically in different situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "What type of line is represented by y = 4 on a Cartesian plane?",
+   "options": [
+    "A horizontal line",
+    "A vertical line",
+    "A diagonal line through the origin",
+    "A curved line"
+   ],
+   "correctAnswer": "A horizontal line",
+   "explanation": "All points on y = 4 have the same y-coordinate, so the graph is a horizontal line.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Draw linear graphs from equations on a Cartesian plane.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A graph scale says 1 cm represents 5 learners. How many centimetres should represent 25 learners?",
+   "options": [
+    "5 cm",
+    "20 cm",
+    "10 cm",
+    "4 cm"
+   ],
+   "correctAnswer": "5 cm",
+   "explanation": "Divide 25 learners by 5 learners per centimetre to get 5 cm.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinates and Graphs",
+   "learningOutcome": "Determine an appropriate scale for a linear graph.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "On a map, 1 cm represents 2 km. What actual distance is represented by 6 cm?",
+   "options": [
+    "12 km",
+    "8 km",
+    "3 km",
+    "6 km"
+   ],
+   "correctAnswer": "12 km",
+   "explanation": "Each centimetre represents 2 km, so 6 cm represents 6 x 2 = 12 km.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Convert scale length to actual length in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "An actual distance of 500 m is represented by 5 cm on a drawing. What is the scale ratio?",
+   "options": [
+    "1:10000",
+    "1:1000",
+    "1:500",
+    "1:100"
+   ],
+   "correctAnswer": "1:10000",
+   "explanation": "Convert 500 m to 50000 cm. The ratio 5:50000 simplifies to 1:10000.",
+   "difficulty": 5,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Write linear scales in ratio form in different situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A map has a scale of 1:50000. What actual distance is represented by 3 cm on the map?",
+   "options": [
+    "1.5 km",
+    "15 km",
+    "150 km",
+    "0.15 km"
+   ],
+   "correctAnswer": "1.5 km",
+   "explanation": "3 cm represents 150000 cm. This is 1500 m, which is 1.5 km.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Interpret linear scales in ratio form in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Convert the statement scale 1 cm represents 4 m into ratio form.",
+   "options": [
+    "1:400",
+    "1:4",
+    "4:1",
+    "1:40"
+   ],
+   "correctAnswer": "1:400",
+   "explanation": "Convert 4 m to 400 cm. The scale is therefore 1 cm to 400 cm, or 1:400.",
+   "difficulty": 5,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Convert linear scale from statement form to ratio form.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A classroom is 8 m long. Using the scale 1 cm represents 2 m, what length should be drawn?",
+   "options": [
+    "4 cm",
+    "16 cm",
+    "6 cm",
+    "10 cm"
+   ],
+   "correctAnswer": "4 cm",
+   "explanation": "Divide the actual length by 2 m per centimetre: 8 divided by 2 = 4 cm.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Convert actual length to scale length in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A road is 18 km long. On a map, 1 cm represents 3 km. What map length represents the road?",
+   "options": [
+    "6 cm",
+    "54 cm",
+    "15 cm",
+    "21 cm"
+   ],
+   "correctAnswer": "6 cm",
+   "explanation": "Divide 18 km by 3 km per centimetre to get 6 cm.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Represent length to a given scale in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A rectangle is drawn 6 cm by 4 cm using the scale 1 cm represents 5 m. What are the actual dimensions?",
+   "options": [
+    "30 m by 20 m",
+    "11 m by 9 m",
+    "12 m by 8 m",
+    "60 m by 40 m"
+   ],
+   "correctAnswer": "30 m by 20 m",
+   "explanation": "Multiply each drawing length by 5 m. 6 cm represents 30 m and 4 cm represents 20 m.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Apply scale drawing in real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which solid has two circular faces and one curved surface?",
+   "options": [
+    "Cylinder",
+    "Cone",
+    "Cube",
+    "Pyramid"
+   ],
+   "correctAnswer": "Cylinder",
+   "explanation": "A cylinder has two equal circular faces joined by one curved surface.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Common Solids",
+   "learningOutcome": "Identify common solids from the environment.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "How many equal square faces are in the net of a cube?",
+   "options": [
+    "6 faces",
+    "4 faces",
+    "8 faces",
+    "12 faces"
+   ],
+   "correctAnswer": "6 faces",
+   "explanation": "A cube has 6 equal square faces, so its net contains 6 squares.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Common Solids",
+   "learningOutcome": "Sketch nets of cubes in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A cuboid measures 8 cm by 5 cm by 4 cm. What is its surface area?",
+   "options": [
+    "184 cm2",
+    "160 cm2",
+    "92 cm2",
+    "320 cm2"
+   ],
+   "correctAnswer": "184 cm2",
+   "explanation": "Surface area is 2(lw + lh + wh). 2(40 + 32 + 20) = 184 cm2.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Common Solids",
+   "learningOutcome": "Work out surface area of solids from nets in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "On the top face of a cuboid, the sides are 6 cm and 8 cm. What is the shortest distance between opposite corners on that face?",
+   "options": [
+    "10 cm",
+    "14 cm",
+    "12 cm",
+    "48 cm"
+   ],
+   "correctAnswer": "10 cm",
+   "explanation": "The diagonal of the rectangular face forms a right triangle. 6 squared plus 8 squared is 100, so the distance is 10 cm.",
+   "difficulty": 5,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Common Solids",
+   "learningOutcome": "Determine the distance between two points on the surface of a solid.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which shapes make up the net of a cone?",
+   "options": [
+    "A sector and a circle",
+    "Six equal squares",
+    "Two circles and a rectangle",
+    "Four triangles and a square"
+   ],
+   "correctAnswer": "A sector and a circle",
+   "explanation": "A cone opens into a circular base and a sector that forms the curved surface.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Common Solids",
+   "learningOutcome": "Sketch nets of cones in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Find the mean of 6, 8, 10 and 12.",
+   "options": [
+    "9 units",
+    "10 units",
+    "8 units",
+    "36 units"
+   ],
+   "correctAnswer": "9 units",
+   "explanation": "Add the values to get 36, then divide by 4 values. The mean is 9.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Calculate the mean of a set of discrete data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Find the median of 5, 9, 4, 7 and 12.",
+   "options": [
+    "7 only",
+    "9 only",
+    "5 only",
+    "4 only"
+   ],
+   "correctAnswer": "7 only",
+   "explanation": "Arrange the data as 4, 5, 7, 9, 12. The middle value is 7.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Determine the median of a set of discrete data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Find the mode of 3, 4, 4, 6, 7, 7, 7 and 8.",
+   "options": [
+    "7 only",
+    "4 only",
+    "6 only",
+    "8 only"
+   ],
+   "correctAnswer": "7 only",
+   "explanation": "The mode is the value that appears most often. The number 7 appears three times.",
+   "difficulty": 1,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Identify the mode of a set of discrete data.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A bar graph uses a scale of 1 unit for 5 learners. How many learners are shown by a bar 7 units high?",
+   "options": [
+    "35 learners",
+    "12 learners",
+    "25 learners",
+    "40 learners"
+   ],
+   "correctAnswer": "35 learners",
+   "explanation": "Each unit represents 5 learners, so 7 units represent 7 x 5 = 35 learners.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Interpret bar graphs of data from real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A line graph shows 12 seedlings on Monday and 18 seedlings on Tuesday. What was the increase?",
+   "options": [
+    "6 seedlings",
+    "30 seedlings",
+    "18 seedlings",
+    "12 seedlings"
+   ],
+   "correctAnswer": "6 seedlings",
+   "explanation": "The increase is 18 - 12 = 6 seedlings.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Interpret line graphs of data from real life situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A table records maize harvests as January 18 bags, February 25 bags and March 22 bags. Which month had the highest harvest?",
+   "options": [
+    "February",
+    "January",
+    "March",
+    "All months were equal"
+   ],
+   "correctAnswer": "February",
+   "explanation": "February has 25 bags, which is greater than 18 bags and 22 bags.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Data Presentation and Interpretation",
+   "learningOutcome": "Interpret data from real life situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "What is the probability of getting a head when tossing a fair coin once?",
+   "options": [
+    "1/2",
+    "1",
+    "0",
+    "2"
+   ],
+   "correctAnswer": "1/2",
+   "explanation": "A fair coin has two equally likely outcomes, head and tail, so the probability of a head is 1/2.",
+   "difficulty": 1,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Probability",
+   "learningOutcome": "Express probability outcomes in fractions in different situations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "What is the probability of rolling an even number on a fair six-sided die?",
+   "options": [
+    "1/2",
+    "1/3",
+    "2/3",
+    "1/6"
+   ],
+   "correctAnswer": "1/2",
+   "explanation": "The even outcomes are 2, 4 and 6. That is 3 favourable outcomes out of 6, which simplifies to 1/2.",
+   "difficulty": 2,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Probability",
+   "learningOutcome": "Express probability outcomes in fractions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A bag has 3 red balls, 2 blue balls and 5 green balls. What is the probability of picking a blue ball at random?",
+   "options": [
+    "1/5",
+    "2/5",
+    "3/10",
+    "1/2"
+   ],
+   "correctAnswer": "1/5",
+   "explanation": "There are 10 balls altogether and 2 are blue. The probability is 2/10, which simplifies to 1/5.",
+   "difficulty": 3,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Probability",
+   "learningOutcome": "Express probability outcomes in fractions in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "In 40 throws of a die, the number 6 appeared 12 times. What is the experimental probability of getting a 6?",
+   "options": [
+    "3/10",
+    "1/6",
+    "12/52",
+    "2/5"
+   ],
+   "correctAnswer": "3/10",
+   "explanation": "Experimental probability is successful outcomes divided by total trials: 12/40 = 3/10.",
+   "difficulty": 3,
+   "strandTitle": "Data Handling and Probability",
+   "subStrandTitle": "Probability",
+   "learningOutcome": "Write experimental probability outcomes in different situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 101,
+   "type": "SHORT_ANSWER",
+   "prompt": "What is 6085307 written in words?",
+   "options": [],
+   "correctAnswer": "Six million eighty five thousand three hundred and seven.",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 102,
+   "type": "SHORT_ANSWER",
+   "prompt": "What is the total value of digit 1 in the difference between nine million and eight thousand and seventy six?",
+   "options": [],
+   "correctAnswer": "1000",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 103,
+   "type": "SHORT_ANSWER",
+   "prompt": "Martin read ½ of a storybook on Monday, ¹/₃ on Tuesday and the rest on Wednesday. A. What fraction did he read on Monday and Tuesday? B. What fraction did he read on Wednesday?",
+   "options": [],
+   "correctAnswer": "a. ⁵/₆ ¹/₆",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 104,
+   "type": "SHORT_ANSWER",
+   "prompt": "A man earns a salary of sh. 36 000 per month. He spends ¹/₈ of it on rent, ¹/₄ of the remainder on school fees and saves the rest",
+   "options": [],
+   "correctAnswer": "a. Sh. 4500 Sh. 17 875 c. Sh. 23 625",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 105,
+   "type": "SHORT_ANSWER",
+   "prompt": "a. Identify a recurring decimal among the following; ¹/₄, 1½, ⁵/₂₂, ³/₈ b. Write the recurring decimal correct to three decimal places. c. Write the recurring decimal using the decimal notation",
+   "options": [],
+   "correctAnswer": "a. ⁵/₂₂ 0.227",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 106,
+   "type": "SHORT_ANSWER",
+   "prompt": "Albert used litres of petrol to run a machine. Write the amount of petrol used as a fraction in the simplest form",
+   "options": [],
+   "correctAnswer": "⁵/₃₃",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  },
+  {
+   "questionNumber": 107,
+   "type": "SHORT_ANSWER",
+   "prompt": "Write in standard form",
+   "options": [],
+   "correctAnswer": "a. 6.429 x 10³ 4.96 x 10⁻³",
+   "explanation": "From G8-MATHEMATICS-2024-TEACHER-CO-KE marking scheme.",
+   "difficulty": 2,
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ],
+   "imageKey": null,
+   "strandTitle": "Exam Practice",
+   "subStrandTitle": "G8-MATHEMATICS-2024-TEACHER-CO-KE"
+  }
+ ]
 }

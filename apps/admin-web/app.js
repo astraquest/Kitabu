@@ -5,7 +5,7 @@ const REFRESH_MS = 30000;
 
 let grades = ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 const subjects = ["Mathematics", "English", "Science", "Kiswahili", "Social Studies", "Computer Science"];
-const timeRangeOptions = ["This Term", "This Month", "Last Month", "Last 3 Months", "Last 6 Months", "This Year", "Lifetime"];
+const timeRangeOptions = ["Last 3 Months", "This Month", "Last Month", "Last 6 Months", "This Year", "Lifetime"];
 const defaultSchoolPlanPricesKsh = { weekly: 100, monthly: 500, annual: 1999 };
 const kenyaCounties = [
   "Baringo County", "Bomet County", "Bungoma County", "Busia County", "Elgeyo-Marakwet County", "Embu County",
@@ -18,6 +18,11 @@ const kenyaCounties = [
   "Trans Nzoia County", "Turkana County", "Uasin Gishu County", "Vihiga County", "Wajir County", "West Pokot County"
 ];
 let refreshPromise = null;
+let studentSchoolPickerState = null;
+let studentSchoolPickerTimer = null;
+let studentSchoolPickerRequest = null;
+let studentProfileSaveState = { userId: null, state: "idle" };
+let studentAnalyticsState = { userId: null, status: "idle", data: null, error: "", controller: null, requestId: 0 };
 
 const navItems = [
   { key: "dashboard", label: "Dashboard", icon: "chart" },
@@ -51,10 +56,12 @@ const state = {
   selectedUsageFeature: "All Features",
   teacherPeriod: "This Week",
   parentPeriod: "This Week",
+  parentPage: 0,
+  parentPageSize: 25,
   parentMessageScope: "All Parents",
-  studentTrendRange: "Last 7 days",
-  timeRange: "This Term",
+  timeRange: "Last 3 Months",
   search: "",
+  routeFilters: {},
   remedialAnalysis: {},
   remedialAiReports: {},
   remedialAnalysisErrors: {},
@@ -77,7 +84,75 @@ const state = {
     teacherStudents: [],
     teacherAssignments: [],
     parentChildren: [],
-    notifications: []
+    notifications: [],
+    schoolDirectory: {
+      search: "",
+      county: "",
+      grade: "",
+      sort: "name",
+      direction: "asc",
+      limit: 50,
+      offset: 0,
+      loading: false,
+      error: "",
+      requestId: 0,
+      requestKey: "",
+      debounceTimer: null,
+      controller: null,
+      schools: [],
+      total: 0,
+      facets: { counties: [], grades: [] },
+      summary: null,
+      highlights: null,
+      loaded: false,
+      focusList: false
+    },
+    userDirectory: {
+      search: "",
+      county: "",
+      grade: "",
+      schoolId: "",
+      schoolName: "",
+      status: "",
+      sort: "name",
+      direction: "asc",
+      limit: 50,
+      offset: 0,
+      loading: false,
+      error: "",
+      requestId: 0,
+      requestKey: "",
+      debounceTimer: null,
+      controller: null,
+      users: [],
+      total: 0,
+      facets: { counties: [], grades: [], schools: [], statuses: [] },
+      summary: null,
+      highlights: null,
+      loaded: false,
+      focusList: false
+    },
+    usageDirectory: {
+      period: "month",
+      feature: "",
+      loading: false,
+      error: "",
+      requestId: 0,
+      requestKey: "",
+      controller: null,
+      topUsers: [],
+      topFeatures: [],
+      featureOptions: [],
+      trackedUsers: 0,
+      blockedEvents: 0,
+      blockedEventRows: [],
+      costBySchool: [],
+      marginByUser: [],
+      modelBreakdown: [],
+      costTrend: [],
+      dateRange: null,
+      loaded: false
+    }
   }
 };
 
@@ -192,7 +267,7 @@ function renderNav() {
   `).join("");
   nav.querySelectorAll(".nav-item").forEach(button => {
     button.addEventListener("click", () => {
-      state.route = button.dataset.route;
+      switchAdminRoute(button.dataset.route);
       document.querySelector(".sidebar").classList.remove("open");
       renderNav();
       renderRoute();
@@ -259,7 +334,8 @@ async function api(path, options = {}) {
     method: options.method || "GET",
     headers,
     credentials: "include",
-    body: options.body ? JSON.stringify(options.body) : undefined
+    body: options.body ? JSON.stringify(options.body) : undefined,
+    signal: options.signal
   });
   let payload = null;
   const text = await response.text();
@@ -545,6 +621,9 @@ function renderRoute() {
   pageSub.textContent = sub;
   content.innerHTML = (renderers[state.route] || renderDashboard)();
   bindRouteEvents();
+  if (state.route === "users") ensureUserDirectoryLoaded();
+  if (state.route === "schools") ensureSchoolDirectoryLoaded();
+  if (state.route === "usage") ensureUsageAnalyticsLoaded();
 }
 
 function money(value) {
@@ -596,7 +675,7 @@ function countyForSchoolName(schoolName) {
 function isInSelectedCounty(record) {
   if (state.selectedCounty === "All Counties") return true;
   const county = record.county || countyForSchoolName(record.school || record.name);
-  return county === state.selectedCounty;
+  return canonicalStudentCounty(county) === canonicalStudentCounty(state.selectedCounty);
 }
 
 function totalStudents() {
@@ -633,7 +712,6 @@ function addMonths(date, amount) {
 function timeRangeBounds(range = selectedTimeRange()) {
   const now = new Date();
   const currentMonth = monthStart(now);
-  if (range === "This Term") return { start: addMonths(currentMonth, -2), end: addMonths(currentMonth, 1) };
   if (range === "Last Month") return { start: addMonths(currentMonth, -1), end: currentMonth };
   if (range === "Last 3 Months") return { start: addMonths(currentMonth, -2), end: addMonths(currentMonth, 1) };
   if (range === "Last 6 Months") return { start: addMonths(currentMonth, -5), end: addMonths(currentMonth, 1) };
@@ -805,6 +883,7 @@ function studentAiUsage(user) {
   const rows = [...(state.data.ai?.marginByUser || []), ...(state.data.ai?.topUsers || [])];
   const row = rows.find(item => String(item.id || "") === String(user.id || ""));
   return {
+    hasData: Boolean(row),
     totalTokens: Number(row?.total_tokens ?? row?.totalTokens ?? 0),
     spendKshCents: Number(row?.spend_ksh_cents ?? row?.spendKshCents ?? 0)
   };
@@ -828,14 +907,13 @@ function usageStudentRows() {
 }
 
 function usageBaseTotals() {
-  const students = usageStudentRows();
-  const ai = state.data.ai || {};
-  const featureRows = ai.topFeatures || [];
+  const directory = state.data.usageDirectory;
+  const featureRows = directory.topFeatures || [];
   const totalTokens = featureRows.reduce((sum, row) => sum + Number(row.total_tokens ?? row.totalTokens ?? 0), 0);
   const rawSpendCents = featureRows.reduce((sum, row) => sum + Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0), 0);
   return {
-    students,
-    studentCount: students.length,
+    students: [],
+    studentCount: Number(directory.trackedUsers || 0),
     totalTokens,
     totalCost: rawSpendCents / 100
   };
@@ -849,14 +927,17 @@ function usageFeatureRows() {
     { icon: "clipboard", tone: "purple" },
     { icon: "mic", tone: "red" }
   ];
-  const rows = (state.data.ai?.topFeatures || []).map((row, index) => {
+  const directory = state.data.usageDirectory;
+  const rows = (directory.topFeatures || []).map((row, index) => {
     const style = styles[index % styles.length];
     const tokens = Number(row.total_tokens ?? row.totalTokens ?? 0);
     const cost = Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0) / 100;
     const students = Number(row.active_ai_users ?? row.activeAiUsers ?? 0);
+    const feature = String(row.feature || "unknown");
     return {
       ...style,
-      label: String(row.feature || "Unknown feature").replaceAll("_", " "),
+      key: feature,
+      label: feature.replaceAll("_", " "),
       cost,
       tokens,
       students,
@@ -864,24 +945,29 @@ function usageFeatureRows() {
       costPerStudent: students ? cost / students : 0
     };
   });
-  return state.selectedUsageFeature === "All Features" ? rows : rows.filter(row => row.label === state.selectedUsageFeature);
+  return directory.feature ? rows.filter(row => row.key === directory.feature) : rows;
 }
 
 function usageAllFeatureRows() {
-  const selectedFeature = state.selectedUsageFeature;
-  state.selectedUsageFeature = "All Features";
+  const directory = state.data.usageDirectory;
+  const selectedFeature = directory.feature;
+  directory.feature = "";
   const rows = usageFeatureRows();
-  state.selectedUsageFeature = selectedFeature;
+  directory.feature = selectedFeature;
   return rows;
 }
 
 function usageFeatureOptions() {
-  return ["All Features", ...usageAllFeatureRows().map(row => row.label)];
+  const directory = state.data.usageDirectory;
+  const options = new Set(directory.featureOptions || []);
+  (directory.topFeatures || []).forEach(row => { if (row.feature) options.add(String(row.feature)); });
+  if (directory.feature) options.add(directory.feature);
+  return ["All Features", ...Array.from(options).sort((left, right) => left.localeCompare(right))];
 }
 
 function usageModelRows() {
   const tones = ["#2578f7", "#29b765", "#ff9f16", "#7658dc", "#ef476f", "#12a4a6"];
-  return (state.data.ai?.modelBreakdown || []).map((row, index) => {
+  return (state.data.usageDirectory.modelBreakdown || []).map((row, index) => {
     const tokens = Number(row.total_tokens ?? row.totalTokens ?? 0);
     const spend = Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0) / 100;
     return {
@@ -917,9 +1003,7 @@ function usageHighlights() {
 }
 
 function usageCostTrend() {
-  const days = state.usagePeriod === "Today" ? 1 : state.usagePeriod === "This Week" ? 7 : 30;
-  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
-  const rows = (state.data.ai?.costTrend || []).filter(row => new Date(row.period).getTime() >= cutoff);
+  const rows = state.data.usageDirectory.costTrend || [];
   return {
     labels: rows.map(row => new Date(row.period).toLocaleDateString("en-KE", { month: "short", day: "numeric" })),
     values: rows.map(row => Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0) / 100)
@@ -928,7 +1012,8 @@ function usageCostTrend() {
 
 function usageCostTrendChart() {
   const series = usageCostTrend();
-  if (!series.values.length) return `<div class="empty-state">No AI cost events recorded for ${escapeHtml(state.usagePeriod.toLowerCase())}.</div>`;
+  const periodLabel = state.data.usageDirectory.dateRange?.label || "this period";
+  if (!series.values.length) return `<div class="empty-state">No AI cost events recorded for ${escapeHtml(periodLabel.toLowerCase())}.</div>`;
   const max = Math.max(...series.values, 1);
   const points = series.values.map((value, index) => {
     const x = 58 + index * (670 / Math.max(1, series.values.length - 1));
@@ -938,7 +1023,7 @@ function usageCostTrendChart() {
   const line = points.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
   const area = `${line} L${points.at(-1).x.toFixed(1)},242 L${points[0].x.toFixed(1)},242 Z`;
   const peak = [...points].sort((left, right) => right.value - left.value)[0];
-  return `<svg class="usage-line-chart" viewBox="0 0 760 286" role="img" aria-label="Cost trend for ${escapeHtml(state.usagePeriod)}">
+  return `<svg class="usage-line-chart" viewBox="0 0 760 286" role="img" aria-label="Cost trend for ${escapeHtml(periodLabel)}">
     <defs>
       <linearGradient id="usageTrendFill" x1="0" x2="0" y1="0" y2="1">
         <stop offset="0%" stop-color="#1d72f3" stop-opacity="0.20"/>
@@ -1006,7 +1091,7 @@ function usageFeatureTableRow(row) {
 }
 
 function usageSchoolRows() {
-  return (state.data.ai?.costBySchool || []).map(row => ({
+  return (state.data.usageDirectory.costBySchool || []).map(row => ({
     name: row.name || "Unknown school",
     tokens: Number(row.total_tokens ?? row.totalTokens ?? 0),
     spend: Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0) / 100,
@@ -1015,20 +1100,8 @@ function usageSchoolRows() {
 }
 
 function usageBlockedRows() {
-  return (state.data.ai?.blockedEventRows || []).filter(row => state.selectedUsageFeature === "All Features" || String(row.feature || "").replaceAll("_", " ") === state.selectedUsageFeature);
-}
-
-function salesTimeScale(range = selectedTimeRange()) {
-  const scales = {
-    "This Month": 0.34,
-    "Last Month": 0.31,
-    "Last 3 Months": 0.78,
-    "Last 6 Months": 1.28,
-    "This Year": 1.72,
-    "Lifetime": 2.4,
-    "This Term": 1
-  };
-  return scales[range] || 1;
+  const selected = state.data.usageDirectory.feature;
+  return (state.data.usageDirectory.blockedEventRows || []).filter(row => !selected || String(row.feature || "") === selected);
 }
 
 function sourceSchoolsForAgents() {
@@ -1041,24 +1114,21 @@ function salesAgentSourceRows() {
     hasRole(user, "sales") ||
     String(user.role || "").toLowerCase().includes("sales")
   );
-  const schools = sourceSchoolsForAgents();
   return liveAgents.map((agent, index) => {
     const assigned = Array.isArray(agent.assignedSchools)
-      ? agent.assignedSchools
-      : agent.school
-        ? [agent.school]
-        : schools.filter((_, schoolIndex) => schoolIndex % Math.max(1, liveAgents.length) === index).map(school => school.name);
+      ? agent.assignedSchools.map(school => typeof school === "string" ? school : school?.name).filter(Boolean)
+      : agent.school && agent.school !== "No School" ? [agent.school] : [];
     return {
       id: agent.id || `agent-${index}`,
       name: agent.name || agent.fullName || agent.email || "Sales Agent",
       email: agent.email || "-",
       phone: agent.phone || agent.phoneNumber || "-",
-      county: agent.county || agent.location || "",
+      county: canonicalStudentCounty(agent.county || agent.location || ""),
       status: normalizeUserStatus(agent.status),
       assignedSchoolNames: assigned,
-      revenue: Number(agent.revenue || agent.revenueKsh || agent.salesRevenue || 0),
-      conversionRate: Number(agent.conversionRate || agent.conversion || 0),
-      commission: Number(agent.commission || agent.commissionKsh || 0)
+      revenue: agent.revenue ?? agent.revenueKsh ?? agent.salesRevenue ?? null,
+      conversionRate: agent.conversionRate ?? agent.conversion ?? null,
+      commission: agent.commission ?? agent.commissionKsh ?? null
     };
   });
 }
@@ -1066,26 +1136,30 @@ function salesAgentSourceRows() {
 function normalizeSalesAgent(agent, index = 0) {
   const schools = sourceSchoolsForAgents();
   const assignedSchools = (agent.assignedSchoolNames || agent.assignedSchools || [])
-    .map(name => schools.find(school => String(school.name).toLowerCase() === String(name).toLowerCase()))
-    .filter(Boolean);
+    .map((name, schoolIndex) => {
+      const schoolName = typeof name === "string" ? name : name?.name;
+      const known = schools.find(school => String(school.name).toLowerCase() === String(schoolName).toLowerCase());
+      return known || {
+        id: `assigned-school-${agent.id || index}-${schoolIndex}`,
+        name: schoolName || "Assigned school",
+        county: canonicalStudentCounty(agent.county || ""),
+        metricsUnavailable: true,
+        learnerCount: null,
+        activeLearners: null,
+        engagement: null,
+        leadStatus: ""
+      };
+    })
+    .filter(school => school.name);
   const agentCounty = agent.county || agent.location || assignedSchools[0]?.county || "";
-  const countySchools = agentCounty ? schools.filter(school => school.county === agentCounty) : [];
-  const fallbackSchools = assignedSchools.length
-    ? assignedSchools
-    : countySchools.length
-      ? countySchools
-      : schools.filter((_, schoolIndex) => schoolIndex % Math.max(1, salesAgentSourceRows().length) === index);
-  const scopedSchools = fallbackSchools.length ? fallbackSchools : schools.slice(0, 1);
-  const county = agentCounty || scopedSchools[0]?.county || "";
-  const studentCount = scopedSchools.reduce((sum, school) => sum + Number(school.learnerCount || 0), 0);
-  const activeLearners = scopedSchools.reduce((sum, school) => sum + Number(school.activeLearners || 0), 0);
-  const avgEngagement = scopedSchools.length
+  const scopedSchools = assignedSchools;
+  const county = canonicalStudentCounty(agentCounty || scopedSchools[0]?.county || "");
+  const schoolMetricsKnown = scopedSchools.every(school => !school.metricsUnavailable);
+  const studentCount = schoolMetricsKnown ? scopedSchools.reduce((sum, school) => sum + Number(school.learnerCount || 0), 0) : null;
+  const activeLearners = schoolMetricsKnown ? scopedSchools.reduce((sum, school) => sum + Number(school.activeLearners || 0), 0) : null;
+  const avgEngagement = schoolMetricsKnown && scopedSchools.length
     ? Math.round(scopedSchools.reduce((sum, school) => sum + Number(school.engagement || 0), 0) / scopedSchools.length)
-    : 0;
-  const scale = salesTimeScale();
-  const baseRevenue = Number(agent.revenue || 0) || Math.round(activeLearners * 520);
-  const revenue = Math.round(baseRevenue * scale);
-  const conversionRate = Number(agent.conversionRate || 0) || Math.round((avgEngagement + (studentCount ? activeLearners / studentCount * 100 : 0)) / 2);
+    : null;
   return {
     id: agent.id || `sales-agent-${index}`,
     name: agent.name || "Sales Agent",
@@ -1098,9 +1172,9 @@ function normalizeSalesAgent(agent, index = 0) {
     studentCount,
     activeLearners,
     engagement: avgEngagement,
-    revenue,
-    commission: Math.round((Number(agent.commission || 0) || Math.round(baseRevenue * 0.15)) * scale),
-    conversionRate
+    revenue: agent.revenue === null || agent.revenue === undefined ? null : Number(agent.revenue),
+    commission: agent.commission === null || agent.commission === undefined ? null : Number(agent.commission),
+    conversionRate: agent.conversionRate === null || agent.conversionRate === undefined ? null : Number(agent.conversionRate)
   };
 }
 
@@ -1108,10 +1182,10 @@ function salesAgentRows() {
   const term = state.search.trim().toLowerCase();
   return salesAgentSourceRows()
     .map(normalizeSalesAgent)
-    .filter(agent => state.selectedCounty === "All Counties" || agent.county === state.selectedCounty || agent.assignedSchools.some(school => school.county === state.selectedCounty))
+    .filter(agent => state.selectedCounty === "All Counties" || canonicalStudentCounty(agent.county) === canonicalStudentCounty(state.selectedCounty) || agent.assignedSchools.some(school => canonicalStudentCounty(school.county) === canonicalStudentCounty(state.selectedCounty)))
     .filter(agent => state.selectedAgentStatus === "All Agents" || agent.status === state.selectedAgentStatus)
     .filter(agent => !term || `${agent.name} ${agent.email} ${agent.phone} ${agent.county} ${agent.assignedSchools.map(school => `${school.name} ${school.county}`).join(" ")}`.toLowerCase().includes(term))
-    .sort((left, right) => right.revenue - left.revenue || right.activeLearners - left.activeLearners);
+    .sort((left, right) => right.activeLearners - left.activeLearners || left.name.localeCompare(right.name));
 }
 
 function salesAgentStatusOptions() {
@@ -1120,20 +1194,34 @@ function salesAgentStatusOptions() {
 }
 
 function salesHighlights(rows) {
-  const sortedByRevenue = [...rows].sort((left, right) => right.revenue - left.revenue || right.conversionRate - left.conversionRate);
   const sortedByCoverage = [...rows].sort((left, right) => right.studentCount - left.studentCount || right.schoolCount - left.schoolCount);
+  const recordedRevenue = rows.filter(row => Number.isFinite(row.revenue));
+  const recordedLearners = rows.every(row => Number.isFinite(row.studentCount));
   return {
     total: rows.length,
-    managedLearners: rows.reduce((sum, row) => sum + row.studentCount, 0),
-    best: sortedByRevenue[0] || null,
-    worst: sortedByRevenue.at(-1) || null,
+    managedLearners: recordedLearners ? rows.reduce((sum, row) => sum + row.studentCount, 0) : null,
+    best: rows[0] || null,
+    worst: rows.at(-1) || null,
     coverage: sortedByCoverage[0] || null,
-    revenue: rows.reduce((sum, row) => sum + row.revenue, 0)
+    revenue: recordedRevenue.length ? recordedRevenue.reduce((sum, row) => sum + row.revenue, 0) : null
   };
 }
 
 function salesConvertedSchools(rows) {
-  return rows.reduce((sum, row) => sum + row.assignedSchools.filter(school => Number(school.learnerCount || 0) > 0).length, 0);
+  const converted = rows.flatMap(row => row.assignedSchools).filter(school => school.leadStatus === "customer");
+  return converted.length ? converted.length : null;
+}
+
+function salesRecordedMoney(value) {
+  return value === null || value === undefined || !Number.isFinite(Number(value)) ? "Not recorded" : moneyKesShort(value);
+}
+
+function salesRecordedPercent(value) {
+  return value === null || value === undefined || !Number.isFinite(Number(value)) ? "Not recorded" : percent(value);
+}
+
+function salesRecordedCount(value) {
+  return value === null || value === undefined || !Number.isFinite(Number(value)) ? "Not recorded" : Number(value).toLocaleString("en-KE");
 }
 
 function renderDashboard() {
@@ -1156,11 +1244,12 @@ function renderDashboard() {
         ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
         ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
         ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
+        <span class="filter-scope-note">These filters apply to student metrics and signups.</span>
       </div>
     </div>
     <div class="metric-grid">
       ${metric("Active Students", active, "Current engagement", "green", "active")}
-      ${metric("Total Revenue", money(revenue), "Paid plans", "red", "wallet")}
+      ${metric("Total Revenue", money(revenue), "All-time billing; filters do not apply", "red", "wallet")}
       ${metric("New Sign Ups", signupUsers.length, selectedTimeRange(), "amber", "add-user")}
       ${metric("Total Students", users, "Student accounts", "blue", "students")}
     </div>
@@ -1170,17 +1259,17 @@ function renderDashboard() {
         ${barChart(signups.labels, signups.values, "#2f80ed")}
       </section>
       <section class="panel">
-        <div class="panel-header"><div><h2>Revenue</h2><p>Revenue signal by plan or account.</p></div></div>
+        <div class="panel-header"><div><h2>Revenue</h2><p>All-time revenue signal by plan or account; filters do not apply.</p></div></div>
         ${lineChart(revenueRows.labels, revenueRows.values, "#10bfa4")}
       </section>
     </div>
     <div class="two-col">
       <section class="panel">
-        <div class="panel-header"><div><h2>Subject Engagement</h2><p>Based on assignments or published curriculum.</p></div></div>
+        <div class="panel-header"><div><h2>Subject Engagement</h2><p>Loaded assignments or published curriculum; filters do not apply.</p></div></div>
         ${donutChart(subjectRows)}
       </section>
       <section class="panel">
-        <div class="panel-header"><div><h2>Assessment Scores</h2><p>Assignment averages by subject.</p></div></div>
+        <div class="panel-header"><div><h2>Assessment Scores</h2><p>Loaded assignment averages by subject; filters do not apply.</p></div></div>
         ${barChart(scores.map(row => row.label), scores.map(row => row.value), "#8179d6")}
       </section>
     </div>`;
@@ -1369,14 +1458,15 @@ function normalizeUserRow(user, index) {
     name: user.name || user.fullName || user.email || "Student",
     email: user.email || "",
     phone: user.phone || user.phoneNumber || "",
-    county: user.county || "",
+    county: canonicalStudentCounty(user.county || ""),
     schoolId: user.schoolId || user.school_id || null,
     subscriptionPlanName: user.subscriptionPlanName || null,
     subscriptionPlanCode: user.subscriptionPlanCode || null,
     subscriptionStatus: user.hasActiveSubscription ? "active" : (user.subscriptionStatus || "inactive"),
     subscriptionPeriodEnd: user.activeSubscriptionPeriodEnd || null,
-    school: user.school || "Kitabu School",
-    grade: user.grade || "Grade",
+    school: user.school || "Not set",
+    grade: user.grade || "Not set",
+    lastActive: user.lastActive || user.last_active || "",
     status: normalizeUserStatus(user.status),
     avatar: key,
     raw: user
@@ -1441,7 +1531,8 @@ function normalizeSchoolRow(school, index = 0) {
   return {
     id: school.id || `school-${index}`,
     name: school.name || "School",
-    county: school.county || metadata.county || countyFromLocation(location),
+    leadStatus: school.leadStatus || school.lead_status || "",
+    county: canonicalStudentCounty(school.county || metadata.county || countyFromLocation(location)),
     location,
     principal: school.principal || "-",
     phone: school.phone || "-",
@@ -1462,7 +1553,7 @@ function normalizeSchoolRow(school, index = 0) {
     averageScore,
     availableGrades,
     gradeCounts,
-    createdAt: school.createdAt || school.created_at || new Date().toISOString()
+    createdAt: school.createdAt || school.created_at || null
   };
 }
 
@@ -1531,6 +1622,472 @@ function schoolPayloadFromForm(formData) {
   };
 }
 
+function schoolDirectoryQueryKey() {
+  const directory = state.data.schoolDirectory;
+  return JSON.stringify({
+    search: directory.search.trim(),
+    county: directory.county,
+    grade: directory.grade,
+    sort: directory.sort,
+    direction: directory.direction,
+    limit: directory.limit,
+    offset: directory.offset
+  });
+}
+
+const routeFilterKeys = ["selectedGrade", "selectedSchool", "selectedCounty", "selectedAgentStatus", "timeRange", "search", "selectedSubject", "parentMessageScope", "parentPage", "parentPageSize"];
+const routeFilterDefaults = {
+  dashboard: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", timeRange: "Last 3 Months", search: "" },
+  sales: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", timeRange: "Last 3 Months", search: "" },
+  subjects: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", search: "" },
+  subjectAnalytics: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", search: "" },
+  teacher: { selectedSchool: "All Schools", selectedCounty: "All Counties", selectedGrade: "All Grades", selectedSubject: "All Subjects", selectedAgentStatus: "All Agents", search: "" },
+  parents: { selectedSchool: "All Schools", selectedCounty: "All Counties", selectedGrade: "All Grades", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", search: "", parentMessageScope: "All Parents", parentPage: 0, parentPageSize: 25 },
+  usage: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", timeRange: "Last 3 Months", search: "" },
+  users: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", timeRange: "Last 3 Months", search: "" },
+  schools: { selectedGrade: "All Grades", selectedSchool: "All Schools", selectedCounty: "All Counties", selectedAgentStatus: "All Agents", selectedSubject: "All Subjects", timeRange: "Last 3 Months", search: "" }
+};
+
+function snapshotRouteFilters(route = state.route) {
+  state.routeFilters[route] = Object.fromEntries(routeFilterKeys.map(key => [key, state[key]]));
+}
+
+function switchAdminRoute(route) {
+  snapshotRouteFilters(state.route);
+  state.route = route;
+  const saved = state.routeFilters[route] || routeFilterDefaults[route] || {};
+  routeFilterKeys.forEach(key => {
+    if (Object.prototype.hasOwnProperty.call(saved, key)) state[key] = saved[key];
+    else if (Object.prototype.hasOwnProperty.call(routeFilterDefaults[route] || {}, key)) state[key] = routeFilterDefaults[route][key];
+  });
+}
+
+function schoolDirectoryCountyOptions() {
+  const directory = state.data.schoolDirectory;
+  const values = new Set(kenyaCounties);
+  (directory.facets?.counties || []).forEach(item => values.add(canonicalStudentCounty(item.county || item.value)));
+  return ["All Counties", ...Array.from(values).filter(Boolean).sort()];
+}
+
+function schoolDirectoryGradeOptions() {
+  const values = new Set(grades);
+  (state.data.schoolDirectory.facets?.grades || []).forEach(item => { if (item.grade) values.add(item.grade); });
+  return ["All Grades", ...Array.from(values).sort((left, right) => left.localeCompare(right, "en", { numeric: true }))];
+}
+
+function normalizeDirectorySchool(school, index = 0) {
+  const metrics = school.pilot?.metrics || {};
+  return normalizeSchoolRow({
+    ...school,
+    id: school.id || school.schoolId,
+    name: school.name || "School",
+    county: canonicalStudentCounty(school.county || school.location || ""),
+    totalStudents: school.totalStudents ?? 0,
+    activeLearners: school.activeLearners ?? metrics.engagedStudents ?? 0,
+    averageScore: school.averageScore ?? metrics.averageMastery ?? 0,
+    engagement: school.engagement ?? (Number(school.totalStudents || 0) ? Number(metrics.engagedStudents || 0) / Number(school.totalStudents) * 100 : 0),
+    availableGrades: school.availableGrades || [],
+    gradeCounts: school.gradeCounts || {},
+    createdAt: school.createdAt || school.created_at || null
+  }, index);
+}
+
+function normalizeDirectoryHighlight(highlight) {
+  if (!highlight) return null;
+  return {
+    ...highlight,
+    id: highlight.schoolId || highlight.id,
+    county: canonicalStudentCounty(highlight.county || ""),
+    activeLearners: Number(highlight.activeLearners || 0),
+    averageScore: Number(highlight.averageScore || 0),
+    engagement: Number(highlight.engagementRate || 0),
+    learnerCount: Number(highlight.totalStudents || 0),
+    name: highlight.name || "School"
+  };
+}
+
+function schoolDirectorySearchFocusSnapshot() {
+  const input = document.getElementById("schoolDirectorySearchInput");
+  if (!input || document.activeElement !== input) return null;
+  return {
+    start: input.selectionStart,
+    end: input.selectionEnd,
+    direction: input.selectionDirection || "none"
+  };
+}
+
+function restoreSchoolDirectorySearchFocus(snapshot) {
+  if (!snapshot || state.route !== "schools") return;
+  const input = document.getElementById("schoolDirectorySearchInput");
+  if (!input) return;
+  input.focus({ preventScroll: true });
+  try {
+    input.setSelectionRange(snapshot.start, snapshot.end, snapshot.direction);
+  } catch {
+    input.setSelectionRange(snapshot.start, snapshot.end);
+  }
+}
+
+function invalidateSchoolDirectoryRequest() {
+  const directory = state.data.schoolDirectory;
+  if (directory.debounceTimer) clearTimeout(directory.debounceTimer);
+  directory.debounceTimer = null;
+  directory.controller?.abort();
+  directory.controller = null;
+  directory.requestId += 1;
+  directory.requestKey = "";
+  directory.loading = false;
+  directory.error = "";
+}
+
+function schoolDirectoryScheduleSearch() {
+  const directory = state.data.schoolDirectory;
+  if (directory.debounceTimer) clearTimeout(directory.debounceTimer);
+  directory.debounceTimer = setTimeout(() => {
+    directory.debounceTimer = null;
+    loadSchoolDirectory({ force: true });
+  }, 300);
+}
+
+function ensureSchoolDirectoryLoaded() {
+  const directory = state.data.schoolDirectory;
+  if (directory.debounceTimer || directory.loading || directory.error || (directory.loaded && directory.requestKey === schoolDirectoryQueryKey())) return;
+  loadSchoolDirectory();
+}
+
+async function loadSchoolDirectory(options = {}) {
+  const directory = state.data.schoolDirectory;
+  if (directory.debounceTimer) return;
+  const requestKey = schoolDirectoryQueryKey();
+  if (!options.force && (directory.loading || (directory.loaded && directory.requestKey === requestKey))) return;
+  directory.controller?.abort();
+  const controller = new AbortController();
+  const requestId = ++directory.requestId;
+  directory.controller = controller;
+  directory.requestKey = requestKey;
+  directory.loading = true;
+  directory.error = "";
+  const loadingSearchFocus = schoolDirectorySearchFocusSnapshot();
+  if (state.route === "schools") {
+    renderRoute();
+    restoreSchoolDirectorySearchFocus(loadingSearchFocus);
+  }
+  try {
+    const query = new URLSearchParams({
+      query: directory.search.trim(),
+      county: directory.county,
+      grade: directory.grade,
+      sort: directory.sort,
+      direction: directory.direction,
+      includeOverview: "true",
+      limit: String(directory.limit),
+      offset: String(directory.offset)
+    });
+    const payload = await api(`/admin/schools?${query.toString()}`, { signal: controller.signal });
+    if (requestId !== directory.requestId || requestKey !== schoolDirectoryQueryKey()) return;
+    if (payload.total > 0 && directory.offset >= payload.total && directory.offset > 0) {
+      directory.offset = Math.max(0, Math.floor((payload.total - 1) / directory.limit) * directory.limit);
+      directory.loaded = false;
+      directory.requestKey = "";
+      return loadSchoolDirectory({ force: true });
+    }
+    directory.schools = (payload.schools || []).map(normalizeDirectorySchool);
+    directory.total = Number(payload.total || 0);
+    directory.facets = payload.facets || { counties: [], grades: [] };
+    directory.summary = payload.summary || null;
+    directory.highlights = payload.highlights || null;
+    directory.loaded = true;
+  } catch (error) {
+    if (error?.name === "AbortError" || requestId !== directory.requestId || requestKey !== schoolDirectoryQueryKey()) return;
+    directory.error = error.message || "Unable to load the school directory.";
+    directory.loaded = false;
+  } finally {
+    if (requestId !== directory.requestId) return;
+    directory.loading = false;
+    directory.controller = null;
+    const focusList = directory.focusList;
+    directory.focusList = false;
+    if (state.route === "schools") {
+      const resultsSearchFocus = schoolDirectorySearchFocusSnapshot();
+      renderRoute();
+      restoreSchoolDirectorySearchFocus(resultsSearchFocus);
+      if (focusList) setTimeout(() => document.querySelector("[data-school-directory-list]")?.focus(), 0);
+    }
+  }
+}
+
+function refreshSchoolDirectory() {
+  const directory = state.data.schoolDirectory;
+  invalidateSchoolDirectoryRequest();
+  directory.loaded = false;
+  directory.requestKey = "";
+  if (state.route === "schools") void loadSchoolDirectory({ force: true });
+}
+
+function userDirectoryQueryKey() {
+  const directory = state.data.userDirectory;
+  return JSON.stringify({
+    search: directory.search.trim(),
+    county: directory.county,
+    grade: directory.grade,
+    schoolId: directory.schoolId,
+    status: directory.status,
+    sort: directory.sort,
+    direction: directory.direction,
+    limit: directory.limit,
+    offset: directory.offset
+  });
+}
+
+function userDirectoryCountyOptions() {
+  const values = new Set(kenyaCounties);
+  (state.data.userDirectory.facets?.counties || []).forEach(item => values.add(canonicalStudentCounty(item.county || item.value)));
+  return ["All Counties", ...Array.from(values).filter(Boolean).sort()];
+}
+
+function userDirectoryGradeOptions() {
+  const values = new Set(grades);
+  (state.data.userDirectory.facets?.grades || []).forEach(item => { if (item.grade) values.add(item.grade); });
+  return ["All Grades", ...Array.from(values).sort((left, right) => left.localeCompare(right, "en", { numeric: true }))];
+}
+
+function userDirectorySchoolOptions() {
+  const directory = state.data.userDirectory;
+  const facets = state.data.userDirectory.facets?.schools || [];
+  const options = [{ id: "", label: "All Schools" }, ...facets.map(item => ({ id: item.schoolId || "none", label: item.school || "No School" }))];
+  if (directory.schoolId && !options.some(option => option.id === directory.schoolId)) {
+    options.push({ id: directory.schoolId, label: directory.schoolName || "Selected school" });
+  }
+  return options;
+}
+
+function userDirectoryStatusOptions() {
+  const values = new Set(["Online", "Offline"]);
+  (state.data.userDirectory.facets?.statuses || []).forEach(item => { if (item.status) values.add(item.status); });
+  return ["All Statuses", ...Array.from(values)];
+}
+
+function normalizeUserDirectoryHighlight(highlight, dateKey) {
+  if (!highlight?.id) return null;
+  const user = normalizeUserRow({ id: highlight.id, name: highlight.name || "Student", status: "Offline" });
+  const date = highlight[dateKey] ? new Date(highlight[dateKey]) : null;
+  return { user, date: date && !Number.isNaN(date.getTime()) ? date : null };
+}
+
+function userDirectorySearchFocusSnapshot() {
+  const input = document.getElementById("userDirectorySearchInput");
+  if (!input || document.activeElement !== input) return null;
+  return { start: input.selectionStart, end: input.selectionEnd, direction: input.selectionDirection || "none" };
+}
+
+function restoreUserDirectorySearchFocus(snapshot) {
+  if (!snapshot || state.route !== "users") return;
+  const input = document.getElementById("userDirectorySearchInput");
+  if (!input) return;
+  input.focus({ preventScroll: true });
+  try {
+    input.setSelectionRange(snapshot.start, snapshot.end, snapshot.direction);
+  } catch {
+    input.setSelectionRange(snapshot.start, snapshot.end);
+  }
+}
+
+function invalidateUserDirectoryRequest() {
+  const directory = state.data.userDirectory;
+  if (directory.debounceTimer) clearTimeout(directory.debounceTimer);
+  directory.debounceTimer = null;
+  directory.controller?.abort();
+  directory.controller = null;
+  directory.requestId += 1;
+  directory.requestKey = "";
+  directory.loading = false;
+  directory.error = "";
+}
+
+function userDirectoryScheduleSearch() {
+  const directory = state.data.userDirectory;
+  if (directory.debounceTimer) clearTimeout(directory.debounceTimer);
+  directory.debounceTimer = setTimeout(() => {
+    directory.debounceTimer = null;
+    void loadUserDirectory({ force: true });
+  }, 300);
+}
+
+function ensureUserDirectoryLoaded() {
+  const directory = state.data.userDirectory;
+  if (directory.debounceTimer || directory.loading || directory.error || (directory.loaded && directory.requestKey === userDirectoryQueryKey())) return;
+  void loadUserDirectory();
+}
+
+async function loadUserDirectory(options = {}) {
+  const directory = state.data.userDirectory;
+  if (directory.debounceTimer) return;
+  const requestKey = userDirectoryQueryKey();
+  if (!options.force && (directory.loading || (directory.loaded && directory.requestKey === requestKey))) return;
+  directory.controller?.abort();
+  const controller = new AbortController();
+  const requestId = ++directory.requestId;
+  directory.controller = controller;
+  directory.requestKey = requestKey;
+  directory.loading = true;
+  directory.error = "";
+  const loadingSearchFocus = userDirectorySearchFocusSnapshot();
+  if (state.route === "users") {
+    renderRoute();
+    restoreUserDirectorySearchFocus(loadingSearchFocus);
+  }
+  try {
+    const query = new URLSearchParams({
+      query: directory.search.trim(),
+      county: directory.county,
+      grade: directory.grade,
+      sort: directory.sort,
+      direction: directory.direction,
+      limit: String(directory.limit),
+      offset: String(directory.offset)
+    });
+    if (directory.schoolId) query.set("schoolId", directory.schoolId);
+    if (directory.status) query.set("status", directory.status);
+    const payload = await api(`/admin/users/directory?${query.toString()}`, { signal: controller.signal });
+    if (requestId !== directory.requestId || requestKey !== userDirectoryQueryKey()) return;
+    if (payload.total > 0 && directory.offset >= payload.total && directory.offset > 0) {
+      directory.offset = Math.max(0, Math.floor((payload.total - 1) / directory.limit) * directory.limit);
+      directory.loaded = false;
+      directory.requestKey = "";
+      return loadUserDirectory({ force: true });
+    }
+    directory.users = (payload.users || []).map(normalizeUserRow);
+    directory.total = Number(payload.total || 0);
+    directory.facets = payload.facets || { counties: [], grades: [], schools: [], statuses: [] };
+    directory.summary = payload.summary || null;
+    directory.highlights = payload.highlights || null;
+    directory.loaded = true;
+  } catch (error) {
+    if (error?.name === "AbortError" || requestId !== directory.requestId || requestKey !== userDirectoryQueryKey()) return;
+    directory.error = error.message || "Unable to load the users directory.";
+    directory.loaded = false;
+  } finally {
+    if (requestId !== directory.requestId) return;
+    directory.loading = false;
+    directory.controller = null;
+    const focusList = directory.focusList;
+    directory.focusList = false;
+    if (state.route === "users") {
+      const resultsSearchFocus = userDirectorySearchFocusSnapshot();
+      renderRoute();
+      restoreUserDirectorySearchFocus(resultsSearchFocus);
+      if (focusList) setTimeout(() => document.querySelector("[data-user-directory-list]")?.focus(), 0);
+    }
+  }
+}
+
+function refreshUserDirectory() {
+  const directory = state.data.userDirectory;
+  invalidateUserDirectoryRequest();
+  directory.loaded = false;
+  if (state.route === "users") void loadUserDirectory({ force: true });
+}
+
+function usageDirectoryQueryKey() {
+  const directory = state.data.usageDirectory;
+  return JSON.stringify({ period: directory.period, feature: directory.feature });
+}
+
+function usageDirectoryFocusSnapshot() {
+  const active = document.activeElement;
+  if (!active || !active.dataset) return null;
+  if (active.dataset.usagePeriod) return { type: "period", value: active.dataset.usagePeriod };
+  if (active.dataset.usageFeature !== undefined) return { type: "feature", value: active.dataset.usageFeature };
+  return null;
+}
+
+function restoreUsageDirectoryFocus(snapshot) {
+  if (!snapshot || state.route !== "usage") return;
+  const selector = snapshot.type === "period"
+    ? `[data-usage-period="${CSS.escape(snapshot.value)}"]`
+    : `[data-usage-feature="${CSS.escape(snapshot.value)}"]`;
+  document.querySelector(selector)?.focus({ preventScroll: true });
+}
+
+function invalidateUsageAnalyticsRequest() {
+  const directory = state.data.usageDirectory;
+  directory.controller?.abort();
+  directory.controller = null;
+  directory.requestId += 1;
+  directory.requestKey = "";
+  directory.loading = false;
+  directory.error = "";
+}
+
+function clearUsageAnalyticsData() {
+  const directory = state.data.usageDirectory;
+  directory.topUsers = [];
+  directory.topFeatures = [];
+  directory.featureOptions = [];
+  directory.trackedUsers = 0;
+  directory.blockedEvents = 0;
+  directory.blockedEventRows = [];
+  directory.costBySchool = [];
+  directory.marginByUser = [];
+  directory.modelBreakdown = [];
+  directory.costTrend = [];
+  directory.dateRange = null;
+}
+
+function ensureUsageAnalyticsLoaded() {
+  const directory = state.data.usageDirectory;
+  if (directory.loading || directory.error || (directory.loaded && directory.requestKey === usageDirectoryQueryKey())) return;
+  void loadUsageAnalytics();
+}
+
+async function loadUsageAnalytics(options = {}) {
+  const directory = state.data.usageDirectory;
+  const requestKey = usageDirectoryQueryKey();
+  if (!options.force && (directory.loading || (directory.loaded && directory.requestKey === requestKey))) return;
+  directory.controller?.abort();
+  const controller = new AbortController();
+  const requestId = ++directory.requestId;
+  directory.controller = controller;
+  directory.requestKey = requestKey;
+  directory.loading = true;
+  directory.error = "";
+  const focus = usageDirectoryFocusSnapshot();
+  if (state.route === "usage") {
+    renderRoute();
+    restoreUsageDirectoryFocus(focus);
+  }
+  try {
+    const query = new URLSearchParams({ period: directory.period });
+    if (directory.feature) query.set("feature", directory.feature);
+    const payload = await api(`/admin/analytics/ai-usage?${query.toString()}`, { signal: controller.signal });
+    if (requestId !== directory.requestId || requestKey !== usageDirectoryQueryKey()) return;
+    directory.topUsers = payload.topUsers || [];
+    directory.topFeatures = payload.topFeatures || [];
+    directory.featureOptions = payload.featureOptions || [];
+    directory.trackedUsers = Number(payload.trackedUsers || 0);
+    directory.blockedEvents = Number(payload.blockedEvents || 0);
+    directory.blockedEventRows = payload.blockedEventRows || [];
+    directory.costBySchool = payload.costBySchool || [];
+    directory.marginByUser = payload.marginByUser || [];
+    directory.modelBreakdown = payload.modelBreakdown || [];
+    directory.costTrend = payload.costTrend || [];
+    directory.dateRange = payload.dateRange || null;
+    directory.loaded = true;
+  } catch (error) {
+    if (error?.name === "AbortError" || requestId !== directory.requestId || requestKey !== usageDirectoryQueryKey()) return;
+    directory.error = error.message || "Unable to load usage analytics.";
+    directory.loaded = false;
+  } finally {
+    if (requestId !== directory.requestId) return;
+    directory.loading = false;
+    directory.controller = null;
+    if (state.route === "usage") {
+      renderRoute();
+      restoreUsageDirectoryFocus(focus);
+    }
+  }
+}
+
 function upsertSchoolInState(school) {
   if (!school) return;
   const nextSchool = { ...school };
@@ -1569,7 +2126,10 @@ function schoolRows() {
 }
 
 function countyOptions() {
-  return ["All Counties", ...Array.from(new Set(state.data.schools.map(school => normalizeSchoolRow(school).county).filter(Boolean))).sort()];
+  return ["All Counties", ...Array.from(new Set([
+    ...kenyaCounties,
+    ...state.data.schools.map(school => normalizeSchoolRow(school).county).filter(Boolean)
+  ])).sort()];
 }
 
 function schoolHighlights(rows) {
@@ -1811,7 +2371,8 @@ function setSchoolEditingState(form, isEditing) {
 }
 
 function showSchool(schoolId) {
-  const school = schoolRows().find(item => String(item.id) === String(schoolId))
+  const school = state.data.schoolDirectory.schools.find(item => String(item.id) === String(schoolId))
+    || schoolRows().find(item => String(item.id) === String(schoolId))
     || sourceSchoolsForAgents().find(item => String(item.id) === String(schoolId));
   if (!school) return;
   modalRoot.classList.remove("student-modal-root");
@@ -1967,8 +2528,8 @@ function salesAgentSchoolsContent(agent) {
     <div class="sales-agent-action-body">
       <section class="sales-agent-dashboard-grid">
         ${salesDetailStat("Schools", agent.schoolCount, "school", "blue")}
-        ${salesDetailStat("Students", Number(agent.studentCount || 0).toLocaleString("en-KE"), "students", "green")}
-        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
+        ${salesDetailStat("Students", salesRecordedCount(agent.studentCount), "students", "green")}
+        ${salesDetailStat("Revenue", salesRecordedMoney(agent.revenue), "wallet", "green")}
       </section>
       <div class="sales-school-detail-list">${rows || `<div class="empty-state">No assigned schools.</div>`}</div>
     </div>`);
@@ -2009,9 +2570,9 @@ function salesAgentDashboardContent(agent) {
     <div class="sales-agent-action-body">
       <section class="sales-agent-dashboard-grid">
         ${salesDetailStat("Assigned Schools", agent.schoolCount, "school", "blue")}
-        ${salesDetailStat("Active Learners", Number(agent.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
-        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
-        ${salesDetailStat("Conversion", percent(agent.conversionRate), "trend", schoolScoreTone(agent.conversionRate))}
+        ${salesDetailStat("Active Learners", salesRecordedCount(agent.activeLearners), "active", "green")}
+        ${salesDetailStat("Revenue", salesRecordedMoney(agent.revenue), "wallet", "green")}
+        ${salesDetailStat("Conversion", salesRecordedPercent(agent.conversionRate), "trend", Number.isFinite(Number(agent.conversionRate)) ? schoolScoreTone(agent.conversionRate) : "")}
       </section>
       <section class="sales-detail-card">
         <div class="sales-card-head"><h3>Assigned Schools</h3><button type="button" data-view-agent-schools="${escapeHtml(agent.id)}">View All</button></div>
@@ -2023,7 +2584,6 @@ function salesAgentDashboardContent(agent) {
         <div class="sales-card-head"><h3>Message Inbox</h3><button type="button" data-message-agent="${escapeHtml(agent.id)}">New Message</button></div>
         <div class="sales-dashboard-messages">${messageRows}</div>
       </section>
-      ${salesActivityTrend(agent)}
     </div>`);
 }
 
@@ -2065,37 +2625,6 @@ function salesDetailContact(iconName, value) {
   return `<span class="sales-detail-contact">${miniIcon(iconName)} ${escapeHtml(value)}</span>`;
 }
 
-function salesActivityTrend(agent) {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
-  const revenue = [0.18, 0.36, 0.48, 0.55, 0.62, 0.92].map(value => Math.round(agent.revenue * value));
-  const converted = [0.22, 0.36, 0.39, 0.48, 0.62, 0.72].map(value => Math.max(1, Math.round(agent.schoolCount * value)));
-  const maxRevenue = Math.max(...revenue, 1);
-  const maxConverted = Math.max(...converted, 1);
-  const revenuePoints = revenue.map((value, index) => `${index * 20},${100 - Math.round((value / maxRevenue) * 88)}`);
-  const convertedPoints = converted.map((value, index) => `${index * 20},${100 - Math.round((value / maxConverted) * 78)}`);
-  return `<section class="sales-detail-card sales-trend-card">
-    <div class="sales-card-head">
-      <h3>Activity Trend <span>(${escapeHtml(selectedTimeRange())})</span></h3>
-      <button type="button">${escapeHtml(selectedTimeRange())} ${miniIcon("chevron")}</button>
-    </div>
-    <div class="sales-trend-legend">
-      <span class="revenue">Revenue (KSh)</span>
-      <span class="schools">Schools Converted</span>
-    </div>
-    <div class="sales-trend-chart" aria-hidden="true">
-      <span class="axis-left">KSh<br>150K<br>100K<br>50K<br>0</span>
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polyline class="revenue-line" points="${revenuePoints.join(" ")}"/>
-        <polyline class="schools-line" points="${convertedPoints.join(" ")}"/>
-        ${revenuePoints.map(point => `<circle class="revenue-dot" cx="${point.split(",")[0]}" cy="${point.split(",")[1]}" r="1.7"/>`).join("")}
-        ${convertedPoints.map(point => `<circle class="schools-dot" cx="${point.split(",")[0]}" cy="${point.split(",")[1]}" r="1.7"/>`).join("")}
-      </svg>
-      <span class="axis-right">Schools<br>12<br>8<br>4<br>0</span>
-    </div>
-    <div class="sales-trend-months">${months.map(month => `<span>${month}</span>`).join("")}</div>
-  </section>`;
-}
-
 function salesAgentDetailContent(agent) {
   return `<section class="sales-agent-detail-modal" role="dialog" aria-modal="true" aria-labelledby="salesAgentTitle">
     <header class="sales-detail-head">
@@ -2117,10 +2646,10 @@ function salesAgentDetailContent(agent) {
       <section class="sales-detail-stats">
         ${salesDetailStat("Assigned Schools", agent.schoolCount, "school", "blue")}
         ${salesDetailStat("Converted Schools", salesConvertedSchools([agent]), "check", "green")}
-        ${salesDetailStat("Students", Number(agent.studentCount || 0).toLocaleString("en-KE"), "students", "blue")}
-        ${salesDetailStat("Active Learners", Number(agent.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
-        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
-        ${salesDetailStat("Conversion", percent(agent.conversionRate), "trend", schoolScoreTone(agent.conversionRate))}
+        ${salesDetailStat("Students", salesRecordedCount(agent.studentCount), "students", "blue")}
+        ${salesDetailStat("Active Learners", salesRecordedCount(agent.activeLearners), "active", "green")}
+        ${salesDetailStat("Revenue", salesRecordedMoney(agent.revenue), "wallet", "green")}
+        ${salesDetailStat("Conversion", salesRecordedPercent(agent.conversionRate), "trend", Number.isFinite(Number(agent.conversionRate)) ? schoolScoreTone(agent.conversionRate) : "")}
       </section>
       <section class="sales-detail-card">
         <div class="sales-card-head">
@@ -2131,7 +2660,6 @@ function salesAgentDetailContent(agent) {
           ${agent.assignedSchools.length ? agent.assignedSchools.map(salesAssignedSchoolRow).join("") : `<div class="empty-state">No assigned schools.</div>`}
         </div>
       </section>
-      ${salesActivityTrend(agent)}
       <div class="sales-detail-actions">
         <button type="button" class="primary-button" data-view-agent-schools="${escapeHtml(agent.id)}">${miniIcon("school")} View Schools</button>
         <button type="button" class="ghost-button" data-message-agent="${escapeHtml(agent.id)}">${miniIcon("chat")} Message Agent</button>
@@ -2271,82 +2799,139 @@ function userRow(user) {
 }
 
 function renderUsers() {
-  const users = usersPageRows();
-  const cards = usersSpotlightCards(users);
+  const directory = state.data.userDirectory;
+  const users = directory.users;
+  const summary = directory.summary || {};
+  const recentlyJoined = normalizeUserDirectoryHighlight(directory.highlights?.recentlyJoined, "createdAt");
+  const recentlyActive = normalizeUserDirectoryHighlight(directory.highlights?.recentlyActive, "lastActiveAt");
+  const totalUsers = Number(directory.total || summary.userCount || 0);
+  const totalPages = Math.max(1, Math.ceil(totalUsers / directory.limit));
+  const currentPage = totalUsers ? Math.floor(directory.offset / directory.limit) + 1 : 0;
+  const rangeStart = totalUsers ? directory.offset + 1 : 0;
+  const rangeEnd = Math.min(directory.offset + users.length, totalUsers);
+  const sortOptions = [["name", "Name"], ["createdAt", "Date Joined"], ["lastActive", "Last Active"]];
+  const schoolOptionsForDirectory = userDirectorySchoolOptions();
+  const listContent = directory.loading
+    ? `<div class="users-loading-skeleton" aria-label="Loading users">${Array.from({ length: 5 }, () => `<span></span>`).join("")}</div>`
+    : directory.error
+      ? `<div class="users-directory-state users-directory-error" role="alert"><strong>Users directory unavailable</strong><span>${escapeHtml(directory.error)}</span><button type="button" class="secondary-button" data-user-directory-retry>Retry</button></div>`
+      : users.length
+        ? users.map(userRow).join("")
+        : `<div class="users-directory-state"><strong>No students found</strong><span>Try a different search or filter combination.</span></div>`;
+  const spotlightCards = [
+    recentlyJoined ? usersSpotlightCard({ tone: "blue", label: "Recently Joined", user: recentlyJoined.user, helper: recentlyJoined.date ? recentlyJoined.date.toLocaleDateString("en-KE") : "Recorded date unavailable", icon: "add-user" }) : "",
+    recentlyActive ? usersSpotlightCard({ tone: "green", label: "Recently Active", user: recentlyActive.user, helper: recentlyActive.date ? recentlyActive.date.toLocaleDateString("en-KE") : "Recorded activity", icon: "activity" }) : ""
+  ].filter(Boolean).join("");
   return `
     <div class="users-page">
       <header class="users-header">
         <div>
           <h1>Users</h1>
-          <p>Manage and monitor all users across the platform.</p>
+          <p>Browse student accounts with server-side search, filters and pagination.</p>
         </div>
         <div class="users-header-actions">
           <div class="users-filters">
-            ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
-            ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
-            ${selectControl("selectedSchool", schoolOptions(), state.selectedSchool)}
+            <label class="users-directory-filter"><span>County</span><select data-user-directory-county aria-label="Filter students by county"><option value="">All Counties</option>${userDirectoryCountyOptions().filter(county => county !== "All Counties").map(county => `<option value="${escapeHtml(county)}" ${directory.county === county ? "selected" : ""}>${escapeHtml(county)}</option>`).join("")}</select></label>
+            <label class="users-directory-filter"><span>Grade</span><select data-user-directory-grade aria-label="Filter students by grade"><option value="">All Grades</option>${userDirectoryGradeOptions().filter(grade => grade !== "All Grades").map(grade => `<option value="${escapeHtml(grade)}" ${directory.grade === grade ? "selected" : ""}>${escapeHtml(grade)}</option>`).join("")}</select></label>
+            <label class="users-directory-filter"><span>School</span><select data-user-directory-school aria-label="Filter students by school">${schoolOptionsForDirectory.map(option => `<option value="${escapeHtml(option.id)}" ${directory.schoolId === option.id ? "selected" : ""}>${escapeHtml(option.label)}</option>`).join("")}</select></label>
+            <label class="users-directory-filter"><span>Status</span><select data-user-directory-status aria-label="Filter students by status">${userDirectoryStatusOptions().map(status => `<option value="${status === "All Statuses" ? "" : escapeHtml(status)}" ${directory.status === (status === "All Statuses" ? "" : status) ? "selected" : ""}>${escapeHtml(status)}</option>`).join("")}</select></label>
+            <label class="users-directory-filter"><span>Sort by</span><select data-user-directory-sort aria-label="Sort students">${sortOptions.map(([value, label]) => `<option value="${value}" ${directory.sort === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+            <label class="users-directory-filter"><span>Order</span><select data-user-directory-direction aria-label="Sort direction"><option value="asc" ${directory.direction === "asc" ? "selected" : ""}>Ascending</option><option value="desc" ${directory.direction === "desc" ? "selected" : ""}>Descending</option></select></label>
           </div>
         </div>
       </header>
-      <section class="users-spotlight-grid">
-        ${cards.length ? cards.map(usersSpotlightCard).join("") : `<div class="empty-state">No student records available.</div>`}
-      </section>
-      <label class="users-search" aria-label="Search users">
+      ${spotlightCards ? `<section class="users-spotlight-grid">${spotlightCards}</section>` : ""}
+      <p class="users-directory-summary" aria-live="polite">${totalUsers.toLocaleString("en-KE")} students · ${Number(summary.onlineCount || 0).toLocaleString("en-KE")} online · ${Number(summary.activeSubscriptionCount || 0).toLocaleString("en-KE")} active subscriptions</p>
+      <label class="users-search" aria-label="Search students by name, email or school">
         ${miniIcon("search")}
-        <input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search users by name or email..." />
+        <input id="userDirectorySearchInput" value="${escapeHtml(directory.search)}" placeholder="Search students by name, email or school..." aria-label="Search students by name, email or school" />
       </label>
-      <section class="users-list" aria-label="Student users">
-        ${users.length ? users.map(userRow).join("") : `<div class="empty-state">No matching students.</div>`}
+      <section class="users-directory-list-shell" aria-label="Student users" data-user-directory-list tabindex="-1">
+        <div class="users-list-header"><h2>All Students <small>${rangeStart.toLocaleString("en-KE")}-${rangeEnd.toLocaleString("en-KE")} of ${totalUsers.toLocaleString("en-KE")}</small></h2><span>Status</span></div>
+        <div class="users-list">${listContent}</div>
+        <div class="users-pagination" aria-label="Student directory pagination">
+          <span aria-live="polite">${totalUsers ? `Page ${currentPage} of ${totalPages} · Showing ${rangeStart}-${rangeEnd}` : "No results"}</span>
+          <label>Page size <select data-user-directory-limit aria-label="Results per page"><option value="25" ${directory.limit === 25 ? "selected" : ""}>25</option><option value="50" ${directory.limit === 50 ? "selected" : ""}>50</option></select></label>
+          <button type="button" data-user-directory-page="prev" ${directory.offset <= 0 || directory.loading ? "disabled" : ""} aria-label="Previous student page">Previous</button>
+          <button type="button" data-user-directory-page="next" ${directory.offset + directory.limit >= totalUsers || directory.loading ? "disabled" : ""} aria-label="Next student page">Next</button>
+        </div>
       </section>
     </div>`;
 }
 
 function renderSchools() {
-  const rows = schoolRows();
-  const highlights = schoolHighlights(rows);
-  const totalSchools = highlights.total || 0;
-  const countyCount = highlights.counties || 0;
-  const mostActive = highlights.mostActive;
-  const leastActive = highlights.leastActive;
-  const best = highlights.best;
-  const worst = highlights.worst;
+  const directory = state.data.schoolDirectory;
+  const rows = directory.schools;
+  const summary = directory.summary || {};
+  const highlights = directory.highlights || {};
+  const totalSchools = Number(directory.total ?? summary.schoolCount ?? 0);
+  const countyCount = directory.facets?.counties?.length || 0;
+  const summaryLearners = Number(summary.totalStudents || 0);
+  const summaryActive = Number(summary.activeLearners || 0);
+  const mostActive = normalizeDirectoryHighlight(highlights.mostActive);
+  const leastActive = normalizeDirectoryHighlight(highlights.leastActive);
+  const best = normalizeDirectoryHighlight(highlights.bestPerforming);
+  const worst = normalizeDirectoryHighlight(highlights.worstPerforming);
+  const totalPages = Math.max(1, Math.ceil(totalSchools / directory.limit));
+  const currentPage = totalSchools ? Math.floor(directory.offset / directory.limit) + 1 : 0;
+  const rangeStart = totalSchools ? directory.offset + 1 : 0;
+  const rangeEnd = Math.min(directory.offset + rows.length, totalSchools);
+  const sortOptions = [
+    ["name", "Name"], ["learnerCount", "Learners"], ["activeLearners", "Active Learners"],
+    ["engagement", "Engagement"], ["averageScore", "Average Score"], ["createdAt", "Date Added"]
+  ];
+  const listContent = directory.loading
+    ? `<div class="schools-loading-skeleton" aria-label="Loading schools">${Array.from({ length: 5 }, () => `<span></span>`).join("")}</div>`
+    : directory.error
+      ? `<div class="schools-directory-state schools-directory-error" role="alert"><strong>School directory unavailable</strong><span>${escapeHtml(directory.error)}</span><button type="button" class="secondary-button" data-school-directory-retry>Retry</button></div>`
+      : rows.length
+        ? rows.map(schoolListRow).join("")
+        : `<div class="schools-directory-state"><strong>No schools found</strong><span>Try a different school name, county, or grade.</span></div>`;
   return `
     <div class="schools-page">
       <header class="schools-header">
         <div>
           <h1>Schools</h1>
-          <p>Monitor school performance, learner engagement and activity across the platform.</p>
+          <p>Browse the full school directory with current recorded learner activity.</p>
         </div>
         <div class="schools-header-actions">
           <button class="schools-add-button" type="button" data-add-school aria-label="Add school">${miniIcon("plus")}</button>
           <div class="schools-filters">
-            ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
-            ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
-            ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
+            <label class="schools-directory-filter"><span>County</span><select data-school-directory-county aria-label="Filter schools by county"><option value="">All Counties</option>${schoolDirectoryCountyOptions().filter(county => county !== "All Counties").map(county => `<option value="${escapeHtml(county)}" ${directory.county === county ? "selected" : ""}>${escapeHtml(county)}</option>`).join("")}</select></label>
+            <label class="schools-directory-filter"><span>Grade</span><select data-school-directory-grade aria-label="Filter schools by grade"><option value="">All Grades</option>${schoolDirectoryGradeOptions().filter(grade => grade !== "All Grades").map(grade => `<option value="${escapeHtml(grade)}" ${directory.grade === grade ? "selected" : ""}>${escapeHtml(grade)}</option>`).join("")}</select></label>
+            <label class="schools-directory-filter"><span>Sort by</span><select data-school-directory-sort aria-label="Sort schools">${sortOptions.map(([value, label]) => `<option value="${value}" ${directory.sort === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+            <label class="schools-directory-filter"><span>Order</span><select data-school-directory-direction aria-label="Sort direction"><option value="asc" ${directory.direction === "asc" ? "selected" : ""}>Ascending</option><option value="desc" ${directory.direction === "desc" ? "selected" : ""}>Descending</option></select></label>
           </div>
         </div>
       </header>
       <section class="schools-spotlight-grid">
-        ${schoolSpotlightCard("blue", "Total Schools", totalSchools, `Across ${countyCount} ${countyCount === 1 ? "county" : "counties"}`, "school")}
-        ${schoolSpotlightCard("green", "Most Active School", mostActive?.name || "-", `${Number(mostActive?.activeLearners || 0).toLocaleString("en-KE")} active learners`, "trophy")}
-        ${schoolSpotlightCard("orange", "Least Active School", leastActive?.name || "-", `${Number(leastActive?.activeLearners || 0).toLocaleString("en-KE")} active learners`, "clock")}
-        ${schoolSpotlightCard("gold", "Best Performing School", best?.name || "-", `${percent(best?.averageScore || 0)} avg score`, "shield-star")}
-        ${schoolSpotlightCard("red", "Worst Performing School", worst?.name || "-", `${percent(worst?.averageScore || 0)} avg score`, "trend")}
+        ${schoolSpotlightCard("blue", "Total Schools", totalSchools.toLocaleString("en-KE"), `Across ${countyCount || 0} recorded counties`, "school")}
+        ${schoolSpotlightCard("green", "Most Active School", mostActive?.name || "-", `${Number(mostActive?.activeLearners || 0).toLocaleString("en-KE")} active in last 7 days`, "trophy")}
+        ${schoolSpotlightCard("orange", "Least Active School", leastActive?.name || "-", `${Number(leastActive?.activeLearners || 0).toLocaleString("en-KE")} active in last 7 days`, "clock")}
+        ${schoolSpotlightCard("gold", "Best Performing School", best?.name || "-", `${percent(best?.averageScore || 0)} current mastery average`, "shield-star")}
+        ${schoolSpotlightCard("red", "Worst Performing School", worst?.name || "-", `${percent(worst?.averageScore || 0)} current mastery average`, "trend")}
       </section>
-      <label class="schools-search" aria-label="Search schools">
+      <p class="schools-directory-summary" aria-live="polite">${summaryLearners.toLocaleString("en-KE")} learners · ${summaryActive.toLocaleString("en-KE")} active in last 7 days · ${percent(summary.engagementRate || 0)} engagement · ${percent(summary.averageScore || 0)} average mastery</p>
+      <label class="schools-search" aria-label="Search schools by name">
         ${miniIcon("search")}
-        <input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search schools by name, county or code..." />
+        <input id="schoolDirectorySearchInput" value="${escapeHtml(directory.search)}" placeholder="Search schools by name..." aria-label="Search schools by name" />
       </label>
-      <section class="schools-list-shell" aria-label="All schools">
+      <section class="schools-list-shell" aria-label="All schools" data-school-directory-list tabindex="-1">
         <div class="schools-list-header">
-          <h2>All Schools</h2>
+          <h2>All Schools <small>${rangeStart.toLocaleString("en-KE")}-${rangeEnd.toLocaleString("en-KE")} of ${totalSchools.toLocaleString("en-KE")}</small></h2>
           <span>Learners</span>
           <span>Active Learners</span>
           <span>Engagement</span>
           <span>Avg Score</span>
         </div>
         <div class="schools-list">
-          ${rows.length ? rows.map(schoolListRow).join("") : `<div class="empty-state">No matching schools.</div>`}
+          ${listContent}
+        </div>
+        <div class="schools-pagination" aria-label="School directory pagination">
+          <span aria-live="polite">${totalSchools ? `Page ${currentPage} of ${totalPages} · Showing ${rangeStart}-${rangeEnd}` : "No results"}</span>
+          <label>Page size <select data-school-directory-limit aria-label="Results per page"><option value="25" ${directory.limit === 25 ? "selected" : ""}>25</option><option value="50" ${directory.limit === 50 ? "selected" : ""}>50</option></select></label>
+          <button type="button" data-school-directory-page="prev" ${directory.offset <= 0 || directory.loading ? "disabled" : ""} aria-label="Previous school page">Previous</button>
+          <button type="button" data-school-directory-page="next" ${directory.offset + directory.limit >= totalSchools || directory.loading ? "disabled" : ""} aria-label="Next school page">Next</button>
         </div>
       </section>
     </div>`;
@@ -2367,7 +2952,6 @@ function renderSales() {
           <button class="sales-add-button" type="button" data-add-sales-agent aria-label="Add sales agent">${miniIcon("plus")}</button>
           <div class="sales-filters">
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
-            ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
             ${selectControl("selectedAgentStatus", salesAgentStatusOptions(), state.selectedAgentStatus)}
           </div>
         </div>
@@ -2375,9 +2959,9 @@ function renderSales() {
       <section class="sales-spotlight-grid">
         ${salesSpotlightCard("blue", "Total Agents", highlights.total, "Field team", "students")}
         ${salesSpotlightCard("green", "Schools Assigned", agents.reduce((sum, agent) => sum + agent.schoolCount, 0), `${countyOptions().length - 1 || 0} counties`, "school")}
-        ${salesSpotlightCard("orange", "Schools Converted", convertedSchools, "Paid accounts", "check")}
-        ${salesSpotlightCard("purple", "Active Learners", highlights.managedLearners.toLocaleString("en-KE"), "From assigned schools", "profile")}
-        ${salesSpotlightCard("red", "Revenue Closed", moneyKesShort(highlights.revenue), "This term", "wallet")}
+        ${salesSpotlightCard("orange", "Schools Converted", convertedSchools === null ? "Not recorded" : convertedSchools, "Stored conversion records", "check")}
+        ${salesSpotlightCard("purple", "Active Learners", salesRecordedCount(highlights.managedLearners), "From assigned schools", "profile")}
+        ${salesSpotlightCard("red", "Revenue Closed", salesRecordedMoney(highlights.revenue), "Stored revenue records", "wallet")}
       </section>
       <label class="sales-search" aria-label="Search sales agents">
         ${miniIcon("search")}
@@ -2394,13 +2978,6 @@ function renderSales() {
     </div>`;
 }
 
-function teacherPeriodButtons() {
-  const options = ["Today", "This Week", "This Term"];
-  const active = options.includes(state.teacherPeriod) ? state.teacherPeriod : "This Week";
-  if (state.teacherPeriod !== active) state.teacherPeriod = active;
-  return `<div class="teacher-segmented">${options.map(option => `<button class="${active === option ? "active" : ""}" type="button" data-teacher-period="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}</div>`;
-}
-
 function teacherAssignmentRows() {
   return state.data.teacherAssignments.map((assignment, index) => ({
     id: assignment.id || `assignment-${index}`,
@@ -2410,24 +2987,24 @@ function teacherAssignmentRows() {
     submittedCount: Number(assignment.submittedCount ?? assignment.submitted_count ?? 0),
     totalStudents: Number(assignment.totalStudents ?? assignment.total_students ?? 0),
     averageScore: Number(assignment.averageScore ?? assignment.average_score ?? 0),
-    createdAt: assignment.createdAt || assignment.created_at || new Date().toISOString()
+    createdAt: assignment.createdAt || assignment.created_at || null
   }));
 }
 
 function normalizeTeacherStudent(student, index = 0) {
   const schools = allSchoolRows();
-  const school = schools.find(row => row.name === student.school) || schools[index % Math.max(1, schools.length)] || {};
-  const grade = student.grade || student.gradeLevel || student.grade_level || grades[index % grades.length];
+  const school = schools.find(row => row.name === student.school) || {};
+  const grade = student.grade || student.gradeLevel || student.grade_level || "Unassigned";
   return {
     id: student.id || `teacher-student-${index}`,
     name: student.name || student.fullName || "Learner",
     grade,
-    school: student.school || school.name || "No School",
-    county: student.county || school.county || countyForSchoolName(student.school) || "Unknown County",
+    school: student.school || "No School",
+    county: canonicalStudentCounty(student.county || school.county || countyForSchoolName(student.school) || "Unknown County"),
     assessmentScore: Number(student.assessmentScore ?? student.assessment_score ?? student.averageScore ?? 0),
     homeworkCompletion: Number(student.homeworkCompletion ?? student.homework_completion ?? 0),
-    lastActive: student.lastActive || student.last_active || "Recent",
-    trend: student.trend || student.performanceTrend || "Stable"
+    lastActive: student.lastActive || student.last_active || null,
+    trend: student.trend || student.performanceTrend || null
   };
 }
 
@@ -2451,7 +3028,7 @@ function teacherSubjectOptions() {
 function filteredTeacherStudents() {
   return teacherStudentRows()
     .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
-    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedCounty === "All Counties" || canonicalStudentCounty(row.county) === canonicalStudentCounty(state.selectedCounty))
     .filter(row => state.selectedGrade === "All Grades" || row.grade === state.selectedGrade);
 }
 
@@ -2459,7 +3036,7 @@ function teacherRows() {
   const teacherUsers = state.data.users.filter(user => hasRole(user, "teacher"));
   const schools = allSchoolRows();
   const live = teacherUsers.map((teacher, index) => {
-    const schoolName = teacher.school && teacher.school !== "No School" ? teacher.school : schools[index % Math.max(1, schools.length)]?.name || "No School";
+    const schoolName = teacher.school && teacher.school !== "No School" ? teacher.school : "No School";
     const teacherStudents = teacherStudentRows().filter(student => student.school === schoolName);
     const assignmentCount = teacherAssignmentRows().filter(row => !state.selectedSubject || state.selectedSubject === "All Subjects" || row.subject === state.selectedSubject).length;
     const averageScore = teacherStudents.length
@@ -2470,7 +3047,7 @@ function teacherRows() {
       name: teacher.name || teacher.fullName || teacher.email || "Teacher",
       initials: initialsFor(teacher.name || teacher.fullName || teacher.email || "T"),
       school: schoolName,
-      county: teacher.county || countyForSchoolName(schoolName),
+      county: canonicalStudentCounty(teacher.county || countyForSchoolName(schoolName)),
       classes: new Set(teacherStudents.map(student => student.grade)).size,
       assignments: assignmentCount,
       activeLearners: teacherStudents.length,
@@ -2488,7 +3065,7 @@ function teacherRows() {
 function filteredTeacherRows() {
   return teacherRows()
     .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
-    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedCounty === "All Counties" || canonicalStudentCounty(row.county) === canonicalStudentCounty(state.selectedCounty))
     .filter(row => state.selectedGrade === "All Grades" || teacherStudentRows().some(student => student.school === row.school && student.grade === state.selectedGrade));
 }
 
@@ -2593,16 +3170,8 @@ function teacherPerformanceTable(rows) {
 }
 
 function teacherBroadcastPanel() {
-  const scopes = [
-    ["One School", "All classes in one school", "school"],
-    ["Selected Grades", "Choose specific grades", "students"],
-    ["All Schools", "All schools in the system", "globe"]
-  ];
   return `<section class="teacher-panel teacher-broadcast">
-    <div class="teacher-panel-head"><h2>Assignment Broadcast ${miniIcon("alert")}</h2><p>Choose scope for the assignment you want to set.</p></div>
-    <div class="teacher-broadcast-options">
-      ${scopes.map((scope, index) => `<button class="${index === 0 ? "active" : ""}" type="button" data-broadcast-scope="${escapeHtml(scope[0])}">${miniIcon(scope[2])}<strong>${escapeHtml(scope[0])}</strong><small>${escapeHtml(scope[1])}</small><i></i></button>`).join("")}
-    </div>
+    <div class="teacher-panel-head"><h2>Assignment Broadcast ${miniIcon("alert")}</h2><p>Open the assignment editor to create and target a recorded assignment.</p></div>
     <button class="teacher-create-assignment" type="button" data-modal="assignment">Create Assignment</button>
   </section>`;
 }
@@ -2617,11 +3186,11 @@ function teacherAlertsPanel() {
   return `<div class="teacher-side-stack">
     <section class="teacher-panel">
       <div class="teacher-panel-head compact"><h2>${miniIcon("bell")} Admin Alerts ${miniIcon("alert")}</h2></div>
-      <div class="teacher-alert-list">${alerts.length ? alerts.map(row => `<button class="teacher-alert-row ${row[0]}" type="button"><span>${miniIcon("alert")}</span><strong>${escapeHtml(row[1])}<small>${escapeHtml(row[2])}</small></strong>${miniIcon("chevron")}</button>`).join("") : `<div class="empty-state">No teacher alerts.</div>`}</div>
+      <div class="teacher-alert-list">${alerts.length ? alerts.map(row => `<div class="teacher-alert-row ${row[0]}"><span>${miniIcon("alert")}</span><strong>${escapeHtml(row[1])}<small>${escapeHtml(row[2])}</small></strong></div>`).join("") : `<div class="empty-state">No teacher alerts.</div>`}</div>
     </section>
     <section class="teacher-panel">
       <div class="teacher-panel-head compact"><h2>Classes Requiring Attention ${miniIcon("alert")}</h2></div>
-      <div class="teacher-attention-list">${attention.length ? attention.map(row => `<button class="teacher-attention-row" type="button">${miniIcon("bars")}<strong>${escapeHtml(row[0])}</strong><span>${row[1]}% avg score</span>${miniIcon("chevron")}</button>`).join("") : `<div class="empty-state">No classes currently require attention.</div>`}</div>
+      <div class="teacher-attention-list">${attention.length ? attention.map(row => `<div class="teacher-attention-row">${miniIcon("bars")}<strong>${escapeHtml(row[0])}</strong><span>${row[1]}% avg score</span></div>`).join("") : `<div class="empty-state">No classes currently require attention.</div>`}</div>
     </section>
   </div>`;
 }
@@ -2637,7 +3206,6 @@ function teacherAdminDashboard() {
     <header class="teacher-portal-header">
       <div><h1>Teacher's Portal</h1><p>Monitor teacher activity, class performance, assignment coverage and school learning outcomes.</p></div>
       <div class="teacher-header-controls">
-        ${teacherPeriodButtons()}
         ${selectControl("selectedSchool", teacherSchoolOptions(), state.selectedSchool)}
         ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
         ${selectControl("selectedSubject", teacherSubjectOptions(), state.selectedSubject)}
@@ -2653,8 +3221,8 @@ function teacherAdminDashboard() {
       ${teacherMetricCard("purple", "document", "Assignment Coverage", `${assignmentCoverage(students)}%`, "Classes with weekly work")}
     </section>
     <section class="teacher-dashboard-grid">
-      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>Teacher Activity Trend ${miniIcon("alert")}</h2><p>Overview of teacher actions over the selected period</p><button>Weekly ${miniIcon("chevron")}</button></div>${teacherLineChart()}</section>
-      <section class="teacher-panel"><div class="teacher-panel-head"><h2>Class Performance by Subject ${miniIcon("alert")}</h2><p>Average class performance across all schools</p><button>This Term ${miniIcon("chevron")}</button></div>${teacherSubjectDonut(teacherSubjectRows(students))}</section>
+      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>Teacher Activity Trend ${miniIcon("alert")}</h2><p>Recorded assignment performance</p></div>${teacherLineChart()}</section>
+      <section class="teacher-panel"><div class="teacher-panel-head"><h2>Class Performance by Subject ${miniIcon("alert")}</h2><p>Recorded assignment averages across all schools</p></div>${teacherSubjectDonut(teacherSubjectRows(students))}</section>
     </section>
     <section class="teacher-lower-grid">
       <section class="teacher-panel teacher-table-panel"><div class="teacher-panel-head"><h2>Teacher Performance Overview ${miniIcon("alert")}</h2></div>${teacherPerformanceTable(teachers)}</section>
@@ -2681,7 +3249,6 @@ function teacherScopedDashboard() {
     <header class="teacher-portal-header">
       <div><h1>Teacher's Portal</h1><p>Track your assigned grades, learner performance, assignments and remedial follow-up.</p></div>
       <div class="teacher-header-controls">
-        ${teacherPeriodButtons()}
         ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
         ${selectControl("selectedSubject", teacherSubjectOptions(), state.selectedSubject)}
         <button class="teacher-orange-button" type="button" data-modal="assignment">${miniIcon("plus")} Set Assignment</button>
@@ -2695,8 +3262,8 @@ function teacherScopedDashboard() {
       ${teacherMetricCard("purple", "check", "Completion", `${completionAverage(students)}%`, "Homework submitted")}
     </section>
     <section class="teacher-dashboard-grid">
-      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>My Class Activity Trend ${miniIcon("alert")}</h2><p>Assignments, feedback and remedial work for your grades</p><button>Weekly ${miniIcon("chevron")}</button></div>${teacherLineChart()}</section>
-      <section class="teacher-panel"><div class="teacher-panel-head"><h2>My Subject Performance ${miniIcon("alert")}</h2><p>Average performance across your active classes</p><button>This Term ${miniIcon("chevron")}</button></div>${teacherSubjectDonut(subjectRows)}</section>
+      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>My Class Activity Trend ${miniIcon("alert")}</h2><p>Recorded assignment performance</p></div>${teacherLineChart()}</section>
+      <section class="teacher-panel"><div class="teacher-panel-head"><h2>My Subject Performance ${miniIcon("alert")}</h2><p>Recorded assignment averages across your active classes</p></div>${teacherSubjectDonut(subjectRows)}</section>
     </section>
     <section class="teacher-lower-grid scoped">
       <section class="teacher-panel teacher-table-panel">
@@ -2741,10 +3308,6 @@ function renderParents() {
   return isParentOnly() ? parentScopedDashboard() : parentAdminDashboard();
 }
 
-function parentPeriodControl(label) {
-  return `<button class="${state.parentPeriod === label ? "active" : ""}" type="button" data-parent-period="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
-}
-
 function isParentRecord(user) {
   if (roleValues(user).length) return hasRole(user, "parent");
   return String(user.email || "").toLowerCase().includes("parent");
@@ -2760,7 +3323,7 @@ function parentAdminRows() {
       email: user.email || "-",
       phone: user.phone || user.phoneNumber || "-",
       school,
-      county: user.county || countyForSchoolName(school) || "",
+      county: canonicalStudentCounty(user.county || countyForSchoolName(school) || ""),
       status: normalizeUserStatus(user.status)
     };
   });
@@ -2770,7 +3333,7 @@ function filteredParentAdminRows() {
   const term = state.search.trim().toLowerCase();
   return parentAdminRows()
     .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
-    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedCounty === "All Counties" || canonicalStudentCounty(row.county) === canonicalStudentCounty(state.selectedCounty))
     .filter(row => !term || `${row.name} ${row.school} ${row.county} ${row.email} ${row.phone}`.toLowerCase().includes(term));
 }
 
@@ -2787,7 +3350,7 @@ function parentCountyOptions() {
 function parentAdminDashboard() {
   const rows = filteredParentAdminRows();
   const totalParents = rows.length;
-  const activeParents = rows.filter(row => row.status === "active").length;
+  const onlineParents = rows.filter(row => row.status === "Online").length;
   const parentsWithPhone = rows.filter(row => row.phone && row.phone !== "-").length;
   const schoolCount = new Set(rows.map(row => row.school).filter(school => school && school !== "No School")).size;
   return `<div class="parent-portal-page admin">
@@ -2804,7 +3367,7 @@ function parentAdminDashboard() {
     </header>
     <section class="parent-metric-grid parent-real-metrics">
       ${teacherMetricCard("blue", "students", "Parent Accounts", totalParents.toLocaleString("en-KE"), "Current filtered directory")}
-      ${teacherMetricCard("green", "active", "Active Accounts", activeParents.toLocaleString("en-KE"), "Available for messaging")}
+      ${teacherMetricCard("green", "active", "Online Accounts", onlineParents.toLocaleString("en-KE"), "Online now")}
       ${teacherMetricCard("orange", "phone", "Phone Contacts", parentsWithPhone.toLocaleString("en-KE"), "Registered phone numbers")}
       ${teacherMetricCard("purple", "school", "Schools Represented", schoolCount.toLocaleString("en-KE"), "Linked parent accounts")}
     </section>
@@ -2823,7 +3386,13 @@ function parentAdminDashboard() {
 }
 
 function parentOverviewTable(rows) {
-  const tableRows = rows.slice(0, 50);
+  const total = rows.length;
+  const pageSize = Math.max(25, Math.min(50, Number(state.parentPageSize) || 25));
+  const pageCount = Math.max(1, Math.ceil(total / pageSize));
+  const page = Math.min(Math.max(0, Number(state.parentPage) || 0), pageCount - 1);
+  const tableRows = rows.slice(page * pageSize, (page + 1) * pageSize);
+  const start = total ? page * pageSize + 1 : 0;
+  const end = Math.min(total, (page + 1) * pageSize);
   return `<div class="teacher-table-wrap parent-table-wrap"><table class="teacher-table parent-table">
     <thead><tr><th>Parent</th><th>Contact</th><th>School</th><th>County</th><th>Status</th><th>Action</th></tr></thead>
     <tbody>${tableRows.map(row => `<tr>
@@ -2831,10 +3400,17 @@ function parentOverviewTable(rows) {
       <td>${escapeHtml(row.phone)}</td>
       <td>${escapeHtml(row.school)}</td>
       <td>${escapeHtml(row.county || "-")}</td>
-      <td><span class="status-pill ${escapeHtml(row.status)}">${escapeHtml(row.status)}</span></td>
+      <td><span class="status-pill ${escapeHtml(String(row.status || "").toLowerCase())}">${escapeHtml(row.status)}</span></td>
       <td><button class="teacher-message-button" type="button" data-message-parent="${escapeHtml(row.id)}">${miniIcon("chat")} Message</button></td>
     </tr>`).join("") || `<tr><td colspan="6"><div class="empty-state">No parent accounts match these filters.</div></td></tr>`}</tbody>
-  </table></div>`;
+  </table></div>
+  <div class="directory-pagination parent-directory-pagination" aria-label="Parent directory pagination">
+    <span>Showing ${start.toLocaleString("en-KE")}–${end.toLocaleString("en-KE")} of ${total.toLocaleString("en-KE")}</span>
+    <label>Page size <select data-parent-page-size aria-label="Parent directory page size"><option value="25" ${pageSize === 25 ? "selected" : ""}>25</option><option value="50" ${pageSize === 50 ? "selected" : ""}>50</option></select></label>
+    <button type="button" data-parent-page="prev" ${page <= 0 ? "disabled" : ""}>Previous</button>
+    <span>Page ${page + 1} of ${pageCount}</span>
+    <button type="button" data-parent-page="next" ${page >= pageCount - 1 ? "disabled" : ""}>Next</button>
+  </div>`;
 }
 
 function parentMessageRecipients() {
@@ -2843,7 +3419,7 @@ function parentMessageRecipients() {
     return state.selectedSchool === "All Schools" ? [] : rows.filter(row => row.school === state.selectedSchool);
   }
   if (state.parentMessageScope === "Selected County") {
-    return state.selectedCounty === "All Counties" ? [] : rows.filter(row => row.county === state.selectedCounty);
+    return state.selectedCounty === "All Counties" ? [] : rows.filter(row => canonicalStudentCounty(row.county) === canonicalStudentCounty(state.selectedCounty));
   }
   return rows;
 }
@@ -2934,14 +3510,13 @@ function selectedParentChild() {
 }
 
 function parentSubjectRows(child) {
-  const base = Number(child.assessment_average || child.weekly_report?.assessmentAverage || 0);
-  return [
-    ["Mathematics", Math.max(35, Math.min(98, base - 6)), "#2d7ff9"],
-    ["Science", Math.max(35, Math.min(98, base)), "#40a85b"],
-    ["English", Math.max(35, Math.min(98, base + 8)), "#7d5ce8"],
-    ["Kiswahili", Math.max(35, Math.min(98, base + 3)), "#ff8a1a"],
-    ["Social Studies", Math.max(35, Math.min(98, base - 11)), "#12a6b8"]
-  ].map(([subject, value, color]) => ({ label: subject, value, color }));
+  const colors = ["#2d7ff9", "#40a85b", "#7d5ce8", "#ff8a1a", "#12a6b8"];
+  const scores = Array.isArray(child.weeklyReport?.subjectScores) ? child.weeklyReport.subjectScores : [];
+  return scores.map((row, index) => ({
+    label: row.subject || row.subjectName || "Subject",
+    value: Number(row.score ?? row.averageScore ?? 0),
+    color: row.color || colors[index % colors.length]
+  })).filter(row => row.value > 0);
 }
 
 function parentScopedDashboard() {
@@ -2955,7 +3530,6 @@ function parentScopedDashboard() {
       <div class="parent-brand"><span>K</span><strong>Kitabu AI</strong></div>
       <h1>Parent Portal</h1>
       <div class="parent-child-select"><span class="teacher-avatar ${child.tone}">${initialsFor(child.name)}</span><strong>${escapeHtml(child.name)}</strong><b>${escapeHtml(child.grade)}</b>${miniIcon("chevron")}</div>
-      <div class="parent-segmented">${["This Week", "This Month", "This Term"].map(parentPeriodControl).join("")}</div>
       <button class="parent-outline-button" type="button" data-download-parent-report>${miniIcon("download")} Download Report</button>
       <button class="parent-message-inbox-button" type="button" data-open-parent-inbox>${miniIcon("chat")} Messages${unreadMessages ? `<b>${unreadMessages}</b>` : ""}</button>
       <button class="parent-lock-button" type="button" data-phone-lock>${miniIcon("lock")} Lock Phone</button>
@@ -2964,13 +3538,13 @@ function parentScopedDashboard() {
       <section class="parent-greeting"><h2>Good afternoon, ${escapeHtml(firstNameOf({ name: parentName }))}</h2><p>Track ${escapeHtml(firstName)}'s learning, progress and phone focus from one place.</p></section>
       <section class="parent-metric-grid scoped">
         ${teacherMetricCard("blue", "trend", "Overall Score", percent(child.score || child.mastery), "Current recorded performance")}
-        ${teacherMetricCard("green", "clock", "Active Learning Time", `${Number(child.weeklyReport.activeDays || 0)} active days`, state.parentPeriod)}
+        ${teacherMetricCard("green", "clock", "Active Learning Time", `${Number(child.weeklyReport.activeDays || 0)} active days`, "Weekly report")}
         ${teacherMetricCard("red", "target", "Remedial Gaps", String(child.dueReviews), "Needs focus")}
         ${teacherMetricCard("orange", "calendar", "Assignments Due", String(child.assignmentsDue), "Current workload")}
       </section>
       ${parentInboxContent()}
       <section class="parent-scoped-grid">
-        <article class="teacher-panel"><div class="teacher-panel-head"><h2>Child Performance Trend</h2><button type="button">${escapeHtml(state.parentPeriod)} ${miniIcon("chevron")}</button></div>${parentChildPerformanceChart(child)}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head"><h2>Child Performance Trend</h2><p>Weekly recorded performance</p></div>${parentChildPerformanceChart(child)}</article>
         <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>Subject Breakdown</h2></div>${teacherSubjectDonut(child.subjects)}</article>
         <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>Remedial Report</h2></div>${parentRemedialReport(child)}</article>
         <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("document")} Recent Activity</h2></div>${parentRecentActivity(child)}</article>
@@ -3033,30 +3607,47 @@ function parentTeacherNotes(child) {
   </div>`;
 }
 
-function usagePeriodControl(label) {
-  return `<button class="${state.usagePeriod === label ? "active" : ""}" type="button" data-usage-period="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
+function usagePeriodControl(value, label) {
+  const directory = state.data.usageDirectory;
+  return `<button class="${directory.period === value ? "active" : ""}" type="button" data-usage-period="${escapeHtml(value)}" aria-pressed="${directory.period === value}">${escapeHtml(label)}</button>`;
 }
 
-function usageFeatureControl(label) {
-  return `<button class="${state.selectedUsageFeature === label ? "active" : ""}" type="button" data-usage-feature="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
+function usageFeatureControl(feature) {
+  const directory = state.data.usageDirectory;
+  const value = feature === "All Features" ? "" : feature;
+  const selected = directory.feature === value;
+  return `<button class="${selected ? "active" : ""}" type="button" data-usage-feature="${escapeHtml(value)}" aria-pressed="${selected}">${escapeHtml(feature === "All Features" ? feature : feature.replaceAll("_", " "))}</button>`;
 }
 
 function renderUsage() {
+  const directory = state.data.usageDirectory;
+  const loading = directory.loading;
+  const periodLabel = directory.dateRange?.label || ({ today: "Today", week: "This Week", month: "This Month" }[directory.period] || "Selected period");
   const highlights = usageHighlights();
   const featureRows = usageFeatureRows();
   const allFeatures = usageAllFeatureRows();
-  const trackedUsers = Number(state.data.ai?.trackedUsers || 0);
+  const trackedUsers = Number(directory.trackedUsers || 0);
   const blockedRows = usageBlockedRows();
   const schoolRows = usageSchoolRows();
+  const featureBody = loading
+    ? `<tr><td colspan="6"><div class="usage-directory-skeleton" aria-label="Loading usage features"></div></td></tr>`
+    : featureRows.length
+      ? featureRows.map(usageFeatureTableRow).join("")
+      : `<tr><td colspan="6"><div class="empty-state">No feature usage recorded for this selection.</div></td></tr>`;
+  const usageState = directory.error
+    ? `<div class="usage-directory-state error" role="alert">${escapeHtml(directory.error)} <button type="button" data-usage-retry>Retry</button></div>`
+    : loading
+      ? `<div class="usage-directory-state" role="status" aria-live="polite">Loading usage for ${escapeHtml(periodLabel.toLowerCase())}…</div>`
+      : "";
   return `<div class="usage-page">
     <header class="usage-header">
       <div>
         <h1>Usage</h1>
-        <p>Track token spend, model usage and feature costs across Kitabu AI.</p>
+        <p>Track token spend, model usage and feature costs across Kitabu AI. <span class="usage-period-label">${escapeHtml(periodLabel)}</span></p>
       </div>
       <div class="usage-controls">
         <div class="usage-segmented" aria-label="Usage period">
-          ${["Today", "This Week", "This Month"].map(usagePeriodControl).join("")}
+          ${[["today", "Today"], ["week", "This Week"], ["month", "This Month"]].map(([value, label]) => usagePeriodControl(value, label)).join("")}
         </div>
       </div>
     </header>
@@ -3064,13 +3655,14 @@ function renderUsage() {
     <nav class="usage-agent-tabs" aria-label="AI feature filter">
       ${usageFeatureOptions().map(usageFeatureControl).join("")}
     </nav>
+    ${usageState}
 
     <section class="usage-metric-grid" aria-label="Usage summary">
-      ${usageMetricCard("blue", "Total AI Spend", usageMoney(highlights.totalCost), "Recorded telemetry", "tag")}
-      ${usageMetricCard("green", "Tracked Features", allFeatures.length.toLocaleString("en-KE"), "AI capabilities", "bars")}
-      ${usageMetricCard("amber", "Tracked Users", trackedUsers.toLocaleString("en-KE"), "Users with AI activity", "profile")}
-      ${usageMetricCard("red", "Blocked Events", Number(state.data.ai?.blockedEvents || 0).toLocaleString("en-KE"), "Safety controls", "alert")}
-      ${usageMetricCard("purple", "Tokens Used", compactNumber(highlights.totalTokens), "Input + output", "database")}
+      ${usageMetricCard("blue", "Total AI Spend", loading ? "—" : usageMoney(highlights.totalCost), `${periodLabel} recorded telemetry`, "tag")}
+      ${usageMetricCard("green", "Tracked Features", loading ? "—" : usageFeatureOptions().length - 1, "AI capabilities in period", "bars")}
+      ${usageMetricCard("amber", "Tracked Users", loading ? "—" : trackedUsers.toLocaleString("en-KE"), "Users with AI activity", "profile")}
+      ${usageMetricCard("red", "Blocked Events", loading ? "—" : Number(directory.blockedEvents || 0).toLocaleString("en-KE"), "Safety controls in period", "alert")}
+      ${usageMetricCard("purple", "Tokens Used", loading ? "—" : compactNumber(highlights.totalTokens), "Input + output in period", "database")}
     </section>
 
     <section class="usage-top-grid">
@@ -3078,19 +3670,16 @@ function renderUsage() {
         <div class="usage-panel-head">
           <div>
             <h2>Cost Trend</h2>
-            <p>Actual daily spend (KSh)</p>
-          </div>
-          <div class="usage-mini-tabs">
-            ${["Day", "Week", "Month"].map(label => `<span class="${state.usagePeriod.endsWith(label) || (state.usagePeriod === "Today" && label === "Day") ? "active" : ""}">${escapeHtml(label)}</span>`).join("")}
+            <p>Actual daily spend (KSh) · ${escapeHtml(periodLabel)}</p>
           </div>
         </div>
-        ${usageCostTrendChart()}
+        ${loading ? `<div class="usage-directory-skeleton usage-chart-skeleton" aria-label="Loading cost trend"></div>` : usageCostTrendChart()}
       </article>
       <article class="usage-panel usage-model-panel">
         <div class="usage-panel-head">
             <h2>Real Token Usage by Model</h2>
         </div>
-        ${usageModelDonut()}
+        ${loading ? `<div class="usage-directory-skeleton usage-chart-skeleton" aria-label="Loading model usage"></div>` : usageModelDonut()}
       </article>
     </section>
 
@@ -3104,7 +3693,7 @@ function renderUsage() {
             <thead>
               <tr><th>Feature</th><th>Tokens</th><th>Cost</th><th>Students</th><th>Cost / Student</th><th>Trend</th></tr>
             </thead>
-            <tbody>${featureRows.map(usageFeatureTableRow).join("")}</tbody>
+            <tbody>${featureBody}</tbody>
           </table>
         </div>
       </article>
@@ -3115,14 +3704,14 @@ function renderUsage() {
             <p>Recorded AI telemetry</p>
           </div>
         </div>
-        <div class="usage-school-list">${schoolRows.length ? schoolRows.map(row => `<div class="usage-school-row"><span><strong>${escapeHtml(row.name)}</strong><small>${row.users.toLocaleString("en-KE")} users · ${compactNumber(row.tokens)} tokens</small></span><b>${usageMoney(row.spend)}</b></div>`).join("") : `<div class="empty-state">No school AI spend has been recorded yet.</div>`}</div>
+        <div class="usage-school-list">${loading ? `<div class="usage-directory-skeleton" aria-label="Loading school usage"></div>` : schoolRows.length ? schoolRows.map(row => `<div class="usage-school-row"><span><strong>${escapeHtml(row.name)}</strong><small>${row.users.toLocaleString("en-KE")} users · ${compactNumber(row.tokens)} tokens</small></span><b>${usageMoney(row.spend)}</b></div>`).join("") : `<div class="empty-state">No school AI spend has been recorded for this selection.</div>`}</div>
       </article>
       <article class="usage-panel usage-alert-panel">
         <div class="usage-panel-head compact">
           <h2>Blocked AI Events</h2>
           ${miniIcon("alert")}
         </div>
-        <div class="usage-blocked-list">${blockedRows.length ? blockedRows.map(row => `<div class="usage-blocked-row"><span><strong>${escapeHtml(String(row.feature || "Unknown").replaceAll("_", " "))}</strong><small>${escapeHtml(row.user_name || row.user_email || "Unknown user")} · ${escapeHtml(row.school_name || "No school")}</small></span><time>${escapeHtml(new Date(row.created_at).toLocaleDateString("en-KE"))}</time></div>`).join("") : `<div class="empty-state">No blocked AI events for this selection.</div>`}</div>
+        <div class="usage-blocked-list">${loading ? `<div class="usage-directory-skeleton" aria-label="Loading blocked events"></div>` : blockedRows.length ? blockedRows.map(row => `<div class="usage-blocked-row"><span><strong>${escapeHtml(String(row.feature || "Unknown").replaceAll("_", " "))}</strong><small>${escapeHtml(row.user_name || row.user_email || "Unknown user")} · ${escapeHtml(row.school_name || "No school")}</small></span><time>${escapeHtml(new Date(row.created_at).toLocaleDateString("en-KE"))}</time></div>`).join("") : `<div class="empty-state">No blocked AI events for this selection.</div>`}</div>
       </article>
     </section>
   </div>`;
@@ -3149,9 +3738,12 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-route-control]").forEach(el => {
     el.addEventListener("change", async event => {
       state[event.target.dataset.routeControl] = event.target.value;
-      const validSchools = state.route === "teacher" ? teacherSchoolOptions() : schoolOptions();
+      const validSchools = state.route === "teacher" ? teacherSchoolOptions() : state.route === "parents" ? parentSchoolOptions() : schoolOptions();
       if (event.target.dataset.routeControl === "selectedCounty" && !validSchools.includes(state.selectedSchool)) {
         state.selectedSchool = "All Schools";
+      }
+      if (state.route === "parents" && ["selectedCounty", "selectedSchool"].includes(event.target.dataset.routeControl)) {
+        state.parentPage = 0;
       }
       if (state.route === "subjects" && event.target.dataset.routeControl === "selectedGrade") {
         renderRoute();
@@ -3162,32 +3754,149 @@ function bindRouteEvents() {
     });
   });
   const search = document.getElementById("searchInput");
-  if (search) search.addEventListener("input", event => { state.search = event.target.value; renderRoute(); });
+  if (search) search.addEventListener("input", event => {
+    const focus = { start: event.target.selectionStart, end: event.target.selectionEnd, direction: event.target.selectionDirection || "none" };
+    state.search = event.target.value;
+    if (state.route === "parents") state.parentPage = 0;
+    renderRoute();
+    const nextSearch = document.getElementById("searchInput");
+    nextSearch?.focus({ preventScroll: true });
+    try {
+      nextSearch?.setSelectionRange(focus.start, focus.end, focus.direction);
+    } catch {
+      nextSearch?.setSelectionRange(focus.start, focus.end);
+    }
+  });
+  if (state.route === "users") {
+    const directory = state.data.userDirectory;
+    const directorySearch = document.getElementById("userDirectorySearchInput");
+    directorySearch?.addEventListener("input", event => {
+      directory.search = event.target.value;
+      directory.offset = 0;
+      directory.loaded = false;
+      invalidateUserDirectoryRequest();
+      userDirectoryScheduleSearch();
+    });
+    const resetDirectoryAndLoad = (key, value) => {
+      invalidateUserDirectoryRequest();
+      if (key === "county") {
+        directory.schoolId = "";
+        directory.schoolName = "";
+      }
+      directory[key] = value;
+      directory.offset = 0;
+      directory.loaded = false;
+      void loadUserDirectory({ force: true });
+    };
+    document.querySelectorAll("[data-user-directory-retry]").forEach(button => button.addEventListener("click", () => {
+      directory.loaded = false;
+      directory.error = "";
+      void loadUserDirectory({ force: true });
+    }));
+    document.querySelector("[data-user-directory-county]")?.addEventListener("change", event => resetDirectoryAndLoad("county", event.target.value));
+    document.querySelector("[data-user-directory-grade]")?.addEventListener("change", event => resetDirectoryAndLoad("grade", event.target.value));
+    document.querySelector("[data-user-directory-school]")?.addEventListener("change", event => {
+      directory.schoolName = event.target.selectedOptions?.[0]?.textContent || "";
+      resetDirectoryAndLoad("schoolId", event.target.value);
+    });
+    document.querySelector("[data-user-directory-status]")?.addEventListener("change", event => resetDirectoryAndLoad("status", event.target.value));
+    document.querySelector("[data-user-directory-sort]")?.addEventListener("change", event => resetDirectoryAndLoad("sort", event.target.value));
+    document.querySelector("[data-user-directory-direction]")?.addEventListener("change", event => resetDirectoryAndLoad("direction", event.target.value));
+    document.querySelector("[data-user-directory-limit]")?.addEventListener("change", event => resetDirectoryAndLoad("limit", Number(event.target.value)));
+    document.querySelectorAll("[data-user-directory-page]").forEach(button => button.addEventListener("click", () => {
+      const nextOffset = button.dataset.userDirectoryPage === "next"
+        ? directory.offset + directory.limit
+        : Math.max(0, directory.offset - directory.limit);
+      if (nextOffset === directory.offset) return;
+      invalidateUserDirectoryRequest();
+      directory.offset = nextOffset;
+      directory.loaded = false;
+      directory.focusList = true;
+      void loadUserDirectory({ force: true });
+    }));
+  }
+  if (state.route === "schools") {
+    const directory = state.data.schoolDirectory;
+    const directorySearch = document.getElementById("schoolDirectorySearchInput");
+    directorySearch?.addEventListener("input", event => {
+      directory.search = event.target.value;
+      directory.offset = 0;
+      directory.loaded = false;
+      invalidateSchoolDirectoryRequest();
+      schoolDirectoryScheduleSearch();
+    });
+    const resetDirectoryAndLoad = (key, value) => {
+      invalidateSchoolDirectoryRequest();
+      directory[key] = value;
+      directory.offset = 0;
+      directory.loaded = false;
+      void loadSchoolDirectory({ force: true });
+    };
+    document.querySelectorAll("[data-school-directory-retry]").forEach(button => button.addEventListener("click", () => {
+      directory.loaded = false;
+      directory.error = "";
+      void loadSchoolDirectory({ force: true });
+    }));
+    document.querySelector("[data-school-directory-county]")?.addEventListener("change", event => resetDirectoryAndLoad("county", event.target.value));
+    document.querySelector("[data-school-directory-grade]")?.addEventListener("change", event => resetDirectoryAndLoad("grade", event.target.value));
+    document.querySelector("[data-school-directory-sort]")?.addEventListener("change", event => resetDirectoryAndLoad("sort", event.target.value));
+    document.querySelector("[data-school-directory-direction]")?.addEventListener("change", event => resetDirectoryAndLoad("direction", event.target.value));
+    document.querySelector("[data-school-directory-limit]")?.addEventListener("change", event => resetDirectoryAndLoad("limit", Number(event.target.value)));
+    document.querySelectorAll("[data-school-directory-page]").forEach(button => button.addEventListener("click", () => {
+      const nextOffset = button.dataset.schoolDirectoryPage === "next"
+        ? directory.offset + directory.limit
+        : Math.max(0, directory.offset - directory.limit);
+      if (nextOffset === directory.offset) return;
+      invalidateSchoolDirectoryRequest();
+      directory.offset = nextOffset;
+      directory.loaded = false;
+      directory.focusList = true;
+      void loadSchoolDirectory({ force: true });
+    }));
+  }
+  if (state.route === "parents") {
+    document.querySelectorAll("[data-parent-page]").forEach(button => button.addEventListener("click", () => {
+      const pageSize = Math.max(25, Math.min(50, Number(state.parentPageSize) || 25));
+      const total = filteredParentAdminRows().length;
+      const pageCount = Math.max(1, Math.ceil(total / pageSize));
+      state.parentPage = button.dataset.parentPage === "next"
+        ? Math.min(pageCount - 1, state.parentPage + 1)
+        : Math.max(0, state.parentPage - 1);
+      renderRoute();
+      setTimeout(() => document.querySelector("[data-parent-page]")?.focus(), 0);
+    }));
+    document.querySelector("[data-parent-page-size]")?.addEventListener("change", event => {
+      state.parentPageSize = Number(event.target.value) === 50 ? 50 : 25;
+      state.parentPage = 0;
+      renderRoute();
+    });
+  }
   document.querySelectorAll("[data-user]").forEach(button => button.addEventListener("click", () => showUser(button.dataset.user)));
   document.querySelectorAll("[data-school]").forEach(button => button.addEventListener("click", () => showSchool(button.dataset.school)));
   document.querySelectorAll("[data-add-school]").forEach(button => button.addEventListener("click", showAddSchool));
   document.querySelectorAll("[data-add-sales-agent]").forEach(button => button.addEventListener("click", showAddSalesAgent));
   document.querySelectorAll("[data-sales-agent]").forEach(button => button.addEventListener("click", () => showSalesAgent(button.dataset.salesAgent)));
-  document.querySelectorAll("[data-usage-period]").forEach(button => button.addEventListener("click", () => {
-    state.usagePeriod = button.dataset.usagePeriod;
-    renderRoute();
-  }));
-  document.querySelectorAll("[data-usage-feature]").forEach(button => button.addEventListener("click", () => {
-    state.selectedUsageFeature = button.dataset.usageFeature;
-    renderRoute();
-  }));
-  document.querySelectorAll("[data-teacher-period]").forEach(button => button.addEventListener("click", () => {
-    state.teacherPeriod = button.dataset.teacherPeriod;
-    renderRoute();
-  }));
-  document.querySelectorAll("[data-parent-period]").forEach(button => button.addEventListener("click", () => {
-    state.parentPeriod = button.dataset.parentPeriod;
-    renderRoute();
-  }));
-  document.querySelectorAll("[data-broadcast-scope]").forEach(button => button.addEventListener("click", () => {
-    document.querySelectorAll("[data-broadcast-scope]").forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-  }));
+  if (state.route === "usage") {
+    const directory = state.data.usageDirectory;
+    const changeUsageQuery = (key, value) => {
+      if (directory[key] === value) return;
+      invalidateUsageAnalyticsRequest();
+      directory[key] = value;
+      directory.loaded = false;
+      clearUsageAnalyticsData();
+      void loadUsageAnalytics({ force: true });
+    };
+    document.querySelectorAll("[data-usage-period]").forEach(button => button.addEventListener("click", () => {
+      changeUsageQuery("period", button.dataset.usagePeriod);
+    }));
+    document.querySelectorAll("[data-usage-feature]").forEach(button => button.addEventListener("click", () => {
+      changeUsageQuery("feature", button.dataset.usageFeature || "");
+    }));
+    document.querySelectorAll("[data-usage-retry]").forEach(button => button.addEventListener("click", () => {
+      directory.loaded = false;
+      void loadUsageAnalytics({ force: true });
+    }));
+  }
   document.querySelectorAll("[data-parent-broadcast-scope]").forEach(button => button.addEventListener("click", () => {
     state.parentMessageScope = button.dataset.parentBroadcastScope;
     renderRoute();
@@ -3367,25 +4076,72 @@ function gauge(score) {
   </svg>`;
 }
 
-function showUser(id) {
-  const index = state.data.users.findIndex(item => item.id === id);
-  const user = state.data.users[index];
-  if (!user) return;
-  showStudentModal(normalizeUserRow(user, Math.max(0, index)), "dashboard");
+function upsertAdminUserState(user) {
+  if (!user?.id) return;
+  const legacyIndex = state.data.users.findIndex(item => String(item.id) === String(user.id));
+  if (legacyIndex >= 0) state.data.users[legacyIndex] = { ...state.data.users[legacyIndex], ...user };
+  const directoryIndex = state.data.userDirectory.users.findIndex(item => String(item.id) === String(user.id));
+  if (directoryIndex >= 0) state.data.userDirectory.users[directoryIndex] = normalizeUserRow(user, directoryIndex);
 }
 
-function studentPerformanceScore(user) {
-  const key = String(user.name || "").toLowerCase();
-  if (key.includes("kevin")) return 42;
-  if (key.includes("stacy")) return 84;
-  if (key.includes("brian")) return 58;
-  if (key.includes("david")) return 71;
-  return 74;
+async function showUser(id) {
+  const directoryIndex = state.data.userDirectory.users.findIndex(item => String(item.id) === String(id));
+  const legacyIndex = state.data.users.findIndex(item => String(item.id) === String(id));
+  const directoryUser = directoryIndex >= 0 ? state.data.userDirectory.users[directoryIndex] : null;
+  const legacyUser = legacyIndex >= 0 ? state.data.users[legacyIndex] : null;
+  if (directoryUser) {
+    showStudentModal(directoryUser, "dashboard");
+    return;
+  }
+  if (legacyUser) {
+    showStudentModal(normalizeUserRow(legacyUser, Math.max(0, legacyIndex)), "dashboard");
+    return;
+  }
+  try {
+    const payload = await api(`/admin/users/directory?userId=${encodeURIComponent(id)}&limit=1`);
+    const user = payload.users?.[0];
+    if (!user) return;
+    const normalized = normalizeUserRow(user, 0);
+    showStudentModal(normalized, "dashboard");
+  } catch {
+    return;
+  }
 }
 
-function studentAssignmentCount(user) {
-  const matched = state.data.teacherAssignments.filter(item => !user.grade || item.gradeLevel === user.grade);
-  return matched.length ? matched.length : 25;
+function currentStudentAnalytics(user) {
+  return String(studentAnalyticsState.userId) === String(user?.id) ? studentAnalyticsState : { userId: user?.id || null, status: "idle", data: null, error: "" };
+}
+
+function invalidateStudentAnalytics() {
+  studentAnalyticsState.controller?.abort();
+  studentAnalyticsState = { userId: null, status: "idle", data: null, error: "", controller: null, requestId: studentAnalyticsState.requestId + 1 };
+}
+
+function studentModalActiveTab() {
+  const modal = modalRoot.querySelector(".student-modal");
+  if (modal?.classList.contains("profile-view")) return "profile";
+  if (modal?.classList.contains("remedial-view")) return "remedial";
+  return "dashboard";
+}
+
+function ensureStudentAnalytics(user) {
+  if (!user?.id || isTeacherOnly()) return;
+  if (String(studentAnalyticsState.userId) === String(user.id) && ["loading", "success", "error"].includes(studentAnalyticsState.status)) return;
+  studentAnalyticsState.controller?.abort();
+  const controller = new AbortController();
+  const requestId = studentAnalyticsState.requestId + 1;
+  studentAnalyticsState = { userId: user.id, status: "loading", data: null, error: "", controller, requestId };
+  void api(`/admin/users/${encodeURIComponent(user.id)}/analytics`, { signal: controller.signal })
+    .then(payload => {
+      if (controller.signal.aborted || studentAnalyticsState.requestId !== requestId || modalRoot.hidden) return;
+      studentAnalyticsState = { userId: user.id, status: "success", data: payload.analytics || null, error: "", controller: null, requestId };
+      showStudentModal(user, studentModalActiveTab());
+    })
+    .catch(error => {
+      if (error?.name === "AbortError" || controller.signal.aborted || studentAnalyticsState.requestId !== requestId || modalRoot.hidden) return;
+      studentAnalyticsState = { userId: user.id, status: "error", data: null, error: error.message || "Unable to load student analytics.", controller: null, requestId };
+      showStudentModal(user, studentModalActiveTab());
+    });
 }
 
 function studentModalTitle(tab) {
@@ -3396,6 +4152,10 @@ function studentModalTitle(tab) {
 
 function showStudentModal(user, tab = "dashboard") {
   const activeTab = ["dashboard", "remedial", "profile"].includes(tab) ? tab : "dashboard";
+  ensureStudentAnalytics(user);
+  if (studentSchoolPickerState && String(studentSchoolPickerState.userId) !== String(user.id)) {
+    resetStudentSchoolPicker();
+  }
   const [title, defaultSubtitle] = studentModalTitle(activeTab);
   const report = activeTab === "remedial" ? currentRemedialReport(user) : null;
   const showRemedialRisk = report && state.remedialAnalysis[user.id] === "complete";
@@ -3426,10 +4186,11 @@ function showStudentModal(user, tab = "dashboard") {
   modalRoot.querySelectorAll("[data-student-tab]").forEach(button => {
     button.addEventListener("click", () => showStudentModal(user, button.dataset.studentTab));
   });
-  modalRoot.querySelectorAll("[data-trend-range]").forEach(button => {
+  modalRoot.querySelectorAll("[data-retry-student-analytics]").forEach(button => {
     button.addEventListener("click", () => {
-      state.studentTrendRange = button.dataset.trendRange;
-      showStudentModal(user, "dashboard");
+      studentAnalyticsState.controller?.abort();
+      studentAnalyticsState = { userId: null, status: "idle", data: null, error: "", controller: null, requestId: studentAnalyticsState.requestId + 1 };
+      showStudentModal(user, studentModalActiveTab());
     });
   });
   modalRoot.querySelectorAll("[data-run-remedial-analysis]").forEach(button => {
@@ -3444,7 +4205,7 @@ function showStudentModal(user, tab = "dashboard") {
         delete state.remedialAiReports[user.id];
       } finally {
         if (modalRoot.hidden || !modalRoot.querySelector(".student-modal.remedial-view")) return;
-        state.remedialAnalysis[user.id] = "complete";
+        state.remedialAnalysis[user.id] = state.remedialAiReports[user.id] ? "complete" : "idle";
         showStudentModal(user, "remedial");
       }
     });
@@ -3459,28 +4220,39 @@ function showStudentModal(user, tab = "dashboard") {
     profileForm?.querySelectorAll("input, select").forEach(control => { control.disabled = false; });
     const saveButton = profileForm?.querySelector("button[type='submit']");
     if (saveButton) saveButton.disabled = false;
+    const clearSchoolButton = profileForm?.querySelector("[data-school-clear]");
+    if (clearSchoolButton) clearSchoolButton.disabled = !studentSchoolPickerState?.selectedSchool;
     profileForm?.classList.add("is-editing");
+    studentProfileSaveState = { userId: user.id, state: "idle" };
+    if (studentSchoolPickerState?.county) loadStudentSchoolResults(profileForm, { immediate: true });
     profileForm?.querySelector("input[name='fullName']")?.focus();
   });
+  setupStudentSchoolPicker(profileForm, user);
   profileForm?.addEventListener("submit", async event => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(profileForm).entries());
     const error = profileForm.querySelector(".student-profile-error");
     if (error) error.textContent = "";
+    setStudentProfileSaveState(profileForm, "loading");
     try {
       const response = await api(`/admin/users/${encodeURIComponent(user.id)}/profile`, { method: "PATCH", body: {
         fullName: String(data.fullName || "").trim(),
         grade: cleanSchoolFormValue(data.grade),
         schoolId: cleanSchoolFormValue(data.schoolId),
+        schoolDirectoryId: cleanSchoolFormValue(data.schoolDirectoryId),
         email: String(data.email || "").trim(),
         phone: cleanSchoolFormValue(data.phone),
         county: cleanSchoolFormValue(data.county),
         adminPassword: String(data.adminPassword || "")
       }});
       const index = state.data.users.findIndex(item => String(item.id) === String(user.id));
-      if (index >= 0) state.data.users[index] = { ...state.data.users[index], ...response.user };
+      upsertAdminUserState(response.user);
+      refreshUserDirectory();
+      studentProfileSaveState = { userId: user.id, state: "success" };
+      resetStudentSchoolPicker();
       showStudentModal(normalizeUserRow(response.user, Math.max(0, index)), "profile");
     } catch (submitError) {
+      setStudentProfileSaveState(profileForm, "idle");
       profileForm.querySelector("input[name='adminPassword']").value = "";
       if (error) error.textContent = submitError.message;
     }
@@ -3499,7 +4271,8 @@ function showStudentModal(user, tab = "dashboard") {
         adminPassword: passwordInput.value
       }});
       const index = state.data.users.findIndex(item => String(item.id) === String(user.id));
-      if (index >= 0) state.data.users[index] = { ...state.data.users[index], ...response.user };
+      upsertAdminUserState(response.user);
+      refreshUserDirectory();
       showStudentModal(normalizeUserRow(response.user, Math.max(0, index)), "profile");
     } catch (submitError) {
       subscriptionForm.querySelector("input[name='subscriptionAdminPassword']").value = "";
@@ -3507,6 +4280,220 @@ function showStudentModal(user, tab = "dashboard") {
     }
   });
   modalRoot.addEventListener("click", onScrimClick, { once: true });
+}
+
+function canonicalStudentCounty(value) {
+  const normalized = String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+  if (!normalized) return "";
+  return kenyaCounties.find(county => {
+    const key = county.toLowerCase();
+    return key === normalized || key.replace(/ county$/, "") === normalized.replace(/ county$/, "");
+  }) || (normalized.endsWith("county") ? String(value).trim() : `${String(value).trim()} County`);
+}
+
+function studentSchoolCountyQuery(value) {
+  return canonicalStudentCounty(value).replace(/\s+County$/i, "");
+}
+
+function studentSchoolCountyOptions(selectedCounty = "") {
+  const canonical = canonicalStudentCounty(selectedCounty);
+  return `<option value="">Choose a county first</option>${kenyaCounties.map(county => `<option value="${escapeHtml(county)}" ${county === canonical ? "selected" : ""}>${escapeHtml(county)}</option>`).join("")}`;
+}
+
+function resetStudentSchoolPicker() {
+  if (studentSchoolPickerTimer) clearTimeout(studentSchoolPickerTimer);
+  studentSchoolPickerTimer = null;
+  studentSchoolPickerRequest?.abort();
+  studentSchoolPickerRequest = null;
+  studentSchoolPickerState = null;
+}
+
+function studentSchoolPickerFor(user) {
+  if (!studentSchoolPickerState || String(studentSchoolPickerState.userId) !== String(user.id)) {
+    const school = state.data.schools.find(item => String(item.id) === String(user.schoolId || ""));
+    studentSchoolPickerState = {
+      userId: user.id,
+      county: canonicalStudentCounty(user.county || school?.county || ""),
+      query: "",
+      schools: [],
+      selectedSchool: user.schoolId && user.school !== "No School" ? {
+        id: user.schoolId,
+        name: user.school || school?.name || "Assigned school",
+        county: canonicalStudentCounty(user.county || school?.county || "")
+      } : null,
+      loading: false,
+      error: "",
+      hasNext: false,
+      requestId: 0
+    };
+  }
+  return studentSchoolPickerState;
+}
+
+function studentSchoolPickerMarkup(user) {
+  const picker = studentSchoolPickerFor(user);
+  const selected = picker.selectedSchool;
+  return `<div class="student-school-picker" data-student-school-picker>
+    <input type="hidden" name="schoolId" value="${escapeHtml(selected?.id || "")}" />
+    <input type="hidden" name="schoolDirectoryId" value="${escapeHtml(selected?.id || "")}" />
+    <select class="student-school-county" data-school-county aria-label="School county" disabled>${studentSchoolCountyOptions(picker.county)}</select>
+    <input class="student-school-search" data-school-search type="search" placeholder="Search schools in this county" autocomplete="off" aria-label="Search schools" aria-controls="student-school-results" disabled />
+    <div class="student-school-selected" data-school-selected aria-live="polite">${selected ? `<strong>${escapeHtml(selected.name)}</strong><small>${escapeHtml(selected.county || picker.county)}</small>` : "<span>No School</span>"}</div>
+    <button class="student-school-clear" type="button" data-school-clear disabled>${selected ? "Remove school" : "Keep No School"}</button>
+    <div class="student-school-results" id="student-school-results" data-school-results role="status" aria-live="polite"><span class="student-school-results-hint">Choose a county to browse the school directory.</span></div>
+  </div>`;
+}
+
+function setStudentProfileSaveState(form, nextState) {
+  const button = form?.querySelector("button[type='submit']");
+  const status = form?.querySelector(".student-profile-save-status");
+  if (!button) return;
+  button.dataset.state = nextState;
+  button.disabled = nextState === "loading";
+  button.innerHTML = nextState === "loading"
+    ? '<span class="student-submit-spinner" aria-hidden="true"></span> Saving...'
+    : nextState === "success" ? `${miniIcon("check")} Saved` : `${miniIcon("save")} Save changes`;
+  if (status) status.textContent = nextState === "success" ? "Changes saved." : "";
+}
+
+function renderStudentSchoolResults(form) {
+  const picker = studentSchoolPickerState;
+  const results = form?.querySelector("[data-school-results]");
+  if (!picker || !results) return;
+  results.classList.toggle("is-loading", picker.loading);
+  results.setAttribute("aria-busy", picker.loading ? "true" : "false");
+  results.setAttribute("aria-label", picker.loading ? "Loading schools" : "School search results");
+  if (picker.loading) {
+    results.innerHTML = `<span class="student-school-skeleton" aria-hidden="true"></span><span class="student-school-skeleton" aria-hidden="true"></span><span class="student-school-skeleton" aria-hidden="true"></span>`;
+    return;
+  }
+  if (picker.error) {
+    results.innerHTML = `<span class="student-school-results-error" role="alert">${escapeHtml(picker.error)}</span>`;
+    return;
+  }
+  if (!picker.county) {
+    results.innerHTML = `<span class="student-school-results-hint">Choose a county to browse the school directory.</span>`;
+    return;
+  }
+  if (!picker.schools.length) {
+    results.innerHTML = `<span class="student-school-results-hint">No schools found${picker.query ? ` for “${escapeHtml(picker.query)}”` : " in this county"}.</span>`;
+    return;
+  }
+  results.setAttribute("role", "listbox");
+  results.innerHTML = picker.schools.map(school => `<button type="button" role="option" aria-selected="${String(picker.selectedSchool?.id) === String(school.id)}" data-school-result="${escapeHtml(school.id)}"><strong>${escapeHtml(school.name)}</strong><small>${escapeHtml(canonicalStudentCounty(school.county || picker.county))}${school.subCounty ? ` · ${escapeHtml(school.subCounty)}` : ""}</small></button>`).join("") + (picker.hasNext ? `<span class="student-school-results-hint">More matches available; type to narrow your search.</span>` : "");
+}
+
+async function loadStudentSchoolResults(form, options = {}) {
+  const picker = studentSchoolPickerState;
+  if (!picker || !form) return;
+  if (studentSchoolPickerTimer) clearTimeout(studentSchoolPickerTimer);
+  const delay = options.immediate ? 0 : 300;
+  const requestId = ++picker.requestId;
+  studentSchoolPickerRequest?.abort();
+  studentSchoolPickerRequest = null;
+  studentSchoolPickerTimer = setTimeout(async () => {
+    if (!picker.county) {
+      picker.schools = [];
+      picker.loading = false;
+      renderStudentSchoolResults(form);
+      return;
+    }
+    const controller = new AbortController();
+    studentSchoolPickerRequest = controller;
+    picker.loading = true;
+    picker.error = "";
+    renderStudentSchoolResults(form);
+    try {
+      const countyQueries = Array.from(new Set([studentSchoolCountyQuery(picker.county), picker.county].filter(Boolean)));
+      const responses = await Promise.allSettled(countyQueries.map(county => {
+        const params = new URLSearchParams({ county, query: picker.query, limit: "50", offset: "0" });
+        return api(`/admin/schools?${params.toString()}`, { signal: controller.signal });
+      }));
+      if (requestId !== picker.requestId) return;
+      const successfulPayloads = responses.filter(response => response.status === "fulfilled").map(response => response.value);
+      if (!successfulPayloads.length) {
+        const failure = responses.find(response => response.status === "rejected");
+        throw failure?.reason || new Error("Unable to load schools.");
+      }
+      const schoolById = new Map();
+      successfulPayloads.flatMap(payload => payload.schools || []).forEach(school => {
+        const normalized = { ...school, id: school.id || school.schoolId };
+        if (normalized.id && !schoolById.has(String(normalized.id))) schoolById.set(String(normalized.id), normalized);
+      });
+      const mergedSchools = Array.from(schoolById.values()).sort((left, right) => String(left.name || "").localeCompare(String(right.name || ""), "en", { sensitivity: "base" }));
+      picker.schools = mergedSchools.slice(0, 50);
+      picker.hasNext = successfulPayloads.some(payload => payload.hasNext) || mergedSchools.length > picker.schools.length;
+    } catch (error) {
+      if (error?.name === "AbortError" || requestId !== picker.requestId) return;
+      picker.error = error.message || "Unable to load schools.";
+      picker.schools = [];
+    } finally {
+      if (requestId !== picker.requestId) return;
+      picker.loading = false;
+      renderStudentSchoolResults(form);
+    }
+  }, delay);
+}
+
+function setupStudentSchoolPicker(form, user) {
+  const picker = form?.querySelector("[data-student-school-picker]");
+  if (!picker) return;
+  const pickerState = studentSchoolPickerFor(user);
+  const county = picker.querySelector("[data-school-county]");
+  const search = picker.querySelector("[data-school-search]");
+  const clear = picker.querySelector("[data-school-clear]");
+  const selected = picker.querySelector("[data-school-selected]");
+  const editing = form.classList.contains("is-editing");
+  county.disabled = !editing;
+  search.disabled = !editing;
+  clear.disabled = !editing || !pickerState.selectedSchool;
+  renderStudentSchoolResults(form);
+  county.addEventListener("change", () => {
+    pickerState.county = canonicalStudentCounty(county.value);
+    pickerState.query = "";
+    search.value = "";
+    pickerState.selectedSchool = null;
+    form.querySelector("input[name='schoolId']").value = "";
+    form.querySelector("input[name='schoolDirectoryId']").value = "";
+    selected.innerHTML = "<span>No School</span>";
+    clear.textContent = "Keep No School";
+    clear.disabled = true;
+    const countyField = form.querySelector("input[name='county']");
+    if (countyField && pickerState.county) countyField.value = pickerState.county;
+    loadStudentSchoolResults(form, { immediate: true });
+  });
+  search.addEventListener("input", () => {
+    pickerState.query = search.value.trim();
+    loadStudentSchoolResults(form);
+  });
+  clear.addEventListener("click", () => {
+    pickerState.selectedSchool = null;
+    form.querySelector("input[name='schoolId']").value = "";
+    form.querySelector("input[name='schoolDirectoryId']").value = "";
+    selected.innerHTML = "<span>No School</span>";
+    clear.textContent = "Keep No School";
+    clear.disabled = true;
+  });
+  picker.querySelector("[data-school-results]").addEventListener("click", event => {
+    const button = event.target.closest("[data-school-result]");
+    if (!button) return;
+    const school = pickerState.schools.find(item => String(item.id) === String(button.dataset.schoolResult));
+    if (!school) return;
+    const schoolCounty = canonicalStudentCounty(school.county || pickerState.county);
+    pickerState.selectedSchool = { id: school.id, name: school.name, county: schoolCounty };
+    pickerState.county = schoolCounty;
+    county.value = schoolCounty;
+    search.value = "";
+    pickerState.query = "";
+    form.querySelector("input[name='schoolId']").value = school.id;
+    form.querySelector("input[name='schoolDirectoryId']").value = school.id;
+    const countyField = form.querySelector("input[name='county']");
+    if (countyField) countyField.value = schoolCounty;
+    selected.innerHTML = `<strong>${escapeHtml(school.name)}</strong><small>${escapeHtml(schoolCounty)}</small>`;
+    clear.textContent = "Remove school";
+    clear.disabled = false;
+    renderStudentSchoolResults(form);
+  });
 }
 
 function studentModalTab(key, label, iconName, activeTab) {
@@ -3518,93 +4505,51 @@ function studentModalTab(key, label, iconName, activeTab) {
 }
 
 function studentModalContent(user, tab) {
-  if (tab === "profile") return studentProfileContent(user);
-  if (tab === "remedial") return studentRemedialContent(user);
-  return studentDashboardContent(user);
+  const analytics = currentStudentAnalytics(user);
+  if (tab === "profile") return studentProfileContent(user, analytics);
+  if (tab === "remedial") return studentRemedialContent(user, analytics);
+  return studentDashboardContent(user, analytics);
 }
 
-function studentDashboardContent(user) {
-  const score = studentPerformanceScore(user);
-  const trendRange = state.studentTrendRange || "Last 7 days";
-  const trend = studentTrendData(user, trendRange);
+function studentDashboardContent(user, analyticsState) {
+  const analytics = analyticsState.data;
+  const score = analytics?.overallScore ?? null;
+  const loading = analyticsState.status === "loading";
+  const error = analyticsState.status === "error";
+  const activities = analytics?.recentActivity || [];
+  const trend = analytics?.trend || [];
+  const descriptor = score === null ? "" : score >= 80 ? "Exceeding Expectations" : score >= 60 ? "Meeting Expectations" : score >= 40 ? "Approaching Expectations" : "Below Expectations";
   return `
     <section class="student-modal-card performance-card">
       <span class="student-card-kicker">Overall Performance</span>
       <div class="student-gauge-wrap">
         ${studentScoreGauge(score)}
-        <strong>${score}%</strong>
+        <strong>${score === null ? "—" : `${score}%`}</strong>
       </div>
-      <div class="student-expectation">${miniIcon("trophy")}<span>Meeting Expectations</span></div>
+      ${descriptor ? `<div class="student-expectation">${miniIcon("trophy")}<span>${descriptor}</span></div>` : `<p class="student-analytics-empty">${loading ? "Loading analytics…" : error ? "Analytics unavailable" : "No scored performance data yet"}</p>`}
     </section>
     <section class="student-modal-card recent-card">
       <div class="student-card-title-row">
         <h3>Recent Activity</h3>
-        <button type="button">View All</button>
+        ${activities.length ? `<span>${activities.length} scored</span>` : ""}
       </div>
-      ${studentActivityRow("calculator", "Algebra Quiz", "Today, 9:30 AM", "92%", "good")}
-      ${studentActivityRow("book", "Biology Reading", "Today, 8:15 AM", "75%", "")}
-      ${studentActivityRow("globe2", "World War II Essay", "Yesterday, 8:30 AM", "45%", "low")}
+      ${loading ? `<div class="student-analytics-skeleton" role="status" aria-live="polite"><i></i><i></i><i></i><span>Loading student analytics…</span></div>` : error ? `<div class="student-analytics-error" role="alert"><span>${escapeHtml(analyticsState.error)}</span><button type="button" data-retry-student-analytics>Retry</button></div>` : activities.length ? activities.map(studentAnalyticsActivityRow).join("") : `<div class="student-empty-state">No scored activity yet.</div>`}
     </section>
     <section class="student-modal-card trend-card">
       <div class="student-card-title-row">
         <h3>Performance Trend</h3>
-        ${trendRangeMenu(trendRange)}
+        <span>Last 7 days</span>
       </div>
-      <div class="trend-chart" aria-hidden="true">
-        <div class="trend-line" style="--trend-bars:${trend.values.length}">${trend.values.map(value => `<i style="height:${value}%"></i>`).join("")}</div>
-        <div class="trend-days" style="--trend-bars:${trend.labels.length}">${trend.labels.map(label => `<span>${escapeHtml(label)}</span>`).join("")}</div>
+      <div class="trend-chart" aria-label="Last 7 days of scored performance">
+        <div class="trend-line" style="--trend-bars:7">${Array.from({ length: 7 }, (_, index) => { const day = trend[index]; return `<i class="${day?.score === null || day?.score === undefined ? "no-data" : ""}" style="height:${day?.score == null ? 0 : Math.max(0, Math.min(100, Number(day.score)))}%" title="${day?.score == null ? "No scored data" : `${day.score}%`}"></i>`; }).join("")}</div>
+        <div class="trend-days" style="--trend-bars:7">${Array.from({ length: 7 }, (_, index) => `<span>${escapeHtml(formatStudentTrendDay(trend[index]?.date, index))}</span>`).join("")}</div>
       </div>
     </section>`;
 }
 
-function studentTrendData(user, range) {
-  const score = studentPerformanceScore(user);
-  const seed = String(user.name || "").split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  const clamp = value => Math.max(18, Math.min(96, Math.round(value)));
-  const currentDate = new Date();
-  const dayFormatter = new Intl.DateTimeFormat("en", { weekday: "short" });
-  const monthFormatter = new Intl.DateTimeFormat("en", { month: "short" });
-  const lastDays = count => Array.from({ length: count }, (_, index) => {
-    const date = new Date(currentDate);
-    date.setDate(currentDate.getDate() - (count - 1 - index));
-    return dayFormatter.format(date);
-  });
-  const monthLabel = offset => {
-    const date = new Date(currentDate);
-    date.setMonth(currentDate.getMonth() - offset);
-    return monthFormatter.format(date);
-  };
-  const values = (count, offset = 0) => Array.from({ length: count }, (_, index) => {
-    const wave = Math.sin((seed + offset + index * 31) / 19) * 12;
-    const progress = (index / Math.max(1, count - 1)) * 10;
-    return clamp(score - 14 + wave + progress);
-  });
-  if (range === "Last 1 month") {
-    return { labels: ["W1", "W2", "W3", "W4"], values: values(4, 11) };
-  }
-  if (range === "Last 3 months") {
-    return { labels: [monthLabel(2), monthLabel(1), monthLabel(0)], values: values(3, 23) };
-  }
-  if (range === "Life Time") {
-    const year = currentDate.getFullYear();
-    return { labels: [String(year - 3), String(year - 2), String(year - 1), String(year)], values: values(4, 37) };
-  }
-  return { labels: lastDays(7), values: values(7) };
-}
-
-function trendRangeMenu(activeRange) {
-  const options = ["Last 7 days", "Last 1 month", "Last 3 months", "Life Time"];
-  return `<details class="trend-range-menu">
-    <summary>${escapeHtml(activeRange)}</summary>
-    <div>
-      ${options.map(option => `<button class="${option === activeRange ? "active" : ""}" type="button" data-trend-range="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}
-    </div>
-  </details>`;
-}
-
 function studentScoreGauge(score) {
   const totalTicks = 31;
-  const activeTicks = Math.round((score / 100) * totalTicks);
+  const activeTicks = score === null ? 0 : Math.round((score / 100) * totalTicks);
   const ticks = Array.from({ length: totalTicks }, (_, index) => {
     const angle = Math.PI - (index / (totalTicks - 1)) * Math.PI;
     const outer = 82;
@@ -3620,7 +4565,7 @@ function studentScoreGauge(score) {
     else if (active) color = "#1fc45b";
     return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${color}" />`;
   }).join("");
-  return `<svg class="student-score-gauge" viewBox="0 0 220 130" role="img" aria-label="${score}% overall performance">
+  return `<svg class="student-score-gauge" viewBox="0 0 220 130" role="img" aria-label="${score === null ? "No scored performance data" : `${score}% overall performance`}">
     <g class="student-gauge-ticks">${ticks}</g>
   </svg>`;
 }
@@ -3633,10 +4578,38 @@ function studentActivityRow(iconName, title, meta, score, tone) {
   </div>`;
 }
 
-function studentProfileContent(user) {
+function formatStudentActivityTime(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "Date unavailable" : date.toLocaleString("en-KE", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function formatStudentTrendDay(value, index = 0) {
+  const date = value ? new Date(`${String(value)}T00:00:00`) : new Date();
+  if (!value) date.setDate(date.getDate() - (6 - index));
+  return Number.isNaN(date.getTime()) ? "—" : date.toLocaleDateString("en-KE", { weekday: "short" });
+}
+
+function formatStudentLastActive(user) {
+  const recordedAt = user.raw?.lastActiveAt || user.raw?.last_active_at;
+  if (recordedAt) {
+    const date = new Date(recordedAt);
+    if (!Number.isNaN(date.getTime())) return date.toLocaleString("en-KE", { dateStyle: "medium", timeStyle: "short" });
+  }
+  if (user.lastActive) return user.lastActive;
+  if (user.status === "Online") return "Online now";
+  return "Unavailable";
+}
+
+function studentAnalyticsActivityRow(activity) {
+  const iconName = activity.kind === "assignment" ? "clipboard" : activity.kind === "weekly_exam" ? "trophy" : "book";
+  const tone = Number(activity.score) >= 80 ? "good" : Number(activity.score) < 60 ? "low" : "";
+  return studentActivityRow(iconName, activity.title || "", formatStudentActivityTime(activity.occurredAt), `${activity.score}%`, tone);
+}
+
+function studentProfileContent(user, analyticsState) {
   const aiUsage = studentAiUsage(user);
-  const schoolChoices = [{ id: "", name: "No School" }, ...state.data.schools.map(school => ({ id: school.id, name: school.name }))];
   const subscriptionActive = user.subscriptionStatus === "active";
+  const saveState = studentProfileSaveState.userId === user.id ? studentProfileSaveState.state : "idle";
   return `
     <section class="student-profile-hero">
       <div class="student-profile-banner"></div>
@@ -3649,21 +4622,22 @@ function studentProfileContent(user) {
         <h3>${miniIcon("profile")} Academic Info <button type="button" data-edit-student-profile aria-label="Edit student profile">${miniIcon("pencil")}</button></h3>
         <label><span>Student Name</span><input name="fullName" value="${escapeHtml(user.name)}" disabled required /></label>
         <label><span>Grade</span><input name="grade" value="${escapeHtml(user.grade === "N/A" ? "" : user.grade || "")}" disabled /></label>
-        <label><span>School</span><select name="schoolId" disabled>${schoolChoices.map(school => `<option value="${escapeHtml(school.id)}" ${String(school.id) === String(user.schoolId || "") ? "selected" : ""}>${escapeHtml(school.name)}</option>`).join("")}</select></label>
+        <label class="student-school-picker-label"><span>School</span>${studentSchoolPickerMarkup(user)}</label>
         ${studentInfoRow("Date Joined", user.raw?.createdAt ? new Date(user.raw.createdAt).toLocaleDateString("en-KE", { month: "short", year: "numeric" }) : "-")}
-        ${studentInfoRow("Last Active", user.status === "Online" ? "Just now" : "Today")}
-        ${studentInfoRow("Assignments", `${studentAssignmentCount(user)} Completed`)}
-        ${studentInfoRow("Tokens / KSh", `${aiUsage.totalTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.spendKshCents)}`)}
+        ${studentInfoRow("Last Active", formatStudentLastActive(user))}
+        ${studentInfoRow("Assignments", analyticsState.status === "loading" ? "Loading…" : analyticsState.data ? `${analyticsState.data.completedAssignments} Completed` : analyticsState.status === "error" ? "Unavailable" : "Not available")}
+        ${studentInfoRow("Tokens / KSh", aiUsage.hasData ? `${aiUsage.totalTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.spendKshCents)}` : "Not available")}
       </section>
       <section class="student-modal-card contact-card">
         <h3>Contact Details</h3>
         <label><span>Email</span><input name="email" type="email" value="${escapeHtml(user.email)}" disabled required /></label>
         <label><span>Phone</span><input name="phone" value="${escapeHtml(user.phone)}" disabled /></label>
-        <label><span>County</span><input name="county" value="${escapeHtml(user.county)}" disabled /></label>
+        <label><span>County</span><input name="county" value="${escapeHtml(user.county)}" disabled readonly /></label>
         <div class="student-profile-confirmation">
           <input name="adminPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Admin password" disabled required />
-          <button class="primary-button" type="submit" disabled>${miniIcon("save")} Save changes</button>
+          <button class="primary-button" type="submit" data-state="${saveState}" disabled>${saveState === "success" ? `${miniIcon("check")} Saved` : `${miniIcon("save")} Save changes`}</button>
         </div>
+        <p class="student-profile-save-status" role="status">${saveState === "success" ? "Changes saved." : ""}</p>
         <p class="error-text student-profile-error"></p>
       </section>
     </form>
@@ -3690,33 +4664,42 @@ function studentInfoRow(label, value) {
   return `<div class="student-info-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
 }
 
-function studentRemedialContent(user) {
+function studentRemedialContent(user, analyticsState) {
+  const summary = analyticsState.data?.remedial || null;
   const report = currentRemedialReport(user);
   const analysisStatus = state.remedialAnalysis[user.id] || "idle";
+  const analysisError = state.remedialAnalysisErrors[user.id] || "";
   const isRunning = analysisStatus === "running";
-  if (analysisStatus !== "complete") {
+  if (analyticsState.status === "loading") {
+    return `<section class="student-modal-card remedial-run-card" role="status" aria-live="polite"><div class="student-analytics-skeleton"><i></i><i></i><i></i><span>Loading remedial analytics…</span></div></section>`;
+  }
+  if (analyticsState.status === "error") {
+    return `<section class="student-modal-card student-analytics-error" role="alert"><span>${escapeHtml(analyticsState.error)}</span><button type="button" data-retry-student-analytics>Retry</button></section>`;
+  }
+  const gaps = summary?.gaps?.filter(gap => Number(gap.wrongAnswers) > 0) || [];
+  if (!summary || !gaps.length) {
+    return `<section class="student-modal-card student-empty-state" role="status"><h3>Remedial</h3><p>No recorded wrong-answer data in the last 7 days.</p></section>`;
+  }
+  if (analysisStatus !== "complete" || !report) {
     return `<section class="student-modal-card remedial-run-card ${isRunning ? "is-running" : ""}">
       <div class="remedial-run-hero">
         <span class="remedial-run-icon">${miniIcon("activity")}</span>
         <h3>Remedial</h3>
-        <p>Scan this week's wrong answers across quizzes and assignments to build a focused remedial report.</p>
+        <p>Review recorded diagnostic wrong answers from the last 7 days to build focused support.</p>
+        ${analysisError ? `<p class="error-text" role="alert">${escapeHtml(analysisError)}</p>` : ""}
         <button class="analysis-run-button" type="button" data-run-remedial-analysis>${miniIcon("activity")} ${isRunning ? "Analyzing..." : "Run Analysis"}</button>
       </div>
       ${isRunning ? `<div class="analysis-stream" aria-hidden="true"><i></i><i></i><i></i></div>` : ""}
-      <div class="remedial-run-chips" aria-hidden="true">
-        <span>${miniIcon("document")} All quizzes</span>
-        <span>${miniIcon("check")} Assignments</span>
-        <span>${miniIcon("target")} Learning gaps</span>
-      </div>
+      <div class="remedial-run-chips"><span>${summary.totalAnswers} recorded answers</span><span>${gaps.length} learning gaps</span><span>Last 7 days</span></div>
     </section>`;
   }
   return `
     <section class="student-modal-card remedial-report-stats">
-      ${remedialReportStat(`${report.mastery}%`, "Mastery", "trophy", "mastery")}
+      ${remedialReportStat(report.totalAnswers, "Recorded Answers", "document", "mastery")}
       ${remedialReportStat(report.wrongAnswers, "Wrong", "close", "wrong")}
       ${remedialReportStat(report.priorityGaps, "Priority Gaps", "alert", "gaps")}
     </section>
-    <p class="remedial-source-note">${escapeHtml(report.sourceLabel || "AI analysis")} - ${escapeHtml(report.periodLabel)}</p>
+    <p class="remedial-source-note">${escapeHtml(report.sourceLabel)} - ${escapeHtml(report.periodLabel)}</p>
     <section class="student-modal-card remedial-diagnosis-card stream-section">
       <span class="remedial-card-icon">${miniIcon("document")}</span>
       <div>
@@ -3725,25 +4708,14 @@ function studentRemedialContent(user) {
       </div>
     </section>
     <section class="student-modal-card remedial-areas-card stream-section">
-      <div class="student-card-title-row">
-        <h3>Priority Gaps</h3>
-      </div>
-      <div class="remedial-area-list">
-        ${report.topAreas.map(remedialAreaTableRow).join("")}
-      </div>
+      <div class="student-card-title-row"><h3>Priority Gaps</h3></div>
+      <div class="remedial-area-list">${report.topAreas.map(remedialAreaTableRow).join("")}</div>
     </section>
     <section class="student-modal-card remedial-recommendation-card stream-section">
       <span class="remedial-card-icon action">${miniIcon("target")}</span>
-      <div>
-        <h3>Recommended Action</h3>
-        <p><strong>${escapeHtml(report.actionTitle)}</strong>${escapeHtml(report.actionNote)}</p>
-      </div>
+      <div><h3>Recommended Action</h3><p><strong>${escapeHtml(report.actionTitle)}</strong>${escapeHtml(report.actionNote)}</p></div>
     </section>
     <button class="weekend-assignment-button stream-section" type="button" data-create-weekend-assignment>${miniIcon("document")} Set Assignment</button>`;
-}
-
-function remedialMetric(value, label, iconName) {
-  return `<span>${miniIcon(iconName)}<strong>${escapeHtml(value)}</strong><small>${escapeHtml(label)}</small></span>`;
 }
 
 function remedialReportStat(value, label, iconName, tone) {
@@ -3780,18 +4752,20 @@ function remedialAreaTableRow(area, index) {
 
 function openRemedialAssignmentForm(user) {
   const report = currentRemedialReport(user);
+  if (!report?.topAreas?.length) return;
   openModal("Set Assignment", assignmentForm({
     recipientName: user.name,
     recipientId: isUuid(user.id) ? user.id : "",
     grade: user.grade || grades[0],
-    subject: report.topAreas[0]?.subject || subjects[0],
+    subject: report.topAreas[0].subject,
     topic: `Weekend Assignment for ${user.name}. Focus only on: ${report.assignmentTopic}. Generate ${report.assignmentQuestionCount} questions and include a short revision note.`,
     draft: remedialAssignmentDraft(user, report)
   }));
 }
 
 function remedialAssignmentDraft(user, report) {
-  const areas = report.topAreas.length ? report.topAreas : [{ subject: "Mathematics", subStrand: "Revision", learningArea: "Core skills" }];
+  const areas = report.topAreas;
+  if (!areas.length) return null;
   const questions = Array.from({ length: report.assignmentQuestionCount }, (_, index) => {
     const area = areas[index % areas.length];
     const isMcq = index % 2 === 1;
@@ -3818,34 +4792,37 @@ function remedialAssignmentDraft(user, report) {
 }
 
 function currentRemedialReport(user) {
-  return state.remedialAiReports[user.id] || buildRemedialReport(user);
+  const summary = currentStudentAnalytics(user).data?.remedial;
+  if (!summary) return null;
+  const report = state.remedialAiReports[user.id] || buildRemedialReport(summary);
+  return report.topAreas?.length ? report : null;
 }
 
 async function generateRemedialAiReport(user) {
-  const fallback = buildRemedialReport(user);
-  const attempts = weeklyRemedialAttempts(user);
+  const summary = currentStudentAnalytics(user).data?.remedial;
+  const fallback = summary ? buildRemedialReport(summary) : null;
+  if (!fallback?.topAreas?.length) throw new Error("No recorded wrong-answer data is available.");
   if (!state.accessToken) throw new Error("Sign in to generate a remedial analysis.");
   const response = await api("/ai/generate-text", { method: "POST", body: {
-    prompt: remedialAnalysisPrompt(user, attempts, fallback),
+    prompt: remedialAnalysisPrompt(user, summary, fallback),
     responseMimeType: "application/json",
     feature: "remedial_analysis"
   }});
   return parseRemedialAiReport(response.text, fallback);
 }
 
-function remedialAnalysisPrompt(user, attempts, fallback) {
+function remedialAnalysisPrompt(user, summary, fallback) {
   return `Analyze this student's wrong-answer records from the past 7 days only.
 Student: ${user.name}
 Grade: ${user.grade || "Student"}
-Weekly summary: ${fallback.wrongAnswers} wrong answers, ${fallback.priorityGaps} priority gaps, ${fallback.mastery}% mastery.
-Wrong-answer records:
-${JSON.stringify(attempts.filter(attempt => !attempt.correct).map(attempt => ({
-  subject: attempt.subject,
-  strand: attempt.strand,
-  subStrand: attempt.subStrand,
-  learningArea: attempt.learningArea,
-  source: attempt.source,
-  daysAgo: attempt.daysAgo
+Weekly summary: ${fallback.wrongAnswers} wrong answers across ${fallback.priorityGaps} recorded learning gaps.
+Wrong-answer groups:
+${JSON.stringify(summary.gaps.map(gap => ({
+  subjectId: gap.subjectId,
+  subStrandKey: gap.subStrandKey,
+  totalAnswers: gap.totalAnswers,
+  wrongAnswers: gap.wrongAnswers,
+  lastAnswerAt: gap.lastAnswerAt
 })), null, 2)}
 
 Return pure JSON only:
@@ -3872,125 +4849,44 @@ function parseRemedialAiReport(value, fallback) {
   };
 }
 
-function buildRemedialReport(user) {
-  const attempts = weeklyRemedialAttempts(user);
-  const grouped = attempts.reduce((items, attempt) => {
-    const key = [attempt.subject, attempt.strand, attempt.subStrand, attempt.learningArea].join("|");
-    if (!items[key]) {
-      items[key] = {
-        subject: attempt.subject,
-        strand: attempt.strand,
-        subStrand: attempt.subStrand,
-        learningArea: attempt.learningArea,
-        wrong: 0,
-        total: 0,
-        recent: 0,
-        sources: new Set()
-      };
-    }
-    items[key].total += 1;
-    items[key].sources.add(attempt.source);
-    if (!attempt.correct) {
-      items[key].wrong += 1;
-      if (attempt.recent) items[key].recent += 1;
-    }
-    return items;
-  }, {});
-  const areas = Object.values(grouped)
-    .map(area => ({
-      ...area,
-      sourceCount: area.sources.size,
-      accuracy: ((area.total - area.wrong) / Math.max(1, area.total)) * 100,
-      severity: area.wrong * 2 + area.recent + area.sources.size
-    }))
-    .sort((a, b) => b.severity - a.severity);
-  const topAreas = areas.slice(0, 3);
-  const wrongAnswers = attempts.filter(attempt => !attempt.correct).length;
-  const sourceCount = new Set(attempts.map(attempt => attempt.source)).size;
+function buildRemedialReport(summary) {
+  const topAreas = (summary.gaps || []).filter(gap => Number(gap.wrongAnswers) > 0).slice(0, 3).map(gap => {
+    const total = Number(gap.totalAnswers || 0);
+    const wrong = Number(gap.wrongAnswers || 0);
+    return {
+      subject: gap.subjectId || "Unlabelled subject",
+      subStrand: gap.subStrandKey || "Unlabelled learning area",
+      learningArea: gap.subStrandKey || "Unlabelled learning area",
+      wrong,
+      total,
+      accuracy: ((total - wrong) / Math.max(1, total)) * 100,
+      lastAnswerAt: gap.lastAnswerAt || null
+    };
+  });
+  const wrongAnswers = Number(summary.wrongAnswers || 0);
+  const totalAnswers = Number(summary.totalAnswers || 0);
   const riskLabel = wrongAnswers >= 10 ? "Needs Attention" : wrongAnswers >= 6 ? "Watch Closely" : "Improving";
   const riskClass = wrongAnswers >= 10 ? "high" : wrongAnswers >= 6 ? "medium" : "low";
   const areaList = topAreas.map(area => area.subStrand).join(", ");
-  const firstName = firstNameOf(user);
   const primaryArea = topAreas[0];
-  const primarySkill = primaryArea?.learningArea || primaryArea?.subStrand || "the weakest skill";
-  const diagnosis = `${firstName} has repeatedly missed questions in ${areaList} during the past 7 days. The pattern suggests ${firstName} understands the basics but needs guided practice applying them in unfamiliar question formats.`;
-  const mastery = Math.max(42, Math.min(88, Math.round(100 - wrongAnswers * 3.8)));
+  const primarySkill = primaryArea?.learningArea || primaryArea?.subStrand;
+  const diagnosis = `Recorded diagnostic answers show ${wrongAnswers} wrong response${wrongAnswers === 1 ? "" : "s"} across ${areaList}. Review these learning areas before the next assessment.`;
   return {
+    totalAnswers,
     wrongAnswers,
-    affectedAreas: areas.length,
-    sourceCount,
+    affectedAreas: topAreas.length,
     topAreas,
-    mastery,
     priorityGaps: topAreas.length,
     riskLabel,
     riskClass,
-    periodLabel: "Past 7 days",
-    sourceLabel: "Weekly analysis",
-    updatedLabel: "All Features",
-    assignmentQuestionCount: Math.max(8, Math.min(16, topAreas.reduce((sum, area) => sum + area.wrong, 0) + 4)),
-    nextStep: diagnosis,
+    periodLabel: "Last 7 days",
+    sourceLabel: "Recorded diagnostic answers",
+    assignmentQuestionCount: Math.max(1, Math.min(12, wrongAnswers)),
     diagnosis,
-    actionTitle: "Best next step: Weekend Assignment + 1:1 coaching. ",
-    actionNote: `Use worked examples on ${primarySkill}, guided revision, then a short re-test this week.`,
-    recommendation: `Weekend work should target ${areaList}. Re-test before the next assessment.`,
-    assignmentTopic: `${topAreas.map(area => `${area.subStrand} (${area.learningArea})`).join("; ")}`
+    actionTitle: `Review ${primarySkill}. `,
+    actionNote: `Use worked examples and guided practice on ${areaList}.`,
+    assignmentTopic: `${topAreas.map(area => `${area.subStrand} (${area.subject})`).join("; ")}`
   };
-}
-
-function weeklyRemedialAttempts(user) {
-  const attempts = studentRemedialAttempts(user).filter(isPastSevenDayAttempt);
-  return attempts.length ? attempts : studentRemedialAttempts(user);
-}
-
-function isPastSevenDayAttempt(attempt) {
-  if (Number.isFinite(attempt.daysAgo)) return attempt.daysAgo >= 0 && attempt.daysAgo <= 6;
-  return attempt.recent === true || attempt.attemptedAt === "This week" || attempt.attemptedAt === "Past 7 days";
-}
-
-function studentRemedialAttempts(user) {
-  const firstName = firstNameOf(user);
-  const studentKey = String(user.name || user.id || "").toLowerCase();
-  let seed = String(user.id || user.name || "").length % 3;
-  if (studentKey.includes("alice")) seed = 0;
-  if (studentKey.includes("kevin")) seed = 1;
-  if (studentKey.includes("brian")) seed = 2;
-  const banks = [
-    [
-      ["Mathematics", "Numbers", "Fractions", "Equivalent fractions", "Algebra Quiz", 4],
-      ["Science", "Living Things", "Respiration", "Gas exchange", "Biology Reading", 3],
-      ["English", "Reading", "Inference", "Evidence from text", "Comprehension Drill", 4],
-      ["Social Studies", "History", "Cause and effect", "World War II Essay", 2]
-    ],
-    [
-      ["Mathematics", "Algebra", "Linear equations", "Solving for unknowns", "Equation Practice", 4],
-      ["Kiswahili", "Sarufi", "Nyakati", "Wakati uliopita", "Kiswahili Quiz", 3],
-      ["Science", "Matter", "Mixtures", "Separation methods", "Science Assignment", 3],
-      ["English", "Writing", "Paragraph structure", "Topic sentences", "Essay Builder", 2]
-    ],
-    [
-      ["Computer Science", "Programming", "Conditionals", "If statements", "Code Lab", 4],
-      ["Mathematics", "Geometry", "Angles", "Angles in triangles", "Geometry Quiz", 3],
-      ["Science", "Energy", "Electric circuits", "Series circuits", "Lab Reflection", 3],
-      ["English", "Grammar", "Punctuation", "Comma usage", "Grammar Practice", 2]
-    ]
-  ];
-  return banks[seed].flatMap(([subject, strand, subStrand, learningArea, source, count], areaIndex) => {
-    return Array.from({ length: count }, (_, index) => {
-      const daysAgo = index < 2 ? Math.min(6, index + areaIndex) : 8 + index;
-      return {
-        student: firstName,
-        subject,
-        strand,
-        subStrand,
-        learningArea,
-        source,
-        correct: index === count - 1 && areaIndex > 1,
-        recent: daysAgo <= 6,
-        daysAgo,
-        attemptedAt: daysAgo <= 6 ? "Past 7 days" : "Older"
-      };
-    });
-  });
 }
 
 function firstNameOf(user) {
@@ -4358,6 +5254,12 @@ function onScrimClick(event) {
 }
 
 function closeModal() {
+  resetStudentSchoolPicker();
+  invalidateStudentAnalytics();
+  state.remedialAnalysis = {};
+  state.remedialAiReports = {};
+  state.remedialAnalysisErrors = {};
+  studentProfileSaveState = { userId: null, state: "idle" };
   modalRoot.classList.remove("student-modal-root", "school-modal-root", "sales-modal-root", "school-modal-saving", "school-modal-retracting");
   modalRoot.hidden = true;
   modalRoot.innerHTML = "";
@@ -4479,6 +5381,7 @@ function bindModalForms() {
             ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })
             : await api("/admin/schools", { method: "POST", body: payload });
           upsertSchoolInState(response.school ? { ...response.school, availableGrades, availablePlanCodes, planPricesKsh } : response.school);
+          refreshSchoolDirectory();
           if (submitButton) {
             submitButton.removeAttribute("aria-busy");
             submitButton.classList.remove("is-loading");

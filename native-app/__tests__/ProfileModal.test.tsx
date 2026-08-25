@@ -65,6 +65,9 @@ const subjects: Subject[] = [
     colorFrom: '#F59E0B',
     colorTo: '#D97706',
   },
+  { id: 'agriculture', name: 'Agriculture', colorFrom: '#0F766E', colorTo: '#115E59' },
+  { id: 'creative_arts', name: 'Creative Arts', colorFrom: '#DB2777', colorTo: '#9D174D' },
+  { id: 'religious_education', name: 'Religious Education', colorFrom: '#7C3AED', colorTo: '#5B21B6' },
 ];
 
 const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
@@ -182,7 +185,7 @@ test('requires typed confirmation before requesting account deletion', async () 
 });
 
 test('shows a checkmark for every selected dashboard subject', () => {
-  const selectedSubjects = subjects.slice(0, 5);
+  const selectedSubjects = subjects.slice(0, 8);
   const root = renderProfileModal({
     allSubjects: subjects,
     selectedSubjectIds: selectedSubjects.map(subject => subject.id),
@@ -199,15 +202,15 @@ test('pins the atomic subject swap action above Sign Out', () => {
   const onSwapSubject = jest.fn();
   const root = renderProfileModal({
     allSubjects: subjects,
-    selectedSubjectIds: subjects.slice(0, 5).map(subject => subject.id),
+    selectedSubjectIds: subjects.slice(0, 8).map(subject => subject.id),
     onSwapSubject,
   });
 
   ReactTestRenderer.act(() =>
-    pressableWithText(root, 'Science & Technology').props.onPress(),
+    pressableWithText(root, 'Religious Education').props.onPress(),
   );
 
-  expect(hasText(root, 'Swap Science & Technology with which subject?')).toBe(true);
+  expect(hasText(root, 'Swap Religious Education with which subject?')).toBe(true);
   const footer = root.findByProps({ testID: 'profile-footer' });
   const footerChildren = React.Children.toArray(footer.props.children) as Array<
     React.ReactElement<{ testID?: string }>
@@ -225,13 +228,105 @@ test('pins the atomic subject swap action above Sign Out', () => {
   ReactTestRenderer.act(() =>
     root
       .findByProps({
-        accessibilityLabel: 'Replace Mathematics with Science & Technology',
+        accessibilityLabel: 'Replace Mathematics with Religious Education',
       })
       .props.onPress(),
   );
   expect(onSwapSubject).toHaveBeenCalledTimes(1);
   expect(onSwapSubject).toHaveBeenCalledWith(
     'mathematics',
-    'science_and_technology',
+    'religious_education',
   );
+});
+
+test('selects a county directory school and awaits the persisted save', async () => {
+  jest.useFakeTimers();
+  const onSearchSchools = jest.fn().mockResolvedValue([
+    {
+      schoolId: '2f1c9a22-2b17-4ab4-a953-3c832a5ea001',
+      sourceRecordKey: null,
+      name: 'Nairobi Directory Academy',
+      county: 'Nairobi City',
+      subCounty: 'Westlands',
+      level: 'Primary',
+      schoolCode: 'NDA-001',
+      selectionCount: 0,
+      activeEnrollment: 0,
+    },
+  ]);
+  const onSave = jest.fn().mockResolvedValue(undefined);
+  const root = renderProfileModal({
+    user: { ...user, county: 'Nairobi City' },
+    onSearchSchools,
+    onSave,
+  });
+
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'Edit profile' }).props.onPress());
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'County selector' }).props.onPress());
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'Select Nairobi City' }).props.onPress());
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(300);
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+
+  expect(onSearchSchools).toHaveBeenCalledWith({
+    county: 'Nairobi City',
+    limit: 50,
+    query: undefined,
+  });
+  ReactTestRenderer.act(() =>
+    root.findByProps({ accessibilityLabel: 'Choose Nairobi Directory Academy' }).props.onPress(),
+  );
+  await ReactTestRenderer.act(async () => {
+    pressableWithText(root, 'Save').props.onPress();
+    await Promise.resolve();
+  });
+
+  expect(onSave).toHaveBeenCalledWith(
+    expect.objectContaining({ school: 'Nairobi Directory Academy', county: 'Nairobi City' }),
+    { schoolDirectoryId: '2f1c9a22-2b17-4ab4-a953-3c832a5ea001' },
+  );
+  jest.useRealTimers();
+});
+
+test('keeps the edit modal open and reports a school save failure', async () => {
+  jest.useFakeTimers();
+  const onSearchSchools = jest.fn().mockResolvedValue([
+    {
+      schoolId: '2f1c9a22-2b17-4ab4-a953-3c832a5ea002',
+      sourceRecordKey: null,
+      name: 'Unavailable Save School',
+      county: 'Nairobi City',
+      subCounty: null,
+      level: 'Primary',
+      schoolCode: 'USS-001',
+      selectionCount: 0,
+      activeEnrollment: 0,
+    },
+  ]);
+  const onSave = jest.fn().mockRejectedValue(new Error('School update failed'));
+  const root = renderProfileModal({
+    user: { ...user, county: 'Nairobi City' },
+    onSearchSchools,
+    onSave,
+  });
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'Edit profile' }).props.onPress());
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'County selector' }).props.onPress());
+  ReactTestRenderer.act(() => root.findByProps({ accessibilityLabel: 'Select Nairobi City' }).props.onPress());
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(300);
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+  ReactTestRenderer.act(() =>
+    root.findByProps({ accessibilityLabel: 'Choose Unavailable Save School' }).props.onPress(),
+  );
+  await ReactTestRenderer.act(async () => {
+    pressableWithText(root, 'Save').props.onPress();
+    await Promise.resolve();
+  });
+  expect(hasText(root, 'School update failed')).toBe(true);
+  expect(hasText(root, 'Edit profile')).toBe(true);
+  jest.useRealTimers();
 });

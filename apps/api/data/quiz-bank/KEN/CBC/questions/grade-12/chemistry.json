@@ -1,109 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "chemistry",
-  "subjectName": "Chemistry",
-  "questions": [
-    {"questionNumber":1,"type":"MCQ","prompt":"Which statement best describes a dative covalent bond?","options":["A covalent bond where both shared electrons come from one atom","A bond formed only by complete electron transfer","A metallic bond between positive ions and electrons","A weak force between separate noble gas atoms"],"correctAnswer":"A covalent bond where both shared electrons come from one atom","explanation":"In a dative covalent bond, one atom donates a lone pair to an electron-deficient species, but the shared pair is still held between both atoms.","difficulty":1,"strandTitle":"Structure and Bonding","subStrandTitle":"Coordinate Bonding","learningOutcome":"Define coordinate bonding in terms of electron pair donation.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":2,"type":"MCQ","prompt":"Which intermolecular force explains the high boiling point of water compared with hydrogen sulphide?","options":["Hydrogen bonding","Metallic bonding","Ionic bonding","Covalent network bonding"],"correctAnswer":"Hydrogen bonding","explanation":"Water molecules form hydrogen bonds because hydrogen is bonded to highly electronegative oxygen atoms.","difficulty":1,"strandTitle":"Structure and Bonding","subStrandTitle":"Intermolecular Forces","learningOutcome":"Identify hydrogen bonding as a strong intermolecular force in selected molecules.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":3,"type":"MCQ","prompt":"What is lattice enthalpy mainly concerned with?","options":["Formation or separation of ions in an ionic lattice","Boiling a simple covalent liquid","Breaking only metallic bonds in a wire","Changing a gas directly into plasma"],"correctAnswer":"Formation or separation of ions in an ionic lattice","explanation":"Lattice enthalpy describes the energy change linked to making or breaking an ionic crystal lattice from gaseous ions.","difficulty":1,"strandTitle":"Structure and Bonding","subStrandTitle":"Ionic Lattices","learningOutcome":"State the meaning of lattice enthalpy for ionic compounds.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":4,"type":"MCQ","prompt":"What does the standard enthalpy of neutralisation measure?","options":["Heat change when one mole of water forms from acid and alkali under standard conditions","Heat change when one mole of salt dissolves in water only","Energy needed to ionise one mole of gaseous atoms","Energy released when a hydrocarbon burns completely"],"correctAnswer":"Heat change when one mole of water forms from acid and alkali under standard conditions","explanation":"Neutralisation enthalpy is based on the formation of water from hydrogen ions and hydroxide ions.","difficulty":1,"strandTitle":"Energetics","subStrandTitle":"Enthalpy Changes","learningOutcome":"Define standard enthalpy of neutralisation.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":5,"type":"MCQ","prompt":"Which condition is essential for a reversible reaction to reach dynamic equilibrium?","options":["The system must be closed","All products must be removed continuously","Only the forward reaction must occur","The temperature must be zero degrees Celsius"],"correctAnswer":"The system must be closed","explanation":"A closed system prevents loss of reactants or products, allowing forward and reverse rates to become equal.","difficulty":1,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Dynamic Equilibrium","learningOutcome":"Recall the condition needed for dynamic equilibrium.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":6,"type":"MCQ","prompt":"What does Le Chatelier's principle predict?","options":["How an equilibrium system shifts when conditions are changed","The exact colour of every precipitate","The mass number of an isotope","The name of every organic compound"],"correctAnswer":"How an equilibrium system shifts when conditions are changed","explanation":"Le Chatelier's principle states that an equilibrium system responds by opposing an imposed change.","difficulty":1,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Le Chatelier's Principle","learningOutcome":"State the purpose of Le Chatelier's principle.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":7,"type":"MCQ","prompt":"At which electrode does reduction occur in an electrochemical cell?","options":["Cathode","Anode","Salt bridge","Voltmeter terminal only"],"correctAnswer":"Cathode","explanation":"Reduction is gain of electrons, and it occurs at the cathode in both electrolytic and electrochemical cells.","difficulty":1,"strandTitle":"Electrochemistry","subStrandTitle":"Electrode Processes","learningOutcome":"Identify the electrode at which reduction occurs.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":8,"type":"MCQ","prompt":"Which expression is used to calculate the voltage of a standard cell?","options":["Ecell = Ecathode - Eanode","Ecell = mass divided by volume","Ecell = pressure times volume","Ecell = pH plus pOH"],"correctAnswer":"Ecell = Ecathode - Eanode","explanation":"Cell voltage is found by subtracting the anode reduction potential from the cathode reduction potential.","difficulty":1,"strandTitle":"Electrochemistry","subStrandTitle":"Cell Potentials","learningOutcome":"Recall the expression for calculating standard cell voltage.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":9,"type":"MCQ","prompt":"Which functional group identifies an aldehyde?","options":["-CHO","-COOH","-COO-","-OH"],"correctAnswer":"-CHO","explanation":"Aldehydes contain the terminal carbonyl group written as -CHO.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Carbonyl Compounds","learningOutcome":"Recognise the aldehyde functional group.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":10,"type":"MCQ","prompt":"Which functional group is found in carboxylic acids?","options":["-COOH","-CHO","-NH2","-C=C-"],"correctAnswer":"-COOH","explanation":"Carboxylic acids contain the carboxyl group, written as -COOH.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Carboxylic Acids","learningOutcome":"Identify the carboxyl functional group in organic molecules.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":11,"type":"MCQ","prompt":"Which linkage is characteristic of an ester?","options":["-COO-","-C=C-","-CHO","-NH-"],"correctAnswer":"-COO-","explanation":"Esters contain the -COO- linkage formed from a carboxylic acid and an alcohol.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Esters","learningOutcome":"Recognise the ester linkage in organic compounds.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":12,"type":"MCQ","prompt":"Which reagent is commonly used to test for carbon-carbon double bonds in alkenes?","options":["Bromine water","Limewater","Universal indicator","Sodium chloride solution"],"correctAnswer":"Bromine water","explanation":"Alkenes decolourise bromine water because bromine adds across the carbon-carbon double bond.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Alkenes","learningOutcome":"State a chemical test for unsaturation in hydrocarbons.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":13,"type":"MCQ","prompt":"What is a primary standard in volumetric analysis?","options":["A pure stable substance used to prepare a solution of accurately known concentration","Any coloured solution used as an indicator","A rough titre recorded before the main titration","A gas collected over water during electrolysis"],"correctAnswer":"A pure stable substance used to prepare a solution of accurately known concentration","explanation":"A primary standard has high purity and stability, so it can be weighed to prepare a standard solution accurately.","difficulty":1,"strandTitle":"Analytical Chemistry","subStrandTitle":"Volumetric Analysis","learningOutcome":"Define a primary standard used in titration work.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":14,"type":"MCQ","prompt":"What is the endpoint in an acid-base titration?","options":["The point where the indicator shows a permanent colour change","The first reading taken before any solution is added","The point where the burette is filled above zero","The temperature at which all solutions boil"],"correctAnswer":"The point where the indicator shows a permanent colour change","explanation":"The endpoint is detected by an indicator colour change that signals the titration is complete for practical purposes.","difficulty":1,"strandTitle":"Analytical Chemistry","subStrandTitle":"Titration Technique","learningOutcome":"Describe the meaning of endpoint in titration.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":15,"type":"MCQ","prompt":"Which flame colour is associated with sodium ions in a flame test?","options":["Yellow","Lilac","Brick red","Blue-green"],"correctAnswer":"Yellow","explanation":"Sodium ions give a strong yellow flame, which can mask weaker flame colours from other ions.","difficulty":1,"strandTitle":"Analytical Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Recall flame test colours for selected cations.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":16,"type":"MCQ","prompt":"A bond between hydrogen and chlorine is polar. What mainly causes this polarity?","options":["Chlorine attracts the shared electrons more strongly than hydrogen","Hydrogen and chlorine have the same electronegativity","The molecule contains free metal ions","The bond contains no electrons"],"correctAnswer":"Chlorine attracts the shared electrons more strongly than hydrogen","explanation":"A polar bond forms when bonded atoms have different electronegativities, causing uneven sharing of electrons.","difficulty":2,"strandTitle":"Structure and Bonding","subStrandTitle":"Bond Polarity","learningOutcome":"Explain bond polarity using electronegativity differences.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":17,"type":"MCQ","prompt":"Why is a water molecule bent rather than linear?","options":["Two lone pairs on oxygen repel bonding pairs strongly","Hydrogen atoms form metallic bonds with oxygen","Oxygen has no outer-shell electrons","Water contains a giant ionic lattice"],"correctAnswer":"Two lone pairs on oxygen repel bonding pairs strongly","explanation":"Electron-pair repulsion around oxygen gives water a bent shape because lone pairs occupy more space than bonding pairs.","difficulty":2,"strandTitle":"Structure and Bonding","subStrandTitle":"Molecular Shapes","learningOutcome":"Use electron-pair repulsion to explain the shape of water.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":18,"type":"MCQ","prompt":"Carbon dioxide has polar C=O bonds but is a non-polar molecule. Why?","options":["Its linear shape makes the bond dipoles cancel","It contains only ionic bonds","It has no covalent bonds","Its carbon atom has a full positive charge"],"correctAnswer":"Its linear shape makes the bond dipoles cancel","explanation":"The two C=O bond dipoles act in opposite directions in a linear molecule, so the overall dipole is zero.","difficulty":2,"strandTitle":"Structure and Bonding","subStrandTitle":"Molecular Polarity","learningOutcome":"Relate molecular shape to overall polarity.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":19,"type":"MCQ","prompt":"Why do many ionic solids have high melting points?","options":["Strong electrostatic attractions hold oppositely charged ions in a lattice","Their molecules are joined by weak temporary dipoles only","They contain separate neutral atoms with no attraction","Their ions move freely in the solid state"],"correctAnswer":"Strong electrostatic attractions hold oppositely charged ions in a lattice","explanation":"Large amounts of energy are needed to overcome the strong attractions throughout an ionic lattice.","difficulty":2,"strandTitle":"Structure and Bonding","subStrandTitle":"Ionic Structures","learningOutcome":"Explain high melting points of ionic compounds using lattice structure.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":20,"type":"MCQ","prompt":"A reaction has delta H = -120 kJ mol-1. What does the negative sign show?","options":["The reaction is exothermic","The reaction cannot occur","The products have no bonds","The reaction has no activation energy"],"correctAnswer":"The reaction is exothermic","explanation":"A negative enthalpy change means heat is released to the surroundings.","difficulty":2,"strandTitle":"Energetics","subStrandTitle":"Enthalpy Changes","learningOutcome":"Interpret the sign of an enthalpy change.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":21,"type":"MCQ","prompt":"For an exothermic reversible reaction, what is the effect of increasing temperature at equilibrium?","options":["The equilibrium shifts towards reactants","The equilibrium shifts towards products","The catalyst is consumed completely","The equilibrium constant becomes exactly zero"],"correctAnswer":"The equilibrium shifts towards reactants","explanation":"Increasing temperature favours the endothermic direction, which is the reverse direction for an exothermic forward reaction.","difficulty":2,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Temperature Effects","learningOutcome":"Predict the effect of temperature on an exothermic equilibrium.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":22,"type":"MCQ","prompt":"For H2(g) + I2(g) <-> 2HI(g), which expression represents Kc?","options":["[HI]^2 / ([H2][I2])","[H2][I2] / [HI]^2","[HI] / ([H2][I2])","[H2]^2[I2]^2 / [HI]"],"correctAnswer":"[HI]^2 / ([H2][I2])","explanation":"The equilibrium expression uses product concentrations over reactant concentrations, each raised to its equation coefficient.","difficulty":2,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Equilibrium Constants","learningOutcome":"Write Kc expressions for simple homogeneous equilibria.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":23,"type":"MCQ","prompt":"What is the pH of 0.0010 mol dm-3 hydrochloric acid if it fully ionises?","options":["pH 3","pH 1","pH 7","pH 11"],"correctAnswer":"pH 3","explanation":"The hydrogen ion concentration is 1.0 x 10^-3 mol dm-3, so pH = -log10(10^-3) = 3.","difficulty":2,"strandTitle":"Acids, Bases and Equilibria","subStrandTitle":"pH Calculations","learningOutcome":"Calculate pH for a dilute strong acid.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":24,"type":"MCQ","prompt":"Which statement best describes a buffer solution?","options":["It resists large pH changes when small amounts of acid or base are added","It always has pH 7 exactly","It contains no ions at all","It reacts explosively with water"],"correctAnswer":"It resists large pH changes when small amounts of acid or base are added","explanation":"Buffers contain species that remove added hydrogen ions or hydroxide ions, keeping pH nearly constant.","difficulty":2,"strandTitle":"Acids, Bases and Equilibria","subStrandTitle":"Buffer Solutions","learningOutcome":"Describe the function of a buffer solution.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":25,"type":"MCQ","prompt":"Why does ethanoic acid conduct electricity less strongly than hydrochloric acid at the same concentration?","options":["Ethanoic acid only partially ionises in water","Ethanoic acid has no hydrogen atoms","Hydrochloric acid is a metal","Ethanoic acid contains no covalent bonds"],"correctAnswer":"Ethanoic acid only partially ionises in water","explanation":"Ethanoic acid is a weak acid, so fewer ions are present to carry charge at the same concentration.","difficulty":2,"strandTitle":"Acids, Bases and Equilibria","subStrandTitle":"Weak Acids","learningOutcome":"Explain weak acid behaviour in terms of partial ionisation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":26,"type":"MCQ","prompt":"In a zinc-copper electrochemical cell, zinc is oxidised. Which electrode is zinc?","options":["The anode","The cathode","The salt bridge","The external wire"],"correctAnswer":"The anode","explanation":"Oxidation occurs at the anode, so the zinc electrode is the anode in this cell.","difficulty":2,"strandTitle":"Electrochemistry","subStrandTitle":"Simple Cells","learningOutcome":"Identify anode and cathode from the electrode reaction.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":27,"type":"MCQ","prompt":"What is the main role of a salt bridge in a simple electrochemical cell?","options":["It allows ions to move and maintain electrical neutrality","It supplies electrons directly to the cathode","It prevents all chemical reactions from occurring","It measures the mass of the electrodes"],"correctAnswer":"It allows ions to move and maintain electrical neutrality","explanation":"The salt bridge completes the circuit internally by ion movement without mixing the two half-cell solutions rapidly.","difficulty":2,"strandTitle":"Electrochemistry","subStrandTitle":"Simple Cells","learningOutcome":"Explain the function of a salt bridge.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":28,"type":"MCQ","prompt":"During electroplating with a metal, the object to be plated should be connected as which electrode?","options":["Cathode","Anode","Salt bridge","Voltmeter"],"correctAnswer":"Cathode","explanation":"Metal cations gain electrons at the cathode and deposit as a metal coating on the object.","difficulty":2,"strandTitle":"Electrochemistry","subStrandTitle":"Electroplating","learningOutcome":"Relate electrode polarity to metal deposition during electroplating.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":29,"type":"MCQ","prompt":"What charge passes when a current of 2.0 A flows for 9650 s?","options":["19300 C","4825 C","9650 C","1930 C"],"correctAnswer":"19300 C","explanation":"Charge equals current times time, so Q = 2.0 x 9650 = 19300 C.","difficulty":2,"strandTitle":"Electrochemistry","subStrandTitle":"Faraday's Laws","learningOutcome":"Calculate charge passed using current and time.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":30,"type":"MCQ","prompt":"How many moles of electrons are represented by 9650 C if one Faraday is 96500 C mol-1?","options":["0.100 mol","1.00 mol","10.0 mol","0.0100 mol"],"correctAnswer":"0.100 mol","explanation":"Moles of electrons equal charge divided by the Faraday constant: 9650 / 96500 = 0.100 mol.","difficulty":2,"strandTitle":"Electrochemistry","subStrandTitle":"Faraday's Laws","learningOutcome":"Convert charge into moles of electrons.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":31,"type":"MCQ","prompt":"What is the IUPAC name of CH3CH=CHCH3?","options":["But-2-ene","But-1-ene","Propene","Methylpropene"],"correctAnswer":"But-2-ene","explanation":"The compound has four carbon atoms and the double bond begins at carbon 2 when numbered from either end.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Nomenclature","learningOutcome":"Name simple alkenes using IUPAC rules.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":32,"type":"MCQ","prompt":"Which compound forms when ethanol is mildly oxidised and the product is distilled off?","options":["Ethanal","Ethanoic acid","Ethene","Ethyl ethanoate"],"correctAnswer":"Ethanal","explanation":"Controlled oxidation of a primary alcohol first gives an aldehyde, and distillation can remove ethanal before further oxidation.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Alcohols and Aldehydes","learningOutcome":"Describe controlled oxidation of primary alcohols.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":33,"type":"MCQ","prompt":"What organic product forms when ethanol is dehydrated?","options":["Ethene","Ethanoic acid","Ethanal","Methane"],"correctAnswer":"Ethene","explanation":"Dehydration removes water from ethanol, forming the alkene ethene.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Alcohol Reactions","learningOutcome":"Identify the product of alcohol dehydration.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":34,"type":"MCQ","prompt":"What type of polymerisation converts ethene into poly(ethene)?","options":["Addition polymerisation","Condensation polymerisation","Neutralisation","Ester hydrolysis"],"correctAnswer":"Addition polymerisation","explanation":"Ethene monomers join by opening their double bonds without eliminating a small molecule.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Polymers","learningOutcome":"Classify polymerisation of alkenes as addition polymerisation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":35,"type":"MCQ","prompt":"Which small molecule is also formed when an alcohol reacts with a carboxylic acid to make an ester?","options":["Water","Hydrogen","Oxygen","Carbon monoxide"],"correctAnswer":"Water","explanation":"Esterification is a condensation reaction that forms an ester and water.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Esters","learningOutcome":"Identify products of esterification.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":36,"type":"MCQ","prompt":"Which description fits condensation polymerisation?","options":["Monomers join while a small molecule such as water is eliminated","Alkenes join without any other product","A salt reacts with an acid to give carbon dioxide","A metal is deposited at a cathode"],"correctAnswer":"Monomers join while a small molecule such as water is eliminated","explanation":"Condensation polymerisation links monomers and eliminates a small molecule at each link.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Condensation Polymers","learningOutcome":"Describe the key feature of condensation polymerisation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":37,"type":"MCQ","prompt":"Which observation is expected when acidified potassium manganate(VII) oxidises ethanol?","options":["Purple solution becomes colourless","White precipitate dissolves in excess acid","Blue litmus turns red then bleaches","Yellow flame changes to lilac"],"correctAnswer":"Purple solution becomes colourless","explanation":"Acidified manganate(VII) is reduced from purple MnO4- to very pale manganese(II) ions during oxidation of ethanol.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Oxidation Tests","learningOutcome":"Recognise a common colour change in oxidation of alcohols.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":38,"type":"MCQ","prompt":"Which test gives a white precipitate for chloride ions in solution?","options":["Acidified silver nitrate solution","Barium chloride after acidifying with nitric acid","Sodium hydroxide followed by warming","Bromine water in the dark"],"correctAnswer":"Acidified silver nitrate solution","explanation":"Chloride ions react with silver ions to form a white precipitate of silver chloride.","difficulty":2,"strandTitle":"Analytical Chemistry","subStrandTitle":"Anion Tests","learningOutcome":"Identify chloride ions using a precipitation test.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":39,"type":"MCQ","prompt":"A sample releases ammonia gas when warmed with sodium hydroxide solution. Which ion is indicated?","options":["Ammonium ion","Carbonate ion","Sulphate ion","Chloride ion"],"correctAnswer":"Ammonium ion","explanation":"Ammonium ions react with warm alkali to release ammonia, which has a sharp smell and turns damp red litmus blue.","difficulty":2,"strandTitle":"Analytical Chemistry","subStrandTitle":"Cation Tests","learningOutcome":"Use alkali warming to identify ammonium ions.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":40,"type":"MCQ","prompt":"Which separation method is suitable for collecting a solvent from a salt solution?","options":["Simple distillation","Filtration only","Chromatography only","Flame testing"],"correctAnswer":"Simple distillation","explanation":"Simple distillation vaporises the solvent and condenses it, leaving the dissolved salt behind.","difficulty":2,"strandTitle":"Analytical Chemistry","subStrandTitle":"Separation Techniques","learningOutcome":"Select an appropriate separation method for a solution.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":41,"type":"MCQ","prompt":"What approximate bond angle is expected in ammonia, NH3?","options":["107 degrees","180 degrees","120 degrees","90 degrees"],"correctAnswer":"107 degrees","explanation":"Ammonia has three bonding pairs and one lone pair around nitrogen, giving a trigonal pyramidal shape with a bond angle near 107 degrees.","difficulty":3,"strandTitle":"Structure and Bonding","subStrandTitle":"Molecular Shapes","learningOutcome":"Predict molecular shape and bond angle using electron-pair repulsion.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":42,"type":"MCQ","prompt":"Which statement explains why graphite conducts electricity but diamond does not?","options":["Graphite has delocalised electrons, while diamond has all outer electrons in covalent bonds","Graphite contains sodium ions, while diamond contains chloride ions","Diamond is made of molecules, while graphite is made of metal atoms","Diamond dissolves in water, while graphite does not"],"correctAnswer":"Graphite has delocalised electrons, while diamond has all outer electrons in covalent bonds","explanation":"Each carbon in graphite leaves one electron delocalised, but each carbon in diamond uses all four outer electrons in covalent bonds.","difficulty":3,"strandTitle":"Structure and Bonding","subStrandTitle":"Giant Covalent Structures","learningOutcome":"Compare electrical conductivity in different carbon structures.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":43,"type":"MCQ","prompt":"Why is magnesium oxide expected to have a higher lattice enthalpy magnitude than sodium chloride?","options":["Mg2+ and O2- have higher ionic charges than Na+ and Cl-","Magnesium oxide contains only covalent molecules","Sodium chloride has no ionic lattice","Oxygen atoms are larger than chloride ions in every case"],"correctAnswer":"Mg2+ and O2- have higher ionic charges than Na+ and Cl-","explanation":"Greater ionic charges increase electrostatic attraction, making the ionic lattice stronger.","difficulty":3,"strandTitle":"Structure and Bonding","subStrandTitle":"Lattice Enthalpy","learningOutcome":"Relate ionic charge to lattice enthalpy magnitude.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":44,"type":"MCQ","prompt":"Using bond energies H-H = 436 kJ mol-1, Cl-Cl = 242 kJ mol-1 and H-Cl = 431 kJ mol-1, what is delta H for H2 + Cl2 -> 2HCl?","options":["-184 kJ mol-1","+184 kJ mol-1","-109 kJ mol-1","+862 kJ mol-1"],"correctAnswer":"-184 kJ mol-1","explanation":"Energy broken is 436 + 242 = 678 kJ mol-1, while energy formed is 2 x 431 = 862 kJ mol-1; delta H = 678 - 862 = -184 kJ mol-1.","difficulty":3,"strandTitle":"Energetics","subStrandTitle":"Bond Enthalpy","learningOutcome":"Calculate reaction enthalpy using average bond energies.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":45,"type":"MCQ","prompt":"A reaction warms 100 g of solution by 5.0 degrees Celsius. If c = 4.2 J g-1 degrees Celsius-1, how much heat is released to the solution?","options":["2.10 kJ","0.210 kJ","21.0 kJ","42.0 kJ"],"correctAnswer":"2.10 kJ","explanation":"Heat change is mc delta T = 100 x 4.2 x 5.0 = 2100 J, which is 2.10 kJ.","difficulty":3,"strandTitle":"Energetics","subStrandTitle":"Calorimetry","learningOutcome":"Calculate heat change from mass, specific heat capacity and temperature change.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":46,"type":"MCQ","prompt":"25.0 cm3 of 1.00 mol dm-3 acid neutralises 25.0 cm3 of 1.00 mol dm-3 alkali and the temperature rises by 6.7 degrees Celsius. Taking total mass as 50.0 g and c = 4.2 J g-1 degrees Celsius-1, what is the enthalpy of neutralisation?","options":["-56.3 kJ mol-1","-28.2 kJ mol-1","+56.3 kJ mol-1","-5.63 kJ mol-1"],"correctAnswer":"-56.3 kJ mol-1","explanation":"Heat released is 50.0 x 4.2 x 6.7 = 1407 J for 0.0250 mol water, giving about 56.3 kJ mol-1 released.","difficulty":3,"strandTitle":"Energetics","subStrandTitle":"Neutralisation Enthalpy","learningOutcome":"Calculate molar enthalpy of neutralisation from titration temperature data.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":47,"type":"MCQ","prompt":"For 2SO2(g) + O2(g) <-> 2SO3(g), equilibrium concentrations are [SO3] = 0.40, [SO2] = 0.20 and [O2] = 0.10 mol dm-3. What is Kc?","options":["40","4.0","0.40","0.025"],"correctAnswer":"40","explanation":"Kc = [SO3]^2 / ([SO2]^2[O2]) = 0.40^2 / (0.20^2 x 0.10) = 40.","difficulty":3,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Equilibrium Calculations","learningOutcome":"Calculate Kc from equilibrium concentrations.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":48,"type":"MCQ","prompt":"For N2O4(g) <-> 2NO2(g), [NO2] = 0.20 mol dm-3 and [N2O4] = 0.10 mol dm-3 at equilibrium. What is Kc?","options":["0.40","2.0","0.020","4.0"],"correctAnswer":"0.40","explanation":"Kc = [NO2]^2 / [N2O4] = 0.20^2 / 0.10 = 0.40.","difficulty":3,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Equilibrium Calculations","learningOutcome":"Use a Kc expression to calculate an equilibrium constant.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":49,"type":"MCQ","prompt":"For 2SO2(g) + O2(g) <-> 2SO3(g), what happens when pressure is increased at constant temperature?","options":["Equilibrium shifts towards SO3","Equilibrium shifts towards SO2 and O2","Equilibrium is destroyed completely","The catalyst changes the Kc value"],"correctAnswer":"Equilibrium shifts towards SO3","explanation":"Higher pressure favours the side with fewer gas molecules; the product side has two gas molecules compared with three on the reactant side.","difficulty":3,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Pressure Effects","learningOutcome":"Predict pressure effects on gaseous equilibria.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":50,"type":"MCQ","prompt":"What is the effect of adding a catalyst to a reaction mixture already at equilibrium?","options":["It speeds up both forward and reverse reactions equally without changing Kc","It increases Kc permanently","It changes only the reverse reaction rate","It converts all reactants into products"],"correctAnswer":"It speeds up both forward and reverse reactions equally without changing Kc","explanation":"A catalyst lowers activation energy for both directions, so equilibrium is reached faster but its position is unchanged.","difficulty":3,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Catalysts and Equilibrium","learningOutcome":"Explain the effect of catalysts on equilibrium systems.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":51,"type":"MCQ","prompt":"Given E values Ag+/Ag = +0.80 V and Zn2+/Zn = -0.76 V, what is the standard voltage of a zinc-silver cell?","options":["1.56 V","0.04 V","-1.56 V","0.76 V"],"correctAnswer":"1.56 V","explanation":"Silver is the cathode and zinc is the anode, so Ecell = 0.80 - (-0.76) = 1.56 V.","difficulty":3,"strandTitle":"Electrochemistry","subStrandTitle":"Cell Potentials","learningOutcome":"Calculate standard cell voltage from electrode potentials.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":52,"type":"MCQ","prompt":"Two half-cells have standard reduction potentials +0.34 V and -0.44 V. Which half-cell is more likely to act as the cathode in a spontaneous cell?","options":["The half-cell with +0.34 V","The half-cell with -0.44 V","Both half-cells must be anodes","Neither half-cell can transfer electrons"],"correctAnswer":"The half-cell with +0.34 V","explanation":"The more positive reduction potential is more likely to undergo reduction, so it acts as the cathode.","difficulty":3,"strandTitle":"Electrochemistry","subStrandTitle":"Electrode Potentials","learningOutcome":"Use electrode potentials to predict cathode and anode.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":53,"type":"MCQ","prompt":"How much charge is needed to deposit 3.2 g of copper from Cu2+ solution? Cu = 64, Cu2+ + 2e- -> Cu and F = 96500 C mol-1.","options":["9650 C","4825 C","19300 C","96500 C"],"correctAnswer":"9650 C","explanation":"3.2 g copper is 0.050 mol, requiring 0.100 mol electrons; charge = 0.100 x 96500 = 9650 C.","difficulty":3,"strandTitle":"Electrochemistry","subStrandTitle":"Faraday's Laws","learningOutcome":"Apply Faraday's law to mass deposited at an electrode.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":54,"type":"MCQ","prompt":"Which products are expected when concentrated sodium chloride solution is electrolysed using inert electrodes?","options":["Hydrogen, chlorine and sodium hydroxide solution","Sodium metal and oxygen only","Hydrogen chloride and sodium metal","Chlorine and oxygen only"],"correctAnswer":"Hydrogen, chlorine and sodium hydroxide solution","explanation":"In brine electrolysis, hydrogen forms at the cathode, chlorine at the anode and sodium hydroxide remains in solution.","difficulty":3,"strandTitle":"Electrochemistry","subStrandTitle":"Industrial Electrolysis","learningOutcome":"Identify products of brine electrolysis.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":55,"type":"MCQ","prompt":"20.0 cm3 of hydrochloric acid is exactly neutralised by 25.0 cm3 of 0.100 mol dm-3 sodium hydroxide. What is the acid concentration?","options":["0.125 mol dm-3","0.0800 mol dm-3","0.100 mol dm-3","1.25 mol dm-3"],"correctAnswer":"0.125 mol dm-3","explanation":"Moles of NaOH are 0.0250 x 0.100 = 0.00250 mol, so the same moles of HCl in 0.0200 dm3 give 0.125 mol dm-3.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Acid-Base Titration","learningOutcome":"Calculate concentration from acid-base titration data.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":56,"type":"MCQ","prompt":"A titre set is 24.80 cm3, 24.85 cm3 and 25.30 cm3. Which average is most appropriate for the concordant titres?","options":["24.83 cm3","24.98 cm3","25.30 cm3","24.50 cm3"],"correctAnswer":"24.83 cm3","explanation":"The concordant readings are 24.80 and 24.85 cm3 because they are close; their average is 24.825 cm3, usually recorded as 24.83 cm3.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Titration Technique","learningOutcome":"Select concordant titres and calculate a reliable mean titre.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":57,"type":"MCQ","prompt":"What is the relative molecular mass of ethyl ethanoate, C4H8O2? C = 12, H = 1, O = 16.","options":["88","60","74","104"],"correctAnswer":"88","explanation":"The formula mass is 4 x 12 plus 8 x 1 plus 2 x 16 = 88.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Esters","learningOutcome":"Calculate relative molecular mass of an organic compound from its formula.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":58,"type":"MCQ","prompt":"An organic compound contains 40.0% carbon, 6.7% hydrogen and 53.3% oxygen by mass. What is its empirical formula?","options":["CH2O","C2H4O2","CHO","C3H6O3"],"correctAnswer":"CH2O","explanation":"Dividing by atomic masses gives about 3.33 mol C, 6.7 mol H and 3.33 mol O, which simplifies to 1:2:1.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Formula Determination","learningOutcome":"Determine empirical formula from percentage composition.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":59,"type":"MCQ","prompt":"A compound has empirical formula CH2O and relative molecular mass 90. What is its molecular formula?","options":["C3H6O3","C2H4O2","CH2O","C4H8O4"],"correctAnswer":"C3H6O3","explanation":"The empirical formula mass is 30, and 90 divided by 30 is 3, so the molecular formula is C3H6O3.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Formula Determination","learningOutcome":"Derive molecular formula from empirical formula and relative molecular mass.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":60,"type":"MCQ","prompt":"Which product is formed when ethanol is fully oxidised by acidified potassium manganate(VII) under reflux?","options":["Ethanoic acid","Ethanal","Ethene","Ethane"],"correctAnswer":"Ethanoic acid","explanation":"A primary alcohol such as ethanol is fully oxidised to the corresponding carboxylic acid under reflux.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Alcohol Oxidation","learningOutcome":"Predict products from complete oxidation of primary alcohols.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":61,"type":"MCQ","prompt":"Which type of alcohol is resistant to oxidation by acidified potassium manganate(VII) under ordinary school-laboratory conditions?","options":["Tertiary alcohol","Primary alcohol","Secondary alcohol","Methanol only"],"correctAnswer":"Tertiary alcohol","explanation":"Tertiary alcohols lack a hydrogen atom on the carbon carrying the -OH group, so they are not readily oxidised by common oxidising agents.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Alcohol Classes","learningOutcome":"Compare oxidation behaviour of primary, secondary and tertiary alcohols.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":62,"type":"MCQ","prompt":"Which compound is a ketone?","options":["Propanone","Propanal","Propan-1-ol","Propanoic acid"],"correctAnswer":"Propanone","explanation":"Propanone contains a carbonyl group bonded to two carbon groups, which defines a ketone.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Carbonyl Compounds","learningOutcome":"Classify simple carbonyl compounds as aldehydes or ketones.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":63,"type":"MCQ","prompt":"What is the major product when HBr adds to propene under normal electrophilic addition conditions?","options":["2-bromopropane","1-bromopropane","Propane","Bromomethane"],"correctAnswer":"2-bromopropane","explanation":"Hydrogen adds to the carbon already bearing more hydrogens, giving the more stable intermediate and forming 2-bromopropane as the major product.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Alkene Reactions","learningOutcome":"Predict major products of electrophilic addition to unsymmetrical alkenes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":64,"type":"MCQ","prompt":"Which reagent gives an orange precipitate with aldehydes and ketones?","options":["2,4-dinitrophenylhydrazine","Sodium carbonate solution","Acidified silver nitrate","Barium chloride solution"],"correctAnswer":"2,4-dinitrophenylhydrazine","explanation":"2,4-dinitrophenylhydrazine, often shortened to 2,4-DNPH, is used to test for carbonyl groups in aldehydes and ketones.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Organic Analysis","learningOutcome":"Select a reagent for identifying carbonyl compounds.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":65,"type":"MCQ","prompt":"Which observation is expected when sodium hydroxide solution is added to a solution containing Fe3+ ions?","options":["Reddish-brown precipitate forms","Deep blue solution forms immediately","White precipitate dissolves in excess ammonia","No visible change occurs"],"correctAnswer":"Reddish-brown precipitate forms","explanation":"Iron(III) ions form a reddish-brown precipitate of iron(III) hydroxide with hydroxide ions.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Cation Tests","learningOutcome":"Identify iron(III) ions using sodium hydroxide solution.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":66,"type":"MCQ","prompt":"A white precipitate forms with sodium hydroxide and dissolves in excess sodium hydroxide, but not in excess ammonia. Which cation is indicated?","options":["Al3+","Cu2+","Fe2+","NH4+"],"correctAnswer":"Al3+","explanation":"Aluminium hydroxide is amphoteric, so it dissolves in excess sodium hydroxide but not in excess ammonia solution.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Cation Tests","learningOutcome":"Differentiate aluminium ions from other cations using excess alkali tests.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":67,"type":"MCQ","prompt":"Which reagent confirms sulphate ions by forming a white precipitate after acidification?","options":["Barium chloride solution","Sodium hydroxide solution","Bromine water","Potassium iodide solution"],"correctAnswer":"Barium chloride solution","explanation":"Sulphate ions form insoluble white barium sulphate with barium ions after the solution is acidified to remove interfering carbonate ions.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Anion Tests","learningOutcome":"Identify sulphate ions using a precipitation test.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":68,"type":"MCQ","prompt":"An unknown solid reacts with dilute acid to produce a gas that turns limewater milky. Which ion is present?","options":["Carbonate ion","Nitrate ion","Chloride ion","Iodide ion"],"correctAnswer":"Carbonate ion","explanation":"Carbonates react with acids to release carbon dioxide, which forms a milky precipitate in limewater.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Anion Tests","learningOutcome":"Use gas tests to identify carbonate ions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":69,"type":"MCQ","prompt":"In chromatography, a spot moves 2.4 cm while the solvent front moves 6.0 cm. What is the Rf value?","options":["0.40","2.50","3.60","8.40"],"correctAnswer":"0.40","explanation":"Rf equals distance moved by the spot divided by distance moved by the solvent front: 2.4 / 6.0 = 0.40.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Chromatography","learningOutcome":"Calculate Rf values from chromatogram measurements.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":70,"type":"MCQ","prompt":"A reaction has a theoretical yield of 15.0 g but produces 12.0 g. What is the percentage yield?","options":["80%","60%","125%","20%"],"correctAnswer":"80%","explanation":"Percentage yield equals actual yield divided by theoretical yield times 100: 12.0 / 15.0 x 100 = 80%.","difficulty":3,"strandTitle":"Analytical Chemistry","subStrandTitle":"Yield and Purity","learningOutcome":"Calculate percentage yield from actual and theoretical yields.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":71,"type":"MCQ","prompt":"Which comparison correctly explains why molten sodium chloride conducts electricity but solid sodium chloride does not?","options":["Ions are mobile in the molten state but fixed in the solid lattice","Electrons are mobile only in the solid lattice","Molten sodium chloride contains neutral molecules only","Solid sodium chloride has no charged particles"],"correctAnswer":"Ions are mobile in the molten state but fixed in the solid lattice","explanation":"Ionic solids contain ions, but they conduct only when the ions can move and carry charge.","difficulty":4,"strandTitle":"Structure and Bonding","subStrandTitle":"Ionic Conductivity","learningOutcome":"Analyze conductivity differences between solid and molten ionic compounds.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":72,"type":"MCQ","prompt":"Hydrogen fluoride has a higher boiling point than hydrogen chloride. Which explanation is best?","options":["HF molecules form strong hydrogen bonds","HCl molecules have ionic lattices","HF has no intermolecular forces","HCl has a much smaller molar mass and no electrons"],"correctAnswer":"HF molecules form strong hydrogen bonds","explanation":"Hydrogen bonding in HF requires more energy to overcome than the weaker intermolecular forces between HCl molecules.","difficulty":4,"strandTitle":"Structure and Bonding","subStrandTitle":"Intermolecular Forces","learningOutcome":"Compare boiling points using intermolecular force strength.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":73,"type":"MCQ","prompt":"Which factor would most increase the lattice enthalpy magnitude of an ionic compound?","options":["Smaller ions with higher charges","Larger ions with lower charges","Replacing ions with neutral molecules","Increasing only the colour intensity of the solid"],"correctAnswer":"Smaller ions with higher charges","explanation":"Electrostatic attraction increases when ions are closer together and have larger opposite charges.","difficulty":4,"strandTitle":"Structure and Bonding","subStrandTitle":"Lattice Enthalpy","learningOutcome":"Evaluate factors affecting lattice enthalpy magnitude.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":74,"type":"MCQ","prompt":"Use these data: combustion of carbon = -394 kJ mol-1, combustion of hydrogen = -286 kJ mol-1, combustion of ethanol = -1367 kJ mol-1. What is the enthalpy of formation of ethanol, C2H5OH?","options":["-279 kJ mol-1","+279 kJ mol-1","-1646 kJ mol-1","+1367 kJ mol-1"],"correctAnswer":"-279 kJ mol-1","explanation":"Combustion of the elements to 2CO2 and 3H2O gives -1646 kJ mol-1; subtracting ethanol combustion gives formation of ethanol as -279 kJ mol-1.","difficulty":4,"strandTitle":"Energetics","subStrandTitle":"Hess's Law","learningOutcome":"Apply Hess's law to calculate an enthalpy of formation.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":75,"type":"MCQ","prompt":"A catalyst increases reaction rate but does not change the enthalpy change of reaction. Why?","options":["It lowers activation energy without changing reactant and product energy levels","It makes products disappear from the energy profile","It increases only the mass of reactants","It changes every exothermic reaction into an endothermic one"],"correctAnswer":"It lowers activation energy without changing reactant and product energy levels","explanation":"Enthalpy change depends on the energy difference between reactants and products, not on the pathway taken.","difficulty":4,"strandTitle":"Energetics","subStrandTitle":"Reaction Profiles","learningOutcome":"Interpret reaction profiles for catalysed and uncatalysed reactions.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":76,"type":"MCQ","prompt":"In the Haber process, the forward reaction is exothermic. Why is a moderate temperature used industrially?","options":["Low temperature favours yield but makes the reaction too slow","High temperature favours ammonia yield and has no cost","Temperature has no effect on either rate or equilibrium","The iron catalyst works only at room temperature"],"correctAnswer":"Low temperature favours yield but makes the reaction too slow","explanation":"A moderate temperature is a compromise between a higher equilibrium yield at lower temperature and a faster rate at higher temperature.","difficulty":4,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Industrial Equilibria","learningOutcome":"Evaluate industrial compromise conditions using rate and equilibrium ideas.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":77,"type":"MCQ","prompt":"For N2(g) + 3H2(g) <-> 2NH3(g), which units match Kc when concentrations are in mol dm-3?","options":["dm6 mol-2","mol2 dm-6","dm3 mol-1","No units in all cases"],"correctAnswer":"dm6 mol-2","explanation":"The concentration powers give (mol dm-3)^2 divided by (mol dm-3)^4, which simplifies to dm6 mol-2.","difficulty":4,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Equilibrium Constants","learningOutcome":"Determine units of Kc from a balanced equation.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":78,"type":"MCQ","prompt":"A buffer contains ethanoic acid and sodium ethanoate. What happens when a small amount of hydrochloric acid is added?","options":["Ethanoate ions react with added H+ to form ethanoic acid","All ethanoic acid molecules become sodium metal","The pH instantly becomes 14","The buffer stops containing water"],"correctAnswer":"Ethanoate ions react with added H+ to form ethanoic acid","explanation":"The conjugate base in the buffer removes added hydrogen ions, so the pH changes only slightly.","difficulty":4,"strandTitle":"Acids, Bases and Equilibria","subStrandTitle":"Buffer Action","learningOutcome":"Explain buffer action using conjugate acid-base pairs.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":79,"type":"MCQ","prompt":"Which statement correctly compares an electrolytic cell with a galvanic cell?","options":["An electrolytic cell uses electrical energy to drive a non-spontaneous reaction, while a galvanic cell produces electrical energy from a spontaneous reaction","Both cells always produce electricity without any external power source","Only galvanic cells contain electrodes","Only electrolytic cells involve electron transfer"],"correctAnswer":"An electrolytic cell uses electrical energy to drive a non-spontaneous reaction, while a galvanic cell produces electrical energy from a spontaneous reaction","explanation":"Electrolytic cells require an external power supply, while galvanic cells generate a voltage from a redox reaction.","difficulty":4,"strandTitle":"Electrochemistry","subStrandTitle":"Cell Types","learningOutcome":"Compare electrolytic and galvanic cells.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":80,"type":"MCQ","prompt":"A calculated Ecell value for a proposed reaction is negative under standard conditions. What does this indicate?","options":["The reaction is not spontaneous as written under standard conditions","The reaction must be explosive","The electrodes have no ions around them","The salt bridge has become a catalyst"],"correctAnswer":"The reaction is not spontaneous as written under standard conditions","explanation":"A negative standard cell voltage means the reverse reaction is thermodynamically favoured under standard conditions.","difficulty":4,"strandTitle":"Electrochemistry","subStrandTitle":"Cell Feasibility","learningOutcome":"Interpret the sign of Ecell for redox feasibility.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":81,"type":"MCQ","prompt":"How much aluminium is deposited when 0.300 mol of electrons passes through molten aluminium oxide? Al3+ + 3e- -> Al, Al = 27.","options":["2.7 g","8.1 g","27.0 g","0.90 g"],"correctAnswer":"2.7 g","explanation":"Three moles of electrons deposit one mole of aluminium, so 0.300 mol electrons deposit 0.100 mol aluminium, which has mass 2.7 g.","difficulty":4,"strandTitle":"Electrochemistry","subStrandTitle":"Faraday's Laws","learningOutcome":"Use electron stoichiometry to calculate mass deposited.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":82,"type":"MCQ","prompt":"Why does galvanising iron with zinc help protect the iron even if the zinc coating is scratched?","options":["Zinc is oxidised more readily and acts as a sacrificial metal","Zinc prevents oxygen from existing anywhere nearby","Iron becomes a noble gas after contact with zinc","The scratch changes iron into plastic"],"correctAnswer":"Zinc is oxidised more readily and acts as a sacrificial metal","explanation":"Zinc is more reactive than iron, so it preferentially oxidises and protects exposed iron from corrosion.","difficulty":4,"strandTitle":"Electrochemistry","subStrandTitle":"Corrosion Protection","learningOutcome":"Explain sacrificial protection using relative reactivity.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":83,"type":"MCQ","prompt":"An organic compound rapidly decolourises bromine water and has the formula C3H6. Which classification is most likely?","options":["Alkene","Alkane","Carboxylic acid","Alcohol"],"correctAnswer":"Alkene","explanation":"C3H6 fits the alkene general formula, and decolourising bromine water indicates a carbon-carbon double bond.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Hydrocarbon Analysis","learningOutcome":"Use formula and chemical test evidence to classify hydrocarbons.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":84,"type":"MCQ","prompt":"Which reagent can distinguish propanal from propanone by giving a silver mirror with only propanal?","options":["Tollens' reagent","Bromine water","Sodium carbonate solution","Barium chloride solution"],"correctAnswer":"Tollens' reagent","explanation":"Aldehydes such as propanal reduce Tollens' reagent to silver, while ordinary ketones such as propanone do not.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Carbonyl Tests","learningOutcome":"Distinguish aldehydes from ketones using oxidation tests.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":85,"type":"MCQ","prompt":"What products form when ethyl ethanoate is hydrolysed by sodium hydroxide solution?","options":["Sodium ethanoate and ethanol","Ethanoic acid and ethene","Ethanol and carbon dioxide","Sodium carbonate and ethane"],"correctAnswer":"Sodium ethanoate and ethanol","explanation":"Alkaline hydrolysis of an ester forms an alcohol and the sodium salt of the carboxylic acid.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Ester Hydrolysis","learningOutcome":"Predict products of alkaline ester hydrolysis.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":86,"type":"MCQ","prompt":"A dicarboxylic acid reacts with a diol to form a polymer. What type of polymer is produced?","options":["Polyester","Polyamide","Polyalkene","Protein only"],"correctAnswer":"Polyester","explanation":"Carboxylic acid groups react with alcohol groups to form ester links, producing a polyester in condensation polymerisation.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Condensation Polymers","learningOutcome":"Relate monomer functional groups to polymer type.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":87,"type":"MCQ","prompt":"Why can but-2-ene show geometric isomerism but butane cannot?","options":["But-2-ene has restricted rotation around a C=C bond","Butane has a carbonyl group at each end","Butane contains an ionic lattice","But-2-ene has no carbon atoms"],"correctAnswer":"But-2-ene has restricted rotation around a C=C bond","explanation":"Restricted rotation around the double bond allows different spatial arrangements when each double-bond carbon has two different groups.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Isomerism","learningOutcome":"Explain geometric isomerism in alkenes.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":88,"type":"MCQ","prompt":"Which action improves reliability when carrying out a titration?","options":["Repeat the titration until two or more concordant titres are obtained","Use only the first rough titre as the final result","Stop adding titrant before any indicator change is seen","Estimate the burette reading to the nearest 10 cm3"],"correctAnswer":"Repeat the titration until two or more concordant titres are obtained","explanation":"Concordant titres show that the endpoint can be reproduced, improving confidence in the calculated result.","difficulty":4,"strandTitle":"Analytical Chemistry","subStrandTitle":"Titration Reliability","learningOutcome":"Evaluate procedures that improve titration reliability.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":89,"type":"MCQ","prompt":"Which sequence is most suitable when identifying ions in an unknown salt solution?","options":["Observe appearance, test for selected cations, test for selected anions, then combine evidence","Add every reagent at once and ignore precipitates","Heat to dryness first and discard the residue","Choose the ion name before testing"],"correctAnswer":"Observe appearance, test for selected cations, test for selected anions, then combine evidence","explanation":"Systematic qualitative analysis gathers observations step by step so that results can be interpreted together.","difficulty":4,"strandTitle":"Analytical Chemistry","subStrandTitle":"Qualitative Analysis Planning","learningOutcome":"Plan a systematic approach for identifying unknown ions.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":90,"type":"MCQ","prompt":"A sample has 5.00 g of pure sodium chloride in 6.25 g of impure solid. What is the percentage purity?","options":["80.0%","62.5%","125%","20.0%"],"correctAnswer":"80.0%","explanation":"Percentage purity equals pure mass divided by sample mass times 100: 5.00 / 6.25 x 100 = 80.0%.","difficulty":4,"strandTitle":"Analytical Chemistry","subStrandTitle":"Purity Calculations","learningOutcome":"Calculate percentage purity from sample data.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":91,"type":"MCQ","prompt":"A buffer has equal concentrations of ethanoic acid and sodium ethanoate. If the pKa of ethanoic acid is 4.76, what is the pH of the buffer?","options":["4.76","7.00","9.52","2.38"],"correctAnswer":"4.76","explanation":"When acid and conjugate base concentrations are equal, the logarithm term is zero, so pH equals pKa.","difficulty":5,"strandTitle":"Acids, Bases and Equilibria","subStrandTitle":"Buffer Calculations","learningOutcome":"Use the acid-base ratio to estimate buffer pH.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":92,"type":"MCQ","prompt":"For H2(g) + I2(g) <-> 2HI(g), 1.00 mol H2 and 1.00 mol I2 are placed in a 1.00 dm3 vessel. At equilibrium, 1.20 mol HI is present. What is Kc?","options":["9.0","3.0","1.5","0.11"],"correctAnswer":"9.0","explanation":"Making 1.20 mol HI uses 0.60 mol each of H2 and I2, leaving 0.40 mol dm-3 of each; Kc = 1.20^2 / (0.40 x 0.40) = 9.0.","difficulty":5,"strandTitle":"Chemical Equilibrium","subStrandTitle":"Equilibrium Composition","learningOutcome":"Calculate Kc from initial and equilibrium composition data.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":93,"type":"MCQ","prompt":"Use standard enthalpies of formation: CO2 = -394 kJ mol-1 and CO = -111 kJ mol-1. What is delta H for CO(g) + 1/2O2(g) -> CO2(g)?","options":["-283 kJ mol-1","+283 kJ mol-1","-505 kJ mol-1","+505 kJ mol-1"],"correctAnswer":"-283 kJ mol-1","explanation":"Delta H equals products minus reactants: -394 - (-111) = -283 kJ mol-1 because oxygen in its standard state has zero formation enthalpy.","difficulty":5,"strandTitle":"Energetics","subStrandTitle":"Formation Enthalpy","learningOutcome":"Use standard enthalpies of formation to calculate reaction enthalpy.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":94,"type":"MCQ","prompt":"25.0 cm3 of 0.0200 mol dm-3 MnO4- reacts with Fe2+ in acid solution. If 1 mol MnO4- reacts with 5 mol Fe2+ and the Fe2+ volume is 20.0 cm3, what is the Fe2+ concentration?","options":["0.125 mol dm-3","0.0250 mol dm-3","0.100 mol dm-3","0.500 mol dm-3"],"correctAnswer":"0.125 mol dm-3","explanation":"Moles of MnO4- are 0.0250 x 0.0200 = 0.000500 mol, so Fe2+ moles are 0.00250; concentration = 0.00250 / 0.0200 = 0.125 mol dm-3.","difficulty":5,"strandTitle":"Analytical Chemistry","subStrandTitle":"Redox Titration","learningOutcome":"Calculate concentration using redox titration stoichiometry.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":95,"type":"MCQ","prompt":"A current of 2.00 A passes for 1930 s through nickel(II) solution. How much nickel is deposited? Ni2+ + 2e- -> Ni, Ni = 58.7 and F = 96500 C mol-1.","options":["1.17 g","2.35 g","0.587 g","11.7 g"],"correctAnswer":"1.17 g","explanation":"Charge is 3860 C, which is 0.0400 mol electrons; this deposits 0.0200 mol nickel, with mass 0.0200 x 58.7 = 1.17 g.","difficulty":5,"strandTitle":"Electrochemistry","subStrandTitle":"Electrolysis Calculations","learningOutcome":"Combine current, time and electrode stoichiometry to find deposited mass.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":96,"type":"MCQ","prompt":"Which route can convert ethanol into ethyl ethanoate using standard organic reactions?","options":["Oxidise some ethanol to ethanoic acid, then esterify it with ethanol","Polymerise ethanol directly into ethyl ethanoate","Add sodium chloride to ethanol and distil immediately","Reduce ethanol to ethanoic acid, then neutralise it with ammonia"],"correctAnswer":"Oxidise some ethanol to ethanoic acid, then esterify it with ethanol","explanation":"Ethyl ethanoate forms when ethanol reacts with ethanoic acid in an esterification reaction.","difficulty":5,"strandTitle":"Organic Chemistry","subStrandTitle":"Organic Synthesis","learningOutcome":"Design a simple synthesis route using alcohol oxidation and esterification.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":97,"type":"MCQ","prompt":"An unknown organic compound gives an orange precipitate with 2,4-DNPH, does not give a silver mirror with Tollens' reagent, and gives a positive iodoform test. Which compound fits best?","options":["Propanone","Propanal","Ethanol","Ethanoic acid"],"correctAnswer":"Propanone","explanation":"The tests show a methyl ketone: 2,4-DNPH confirms a carbonyl group, Tollens' reagent excludes an aldehyde, and iodoform supports a CH3CO- group.","difficulty":5,"strandTitle":"Organic Chemistry","subStrandTitle":"Organic Analysis","learningOutcome":"Interpret combined organic test results to identify a compound.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":98,"type":"MCQ","prompt":"Why is cryolite used in the industrial extraction of aluminium from aluminium oxide?","options":["It dissolves aluminium oxide and lowers the operating temperature","It changes aluminium into iron before electrolysis","It removes all oxygen from the air around the cell","It acts as the final aluminium product"],"correctAnswer":"It dissolves aluminium oxide and lowers the operating temperature","explanation":"Cryolite makes the electrolyte easier to melt and conduct, reducing energy demand in aluminium extraction.","difficulty":5,"strandTitle":"Electrochemistry","subStrandTitle":"Industrial Extraction","learningOutcome":"Explain the role of cryolite in aluminium extraction.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":99,"type":"MCQ","prompt":"In a titration where acid is in the conical flask and standard sodium hydroxide is in the burette, which error would make the calculated acid concentration too high?","options":["Rinsing the burette with water and not with sodium hydroxide before filling","Rinsing the conical flask with distilled water before adding the acid aliquot","Reading the burette at eye level","Swirling the flask during titration"],"correctAnswer":"Rinsing the burette with water and not with sodium hydroxide before filling","explanation":"Water left in the burette dilutes the sodium hydroxide, requiring a larger titre; using the stated concentration with that larger titre overestimates acid concentration.","difficulty":5,"strandTitle":"Analytical Chemistry","subStrandTitle":"Titration Errors","learningOutcome":"Evaluate how procedural errors affect titration calculations.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":100,"type":"MCQ","prompt":"Which plan best supports a reliable and safer school investigation of enthalpy of neutralisation?","options":["Use measured dilute solutions in an insulated cup, record the maximum temperature change, repeat trials and average concordant results","Mix unknown concentrated chemicals in an open beaker and estimate the temperature by touch","Use one unmeasured volume and ignore heat loss completely","Heat the reaction mixture strongly before measuring the initial temperature"],"correctAnswer":"Use measured dilute solutions in an insulated cup, record the maximum temperature change, repeat trials and average concordant results","explanation":"Measured dilute solutions, insulation, repeated trials and temperature readings make the result more reliable while reducing avoidable practical risk.","difficulty":5,"strandTitle":"Energetics","subStrandTitle":"Practical Calorimetry","learningOutcome":"Design a reliable practical approach for measuring neutralisation enthalpy.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]}
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "chemistry",
+ "subjectName": "Chemistry",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which statement best describes a dative covalent bond?",
+   "options": [
+    "A covalent bond where both shared electrons come from one atom",
+    "A bond formed only by complete electron transfer",
+    "A metallic bond between positive ions and electrons",
+    "A weak force between separate noble gas atoms"
+   ],
+   "correctAnswer": "A covalent bond where both shared electrons come from one atom",
+   "explanation": "In a dative covalent bond, one atom donates a lone pair to an electron-deficient species, but the shared pair is still held between both atoms.",
+   "difficulty": 1,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Coordinate Bonding",
+   "learningOutcome": "Define coordinate bonding in terms of electron pair donation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which intermolecular force explains the high boiling point of water compared with hydrogen sulphide?",
+   "options": [
+    "Hydrogen bonding",
+    "Metallic bonding",
+    "Ionic bonding",
+    "Covalent network bonding"
+   ],
+   "correctAnswer": "Hydrogen bonding",
+   "explanation": "Water molecules form hydrogen bonds because hydrogen is bonded to highly electronegative oxygen atoms.",
+   "difficulty": 1,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Intermolecular Forces",
+   "learningOutcome": "Identify hydrogen bonding as a strong intermolecular force in selected molecules.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "What is lattice enthalpy mainly concerned with?",
+   "options": [
+    "Formation or separation of ions in an ionic lattice",
+    "Boiling a simple covalent liquid",
+    "Breaking only metallic bonds in a wire",
+    "Changing a gas directly into plasma"
+   ],
+   "correctAnswer": "Formation or separation of ions in an ionic lattice",
+   "explanation": "Lattice enthalpy describes the energy change linked to making or breaking an ionic crystal lattice from gaseous ions.",
+   "difficulty": 1,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Ionic Lattices",
+   "learningOutcome": "State the meaning of lattice enthalpy for ionic compounds.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "What does the standard enthalpy of neutralisation measure?",
+   "options": [
+    "Heat change when one mole of water forms from acid and alkali under standard conditions",
+    "Heat change when one mole of salt dissolves in water only",
+    "Energy needed to ionise one mole of gaseous atoms",
+    "Energy released when a hydrocarbon burns completely"
+   ],
+   "correctAnswer": "Heat change when one mole of water forms from acid and alkali under standard conditions",
+   "explanation": "Neutralisation enthalpy is based on the formation of water from hydrogen ions and hydroxide ions.",
+   "difficulty": 1,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Enthalpy Changes",
+   "learningOutcome": "Define standard enthalpy of neutralisation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which condition is essential for a reversible reaction to reach dynamic equilibrium?",
+   "options": [
+    "The system must be closed",
+    "All products must be removed continuously",
+    "Only the forward reaction must occur",
+    "The temperature must be zero degrees Celsius"
+   ],
+   "correctAnswer": "The system must be closed",
+   "explanation": "A closed system prevents loss of reactants or products, allowing forward and reverse rates to become equal.",
+   "difficulty": 1,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Dynamic Equilibrium",
+   "learningOutcome": "Recall the condition needed for dynamic equilibrium.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "What does Le Chatelier's principle predict?",
+   "options": [
+    "How an equilibrium system shifts when conditions are changed",
+    "The exact colour of every precipitate",
+    "The mass number of an isotope",
+    "The name of every organic compound"
+   ],
+   "correctAnswer": "How an equilibrium system shifts when conditions are changed",
+   "explanation": "Le Chatelier's principle states that an equilibrium system responds by opposing an imposed change.",
+   "difficulty": 1,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Le Chatelier's Principle",
+   "learningOutcome": "State the purpose of Le Chatelier's principle.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "At which electrode does reduction occur in an electrochemical cell?",
+   "options": [
+    "Cathode",
+    "Anode",
+    "Salt bridge",
+    "Voltmeter terminal only"
+   ],
+   "correctAnswer": "Cathode",
+   "explanation": "Reduction is gain of electrons, and it occurs at the cathode in both electrolytic and electrochemical cells.",
+   "difficulty": 1,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Electrode Processes",
+   "learningOutcome": "Identify the electrode at which reduction occurs.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which expression is used to calculate the voltage of a standard cell?",
+   "options": [
+    "Ecell = Ecathode - Eanode",
+    "Ecell = mass divided by volume",
+    "Ecell = pressure times volume",
+    "Ecell = pH plus pOH"
+   ],
+   "correctAnswer": "Ecell = Ecathode - Eanode",
+   "explanation": "Cell voltage is found by subtracting the anode reduction potential from the cathode reduction potential.",
+   "difficulty": 1,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Cell Potentials",
+   "learningOutcome": "Recall the expression for calculating standard cell voltage.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which functional group identifies an aldehyde?",
+   "options": [
+    "-CHO",
+    "-COOH",
+    "-COO-",
+    "-OH"
+   ],
+   "correctAnswer": "-CHO",
+   "explanation": "Aldehydes contain the terminal carbonyl group written as -CHO.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Carbonyl Compounds",
+   "learningOutcome": "Recognise the aldehyde functional group.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which functional group is found in carboxylic acids?",
+   "options": [
+    "-COOH",
+    "-CHO",
+    "-NH2",
+    "-C=C-"
+   ],
+   "correctAnswer": "-COOH",
+   "explanation": "Carboxylic acids contain the carboxyl group, written as -COOH.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Carboxylic Acids",
+   "learningOutcome": "Identify the carboxyl functional group in organic molecules.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which linkage is characteristic of an ester?",
+   "options": [
+    "-COO-",
+    "-C=C-",
+    "-CHO",
+    "-NH-"
+   ],
+   "correctAnswer": "-COO-",
+   "explanation": "Esters contain the -COO- linkage formed from a carboxylic acid and an alcohol.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Esters",
+   "learningOutcome": "Recognise the ester linkage in organic compounds.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which reagent is commonly used to test for carbon-carbon double bonds in alkenes?",
+   "options": [
+    "Bromine water",
+    "Limewater",
+    "Universal indicator",
+    "Sodium chloride solution"
+   ],
+   "correctAnswer": "Bromine water",
+   "explanation": "Alkenes decolourise bromine water because bromine adds across the carbon-carbon double bond.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alkenes",
+   "learningOutcome": "State a chemical test for unsaturation in hydrocarbons.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What is a primary standard in volumetric analysis?",
+   "options": [
+    "A pure stable substance used to prepare a solution of accurately known concentration",
+    "Any coloured solution used as an indicator",
+    "A rough titre recorded before the main titration",
+    "A gas collected over water during electrolysis"
+   ],
+   "correctAnswer": "A pure stable substance used to prepare a solution of accurately known concentration",
+   "explanation": "A primary standard has high purity and stability, so it can be weighed to prepare a standard solution accurately.",
+   "difficulty": 1,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Volumetric Analysis",
+   "learningOutcome": "Define a primary standard used in titration work.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "What is the endpoint in an acid-base titration?",
+   "options": [
+    "The point where the indicator shows a permanent colour change",
+    "The first reading taken before any solution is added",
+    "The point where the burette is filled above zero",
+    "The temperature at which all solutions boil"
+   ],
+   "correctAnswer": "The point where the indicator shows a permanent colour change",
+   "explanation": "The endpoint is detected by an indicator colour change that signals the titration is complete for practical purposes.",
+   "difficulty": 1,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Titration Technique",
+   "learningOutcome": "Describe the meaning of endpoint in titration.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which flame colour is associated with sodium ions in a flame test?",
+   "options": [
+    "Yellow",
+    "Lilac",
+    "Brick red",
+    "Blue-green"
+   ],
+   "correctAnswer": "Yellow",
+   "explanation": "Sodium ions give a strong yellow flame, which can mask weaker flame colours from other ions.",
+   "difficulty": 1,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Recall flame test colours for selected cations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "A bond between hydrogen and chlorine is polar. What mainly causes this polarity?",
+   "options": [
+    "Chlorine attracts the shared electrons more strongly than hydrogen",
+    "Hydrogen and chlorine have the same electronegativity",
+    "The molecule contains free metal ions",
+    "The bond contains no electrons"
+   ],
+   "correctAnswer": "Chlorine attracts the shared electrons more strongly than hydrogen",
+   "explanation": "A polar bond forms when bonded atoms have different electronegativities, causing uneven sharing of electrons.",
+   "difficulty": 2,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Bond Polarity",
+   "learningOutcome": "Explain bond polarity using electronegativity differences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Why is a water molecule bent rather than linear?",
+   "options": [
+    "Two lone pairs on oxygen repel bonding pairs strongly",
+    "Hydrogen atoms form metallic bonds with oxygen",
+    "Oxygen has no outer-shell electrons",
+    "Water contains a giant ionic lattice"
+   ],
+   "correctAnswer": "Two lone pairs on oxygen repel bonding pairs strongly",
+   "explanation": "Electron-pair repulsion around oxygen gives water a bent shape because lone pairs occupy more space than bonding pairs.",
+   "difficulty": 2,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Molecular Shapes",
+   "learningOutcome": "Use electron-pair repulsion to explain the shape of water.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Carbon dioxide has polar C=O bonds but is a non-polar molecule. Why?",
+   "options": [
+    "Its linear shape makes the bond dipoles cancel",
+    "It contains only ionic bonds",
+    "It has no covalent bonds",
+    "Its carbon atom has a full positive charge"
+   ],
+   "correctAnswer": "Its linear shape makes the bond dipoles cancel",
+   "explanation": "The two C=O bond dipoles act in opposite directions in a linear molecule, so the overall dipole is zero.",
+   "difficulty": 2,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Molecular Polarity",
+   "learningOutcome": "Relate molecular shape to overall polarity.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Why do many ionic solids have high melting points?",
+   "options": [
+    "Strong electrostatic attractions hold oppositely charged ions in a lattice",
+    "Their molecules are joined by weak temporary dipoles only",
+    "They contain separate neutral atoms with no attraction",
+    "Their ions move freely in the solid state"
+   ],
+   "correctAnswer": "Strong electrostatic attractions hold oppositely charged ions in a lattice",
+   "explanation": "Large amounts of energy are needed to overcome the strong attractions throughout an ionic lattice.",
+   "difficulty": 2,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Ionic Structures",
+   "learningOutcome": "Explain high melting points of ionic compounds using lattice structure.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "A reaction has delta H = -120 kJ mol-1. What does the negative sign show?",
+   "options": [
+    "The reaction is exothermic",
+    "The reaction cannot occur",
+    "The products have no bonds",
+    "The reaction has no activation energy"
+   ],
+   "correctAnswer": "The reaction is exothermic",
+   "explanation": "A negative enthalpy change means heat is released to the surroundings.",
+   "difficulty": 2,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Enthalpy Changes",
+   "learningOutcome": "Interpret the sign of an enthalpy change.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "For an exothermic reversible reaction, what is the effect of increasing temperature at equilibrium?",
+   "options": [
+    "The equilibrium shifts towards reactants",
+    "The equilibrium shifts towards products",
+    "The catalyst is consumed completely",
+    "The equilibrium constant becomes exactly zero"
+   ],
+   "correctAnswer": "The equilibrium shifts towards reactants",
+   "explanation": "Increasing temperature favours the endothermic direction, which is the reverse direction for an exothermic forward reaction.",
+   "difficulty": 2,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Temperature Effects",
+   "learningOutcome": "Predict the effect of temperature on an exothermic equilibrium.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "For H2(g) + I2(g) <-> 2HI(g), which expression represents Kc?",
+   "options": [
+    "[HI]^2 / ([H2][I2])",
+    "[H2][I2] / [HI]^2",
+    "[HI] / ([H2][I2])",
+    "[H2]^2[I2]^2 / [HI]"
+   ],
+   "correctAnswer": "[HI]^2 / ([H2][I2])",
+   "explanation": "The equilibrium expression uses product concentrations over reactant concentrations, each raised to its equation coefficient.",
+   "difficulty": 2,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Equilibrium Constants",
+   "learningOutcome": "Write Kc expressions for simple homogeneous equilibria.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "What is the pH of 0.0010 mol dm-3 hydrochloric acid if it fully ionises?",
+   "options": [
+    "pH 3",
+    "pH 1",
+    "pH 7",
+    "pH 11"
+   ],
+   "correctAnswer": "pH 3",
+   "explanation": "The hydrogen ion concentration is 1.0 x 10^-3 mol dm-3, so pH = -log10(10^-3) = 3.",
+   "difficulty": 2,
+   "strandTitle": "Acids, Bases and Equilibria",
+   "subStrandTitle": "pH Calculations",
+   "learningOutcome": "Calculate pH for a dilute strong acid.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which statement best describes a buffer solution?",
+   "options": [
+    "It resists large pH changes when small amounts of acid or base are added",
+    "It always has pH 7 exactly",
+    "It contains no ions at all",
+    "It reacts explosively with water"
+   ],
+   "correctAnswer": "It resists large pH changes when small amounts of acid or base are added",
+   "explanation": "Buffers contain species that remove added hydrogen ions or hydroxide ions, keeping pH nearly constant.",
+   "difficulty": 2,
+   "strandTitle": "Acids, Bases and Equilibria",
+   "subStrandTitle": "Buffer Solutions",
+   "learningOutcome": "Describe the function of a buffer solution.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Why does ethanoic acid conduct electricity less strongly than hydrochloric acid at the same concentration?",
+   "options": [
+    "Ethanoic acid only partially ionises in water",
+    "Ethanoic acid has no hydrogen atoms",
+    "Hydrochloric acid is a metal",
+    "Ethanoic acid contains no covalent bonds"
+   ],
+   "correctAnswer": "Ethanoic acid only partially ionises in water",
+   "explanation": "Ethanoic acid is a weak acid, so fewer ions are present to carry charge at the same concentration.",
+   "difficulty": 2,
+   "strandTitle": "Acids, Bases and Equilibria",
+   "subStrandTitle": "Weak Acids",
+   "learningOutcome": "Explain weak acid behaviour in terms of partial ionisation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "In a zinc-copper electrochemical cell, zinc is oxidised. Which electrode is zinc?",
+   "options": [
+    "The anode",
+    "The cathode",
+    "The salt bridge",
+    "The external wire"
+   ],
+   "correctAnswer": "The anode",
+   "explanation": "Oxidation occurs at the anode, so the zinc electrode is the anode in this cell.",
+   "difficulty": 2,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Simple Cells",
+   "learningOutcome": "Identify anode and cathode from the electrode reaction.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "What is the main role of a salt bridge in a simple electrochemical cell?",
+   "options": [
+    "It allows ions to move and maintain electrical neutrality",
+    "It supplies electrons directly to the cathode",
+    "It prevents all chemical reactions from occurring",
+    "It measures the mass of the electrodes"
+   ],
+   "correctAnswer": "It allows ions to move and maintain electrical neutrality",
+   "explanation": "The salt bridge completes the circuit internally by ion movement without mixing the two half-cell solutions rapidly.",
+   "difficulty": 2,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Simple Cells",
+   "learningOutcome": "Explain the function of a salt bridge.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "During electroplating with a metal, the object to be plated should be connected as which electrode?",
+   "options": [
+    "Cathode",
+    "Anode",
+    "Salt bridge",
+    "Voltmeter"
+   ],
+   "correctAnswer": "Cathode",
+   "explanation": "Metal cations gain electrons at the cathode and deposit as a metal coating on the object.",
+   "difficulty": 2,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Electroplating",
+   "learningOutcome": "Relate electrode polarity to metal deposition during electroplating.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "What charge passes when a current of 2.0 A flows for 9650 s?",
+   "options": [
+    "19300 C",
+    "4825 C",
+    "9650 C",
+    "1930 C"
+   ],
+   "correctAnswer": "19300 C",
+   "explanation": "Charge equals current times time, so Q = 2.0 x 9650 = 19300 C.",
+   "difficulty": 2,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Faraday's Laws",
+   "learningOutcome": "Calculate charge passed using current and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "How many moles of electrons are represented by 9650 C if one Faraday is 96500 C mol-1?",
+   "options": [
+    "0.100 mol",
+    "1.00 mol",
+    "10.0 mol",
+    "0.0100 mol"
+   ],
+   "correctAnswer": "0.100 mol",
+   "explanation": "Moles of electrons equal charge divided by the Faraday constant: 9650 / 96500 = 0.100 mol.",
+   "difficulty": 2,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Faraday's Laws",
+   "learningOutcome": "Convert charge into moles of electrons.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "What is the IUPAC name of CH3CH=CHCH3?",
+   "options": [
+    "But-2-ene",
+    "But-1-ene",
+    "Propene",
+    "Methylpropene"
+   ],
+   "correctAnswer": "But-2-ene",
+   "explanation": "The compound has four carbon atoms and the double bond begins at carbon 2 when numbered from either end.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Nomenclature",
+   "learningOutcome": "Name simple alkenes using IUPAC rules.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which compound forms when ethanol is mildly oxidised and the product is distilled off?",
+   "options": [
+    "Ethanal",
+    "Ethanoic acid",
+    "Ethene",
+    "Ethyl ethanoate"
+   ],
+   "correctAnswer": "Ethanal",
+   "explanation": "Controlled oxidation of a primary alcohol first gives an aldehyde, and distillation can remove ethanal before further oxidation.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alcohols and Aldehydes",
+   "learningOutcome": "Describe controlled oxidation of primary alcohols.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "What organic product forms when ethanol is dehydrated?",
+   "options": [
+    "Ethene",
+    "Ethanoic acid",
+    "Ethanal",
+    "Methane"
+   ],
+   "correctAnswer": "Ethene",
+   "explanation": "Dehydration removes water from ethanol, forming the alkene ethene.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alcohol Reactions",
+   "learningOutcome": "Identify the product of alcohol dehydration.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "What type of polymerisation converts ethene into poly(ethene)?",
+   "options": [
+    "Addition polymerisation",
+    "Condensation polymerisation",
+    "Neutralisation",
+    "Ester hydrolysis"
+   ],
+   "correctAnswer": "Addition polymerisation",
+   "explanation": "Ethene monomers join by opening their double bonds without eliminating a small molecule.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Polymers",
+   "learningOutcome": "Classify polymerisation of alkenes as addition polymerisation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which small molecule is also formed when an alcohol reacts with a carboxylic acid to make an ester?",
+   "options": [
+    "Water",
+    "Hydrogen",
+    "Oxygen",
+    "Carbon monoxide"
+   ],
+   "correctAnswer": "Water",
+   "explanation": "Esterification is a condensation reaction that forms an ester and water.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Esters",
+   "learningOutcome": "Identify products of esterification.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which description fits condensation polymerisation?",
+   "options": [
+    "Monomers join while a small molecule such as water is eliminated",
+    "Alkenes join without any other product",
+    "A salt reacts with an acid to give carbon dioxide",
+    "A metal is deposited at a cathode"
+   ],
+   "correctAnswer": "Monomers join while a small molecule such as water is eliminated",
+   "explanation": "Condensation polymerisation links monomers and eliminates a small molecule at each link.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Condensation Polymers",
+   "learningOutcome": "Describe the key feature of condensation polymerisation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which observation is expected when acidified potassium manganate(VII) oxidises ethanol?",
+   "options": [
+    "Purple solution becomes colourless",
+    "White precipitate dissolves in excess acid",
+    "Blue litmus turns red then bleaches",
+    "Yellow flame changes to lilac"
+   ],
+   "correctAnswer": "Purple solution becomes colourless",
+   "explanation": "Acidified manganate(VII) is reduced from purple MnO4- to very pale manganese(II) ions during oxidation of ethanol.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Oxidation Tests",
+   "learningOutcome": "Recognise a common colour change in oxidation of alcohols.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which test gives a white precipitate for chloride ions in solution?",
+   "options": [
+    "Acidified silver nitrate solution",
+    "Barium chloride after acidifying with nitric acid",
+    "Sodium hydroxide followed by warming",
+    "Bromine water in the dark"
+   ],
+   "correctAnswer": "Acidified silver nitrate solution",
+   "explanation": "Chloride ions react with silver ions to form a white precipitate of silver chloride.",
+   "difficulty": 2,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Anion Tests",
+   "learningOutcome": "Identify chloride ions using a precipitation test.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "A sample releases ammonia gas when warmed with sodium hydroxide solution. Which ion is indicated?",
+   "options": [
+    "Ammonium ion",
+    "Carbonate ion",
+    "Sulphate ion",
+    "Chloride ion"
+   ],
+   "correctAnswer": "Ammonium ion",
+   "explanation": "Ammonium ions react with warm alkali to release ammonia, which has a sharp smell and turns damp red litmus blue.",
+   "difficulty": 2,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Cation Tests",
+   "learningOutcome": "Use alkali warming to identify ammonium ions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which separation method is suitable for collecting a solvent from a salt solution?",
+   "options": [
+    "Simple distillation",
+    "Filtration only",
+    "Chromatography only",
+    "Flame testing"
+   ],
+   "correctAnswer": "Simple distillation",
+   "explanation": "Simple distillation vaporises the solvent and condenses it, leaving the dissolved salt behind.",
+   "difficulty": 2,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Separation Techniques",
+   "learningOutcome": "Select an appropriate separation method for a solution.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "What approximate bond angle is expected in ammonia, NH3?",
+   "options": [
+    "107 degrees",
+    "180 degrees",
+    "120 degrees",
+    "90 degrees"
+   ],
+   "correctAnswer": "107 degrees",
+   "explanation": "Ammonia has three bonding pairs and one lone pair around nitrogen, giving a trigonal pyramidal shape with a bond angle near 107 degrees.",
+   "difficulty": 3,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Molecular Shapes",
+   "learningOutcome": "Predict molecular shape and bond angle using electron-pair repulsion.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which statement explains why graphite conducts electricity but diamond does not?",
+   "options": [
+    "Graphite has delocalised electrons, while diamond has all outer electrons in covalent bonds",
+    "Graphite contains sodium ions, while diamond contains chloride ions",
+    "Diamond is made of molecules, while graphite is made of metal atoms",
+    "Diamond dissolves in water, while graphite does not"
+   ],
+   "correctAnswer": "Graphite has delocalised electrons, while diamond has all outer electrons in covalent bonds",
+   "explanation": "Each carbon in graphite leaves one electron delocalised, but each carbon in diamond uses all four outer electrons in covalent bonds.",
+   "difficulty": 3,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Giant Covalent Structures",
+   "learningOutcome": "Compare electrical conductivity in different carbon structures.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Why is magnesium oxide expected to have a higher lattice enthalpy magnitude than sodium chloride?",
+   "options": [
+    "Mg2+ and O2- have higher ionic charges than Na+ and Cl-",
+    "Magnesium oxide contains only covalent molecules",
+    "Sodium chloride has no ionic lattice",
+    "Oxygen atoms are larger than chloride ions in every case"
+   ],
+   "correctAnswer": "Mg2+ and O2- have higher ionic charges than Na+ and Cl-",
+   "explanation": "Greater ionic charges increase electrostatic attraction, making the ionic lattice stronger.",
+   "difficulty": 3,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Lattice Enthalpy",
+   "learningOutcome": "Relate ionic charge to lattice enthalpy magnitude.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Using bond energies H-H = 436 kJ mol-1, Cl-Cl = 242 kJ mol-1 and H-Cl = 431 kJ mol-1, what is delta H for H2 + Cl2 -> 2HCl?",
+   "options": [
+    "-184 kJ mol-1",
+    "+184 kJ mol-1",
+    "-109 kJ mol-1",
+    "+862 kJ mol-1"
+   ],
+   "correctAnswer": "-184 kJ mol-1",
+   "explanation": "Energy broken is 436 + 242 = 678 kJ mol-1, while energy formed is 2 x 431 = 862 kJ mol-1; delta H = 678 - 862 = -184 kJ mol-1.",
+   "difficulty": 3,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Bond Enthalpy",
+   "learningOutcome": "Calculate reaction enthalpy using average bond energies.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "A reaction warms 100 g of solution by 5.0 degrees Celsius. If c = 4.2 J g-1 degrees Celsius-1, how much heat is released to the solution?",
+   "options": [
+    "2.10 kJ",
+    "0.210 kJ",
+    "21.0 kJ",
+    "42.0 kJ"
+   ],
+   "correctAnswer": "2.10 kJ",
+   "explanation": "Heat change is mc delta T = 100 x 4.2 x 5.0 = 2100 J, which is 2.10 kJ.",
+   "difficulty": 3,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Calorimetry",
+   "learningOutcome": "Calculate heat change from mass, specific heat capacity and temperature change.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "25.0 cm3 of 1.00 mol dm-3 acid neutralises 25.0 cm3 of 1.00 mol dm-3 alkali and the temperature rises by 6.7 degrees Celsius. Taking total mass as 50.0 g and c = 4.2 J g-1 degrees Celsius-1, what is the enthalpy of neutralisation?",
+   "options": [
+    "-56.3 kJ mol-1",
+    "-28.2 kJ mol-1",
+    "+56.3 kJ mol-1",
+    "-5.63 kJ mol-1"
+   ],
+   "correctAnswer": "-56.3 kJ mol-1",
+   "explanation": "Heat released is 50.0 x 4.2 x 6.7 = 1407 J for 0.0250 mol water, giving about 56.3 kJ mol-1 released.",
+   "difficulty": 3,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Neutralisation Enthalpy",
+   "learningOutcome": "Calculate molar enthalpy of neutralisation from titration temperature data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "For 2SO2(g) + O2(g) <-> 2SO3(g), equilibrium concentrations are [SO3] = 0.40, [SO2] = 0.20 and [O2] = 0.10 mol dm-3. What is Kc?",
+   "options": [
+    "40",
+    "4.0",
+    "0.40",
+    "0.025"
+   ],
+   "correctAnswer": "40",
+   "explanation": "Kc = [SO3]^2 / ([SO2]^2[O2]) = 0.40^2 / (0.20^2 x 0.10) = 40.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Equilibrium Calculations",
+   "learningOutcome": "Calculate Kc from equilibrium concentrations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "For N2O4(g) <-> 2NO2(g), [NO2] = 0.20 mol dm-3 and [N2O4] = 0.10 mol dm-3 at equilibrium. What is Kc?",
+   "options": [
+    "0.40",
+    "2.0",
+    "0.020",
+    "4.0"
+   ],
+   "correctAnswer": "0.40",
+   "explanation": "Kc = [NO2]^2 / [N2O4] = 0.20^2 / 0.10 = 0.40.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Equilibrium Calculations",
+   "learningOutcome": "Use a Kc expression to calculate an equilibrium constant.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "For 2SO2(g) + O2(g) <-> 2SO3(g), what happens when pressure is increased at constant temperature?",
+   "options": [
+    "Equilibrium shifts towards SO3",
+    "Equilibrium shifts towards SO2 and O2",
+    "Equilibrium is destroyed completely",
+    "The catalyst changes the Kc value"
+   ],
+   "correctAnswer": "Equilibrium shifts towards SO3",
+   "explanation": "Higher pressure favours the side with fewer gas molecules; the product side has two gas molecules compared with three on the reactant side.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Pressure Effects",
+   "learningOutcome": "Predict pressure effects on gaseous equilibria.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "What is the effect of adding a catalyst to a reaction mixture already at equilibrium?",
+   "options": [
+    "It speeds up both forward and reverse reactions equally without changing Kc",
+    "It increases Kc permanently",
+    "It changes only the reverse reaction rate",
+    "It converts all reactants into products"
+   ],
+   "correctAnswer": "It speeds up both forward and reverse reactions equally without changing Kc",
+   "explanation": "A catalyst lowers activation energy for both directions, so equilibrium is reached faster but its position is unchanged.",
+   "difficulty": 3,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Catalysts and Equilibrium",
+   "learningOutcome": "Explain the effect of catalysts on equilibrium systems.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Given E values Ag+/Ag = +0.80 V and Zn2+/Zn = -0.76 V, what is the standard voltage of a zinc-silver cell?",
+   "options": [
+    "1.56 V",
+    "0.04 V",
+    "-1.56 V",
+    "0.76 V"
+   ],
+   "correctAnswer": "1.56 V",
+   "explanation": "Silver is the cathode and zinc is the anode, so Ecell = 0.80 - (-0.76) = 1.56 V.",
+   "difficulty": 3,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Cell Potentials",
+   "learningOutcome": "Calculate standard cell voltage from electrode potentials.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Two half-cells have standard reduction potentials +0.34 V and -0.44 V. Which half-cell is more likely to act as the cathode in a spontaneous cell?",
+   "options": [
+    "The half-cell with +0.34 V",
+    "The half-cell with -0.44 V",
+    "Both half-cells must be anodes",
+    "Neither half-cell can transfer electrons"
+   ],
+   "correctAnswer": "The half-cell with +0.34 V",
+   "explanation": "The more positive reduction potential is more likely to undergo reduction, so it acts as the cathode.",
+   "difficulty": 3,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Electrode Potentials",
+   "learningOutcome": "Use electrode potentials to predict cathode and anode.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "How much charge is needed to deposit 3.2 g of copper from Cu2+ solution? Cu = 64, Cu2+ + 2e- -> Cu and F = 96500 C mol-1.",
+   "options": [
+    "9650 C",
+    "4825 C",
+    "19300 C",
+    "96500 C"
+   ],
+   "correctAnswer": "9650 C",
+   "explanation": "3.2 g copper is 0.050 mol, requiring 0.100 mol electrons; charge = 0.100 x 96500 = 9650 C.",
+   "difficulty": 3,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Faraday's Laws",
+   "learningOutcome": "Apply Faraday's law to mass deposited at an electrode.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which products are expected when concentrated sodium chloride solution is electrolysed using inert electrodes?",
+   "options": [
+    "Hydrogen, chlorine and sodium hydroxide solution",
+    "Sodium metal and oxygen only",
+    "Hydrogen chloride and sodium metal",
+    "Chlorine and oxygen only"
+   ],
+   "correctAnswer": "Hydrogen, chlorine and sodium hydroxide solution",
+   "explanation": "In brine electrolysis, hydrogen forms at the cathode, chlorine at the anode and sodium hydroxide remains in solution.",
+   "difficulty": 3,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Industrial Electrolysis",
+   "learningOutcome": "Identify products of brine electrolysis.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "20.0 cm3 of hydrochloric acid is exactly neutralised by 25.0 cm3 of 0.100 mol dm-3 sodium hydroxide. What is the acid concentration?",
+   "options": [
+    "0.125 mol dm-3",
+    "0.0800 mol dm-3",
+    "0.100 mol dm-3",
+    "1.25 mol dm-3"
+   ],
+   "correctAnswer": "0.125 mol dm-3",
+   "explanation": "Moles of NaOH are 0.0250 x 0.100 = 0.00250 mol, so the same moles of HCl in 0.0200 dm3 give 0.125 mol dm-3.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Acid-Base Titration",
+   "learningOutcome": "Calculate concentration from acid-base titration data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A titre set is 24.80 cm3, 24.85 cm3 and 25.30 cm3. Which average is most appropriate for the concordant titres?",
+   "options": [
+    "24.83 cm3",
+    "24.98 cm3",
+    "25.30 cm3",
+    "24.50 cm3"
+   ],
+   "correctAnswer": "24.83 cm3",
+   "explanation": "The concordant readings are 24.80 and 24.85 cm3 because they are close; their average is 24.825 cm3, usually recorded as 24.83 cm3.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Titration Technique",
+   "learningOutcome": "Select concordant titres and calculate a reliable mean titre.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "What is the relative molecular mass of ethyl ethanoate, C4H8O2? C = 12, H = 1, O = 16.",
+   "options": [
+    "88",
+    "60",
+    "74",
+    "104"
+   ],
+   "correctAnswer": "88",
+   "explanation": "The formula mass is 4 x 12 plus 8 x 1 plus 2 x 16 = 88.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Esters",
+   "learningOutcome": "Calculate relative molecular mass of an organic compound from its formula.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "An organic compound contains 40.0% carbon, 6.7% hydrogen and 53.3% oxygen by mass. What is its empirical formula?",
+   "options": [
+    "CH2O",
+    "C2H4O2",
+    "CHO",
+    "C3H6O3"
+   ],
+   "correctAnswer": "CH2O",
+   "explanation": "Dividing by atomic masses gives about 3.33 mol C, 6.7 mol H and 3.33 mol O, which simplifies to 1:2:1.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Formula Determination",
+   "learningOutcome": "Determine empirical formula from percentage composition.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "A compound has empirical formula CH2O and relative molecular mass 90. What is its molecular formula?",
+   "options": [
+    "C3H6O3",
+    "C2H4O2",
+    "CH2O",
+    "C4H8O4"
+   ],
+   "correctAnswer": "C3H6O3",
+   "explanation": "The empirical formula mass is 30, and 90 divided by 30 is 3, so the molecular formula is C3H6O3.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Formula Determination",
+   "learningOutcome": "Derive molecular formula from empirical formula and relative molecular mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which product is formed when ethanol is fully oxidised by acidified potassium manganate(VII) under reflux?",
+   "options": [
+    "Ethanoic acid",
+    "Ethanal",
+    "Ethene",
+    "Ethane"
+   ],
+   "correctAnswer": "Ethanoic acid",
+   "explanation": "A primary alcohol such as ethanol is fully oxidised to the corresponding carboxylic acid under reflux.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alcohol Oxidation",
+   "learningOutcome": "Predict products from complete oxidation of primary alcohols.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which type of alcohol is resistant to oxidation by acidified potassium manganate(VII) under ordinary school-laboratory conditions?",
+   "options": [
+    "Tertiary alcohol",
+    "Primary alcohol",
+    "Secondary alcohol",
+    "Methanol only"
+   ],
+   "correctAnswer": "Tertiary alcohol",
+   "explanation": "Tertiary alcohols lack a hydrogen atom on the carbon carrying the -OH group, so they are not readily oxidised by common oxidising agents.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alcohol Classes",
+   "learningOutcome": "Compare oxidation behaviour of primary, secondary and tertiary alcohols.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which compound is a ketone?",
+   "options": [
+    "Propanone",
+    "Propanal",
+    "Propan-1-ol",
+    "Propanoic acid"
+   ],
+   "correctAnswer": "Propanone",
+   "explanation": "Propanone contains a carbonyl group bonded to two carbon groups, which defines a ketone.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Carbonyl Compounds",
+   "learningOutcome": "Classify simple carbonyl compounds as aldehydes or ketones.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "What is the major product when HBr adds to propene under normal electrophilic addition conditions?",
+   "options": [
+    "2-bromopropane",
+    "1-bromopropane",
+    "Propane",
+    "Bromomethane"
+   ],
+   "correctAnswer": "2-bromopropane",
+   "explanation": "Hydrogen adds to the carbon already bearing more hydrogens, giving the more stable intermediate and forming 2-bromopropane as the major product.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alkene Reactions",
+   "learningOutcome": "Predict major products of electrophilic addition to unsymmetrical alkenes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which reagent gives an orange precipitate with aldehydes and ketones?",
+   "options": [
+    "2,4-dinitrophenylhydrazine",
+    "Sodium carbonate solution",
+    "Acidified silver nitrate",
+    "Barium chloride solution"
+   ],
+   "correctAnswer": "2,4-dinitrophenylhydrazine",
+   "explanation": "2,4-dinitrophenylhydrazine, often shortened to 2,4-DNPH, is used to test for carbonyl groups in aldehydes and ketones.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Organic Analysis",
+   "learningOutcome": "Select a reagent for identifying carbonyl compounds.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which observation is expected when sodium hydroxide solution is added to a solution containing Fe3+ ions?",
+   "options": [
+    "Reddish-brown precipitate forms",
+    "Deep blue solution forms immediately",
+    "White precipitate dissolves in excess ammonia",
+    "No visible change occurs"
+   ],
+   "correctAnswer": "Reddish-brown precipitate forms",
+   "explanation": "Iron(III) ions form a reddish-brown precipitate of iron(III) hydroxide with hydroxide ions.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Cation Tests",
+   "learningOutcome": "Identify iron(III) ions using sodium hydroxide solution.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "A white precipitate forms with sodium hydroxide and dissolves in excess sodium hydroxide, but not in excess ammonia. Which cation is indicated?",
+   "options": [
+    "Al3+",
+    "Cu2+",
+    "Fe2+",
+    "NH4+"
+   ],
+   "correctAnswer": "Al3+",
+   "explanation": "Aluminium hydroxide is amphoteric, so it dissolves in excess sodium hydroxide but not in excess ammonia solution.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Cation Tests",
+   "learningOutcome": "Differentiate aluminium ions from other cations using excess alkali tests.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which reagent confirms sulphate ions by forming a white precipitate after acidification?",
+   "options": [
+    "Barium chloride solution",
+    "Sodium hydroxide solution",
+    "Bromine water",
+    "Potassium iodide solution"
+   ],
+   "correctAnswer": "Barium chloride solution",
+   "explanation": "Sulphate ions form insoluble white barium sulphate with barium ions after the solution is acidified to remove interfering carbonate ions.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Anion Tests",
+   "learningOutcome": "Identify sulphate ions using a precipitation test.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "An unknown solid reacts with dilute acid to produce a gas that turns limewater milky. Which ion is present?",
+   "options": [
+    "Carbonate ion",
+    "Nitrate ion",
+    "Chloride ion",
+    "Iodide ion"
+   ],
+   "correctAnswer": "Carbonate ion",
+   "explanation": "Carbonates react with acids to release carbon dioxide, which forms a milky precipitate in limewater.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Anion Tests",
+   "learningOutcome": "Use gas tests to identify carbonate ions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "In chromatography, a spot moves 2.4 cm while the solvent front moves 6.0 cm. What is the Rf value?",
+   "options": [
+    "0.40",
+    "2.50",
+    "3.60",
+    "8.40"
+   ],
+   "correctAnswer": "0.40",
+   "explanation": "Rf equals distance moved by the spot divided by distance moved by the solvent front: 2.4 / 6.0 = 0.40.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Chromatography",
+   "learningOutcome": "Calculate Rf values from chromatogram measurements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "A reaction has a theoretical yield of 15.0 g but produces 12.0 g. What is the percentage yield?",
+   "options": [
+    "80%",
+    "60%",
+    "125%",
+    "20%"
+   ],
+   "correctAnswer": "80%",
+   "explanation": "Percentage yield equals actual yield divided by theoretical yield times 100: 12.0 / 15.0 x 100 = 80%.",
+   "difficulty": 3,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Yield and Purity",
+   "learningOutcome": "Calculate percentage yield from actual and theoretical yields.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which comparison correctly explains why molten sodium chloride conducts electricity but solid sodium chloride does not?",
+   "options": [
+    "Ions are mobile in the molten state but fixed in the solid lattice",
+    "Electrons are mobile only in the solid lattice",
+    "Molten sodium chloride contains neutral molecules only",
+    "Solid sodium chloride has no charged particles"
+   ],
+   "correctAnswer": "Ions are mobile in the molten state but fixed in the solid lattice",
+   "explanation": "Ionic solids contain ions, but they conduct only when the ions can move and carry charge.",
+   "difficulty": 4,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Ionic Conductivity",
+   "learningOutcome": "Analyze conductivity differences between solid and molten ionic compounds.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Hydrogen fluoride has a higher boiling point than hydrogen chloride. Which explanation is best?",
+   "options": [
+    "HF molecules form strong hydrogen bonds",
+    "HCl molecules have ionic lattices",
+    "HF has no intermolecular forces",
+    "HCl has a much smaller molar mass and no electrons"
+   ],
+   "correctAnswer": "HF molecules form strong hydrogen bonds",
+   "explanation": "Hydrogen bonding in HF requires more energy to overcome than the weaker intermolecular forces between HCl molecules.",
+   "difficulty": 4,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Intermolecular Forces",
+   "learningOutcome": "Compare boiling points using intermolecular force strength.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Which factor would most increase the lattice enthalpy magnitude of an ionic compound?",
+   "options": [
+    "Smaller ions with higher charges",
+    "Larger ions with lower charges",
+    "Replacing ions with neutral molecules",
+    "Increasing only the colour intensity of the solid"
+   ],
+   "correctAnswer": "Smaller ions with higher charges",
+   "explanation": "Electrostatic attraction increases when ions are closer together and have larger opposite charges.",
+   "difficulty": 4,
+   "strandTitle": "Structure and Bonding",
+   "subStrandTitle": "Lattice Enthalpy",
+   "learningOutcome": "Evaluate factors affecting lattice enthalpy magnitude.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Use these data: combustion of carbon = -394 kJ mol-1, combustion of hydrogen = -286 kJ mol-1, combustion of ethanol = -1367 kJ mol-1. What is the enthalpy of formation of ethanol, C2H5OH?",
+   "options": [
+    "-279 kJ mol-1",
+    "+279 kJ mol-1",
+    "-1646 kJ mol-1",
+    "+1367 kJ mol-1"
+   ],
+   "correctAnswer": "-279 kJ mol-1",
+   "explanation": "Combustion of the elements to 2CO2 and 3H2O gives -1646 kJ mol-1; subtracting ethanol combustion gives formation of ethanol as -279 kJ mol-1.",
+   "difficulty": 4,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Hess's Law",
+   "learningOutcome": "Apply Hess's law to calculate an enthalpy of formation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "A catalyst increases reaction rate but does not change the enthalpy change of reaction. Why?",
+   "options": [
+    "It lowers activation energy without changing reactant and product energy levels",
+    "It makes products disappear from the energy profile",
+    "It increases only the mass of reactants",
+    "It changes every exothermic reaction into an endothermic one"
+   ],
+   "correctAnswer": "It lowers activation energy without changing reactant and product energy levels",
+   "explanation": "Enthalpy change depends on the energy difference between reactants and products, not on the pathway taken.",
+   "difficulty": 4,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Reaction Profiles",
+   "learningOutcome": "Interpret reaction profiles for catalysed and uncatalysed reactions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "In the Haber process, the forward reaction is exothermic. Why is a moderate temperature used industrially?",
+   "options": [
+    "Low temperature favours yield but makes the reaction too slow",
+    "High temperature favours ammonia yield and has no cost",
+    "Temperature has no effect on either rate or equilibrium",
+    "The iron catalyst works only at room temperature"
+   ],
+   "correctAnswer": "Low temperature favours yield but makes the reaction too slow",
+   "explanation": "A moderate temperature is a compromise between a higher equilibrium yield at lower temperature and a faster rate at higher temperature.",
+   "difficulty": 4,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Industrial Equilibria",
+   "learningOutcome": "Evaluate industrial compromise conditions using rate and equilibrium ideas.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "For N2(g) + 3H2(g) <-> 2NH3(g), which units match Kc when concentrations are in mol dm-3?",
+   "options": [
+    "dm6 mol-2",
+    "mol2 dm-6",
+    "dm3 mol-1",
+    "No units in all cases"
+   ],
+   "correctAnswer": "dm6 mol-2",
+   "explanation": "The concentration powers give (mol dm-3)^2 divided by (mol dm-3)^4, which simplifies to dm6 mol-2.",
+   "difficulty": 4,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Equilibrium Constants",
+   "learningOutcome": "Determine units of Kc from a balanced equation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A buffer contains ethanoic acid and sodium ethanoate. What happens when a small amount of hydrochloric acid is added?",
+   "options": [
+    "Ethanoate ions react with added H+ to form ethanoic acid",
+    "All ethanoic acid molecules become sodium metal",
+    "The pH instantly becomes 14",
+    "The buffer stops containing water"
+   ],
+   "correctAnswer": "Ethanoate ions react with added H+ to form ethanoic acid",
+   "explanation": "The conjugate base in the buffer removes added hydrogen ions, so the pH changes only slightly.",
+   "difficulty": 4,
+   "strandTitle": "Acids, Bases and Equilibria",
+   "subStrandTitle": "Buffer Action",
+   "learningOutcome": "Explain buffer action using conjugate acid-base pairs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which statement correctly compares an electrolytic cell with a galvanic cell?",
+   "options": [
+    "An electrolytic cell uses electrical energy to drive a non-spontaneous reaction, while a galvanic cell produces electrical energy from a spontaneous reaction",
+    "Both cells always produce electricity without any external power source",
+    "Only galvanic cells contain electrodes",
+    "Only electrolytic cells involve electron transfer"
+   ],
+   "correctAnswer": "An electrolytic cell uses electrical energy to drive a non-spontaneous reaction, while a galvanic cell produces electrical energy from a spontaneous reaction",
+   "explanation": "Electrolytic cells require an external power supply, while galvanic cells generate a voltage from a redox reaction.",
+   "difficulty": 4,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Cell Types",
+   "learningOutcome": "Compare electrolytic and galvanic cells.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "A calculated Ecell value for a proposed reaction is negative under standard conditions. What does this indicate?",
+   "options": [
+    "The reaction is not spontaneous as written under standard conditions",
+    "The reaction must be explosive",
+    "The electrodes have no ions around them",
+    "The salt bridge has become a catalyst"
+   ],
+   "correctAnswer": "The reaction is not spontaneous as written under standard conditions",
+   "explanation": "A negative standard cell voltage means the reverse reaction is thermodynamically favoured under standard conditions.",
+   "difficulty": 4,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Cell Feasibility",
+   "learningOutcome": "Interpret the sign of Ecell for redox feasibility.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "How much aluminium is deposited when 0.300 mol of electrons passes through molten aluminium oxide? Al3+ + 3e- -> Al, Al = 27.",
+   "options": [
+    "2.7 g",
+    "8.1 g",
+    "27.0 g",
+    "0.90 g"
+   ],
+   "correctAnswer": "2.7 g",
+   "explanation": "Three moles of electrons deposit one mole of aluminium, so 0.300 mol electrons deposit 0.100 mol aluminium, which has mass 2.7 g.",
+   "difficulty": 4,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Faraday's Laws",
+   "learningOutcome": "Use electron stoichiometry to calculate mass deposited.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Why does galvanising iron with zinc help protect the iron even if the zinc coating is scratched?",
+   "options": [
+    "Zinc is oxidised more readily and acts as a sacrificial metal",
+    "Zinc prevents oxygen from existing anywhere nearby",
+    "Iron becomes a noble gas after contact with zinc",
+    "The scratch changes iron into plastic"
+   ],
+   "correctAnswer": "Zinc is oxidised more readily and acts as a sacrificial metal",
+   "explanation": "Zinc is more reactive than iron, so it preferentially oxidises and protects exposed iron from corrosion.",
+   "difficulty": 4,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Corrosion Protection",
+   "learningOutcome": "Explain sacrificial protection using relative reactivity.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "An organic compound rapidly decolourises bromine water and has the formula C3H6. Which classification is most likely?",
+   "options": [
+    "Alkene",
+    "Alkane",
+    "Carboxylic acid",
+    "Alcohol"
+   ],
+   "correctAnswer": "Alkene",
+   "explanation": "C3H6 fits the alkene general formula, and decolourising bromine water indicates a carbon-carbon double bond.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Hydrocarbon Analysis",
+   "learningOutcome": "Use formula and chemical test evidence to classify hydrocarbons.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which reagent can distinguish propanal from propanone by giving a silver mirror with only propanal?",
+   "options": [
+    "Tollens' reagent",
+    "Bromine water",
+    "Sodium carbonate solution",
+    "Barium chloride solution"
+   ],
+   "correctAnswer": "Tollens' reagent",
+   "explanation": "Aldehydes such as propanal reduce Tollens' reagent to silver, while ordinary ketones such as propanone do not.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Carbonyl Tests",
+   "learningOutcome": "Distinguish aldehydes from ketones using oxidation tests.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "What products form when ethyl ethanoate is hydrolysed by sodium hydroxide solution?",
+   "options": [
+    "Sodium ethanoate and ethanol",
+    "Ethanoic acid and ethene",
+    "Ethanol and carbon dioxide",
+    "Sodium carbonate and ethane"
+   ],
+   "correctAnswer": "Sodium ethanoate and ethanol",
+   "explanation": "Alkaline hydrolysis of an ester forms an alcohol and the sodium salt of the carboxylic acid.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Ester Hydrolysis",
+   "learningOutcome": "Predict products of alkaline ester hydrolysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A dicarboxylic acid reacts with a diol to form a polymer. What type of polymer is produced?",
+   "options": [
+    "Polyester",
+    "Polyamide",
+    "Polyalkene",
+    "Protein only"
+   ],
+   "correctAnswer": "Polyester",
+   "explanation": "Carboxylic acid groups react with alcohol groups to form ester links, producing a polyester in condensation polymerisation.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Condensation Polymers",
+   "learningOutcome": "Relate monomer functional groups to polymer type.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Why can but-2-ene show geometric isomerism but butane cannot?",
+   "options": [
+    "But-2-ene has restricted rotation around a C=C bond",
+    "Butane has a carbonyl group at each end",
+    "Butane contains an ionic lattice",
+    "But-2-ene has no carbon atoms"
+   ],
+   "correctAnswer": "But-2-ene has restricted rotation around a C=C bond",
+   "explanation": "Restricted rotation around the double bond allows different spatial arrangements when each double-bond carbon has two different groups.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Isomerism",
+   "learningOutcome": "Explain geometric isomerism in alkenes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which action improves reliability when carrying out a titration?",
+   "options": [
+    "Repeat the titration until two or more concordant titres are obtained",
+    "Use only the first rough titre as the final result",
+    "Stop adding titrant before any indicator change is seen",
+    "Estimate the burette reading to the nearest 10 cm3"
+   ],
+   "correctAnswer": "Repeat the titration until two or more concordant titres are obtained",
+   "explanation": "Concordant titres show that the endpoint can be reproduced, improving confidence in the calculated result.",
+   "difficulty": 4,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Titration Reliability",
+   "learningOutcome": "Evaluate procedures that improve titration reliability.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which sequence is most suitable when identifying ions in an unknown salt solution?",
+   "options": [
+    "Observe appearance, test for selected cations, test for selected anions, then combine evidence",
+    "Add every reagent at once and ignore precipitates",
+    "Heat to dryness first and discard the residue",
+    "Choose the ion name before testing"
+   ],
+   "correctAnswer": "Observe appearance, test for selected cations, test for selected anions, then combine evidence",
+   "explanation": "Systematic qualitative analysis gathers observations step by step so that results can be interpreted together.",
+   "difficulty": 4,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Qualitative Analysis Planning",
+   "learningOutcome": "Plan a systematic approach for identifying unknown ions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A sample has 5.00 g of pure sodium chloride in 6.25 g of impure solid. What is the percentage purity?",
+   "options": [
+    "80.0%",
+    "62.5%",
+    "125%",
+    "20.0%"
+   ],
+   "correctAnswer": "80.0%",
+   "explanation": "Percentage purity equals pure mass divided by sample mass times 100: 5.00 / 6.25 x 100 = 80.0%.",
+   "difficulty": 4,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Purity Calculations",
+   "learningOutcome": "Calculate percentage purity from sample data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A buffer has equal concentrations of ethanoic acid and sodium ethanoate. If the pKa of ethanoic acid is 4.76, what is the pH of the buffer?",
+   "options": [
+    "4.76",
+    "7.00",
+    "9.52",
+    "2.38"
+   ],
+   "correctAnswer": "4.76",
+   "explanation": "When acid and conjugate base concentrations are equal, the logarithm term is zero, so pH equals pKa.",
+   "difficulty": 5,
+   "strandTitle": "Acids, Bases and Equilibria",
+   "subStrandTitle": "Buffer Calculations",
+   "learningOutcome": "Use the acid-base ratio to estimate buffer pH.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "For H2(g) + I2(g) <-> 2HI(g), 1.00 mol H2 and 1.00 mol I2 are placed in a 1.00 dm3 vessel. At equilibrium, 1.20 mol HI is present. What is Kc?",
+   "options": [
+    "9.0",
+    "3.0",
+    "1.5",
+    "0.11"
+   ],
+   "correctAnswer": "9.0",
+   "explanation": "Making 1.20 mol HI uses 0.60 mol each of H2 and I2, leaving 0.40 mol dm-3 of each; Kc = 1.20^2 / (0.40 x 0.40) = 9.0.",
+   "difficulty": 5,
+   "strandTitle": "Chemical Equilibrium",
+   "subStrandTitle": "Equilibrium Composition",
+   "learningOutcome": "Calculate Kc from initial and equilibrium composition data.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Use standard enthalpies of formation: CO2 = -394 kJ mol-1 and CO = -111 kJ mol-1. What is delta H for CO(g) + 1/2O2(g) -> CO2(g)?",
+   "options": [
+    "-283 kJ mol-1",
+    "+283 kJ mol-1",
+    "-505 kJ mol-1",
+    "+505 kJ mol-1"
+   ],
+   "correctAnswer": "-283 kJ mol-1",
+   "explanation": "Delta H equals products minus reactants: -394 - (-111) = -283 kJ mol-1 because oxygen in its standard state has zero formation enthalpy.",
+   "difficulty": 5,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Formation Enthalpy",
+   "learningOutcome": "Use standard enthalpies of formation to calculate reaction enthalpy.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "25.0 cm3 of 0.0200 mol dm-3 MnO4- reacts with Fe2+ in acid solution. If 1 mol MnO4- reacts with 5 mol Fe2+ and the Fe2+ volume is 20.0 cm3, what is the Fe2+ concentration?",
+   "options": [
+    "0.125 mol dm-3",
+    "0.0250 mol dm-3",
+    "0.100 mol dm-3",
+    "0.500 mol dm-3"
+   ],
+   "correctAnswer": "0.125 mol dm-3",
+   "explanation": "Moles of MnO4- are 0.0250 x 0.0200 = 0.000500 mol, so Fe2+ moles are 0.00250; concentration = 0.00250 / 0.0200 = 0.125 mol dm-3.",
+   "difficulty": 5,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Redox Titration",
+   "learningOutcome": "Calculate concentration using redox titration stoichiometry.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A current of 2.00 A passes for 1930 s through nickel(II) solution. How much nickel is deposited? Ni2+ + 2e- -> Ni, Ni = 58.7 and F = 96500 C mol-1.",
+   "options": [
+    "1.17 g",
+    "2.35 g",
+    "0.587 g",
+    "11.7 g"
+   ],
+   "correctAnswer": "1.17 g",
+   "explanation": "Charge is 3860 C, which is 0.0400 mol electrons; this deposits 0.0200 mol nickel, with mass 0.0200 x 58.7 = 1.17 g.",
+   "difficulty": 5,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Electrolysis Calculations",
+   "learningOutcome": "Combine current, time and electrode stoichiometry to find deposited mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which route can convert ethanol into ethyl ethanoate using standard organic reactions?",
+   "options": [
+    "Oxidise some ethanol to ethanoic acid, then esterify it with ethanol",
+    "Polymerise ethanol directly into ethyl ethanoate",
+    "Add sodium chloride to ethanol and distil immediately",
+    "Reduce ethanol to ethanoic acid, then neutralise it with ammonia"
+   ],
+   "correctAnswer": "Oxidise some ethanol to ethanoic acid, then esterify it with ethanol",
+   "explanation": "Ethyl ethanoate forms when ethanol reacts with ethanoic acid in an esterification reaction.",
+   "difficulty": 5,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Organic Synthesis",
+   "learningOutcome": "Design a simple synthesis route using alcohol oxidation and esterification.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "An unknown organic compound gives an orange precipitate with 2,4-DNPH, does not give a silver mirror with Tollens' reagent, and gives a positive iodoform test. Which compound fits best?",
+   "options": [
+    "Propanone",
+    "Propanal",
+    "Ethanol",
+    "Ethanoic acid"
+   ],
+   "correctAnswer": "Propanone",
+   "explanation": "The tests show a methyl ketone: 2,4-DNPH confirms a carbonyl group, Tollens' reagent excludes an aldehyde, and iodoform supports a CH3CO- group.",
+   "difficulty": 5,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Organic Analysis",
+   "learningOutcome": "Interpret combined organic test results to identify a compound.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Why is cryolite used in the industrial extraction of aluminium from aluminium oxide?",
+   "options": [
+    "It dissolves aluminium oxide and lowers the operating temperature",
+    "It changes aluminium into iron before electrolysis",
+    "It removes all oxygen from the air around the cell",
+    "It acts as the final aluminium product"
+   ],
+   "correctAnswer": "It dissolves aluminium oxide and lowers the operating temperature",
+   "explanation": "Cryolite makes the electrolyte easier to melt and conduct, reducing energy demand in aluminium extraction.",
+   "difficulty": 5,
+   "strandTitle": "Electrochemistry",
+   "subStrandTitle": "Industrial Extraction",
+   "learningOutcome": "Explain the role of cryolite in aluminium extraction.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "In a titration where acid is in the conical flask and standard sodium hydroxide is in the burette, which error would make the calculated acid concentration too high?",
+   "options": [
+    "Rinsing the burette with water and not with sodium hydroxide before filling",
+    "Rinsing the conical flask with distilled water before adding the acid aliquot",
+    "Reading the burette at eye level",
+    "Swirling the flask during titration"
+   ],
+   "correctAnswer": "Rinsing the burette with water and not with sodium hydroxide before filling",
+   "explanation": "Water left in the burette dilutes the sodium hydroxide, requiring a larger titre; using the stated concentration with that larger titre overestimates acid concentration.",
+   "difficulty": 5,
+   "strandTitle": "Analytical Chemistry",
+   "subStrandTitle": "Titration Errors",
+   "learningOutcome": "Evaluate how procedural errors affect titration calculations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which plan best supports a reliable and safer school investigation of enthalpy of neutralisation?",
+   "options": [
+    "Use measured dilute solutions in an insulated cup, record the maximum temperature change, repeat trials and average concordant results",
+    "Mix unknown concentrated chemicals in an open beaker and estimate the temperature by touch",
+    "Use one unmeasured volume and ignore heat loss completely",
+    "Heat the reaction mixture strongly before measuring the initial temperature"
+   ],
+   "correctAnswer": "Use measured dilute solutions in an insulated cup, record the maximum temperature change, repeat trials and average concordant results",
+   "explanation": "Measured dilute solutions, insulation, repeated trials and temperature readings make the result more reliable while reducing avoidable practical risk.",
+   "difficulty": 5,
+   "strandTitle": "Energetics",
+   "subStrandTitle": "Practical Calorimetry",
+   "learningOutcome": "Design a reliable practical approach for measuring neutralisation enthalpy.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

@@ -3,7 +3,6 @@
   "countryName": "Kenya",
   "curriculumCode": "CBC",
   "curriculumName": "CBC / KNEC",
-  "questionCountPerSubject": 100,
   "questionFilePattern": "questions/<gradeCode>/<subjectId>.json",
   "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"],
   "difficultyScale": [1, 2, 3, 4, 5],
@@ -12,10 +11,12 @@
     {
       "id": "lower",
       "label": "Lower Primary",
-      "grades": ["Grade 1"],
+      "grades": ["Grade 1", "Grade 2", "Grade 3"],
       "subjects": [
         { "id": "english", "name": "English" },
-        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] }
+        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] },
+        { "id": "kiswahili", "name": "Kiswahili" },
+        { "id": "environmental", "name": "Environmental Activities" }
       ]
     },
     {

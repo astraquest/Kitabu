@@ -1,1409 +1,2549 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 10",
-  "subjectId": "mandarin",
-  "subjectName": "Mandarin",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "How many main tones are used in Mandarin pinyin?",
-      "options": ["Four main tones plus a neutral tone", "Two tones only", "Six equal tones", "No tones"],
-      "correctAnswer": "Four main tones plus a neutral tone",
-      "explanation": "Mandarin has four main tones, and many syllables can also be spoken with a light neutral tone.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Mandarin Tones",
-      "learningOutcome": "Recognize the tone system used in basic Mandarin pronunciation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which pinyin syllable shows the first tone of ma?",
-      "options": ["mā", "má", "mǎ", "mà"],
-      "correctAnswer": "mā",
-      "explanation": "The first tone is shown by a flat mark, as in mā.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Marks",
-      "learningOutcome": "Match tone marks with their pinyin tone categories.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which pinyin syllable shows the second tone of ma?",
-      "options": ["má", "mā", "mǎ", "mà"],
-      "correctAnswer": "má",
-      "explanation": "The second tone is shown by a rising mark, as in má.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Marks",
-      "learningOutcome": "Identify pinyin tone marks in common syllables.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which pinyin syllable shows the third tone of ma?",
-      "options": ["mǎ", "mā", "má", "mà"],
-      "correctAnswer": "mǎ",
-      "explanation": "The third tone is shown by a dipping mark, as in mǎ.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Marks",
-      "learningOutcome": "Recognize the third tone mark in pinyin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which pinyin syllable shows the fourth tone of ma?",
-      "options": ["mà", "mā", "má", "mǎ"],
-      "correctAnswer": "mà",
-      "explanation": "The fourth tone is shown by a falling mark, as in mà.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Marks",
-      "learningOutcome": "Recognize the fourth tone mark in pinyin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "In the word 妈妈 māma, which part is written with a neutral tone?",
-      "options": ["The second ma", "The first mā", "Both syllables", "Neither syllable"],
-      "correctAnswer": "The second ma",
-      "explanation": "In māma, the second syllable is light and has no tone mark.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Neutral Tone",
-      "learningOutcome": "Identify neutral tone in familiar Mandarin words.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "What does 你好 most directly mean in a beginner Mandarin greeting?",
-      "options": ["Hello", "Goodbye", "Thank you", "Sorry"],
-      "correctAnswer": "Hello",
-      "explanation": "你好 nǐ hǎo is the common basic greeting for hello.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Greetings",
-      "learningOutcome": "Recognize common Mandarin greetings and their meanings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which Mandarin word means thank you?",
-      "options": ["谢谢", "再见", "老师", "学校"],
-      "correctAnswer": "谢谢",
-      "explanation": "谢谢 xièxie is used to thank someone.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Polite Expressions",
-      "learningOutcome": "Use common polite expressions in basic Mandarin exchanges.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which phrase means goodbye in Mandarin?",
-      "options": ["再见", "请进", "谢谢", "今天"],
-      "correctAnswer": "再见",
-      "explanation": "再见 zàijiàn is the standard word for goodbye.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Farewells",
-      "learningOutcome": "Recognize common words used to end a simple conversation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which phrase is a polite response to 谢谢?",
-      "options": ["不客气", "对不起", "我叫", "星期一"],
-      "correctAnswer": "不客气",
-      "explanation": "不客气 bú kèqi means you are welcome.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Polite Responses",
-      "learningOutcome": "Respond politely to thanks in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which Chinese character means person?",
-      "options": ["人 rén", "口 kǒu", "日 rì", "木 mù"],
-      "correctAnswer": "人 rén",
-      "explanation": "人 rén is the basic character for person or people.",
-      "difficulty": 1,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Basic Characters",
-      "learningOutcome": "Recognize high-frequency beginner Mandarin characters.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which Chinese character means mouth?",
-      "options": ["口 kǒu", "人 rén", "月 yuè", "山 shān"],
-      "correctAnswer": "口 kǒu",
-      "explanation": "口 kǒu is the character for mouth and also appears in many speech-related characters.",
-      "difficulty": 1,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Basic Characters",
-      "learningOutcome": "Identify common characters and their meanings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which Chinese character means water?",
-      "options": ["水 shuǐ", "火 huǒ", "木 mù", "大 dà"],
-      "correctAnswer": "水 shuǐ",
-      "explanation": "水 shuǐ means water and is useful in food and drink vocabulary.",
-      "difficulty": 1,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Basic Characters",
-      "learningOutcome": "Connect basic characters with everyday vocabulary meanings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which Chinese character means big?",
-      "options": ["大 dà", "小 xiǎo", "中 zhōng", "上 shàng"],
-      "correctAnswer": "大 dà",
-      "explanation": "大 dà means big, while 小 xiǎo means small.",
-      "difficulty": 1,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Basic Adjectives",
-      "learningOutcome": "Recognize basic adjective characters used in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which option is the standard pinyin for 中国?",
-      "options": ["Zhōngguó", "Zhōnggǔo", "Zōngguó", "Chōngguó"],
-      "correctAnswer": "Zhōngguó",
-      "explanation": "中国 is romanized as Zhōngguó and means China.",
-      "difficulty": 1,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Pinyin Reading",
-      "learningOutcome": "Read familiar country names using standard pinyin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Which pinyin belongs to 学生?",
-      "options": ["xuésheng", "lǎoshī", "xuéxiào", "zhōngwén"],
-      "correctAnswer": "xuésheng",
-      "explanation": "学生 xuésheng means student.",
-      "difficulty": 2,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "School Vocabulary Pinyin",
-      "learningOutcome": "Match school-related characters with their pinyin.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which pinyin belongs to 老师?",
-      "options": ["lǎoshī", "xuésheng", "shūběn", "jiàoshì"],
-      "correctAnswer": "lǎoshī",
-      "explanation": "老师 lǎoshī means teacher.",
-      "difficulty": 2,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "School Vocabulary Pinyin",
-      "learningOutcome": "Read pinyin for common classroom nouns.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which Mandarin word means teacher?",
-      "options": ["老师", "学生", "同学", "朋友"],
-      "correctAnswer": "老师",
-      "explanation": "老师 is used for teacher and is also used after a family name, such as 李老师.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "School People",
-      "learningOutcome": "Identify people in a Mandarin classroom setting.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which Mandarin word means student?",
-      "options": ["学生", "老师", "学校", "书"],
-      "correctAnswer": "学生",
-      "explanation": "学生 means student or learner.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "School People",
-      "learningOutcome": "Use common school nouns in beginner Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which number is 七?",
-      "options": ["Seven", "Three", "Ten", "Four"],
-      "correctAnswer": "Seven",
-      "explanation": "七 qī means seven.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Numbers",
-      "learningOutcome": "Recognize Mandarin numbers from one to ten.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which characters write the number 18 in Mandarin?",
-      "options": ["十八", "八十", "十六", "二十八"],
-      "correctAnswer": "十八",
-      "explanation": "十八 is ten plus eight, so it means eighteen.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Numbers",
-      "learningOutcome": "Build teen numbers using Mandarin number patterns.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which characters write the number 25 in Mandarin?",
-      "options": ["二十五", "五十二", "十五", "二十"],
-      "correctAnswer": "二十五",
-      "explanation": "二十五 is two tens plus five, so it means twenty-five.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Numbers",
-      "learningOutcome": "Use Mandarin number patterns for two-digit numbers.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which option uses the usual measure word for three books?",
-      "options": ["三本书", "三杯书", "三口书", "三位书"],
-      "correctAnswer": "三本书",
-      "explanation": "本 běn is a common measure word for books.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Measure Words",
-      "learningOutcome": "Use common measure words with classroom objects.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which option means a cup of tea?",
-      "options": ["一杯茶", "一本茶", "一个茶", "一口茶"],
-      "correctAnswer": "一杯茶",
-      "explanation": "杯 bēi is used for a cup or glass of a drink.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Measure Words",
-      "learningOutcome": "Choose suitable measure words for drinks.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which Mandarin sentence means I have two pens?",
-      "options": ["我有两支笔。", "我有二个茶。", "我没有两支笔。", "我在两支笔。"],
-      "correctAnswer": "我有两支笔。",
-      "explanation": "有 shows possession, and 两 is commonly used before a measure word.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Possession with 有",
-      "learningOutcome": "Form simple possession sentences with 有 and measure words.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which phrase means my book?",
-      "options": ["我的书", "你的水", "他的笔", "她的茶"],
-      "correctAnswer": "我的书",
-      "explanation": "我的 means my, and 书 means book.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Possession with 的",
-      "learningOutcome": "Use 的 to show possession in simple noun phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which phrase means today's Mandarin class?",
-      "options": ["今天的中文课", "昨天的水果", "明天的茶", "星期的老师"],
-      "correctAnswer": "今天的中文课",
-      "explanation": "今天 means today, 中文 means Chinese or Mandarin in this classroom context, and 课 means class.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "School Schedule",
-      "learningOutcome": "Use time words with school subject vocabulary.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Which question asks What is your name?",
-      "options": ["你叫什么名字？", "你好吗？", "你去哪里？", "你喝茶吗？"],
-      "correctAnswer": "你叫什么名字？",
-      "explanation": "你叫什么名字 asks for a person's name.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Self-Introduction",
-      "learningOutcome": "Ask and answer simple personal information questions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which reply gives a name in Mandarin?",
-      "options": ["我叫阿米娜。", "我喝水。", "我有书。", "我去学校。"],
-      "correctAnswer": "我叫阿米娜。",
-      "explanation": "我叫 means my name is or I am called.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Self-Introduction",
-      "learningOutcome": "Introduce oneself using 我叫 plus a name.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which sentence means I am Kenyan?",
-      "options": ["我是肯尼亚人。", "我是中国人。", "我在肯尼亚书。", "我有肯尼亚茶。"],
-      "correctAnswer": "我是肯尼亚人。",
-      "explanation": "我是 means I am, and 肯尼亚人 means Kenyan person.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Nationality",
-      "learningOutcome": "State nationality in simple Mandarin sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which phrase means please come in?",
-      "options": ["请进。", "请问。", "谢谢。", "再见。"],
-      "correctAnswer": "请进。",
-      "explanation": "请 means please, and 进 means enter.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Classroom Courtesy",
-      "learningOutcome": "Use polite classroom expressions in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which Mandarin phrase is best for saying sorry?",
-      "options": ["对不起。", "不客气。", "很好。", "没书。"],
-      "correctAnswer": "对不起。",
-      "explanation": "对不起 duìbuqǐ is used to apologize.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Apologies",
-      "learningOutcome": "Choose polite expressions for apologies and responses.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which response means it is okay or no problem?",
-      "options": ["没关系。", "我不是。", "星期五。", "一本书。"],
-      "correctAnswer": "没关系。",
-      "explanation": "没关系 méi guānxi is used to respond gently after an apology.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Polite Responses",
-      "learningOutcome": "Respond appropriately to simple apologies.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which phrase means excuse me or may I ask?",
-      "options": ["请问", "请坐", "再见", "你好"],
-      "correctAnswer": "请问",
-      "explanation": "请问 qǐngwèn politely introduces a question.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Question Openers",
-      "learningOutcome": "Use polite openers before asking simple questions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which question asks where are you from?",
-      "options": ["你来自哪里？", "你叫什么名字？", "你喝什么？", "你有几本书？"],
-      "correctAnswer": "你来自哪里？",
-      "explanation": "来自 means come from, and 哪里 asks where.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Origins and Places",
-      "learningOutcome": "Ask simple questions about where someone comes from.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which word means tomorrow?",
-      "options": ["明天", "昨天", "今天", "今年"],
-      "correctAnswer": "明天",
-      "explanation": "明天 míngtiān means tomorrow.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Time Words",
-      "learningOutcome": "Recognize common time words in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which word means yesterday?",
-      "options": ["昨天", "明天", "今天", "上午"],
-      "correctAnswer": "昨天",
-      "explanation": "昨天 zuótiān means yesterday.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Time Words",
-      "learningOutcome": "Use basic time words to understand simple messages.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which day is 星期五?",
-      "options": ["Friday", "Monday", "Sunday", "Wednesday"],
-      "correctAnswer": "Friday",
-      "explanation": "星期五 xīngqīwǔ means Friday.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Days of the Week",
-      "learningOutcome": "Read days of the week in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which phrase means 3:30 in Mandarin time?",
-      "options": ["三点半", "三本书", "三个人", "三月半"],
-      "correctAnswer": "三点半",
-      "explanation": "点 marks the hour, and 半 means half, so 三点半 is half past three.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Telling Time",
-      "learningOutcome": "Read simple clock times in Mandarin.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which phrase means afternoon class?",
-      "options": ["下午的课", "上午的茶", "昨天的人", "明天的水"],
-      "correctAnswer": "下午的课",
-      "explanation": "下午 means afternoon, and 课 means class.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "School Schedule",
-      "learningOutcome": "Combine time words and school vocabulary in simple phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Which sentence has correct Mandarin word order for I drink tea?",
-      "options": ["我喝茶。", "我茶喝。", "喝我茶。", "茶我喝吗。"],
-      "correctAnswer": "我喝茶。",
-      "explanation": "A basic Mandarin statement often follows subject, verb, object order.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Basic Word Order",
-      "learningOutcome": "Apply subject-verb-object order in simple Mandarin sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which sentence means She likes football?",
-      "options": ["她喜欢足球。", "她喝足球。", "她是足球。", "她没有足球喜欢。"],
-      "correctAnswer": "她喜欢足球。",
-      "explanation": "喜欢 means like, and 足球 means football.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Preference Sentences",
-      "learningOutcome": "Express likes and preferences using 喜欢.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Which sentence forms a yes-no question with 吗?",
-      "options": ["你是学生吗？", "你吗是学生。", "吗你学生是？", "你学生是吗书。"],
-      "correctAnswer": "你是学生吗？",
-      "explanation": "吗 is placed at the end of a statement to form a yes-no question.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Yes-No Questions",
-      "learningOutcome": "Form yes-no questions by adding 吗 to simple statements.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly negates 是?",
-      "options": ["我不是老师。", "我没是老师。", "我不有老师。", "我是不了老师。"],
-      "correctAnswer": "我不是老师。",
-      "explanation": "不是 is used to say is not or am not before a noun identity.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Negation with 不",
-      "learningOutcome": "Use 不 to negate 是 in identity sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly negates 有?",
-      "options": ["我没有书。", "我不有书。", "我有不书。", "我书没有吗。"],
-      "correctAnswer": "我没有书。",
-      "explanation": "没有 is the standard way to say do not have.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Negation with 没",
-      "learningOutcome": "Use 没有 to negate possession.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which question asks where is the library?",
-      "options": ["图书馆在哪里？", "图书馆是谁？", "图书馆有几本？", "图书馆喝什么？"],
-      "correctAnswer": "图书馆在哪里？",
-      "explanation": "在哪里 asks where something or someone is located.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Location Questions",
-      "learningOutcome": "Ask simple location questions using 在哪里.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which answer says the book is on the table?",
-      "options": ["书在桌子上。", "书喝桌子。", "桌子在书上。", "书是桌子吗。"],
-      "correctAnswer": "书在桌子上。",
-      "explanation": "在 shows location, and 桌子上 means on the table.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Location Sentences",
-      "learningOutcome": "Describe where common objects are located.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which sentence means I also study Mandarin?",
-      "options": ["我也学习中文。", "我都学习中文。", "我不学习也中文。", "中文也学习我。"],
-      "correctAnswer": "我也学习中文。",
-      "explanation": "也 means also and usually appears before the verb.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Adverbs 也 and 都",
-      "learningOutcome": "Use 也 correctly in simple Mandarin sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which sentence uses 都 to mean all?",
-      "options": ["我们都喜欢音乐。", "我们也一个音乐。", "都我们喜欢吗。", "音乐都在喝。"],
-      "correctAnswer": "我们都喜欢音乐。",
-      "explanation": "都 means all or both and appears before the verb phrase.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Adverbs 也 and 都",
-      "learningOutcome": "Use 都 to talk about all members of a group.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses 很 before an adjective?",
-      "options": ["他很高。", "他高很。", "很他高。", "他是很高老师。"],
-      "correctAnswer": "他很高。",
-      "explanation": "很 commonly appears before adjectives in simple descriptive sentences.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Describing People",
-      "learningOutcome": "Describe people using 很 plus an adjective.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Which question uses 谁 to ask who?",
-      "options": ["谁是你的老师？", "你喜欢什么水果？", "你几点上课？", "你有几本书？"],
-      "correctAnswer": "谁是你的老师？",
-      "explanation": "谁 shéi means who.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Question Words",
-      "learningOutcome": "Use Mandarin question words to ask for people, things, and quantities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which question uses 什么 to ask what?",
-      "options": ["你喜欢什么水果？", "谁是老师？", "你家有几口人？", "图书馆在哪里？"],
-      "correctAnswer": "你喜欢什么水果？",
-      "explanation": "什么 shénme means what, as in what fruit do you like.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Question Words",
-      "learningOutcome": "Ask what questions using 什么 in simple sentences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Which question asks how many people are in your family?",
-      "options": ["你家有几口人？", "你叫什么名字？", "你喝几杯茶？", "你家在哪里喝？"],
-      "correctAnswer": "你家有几口人？",
-      "explanation": "几 asks how many, and 口 is often used when counting family members.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Family Questions",
-      "learningOutcome": "Ask and answer simple questions about family members.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which sentence uses 的 for possession?",
-      "options": ["这是我的笔。", "我在学校。", "他喝水。", "她不是老师。"],
-      "correctAnswer": "这是我的笔。",
-      "explanation": "我的 means my, and 的 links the possessor to the noun.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Possession with 的",
-      "learningOutcome": "Use 的 to show ownership in everyday classroom phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which sentence means I want to drink water?",
-      "options": ["我想喝水。", "我会水喝。", "我想水是。", "我不水喝。"],
-      "correctAnswer": "我想喝水。",
-      "explanation": "想 can express wanting to do something, and 喝水 means drink water.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Wants and Intentions",
-      "learningOutcome": "Use 想 plus a verb phrase to express wants.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Which sentence means I can speak a little Mandarin?",
-      "options": ["我会说一点儿中文。", "我有说一点儿中文。", "我在一点儿中文说。", "我不是说一点儿中文。"],
-      "correctAnswer": "我会说一点儿中文。",
-      "explanation": "会 can show a learned ability, and 一点儿 means a little.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Ability with 会",
-      "learningOutcome": "Express learned abilities using 会 plus a verb.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which sentence means please write your name?",
-      "options": ["请写你的名字。", "请喝你的名字。", "请问你的茶。", "请在名字老师。"],
-      "correctAnswer": "请写你的名字。",
-      "explanation": "请 makes the instruction polite, 写 means write, and 名字 means name.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Classroom Instructions",
-      "learningOutcome": "Understand and produce common Mandarin classroom instructions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which instruction means please open the book?",
-      "options": ["请打开书。", "请关上门。", "请坐下。", "请喝茶。"],
-      "correctAnswer": "请打开书。",
-      "explanation": "打开 means open, and 书 means book.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Classroom Instructions",
-      "learningOutcome": "Follow simple written classroom instructions in Mandarin.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which instruction means listen to the teacher speak?",
-      "options": ["请听老师说。", "请看学生写。", "请问老师喝。", "请给学生书。"],
-      "correctAnswer": "请听老师说。",
-      "explanation": "听 means listen, 老师 means teacher, and 说 means speak.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Classroom Instructions",
-      "learningOutcome": "Interpret common classroom action verbs in Mandarin.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which sentence means we have class on Monday?",
-      "options": ["我们星期一上课。", "我们上课星期一吗。", "星期一我们喝课。", "我们有星期一书。"],
-      "correctAnswer": "我们星期一上课。",
-      "explanation": "Time words such as 星期一 commonly appear before the verb phrase.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Time Word Order",
-      "learningOutcome": "Place time words correctly in simple Mandarin sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which phrase is the natural way to say two students?",
-      "options": ["两个学生", "二个学生", "两学生个", "学生两本"],
-      "correctAnswer": "两个学生",
-      "explanation": "两 is commonly used before a measure word, so 两个学生 is natural.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Numbers and Measure Words",
-      "learningOutcome": "Use 两 with measure words in everyday noun phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which pinyin correctly writes 女?",
-      "options": ["nǚ", "nǔ", "nu", "lǚ"],
-      "correctAnswer": "nǚ",
-      "explanation": "女 is written nǚ with the ü vowel and a third tone mark.",
-      "difficulty": 3,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Pinyin Vowels",
-      "learningOutcome": "Use the ü vowel correctly in pinyin spelling.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which pinyin syllable keeps the dots over ü because it follows l?",
-      "options": ["lǜ", "xu", "qu", "yu"],
-      "correctAnswer": "lǜ",
-      "explanation": "After l and n, ü keeps its dots, while after j, q, x, and y the dots are usually omitted.",
-      "difficulty": 3,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Pinyin Spelling Rules",
-      "learningOutcome": "Apply pinyin spelling rules for the ü vowel.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Before a fourth-tone syllable, how is 不 often pronounced in 不客气?",
-      "options": ["bú", "bù", "bǔ", "bū"],
-      "correctAnswer": "bú",
-      "explanation": "不 changes to second tone before a fourth tone, so 不客气 is read bú kèqi.",
-      "difficulty": 3,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Sandhi",
-      "learningOutcome": "Recognize common tone changes in high-frequency expressions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "In spoken 你好, what happens to the first third-tone syllable?",
-      "options": ["It is usually pronounced like a rising second tone", "It becomes a fourth tone", "It loses all sound", "It turns into English stress"],
-      "correctAnswer": "It is usually pronounced like a rising second tone",
-      "explanation": "When two third tones meet, the first one is commonly pronounced like a second tone in speech.",
-      "difficulty": 3,
-      "strandTitle": "Pronunciation and Pinyin",
-      "subStrandTitle": "Tone Sandhi",
-      "learningOutcome": "Explain the common third-tone change in familiar phrases.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which radical often relates to water?",
-      "options": ["氵 water radical", "亻 person radical", "女 woman radical", "口 mouth radical"],
-      "correctAnswer": "氵 water radical",
-      "explanation": "The three-dot water radical 氵 appears in many water-related characters.",
-      "difficulty": 3,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Radicals",
-      "learningOutcome": "Recognize common radicals and the meaning clues they may provide.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which character contains the person radical 亻?",
-      "options": ["他 tā", "木 mù", "水 shuǐ", "日 rì"],
-      "correctAnswer": "他 tā",
-      "explanation": "他 contains 亻 on the left, a form of the person radical.",
-      "difficulty": 3,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Radicals",
-      "learningOutcome": "Identify radicals inside familiar characters.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which character combines 日 and 月 and means bright?",
-      "options": ["明 míng", "朋 péng", "好 hǎo", "休 xiū"],
-      "correctAnswer": "明 míng",
-      "explanation": "明 combines 日 sun and 月 moon and commonly means bright.",
-      "difficulty": 3,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Character Components",
-      "learningOutcome": "Analyze simple character components and meaning clues.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which character pair means China?",
-      "options": ["中国", "中文", "中学", "国文"],
-      "correctAnswer": "中国",
-      "explanation": "中国 means China, while 中文 means Chinese language.",
-      "difficulty": 3,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Countries and Languages",
-      "learningOutcome": "Distinguish country names from language names in Mandarin.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which sentence means we study Mandarin at school?",
-      "options": ["我们在学校学习中文。", "我们学校在学习中文。", "中文学习在我们学校吗。", "我们喝学校中文。"],
-      "correctAnswer": "我们在学校学习中文。",
-      "explanation": "在学校 gives the location, and 学习中文 means study Mandarin or Chinese.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Location and Action",
-      "learningOutcome": "Combine location phrases with action verbs in simple sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Read: 我叫David，我住在内罗毕。我喜欢中文。 What does David like?",
-      "options": ["Mandarin or Chinese", "Mathematics only", "Running only", "Tea only"],
-      "correctAnswer": "Mandarin or Chinese",
-      "explanation": "我喜欢中文 means I like Mandarin or Chinese.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Short Personal Texts",
-      "learningOutcome": "Identify key information in short Mandarin self-introduction texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Read: 今天星期三，明天我们去图书馆。 When will they go to the library?",
-      "options": ["Tomorrow", "Yesterday", "Last week", "This morning before class"],
-      "correctAnswer": "Tomorrow",
-      "explanation": "明天 means tomorrow, so the library visit is planned for the next day.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Short School Texts",
-      "learningOutcome": "Infer simple time information from short Mandarin sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Dialogue: A: 你喝茶吗？ B: 不，我喝水。 What does B drink?",
-      "options": ["Water", "Tea", "Coffee", "Milk"],
-      "correctAnswer": "Water",
-      "explanation": "B says 不, 我喝水, meaning no, I drink water.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Short Dialogues",
-      "learningOutcome": "Understand direct answers in short Mandarin dialogues.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A learner writes 我是学生吗。 for a question. Which punctuation improves it?",
-      "options": ["我是学生吗？", "我是学生吗，", "我是学生吗！", "我是学生吗、"],
-      "correctAnswer": "我是学生吗？",
-      "explanation": "A Mandarin question should use the question mark ？ instead of the full stop 。",
-      "difficulty": 4,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Chinese Punctuation",
-      "learningOutcome": "Use Chinese punctuation marks correctly in simple questions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which sentence best says I go to school at seven o'clock?",
-      "options": ["我七点去学校。", "我去七点学校。", "七点学校去我。", "我学校七点是。"],
-      "correctAnswer": "我七点去学校。",
-      "explanation": "The time word 七点 appears before the verb 去.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Time Word Order",
-      "learningOutcome": "Arrange time expressions naturally in Mandarin sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which choice makes a polite classroom request to borrow a pen?",
-      "options": ["请问，我可以借一支笔吗？", "给我笔，现在。", "我不借笔吗。", "笔是老师喝水。"],
-      "correctAnswer": "请问，我可以借一支笔吗？",
-      "explanation": "请问 and 可以 make the request polite, and 借 means borrow.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Polite Requests",
-      "learningOutcome": "Make polite requests for classroom objects in Mandarin.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly compares ages by saying my older brother is older than me?",
-      "options": ["哥哥比我大。", "哥哥我比大。", "我比哥哥大。", "哥哥大比我吗。"],
-      "correctAnswer": "哥哥比我大。",
-      "explanation": "The 比 pattern compares two things: A 比 B adjective.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Comparison with 比",
-      "learningOutcome": "Use 比 to make simple comparisons.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Which sentence uses 因为 and 所以 logically?",
-      "options": ["因为下雨，所以我们在教室学习。", "因为我们在教室，所以下雨学习。", "因为茶，所以老师是星期一。", "因为中文，所以水没有书。"],
-      "correctAnswer": "因为下雨，所以我们在教室学习。",
-      "explanation": "The sentence gives a reason, it is raining, and a result, studying in the classroom.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Cause and Result",
-      "learningOutcome": "Use 因为 and 所以 to connect reason and result.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which sentence uses 虽然 and 但是 for contrast?",
-      "options": ["虽然中文不容易，但是很有意思。", "虽然中文，所以我们喝茶。", "但是中文虽然老师。", "虽然但是我书。"],
-      "correctAnswer": "虽然中文不容易，但是很有意思。",
-      "explanation": "虽然 introduces a contrast, and 但是 presents the balancing idea.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Contrast Connectors",
-      "learningOutcome": "Connect contrasting ideas using 虽然 and 但是.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which Mandarin line best responds to 你好吗？",
-      "options": ["我很好，谢谢。", "我是书，谢谢。", "我去哪里？", "你叫什么名字？"],
-      "correctAnswer": "我很好，谢谢。",
-      "explanation": "我很好，谢谢 means I am fine, thank you.",
-      "difficulty": 4,
-      "strandTitle": "Vocabulary and Communication",
-      "subStrandTitle": "Everyday Dialogue",
-      "learningOutcome": "Select suitable responses in short Mandarin exchanges.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "In the Chinese name 王明, which part is the family name?",
-      "options": ["王, the family name", "明, the family name", "Both characters together only", "Neither character"],
-      "correctAnswer": "王, the family name",
-      "explanation": "In many Chinese names, the family name comes first, so 王 is the family name.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Names and Address",
-      "learningOutcome": "Identify basic conventions for Chinese names and forms of address.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Where does the family name usually appear in a Chinese personal name?",
-      "options": ["Before the given name", "After the given name", "Only in the middle", "It is never written"],
-      "correctAnswer": "Before the given name",
-      "explanation": "A common Chinese naming order is family name first, then given name.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Names and Address",
-      "learningOutcome": "Compare name order in Mandarin cultural contexts.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which greeting is appropriate for a teacher whose family name is Li?",
-      "options": ["李老师好。", "李学生好。", "老师李名字。", "李书好。"],
-      "correctAnswer": "李老师好。",
-      "explanation": "李老师 means Teacher Li, and 好 completes the greeting.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Respectful Address",
-      "learningOutcome": "Use respectful address for teachers in Mandarin.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which festival is 春节?",
-      "options": ["Spring Festival or Chinese New Year", "Mid-Autumn Festival", "Dragon Boat Festival", "Teachers' Day"],
-      "correctAnswer": "Spring Festival or Chinese New Year",
-      "explanation": "春节 is commonly translated as Spring Festival and is also known as Chinese New Year.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Festivals",
-      "learningOutcome": "Recognize major Mandarin festival vocabulary.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "What are 月饼 commonly linked with in Chinese culture?",
-      "options": ["Mid-Autumn Festival", "First day of school", "A sports competition", "A bus timetable"],
-      "correctAnswer": "Mid-Autumn Festival",
-      "explanation": "月饼 yuèbǐng, mooncakes, are strongly associated with Mid-Autumn Festival.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Festivals and Food",
-      "learningOutcome": "Connect cultural vocabulary with common festival practices.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which item is usually a 红包?",
-      "options": ["A red envelope", "A school desk", "A cup of tea", "A writing brush only"],
-      "correctAnswer": "A red envelope",
-      "explanation": "红包 hóngbāo means red envelope and is often connected with festival gift-giving.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Cultural Vocabulary",
-      "learningOutcome": "Understand common cultural objects named in Mandarin.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which behavior shows polite Mandarin communication in class?",
-      "options": ["Using 请 and 谢谢 when requesting help", "Interrupting every answer loudly", "Ignoring a partner's greeting", "Laughing at a classmate's pronunciation"],
-      "correctAnswer": "Using 请 and 谢谢 when requesting help",
-      "explanation": "请 and 谢谢 help make classroom requests respectful and cooperative.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Classroom Etiquette",
-      "learningOutcome": "Apply respectful communication habits during Mandarin learning.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which notebook entry best supports learning a new Mandarin word?",
-      "options": ["Character, pinyin, meaning, and one example sentence", "Only a random drawing", "Only the English word with no Mandarin", "A copied list with no review plan"],
-      "correctAnswer": "Character, pinyin, meaning, and one example sentence",
-      "explanation": "A useful vocabulary entry connects form, pronunciation, meaning, and use.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Vocabulary Records",
-      "learningOutcome": "Organize Mandarin vocabulary notes for review and communication.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which revision best expresses I like drinking tea, and I also like drinking water?",
-      "options": ["我喜欢喝茶，也喜欢喝水。", "我喜欢喝茶，也不喜欢喝水。", "我喜欢喝茶，吗喜欢喝水。", "我喜欢喝茶，也喜欢水喝。"],
-      "correctAnswer": "我喜欢喝茶，也喜欢喝水。",
-      "explanation": "The revision uses 也 before the second 喜欢 to show also.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Sentence Revision",
-      "learningOutcome": "Revise simple Mandarin sentences for clarity and correct word order.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which explanation of Chinese radicals is strongest?",
-      "options": ["Radicals can give meaning clues, but they do not always give the whole meaning", "Radicals always tell the full sentence meaning", "Radicals are the same as English capital letters", "Radicals are used only for numbers"],
-      "correctAnswer": "Radicals can give meaning clues, but they do not always give the whole meaning",
-      "explanation": "Radicals are helpful for learning and dictionary use, but characters still need context and practice.",
-      "difficulty": 4,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Character Learning Strategies",
-      "learningOutcome": "Evaluate how radicals support character learning.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "You want to introduce yourself in basic Mandarin. Which version is strongest?",
-      "options": ["大家好。我叫阿米娜。我是肯尼亚人。", "大家好。书水老师星期。", "我叫吗？我是茶。", "肯尼亚人我叫不。"],
-      "correctAnswer": "大家好。我叫阿米娜。我是肯尼亚人。",
-      "explanation": "The strong version greets the audience, gives a name, and states nationality clearly.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Self-Introduction Writing",
-      "learningOutcome": "Create a short Mandarin self-introduction using learned sentence patterns.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which message best invites a classmate to Mandarin club tomorrow at three?",
-      "options": ["明天三点，我们在教室参加中文社团。你来吗？", "昨天三点，我们喝中文书。你老师吗？", "明天书三本在茶。你去吗？", "中文社团是水，也没有人。"],
-      "correctAnswer": "明天三点，我们在教室参加中文社团。你来吗？",
-      "explanation": "The message gives time, place, activity, and a clear invitation question.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Short Functional Messages",
-      "learningOutcome": "Compose short Mandarin messages for school activities.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which study plan best supports learning new Mandarin characters?",
-      "options": ["Break characters into parts, write pinyin and meaning, make a sentence, and review", "Copy characters once without checking meaning", "Memorize English meanings only", "Skip characters and use only emojis"],
-      "correctAnswer": "Break characters into parts, write pinyin and meaning, make a sentence, and review",
-      "explanation": "Combining components, pronunciation, meaning, use, and review builds stronger character memory.",
-      "difficulty": 5,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Character Learning Strategies",
-      "learningOutcome": "Design effective strategies for learning new Mandarin characters.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which mini-dialogue is most coherent?",
-      "options": ["A: 你来自哪里？ B: 我来自肯尼亚。", "A: 你来自哪里？ B: 我喝茶。", "A: 你好吗？ B: 图书馆在哪里。", "A: 你有几本书？ B: 星期五。"],
-      "correctAnswer": "A: 你来自哪里？ B: 我来自肯尼亚。",
-      "explanation": "The answer directly responds to the question about place of origin.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Culture",
-      "subStrandTitle": "Dialogue Coherence",
-      "learningOutcome": "Evaluate whether a Mandarin response fits the question asked.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which sentence best combines time, place, and action for tomorrow afternoon we practise Mandarin at school?",
-      "options": ["我们明天下午在学校练习中文。", "我们在中文练习学校明天下午。", "明天下午学校中文我们在练习吗。", "我们练习在明天下午中文学校。"],
-      "correctAnswer": "我们明天下午在学校练习中文。",
-      "explanation": "The natural order places the time, then location, before the action.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Expanded Sentence Order",
-      "learningOutcome": "Build longer Mandarin sentences with time, place, and action phrases.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Which short paragraph best describes a family using learned Mandarin?",
-      "options": ["我家有四口人：爸爸、妈妈、妹妹和我。我们都喜欢音乐。", "我家四书人，茶妈妈水。我们星期几。", "爸爸是学校，妹妹喝明天，我不中文。", "我们都老师书吗，没有家。"],
-      "correctAnswer": "我家有四口人：爸爸、妈妈、妹妹和我。我们都喜欢音乐。",
-      "explanation": "The paragraph uses family vocabulary, a quantity phrase, and a clear shared preference.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Family Description",
-      "learningOutcome": "Write a short connected Mandarin description about family.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A learner translates I do not have a textbook as 我不有课本. Which correction is best?",
-      "options": ["我没有课本。", "我不是课本。", "我不在课本。", "我没是课本。"],
-      "correctAnswer": "我没有课本。",
-      "explanation": "没有 is used to negate 有, so it correctly means do not have.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Sentence Patterns",
-      "subStrandTitle": "Error Correction",
-      "learningOutcome": "Correct common beginner errors in Mandarin negation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which option best evaluates pinyin-only writing in a character lesson?",
-      "options": ["Pinyin supports pronunciation, but characters are needed for reading and writing Mandarin", "Pinyin completely replaces characters in all Mandarin reading", "Characters matter only for art and never for meaning", "Pinyin is unrelated to pronunciation"],
-      "correctAnswer": "Pinyin supports pronunciation, but characters are needed for reading and writing Mandarin",
-      "explanation": "Pinyin helps learners pronounce words, while characters carry the normal written form.",
-      "difficulty": 5,
-      "strandTitle": "Characters and Writing",
-      "subStrandTitle": "Pinyin and Characters",
-      "learningOutcome": "Evaluate the roles of pinyin and characters in Mandarin literacy.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which opening best adapts a casual greeting into a respectful message to Teacher Li?",
-      "options": ["李老师，您好！", "李，嘿！", "老师书，你好水！", "李老师，吃了吗，不写。"],
-      "correctAnswer": "李老师，您好！",
-      "explanation": "老师 gives respectful address, and 您好 is a polite form of hello.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Respectful Messages",
-      "learningOutcome": "Adapt greetings for respectful written communication in Mandarin.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which final project task best fits Grade 10 beginner or intermediate Mandarin skills?",
-      "options": ["Write a short self-introduction with characters, pinyin, and English meaning", "Translate a full university legal contract without help", "Give an audio-only speech with no written support", "Copy random characters without meaning or pinyin"],
-      "correctAnswer": "Write a short self-introduction with characters, pinyin, and English meaning",
-      "explanation": "A short supported self-introduction matches beginner and intermediate goals for communication, writing, and reflection.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Composition",
-      "subStrandTitle": "Integrated Language Project",
-      "learningOutcome": "Plan an accessible Mandarin writing task using characters, pinyin, and meaning.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 10",
+ "subjectId": "mandarin",
+ "subjectName": "Mandarin",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "How many main tones are used in Mandarin pinyin?",
+   "options": [
+    "Four main tones plus a neutral tone",
+    "Two tones only",
+    "Six equal tones",
+    "No tones"
+   ],
+   "correctAnswer": "Four main tones plus a neutral tone",
+   "explanation": "Mandarin has four main tones, and many syllables can also be spoken with a light neutral tone.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Mandarin Tones",
+   "learningOutcome": "Recognize the tone system used in basic Mandarin pronunciation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which pinyin syllable shows the first tone of ma?",
+   "options": [
+    "mā",
+    "má",
+    "mǎ",
+    "mà"
+   ],
+   "correctAnswer": "mā",
+   "explanation": "The first tone is shown by a flat mark, as in mā.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Marks",
+   "learningOutcome": "Match tone marks with their pinyin tone categories.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which pinyin syllable shows the second tone of ma?",
+   "options": [
+    "má",
+    "mā",
+    "mǎ",
+    "mà"
+   ],
+   "correctAnswer": "má",
+   "explanation": "The second tone is shown by a rising mark, as in má.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Marks",
+   "learningOutcome": "Identify pinyin tone marks in common syllables.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which pinyin syllable shows the third tone of ma?",
+   "options": [
+    "mǎ",
+    "mā",
+    "má",
+    "mà"
+   ],
+   "correctAnswer": "mǎ",
+   "explanation": "The third tone is shown by a dipping mark, as in mǎ.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Marks",
+   "learningOutcome": "Recognize the third tone mark in pinyin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which pinyin syllable shows the fourth tone of ma?",
+   "options": [
+    "mà",
+    "mā",
+    "má",
+    "mǎ"
+   ],
+   "correctAnswer": "mà",
+   "explanation": "The fourth tone is shown by a falling mark, as in mà.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Marks",
+   "learningOutcome": "Recognize the fourth tone mark in pinyin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "In the word 妈妈 māma, which part is written with a neutral tone?",
+   "options": [
+    "The second ma",
+    "The first mā",
+    "Both syllables",
+    "Neither syllable"
+   ],
+   "correctAnswer": "The second ma",
+   "explanation": "In māma, the second syllable is light and has no tone mark.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Neutral Tone",
+   "learningOutcome": "Identify neutral tone in familiar Mandarin words.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "What does 你好 most directly mean in a beginner Mandarin greeting?",
+   "options": [
+    "Hello",
+    "Goodbye",
+    "Thank you",
+    "Sorry"
+   ],
+   "correctAnswer": "Hello",
+   "explanation": "你好 nǐ hǎo is the common basic greeting for hello.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Greetings",
+   "learningOutcome": "Recognize common Mandarin greetings and their meanings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which Mandarin word means thank you?",
+   "options": [
+    "谢谢",
+    "再见",
+    "老师",
+    "学校"
+   ],
+   "correctAnswer": "谢谢",
+   "explanation": "谢谢 xièxie is used to thank someone.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Polite Expressions",
+   "learningOutcome": "Use common polite expressions in basic Mandarin exchanges.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which phrase means goodbye in Mandarin?",
+   "options": [
+    "再见",
+    "请进",
+    "谢谢",
+    "今天"
+   ],
+   "correctAnswer": "再见",
+   "explanation": "再见 zàijiàn is the standard word for goodbye.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Farewells",
+   "learningOutcome": "Recognize common words used to end a simple conversation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which phrase is a polite response to 谢谢?",
+   "options": [
+    "不客气",
+    "对不起",
+    "我叫",
+    "星期一"
+   ],
+   "correctAnswer": "不客气",
+   "explanation": "不客气 bú kèqi means you are welcome.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Polite Responses",
+   "learningOutcome": "Respond politely to thanks in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which Chinese character means person?",
+   "options": [
+    "人 rén",
+    "口 kǒu",
+    "日 rì",
+    "木 mù"
+   ],
+   "correctAnswer": "人 rén",
+   "explanation": "人 rén is the basic character for person or people.",
+   "difficulty": 1,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Basic Characters",
+   "learningOutcome": "Recognize high-frequency beginner Mandarin characters.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which Chinese character means mouth?",
+   "options": [
+    "口 kǒu",
+    "人 rén",
+    "月 yuè",
+    "山 shān"
+   ],
+   "correctAnswer": "口 kǒu",
+   "explanation": "口 kǒu is the character for mouth and also appears in many speech-related characters.",
+   "difficulty": 1,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Basic Characters",
+   "learningOutcome": "Identify common characters and their meanings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which Chinese character means water?",
+   "options": [
+    "水 shuǐ",
+    "火 huǒ",
+    "木 mù",
+    "大 dà"
+   ],
+   "correctAnswer": "水 shuǐ",
+   "explanation": "水 shuǐ means water and is useful in food and drink vocabulary.",
+   "difficulty": 1,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Basic Characters",
+   "learningOutcome": "Connect basic characters with everyday vocabulary meanings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which Chinese character means big?",
+   "options": [
+    "大 dà",
+    "小 xiǎo",
+    "中 zhōng",
+    "上 shàng"
+   ],
+   "correctAnswer": "大 dà",
+   "explanation": "大 dà means big, while 小 xiǎo means small.",
+   "difficulty": 1,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Basic Adjectives",
+   "learningOutcome": "Recognize basic adjective characters used in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which option is the standard pinyin for 中国?",
+   "options": [
+    "Zhōngguó",
+    "Zhōnggǔo",
+    "Zōngguó",
+    "Chōngguó"
+   ],
+   "correctAnswer": "Zhōngguó",
+   "explanation": "中国 is romanized as Zhōngguó and means China.",
+   "difficulty": 1,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Pinyin Reading",
+   "learningOutcome": "Read familiar country names using standard pinyin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Which pinyin belongs to 学生?",
+   "options": [
+    "xuésheng",
+    "lǎoshī",
+    "xuéxiào",
+    "zhōngwén"
+   ],
+   "correctAnswer": "xuésheng",
+   "explanation": "学生 xuésheng means student.",
+   "difficulty": 2,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "School Vocabulary Pinyin",
+   "learningOutcome": "Match school-related characters with their pinyin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which pinyin belongs to 老师?",
+   "options": [
+    "lǎoshī",
+    "xuésheng",
+    "shūběn",
+    "jiàoshì"
+   ],
+   "correctAnswer": "lǎoshī",
+   "explanation": "老师 lǎoshī means teacher.",
+   "difficulty": 2,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "School Vocabulary Pinyin",
+   "learningOutcome": "Read pinyin for common classroom nouns.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which Mandarin word means teacher?",
+   "options": [
+    "老师",
+    "学生",
+    "同学",
+    "朋友"
+   ],
+   "correctAnswer": "老师",
+   "explanation": "老师 is used for teacher and is also used after a family name, such as 李老师.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "School People",
+   "learningOutcome": "Identify people in a Mandarin classroom setting.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which Mandarin word means student?",
+   "options": [
+    "学生",
+    "老师",
+    "学校",
+    "书"
+   ],
+   "correctAnswer": "学生",
+   "explanation": "学生 means student or learner.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "School People",
+   "learningOutcome": "Use common school nouns in beginner Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which number is 七?",
+   "options": [
+    "Seven",
+    "Three",
+    "Ten",
+    "Four"
+   ],
+   "correctAnswer": "Seven",
+   "explanation": "七 qī means seven.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Numbers",
+   "learningOutcome": "Recognize Mandarin numbers from one to ten.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which characters write the number 18 in Mandarin?",
+   "options": [
+    "十八",
+    "八十",
+    "十六",
+    "二十八"
+   ],
+   "correctAnswer": "十八",
+   "explanation": "十八 is ten plus eight, so it means eighteen.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Numbers",
+   "learningOutcome": "Build teen numbers using Mandarin number patterns.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which characters write the number 25 in Mandarin?",
+   "options": [
+    "二十五",
+    "五十二",
+    "十五",
+    "二十"
+   ],
+   "correctAnswer": "二十五",
+   "explanation": "二十五 is two tens plus five, so it means twenty-five.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Numbers",
+   "learningOutcome": "Use Mandarin number patterns for two-digit numbers.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which option uses the usual measure word for three books?",
+   "options": [
+    "三本书",
+    "三杯书",
+    "三口书",
+    "三位书"
+   ],
+   "correctAnswer": "三本书",
+   "explanation": "本 běn is a common measure word for books.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Measure Words",
+   "learningOutcome": "Use common measure words with classroom objects.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which option means a cup of tea?",
+   "options": [
+    "一杯茶",
+    "一本茶",
+    "一个茶",
+    "一口茶"
+   ],
+   "correctAnswer": "一杯茶",
+   "explanation": "杯 bēi is used for a cup or glass of a drink.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Measure Words",
+   "learningOutcome": "Choose suitable measure words for drinks.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which Mandarin sentence means I have two pens?",
+   "options": [
+    "我有两支笔。",
+    "我有二个茶。",
+    "我没有两支笔。",
+    "我在两支笔。"
+   ],
+   "correctAnswer": "我有两支笔。",
+   "explanation": "有 shows possession, and 两 is commonly used before a measure word.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Possession with 有",
+   "learningOutcome": "Form simple possession sentences with 有 and measure words.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which phrase means my book?",
+   "options": [
+    "我的书",
+    "你的水",
+    "他的笔",
+    "她的茶"
+   ],
+   "correctAnswer": "我的书",
+   "explanation": "我的 means my, and 书 means book.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Possession with 的",
+   "learningOutcome": "Use 的 to show possession in simple noun phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which phrase means today's Mandarin class?",
+   "options": [
+    "今天的中文课",
+    "昨天的水果",
+    "明天的茶",
+    "星期的老师"
+   ],
+   "correctAnswer": "今天的中文课",
+   "explanation": "今天 means today, 中文 means Chinese or Mandarin in this classroom context, and 课 means class.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "School Schedule",
+   "learningOutcome": "Use time words with school subject vocabulary.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Which question asks What is your name?",
+   "options": [
+    "你叫什么名字？",
+    "你好吗？",
+    "你去哪里？",
+    "你喝茶吗？"
+   ],
+   "correctAnswer": "你叫什么名字？",
+   "explanation": "你叫什么名字 asks for a person's name.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Self-Introduction",
+   "learningOutcome": "Ask and answer simple personal information questions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which reply gives a name in Mandarin?",
+   "options": [
+    "我叫阿米娜。",
+    "我喝水。",
+    "我有书。",
+    "我去学校。"
+   ],
+   "correctAnswer": "我叫阿米娜。",
+   "explanation": "我叫 means my name is or I am called.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Self-Introduction",
+   "learningOutcome": "Introduce oneself using 我叫 plus a name.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which sentence means I am Kenyan?",
+   "options": [
+    "我是肯尼亚人。",
+    "我是中国人。",
+    "我在肯尼亚书。",
+    "我有肯尼亚茶。"
+   ],
+   "correctAnswer": "我是肯尼亚人。",
+   "explanation": "我是 means I am, and 肯尼亚人 means Kenyan person.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Nationality",
+   "learningOutcome": "State nationality in simple Mandarin sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which phrase means please come in?",
+   "options": [
+    "请进。",
+    "请问。",
+    "谢谢。",
+    "再见。"
+   ],
+   "correctAnswer": "请进。",
+   "explanation": "请 means please, and 进 means enter.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Classroom Courtesy",
+   "learningOutcome": "Use polite classroom expressions in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which Mandarin phrase is best for saying sorry?",
+   "options": [
+    "对不起。",
+    "不客气。",
+    "很好。",
+    "没书。"
+   ],
+   "correctAnswer": "对不起。",
+   "explanation": "对不起 duìbuqǐ is used to apologize.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Apologies",
+   "learningOutcome": "Choose polite expressions for apologies and responses.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which response means it is okay or no problem?",
+   "options": [
+    "没关系。",
+    "我不是。",
+    "星期五。",
+    "一本书。"
+   ],
+   "correctAnswer": "没关系。",
+   "explanation": "没关系 méi guānxi is used to respond gently after an apology.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Polite Responses",
+   "learningOutcome": "Respond appropriately to simple apologies.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which phrase means excuse me or may I ask?",
+   "options": [
+    "请问",
+    "请坐",
+    "再见",
+    "你好"
+   ],
+   "correctAnswer": "请问",
+   "explanation": "请问 qǐngwèn politely introduces a question.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Question Openers",
+   "learningOutcome": "Use polite openers before asking simple questions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which question asks where are you from?",
+   "options": [
+    "你来自哪里？",
+    "你叫什么名字？",
+    "你喝什么？",
+    "你有几本书？"
+   ],
+   "correctAnswer": "你来自哪里？",
+   "explanation": "来自 means come from, and 哪里 asks where.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Origins and Places",
+   "learningOutcome": "Ask simple questions about where someone comes from.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which word means tomorrow?",
+   "options": [
+    "明天",
+    "昨天",
+    "今天",
+    "今年"
+   ],
+   "correctAnswer": "明天",
+   "explanation": "明天 míngtiān means tomorrow.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Time Words",
+   "learningOutcome": "Recognize common time words in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which word means yesterday?",
+   "options": [
+    "昨天",
+    "明天",
+    "今天",
+    "上午"
+   ],
+   "correctAnswer": "昨天",
+   "explanation": "昨天 zuótiān means yesterday.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Time Words",
+   "learningOutcome": "Use basic time words to understand simple messages.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which day is 星期五?",
+   "options": [
+    "Friday",
+    "Monday",
+    "Sunday",
+    "Wednesday"
+   ],
+   "correctAnswer": "Friday",
+   "explanation": "星期五 xīngqīwǔ means Friday.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Days of the Week",
+   "learningOutcome": "Read days of the week in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which phrase means 3:30 in Mandarin time?",
+   "options": [
+    "三点半",
+    "三本书",
+    "三个人",
+    "三月半"
+   ],
+   "correctAnswer": "三点半",
+   "explanation": "点 marks the hour, and 半 means half, so 三点半 is half past three.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Telling Time",
+   "learningOutcome": "Read simple clock times in Mandarin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which phrase means afternoon class?",
+   "options": [
+    "下午的课",
+    "上午的茶",
+    "昨天的人",
+    "明天的水"
+   ],
+   "correctAnswer": "下午的课",
+   "explanation": "下午 means afternoon, and 课 means class.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "School Schedule",
+   "learningOutcome": "Combine time words and school vocabulary in simple phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Which sentence has correct Mandarin word order for I drink tea?",
+   "options": [
+    "我喝茶。",
+    "我茶喝。",
+    "喝我茶。",
+    "茶我喝吗。"
+   ],
+   "correctAnswer": "我喝茶。",
+   "explanation": "A basic Mandarin statement often follows subject, verb, object order.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Basic Word Order",
+   "learningOutcome": "Apply subject-verb-object order in simple Mandarin sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which sentence means She likes football?",
+   "options": [
+    "她喜欢足球。",
+    "她喝足球。",
+    "她是足球。",
+    "她没有足球喜欢。"
+   ],
+   "correctAnswer": "她喜欢足球。",
+   "explanation": "喜欢 means like, and 足球 means football.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Preference Sentences",
+   "learningOutcome": "Express likes and preferences using 喜欢.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Which sentence forms a yes-no question with 吗?",
+   "options": [
+    "你是学生吗？",
+    "你吗是学生。",
+    "吗你学生是？",
+    "你学生是吗书。"
+   ],
+   "correctAnswer": "你是学生吗？",
+   "explanation": "吗 is placed at the end of a statement to form a yes-no question.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Yes-No Questions",
+   "learningOutcome": "Form yes-no questions by adding 吗 to simple statements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly negates 是?",
+   "options": [
+    "我不是老师。",
+    "我没是老师。",
+    "我不有老师。",
+    "我是不了老师。"
+   ],
+   "correctAnswer": "我不是老师。",
+   "explanation": "不是 is used to say is not or am not before a noun identity.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Negation with 不",
+   "learningOutcome": "Use 不 to negate 是 in identity sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly negates 有?",
+   "options": [
+    "我没有书。",
+    "我不有书。",
+    "我有不书。",
+    "我书没有吗。"
+   ],
+   "correctAnswer": "我没有书。",
+   "explanation": "没有 is the standard way to say do not have.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Negation with 没",
+   "learningOutcome": "Use 没有 to negate possession.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which question asks where is the library?",
+   "options": [
+    "图书馆在哪里？",
+    "图书馆是谁？",
+    "图书馆有几本？",
+    "图书馆喝什么？"
+   ],
+   "correctAnswer": "图书馆在哪里？",
+   "explanation": "在哪里 asks where something or someone is located.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Location Questions",
+   "learningOutcome": "Ask simple location questions using 在哪里.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which answer says the book is on the table?",
+   "options": [
+    "书在桌子上。",
+    "书喝桌子。",
+    "桌子在书上。",
+    "书是桌子吗。"
+   ],
+   "correctAnswer": "书在桌子上。",
+   "explanation": "在 shows location, and 桌子上 means on the table.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Location Sentences",
+   "learningOutcome": "Describe where common objects are located.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which sentence means I also study Mandarin?",
+   "options": [
+    "我也学习中文。",
+    "我都学习中文。",
+    "我不学习也中文。",
+    "中文也学习我。"
+   ],
+   "correctAnswer": "我也学习中文。",
+   "explanation": "也 means also and usually appears before the verb.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Adverbs 也 and 都",
+   "learningOutcome": "Use 也 correctly in simple Mandarin sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which sentence uses 都 to mean all?",
+   "options": [
+    "我们都喜欢音乐。",
+    "我们也一个音乐。",
+    "都我们喜欢吗。",
+    "音乐都在喝。"
+   ],
+   "correctAnswer": "我们都喜欢音乐。",
+   "explanation": "都 means all or both and appears before the verb phrase.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Adverbs 也 and 都",
+   "learningOutcome": "Use 都 to talk about all members of a group.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses 很 before an adjective?",
+   "options": [
+    "他很高。",
+    "他高很。",
+    "很他高。",
+    "他是很高老师。"
+   ],
+   "correctAnswer": "他很高。",
+   "explanation": "很 commonly appears before adjectives in simple descriptive sentences.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Describing People",
+   "learningOutcome": "Describe people using 很 plus an adjective.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Which question uses 谁 to ask who?",
+   "options": [
+    "谁是你的老师？",
+    "你喜欢什么水果？",
+    "你几点上课？",
+    "你有几本书？"
+   ],
+   "correctAnswer": "谁是你的老师？",
+   "explanation": "谁 shéi means who.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Question Words",
+   "learningOutcome": "Use Mandarin question words to ask for people, things, and quantities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which question uses 什么 to ask what?",
+   "options": [
+    "你喜欢什么水果？",
+    "谁是老师？",
+    "你家有几口人？",
+    "图书馆在哪里？"
+   ],
+   "correctAnswer": "你喜欢什么水果？",
+   "explanation": "什么 shénme means what, as in what fruit do you like.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Question Words",
+   "learningOutcome": "Ask what questions using 什么 in simple sentences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Which question asks how many people are in your family?",
+   "options": [
+    "你家有几口人？",
+    "你叫什么名字？",
+    "你喝几杯茶？",
+    "你家在哪里喝？"
+   ],
+   "correctAnswer": "你家有几口人？",
+   "explanation": "几 asks how many, and 口 is often used when counting family members.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Family Questions",
+   "learningOutcome": "Ask and answer simple questions about family members.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which sentence uses 的 for possession?",
+   "options": [
+    "这是我的笔。",
+    "我在学校。",
+    "他喝水。",
+    "她不是老师。"
+   ],
+   "correctAnswer": "这是我的笔。",
+   "explanation": "我的 means my, and 的 links the possessor to the noun.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Possession with 的",
+   "learningOutcome": "Use 的 to show ownership in everyday classroom phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which sentence means I want to drink water?",
+   "options": [
+    "我想喝水。",
+    "我会水喝。",
+    "我想水是。",
+    "我不水喝。"
+   ],
+   "correctAnswer": "我想喝水。",
+   "explanation": "想 can express wanting to do something, and 喝水 means drink water.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Wants and Intentions",
+   "learningOutcome": "Use 想 plus a verb phrase to express wants.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Which sentence means I can speak a little Mandarin?",
+   "options": [
+    "我会说一点儿中文。",
+    "我有说一点儿中文。",
+    "我在一点儿中文说。",
+    "我不是说一点儿中文。"
+   ],
+   "correctAnswer": "我会说一点儿中文。",
+   "explanation": "会 can show a learned ability, and 一点儿 means a little.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Ability with 会",
+   "learningOutcome": "Express learned abilities using 会 plus a verb.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which sentence means please write your name?",
+   "options": [
+    "请写你的名字。",
+    "请喝你的名字。",
+    "请问你的茶。",
+    "请在名字老师。"
+   ],
+   "correctAnswer": "请写你的名字。",
+   "explanation": "请 makes the instruction polite, 写 means write, and 名字 means name.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Classroom Instructions",
+   "learningOutcome": "Understand and produce common Mandarin classroom instructions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which instruction means please open the book?",
+   "options": [
+    "请打开书。",
+    "请关上门。",
+    "请坐下。",
+    "请喝茶。"
+   ],
+   "correctAnswer": "请打开书。",
+   "explanation": "打开 means open, and 书 means book.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Classroom Instructions",
+   "learningOutcome": "Follow simple written classroom instructions in Mandarin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which instruction means listen to the teacher speak?",
+   "options": [
+    "请听老师说。",
+    "请看学生写。",
+    "请问老师喝。",
+    "请给学生书。"
+   ],
+   "correctAnswer": "请听老师说。",
+   "explanation": "听 means listen, 老师 means teacher, and 说 means speak.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Classroom Instructions",
+   "learningOutcome": "Interpret common classroom action verbs in Mandarin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which sentence means we have class on Monday?",
+   "options": [
+    "我们星期一上课。",
+    "我们上课星期一吗。",
+    "星期一我们喝课。",
+    "我们有星期一书。"
+   ],
+   "correctAnswer": "我们星期一上课。",
+   "explanation": "Time words such as 星期一 commonly appear before the verb phrase.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Time Word Order",
+   "learningOutcome": "Place time words correctly in simple Mandarin sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which phrase is the natural way to say two students?",
+   "options": [
+    "两个学生",
+    "二个学生",
+    "两学生个",
+    "学生两本"
+   ],
+   "correctAnswer": "两个学生",
+   "explanation": "两 is commonly used before a measure word, so 两个学生 is natural.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Numbers and Measure Words",
+   "learningOutcome": "Use 两 with measure words in everyday noun phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which pinyin correctly writes 女?",
+   "options": [
+    "nǚ",
+    "nǔ",
+    "nu",
+    "lǚ"
+   ],
+   "correctAnswer": "nǚ",
+   "explanation": "女 is written nǚ with the ü vowel and a third tone mark.",
+   "difficulty": 3,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Pinyin Vowels",
+   "learningOutcome": "Use the ü vowel correctly in pinyin spelling.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which pinyin syllable keeps the dots over ü because it follows l?",
+   "options": [
+    "lǜ",
+    "xu",
+    "qu",
+    "yu"
+   ],
+   "correctAnswer": "lǜ",
+   "explanation": "After l and n, ü keeps its dots, while after j, q, x, and y the dots are usually omitted.",
+   "difficulty": 3,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Pinyin Spelling Rules",
+   "learningOutcome": "Apply pinyin spelling rules for the ü vowel.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Before a fourth-tone syllable, how is 不 often pronounced in 不客气?",
+   "options": [
+    "bú",
+    "bù",
+    "bǔ",
+    "bū"
+   ],
+   "correctAnswer": "bú",
+   "explanation": "不 changes to second tone before a fourth tone, so 不客气 is read bú kèqi.",
+   "difficulty": 3,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Sandhi",
+   "learningOutcome": "Recognize common tone changes in high-frequency expressions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "In spoken 你好, what happens to the first third-tone syllable?",
+   "options": [
+    "It is usually pronounced like a rising second tone",
+    "It becomes a fourth tone",
+    "It loses all sound",
+    "It turns into English stress"
+   ],
+   "correctAnswer": "It is usually pronounced like a rising second tone",
+   "explanation": "When two third tones meet, the first one is commonly pronounced like a second tone in speech.",
+   "difficulty": 3,
+   "strandTitle": "Pronunciation and Pinyin",
+   "subStrandTitle": "Tone Sandhi",
+   "learningOutcome": "Explain the common third-tone change in familiar phrases.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which radical often relates to water?",
+   "options": [
+    "氵 water radical",
+    "亻 person radical",
+    "女 woman radical",
+    "口 mouth radical"
+   ],
+   "correctAnswer": "氵 water radical",
+   "explanation": "The three-dot water radical 氵 appears in many water-related characters.",
+   "difficulty": 3,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Radicals",
+   "learningOutcome": "Recognize common radicals and the meaning clues they may provide.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which character contains the person radical 亻?",
+   "options": [
+    "他 tā",
+    "木 mù",
+    "水 shuǐ",
+    "日 rì"
+   ],
+   "correctAnswer": "他 tā",
+   "explanation": "他 contains 亻 on the left, a form of the person radical.",
+   "difficulty": 3,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Radicals",
+   "learningOutcome": "Identify radicals inside familiar characters.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which character combines 日 and 月 and means bright?",
+   "options": [
+    "明 míng",
+    "朋 péng",
+    "好 hǎo",
+    "休 xiū"
+   ],
+   "correctAnswer": "明 míng",
+   "explanation": "明 combines 日 sun and 月 moon and commonly means bright.",
+   "difficulty": 3,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Character Components",
+   "learningOutcome": "Analyze simple character components and meaning clues.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which character pair means China?",
+   "options": [
+    "中国",
+    "中文",
+    "中学",
+    "国文"
+   ],
+   "correctAnswer": "中国",
+   "explanation": "中国 means China, while 中文 means Chinese language.",
+   "difficulty": 3,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Countries and Languages",
+   "learningOutcome": "Distinguish country names from language names in Mandarin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which sentence means we study Mandarin at school?",
+   "options": [
+    "我们在学校学习中文。",
+    "我们学校在学习中文。",
+    "中文学习在我们学校吗。",
+    "我们喝学校中文。"
+   ],
+   "correctAnswer": "我们在学校学习中文。",
+   "explanation": "在学校 gives the location, and 学习中文 means study Mandarin or Chinese.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Location and Action",
+   "learningOutcome": "Combine location phrases with action verbs in simple sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Read: 我叫David，我住在内罗毕。我喜欢中文。 What does David like?",
+   "options": [
+    "Mandarin or Chinese",
+    "Mathematics only",
+    "Running only",
+    "Tea only"
+   ],
+   "correctAnswer": "Mandarin or Chinese",
+   "explanation": "我喜欢中文 means I like Mandarin or Chinese.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Short Personal Texts",
+   "learningOutcome": "Identify key information in short Mandarin self-introduction texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Read: 今天星期三，明天我们去图书馆。 When will they go to the library?",
+   "options": [
+    "Tomorrow",
+    "Yesterday",
+    "Last week",
+    "This morning before class"
+   ],
+   "correctAnswer": "Tomorrow",
+   "explanation": "明天 means tomorrow, so the library visit is planned for the next day.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Short School Texts",
+   "learningOutcome": "Infer simple time information from short Mandarin sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Dialogue: A: 你喝茶吗？ B: 不，我喝水。 What does B drink?",
+   "options": [
+    "Water",
+    "Tea",
+    "Coffee",
+    "Milk"
+   ],
+   "correctAnswer": "Water",
+   "explanation": "B says 不, 我喝水, meaning no, I drink water.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Short Dialogues",
+   "learningOutcome": "Understand direct answers in short Mandarin dialogues.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A learner writes 我是学生吗。 for a question. Which punctuation improves it?",
+   "options": [
+    "我是学生吗？",
+    "我是学生吗，",
+    "我是学生吗！",
+    "我是学生吗、"
+   ],
+   "correctAnswer": "我是学生吗？",
+   "explanation": "A Mandarin question should use the question mark ？ instead of the full stop 。",
+   "difficulty": 4,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Chinese Punctuation",
+   "learningOutcome": "Use Chinese punctuation marks correctly in simple questions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which sentence best says I go to school at seven o'clock?",
+   "options": [
+    "我七点去学校。",
+    "我去七点学校。",
+    "七点学校去我。",
+    "我学校七点是。"
+   ],
+   "correctAnswer": "我七点去学校。",
+   "explanation": "The time word 七点 appears before the verb 去.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Time Word Order",
+   "learningOutcome": "Arrange time expressions naturally in Mandarin sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which choice makes a polite classroom request to borrow a pen?",
+   "options": [
+    "请问，我可以借一支笔吗？",
+    "给我笔，现在。",
+    "我不借笔吗。",
+    "笔是老师喝水。"
+   ],
+   "correctAnswer": "请问，我可以借一支笔吗？",
+   "explanation": "请问 and 可以 make the request polite, and 借 means borrow.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Polite Requests",
+   "learningOutcome": "Make polite requests for classroom objects in Mandarin.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly compares ages by saying my older brother is older than me?",
+   "options": [
+    "哥哥比我大。",
+    "哥哥我比大。",
+    "我比哥哥大。",
+    "哥哥大比我吗。"
+   ],
+   "correctAnswer": "哥哥比我大。",
+   "explanation": "The 比 pattern compares two things: A 比 B adjective.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Comparison with 比",
+   "learningOutcome": "Use 比 to make simple comparisons.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Which sentence uses 因为 and 所以 logically?",
+   "options": [
+    "因为下雨，所以我们在教室学习。",
+    "因为我们在教室，所以下雨学习。",
+    "因为茶，所以老师是星期一。",
+    "因为中文，所以水没有书。"
+   ],
+   "correctAnswer": "因为下雨，所以我们在教室学习。",
+   "explanation": "The sentence gives a reason, it is raining, and a result, studying in the classroom.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Cause and Result",
+   "learningOutcome": "Use 因为 and 所以 to connect reason and result.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which sentence uses 虽然 and 但是 for contrast?",
+   "options": [
+    "虽然中文不容易，但是很有意思。",
+    "虽然中文，所以我们喝茶。",
+    "但是中文虽然老师。",
+    "虽然但是我书。"
+   ],
+   "correctAnswer": "虽然中文不容易，但是很有意思。",
+   "explanation": "虽然 introduces a contrast, and 但是 presents the balancing idea.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Contrast Connectors",
+   "learningOutcome": "Connect contrasting ideas using 虽然 and 但是.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which Mandarin line best responds to 你好吗？",
+   "options": [
+    "我很好，谢谢。",
+    "我是书，谢谢。",
+    "我去哪里？",
+    "你叫什么名字？"
+   ],
+   "correctAnswer": "我很好，谢谢。",
+   "explanation": "我很好，谢谢 means I am fine, thank you.",
+   "difficulty": 4,
+   "strandTitle": "Vocabulary and Communication",
+   "subStrandTitle": "Everyday Dialogue",
+   "learningOutcome": "Select suitable responses in short Mandarin exchanges.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "In the Chinese name 王明, which part is the family name?",
+   "options": [
+    "王, the family name",
+    "明, the family name",
+    "Both characters together only",
+    "Neither character"
+   ],
+   "correctAnswer": "王, the family name",
+   "explanation": "In many Chinese names, the family name comes first, so 王 is the family name.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Names and Address",
+   "learningOutcome": "Identify basic conventions for Chinese names and forms of address.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Where does the family name usually appear in a Chinese personal name?",
+   "options": [
+    "Before the given name",
+    "After the given name",
+    "Only in the middle",
+    "It is never written"
+   ],
+   "correctAnswer": "Before the given name",
+   "explanation": "A common Chinese naming order is family name first, then given name.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Names and Address",
+   "learningOutcome": "Compare name order in Mandarin cultural contexts.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which greeting is appropriate for a teacher whose family name is Li?",
+   "options": [
+    "李老师好。",
+    "李学生好。",
+    "老师李名字。",
+    "李书好。"
+   ],
+   "correctAnswer": "李老师好。",
+   "explanation": "李老师 means Teacher Li, and 好 completes the greeting.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Respectful Address",
+   "learningOutcome": "Use respectful address for teachers in Mandarin.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which festival is 春节?",
+   "options": [
+    "Spring Festival or Chinese New Year",
+    "Mid-Autumn Festival",
+    "Dragon Boat Festival",
+    "Teachers' Day"
+   ],
+   "correctAnswer": "Spring Festival or Chinese New Year",
+   "explanation": "春节 is commonly translated as Spring Festival and is also known as Chinese New Year.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Festivals",
+   "learningOutcome": "Recognize major Mandarin festival vocabulary.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "What are 月饼 commonly linked with in Chinese culture?",
+   "options": [
+    "Mid-Autumn Festival",
+    "First day of school",
+    "A sports competition",
+    "A bus timetable"
+   ],
+   "correctAnswer": "Mid-Autumn Festival",
+   "explanation": "月饼 yuèbǐng, mooncakes, are strongly associated with Mid-Autumn Festival.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Festivals and Food",
+   "learningOutcome": "Connect cultural vocabulary with common festival practices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which item is usually a 红包?",
+   "options": [
+    "A red envelope",
+    "A school desk",
+    "A cup of tea",
+    "A writing brush only"
+   ],
+   "correctAnswer": "A red envelope",
+   "explanation": "红包 hóngbāo means red envelope and is often connected with festival gift-giving.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Cultural Vocabulary",
+   "learningOutcome": "Understand common cultural objects named in Mandarin.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which behavior shows polite Mandarin communication in class?",
+   "options": [
+    "Using 请 and 谢谢 when requesting help",
+    "Interrupting every answer loudly",
+    "Ignoring a partner's greeting",
+    "Laughing at a classmate's pronunciation"
+   ],
+   "correctAnswer": "Using 请 and 谢谢 when requesting help",
+   "explanation": "请 and 谢谢 help make classroom requests respectful and cooperative.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Classroom Etiquette",
+   "learningOutcome": "Apply respectful communication habits during Mandarin learning.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which notebook entry best supports learning a new Mandarin word?",
+   "options": [
+    "Character, pinyin, meaning, and one example sentence",
+    "Only a random drawing",
+    "Only the English word with no Mandarin",
+    "A copied list with no review plan"
+   ],
+   "correctAnswer": "Character, pinyin, meaning, and one example sentence",
+   "explanation": "A useful vocabulary entry connects form, pronunciation, meaning, and use.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Vocabulary Records",
+   "learningOutcome": "Organize Mandarin vocabulary notes for review and communication.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which revision best expresses I like drinking tea, and I also like drinking water?",
+   "options": [
+    "我喜欢喝茶，也喜欢喝水。",
+    "我喜欢喝茶，也不喜欢喝水。",
+    "我喜欢喝茶，吗喜欢喝水。",
+    "我喜欢喝茶，也喜欢水喝。"
+   ],
+   "correctAnswer": "我喜欢喝茶，也喜欢喝水。",
+   "explanation": "The revision uses 也 before the second 喜欢 to show also.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Sentence Revision",
+   "learningOutcome": "Revise simple Mandarin sentences for clarity and correct word order.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which explanation of Chinese radicals is strongest?",
+   "options": [
+    "Radicals can give meaning clues, but they do not always give the whole meaning",
+    "Radicals always tell the full sentence meaning",
+    "Radicals are the same as English capital letters",
+    "Radicals are used only for numbers"
+   ],
+   "correctAnswer": "Radicals can give meaning clues, but they do not always give the whole meaning",
+   "explanation": "Radicals are helpful for learning and dictionary use, but characters still need context and practice.",
+   "difficulty": 4,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Character Learning Strategies",
+   "learningOutcome": "Evaluate how radicals support character learning.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "You want to introduce yourself in basic Mandarin. Which version is strongest?",
+   "options": [
+    "大家好。我叫阿米娜。我是肯尼亚人。",
+    "大家好。书水老师星期。",
+    "我叫吗？我是茶。",
+    "肯尼亚人我叫不。"
+   ],
+   "correctAnswer": "大家好。我叫阿米娜。我是肯尼亚人。",
+   "explanation": "The strong version greets the audience, gives a name, and states nationality clearly.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Self-Introduction Writing",
+   "learningOutcome": "Create a short Mandarin self-introduction using learned sentence patterns.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which message best invites a classmate to Mandarin club tomorrow at three?",
+   "options": [
+    "明天三点，我们在教室参加中文社团。你来吗？",
+    "昨天三点，我们喝中文书。你老师吗？",
+    "明天书三本在茶。你去吗？",
+    "中文社团是水，也没有人。"
+   ],
+   "correctAnswer": "明天三点，我们在教室参加中文社团。你来吗？",
+   "explanation": "The message gives time, place, activity, and a clear invitation question.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Short Functional Messages",
+   "learningOutcome": "Compose short Mandarin messages for school activities.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which study plan best supports learning new Mandarin characters?",
+   "options": [
+    "Break characters into parts, write pinyin and meaning, make a sentence, and review",
+    "Copy characters once without checking meaning",
+    "Memorize English meanings only",
+    "Skip characters and use only emojis"
+   ],
+   "correctAnswer": "Break characters into parts, write pinyin and meaning, make a sentence, and review",
+   "explanation": "Combining components, pronunciation, meaning, use, and review builds stronger character memory.",
+   "difficulty": 5,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Character Learning Strategies",
+   "learningOutcome": "Design effective strategies for learning new Mandarin characters.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which mini-dialogue is most coherent?",
+   "options": [
+    "A: 你来自哪里？ B: 我来自肯尼亚。",
+    "A: 你来自哪里？ B: 我喝茶。",
+    "A: 你好吗？ B: 图书馆在哪里。",
+    "A: 你有几本书？ B: 星期五。"
+   ],
+   "correctAnswer": "A: 你来自哪里？ B: 我来自肯尼亚。",
+   "explanation": "The answer directly responds to the question about place of origin.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Culture",
+   "subStrandTitle": "Dialogue Coherence",
+   "learningOutcome": "Evaluate whether a Mandarin response fits the question asked.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which sentence best combines time, place, and action for tomorrow afternoon we practise Mandarin at school?",
+   "options": [
+    "我们明天下午在学校练习中文。",
+    "我们在中文练习学校明天下午。",
+    "明天下午学校中文我们在练习吗。",
+    "我们练习在明天下午中文学校。"
+   ],
+   "correctAnswer": "我们明天下午在学校练习中文。",
+   "explanation": "The natural order places the time, then location, before the action.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Expanded Sentence Order",
+   "learningOutcome": "Build longer Mandarin sentences with time, place, and action phrases.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which short paragraph best describes a family using learned Mandarin?",
+   "options": [
+    "我家有四口人：爸爸、妈妈、妹妹和我。我们都喜欢音乐。",
+    "我家四书人，茶妈妈水。我们星期几。",
+    "爸爸是学校，妹妹喝明天，我不中文。",
+    "我们都老师书吗，没有家。"
+   ],
+   "correctAnswer": "我家有四口人：爸爸、妈妈、妹妹和我。我们都喜欢音乐。",
+   "explanation": "The paragraph uses family vocabulary, a quantity phrase, and a clear shared preference.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Family Description",
+   "learningOutcome": "Write a short connected Mandarin description about family.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A learner translates I do not have a textbook as 我不有课本. Which correction is best?",
+   "options": [
+    "我没有课本。",
+    "我不是课本。",
+    "我不在课本。",
+    "我没是课本。"
+   ],
+   "correctAnswer": "我没有课本。",
+   "explanation": "没有 is used to negate 有, so it correctly means do not have.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Sentence Patterns",
+   "subStrandTitle": "Error Correction",
+   "learningOutcome": "Correct common beginner errors in Mandarin negation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which option best evaluates pinyin-only writing in a character lesson?",
+   "options": [
+    "Pinyin supports pronunciation, but characters are needed for reading and writing Mandarin",
+    "Pinyin completely replaces characters in all Mandarin reading",
+    "Characters matter only for art and never for meaning",
+    "Pinyin is unrelated to pronunciation"
+   ],
+   "correctAnswer": "Pinyin supports pronunciation, but characters are needed for reading and writing Mandarin",
+   "explanation": "Pinyin helps learners pronounce words, while characters carry the normal written form.",
+   "difficulty": 5,
+   "strandTitle": "Characters and Writing",
+   "subStrandTitle": "Pinyin and Characters",
+   "learningOutcome": "Evaluate the roles of pinyin and characters in Mandarin literacy.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which opening best adapts a casual greeting into a respectful message to Teacher Li?",
+   "options": [
+    "李老师，您好！",
+    "李，嘿！",
+    "老师书，你好水！",
+    "李老师，吃了吗，不写。"
+   ],
+   "correctAnswer": "李老师，您好！",
+   "explanation": "老师 gives respectful address, and 您好 is a polite form of hello.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Respectful Messages",
+   "learningOutcome": "Adapt greetings for respectful written communication in Mandarin.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which final project task best fits Grade 10 beginner or intermediate Mandarin skills?",
+   "options": [
+    "Write a short self-introduction with characters, pinyin, and English meaning",
+    "Translate a full university legal contract without help",
+    "Give an audio-only speech with no written support",
+    "Copy random characters without meaning or pinyin"
+   ],
+   "correctAnswer": "Write a short self-introduction with characters, pinyin, and English meaning",
+   "explanation": "A short supported self-introduction matches beginner and intermediate goals for communication, writing, and reflection.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Composition",
+   "subStrandTitle": "Integrated Language Project",
+   "learningOutcome": "Plan an accessible Mandarin writing task using characters, pinyin, and meaning.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

@@ -1,1409 +1,2466 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 11",
-  "subjectId": "music",
-  "subjectName": "Music",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "In 6/8 time, how many main beats are normally felt in one bar?",
-      "options": ["Two dotted crotchet beats", "Six minim beats", "Three semibreve beats", "One quaver beat"],
-      "correctAnswer": "Two dotted crotchet beats",
-      "explanation": "6/8 is compound duple time, so the six quavers are normally felt as two dotted crotchet beats.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Compound Time",
-      "learningOutcome": "Identify beat groupings in compound time signatures.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "How many semiquavers equal one dotted quaver?",
-      "options": ["Three", "Two", "Four", "Six"],
-      "correctAnswer": "Three",
-      "explanation": "A dotted quaver equals a quaver plus half its value, which is three semiquavers.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Rhythmic Values",
-      "learningOutcome": "Relate dotted notes to equivalent shorter note values.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which degree of a major scale is called the dominant?",
-      "options": ["Fifth degree", "Second degree", "Sixth degree", "Seventh degree"],
-      "correctAnswer": "Fifth degree",
-      "explanation": "The dominant is the fifth degree of a major or minor scale and strongly leads back to the tonic.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Scale Degrees",
-      "learningOutcome": "Name functional degrees of major and minor scales.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "What change creates the harmonic minor scale from the natural minor scale?",
-      "options": ["Raise the seventh degree", "Lower the third degree", "Raise the fourth degree", "Remove the leading note"],
-      "correctAnswer": "Raise the seventh degree",
-      "explanation": "The harmonic minor scale raises the seventh degree to create a stronger leading note to the tonic.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Minor Scales",
-      "learningOutcome": "Distinguish natural and harmonic minor scale forms.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "What is the relative minor of C major?",
-      "options": ["A minor", "C minor", "E minor", "G minor"],
-      "correctAnswer": "A minor",
-      "explanation": "A minor shares the same key signature as C major, with no sharps or flats.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Related Keys",
-      "learningOutcome": "Identify relative major and minor keys from key signatures.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which chord movement forms a perfect cadence?",
-      "options": ["V to I", "IV to I", "I to V", "ii to IV"],
-      "correctAnswer": "V to I",
-      "explanation": "A perfect cadence moves from the dominant chord to the tonic chord and gives a strong sense of closure.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Cadences",
-      "learningOutcome": "Recognize common cadences by chord movement.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "A basic triad is built from which three chord tones?",
-      "options": ["Root, third, and fifth", "Root, second, and fourth", "Third, sixth, and seventh", "Second, fifth, and octave"],
-      "correctAnswer": "Root, third, and fifth",
-      "explanation": "A triad stacks two thirds above a root, producing the root, third, and fifth.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Triads",
-      "learningOutcome": "Identify the chord tones that form major and minor triads.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "In alto clef, which staff line represents middle C?",
-      "options": ["The third line", "The first line", "The fourth line", "The fifth line"],
-      "correctAnswer": "The third line",
-      "explanation": "The alto clef is a C clef that places middle C on the middle, or third, line of the staff.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Clefs and Staff Notation",
-      "learningOutcome": "Read pitch positions in treble, bass, and alto clefs.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "What does a staccato mark tell a performer to do?",
-      "options": ["Play the note short and detached", "Play the note gradually louder", "Hold the note longer than written", "Repeat the whole section from the start"],
-      "correctAnswer": "Play the note short and detached",
-      "explanation": "Staccato articulation shortens and separates notes without changing their written pitch.",
-      "difficulty": 1,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Articulation",
-      "learningOutcome": "Interpret common articulation marks in performance.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "What does crescendo mean in a musical score?",
-      "options": ["Gradually becoming louder", "Gradually becoming slower", "Suddenly becoming silent", "Repeating softly from the beginning"],
-      "correctAnswer": "Gradually becoming louder",
-      "explanation": "Crescendo is a dynamic instruction that asks performers to increase volume gradually.",
-      "difficulty": 1,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Dynamics",
-      "learningOutcome": "Apply common dynamic terms and symbols in performance.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which family best describes the nyatiti used by Luo musicians?",
-      "options": ["Lyre", "Trumpet", "Xylophone", "Flute"],
-      "correctAnswer": "Lyre",
-      "explanation": "The nyatiti is an eight-string lyre traditionally associated with Luo music making.",
-      "difficulty": 1,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Kenyan Indigenous Instruments",
-      "learningOutcome": "Classify selected Kenyan indigenous instruments by type and community context.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which term best classifies the kayamba when it is played by shaking?",
-      "options": ["Idiophone", "Aerophone", "Chordophone", "Membranophone"],
-      "correctAnswer": "Idiophone",
-      "explanation": "A kayamba produces sound through the vibration of its own body and seeds, so it is an idiophone.",
-      "difficulty": 1,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Instrument Classification",
-      "learningOutcome": "Classify instruments using standard sound-production categories.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "What information does a key signature give at the beginning of a staff?",
-      "options": ["The sharps or flats normally used in the key", "The exact tempo of every bar", "The number of performers required", "The title of the composition"],
-      "correctAnswer": "The sharps or flats normally used in the key",
-      "explanation": "A key signature places sharps or flats after the clef to show the tonal centre and expected accidentals.",
-      "difficulty": 1,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Key Signatures",
-      "learningOutcome": "Read and interpret common key signatures.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "In music enterprise, what does copyright mainly protect?",
-      "options": ["Original musical works and related creative rights", "Only the colour of an album cover", "Every public-domain folk melody forever", "A performer's school timetable"],
-      "correctAnswer": "Original musical works and related creative rights",
-      "explanation": "Copyright protects original creative works and helps creators control use, copying, performance, and distribution.",
-      "difficulty": 1,
-      "strandTitle": "Music in Society and Enterprise",
-      "subStrandTitle": "Copyright and Intellectual Property",
-      "learningOutcome": "Explain basic copyright rights and responsibilities in music.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "What does DAW stand for in music production?",
-      "options": ["Digital Audio Workstation", "Dynamic Acoustic Writing", "Direct Amplifier Wave", "Dance Arrangement Workshop"],
-      "correctAnswer": "Digital Audio Workstation",
-      "explanation": "A Digital Audio Workstation is software used to record, edit, arrange, and mix music.",
-      "difficulty": 1,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Digital Production Tools",
-      "learningOutcome": "Identify common digital tools used in music recording and editing.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Why is 9/8 described as compound triple time?",
-      "options": ["It has three main beats, each dividing into three quavers", "It has nine separate crotchet beats", "It always has three bars in each phrase", "It can only be played by three instruments"],
-      "correctAnswer": "It has three main beats, each dividing into three quavers",
-      "explanation": "The nine quavers in 9/8 are normally grouped as three dotted crotchet beats.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Compound Time",
-      "learningOutcome": "Explain how compound time signatures group beats and subdivisions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which statement best describes syncopation?",
-      "options": ["Emphasis placed on weak beats or offbeats", "A melody sung only in unison", "A chord built only from perfect fifths", "A tempo that never changes"],
-      "correctAnswer": "Emphasis placed on weak beats or offbeats",
-      "explanation": "Syncopation shifts accent away from expected strong beats and creates rhythmic tension.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Rhythmic Devices",
-      "learningOutcome": "Describe rhythmic devices used in composition and performance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "How is a tie different from a slur?",
-      "options": ["A tie joins same-pitch notes into one longer sound", "A tie marks notes to be played more loudly", "A tie connects different pitches smoothly", "A tie changes a major key to minor"],
-      "correctAnswer": "A tie joins same-pitch notes into one longer sound",
-      "explanation": "A tie extends the duration of notes with the same pitch, while a slur groups different notes for smooth articulation.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Notation Symbols",
-      "learningOutcome": "Distinguish common notation marks and their performance meanings.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "What is an anacrusis in a melody?",
-      "options": ["A pickup note or notes before the first full bar", "A chord written only at the final cadence", "A rest that cancels the time signature", "A repeated bass note throughout a piece"],
-      "correctAnswer": "A pickup note or notes before the first full bar",
-      "explanation": "An anacrusis leads into the first complete measure and is often balanced by a shortened final bar.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Melodic Structure",
-      "learningOutcome": "Identify structural features used at the opening of melodies.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "In compound time, how does each main beat usually divide?",
-      "options": ["Into three equal parts", "Into two unequal parts", "Into four bars", "Into one whole note only"],
-      "correctAnswer": "Into three equal parts",
-      "explanation": "Compound beats are dotted beats that naturally divide into three equal subdivisions.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Beat Subdivision",
-      "learningOutcome": "Compare simple and compound beat subdivision.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which scale form raises the sixth and seventh degrees when ascending in common classical practice?",
-      "options": ["Melodic minor", "Natural minor", "Whole-tone scale", "Major pentatonic"],
-      "correctAnswer": "Melodic minor",
-      "explanation": "The melodic minor form commonly raises the sixth and seventh degrees ascending to create smoother melodic motion.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Minor Scales",
-      "learningOutcome": "Explain the construction and use of melodic minor scales.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which notes form a dominant seventh chord from root position?",
-      "options": ["Root, third, fifth, and minor seventh", "Root, second, fourth, and sixth", "Root, fourth, fifth, and octave", "Third, fifth, sixth, and major seventh"],
-      "correctAnswer": "Root, third, fifth, and minor seventh",
-      "explanation": "A dominant seventh chord is a major triad with an added minor seventh above the root.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Seventh Chords",
-      "learningOutcome": "Describe the structure of dominant seventh chords.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "In first inversion, which note of a triad is in the bass?",
-      "options": ["The third", "The root", "The fifth", "The seventh"],
-      "correctAnswer": "The third",
-      "explanation": "A first-inversion triad places the third of the chord as the lowest sounding note.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Chord Inversions",
-      "learningOutcome": "Identify triad inversions from the bass note.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which chord movement forms a plagal cadence?",
-      "options": ["IV to I", "V to I", "I to ii", "vi to iii"],
-      "correctAnswer": "IV to I",
-      "explanation": "A plagal cadence moves from the subdominant chord to the tonic chord.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Cadences",
-      "learningOutcome": "Compare perfect, plagal, imperfect, and interrupted cadences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "What is the main effect of an imperfect cadence?",
-      "options": ["It leaves the phrase feeling unfinished on the dominant", "It gives final closure on the tonic", "It changes every note into a triplet", "It removes the need for harmony"],
-      "correctAnswer": "It leaves the phrase feeling unfinished on the dominant",
-      "explanation": "An imperfect cadence ends on chord V, creating a pause that expects continuation.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Phrase Endings",
-      "learningOutcome": "Explain how cadence choice affects phrase direction.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "A B flat clarinet sounds how when compared with its written pitch?",
-      "options": ["A major second lower", "A perfect fifth higher", "The same pitch", "An octave and a third lower"],
-      "correctAnswer": "A major second lower",
-      "explanation": "A written C on a B flat clarinet sounds as concert B flat, which is a major second lower.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Transposing Instruments",
-      "learningOutcome": "Describe the sounding relationship of common transposing instruments.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "What is a practical use of the circle of fifths?",
-      "options": ["Finding related keys and key signatures", "Measuring stage lighting levels", "Counting performers in a choir", "Changing every melody into a drum pattern"],
-      "correctAnswer": "Finding related keys and key signatures",
-      "explanation": "The circle of fifths shows relationships among keys and the order of sharps and flats.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Key Relationships",
-      "learningOutcome": "Use the circle of fifths to understand related keys.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "How many different pitch classes are used in a pentatonic scale?",
-      "options": ["Five", "Four", "Seven", "Twelve"],
-      "correctAnswer": "Five",
-      "explanation": "The word pentatonic refers to a five-note scale, common in many folk and popular music traditions.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Scales and Modes",
-      "learningOutcome": "Identify scale types used in classroom composition and cultural music.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which description best matches homophonic texture?",
-      "options": ["One main melody supported by accompaniment", "Several unrelated melodies at the same time", "Only unpitched percussion sounds", "Complete silence between every note"],
-      "correctAnswer": "One main melody supported by accompaniment",
-      "explanation": "Homophony features a clear principal melody with harmonic or rhythmic support.",
-      "difficulty": 2,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Musical Texture",
-      "learningOutcome": "Identify musical textures in written descriptions and scores.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "What happens in antiphonal singing?",
-      "options": ["Two groups or voices answer each other", "All singers remain silent while drums play", "One person sings without any response", "Every phrase is sung backwards"],
-      "correctAnswer": "Two groups or voices answer each other",
-      "explanation": "Antiphonal performance uses alternation between groups, soloists, or sections.",
-      "difficulty": 2,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Vocal Ensemble Techniques",
-      "learningOutcome": "Describe ensemble techniques used in choral and community music.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which statement best describes call and response?",
-      "options": ["A leader sings or plays a phrase and a group answers", "A soloist repeats scales without accompaniment", "The audience leaves before a song ends", "A performer changes instruments after every beat"],
-      "correctAnswer": "A leader sings or plays a phrase and a group answers",
-      "explanation": "Call and response creates musical dialogue and is common in many African performance traditions.",
-      "difficulty": 2,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "African Performance Practices",
-      "learningOutcome": "Explain participatory structures in African music making.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "What is polyrhythm?",
-      "options": ["Two or more contrasting rhythms performed together", "One long note held without change", "A melody using only two pitches", "A chord progression without rhythm"],
-      "correctAnswer": "Two or more contrasting rhythms performed together",
-      "explanation": "Polyrhythm layers different rhythmic patterns so they interact within the same pulse.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Rhythmic Texture",
-      "learningOutcome": "Describe layered rhythmic practices in African and contemporary music.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "What is an ostinato?",
-      "options": ["A repeated musical pattern", "A sudden change of clef", "A silent rehearsal instruction", "A scale with no tonic"],
-      "correctAnswer": "A repeated musical pattern",
-      "explanation": "An ostinato is a repeated rhythm, melody, or harmonic pattern that can organize a composition.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Compositional Devices",
-      "learningOutcome": "Identify repeated devices used to build musical structure.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which statement best describes a drone in music?",
-      "options": ["A sustained or repeated pitch supporting the melody", "A final page of lyrics", "A tempo marking meaning fast", "A group of unrelated accidentals"],
-      "correctAnswer": "A sustained or repeated pitch supporting the melody",
-      "explanation": "A drone provides a continuous tonal reference, often on the tonic or dominant.",
-      "difficulty": 2,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Accompaniment Patterns",
-      "learningOutcome": "Describe accompaniment devices used in folk and contemporary arrangements.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "What is one main responsibility of a conductor during ensemble performance?",
-      "options": ["Giving tempo, entries, cutoffs, and expressive cues", "Writing every performer's examination number", "Replacing all instrumental parts with lyrics", "Changing the key after each bar without warning"],
-      "correctAnswer": "Giving tempo, entries, cutoffs, and expressive cues",
-      "explanation": "A conductor coordinates timing, starts, endings, balance, dynamics, and interpretation.",
-      "difficulty": 2,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Conducting",
-      "learningOutcome": "Explain the role of conducting gestures in ensemble coordination.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Why should vocalists warm up before a demanding rehearsal?",
-      "options": ["To prepare the voice and reduce strain", "To make written notation unnecessary", "To guarantee perfect pitch without practice", "To replace breathing technique with volume"],
-      "correctAnswer": "To prepare the voice and reduce strain",
-      "explanation": "Warm-ups support healthy tone production, breath control, range, and focus before singing.",
-      "difficulty": 2,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Vocal Health",
-      "learningOutcome": "Apply healthy vocal preparation habits in rehearsal and performance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "What kind of data is usually carried by MIDI?",
-      "options": ["Performance instructions such as pitch, duration, velocity, and controller changes", "Only final stereo audio waves", "Printed lyrics and copyright certificates", "Microphone cable resistance readings"],
-      "correctAnswer": "Performance instructions such as pitch, duration, velocity, and controller changes",
-      "explanation": "MIDI stores and transmits musical performance information rather than recorded sound waves.",
-      "difficulty": 2,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "MIDI Sequencing",
-      "learningOutcome": "Explain how MIDI differs from digital audio recording.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "What does quantization do in a DAW?",
-      "options": ["Aligns recorded MIDI or audio events to a rhythmic grid", "Changes a singer's language automatically", "Deletes all rests from a score", "Prints a copyright licence"],
-      "correctAnswer": "Aligns recorded MIDI or audio events to a rhythmic grid",
-      "explanation": "Quantization corrects timing by moving notes or events closer to selected beat divisions.",
-      "difficulty": 2,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Editing Tools",
-      "learningOutcome": "Use basic editing concepts to improve timing in digital production.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which action best respects a community song used in a school arrangement?",
-      "options": ["Acknowledge the source community and use the song respectfully", "Claim the song was invented alone by the arranger", "Change sacred words for comedy without consultation", "Remove all cultural context from the performance notes"],
-      "correctAnswer": "Acknowledge the source community and use the song respectfully",
-      "explanation": "Responsible arrangement credits sources, respects meaning, and avoids misuse of cultural material.",
-      "difficulty": 2,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Cultural Respect",
-      "learningOutcome": "Demonstrate respectful use of community music in learning projects.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which item is most important in a simple programme note for a school music performance?",
-      "options": ["Brief context, performers, title, and what listeners should notice", "Private phone numbers of all performers", "A list of unrelated sports results", "Only the price of every instrument used"],
-      "correctAnswer": "Brief context, performers, title, and what listeners should notice",
-      "explanation": "Programme notes help an audience understand the work, performers, context, and listening focus.",
-      "difficulty": 2,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Performance Presentation",
-      "learningOutcome": "Prepare informative notes for classroom and public performances.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Which note grouping correctly fills a bar of 6/8 time?",
-      "options": ["One dotted crotchet plus three quavers", "Three crotchets plus one minim", "Two semibreves plus one quaver", "Five crotchets and a rest"],
-      "correctAnswer": "One dotted crotchet plus three quavers",
-      "explanation": "A 6/8 bar contains six quavers, so a dotted crotchet and three quavers make the full bar.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Compound-Time Notation",
-      "learningOutcome": "Apply compound-time values to complete bars accurately.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "A composer wants a dance feel with two strong beats per bar, each subdivided into three. Which time signature fits best?",
-      "options": ["6/8", "3/4", "4/4", "2/2"],
-      "correctAnswer": "6/8",
-      "explanation": "6/8 has two dotted crotchet beats, and each beat divides into three quavers.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Meter Selection",
-      "learningOutcome": "Select suitable time signatures for intended rhythmic character.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "In an ensemble, one player repeats three equal notes while another fits two equal notes into the same beat span. What device is being used?",
-      "options": ["A 3:2 cross-rhythm", "A perfect cadence", "A chromatic scale", "A first-inversion triad"],
-      "correctAnswer": "A 3:2 cross-rhythm",
-      "explanation": "A 3:2 cross-rhythm layers three pulses against two pulses within the same time span.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Cross-Rhythm",
-      "learningOutcome": "Apply rhythmic layering concepts to African and contemporary ensemble patterns.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which revision would make a syncopated rhythm clearer in notation?",
-      "options": ["Tie notes across weak and strong beat positions while preserving the bar value", "Remove all bar lines and time signatures", "Write every note as a semibreve regardless of pulse", "Place accidentals before every rest"],
-      "correctAnswer": "Tie notes across weak and strong beat positions while preserving the bar value",
-      "explanation": "Syncopation is often notated with ties that show accents continuing across expected beat positions.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Syncopated Rhythm",
-      "learningOutcome": "Notate rhythmic displacement accurately within a chosen meter.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "A melody in G major is transposed up a whole tone. Which new key is expected?",
-      "options": ["A major", "F major", "E minor", "C major"],
-      "correctAnswer": "A major",
-      "explanation": "Moving every note of G major up a whole tone gives A major, which has three sharps.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Transposition",
-      "learningOutcome": "Transpose melodies by interval and adjust key signatures correctly.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "What is the relative minor of E flat major?",
-      "options": ["C minor", "E minor", "G minor", "B flat minor"],
-      "correctAnswer": "C minor",
-      "explanation": "C minor shares E flat major's key signature of three flats.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Related Keys",
-      "learningOutcome": "Use key signatures to find relative minor keys.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which notes form the dominant triad in D major?",
-      "options": ["A, C sharp, and E", "D, F sharp, and A", "G, B, and D", "B, D, and F sharp"],
-      "correctAnswer": "A, C sharp, and E",
-      "explanation": "The dominant in D major is built on A, and the A major triad contains A, C sharp, and E.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Functional Harmony",
-      "learningOutcome": "Build primary triads in major keys.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which progression best represents a cadential six-four leading to a perfect cadence in C major?",
-      "options": ["I64 to V to I", "IV to ii to vi", "I to iii to IV", "vi to V to ii"],
-      "correctAnswer": "I64 to V to I",
-      "explanation": "A cadential six-four decorates the dominant before resolving through V to the tonic.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Cadential Harmony",
-      "learningOutcome": "Apply common cadential patterns in harmonisation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "At the end of a phrase in C major, which chord pair would best support a perfect cadence?",
-      "options": ["G major followed by C major", "F major followed by A minor", "C major followed by D minor", "A minor followed by E minor"],
-      "correctAnswer": "G major followed by C major",
-      "explanation": "In C major, G major is chord V and C major is chord I, forming V to I.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Phrase Harmonisation",
-      "learningOutcome": "Choose chord progressions that fit phrase endings.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "In four-part harmony, why are consecutive perfect fifths usually avoided in strict writing?",
-      "options": ["They weaken the independence of the voice parts", "They always change the time signature", "They make the harmony legally protected", "They force every voice into alto clef"],
-      "correctAnswer": "They weaken the independence of the voice parts",
-      "explanation": "Parallel fifths can make two voices sound fused, reducing the independence expected in four-part harmony.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Voice Leading",
-      "learningOutcome": "Apply basic voice-leading conventions in four-part harmony.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "A C major triad is written in first inversion. Which note should be in the bass?",
-      "options": ["E, the third of the chord", "C, the root of the chord", "G, the fifth of the chord", "B, the leading note"],
-      "correctAnswer": "E, the third of the chord",
-      "explanation": "First inversion places the third of the chord in the bass, and E is the third of C major.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Chord Inversions",
-      "learningOutcome": "Apply inversion rules when arranging triads.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "In C major, how should the leading note B normally resolve in a final cadence?",
-      "options": ["Upward to C", "Downward to A", "Sideways to another B", "Downward to F"],
-      "correctAnswer": "Upward to C",
-      "explanation": "The leading note is a semitone below the tonic and normally resolves upward to the tonic in tonal harmony.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Voice Leading",
-      "learningOutcome": "Resolve tendency tones appropriately in tonal cadences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "A piece in C major modulates to the dominant key. Which new key is most likely established?",
-      "options": ["G major", "F major", "A minor", "E flat major"],
-      "correctAnswer": "G major",
-      "explanation": "The dominant key of C major is G major, often confirmed by F sharp and a cadence in G.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Modulation",
-      "learningOutcome": "Identify closely related keys used in simple modulation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "When setting English text to music, which choice usually supports natural word stress?",
-      "options": ["Place strong syllables on strong beats", "Place every syllable on the last beat only", "Ignore punctuation and phrase shape", "Use one pitch for all emotional words"],
-      "correctAnswer": "Place strong syllables on strong beats",
-      "explanation": "Good text setting respects natural speech rhythm by aligning important syllables with musical accents.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Text Setting",
-      "learningOutcome": "Set words to melody using natural stress and phrase shape.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which example best shows word painting?",
-      "options": ["A rising melodic line on the word climb", "A silent bar after every noun", "A key signature copied from another song", "A drum pattern replacing all lyrics"],
-      "correctAnswer": "A rising melodic line on the word climb",
-      "explanation": "Word painting matches musical shape to the meaning of the text.",
-      "difficulty": 3,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Text Expression",
-      "learningOutcome": "Use melodic and rhythmic choices to reflect meaning in lyrics.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "A learner arranges a folk song for voice, drum, and kayamba. Which accompaniment choice is most suitable?",
-      "options": ["Keep a steady pulse and leave space for the vocal call and response", "Cover every vocal phrase with loud continuous drumming", "Change the tempo randomly in each line", "Remove all repeated patterns from the arrangement"],
-      "correctAnswer": "Keep a steady pulse and leave space for the vocal call and response",
-      "explanation": "Effective accompaniment supports the song's structure, dance pulse, and vocal interaction without overpowering them.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Folk Song Arrangement",
-      "learningOutcome": "Arrange accompaniment that supports traditional song features.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "When arranging a song for mixed voices, what should be checked first?",
-      "options": ["Whether each part sits within a comfortable vocal range", "Whether all parts use the same highest note", "Whether the bass line copies the soprano exactly", "Whether every singer changes clef every bar"],
-      "correctAnswer": "Whether each part sits within a comfortable vocal range",
-      "explanation": "Vocal ranges affect tone, accuracy, health, and balance in choral writing.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Choral Arrangement",
-      "learningOutcome": "Write and adapt vocal parts for suitable ranges.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A choir repeatedly sings flat near the end of phrases. Which rehearsal focus is most likely to help?",
-      "options": ["Breath support, listening to the tonal centre, and tuning sustained notes", "Singing louder without listening", "Removing all phrase endings", "Changing every note into percussion claps"],
-      "correctAnswer": "Breath support, listening to the tonal centre, and tuning sustained notes",
-      "explanation": "Flat singing often improves when singers manage breath, hear harmonic context, and tune important sustained pitches.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Intonation",
-      "learningOutcome": "Apply rehearsal strategies to improve ensemble tuning.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "During a rehearsal, the accompaniment hides the solo melody. What is the best musical adjustment?",
-      "options": ["Reduce accompaniment volume and texture so the melody is clear", "Ask the soloist to stop singing permanently", "Add more instruments to play over the melody", "Ignore balance until the final performance"],
-      "correctAnswer": "Reduce accompaniment volume and texture so the melody is clear",
-      "explanation": "Good ensemble balance lets important melodic material be heard without unnecessary force.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Balance and Blend",
-      "learningOutcome": "Adjust ensemble texture and dynamics for clear presentation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "A microphone feeds back during a school performance. Which response should be tried first?",
-      "options": ["Move the microphone away from the loudspeaker path and reduce gain", "Point the microphone directly at the loudspeaker", "Turn every monitor to maximum volume", "Cover the microphone with paper while singing"],
-      "correctAnswer": "Move the microphone away from the loudspeaker path and reduce gain",
-      "explanation": "Feedback occurs when amplified sound re-enters the microphone, so position and gain control are important.",
-      "difficulty": 3,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Live Sound",
-      "learningOutcome": "Apply safe sound reinforcement practices during performance.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "A recorded vocal sounds muddy because low frequencies are too strong. Which mix action is most suitable?",
-      "options": ["Reduce unnecessary low frequencies with equalization", "Add more low bass to every track", "Export the track without listening", "Delete all high-frequency instruments"],
-      "correctAnswer": "Reduce unnecessary low frequencies with equalization",
-      "explanation": "Equalization can reduce excessive low-frequency energy and improve clarity.",
-      "difficulty": 3,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Mixing Basics",
-      "learningOutcome": "Use basic mixing decisions to improve clarity in recorded music.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which form is represented by a first section, contrasting middle section, and return of the first section?",
-      "options": ["Ternary form", "Binary form", "Through-composed form", "Strophic form only"],
-      "correctAnswer": "Ternary form",
-      "explanation": "Ternary form is commonly described as ABA, with a return after contrast.",
-      "difficulty": 3,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Musical Form",
-      "learningOutcome": "Identify common forms from sectional descriptions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "In theme and variations, what normally remains recognisable?",
-      "options": ["The original theme's identity", "Only the concert ticket price", "The microphone brand", "A completely unrelated melody each time"],
-      "correctAnswer": "The original theme's identity",
-      "explanation": "Variations change features such as rhythm, harmony, texture, or ornamentation while keeping the theme identifiable.",
-      "difficulty": 3,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Variation Form",
-      "learningOutcome": "Explain how composers vary a musical idea while preserving identity.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which description best fits rondo form?",
-      "options": ["A recurring main theme alternates with contrasting episodes", "A melody is sung once with no return", "Every performer improvises a different tempo", "Only two identical sections are allowed"],
-      "correctAnswer": "A recurring main theme alternates with contrasting episodes",
-      "explanation": "Rondo form uses a returning refrain, often labelled A, between contrasting sections.",
-      "difficulty": 3,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Rondo Form",
-      "learningOutcome": "Recognize recurring-theme structures in instrumental music.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which sequence names the main large sections of sonata form?",
-      "options": ["Exposition, development, and recapitulation", "Warm-up, rehearsal, and transport", "Verse, bridge, and invoice", "Scale, arpeggio, and copyright"],
-      "correctAnswer": "Exposition, development, and recapitulation",
-      "explanation": "Sonata form usually presents themes, develops them, and returns them in a recapitulation.",
-      "difficulty": 3,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Classical Forms",
-      "learningOutcome": "Outline major formal sections in selected Western classical forms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which set of details would make field documentation of a Kenyan folk song most useful?",
-      "options": ["Community context, function, lyrics translation, instruments, dance, and permission notes", "Only the recorder's favourite colour", "A list of unrelated pop songs", "A random tempo marking without source information"],
-      "correctAnswer": "Community context, function, lyrics translation, instruments, dance, and permission notes",
-      "explanation": "Good documentation records musical, cultural, and ethical information so the song can be studied responsibly.",
-      "difficulty": 3,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Music Documentation",
-      "learningOutcome": "Document music practices with attention to context, meaning, and consent.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "A class adapts a community song for a school event. Which step shows ethical practice?",
-      "options": ["Seek guidance where needed and credit the source tradition in the programme", "Remove all references to the source community", "Present the song as newly invented by the class", "Use sacred material casually without checking meaning"],
-      "correctAnswer": "Seek guidance where needed and credit the source tradition in the programme",
-      "explanation": "Ethical adaptation respects ownership, meaning, permission, and attribution.",
-      "difficulty": 3,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Ethical Adaptation",
-      "learningOutcome": "Apply ethical decision making when adapting cultural music.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which elements are most useful when recording a dance sequence for rehearsal notes?",
-      "options": ["Counts, pathways, formations, gestures, and phrase structure", "Only costume colours and snack prices", "Every performer's unrelated exam marks", "The serial numbers of the speakers"],
-      "correctAnswer": "Counts, pathways, formations, gestures, and phrase structure",
-      "explanation": "Dance rehearsal notes should capture timing, movement direction, grouping, and expression.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Dance Notation and Rehearsal",
-      "learningOutcome": "Document dance movement for accurate rehearsal and performance.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which criteria best support a fair evaluation of a vocal ensemble performance?",
-      "options": ["Intonation, rhythm, diction, balance, expression, and stage discipline", "Only the number of costumes on stage", "The height of the loudspeaker stands", "The popularity of the first performer"],
-      "correctAnswer": "Intonation, rhythm, diction, balance, expression, and stage discipline",
-      "explanation": "Performance evaluation should focus on musical accuracy, communication, ensemble control, and presentation.",
-      "difficulty": 3,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Performance Evaluation",
-      "learningOutcome": "Use musical criteria to evaluate classroom and public performances.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "A group struggles with a fast passage. Which rehearsal plan is most effective?",
-      "options": ["Isolate the passage, practise slowly with steady pulse, then rebuild tempo", "Repeat the whole piece faster each time without feedback", "Skip the passage during every rehearsal", "Ask only the strongest player to perform the entire piece"],
-      "correctAnswer": "Isolate the passage, practise slowly with steady pulse, then rebuild tempo",
-      "explanation": "Focused slow practice helps accuracy before speed and ensemble flow are restored.",
-      "difficulty": 3,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Rehearsal Techniques",
-      "learningOutcome": "Select rehearsal strategies for solving technical and ensemble problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "A learner writes a 9/8 bar as two crotchets, one quaver, and one dotted crotchet. What is the problem?",
-      "options": ["The values add to eight quavers, so the bar is one quaver short", "The values add to twelve quavers, so the bar is too long", "The bar is correct because 9/8 allows any total", "The dotted crotchet must always be silent"],
-      "correctAnswer": "The values add to eight quavers, so the bar is one quaver short",
-      "explanation": "Two crotchets equal four quavers, plus one quaver and one dotted crotchet makes eight quavers, so the 9/8 bar is short by one quaver.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Rhythmic Error Checking",
-      "learningOutcome": "Analyze compound-time notation for accurate bar values.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which evidence most strongly shows that a passage has modulated from C major to G major?",
-      "options": ["F sharp appears repeatedly and the phrase cadences on G", "Middle C appears once in the melody", "The tempo marking changes from andante to allegro", "A rest occurs before the final bar"],
-      "correctAnswer": "F sharp appears repeatedly and the phrase cadences on G",
-      "explanation": "A new leading note and a cadence in the new tonic give strong evidence of modulation.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Modulation Analysis",
-      "learningOutcome": "Analyze melodic and harmonic evidence for key change.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "A melody in A minor needs a strong pull to the final A at a cadence. Which note choice helps most?",
-      "options": ["Use G sharp before the final A", "Use G natural only before the final A", "Avoid the note E in the phrase", "Change the tonic from A to B flat"],
-      "correctAnswer": "Use G sharp before the final A",
-      "explanation": "G sharp is the raised seventh in A harmonic minor and acts as the leading note to A.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Minor-Key Melody",
-      "learningOutcome": "Analyze how raised leading notes strengthen minor-key cadences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A composer wants the first four-bar phrase to ask a question rather than sound final. Which cadence is most suitable?",
-      "options": ["Imperfect cadence", "Perfect cadence", "Plagal cadence", "Interrupted cadence followed by silence only"],
-      "correctAnswer": "Imperfect cadence",
-      "explanation": "An imperfect cadence ends on the dominant and creates expectation for a responding phrase.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Phrase Design",
-      "learningOutcome": "Choose cadences to shape antecedent and consequent phrases.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "In C major, which chords are represented by ii-V-I?",
-      "options": ["D minor, G major, C major", "C major, F major, G major", "A minor, D minor, E minor", "G major, C major, F major"],
-      "correctAnswer": "D minor, G major, C major",
-      "explanation": "The supertonic triad in C major is D minor, followed by dominant G major and tonic C major.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Chord Progressions",
-      "learningOutcome": "Analyze functional chord progressions in major keys.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which chord is the secondary dominant V/V in C major?",
-      "options": ["D major", "F major", "A minor", "E minor"],
-      "correctAnswer": "D major",
-      "explanation": "V/V means the dominant of the dominant; in C major, the dominant is G, and D major is the dominant of G.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Secondary Dominants",
-      "learningOutcome": "Identify applied dominant chords in simple tonal progressions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "In a C major V-I cadence, the soprano has B over the G chord. Which resolution best follows tonal voice leading?",
-      "options": ["Move B up to C", "Move B down to F", "Keep B over the tonic chord", "Leap B down to D sharp"],
-      "correctAnswer": "Move B up to C",
-      "explanation": "B is the leading note in C major and normally resolves upward by step to the tonic.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Cadential Voice Leading",
-      "learningOutcome": "Analyze voice-leading choices at cadences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A melody moves C-D-E while the harmony remains C major and D falls on a weak part of the beat. What is D most likely acting as?",
-      "options": ["Passing note", "Pedal point", "Appoggiatura resolved by leap upward", "New tonic"],
-      "correctAnswer": "Passing note",
-      "explanation": "A passing note fills the stepwise space between two chord tones, often on a weaker part of the beat.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Non-Chord Tones",
-      "learningOutcome": "Identify passing notes and other non-chord tones in melodies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which arrangement choice best supports a Kenyan fusion piece based on a pentatonic folk melody?",
-      "options": ["Keep the melody recognisable while adding an ostinato, drone, and sensitive harmonic colour", "Replace the melody entirely with unrelated chromatic scales", "Remove pulse and community context from the performance", "Use only random sound effects with no structure"],
-      "correctAnswer": "Keep the melody recognisable while adding an ostinato, drone, and sensitive harmonic colour",
-      "explanation": "A respectful fusion arrangement preserves identity while adding new textures and harmony carefully.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Arrangement and Fusion",
-      "learningOutcome": "Analyze arrangement choices that preserve source identity while adding new musical material.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which description best indicates polyphonic texture?",
-      "options": ["Independent melodies are performed at the same time", "All performers clap one identical rhythm only", "A solo melody has block-chord accompaniment", "The music contains no pitch"],
-      "correctAnswer": "Independent melodies are performed at the same time",
-      "explanation": "Polyphony involves simultaneous independent melodic lines that interact with each other.",
-      "difficulty": 4,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Texture Analysis",
-      "learningOutcome": "Differentiate homophonic, polyphonic, monophonic, and heterophonic textures.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Which workflow best supports a reliable digital portfolio recording?",
-      "options": ["Plan takes, set input levels, record cleanly, label files, export, and reflect on improvements", "Record once with clipping and delete the project file", "Ignore microphone distance and export only silence", "Rename every file the same way after mixing"],
-      "correctAnswer": "Plan takes, set input levels, record cleanly, label files, export, and reflect on improvements",
-      "explanation": "A portfolio needs organized files, controlled recording levels, usable exports, and evidence of reflection.",
-      "difficulty": 4,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Digital Portfolio Production",
-      "learningOutcome": "Analyze production steps needed for a clear and assessable music portfolio.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "A learner wants to use a commercial beat in an original song for public posting. What is the safest legal choice?",
-      "options": ["Use a licensed beat or obtain permission before posting", "Assume all online beats are free for any use", "Hide the producer's name and post quickly", "Change only the file name to avoid copyright"],
-      "correctAnswer": "Use a licensed beat or obtain permission before posting",
-      "explanation": "Public use of copyrighted beats requires permission, a licence, or a clearly reusable source.",
-      "difficulty": 4,
-      "strandTitle": "Music in Society and Enterprise",
-      "subStrandTitle": "Music Rights and Licensing",
-      "learningOutcome": "Analyze copyright risks and choose lawful music-use options.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which sampling practice is most ethical when using a recorded community chant?",
-      "options": ["Seek consent, credit the source, respect context, and transform the sample responsibly", "Use the recording secretly because it was easy to find", "Remove the source details to make it seem original", "Mock the chant to make the track more entertaining"],
-      "correctAnswer": "Seek consent, credit the source, respect context, and transform the sample responsibly",
-      "explanation": "Ethical sampling considers permission, attribution, cultural meaning, and responsible creative use.",
-      "difficulty": 4,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Sampling and Cultural Context",
-      "learningOutcome": "Evaluate ethical choices when reusing recorded cultural material.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Drums overpower singers in a dance performance. Which combined solution is most musical?",
-      "options": ["Adjust drum dynamics, staging, microphone gain, and arrangement density", "Ask singers to shout through the whole piece", "Remove all dancers from the stage", "Ignore the issue because drums are always the main melody"],
-      "correctAnswer": "Adjust drum dynamics, staging, microphone gain, and arrangement density",
-      "explanation": "Balance problems are solved through musical dynamics, space, amplification, and texture decisions.",
-      "difficulty": 4,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Stage Balance",
-      "learningOutcome": "Analyze ensemble balance problems and recommend practical solutions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A composer repeats a short motif starting one step higher each time. Which development technique is being used?",
-      "options": ["Sequence", "Inversion", "Retrograde", "Diminution"],
-      "correctAnswer": "Sequence",
-      "explanation": "A sequence repeats a motif at a different pitch level, often stepwise or by a consistent interval.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Motivic Development",
-      "learningOutcome": "Analyze techniques used to develop melodic motifs.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "An eight-bar melody has a four-bar question phrase followed by a four-bar answering phrase. What structure does this show?",
-      "options": ["Antecedent and consequent phrase balance", "Only a one-bar ostinato", "A random sequence with no cadence", "A twelve-bar blues pattern"],
-      "correctAnswer": "Antecedent and consequent phrase balance",
-      "explanation": "Question and answer phrasing creates balanced antecedent and consequent units.",
-      "difficulty": 4,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Melodic Form",
-      "learningOutcome": "Analyze phrase balance in original and studied melodies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which instrument combination gives clear timbral contrast in a small Kenyan-inspired ensemble?",
-      "options": ["Voice, nyatiti, kayamba, and hand drum", "Four identical recorders playing the same pitch only", "Only two silent microphones", "A choir with no rhythmic or melodic contrast"],
-      "correctAnswer": "Voice, nyatiti, kayamba, and hand drum",
-      "explanation": "The combination contrasts vocal tone, string resonance, shaken idiophone colour, and drum timbre.",
-      "difficulty": 4,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Timbre and Instrumentation",
-      "learningOutcome": "Evaluate instrumentation choices for colour, balance, and cultural fit.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which production plan best supports safety in a dance performance?",
-      "options": ["Check space, warm up, secure costumes, plan entrances, and manage hydration", "Practise jumps on a slippery floor without warm-up", "Block exits with props for dramatic effect", "Use loose cables across the dancing area"],
-      "correctAnswer": "Check space, warm up, secure costumes, plan entrances, and manage hydration",
-      "explanation": "Safe dance production manages bodies, space, costume, movement pathways, and backstage conditions.",
-      "difficulty": 4,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Dance Production Safety",
-      "learningOutcome": "Evaluate performance plans for safety and stage readiness.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which programme-note content would best guide an audience listening to a classical movement?",
-      "options": ["Composer, period, form, main themes, and key listening features", "Only the page number of the score", "A list of unrelated football teams", "The colour of the rehearsal room door"],
-      "correctAnswer": "Composer, period, form, main themes, and key listening features",
-      "explanation": "Useful notes connect the music to context, structure, and what the audience can hear.",
-      "difficulty": 4,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Listening Guides",
-      "learningOutcome": "Analyze information needed to support informed music listening.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "A DAW mix is clipping because the master meter goes above 0 dBFS. What should the producer do?",
-      "options": ["Lower track or bus levels and leave headroom before exporting", "Raise every fader to make the distortion clearer", "Add more tracks without adjusting gain", "Export only the clipped section at a higher level"],
-      "correctAnswer": "Lower track or bus levels and leave headroom before exporting",
-      "explanation": "Digital clipping causes distortion, so proper gain staging and headroom are needed before export.",
-      "difficulty": 4,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Gain Staging",
-      "learningOutcome": "Analyze level problems in digital mixes and select corrective actions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A 16-bar song in C major must modulate smoothly to G major by bar 8. Which plan is strongest?",
-      "options": ["Use a shared chord such as C or Em, introduce F sharp, and cadence clearly in G", "Jump randomly to E flat major without preparation", "Avoid all cadences until the final bar", "Use only percussion so the key cannot be heard"],
-      "correctAnswer": "Use a shared chord such as C or Em, introduce F sharp, and cadence clearly in G",
-      "explanation": "A smooth modulation uses pivot material, the new leading note, and a cadence that confirms the new key.",
-      "difficulty": 5,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Planned Modulation",
-      "learningOutcome": "Create a tonal plan that moves coherently between closely related keys.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which revision best improves a four-part harmonisation with parallel fifths and awkward soprano leaps?",
-      "options": ["Rewrite inner voices for contrary motion and keep the soprano mostly stepwise within range", "Double every leading note and keep all leaps", "Move all voices in the same perfect fifths louder", "Remove the bass line from every cadence"],
-      "correctAnswer": "Rewrite inner voices for contrary motion and keep the soprano mostly stepwise within range",
-      "explanation": "Good revision protects voice independence, singable ranges, and smooth melodic motion.",
-      "difficulty": 5,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Harmony Revision",
-      "learningOutcome": "Evaluate and improve four-part harmony for range, doubling, and voice leading.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which approach best creates a respectful jazz-influenced arrangement of a Kenyan folk tune?",
-      "options": ["Preserve the tune and function while adding tasteful reharmonisation, swing feel, and credited context", "Replace the tune with unrelated jazz licks and hide the source", "Use sacred text for comic effect without permission", "Make every performer improvise in a different key"],
-      "correctAnswer": "Preserve the tune and function while adding tasteful reharmonisation, swing feel, and credited context",
-      "explanation": "A strong fusion arrangement balances creativity with recognisable source material and respectful attribution.",
-      "difficulty": 5,
-      "strandTitle": "Music Theory and Composition",
-      "subStrandTitle": "Creative Arrangement",
-      "learningOutcome": "Create arrangements that combine stylistic influence with source integrity.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which research plan is most suitable before documenting a community music practice?",
-      "options": ["Seek consent, record context accurately, translate key text, store files safely, and share findings respectfully", "Record secretly and publish before asking questions", "Write only personal guesses about the music", "Collect names but ignore the function of the songs"],
-      "correctAnswer": "Seek consent, record context accurately, translate key text, store files safely, and share findings respectfully",
-      "explanation": "Responsible research protects participants, context, data, and community relationships.",
-      "difficulty": 5,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Community Music Research",
-      "learningOutcome": "Design ethical research methods for documenting music in society.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "A class ensemble includes beginners and advanced players. Which arrangement plan is most inclusive and musical?",
-      "options": ["Give differentiated parts that share the same pulse, form, and performance goal", "Give only the advanced players all audible parts", "Make beginners mime silently throughout", "Change the tempo whenever a learner struggles"],
-      "correctAnswer": "Give differentiated parts that share the same pulse, form, and performance goal",
-      "explanation": "Inclusive arranging lets learners contribute at suitable challenge levels while maintaining ensemble unity.",
-      "difficulty": 5,
-      "strandTitle": "Performance and Ensemble Skills",
-      "subStrandTitle": "Inclusive Ensemble Arrangement",
-      "learningOutcome": "Create ensemble parts that support varied skill levels and shared musical purpose.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A learner is designing a short game soundtrack cue for suspense. Which musical plan is most effective?",
-      "options": ["Use a minor mode, repeating ostinato, gradual dynamic build, and controlled dissonance", "Use only a final perfect cadence at full volume from the first second", "Avoid rhythm, texture, and contrast entirely", "Use a cheerful major nursery melody with no variation"],
-      "correctAnswer": "Use a minor mode, repeating ostinato, gradual dynamic build, and controlled dissonance",
-      "explanation": "Suspense can be shaped through mode, repetition, tension, texture, and dynamic growth.",
-      "difficulty": 5,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Music for Media",
-      "learningOutcome": "Create musical cues that support mood and function in media contexts.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A group learns that a song element planned for entertainment is sacred in its source community. What should they do?",
-      "options": ["Pause the use, seek guidance, and choose a permitted non-sacred alternative if needed", "Use it more loudly because the audience may not know", "Remove the community name and continue", "Mock the sacred element to show originality"],
-      "correctAnswer": "Pause the use, seek guidance, and choose a permitted non-sacred alternative if needed",
-      "explanation": "Respectful musicianship responds to cultural meaning and avoids misuse of restricted material.",
-      "difficulty": 5,
-      "strandTitle": "Music in Society and Culture",
-      "subStrandTitle": "Cultural Ethics",
-      "learningOutcome": "Evaluate cultural restrictions and create respectful performance decisions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which live sound plan is best for a small school concert with vocals, keyboard, guitar, and drums?",
-      "options": ["List inputs, set gain for each channel, place monitors safely, check feedback, and prepare backup cables", "Use one overloaded microphone for every source", "Skip sound check and adjust only after the concert", "Point all speakers at the microphones to increase presence"],
-      "correctAnswer": "List inputs, set gain for each channel, place monitors safely, check feedback, and prepare backup cables",
-      "explanation": "A reliable sound plan manages inputs, gain staging, monitoring, feedback risk, and contingency needs.",
-      "difficulty": 5,
-      "strandTitle": "Music Technology and Production",
-      "subStrandTitle": "Concert Sound Planning",
-      "learningOutcome": "Create practical sound reinforcement plans for school performance contexts.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which rubric would best assess a Grade 11 original composition?",
-      "options": ["Melody, rhythm, harmony, form, notation, creativity, performance feasibility, and reflection", "Only how loudly the piece can be played", "Only the number of pages in the score", "Costume design and poster colour without musical criteria"],
-      "correctAnswer": "Melody, rhythm, harmony, form, notation, creativity, performance feasibility, and reflection",
-      "explanation": "Composition assessment should balance technical craft, creativity, clarity, practical performance, and learner reflection.",
-      "difficulty": 5,
-      "strandTitle": "Critical Appreciation and Analysis",
-      "subStrandTitle": "Composition Assessment",
-      "learningOutcome": "Create criteria for evaluating original compositions fairly.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "A learner wants to release an original song professionally. Which plan is most production-ready?",
-      "options": ["Confirm ownership, register rights where applicable, prepare metadata, choose distribution, budget promotion, and track royalties", "Upload an unlabeled file with no creator information", "Use another artist's melody without permission", "Ignore royalties because online music cannot earn income"],
-      "correctAnswer": "Confirm ownership, register rights where applicable, prepare metadata, choose distribution, budget promotion, and track royalties",
-      "explanation": "Professional release planning combines legal ownership, accurate metadata, distribution choices, promotion, and income tracking.",
-      "difficulty": 5,
-      "strandTitle": "Music in Society and Enterprise",
-      "subStrandTitle": "Music Entrepreneurship",
-      "learningOutcome": "Create a responsible plan for releasing and managing original music.",
-      "cognitiveLevel": "create",
-      "featureTags": ["take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 11",
+ "subjectId": "music",
+ "subjectName": "Music",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "In 6/8 time, how many main beats are normally felt in one bar?",
+   "options": [
+    "Two dotted crotchet beats",
+    "Six minim beats",
+    "Three semibreve beats",
+    "One quaver beat"
+   ],
+   "correctAnswer": "Two dotted crotchet beats",
+   "explanation": "6/8 is compound duple time, so the six quavers are normally felt as two dotted crotchet beats.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Compound Time",
+   "learningOutcome": "Identify beat groupings in compound time signatures.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "How many semiquavers equal one dotted quaver?",
+   "options": [
+    "Three",
+    "Two",
+    "Four",
+    "Six"
+   ],
+   "correctAnswer": "Three",
+   "explanation": "A dotted quaver equals a quaver plus half its value, which is three semiquavers.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Rhythmic Values",
+   "learningOutcome": "Relate dotted notes to equivalent shorter note values.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which degree of a major scale is called the dominant?",
+   "options": [
+    "Fifth degree",
+    "Second degree",
+    "Sixth degree",
+    "Seventh degree"
+   ],
+   "correctAnswer": "Fifth degree",
+   "explanation": "The dominant is the fifth degree of a major or minor scale and strongly leads back to the tonic.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Scale Degrees",
+   "learningOutcome": "Name functional degrees of major and minor scales.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "What change creates the harmonic minor scale from the natural minor scale?",
+   "options": [
+    "Raise the seventh degree",
+    "Lower the third degree",
+    "Raise the fourth degree",
+    "Remove the leading note"
+   ],
+   "correctAnswer": "Raise the seventh degree",
+   "explanation": "The harmonic minor scale raises the seventh degree to create a stronger leading note to the tonic.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Minor Scales",
+   "learningOutcome": "Distinguish natural and harmonic minor scale forms.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "What is the relative minor of C major?",
+   "options": [
+    "A minor",
+    "C minor",
+    "E minor",
+    "G minor"
+   ],
+   "correctAnswer": "A minor",
+   "explanation": "A minor shares the same key signature as C major, with no sharps or flats.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Related Keys",
+   "learningOutcome": "Identify relative major and minor keys from key signatures.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which chord movement forms a perfect cadence?",
+   "options": [
+    "V to I",
+    "IV to I",
+    "I to V",
+    "ii to IV"
+   ],
+   "correctAnswer": "V to I",
+   "explanation": "A perfect cadence moves from the dominant chord to the tonic chord and gives a strong sense of closure.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Cadences",
+   "learningOutcome": "Recognize common cadences by chord movement.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "A basic triad is built from which three chord tones?",
+   "options": [
+    "Root, third, and fifth",
+    "Root, second, and fourth",
+    "Third, sixth, and seventh",
+    "Second, fifth, and octave"
+   ],
+   "correctAnswer": "Root, third, and fifth",
+   "explanation": "A triad stacks two thirds above a root, producing the root, third, and fifth.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Triads",
+   "learningOutcome": "Identify the chord tones that form major and minor triads.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "In alto clef, which staff line represents middle C?",
+   "options": [
+    "The third line",
+    "The first line",
+    "The fourth line",
+    "The fifth line"
+   ],
+   "correctAnswer": "The third line",
+   "explanation": "The alto clef is a C clef that places middle C on the middle, or third, line of the staff.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Clefs and Staff Notation",
+   "learningOutcome": "Read pitch positions in treble, bass, and alto clefs.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "What does a staccato mark tell a performer to do?",
+   "options": [
+    "Play the note short and detached",
+    "Play the note gradually louder",
+    "Hold the note longer than written",
+    "Repeat the whole section from the start"
+   ],
+   "correctAnswer": "Play the note short and detached",
+   "explanation": "Staccato articulation shortens and separates notes without changing their written pitch.",
+   "difficulty": 1,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Articulation",
+   "learningOutcome": "Interpret common articulation marks in performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "What does crescendo mean in a musical score?",
+   "options": [
+    "Gradually becoming louder",
+    "Gradually becoming slower",
+    "Suddenly becoming silent",
+    "Repeating softly from the beginning"
+   ],
+   "correctAnswer": "Gradually becoming louder",
+   "explanation": "Crescendo is a dynamic instruction that asks performers to increase volume gradually.",
+   "difficulty": 1,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Dynamics",
+   "learningOutcome": "Apply common dynamic terms and symbols in performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which family best describes the nyatiti used by Luo musicians?",
+   "options": [
+    "Lyre",
+    "Trumpet",
+    "Xylophone",
+    "Flute"
+   ],
+   "correctAnswer": "Lyre",
+   "explanation": "The nyatiti is an eight-string lyre traditionally associated with Luo music making.",
+   "difficulty": 1,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Kenyan Indigenous Instruments",
+   "learningOutcome": "Classify selected Kenyan indigenous instruments by type and community context.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which term best classifies the kayamba when it is played by shaking?",
+   "options": [
+    "Idiophone",
+    "Aerophone",
+    "Chordophone",
+    "Membranophone"
+   ],
+   "correctAnswer": "Idiophone",
+   "explanation": "A kayamba produces sound through the vibration of its own body and seeds, so it is an idiophone.",
+   "difficulty": 1,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Instrument Classification",
+   "learningOutcome": "Classify instruments using standard sound-production categories.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What information does a key signature give at the beginning of a staff?",
+   "options": [
+    "The sharps or flats normally used in the key",
+    "The exact tempo of every bar",
+    "The number of performers required",
+    "The title of the composition"
+   ],
+   "correctAnswer": "The sharps or flats normally used in the key",
+   "explanation": "A key signature places sharps or flats after the clef to show the tonal centre and expected accidentals.",
+   "difficulty": 1,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Key Signatures",
+   "learningOutcome": "Read and interpret common key signatures.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "In music enterprise, what does copyright mainly protect?",
+   "options": [
+    "Original musical works and related creative rights",
+    "Only the colour of an album cover",
+    "Every public-domain folk melody forever",
+    "A performer's school timetable"
+   ],
+   "correctAnswer": "Original musical works and related creative rights",
+   "explanation": "Copyright protects original creative works and helps creators control use, copying, performance, and distribution.",
+   "difficulty": 1,
+   "strandTitle": "Music in Society and Enterprise",
+   "subStrandTitle": "Copyright and Intellectual Property",
+   "learningOutcome": "Explain basic copyright rights and responsibilities in music.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "What does DAW stand for in music production?",
+   "options": [
+    "Digital Audio Workstation",
+    "Dynamic Acoustic Writing",
+    "Direct Amplifier Wave",
+    "Dance Arrangement Workshop"
+   ],
+   "correctAnswer": "Digital Audio Workstation",
+   "explanation": "A Digital Audio Workstation is software used to record, edit, arrange, and mix music.",
+   "difficulty": 1,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Digital Production Tools",
+   "learningOutcome": "Identify common digital tools used in music recording and editing.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Why is 9/8 described as compound triple time?",
+   "options": [
+    "It has three main beats, each dividing into three quavers",
+    "It has nine separate crotchet beats",
+    "It always has three bars in each phrase",
+    "It can only be played by three instruments"
+   ],
+   "correctAnswer": "It has three main beats, each dividing into three quavers",
+   "explanation": "The nine quavers in 9/8 are normally grouped as three dotted crotchet beats.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Compound Time",
+   "learningOutcome": "Explain how compound time signatures group beats and subdivisions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which statement best describes syncopation?",
+   "options": [
+    "Emphasis placed on weak beats or offbeats",
+    "A melody sung only in unison",
+    "A chord built only from perfect fifths",
+    "A tempo that never changes"
+   ],
+   "correctAnswer": "Emphasis placed on weak beats or offbeats",
+   "explanation": "Syncopation shifts accent away from expected strong beats and creates rhythmic tension.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Rhythmic Devices",
+   "learningOutcome": "Describe rhythmic devices used in composition and performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "How is a tie different from a slur?",
+   "options": [
+    "A tie joins same-pitch notes into one longer sound",
+    "A tie marks notes to be played more loudly",
+    "A tie connects different pitches smoothly",
+    "A tie changes a major key to minor"
+   ],
+   "correctAnswer": "A tie joins same-pitch notes into one longer sound",
+   "explanation": "A tie extends the duration of notes with the same pitch, while a slur groups different notes for smooth articulation.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Notation Symbols",
+   "learningOutcome": "Distinguish common notation marks and their performance meanings.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "What is an anacrusis in a melody?",
+   "options": [
+    "A pickup note or notes before the first full bar",
+    "A chord written only at the final cadence",
+    "A rest that cancels the time signature",
+    "A repeated bass note throughout a piece"
+   ],
+   "correctAnswer": "A pickup note or notes before the first full bar",
+   "explanation": "An anacrusis leads into the first complete measure and is often balanced by a shortened final bar.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Melodic Structure",
+   "learningOutcome": "Identify structural features used at the opening of melodies.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "In compound time, how does each main beat usually divide?",
+   "options": [
+    "Into three equal parts",
+    "Into two unequal parts",
+    "Into four bars",
+    "Into one whole note only"
+   ],
+   "correctAnswer": "Into three equal parts",
+   "explanation": "Compound beats are dotted beats that naturally divide into three equal subdivisions.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Beat Subdivision",
+   "learningOutcome": "Compare simple and compound beat subdivision.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which scale form raises the sixth and seventh degrees when ascending in common classical practice?",
+   "options": [
+    "Melodic minor",
+    "Natural minor",
+    "Whole-tone scale",
+    "Major pentatonic"
+   ],
+   "correctAnswer": "Melodic minor",
+   "explanation": "The melodic minor form commonly raises the sixth and seventh degrees ascending to create smoother melodic motion.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Minor Scales",
+   "learningOutcome": "Explain the construction and use of melodic minor scales.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which notes form a dominant seventh chord from root position?",
+   "options": [
+    "Root, third, fifth, and minor seventh",
+    "Root, second, fourth, and sixth",
+    "Root, fourth, fifth, and octave",
+    "Third, fifth, sixth, and major seventh"
+   ],
+   "correctAnswer": "Root, third, fifth, and minor seventh",
+   "explanation": "A dominant seventh chord is a major triad with an added minor seventh above the root.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Seventh Chords",
+   "learningOutcome": "Describe the structure of dominant seventh chords.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "In first inversion, which note of a triad is in the bass?",
+   "options": [
+    "The third",
+    "The root",
+    "The fifth",
+    "The seventh"
+   ],
+   "correctAnswer": "The third",
+   "explanation": "A first-inversion triad places the third of the chord as the lowest sounding note.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Chord Inversions",
+   "learningOutcome": "Identify triad inversions from the bass note.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which chord movement forms a plagal cadence?",
+   "options": [
+    "IV to I",
+    "V to I",
+    "I to ii",
+    "vi to iii"
+   ],
+   "correctAnswer": "IV to I",
+   "explanation": "A plagal cadence moves from the subdominant chord to the tonic chord.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Cadences",
+   "learningOutcome": "Compare perfect, plagal, imperfect, and interrupted cadences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "What is the main effect of an imperfect cadence?",
+   "options": [
+    "It leaves the phrase feeling unfinished on the dominant",
+    "It gives final closure on the tonic",
+    "It changes every note into a triplet",
+    "It removes the need for harmony"
+   ],
+   "correctAnswer": "It leaves the phrase feeling unfinished on the dominant",
+   "explanation": "An imperfect cadence ends on chord V, creating a pause that expects continuation.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Phrase Endings",
+   "learningOutcome": "Explain how cadence choice affects phrase direction.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "A B flat clarinet sounds how when compared with its written pitch?",
+   "options": [
+    "A major second lower",
+    "A perfect fifth higher",
+    "The same pitch",
+    "An octave and a third lower"
+   ],
+   "correctAnswer": "A major second lower",
+   "explanation": "A written C on a B flat clarinet sounds as concert B flat, which is a major second lower.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Transposing Instruments",
+   "learningOutcome": "Describe the sounding relationship of common transposing instruments.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "What is a practical use of the circle of fifths?",
+   "options": [
+    "Finding related keys and key signatures",
+    "Measuring stage lighting levels",
+    "Counting performers in a choir",
+    "Changing every melody into a drum pattern"
+   ],
+   "correctAnswer": "Finding related keys and key signatures",
+   "explanation": "The circle of fifths shows relationships among keys and the order of sharps and flats.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Key Relationships",
+   "learningOutcome": "Use the circle of fifths to understand related keys.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "How many different pitch classes are used in a pentatonic scale?",
+   "options": [
+    "Five",
+    "Four",
+    "Seven",
+    "Twelve"
+   ],
+   "correctAnswer": "Five",
+   "explanation": "The word pentatonic refers to a five-note scale, common in many folk and popular music traditions.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Scales and Modes",
+   "learningOutcome": "Identify scale types used in classroom composition and cultural music.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which description best matches homophonic texture?",
+   "options": [
+    "One main melody supported by accompaniment",
+    "Several unrelated melodies at the same time",
+    "Only unpitched percussion sounds",
+    "Complete silence between every note"
+   ],
+   "correctAnswer": "One main melody supported by accompaniment",
+   "explanation": "Homophony features a clear principal melody with harmonic or rhythmic support.",
+   "difficulty": 2,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Musical Texture",
+   "learningOutcome": "Identify musical textures in written descriptions and scores.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "What happens in antiphonal singing?",
+   "options": [
+    "Two groups or voices answer each other",
+    "All singers remain silent while drums play",
+    "One person sings without any response",
+    "Every phrase is sung backwards"
+   ],
+   "correctAnswer": "Two groups or voices answer each other",
+   "explanation": "Antiphonal performance uses alternation between groups, soloists, or sections.",
+   "difficulty": 2,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Vocal Ensemble Techniques",
+   "learningOutcome": "Describe ensemble techniques used in choral and community music.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which statement best describes call and response?",
+   "options": [
+    "A leader sings or plays a phrase and a group answers",
+    "A soloist repeats scales without accompaniment",
+    "The audience leaves before a song ends",
+    "A performer changes instruments after every beat"
+   ],
+   "correctAnswer": "A leader sings or plays a phrase and a group answers",
+   "explanation": "Call and response creates musical dialogue and is common in many African performance traditions.",
+   "difficulty": 2,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "African Performance Practices",
+   "learningOutcome": "Explain participatory structures in African music making.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "What is polyrhythm?",
+   "options": [
+    "Two or more contrasting rhythms performed together",
+    "One long note held without change",
+    "A melody using only two pitches",
+    "A chord progression without rhythm"
+   ],
+   "correctAnswer": "Two or more contrasting rhythms performed together",
+   "explanation": "Polyrhythm layers different rhythmic patterns so they interact within the same pulse.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Rhythmic Texture",
+   "learningOutcome": "Describe layered rhythmic practices in African and contemporary music.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "What is an ostinato?",
+   "options": [
+    "A repeated musical pattern",
+    "A sudden change of clef",
+    "A silent rehearsal instruction",
+    "A scale with no tonic"
+   ],
+   "correctAnswer": "A repeated musical pattern",
+   "explanation": "An ostinato is a repeated rhythm, melody, or harmonic pattern that can organize a composition.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Compositional Devices",
+   "learningOutcome": "Identify repeated devices used to build musical structure.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which statement best describes a drone in music?",
+   "options": [
+    "A sustained or repeated pitch supporting the melody",
+    "A final page of lyrics",
+    "A tempo marking meaning fast",
+    "A group of unrelated accidentals"
+   ],
+   "correctAnswer": "A sustained or repeated pitch supporting the melody",
+   "explanation": "A drone provides a continuous tonal reference, often on the tonic or dominant.",
+   "difficulty": 2,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Accompaniment Patterns",
+   "learningOutcome": "Describe accompaniment devices used in folk and contemporary arrangements.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "What is one main responsibility of a conductor during ensemble performance?",
+   "options": [
+    "Giving tempo, entries, cutoffs, and expressive cues",
+    "Writing every performer's examination number",
+    "Replacing all instrumental parts with lyrics",
+    "Changing the key after each bar without warning"
+   ],
+   "correctAnswer": "Giving tempo, entries, cutoffs, and expressive cues",
+   "explanation": "A conductor coordinates timing, starts, endings, balance, dynamics, and interpretation.",
+   "difficulty": 2,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Conducting",
+   "learningOutcome": "Explain the role of conducting gestures in ensemble coordination.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Why should vocalists warm up before a demanding rehearsal?",
+   "options": [
+    "To prepare the voice and reduce strain",
+    "To make written notation unnecessary",
+    "To guarantee perfect pitch without practice",
+    "To replace breathing technique with volume"
+   ],
+   "correctAnswer": "To prepare the voice and reduce strain",
+   "explanation": "Warm-ups support healthy tone production, breath control, range, and focus before singing.",
+   "difficulty": 2,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Vocal Health",
+   "learningOutcome": "Apply healthy vocal preparation habits in rehearsal and performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "What kind of data is usually carried by MIDI?",
+   "options": [
+    "Performance instructions such as pitch, duration, velocity, and controller changes",
+    "Only final stereo audio waves",
+    "Printed lyrics and copyright certificates",
+    "Microphone cable resistance readings"
+   ],
+   "correctAnswer": "Performance instructions such as pitch, duration, velocity, and controller changes",
+   "explanation": "MIDI stores and transmits musical performance information rather than recorded sound waves.",
+   "difficulty": 2,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "MIDI Sequencing",
+   "learningOutcome": "Explain how MIDI differs from digital audio recording.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "What does quantization do in a DAW?",
+   "options": [
+    "Aligns recorded MIDI or audio events to a rhythmic grid",
+    "Changes a singer's language automatically",
+    "Deletes all rests from a score",
+    "Prints a copyright licence"
+   ],
+   "correctAnswer": "Aligns recorded MIDI or audio events to a rhythmic grid",
+   "explanation": "Quantization corrects timing by moving notes or events closer to selected beat divisions.",
+   "difficulty": 2,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Editing Tools",
+   "learningOutcome": "Use basic editing concepts to improve timing in digital production.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which action best respects a community song used in a school arrangement?",
+   "options": [
+    "Acknowledge the source community and use the song respectfully",
+    "Claim the song was invented alone by the arranger",
+    "Change sacred words for comedy without consultation",
+    "Remove all cultural context from the performance notes"
+   ],
+   "correctAnswer": "Acknowledge the source community and use the song respectfully",
+   "explanation": "Responsible arrangement credits sources, respects meaning, and avoids misuse of cultural material.",
+   "difficulty": 2,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Cultural Respect",
+   "learningOutcome": "Demonstrate respectful use of community music in learning projects.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which item is most important in a simple programme note for a school music performance?",
+   "options": [
+    "Brief context, performers, title, and what listeners should notice",
+    "Private phone numbers of all performers",
+    "A list of unrelated sports results",
+    "Only the price of every instrument used"
+   ],
+   "correctAnswer": "Brief context, performers, title, and what listeners should notice",
+   "explanation": "Programme notes help an audience understand the work, performers, context, and listening focus.",
+   "difficulty": 2,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Performance Presentation",
+   "learningOutcome": "Prepare informative notes for classroom and public performances.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Which note grouping correctly fills a bar of 6/8 time?",
+   "options": [
+    "One dotted crotchet plus three quavers",
+    "Three crotchets plus one minim",
+    "Two semibreves plus one quaver",
+    "Five crotchets and a rest"
+   ],
+   "correctAnswer": "One dotted crotchet plus three quavers",
+   "explanation": "A 6/8 bar contains six quavers, so a dotted crotchet and three quavers make the full bar.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Compound-Time Notation",
+   "learningOutcome": "Apply compound-time values to complete bars accurately.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "A composer wants a dance feel with two strong beats per bar, each subdivided into three. Which time signature fits best?",
+   "options": [
+    "6/8",
+    "3/4",
+    "4/4",
+    "2/2"
+   ],
+   "correctAnswer": "6/8",
+   "explanation": "6/8 has two dotted crotchet beats, and each beat divides into three quavers.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Meter Selection",
+   "learningOutcome": "Select suitable time signatures for intended rhythmic character.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "In an ensemble, one player repeats three equal notes while another fits two equal notes into the same beat span. What device is being used?",
+   "options": [
+    "A 3:2 cross-rhythm",
+    "A perfect cadence",
+    "A chromatic scale",
+    "A first-inversion triad"
+   ],
+   "correctAnswer": "A 3:2 cross-rhythm",
+   "explanation": "A 3:2 cross-rhythm layers three pulses against two pulses within the same time span.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Cross-Rhythm",
+   "learningOutcome": "Apply rhythmic layering concepts to African and contemporary ensemble patterns.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which revision would make a syncopated rhythm clearer in notation?",
+   "options": [
+    "Tie notes across weak and strong beat positions while preserving the bar value",
+    "Remove all bar lines and time signatures",
+    "Write every note as a semibreve regardless of pulse",
+    "Place accidentals before every rest"
+   ],
+   "correctAnswer": "Tie notes across weak and strong beat positions while preserving the bar value",
+   "explanation": "Syncopation is often notated with ties that show accents continuing across expected beat positions.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Syncopated Rhythm",
+   "learningOutcome": "Notate rhythmic displacement accurately within a chosen meter.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "A melody in G major is transposed up a whole tone. Which new key is expected?",
+   "options": [
+    "A major",
+    "F major",
+    "E minor",
+    "C major"
+   ],
+   "correctAnswer": "A major",
+   "explanation": "Moving every note of G major up a whole tone gives A major, which has three sharps.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Transposition",
+   "learningOutcome": "Transpose melodies by interval and adjust key signatures correctly.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "What is the relative minor of E flat major?",
+   "options": [
+    "C minor",
+    "E minor",
+    "G minor",
+    "B flat minor"
+   ],
+   "correctAnswer": "C minor",
+   "explanation": "C minor shares E flat major's key signature of three flats.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Related Keys",
+   "learningOutcome": "Use key signatures to find relative minor keys.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which notes form the dominant triad in D major?",
+   "options": [
+    "A, C sharp, and E",
+    "D, F sharp, and A",
+    "G, B, and D",
+    "B, D, and F sharp"
+   ],
+   "correctAnswer": "A, C sharp, and E",
+   "explanation": "The dominant in D major is built on A, and the A major triad contains A, C sharp, and E.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Functional Harmony",
+   "learningOutcome": "Build primary triads in major keys.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which progression best represents a cadential six-four leading to a perfect cadence in C major?",
+   "options": [
+    "I64 to V to I",
+    "IV to ii to vi",
+    "I to iii to IV",
+    "vi to V to ii"
+   ],
+   "correctAnswer": "I64 to V to I",
+   "explanation": "A cadential six-four decorates the dominant before resolving through V to the tonic.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Cadential Harmony",
+   "learningOutcome": "Apply common cadential patterns in harmonisation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "At the end of a phrase in C major, which chord pair would best support a perfect cadence?",
+   "options": [
+    "G major followed by C major",
+    "F major followed by A minor",
+    "C major followed by D minor",
+    "A minor followed by E minor"
+   ],
+   "correctAnswer": "G major followed by C major",
+   "explanation": "In C major, G major is chord V and C major is chord I, forming V to I.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Phrase Harmonisation",
+   "learningOutcome": "Choose chord progressions that fit phrase endings.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "In four-part harmony, why are consecutive perfect fifths usually avoided in strict writing?",
+   "options": [
+    "They weaken the independence of the voice parts",
+    "They always change the time signature",
+    "They make the harmony legally protected",
+    "They force every voice into alto clef"
+   ],
+   "correctAnswer": "They weaken the independence of the voice parts",
+   "explanation": "Parallel fifths can make two voices sound fused, reducing the independence expected in four-part harmony.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Voice Leading",
+   "learningOutcome": "Apply basic voice-leading conventions in four-part harmony.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A C major triad is written in first inversion. Which note should be in the bass?",
+   "options": [
+    "E, the third of the chord",
+    "C, the root of the chord",
+    "G, the fifth of the chord",
+    "B, the leading note"
+   ],
+   "correctAnswer": "E, the third of the chord",
+   "explanation": "First inversion places the third of the chord in the bass, and E is the third of C major.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Chord Inversions",
+   "learningOutcome": "Apply inversion rules when arranging triads.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "In C major, how should the leading note B normally resolve in a final cadence?",
+   "options": [
+    "Upward to C",
+    "Downward to A",
+    "Sideways to another B",
+    "Downward to F"
+   ],
+   "correctAnswer": "Upward to C",
+   "explanation": "The leading note is a semitone below the tonic and normally resolves upward to the tonic in tonal harmony.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Voice Leading",
+   "learningOutcome": "Resolve tendency tones appropriately in tonal cadences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "A piece in C major modulates to the dominant key. Which new key is most likely established?",
+   "options": [
+    "G major",
+    "F major",
+    "A minor",
+    "E flat major"
+   ],
+   "correctAnswer": "G major",
+   "explanation": "The dominant key of C major is G major, often confirmed by F sharp and a cadence in G.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Modulation",
+   "learningOutcome": "Identify closely related keys used in simple modulation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "When setting English text to music, which choice usually supports natural word stress?",
+   "options": [
+    "Place strong syllables on strong beats",
+    "Place every syllable on the last beat only",
+    "Ignore punctuation and phrase shape",
+    "Use one pitch for all emotional words"
+   ],
+   "correctAnswer": "Place strong syllables on strong beats",
+   "explanation": "Good text setting respects natural speech rhythm by aligning important syllables with musical accents.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Text Setting",
+   "learningOutcome": "Set words to melody using natural stress and phrase shape.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which example best shows word painting?",
+   "options": [
+    "A rising melodic line on the word climb",
+    "A silent bar after every noun",
+    "A key signature copied from another song",
+    "A drum pattern replacing all lyrics"
+   ],
+   "correctAnswer": "A rising melodic line on the word climb",
+   "explanation": "Word painting matches musical shape to the meaning of the text.",
+   "difficulty": 3,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Text Expression",
+   "learningOutcome": "Use melodic and rhythmic choices to reflect meaning in lyrics.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A learner arranges a folk song for voice, drum, and kayamba. Which accompaniment choice is most suitable?",
+   "options": [
+    "Keep a steady pulse and leave space for the vocal call and response",
+    "Cover every vocal phrase with loud continuous drumming",
+    "Change the tempo randomly in each line",
+    "Remove all repeated patterns from the arrangement"
+   ],
+   "correctAnswer": "Keep a steady pulse and leave space for the vocal call and response",
+   "explanation": "Effective accompaniment supports the song's structure, dance pulse, and vocal interaction without overpowering them.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Folk Song Arrangement",
+   "learningOutcome": "Arrange accompaniment that supports traditional song features.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "When arranging a song for mixed voices, what should be checked first?",
+   "options": [
+    "Whether each part sits within a comfortable vocal range",
+    "Whether all parts use the same highest note",
+    "Whether the bass line copies the soprano exactly",
+    "Whether every singer changes clef every bar"
+   ],
+   "correctAnswer": "Whether each part sits within a comfortable vocal range",
+   "explanation": "Vocal ranges affect tone, accuracy, health, and balance in choral writing.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Choral Arrangement",
+   "learningOutcome": "Write and adapt vocal parts for suitable ranges.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A choir repeatedly sings flat near the end of phrases. Which rehearsal focus is most likely to help?",
+   "options": [
+    "Breath support, listening to the tonal centre, and tuning sustained notes",
+    "Singing louder without listening",
+    "Removing all phrase endings",
+    "Changing every note into percussion claps"
+   ],
+   "correctAnswer": "Breath support, listening to the tonal centre, and tuning sustained notes",
+   "explanation": "Flat singing often improves when singers manage breath, hear harmonic context, and tune important sustained pitches.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Intonation",
+   "learningOutcome": "Apply rehearsal strategies to improve ensemble tuning.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "During a rehearsal, the accompaniment hides the solo melody. What is the best musical adjustment?",
+   "options": [
+    "Reduce accompaniment volume and texture so the melody is clear",
+    "Ask the soloist to stop singing permanently",
+    "Add more instruments to play over the melody",
+    "Ignore balance until the final performance"
+   ],
+   "correctAnswer": "Reduce accompaniment volume and texture so the melody is clear",
+   "explanation": "Good ensemble balance lets important melodic material be heard without unnecessary force.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Balance and Blend",
+   "learningOutcome": "Adjust ensemble texture and dynamics for clear presentation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A microphone feeds back during a school performance. Which response should be tried first?",
+   "options": [
+    "Move the microphone away from the loudspeaker path and reduce gain",
+    "Point the microphone directly at the loudspeaker",
+    "Turn every monitor to maximum volume",
+    "Cover the microphone with paper while singing"
+   ],
+   "correctAnswer": "Move the microphone away from the loudspeaker path and reduce gain",
+   "explanation": "Feedback occurs when amplified sound re-enters the microphone, so position and gain control are important.",
+   "difficulty": 3,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Live Sound",
+   "learningOutcome": "Apply safe sound reinforcement practices during performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "A recorded vocal sounds muddy because low frequencies are too strong. Which mix action is most suitable?",
+   "options": [
+    "Reduce unnecessary low frequencies with equalization",
+    "Add more low bass to every track",
+    "Export the track without listening",
+    "Delete all high-frequency instruments"
+   ],
+   "correctAnswer": "Reduce unnecessary low frequencies with equalization",
+   "explanation": "Equalization can reduce excessive low-frequency energy and improve clarity.",
+   "difficulty": 3,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Mixing Basics",
+   "learningOutcome": "Use basic mixing decisions to improve clarity in recorded music.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which form is represented by a first section, contrasting middle section, and return of the first section?",
+   "options": [
+    "Ternary form",
+    "Binary form",
+    "Through-composed form",
+    "Strophic form only"
+   ],
+   "correctAnswer": "Ternary form",
+   "explanation": "Ternary form is commonly described as ABA, with a return after contrast.",
+   "difficulty": 3,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Musical Form",
+   "learningOutcome": "Identify common forms from sectional descriptions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "In theme and variations, what normally remains recognisable?",
+   "options": [
+    "The original theme's identity",
+    "Only the concert ticket price",
+    "The microphone brand",
+    "A completely unrelated melody each time"
+   ],
+   "correctAnswer": "The original theme's identity",
+   "explanation": "Variations change features such as rhythm, harmony, texture, or ornamentation while keeping the theme identifiable.",
+   "difficulty": 3,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Variation Form",
+   "learningOutcome": "Explain how composers vary a musical idea while preserving identity.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which description best fits rondo form?",
+   "options": [
+    "A recurring main theme alternates with contrasting episodes",
+    "A melody is sung once with no return",
+    "Every performer improvises a different tempo",
+    "Only two identical sections are allowed"
+   ],
+   "correctAnswer": "A recurring main theme alternates with contrasting episodes",
+   "explanation": "Rondo form uses a returning refrain, often labelled A, between contrasting sections.",
+   "difficulty": 3,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Rondo Form",
+   "learningOutcome": "Recognize recurring-theme structures in instrumental music.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which sequence names the main large sections of sonata form?",
+   "options": [
+    "Exposition, development, and recapitulation",
+    "Warm-up, rehearsal, and transport",
+    "Verse, bridge, and invoice",
+    "Scale, arpeggio, and copyright"
+   ],
+   "correctAnswer": "Exposition, development, and recapitulation",
+   "explanation": "Sonata form usually presents themes, develops them, and returns them in a recapitulation.",
+   "difficulty": 3,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Classical Forms",
+   "learningOutcome": "Outline major formal sections in selected Western classical forms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which set of details would make field documentation of a Kenyan folk song most useful?",
+   "options": [
+    "Community context, function, lyrics translation, instruments, dance, and permission notes",
+    "Only the recorder's favourite colour",
+    "A list of unrelated pop songs",
+    "A random tempo marking without source information"
+   ],
+   "correctAnswer": "Community context, function, lyrics translation, instruments, dance, and permission notes",
+   "explanation": "Good documentation records musical, cultural, and ethical information so the song can be studied responsibly.",
+   "difficulty": 3,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Music Documentation",
+   "learningOutcome": "Document music practices with attention to context, meaning, and consent.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "A class adapts a community song for a school event. Which step shows ethical practice?",
+   "options": [
+    "Seek guidance where needed and credit the source tradition in the programme",
+    "Remove all references to the source community",
+    "Present the song as newly invented by the class",
+    "Use sacred material casually without checking meaning"
+   ],
+   "correctAnswer": "Seek guidance where needed and credit the source tradition in the programme",
+   "explanation": "Ethical adaptation respects ownership, meaning, permission, and attribution.",
+   "difficulty": 3,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Ethical Adaptation",
+   "learningOutcome": "Apply ethical decision making when adapting cultural music.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which elements are most useful when recording a dance sequence for rehearsal notes?",
+   "options": [
+    "Counts, pathways, formations, gestures, and phrase structure",
+    "Only costume colours and snack prices",
+    "Every performer's unrelated exam marks",
+    "The serial numbers of the speakers"
+   ],
+   "correctAnswer": "Counts, pathways, formations, gestures, and phrase structure",
+   "explanation": "Dance rehearsal notes should capture timing, movement direction, grouping, and expression.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Dance Notation and Rehearsal",
+   "learningOutcome": "Document dance movement for accurate rehearsal and performance.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which criteria best support a fair evaluation of a vocal ensemble performance?",
+   "options": [
+    "Intonation, rhythm, diction, balance, expression, and stage discipline",
+    "Only the number of costumes on stage",
+    "The height of the loudspeaker stands",
+    "The popularity of the first performer"
+   ],
+   "correctAnswer": "Intonation, rhythm, diction, balance, expression, and stage discipline",
+   "explanation": "Performance evaluation should focus on musical accuracy, communication, ensemble control, and presentation.",
+   "difficulty": 3,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Performance Evaluation",
+   "learningOutcome": "Use musical criteria to evaluate classroom and public performances.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "A group struggles with a fast passage. Which rehearsal plan is most effective?",
+   "options": [
+    "Isolate the passage, practise slowly with steady pulse, then rebuild tempo",
+    "Repeat the whole piece faster each time without feedback",
+    "Skip the passage during every rehearsal",
+    "Ask only the strongest player to perform the entire piece"
+   ],
+   "correctAnswer": "Isolate the passage, practise slowly with steady pulse, then rebuild tempo",
+   "explanation": "Focused slow practice helps accuracy before speed and ensemble flow are restored.",
+   "difficulty": 3,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Rehearsal Techniques",
+   "learningOutcome": "Select rehearsal strategies for solving technical and ensemble problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A learner writes a 9/8 bar as two crotchets, one quaver, and one dotted crotchet. What is the problem?",
+   "options": [
+    "The values add to eight quavers, so the bar is one quaver short",
+    "The values add to twelve quavers, so the bar is too long",
+    "The bar is correct because 9/8 allows any total",
+    "The dotted crotchet must always be silent"
+   ],
+   "correctAnswer": "The values add to eight quavers, so the bar is one quaver short",
+   "explanation": "Two crotchets equal four quavers, plus one quaver and one dotted crotchet makes eight quavers, so the 9/8 bar is short by one quaver.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Rhythmic Error Checking",
+   "learningOutcome": "Analyze compound-time notation for accurate bar values.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which evidence most strongly shows that a passage has modulated from C major to G major?",
+   "options": [
+    "F sharp appears repeatedly and the phrase cadences on G",
+    "Middle C appears once in the melody",
+    "The tempo marking changes from andante to allegro",
+    "A rest occurs before the final bar"
+   ],
+   "correctAnswer": "F sharp appears repeatedly and the phrase cadences on G",
+   "explanation": "A new leading note and a cadence in the new tonic give strong evidence of modulation.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Modulation Analysis",
+   "learningOutcome": "Analyze melodic and harmonic evidence for key change.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A melody in A minor needs a strong pull to the final A at a cadence. Which note choice helps most?",
+   "options": [
+    "Use G sharp before the final A",
+    "Use G natural only before the final A",
+    "Avoid the note E in the phrase",
+    "Change the tonic from A to B flat"
+   ],
+   "correctAnswer": "Use G sharp before the final A",
+   "explanation": "G sharp is the raised seventh in A harmonic minor and acts as the leading note to A.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Minor-Key Melody",
+   "learningOutcome": "Analyze how raised leading notes strengthen minor-key cadences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A composer wants the first four-bar phrase to ask a question rather than sound final. Which cadence is most suitable?",
+   "options": [
+    "Imperfect cadence",
+    "Perfect cadence",
+    "Plagal cadence",
+    "Interrupted cadence followed by silence only"
+   ],
+   "correctAnswer": "Imperfect cadence",
+   "explanation": "An imperfect cadence ends on the dominant and creates expectation for a responding phrase.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Phrase Design",
+   "learningOutcome": "Choose cadences to shape antecedent and consequent phrases.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "In C major, which chords are represented by ii-V-I?",
+   "options": [
+    "D minor, G major, C major",
+    "C major, F major, G major",
+    "A minor, D minor, E minor",
+    "G major, C major, F major"
+   ],
+   "correctAnswer": "D minor, G major, C major",
+   "explanation": "The supertonic triad in C major is D minor, followed by dominant G major and tonic C major.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Chord Progressions",
+   "learningOutcome": "Analyze functional chord progressions in major keys.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which chord is the secondary dominant V/V in C major?",
+   "options": [
+    "D major",
+    "F major",
+    "A minor",
+    "E minor"
+   ],
+   "correctAnswer": "D major",
+   "explanation": "V/V means the dominant of the dominant; in C major, the dominant is G, and D major is the dominant of G.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Secondary Dominants",
+   "learningOutcome": "Identify applied dominant chords in simple tonal progressions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "In a C major V-I cadence, the soprano has B over the G chord. Which resolution best follows tonal voice leading?",
+   "options": [
+    "Move B up to C",
+    "Move B down to F",
+    "Keep B over the tonic chord",
+    "Leap B down to D sharp"
+   ],
+   "correctAnswer": "Move B up to C",
+   "explanation": "B is the leading note in C major and normally resolves upward by step to the tonic.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Cadential Voice Leading",
+   "learningOutcome": "Analyze voice-leading choices at cadences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A melody moves C-D-E while the harmony remains C major and D falls on a weak part of the beat. What is D most likely acting as?",
+   "options": [
+    "Passing note",
+    "Pedal point",
+    "Appoggiatura resolved by leap upward",
+    "New tonic"
+   ],
+   "correctAnswer": "Passing note",
+   "explanation": "A passing note fills the stepwise space between two chord tones, often on a weaker part of the beat.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Non-Chord Tones",
+   "learningOutcome": "Identify passing notes and other non-chord tones in melodies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which arrangement choice best supports a Kenyan fusion piece based on a pentatonic folk melody?",
+   "options": [
+    "Keep the melody recognisable while adding an ostinato, drone, and sensitive harmonic colour",
+    "Replace the melody entirely with unrelated chromatic scales",
+    "Remove pulse and community context from the performance",
+    "Use only random sound effects with no structure"
+   ],
+   "correctAnswer": "Keep the melody recognisable while adding an ostinato, drone, and sensitive harmonic colour",
+   "explanation": "A respectful fusion arrangement preserves identity while adding new textures and harmony carefully.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Arrangement and Fusion",
+   "learningOutcome": "Analyze arrangement choices that preserve source identity while adding new musical material.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which description best indicates polyphonic texture?",
+   "options": [
+    "Independent melodies are performed at the same time",
+    "All performers clap one identical rhythm only",
+    "A solo melody has block-chord accompaniment",
+    "The music contains no pitch"
+   ],
+   "correctAnswer": "Independent melodies are performed at the same time",
+   "explanation": "Polyphony involves simultaneous independent melodic lines that interact with each other.",
+   "difficulty": 4,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Texture Analysis",
+   "learningOutcome": "Differentiate homophonic, polyphonic, monophonic, and heterophonic textures.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Which workflow best supports a reliable digital portfolio recording?",
+   "options": [
+    "Plan takes, set input levels, record cleanly, label files, export, and reflect on improvements",
+    "Record once with clipping and delete the project file",
+    "Ignore microphone distance and export only silence",
+    "Rename every file the same way after mixing"
+   ],
+   "correctAnswer": "Plan takes, set input levels, record cleanly, label files, export, and reflect on improvements",
+   "explanation": "A portfolio needs organized files, controlled recording levels, usable exports, and evidence of reflection.",
+   "difficulty": 4,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Digital Portfolio Production",
+   "learningOutcome": "Analyze production steps needed for a clear and assessable music portfolio.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A learner wants to use a commercial beat in an original song for public posting. What is the safest legal choice?",
+   "options": [
+    "Use a licensed beat or obtain permission before posting",
+    "Assume all online beats are free for any use",
+    "Hide the producer's name and post quickly",
+    "Change only the file name to avoid copyright"
+   ],
+   "correctAnswer": "Use a licensed beat or obtain permission before posting",
+   "explanation": "Public use of copyrighted beats requires permission, a licence, or a clearly reusable source.",
+   "difficulty": 4,
+   "strandTitle": "Music in Society and Enterprise",
+   "subStrandTitle": "Music Rights and Licensing",
+   "learningOutcome": "Analyze copyright risks and choose lawful music-use options.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which sampling practice is most ethical when using a recorded community chant?",
+   "options": [
+    "Seek consent, credit the source, respect context, and transform the sample responsibly",
+    "Use the recording secretly because it was easy to find",
+    "Remove the source details to make it seem original",
+    "Mock the chant to make the track more entertaining"
+   ],
+   "correctAnswer": "Seek consent, credit the source, respect context, and transform the sample responsibly",
+   "explanation": "Ethical sampling considers permission, attribution, cultural meaning, and responsible creative use.",
+   "difficulty": 4,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Sampling and Cultural Context",
+   "learningOutcome": "Evaluate ethical choices when reusing recorded cultural material.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Drums overpower singers in a dance performance. Which combined solution is most musical?",
+   "options": [
+    "Adjust drum dynamics, staging, microphone gain, and arrangement density",
+    "Ask singers to shout through the whole piece",
+    "Remove all dancers from the stage",
+    "Ignore the issue because drums are always the main melody"
+   ],
+   "correctAnswer": "Adjust drum dynamics, staging, microphone gain, and arrangement density",
+   "explanation": "Balance problems are solved through musical dynamics, space, amplification, and texture decisions.",
+   "difficulty": 4,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Stage Balance",
+   "learningOutcome": "Analyze ensemble balance problems and recommend practical solutions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A composer repeats a short motif starting one step higher each time. Which development technique is being used?",
+   "options": [
+    "Sequence",
+    "Inversion",
+    "Retrograde",
+    "Diminution"
+   ],
+   "correctAnswer": "Sequence",
+   "explanation": "A sequence repeats a motif at a different pitch level, often stepwise or by a consistent interval.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Motivic Development",
+   "learningOutcome": "Analyze techniques used to develop melodic motifs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "An eight-bar melody has a four-bar question phrase followed by a four-bar answering phrase. What structure does this show?",
+   "options": [
+    "Antecedent and consequent phrase balance",
+    "Only a one-bar ostinato",
+    "A random sequence with no cadence",
+    "A twelve-bar blues pattern"
+   ],
+   "correctAnswer": "Antecedent and consequent phrase balance",
+   "explanation": "Question and answer phrasing creates balanced antecedent and consequent units.",
+   "difficulty": 4,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Melodic Form",
+   "learningOutcome": "Analyze phrase balance in original and studied melodies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which instrument combination gives clear timbral contrast in a small Kenyan-inspired ensemble?",
+   "options": [
+    "Voice, nyatiti, kayamba, and hand drum",
+    "Four identical recorders playing the same pitch only",
+    "Only two silent microphones",
+    "A choir with no rhythmic or melodic contrast"
+   ],
+   "correctAnswer": "Voice, nyatiti, kayamba, and hand drum",
+   "explanation": "The combination contrasts vocal tone, string resonance, shaken idiophone colour, and drum timbre.",
+   "difficulty": 4,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Timbre and Instrumentation",
+   "learningOutcome": "Evaluate instrumentation choices for colour, balance, and cultural fit.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which production plan best supports safety in a dance performance?",
+   "options": [
+    "Check space, warm up, secure costumes, plan entrances, and manage hydration",
+    "Practise jumps on a slippery floor without warm-up",
+    "Block exits with props for dramatic effect",
+    "Use loose cables across the dancing area"
+   ],
+   "correctAnswer": "Check space, warm up, secure costumes, plan entrances, and manage hydration",
+   "explanation": "Safe dance production manages bodies, space, costume, movement pathways, and backstage conditions.",
+   "difficulty": 4,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Dance Production Safety",
+   "learningOutcome": "Evaluate performance plans for safety and stage readiness.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which programme-note content would best guide an audience listening to a classical movement?",
+   "options": [
+    "Composer, period, form, main themes, and key listening features",
+    "Only the page number of the score",
+    "A list of unrelated football teams",
+    "The colour of the rehearsal room door"
+   ],
+   "correctAnswer": "Composer, period, form, main themes, and key listening features",
+   "explanation": "Useful notes connect the music to context, structure, and what the audience can hear.",
+   "difficulty": 4,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Listening Guides",
+   "learningOutcome": "Analyze information needed to support informed music listening.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A DAW mix is clipping because the master meter goes above 0 dBFS. What should the producer do?",
+   "options": [
+    "Lower track or bus levels and leave headroom before exporting",
+    "Raise every fader to make the distortion clearer",
+    "Add more tracks without adjusting gain",
+    "Export only the clipped section at a higher level"
+   ],
+   "correctAnswer": "Lower track or bus levels and leave headroom before exporting",
+   "explanation": "Digital clipping causes distortion, so proper gain staging and headroom are needed before export.",
+   "difficulty": 4,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Gain Staging",
+   "learningOutcome": "Analyze level problems in digital mixes and select corrective actions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A 16-bar song in C major must modulate smoothly to G major by bar 8. Which plan is strongest?",
+   "options": [
+    "Use a shared chord such as C or Em, introduce F sharp, and cadence clearly in G",
+    "Jump randomly to E flat major without preparation",
+    "Avoid all cadences until the final bar",
+    "Use only percussion so the key cannot be heard"
+   ],
+   "correctAnswer": "Use a shared chord such as C or Em, introduce F sharp, and cadence clearly in G",
+   "explanation": "A smooth modulation uses pivot material, the new leading note, and a cadence that confirms the new key.",
+   "difficulty": 5,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Planned Modulation",
+   "learningOutcome": "Create a tonal plan that moves coherently between closely related keys.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which revision best improves a four-part harmonisation with parallel fifths and awkward soprano leaps?",
+   "options": [
+    "Rewrite inner voices for contrary motion and keep the soprano mostly stepwise within range",
+    "Double every leading note and keep all leaps",
+    "Move all voices in the same perfect fifths louder",
+    "Remove the bass line from every cadence"
+   ],
+   "correctAnswer": "Rewrite inner voices for contrary motion and keep the soprano mostly stepwise within range",
+   "explanation": "Good revision protects voice independence, singable ranges, and smooth melodic motion.",
+   "difficulty": 5,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Harmony Revision",
+   "learningOutcome": "Evaluate and improve four-part harmony for range, doubling, and voice leading.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which approach best creates a respectful jazz-influenced arrangement of a Kenyan folk tune?",
+   "options": [
+    "Preserve the tune and function while adding tasteful reharmonisation, swing feel, and credited context",
+    "Replace the tune with unrelated jazz licks and hide the source",
+    "Use sacred text for comic effect without permission",
+    "Make every performer improvise in a different key"
+   ],
+   "correctAnswer": "Preserve the tune and function while adding tasteful reharmonisation, swing feel, and credited context",
+   "explanation": "A strong fusion arrangement balances creativity with recognisable source material and respectful attribution.",
+   "difficulty": 5,
+   "strandTitle": "Music Theory and Composition",
+   "subStrandTitle": "Creative Arrangement",
+   "learningOutcome": "Create arrangements that combine stylistic influence with source integrity.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which research plan is most suitable before documenting a community music practice?",
+   "options": [
+    "Seek consent, record context accurately, translate key text, store files safely, and share findings respectfully",
+    "Record secretly and publish before asking questions",
+    "Write only personal guesses about the music",
+    "Collect names but ignore the function of the songs"
+   ],
+   "correctAnswer": "Seek consent, record context accurately, translate key text, store files safely, and share findings respectfully",
+   "explanation": "Responsible research protects participants, context, data, and community relationships.",
+   "difficulty": 5,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Community Music Research",
+   "learningOutcome": "Design ethical research methods for documenting music in society.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A class ensemble includes beginners and advanced players. Which arrangement plan is most inclusive and musical?",
+   "options": [
+    "Give differentiated parts that share the same pulse, form, and performance goal",
+    "Give only the advanced players all audible parts",
+    "Make beginners mime silently throughout",
+    "Change the tempo whenever a learner struggles"
+   ],
+   "correctAnswer": "Give differentiated parts that share the same pulse, form, and performance goal",
+   "explanation": "Inclusive arranging lets learners contribute at suitable challenge levels while maintaining ensemble unity.",
+   "difficulty": 5,
+   "strandTitle": "Performance and Ensemble Skills",
+   "subStrandTitle": "Inclusive Ensemble Arrangement",
+   "learningOutcome": "Create ensemble parts that support varied skill levels and shared musical purpose.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A learner is designing a short game soundtrack cue for suspense. Which musical plan is most effective?",
+   "options": [
+    "Use a minor mode, repeating ostinato, gradual dynamic build, and controlled dissonance",
+    "Use only a final perfect cadence at full volume from the first second",
+    "Avoid rhythm, texture, and contrast entirely",
+    "Use a cheerful major nursery melody with no variation"
+   ],
+   "correctAnswer": "Use a minor mode, repeating ostinato, gradual dynamic build, and controlled dissonance",
+   "explanation": "Suspense can be shaped through mode, repetition, tension, texture, and dynamic growth.",
+   "difficulty": 5,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Music for Media",
+   "learningOutcome": "Create musical cues that support mood and function in media contexts.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A group learns that a song element planned for entertainment is sacred in its source community. What should they do?",
+   "options": [
+    "Pause the use, seek guidance, and choose a permitted non-sacred alternative if needed",
+    "Use it more loudly because the audience may not know",
+    "Remove the community name and continue",
+    "Mock the sacred element to show originality"
+   ],
+   "correctAnswer": "Pause the use, seek guidance, and choose a permitted non-sacred alternative if needed",
+   "explanation": "Respectful musicianship responds to cultural meaning and avoids misuse of restricted material.",
+   "difficulty": 5,
+   "strandTitle": "Music in Society and Culture",
+   "subStrandTitle": "Cultural Ethics",
+   "learningOutcome": "Evaluate cultural restrictions and create respectful performance decisions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which live sound plan is best for a small school concert with vocals, keyboard, guitar, and drums?",
+   "options": [
+    "List inputs, set gain for each channel, place monitors safely, check feedback, and prepare backup cables",
+    "Use one overloaded microphone for every source",
+    "Skip sound check and adjust only after the concert",
+    "Point all speakers at the microphones to increase presence"
+   ],
+   "correctAnswer": "List inputs, set gain for each channel, place monitors safely, check feedback, and prepare backup cables",
+   "explanation": "A reliable sound plan manages inputs, gain staging, monitoring, feedback risk, and contingency needs.",
+   "difficulty": 5,
+   "strandTitle": "Music Technology and Production",
+   "subStrandTitle": "Concert Sound Planning",
+   "learningOutcome": "Create practical sound reinforcement plans for school performance contexts.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which rubric would best assess a Grade 11 original composition?",
+   "options": [
+    "Melody, rhythm, harmony, form, notation, creativity, performance feasibility, and reflection",
+    "Only how loudly the piece can be played",
+    "Only the number of pages in the score",
+    "Costume design and poster colour without musical criteria"
+   ],
+   "correctAnswer": "Melody, rhythm, harmony, form, notation, creativity, performance feasibility, and reflection",
+   "explanation": "Composition assessment should balance technical craft, creativity, clarity, practical performance, and learner reflection.",
+   "difficulty": 5,
+   "strandTitle": "Critical Appreciation and Analysis",
+   "subStrandTitle": "Composition Assessment",
+   "learningOutcome": "Create criteria for evaluating original compositions fairly.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "A learner wants to release an original song professionally. Which plan is most production-ready?",
+   "options": [
+    "Confirm ownership, register rights where applicable, prepare metadata, choose distribution, budget promotion, and track royalties",
+    "Upload an unlabeled file with no creator information",
+    "Use another artist's melody without permission",
+    "Ignore royalties because online music cannot earn income"
+   ],
+   "correctAnswer": "Confirm ownership, register rights where applicable, prepare metadata, choose distribution, budget promotion, and track royalties",
+   "explanation": "Professional release planning combines legal ownership, accurate metadata, distribution choices, promotion, and income tracking.",
+   "difficulty": 5,
+   "strandTitle": "Music in Society and Enterprise",
+   "subStrandTitle": "Music Entrepreneurship",
+   "learningOutcome": "Create a responsible plan for releasing and managing original music.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

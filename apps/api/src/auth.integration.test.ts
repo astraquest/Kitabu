@@ -974,7 +974,10 @@ test('Google parent and student signups can finish onboarding with an active ses
         grade: 'Grade 9',
         mascotKey: role === 'student' ? 'elephant' : 'lion',
         countryCode: 'KEN',
-        curriculumCode: 'CBC'
+        curriculumCode: 'CBC',
+        ...(role === 'student'
+          ? { subjectIds: Array.from({ length: 9 }, (_, index) => `subject-${index + 1}`) }
+          : {})
       }
     });
     assert.equal(onboarding.statusCode, 200);

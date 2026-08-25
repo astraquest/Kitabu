@@ -14,6 +14,7 @@ import {
 } from 'lucide-react-native';
 
 import { Subject } from '../types/app';
+import { requiredSubjectCountForGrade } from '../constants/grades';
 import { getSubjectIconSource } from '../features/progressiveLearning/model/subjectIconAssets';
 
 const SUBJECT_ORDER = [
@@ -26,8 +27,6 @@ const SUBJECT_ORDER = [
   'creative_arts',
   'ai_education',
 ];
-const MAX_SELECTED_SUBJECTS = 5;
-
 const SUBJECT_ICONS: Record<
   string,
   React.ComponentType<{ color?: string; size?: number; strokeWidth?: number }>
@@ -141,16 +140,21 @@ interface SubjectSelectorProps {
   allSubjects: Subject[];
   selectedSubjectIds: string[];
   onToggleSubject: (subjectId: string) => void;
+  grade?: string | null;
+  maxSelectedSubjects?: number;
 }
 
 export function SubjectSelector({
   allSubjects,
   selectedSubjectIds,
   onToggleSubject,
+  grade,
+  maxSelectedSubjects,
 }: SubjectSelectorProps) {
   const orderedAllSubjects = useMemo(() => orderSubjects(allSubjects), [allSubjects]);
   const selectedCount = selectedSubjectIds.length;
-  const hasReachedLimit = selectedCount >= MAX_SELECTED_SUBJECTS;
+  const subjectLimit = maxSelectedSubjects ?? requiredSubjectCountForGrade(grade);
+  const hasReachedLimit = selectedCount >= subjectLimit;
 
   function isSelected(subjectId: string) {
     return selectedSubjectIds.includes(subjectId);
@@ -161,10 +165,10 @@ export function SubjectSelector({
       <View style={styles.selectorHeader}>
         <View>
           <Text style={styles.selectorTitle}>All Subjects</Text>
-          <Text style={styles.selectorMeta}>{selectedCount}/{MAX_SELECTED_SUBJECTS} selected</Text>
+          <Text style={styles.selectorMeta}>{selectedCount}/{subjectLimit} selected</Text>
         </View>
         <Text style={styles.limitText}>
-          {hasReachedLimit ? 'Limit reached' : `Choose up to ${MAX_SELECTED_SUBJECTS}`}
+          {hasReachedLimit ? 'Required subjects selected' : `Choose ${subjectLimit - selectedCount} more`}
         </Text>
       </View>
       <View style={styles.selectorGrid}>

@@ -1,1409 +1,2570 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "german",
-  "subjectName": "German",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "What does the German noun 'der Flughafen' mean in English?",
-      "options": ["Airport", "Harbour", "Railway station", "Bus stop"],
-      "correctAnswer": "Airport",
-      "explanation": "'Der Flughafen' is the place where aeroplanes arrive and depart.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Travel Vocabulary",
-      "learningOutcome": "Identify common German vocabulary used in travel and transport contexts.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which German word means 'curriculum vitae' or 'resume' in a job application?",
-      "options": ["der Lebenslauf", "die Rechnung", "der Reisepass", "die Eintrittskarte"],
-      "correctAnswer": "der Lebenslauf",
-      "explanation": "'Der Lebenslauf' lists education, experience, and skills for an application.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Career Vocabulary",
-      "learningOutcome": "Recognize German words used in education, work, and application contexts.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which German adjective best translates 'sustainable'?",
-      "options": ["nachhaltig", "laut", "billig", "schmal"],
-      "correctAnswer": "nachhaltig",
-      "explanation": "'Nachhaltig' describes actions or systems that protect resources for the future.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Environment Vocabulary",
-      "learningOutcome": "Identify German vocabulary related to environment and sustainability topics.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "What does the verb phrase 'sich beschweren' mean?",
-      "options": ["to complain", "to hurry", "to translate", "to introduce oneself"],
-      "correctAnswer": "to complain",
-      "explanation": "'Sich beschweren' is used when someone expresses dissatisfaction politely or formally.",
-      "difficulty": 1,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Making Complaints",
-      "learningOutcome": "Recognize German phrases used to express complaints and service problems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which option is the German word for 'public transport'?",
-      "options": ["die öffentlichen Verkehrsmittel", "die privaten Aufgaben", "die schnellen Mahlzeiten", "die stillen Ferien"],
-      "correctAnswer": "die öffentlichen Verkehrsmittel",
-      "explanation": "'Öffentliche Verkehrsmittel' includes buses, trains, trams, and similar shared transport.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Urban Life Vocabulary",
-      "learningOutcome": "Recognize German terms for services and facilities in towns and cities.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which German phrase is a polite formal greeting in an email?",
-      "options": ["Sehr geehrte Frau Weber,", "Bis dann, Frau Weber,", "Na, Weber,", "Tschüss zusammen,"],
-      "correctAnswer": "Sehr geehrte Frau Weber,",
-      "explanation": "'Sehr geehrte Frau Weber,' is a standard formal opening for written communication.",
-      "difficulty": 1,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Formal Email Conventions",
-      "learningOutcome": "Identify appropriate openings for formal German emails and letters.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which German pronoun is used for formal 'you' when addressing one adult politely?",
-      "options": ["Sie", "du", "er", "wir"],
-      "correctAnswer": "Sie",
-      "explanation": "The capitalized pronoun 'Sie' is used for formal address in German.",
-      "difficulty": 1,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Formal and Informal Address",
-      "learningOutcome": "Distinguish between formal and informal forms of address in German-speaking contexts.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which German-speaking country has Vienna as its capital city?",
-      "options": ["Austria", "Switzerland", "Germany", "Luxembourg"],
-      "correctAnswer": "Austria",
-      "explanation": "Vienna is the capital of Austria, one of the major German-speaking countries.",
-      "difficulty": 1,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "German-Speaking Countries",
-      "learningOutcome": "Recall key facts about countries where German is widely used.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which article correctly completes the phrase '___ Schule'?",
-      "options": ["die", "der", "das", "den"],
-      "correctAnswer": "die",
-      "explanation": "'Schule' is a feminine noun, so the nominative singular article is 'die'.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Noun Gender and Articles",
-      "learningOutcome": "Identify common German noun genders and matching definite articles.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which phrase means 'I am interested in technology'?",
-      "options": ["Ich interessiere mich für Technik.", "Ich ärgere mich über Technik.", "Ich erinnere mich an Technik.", "Ich verabschiede mich von Technik."],
-      "correctAnswer": "Ich interessiere mich für Technik.",
-      "explanation": "The reflexive phrase 'sich für etwas interessieren' means to be interested in something.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Interests and Preferences",
-      "learningOutcome": "Recognize common reflexive phrases used to express interests.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which German word is the opposite of 'teuer'?",
-      "options": ["billig", "schwer", "trocken", "spät"],
-      "correctAnswer": "billig",
-      "explanation": "'Teuer' means expensive, while 'billig' means cheap or inexpensive.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Adjectives and Opposites",
-      "learningOutcome": "Recognize common German adjectives and their opposites.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "What does 'die Ausbildung' usually mean in German career discussions?",
-      "options": ["vocational training", "weather forecast", "shopping receipt", "traffic jam"],
-      "correctAnswer": "vocational training",
-      "explanation": "'Die Ausbildung' often refers to structured professional or vocational training.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Education and Work",
-      "learningOutcome": "Identify German terms linked to study, training, and employment pathways.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which German phrase is commonly used to ask for the bill in a restaurant?",
-      "options": ["Die Rechnung, bitte.", "Die Prüfung, bitte.", "Die Bewerbung, bitte.", "Die Haltestelle, bitte."],
-      "correctAnswer": "Die Rechnung, bitte.",
-      "explanation": "'Die Rechnung, bitte' politely asks for the bill or invoice.",
-      "difficulty": 1,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Service Encounters",
-      "learningOutcome": "Use common German phrases for everyday service interactions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which option names a German separable-prefix verb meaning 'to pick up'?",
-      "options": ["abholen", "besuchen", "erzählen", "verstehen"],
-      "correctAnswer": "abholen",
-      "explanation": "'Abholen' means to collect or pick someone or something up.",
-      "difficulty": 1,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Separable Prefix Verbs",
-      "learningOutcome": "Recognize common separable-prefix verbs and their meanings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which word means 'nevertheless' in German?",
-      "options": ["trotzdem", "deshalb", "sondern", "während"],
-      "correctAnswer": "trotzdem",
-      "explanation": "'Trotzdem' expresses contrast and is similar to 'nevertheless' or 'even so'.",
-      "difficulty": 1,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Connectors",
-      "learningOutcome": "Identify German connectors that show cause, contrast, and sequence.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Choose the correct German sentence: 'Tomorrow I will write an exam.'",
-      "options": ["Morgen schreibe ich eine Prüfung.", "Morgen ich schreibe eine Prüfung.", "Ich morgen schreibe eine Prüfung.", "Schreibe morgen ich eine Prüfung."],
-      "correctAnswer": "Morgen schreibe ich eine Prüfung.",
-      "explanation": "When a time expression starts the sentence, the conjugated verb remains in second position.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Verb-Second Word Order",
-      "learningOutcome": "Apply German main-clause word order after time expressions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses the modal verb 'müssen'?",
-      "options": ["Wir müssen heute lernen.", "Wir muss heute lernen.", "Wir müsst heute lernen.", "Wir musst heute lernen."],
-      "correctAnswer": "Wir müssen heute lernen.",
-      "explanation": "With 'wir', the correct present-tense form is 'müssen'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Modal Verbs",
-      "learningOutcome": "Use modal verbs with correct subject-verb agreement.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes the sentence 'Ich fahre mit ___ Bus zur Schule'?",
-      "options": ["dem", "den", "der", "das"],
-      "correctAnswer": "dem",
-      "explanation": "The preposition 'mit' always takes the dative case; 'der Bus' becomes 'dem Bus'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Dative Prepositions",
-      "learningOutcome": "Use dative articles after common German prepositions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly expresses 'I do not have time'?",
-      "options": ["Ich habe keine Zeit.", "Ich habe nicht Zeit.", "Ich bin keine Zeit.", "Ich habe kein Zeit."],
-      "correctAnswer": "Ich habe keine Zeit.",
-      "explanation": "The feminine noun 'Zeit' takes 'keine' when negated with an indefinite meaning.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Negation with Kein",
-      "learningOutcome": "Choose correct forms of 'kein' to negate nouns in German sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which question is the most polite way to ask for help in a German-speaking office?",
-      "options": ["Könnten Sie mir bitte helfen?", "Hilf mir sofort!", "Warum hilfst du nie?", "Du musst mir helfen, ja?"],
-      "correctAnswer": "Könnten Sie mir bitte helfen?",
-      "explanation": "The conditional form with 'Sie' and 'bitte' creates a polite formal request.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Polite Requests",
-      "learningOutcome": "Select appropriate German expressions for polite formal requests.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly says 'She has visited Berlin'?",
-      "options": ["Sie hat Berlin besucht.", "Sie ist Berlin besucht.", "Sie hat Berlin besuchen.", "Sie besuchte Berlin hat."],
-      "correctAnswer": "Sie hat Berlin besucht.",
-      "explanation": "The perfect tense of 'besuchen' uses 'hat' plus the past participle 'besucht'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Perfect Tense",
-      "learningOutcome": "Form the German perfect tense with common regular verbs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which connector best completes 'Ich lerne Deutsch, ___ ich in Deutschland studieren möchte'?",
-      "options": ["weil", "aber", "oder", "denn"],
-      "correctAnswer": "weil",
-      "explanation": "'Weil' introduces a subordinate clause and gives a reason for learning German.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Subordinating Conjunctions",
-      "learningOutcome": "Use German conjunctions to connect reasons and main ideas.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes 'Der Schüler, ___ in Nairobi wohnt, spricht gut Deutsch'?",
-      "options": ["der", "die", "das", "den"],
-      "correctAnswer": "der",
-      "explanation": "The relative pronoun refers to 'der Schüler' as the subject of the relative clause.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Relative Pronouns",
-      "learningOutcome": "Choose correct nominative relative pronouns for simple German relative clauses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which phrase is the best German translation of 'I would like to reserve a room'?",
-      "options": ["Ich möchte ein Zimmer reservieren.", "Ich muss ein Zimmer verlieren.", "Ich darf ein Zimmer vergessen.", "Ich soll ein Zimmer verkaufen."],
-      "correctAnswer": "Ich möchte ein Zimmer reservieren.",
-      "explanation": "'Ich möchte' politely expresses 'I would like', and 'reservieren' means to reserve.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Travel Services",
-      "learningOutcome": "Use German phrases for reservations and travel service requests.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses 'gern' to express a preference?",
-      "options": ["Ich lese gern Romane.", "Ich gern lese Romane.", "Gern ich lese Romane.", "Ich lese Romane gernen."],
-      "correctAnswer": "Ich lese gern Romane.",
-      "explanation": "'Gern' normally follows the conjugated verb or appears near the activity it describes.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Adverbs of Preference",
-      "learningOutcome": "Express preferences using common German adverbs such as 'gern'.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Read the sentence 'Der Zug hat zehn Minuten Verspätung.' What has happened?",
-      "options": ["The train is ten minutes late.", "The train leaves ten minutes early.", "The ticket costs ten euros.", "The station closes in ten minutes."],
-      "correctAnswer": "The train is ten minutes late.",
-      "explanation": "'Verspätung' means delay, so the train is running late.",
-      "difficulty": 2,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Public Notices",
-      "learningOutcome": "Extract key meaning from short German travel notices.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which option is a suitable response to 'Wie geht es Ihnen?' in a formal conversation?",
-      "options": ["Danke, mir geht es gut.", "Ich bin sechzehn Jahre.", "Ich wohne Deutsch.", "Nein, kein Problem."],
-      "correctAnswer": "Danke, mir geht es gut.",
-      "explanation": "'Wie geht es Ihnen?' asks how someone is; the answer uses 'mir geht es'.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Formal Conversation",
-      "learningOutcome": "Respond appropriately to common formal German greetings and questions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Which German sentence correctly says 'The students are preparing for the exam'?",
-      "options": ["Die Schüler bereiten sich auf die Prüfung vor.", "Die Schüler vorbereiten sich auf die Prüfung.", "Die Schüler bereiten auf sich die Prüfung vor.", "Die Schüler bereiten die Prüfung sich auf."],
-      "correctAnswer": "Die Schüler bereiten sich auf die Prüfung vor.",
-      "explanation": "'Sich auf etwas vorbereiten' is reflexive and separable, so 'vor' moves to the end.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Reflexive and Separable Verbs",
-      "learningOutcome": "Use common reflexive separable verbs in present-tense sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which cultural practice is strongly associated with waste separation in many German towns?",
-      "options": ["Using different bins for paper, glass, organic waste, and packaging", "Throwing all household waste into one public drain", "Burning plastic waste beside apartment blocks", "Keeping recyclable bottles without returning them"],
-      "correctAnswer": "Using different bins for paper, glass, organic waste, and packaging",
-      "explanation": "Waste sorting and recycling systems are common in many German-speaking communities.",
-      "difficulty": 2,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Everyday Sustainable Practices",
-      "learningOutcome": "Describe common sustainability practices in German-speaking communities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which German sentence correctly orders food politely?",
-      "options": ["Ich hätte gern eine Suppe.", "Ich habe gern eine Suppe gestern.", "Ich bin gern eine Suppe.", "Ich würde gern eine Suppe gegessen."],
-      "correctAnswer": "Ich hätte gern eine Suppe.",
-      "explanation": "'Ich hätte gern' is a polite restaurant phrase meaning 'I would like'.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Restaurant Language",
-      "learningOutcome": "Use polite German phrases for ordering food and drinks.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which German option correctly completes 'Er interessiert sich ___ Musik aus Österreich'?",
-      "options": ["für", "mit", "von", "nach"],
-      "correctAnswer": "für",
-      "explanation": "The expression is 'sich für etwas interessieren'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Verb-Preposition Phrases",
-      "learningOutcome": "Use common German verb-preposition combinations accurately.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly gives a reason with 'denn'?",
-      "options": ["Ich bleibe zu Hause, denn ich bin krank.", "Ich bleibe zu Hause, denn bin ich krank.", "Ich bleibe zu Hause denn, ich krank bin.", "Denn ich bin krank, ich bleibe zu Hause."],
-      "correctAnswer": "Ich bleibe zu Hause, denn ich bin krank.",
-      "explanation": "'Denn' is a coordinating conjunction, so the verb stays in normal second position after it.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Coordinating Conjunctions",
-      "learningOutcome": "Use coordinating conjunctions to explain reasons in German main clauses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Read the notice 'Heute bleibt die Bibliothek wegen Renovierung geschlossen.' What should a student understand?",
-      "options": ["The library is closed today because of renovation.", "The library opens longer today for revision.", "The library has moved to another town.", "The library sells renovated books today."],
-      "correctAnswer": "The library is closed today because of renovation.",
-      "explanation": "'Bleibt geschlossen' means remains closed, and 'wegen Renovierung' gives the reason.",
-      "difficulty": 2,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "School and Public Notices",
-      "learningOutcome": "Interpret short German notices about services and schedules.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which German phrase best expresses 'in my opinion'?",
-      "options": ["Meiner Meinung nach", "Nach meiner Tasche", "Meinung meiner nach", "Mit meinem Wetter"],
-      "correctAnswer": "Meiner Meinung nach",
-      "explanation": "'Meiner Meinung nach' is a common phrase for introducing an opinion.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Expressing Opinions",
-      "learningOutcome": "Use German phrases to introduce opinions in spoken and written tasks.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes 'Ich habe ___ Bruder und ___ Schwester'?",
-      "options": ["einen; eine", "ein; ein", "eine; einen", "einem; einer"],
-      "correctAnswer": "einen; eine",
-      "explanation": "'Bruder' is masculine accusative after 'haben', while 'Schwester' is feminine accusative.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Accusative Case",
-      "learningOutcome": "Select correct indefinite articles in accusative noun phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which phrase is the best German translation of 'environmental protection'?",
-      "options": ["der Umweltschutz", "der Stundenplan", "die Hausaufgabe", "das Abendessen"],
-      "correctAnswer": "der Umweltschutz",
-      "explanation": "'Der Umweltschutz' means protection of the environment.",
-      "difficulty": 2,
-      "strandTitle": "Vocabulary and Language Use",
-      "subStrandTitle": "Environment and Society",
-      "learningOutcome": "Use German vocabulary for social and environmental themes.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly forms the comparative of 'schnell'?",
-      "options": ["Der Zug ist schneller als der Bus.", "Der Zug ist am schnell als der Bus.", "Der Zug ist mehr schnell wie der Bus.", "Der Zug ist schnellste als der Bus."],
-      "correctAnswer": "Der Zug ist schneller als der Bus.",
-      "explanation": "The comparative adds '-er' and uses 'als' for 'than'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Comparatives",
-      "learningOutcome": "Form and use German comparative adjectives in simple comparisons.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses a separable-prefix verb in the perfect tense?",
-      "options": ["Ich bin um sechs Uhr aufgestanden.", "Ich habe um sechs Uhr geaufstanden.", "Ich bin um sechs Uhr gestanden auf.", "Ich stehe um sechs Uhr aufgestanden."],
-      "correctAnswer": "Ich bin um sechs Uhr aufgestanden.",
-      "explanation": "'Aufstehen' forms the perfect with 'bin' and the participle 'aufgestanden'.",
-      "difficulty": 2,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Perfect Tense with Separable Verbs",
-      "learningOutcome": "Recognize correct perfect-tense forms of common separable-prefix verbs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which response best accepts an invitation in German?",
-      "options": ["Ja, gern. Vielen Dank für die Einladung.", "Leider habe ich keine Zeit.", "Nein, ich komme nicht.", "Ich weiß nicht, wo mein Buch ist."],
-      "correctAnswer": "Ja, gern. Vielen Dank für die Einladung.",
-      "explanation": "This response clearly accepts and thanks the speaker for the invitation.",
-      "difficulty": 2,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Invitations and Responses",
-      "learningOutcome": "Respond appropriately to invitations in German social situations.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which feature is typical of formal German written communication?",
-      "options": ["Using 'Sie' and a respectful closing", "Using only slang abbreviations", "Omitting the greeting in every email", "Writing all nouns in lowercase"],
-      "correctAnswer": "Using 'Sie' and a respectful closing",
-      "explanation": "Formal German writing normally uses polite address, clear structure, and a suitable closing.",
-      "difficulty": 2,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Register and Tone",
-      "learningOutcome": "Identify features of formal register in German written communication.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Choose the correct subordinate clause word order: 'I know that he is learning German.'",
-      "options": ["Ich weiß, dass er Deutsch lernt.", "Ich weiß, dass lernt er Deutsch.", "Ich weiß, dass er lernt Deutsch.", "Ich weiß, dass Deutsch er lernt hat."],
-      "correctAnswer": "Ich weiß, dass er Deutsch lernt.",
-      "explanation": "In a 'dass' subordinate clause, the conjugated verb moves to the end.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Subordinate Clause Word Order",
-      "learningOutcome": "Apply verb-final word order in German subordinate clauses.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses the two-way preposition 'in' for movement?",
-      "options": ["Ich gehe in die Bibliothek.", "Ich gehe in der Bibliothek.", "Ich gehe im Bibliothek.", "Ich gehe in dem Bücher."],
-      "correctAnswer": "Ich gehe in die Bibliothek.",
-      "explanation": "Movement toward a place uses the accusative case; 'die Bibliothek' stays 'die'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Two-Way Prepositions",
-      "learningOutcome": "Distinguish accusative and dative use with two-way prepositions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly describes location with a two-way preposition?",
-      "options": ["Das Handy liegt auf dem Tisch.", "Das Handy liegt auf den Tisch.", "Das Handy legt auf dem Tisch.", "Das Handy liegen auf der Tisch."],
-      "correctAnswer": "Das Handy liegt auf dem Tisch.",
-      "explanation": "Location uses dative after a two-way preposition, and 'liegen' describes where something is.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Position and Location",
-      "learningOutcome": "Use dative case and correct position verbs to describe location.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly gives advice with 'sollen'?",
-      "options": ["Du solltest früher anfangen.", "Du sollst früher angefangen.", "Du solltest früher anfängst.", "Du sollen früher anfangen."],
-      "correctAnswer": "Du solltest früher anfangen.",
-      "explanation": "'Solltest' is the polite advisory form of 'sollen' and is followed by the infinitive.",
-      "difficulty": 3,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Giving Advice",
-      "learningOutcome": "Use modal structures to give advice in German.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses Konjunktiv II for a polite request?",
-      "options": ["Könnten Sie das bitte wiederholen?", "Können Sie das gestern wiederholt?", "Könntest Sie das bitte wiederholen?", "Konnten Sie das bitte wiederholen wird?"],
-      "correctAnswer": "Könnten Sie das bitte wiederholen?",
-      "explanation": "'Könnten Sie ...?' is a polite formal request using Konjunktiv II.",
-      "difficulty": 3,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Formal Requests",
-      "learningOutcome": "Apply Konjunktiv II forms in polite requests and classroom interactions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Read the message 'Ich kann heute nicht kommen, weil ich einen Arzttermin habe.' Why can the person not come?",
-      "options": ["They have a doctor's appointment.", "They lost their phone.", "They missed the train.", "They need to buy a ticket."],
-      "correctAnswer": "They have a doctor's appointment.",
-      "explanation": "'Weil ich einen Arzttermin habe' gives the reason: a doctor's appointment.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Short Personal Messages",
-      "learningOutcome": "Identify reasons and key details in short German messages.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which option best completes this formal complaint: 'Leider funktioniert das neue Handy ___.'",
-      "options": ["nicht richtig", "sehr freundlich", "mit Geschmack", "bei schönem Wetter"],
-      "correctAnswer": "nicht richtig",
-      "explanation": "'Nicht richtig' explains the fault clearly and fits a complaint about a product.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Complaints and Problem Statements",
-      "learningOutcome": "Write clear German sentences that describe faults in formal complaints.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly combines contrast with 'obwohl'?",
-      "options": ["Obwohl es regnet, gehen wir spazieren.", "Obwohl es regnet, wir gehen spazieren.", "Obwohl regnet es, gehen wir spazieren.", "Obwohl es regnet gehen spazieren wir."],
-      "correctAnswer": "Obwohl es regnet, gehen wir spazieren.",
-      "explanation": "'Obwohl' sends the verb to the end of its clause, and the following main clause begins with the verb.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Concessive Clauses",
-      "learningOutcome": "Use 'obwohl' to express contrast with correct German word order.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes 'Ich warte ___ meine Freundin vor dem Kino'?",
-      "options": ["auf", "an", "mit", "gegen"],
-      "correctAnswer": "auf",
-      "explanation": "The expression is 'auf jemanden warten', meaning to wait for someone.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Verb-Preposition Combinations",
-      "learningOutcome": "Select correct prepositions required by common German verbs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which sentence uses the passive voice correctly?",
-      "options": ["Das Formular wird online ausgefüllt.", "Das Formular ist online ausfüllen.", "Das Formular werden online ausgefüllt.", "Das Formular wird online ausfüllen."],
-      "correctAnswer": "Das Formular wird online ausgefüllt.",
-      "explanation": "The present passive uses 'werden' plus the past participle; singular 'Formular' takes 'wird'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Passive Voice",
-      "learningOutcome": "Recognize and form the German present passive in practical contexts.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly reports past travel using the perfect tense?",
-      "options": ["Wir sind letztes Jahr nach Hamburg gefahren.", "Wir haben letztes Jahr nach Hamburg gefahren.", "Wir sind letztes Jahr nach Hamburg gefahrt.", "Wir fahren letztes Jahr nach Hamburg gewesen."],
-      "correctAnswer": "Wir sind letztes Jahr nach Hamburg gefahren.",
-      "explanation": "Movement verbs such as 'fahren' usually form the perfect with 'sein' and the participle 'gefahren'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Perfect Tense with Sein",
-      "learningOutcome": "Use 'sein' with movement verbs in German perfect-tense narration.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly expresses future intention?",
-      "options": ["Nach der Schule werde ich Informatik studieren.", "Nach der Schule ich werde Informatik studieren.", "Nach der Schule werde ich Informatik studiert.", "Nach der Schule werde studiere ich Informatik."],
-      "correctAnswer": "Nach der Schule werde ich Informatik studieren.",
-      "explanation": "The future tense uses a conjugated form of 'werden' plus an infinitive at the end.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Future Tense",
-      "learningOutcome": "Form German future-tense sentences about study and career plans.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Which German phrase is most suitable for disagreeing respectfully in a debate?",
-      "options": ["Ich sehe das anders, weil ...", "Das ist total dumm.", "Du hast immer unrecht.", "Ich höre gar nicht zu."],
-      "correctAnswer": "Ich sehe das anders, weil ...",
-      "explanation": "This phrase signals disagreement and prepares a reason without insulting the speaker.",
-      "difficulty": 3,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Debate Language",
-      "learningOutcome": "Use respectful German phrases to agree, disagree, and justify opinions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly translates 'Before I go to school, I eat breakfast'?",
-      "options": ["Bevor ich zur Schule gehe, frühstücke ich.", "Bevor ich gehe zur Schule, ich frühstücke.", "Bevor ich zur Schule gehe, ich frühstücke.", "Bevor gehe ich zur Schule, frühstücke ich."],
-      "correctAnswer": "Bevor ich zur Schule gehe, frühstücke ich.",
-      "explanation": "'Bevor' introduces a subordinate clause with the verb at the end.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Time Clauses",
-      "learningOutcome": "Use time conjunctions to sequence actions in German sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses a relative clause to describe a book?",
-      "options": ["Das Buch, das ich lese, ist spannend.", "Das Buch, der ich lese, ist spannend.", "Das Buch, ich lese das, ist spannend.", "Das Buch, das ich lese ist spannend hat."],
-      "correctAnswer": "Das Buch, das ich lese, ist spannend.",
-      "explanation": "'Das Buch' is neuter, so the relative pronoun is 'das'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Relative Clauses",
-      "learningOutcome": "Use relative pronouns to add detail about people and objects.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Read the short advert 'Wir suchen zuverlässige Praktikanten mit guten Computerkenntnissen.' What quality is required?",
-      "options": ["Reliability and good computer skills", "Fluent driving and cooking skills", "Only sports achievements", "Experience as a shop owner"],
-      "correctAnswer": "Reliability and good computer skills",
-      "explanation": "'Zuverlässig' means reliable, and 'Computerkenntnisse' are computer skills.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Job Advertisements",
-      "learningOutcome": "Identify requirements in short German job and internship adverts.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which sentence uses adjective endings correctly after an indefinite article?",
-      "options": ["Ich habe einen interessanten Film gesehen.", "Ich habe ein interessanten Film gesehen.", "Ich habe einen interessante Film gesehen.", "Ich habe einem interessanten Film gesehen."],
-      "correctAnswer": "Ich habe einen interessanten Film gesehen.",
-      "explanation": "'Film' is masculine accusative after 'sehen', so the phrase is 'einen interessanten Film'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Adjective Endings",
-      "learningOutcome": "Apply German adjective endings in common accusative noun phrases.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses 'seit' to show duration from the past to the present?",
-      "options": ["Ich lerne seit drei Jahren Deutsch.", "Ich lernte seit drei Jahren Deutsch gestern.", "Ich habe seit drei Jahren Deutsch gelernt worden.", "Ich werde seit drei Jahren Deutsch lernen gestern."],
-      "correctAnswer": "Ich lerne seit drei Jahren Deutsch.",
-      "explanation": "German commonly uses the present tense with 'seit' for an action that began in the past and continues now.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Time Expressions",
-      "learningOutcome": "Use 'seit' with appropriate tense to express ongoing duration.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which phrase best mediates the meaning of 'Bitte bringen Sie Ihren Ausweis mit' into English?",
-      "options": ["Please bring your identity document with you.", "Please leave your luggage outside.", "Please pay the fee tomorrow.", "Please send your marks by email."],
-      "correctAnswer": "Please bring your identity document with you.",
-      "explanation": "'Ausweis' means identity document, and 'mitbringen' means to bring along.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Mediating Practical Information",
-      "learningOutcome": "Transfer key information from short German instructions into English accurately.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which German sentence correctly states a health problem?",
-      "options": ["Ich habe seit gestern Kopfschmerzen.", "Ich bin seit gestern Kopfschmerzen.", "Ich mache seit gestern Kopfschmerzen.", "Ich werde seit gestern Kopfschmerzen."],
-      "correctAnswer": "Ich habe seit gestern Kopfschmerzen.",
-      "explanation": "German commonly uses 'haben' with symptoms such as 'Kopfschmerzen'.",
-      "difficulty": 3,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Health Communication",
-      "learningOutcome": "Describe symptoms and health concerns in simple German sentences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which statement best describes the German dual vocational training system?",
-      "options": ["Learners combine workplace training with study at a vocational school.", "Learners only study theory at university for six years.", "Learners avoid employers until after final exams.", "Learners study two unrelated languages every day."],
-      "correctAnswer": "Learners combine workplace training with study at a vocational school.",
-      "explanation": "The dual system links practical company training with classroom learning.",
-      "difficulty": 3,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Education and Work Pathways",
-      "learningOutcome": "Compare education and training pathways in German-speaking contexts with local experiences.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses 'um ... zu' to express purpose?",
-      "options": ["Ich spare Geld, um ein Fahrrad zu kaufen.", "Ich spare Geld, um kaufe ein Fahrrad.", "Ich spare Geld, dass ein Fahrrad zu kaufen.", "Ich spare Geld, damit kaufen ein Fahrrad."],
-      "correctAnswer": "Ich spare Geld, um ein Fahrrad zu kaufen.",
-      "explanation": "'Um ... zu' is used when the subject is the same in both parts of the sentence.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Infinitive Clauses",
-      "learningOutcome": "Use infinitive clauses to express purpose in German.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which German expression best introduces a balanced argument in writing?",
-      "options": ["Einerseits ..., andererseits ...", "Gestern ..., morgen ...", "Oben ..., unten ...", "Niemand ..., niemals ..."],
-      "correctAnswer": "Einerseits ..., andererseits ...",
-      "explanation": "'Einerseits ... andererseits ...' introduces two contrasting sides of an argument.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Argumentative Connectors",
-      "learningOutcome": "Use German connectors to structure balanced arguments.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which option correctly completes 'Wenn ich mehr Zeit hätte, ___ ich mehr lesen'?",
-      "options": ["würde", "werde", "wurde", "war"],
-      "correctAnswer": "würde",
-      "explanation": "The sentence expresses an unreal condition, so it uses Konjunktiv II with 'würde'.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Konjunktiv II",
-      "learningOutcome": "Use Konjunktiv II to express hypothetical situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly forms a question about a past event?",
-      "options": ["Wann bist du nach Mombasa gefahren?", "Wann du bist nach Mombasa gefahren?", "Wann hast du nach Mombasa gefahren?", "Wann bist gefahren du nach Mombasa?"],
-      "correctAnswer": "Wann bist du nach Mombasa gefahren?",
-      "explanation": "A question word is followed by the conjugated auxiliary, then the subject, with the participle at the end.",
-      "difficulty": 3,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Asking About Experiences",
-      "learningOutcome": "Ask accurate German questions about past travel and experiences.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Read the sentence 'Wegen des starken Regens wurde das Fußballspiel abgesagt.' What happened to the match?",
-      "options": ["It was cancelled because of heavy rain.", "It started early because of sunshine.", "It moved indoors because of heat.", "It was won by the home team."],
-      "correctAnswer": "It was cancelled because of heavy rain.",
-      "explanation": "'Wurde abgesagt' means was cancelled, and 'wegen des starken Regens' gives the cause.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Event Updates",
-      "learningOutcome": "Infer the outcome and reason from short German event notices.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses genitive after 'wegen' in formal German?",
-      "options": ["Wegen des Wetters bleiben wir zu Hause.", "Wegen dem Wetter bleiben wir zu Hause in formaler Sprache.", "Wegen der Wetter bleiben wir zu Hause.", "Wegen das Wetter bleiben wir zu Hause."],
-      "correctAnswer": "Wegen des Wetters bleiben wir zu Hause.",
-      "explanation": "In formal German, 'wegen' is commonly followed by the genitive case.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Genitive Case",
-      "learningOutcome": "Recognize genitive forms after common formal prepositions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which option best completes this sign: 'Rauchen ist im Schulgebäude ___.'",
-      "options": ["verboten", "pünktlich", "glücklich", "nützlich"],
-      "correctAnswer": "verboten",
-      "explanation": "'Verboten' means forbidden and is common in rules and signs.",
-      "difficulty": 3,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Rules and Signs",
-      "learningOutcome": "Understand common German signs and rule statements.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly expresses a comparison of equality?",
-      "options": ["Deutsch ist so interessant wie Französisch.", "Deutsch ist als interessant wie Französisch.", "Deutsch ist interessanter wie Französisch gleich.", "Deutsch ist so interessant als Französisch."],
-      "correctAnswer": "Deutsch ist so interessant wie Französisch.",
-      "explanation": "Equality comparisons use 'so ... wie' in German.",
-      "difficulty": 3,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Comparisons",
-      "learningOutcome": "Use German structures for equality and difference in comparisons.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which closing is appropriate for a formal German email?",
-      "options": ["Mit freundlichen Grüßen", "Liebe Grüße an dich", "Bis später", "Tschüssi"],
-      "correctAnswer": "Mit freundlichen Grüßen",
-      "explanation": "'Mit freundlichen Grüßen' is a standard formal closing in German correspondence.",
-      "difficulty": 3,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Formal Closings",
-      "learningOutcome": "Select suitable closings for formal German letters and emails.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Which sentence best rewrites 'Ich bin krank. Ich komme nicht zur Schule' as one reason sentence?",
-      "options": ["Ich komme nicht zur Schule, weil ich krank bin.", "Ich komme nicht zur Schule, weil ich bin krank.", "Ich bin krank, denn komme ich nicht zur Schule.", "Weil ich krank bin, ich komme nicht zur Schule."],
-      "correctAnswer": "Ich komme nicht zur Schule, weil ich krank bin.",
-      "explanation": "The 'weil' clause sends the conjugated verb to the end and gives the reason clearly.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Sentence Combining",
-      "learningOutcome": "Combine related German sentences using reason clauses with accurate word order.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "A learner writes 'Ich habe nach Hause gegangen.' Which correction is best?",
-      "options": ["Ich bin nach Hause gegangen.", "Ich habe nach Hause gehen.", "Ich bin nach Hause gehen.", "Ich habe nach Hause gegehen."],
-      "correctAnswer": "Ich bin nach Hause gegangen.",
-      "explanation": "'Gehen' is a movement verb, so the perfect tense uses 'sein' and the participle 'gegangen'.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Error Correction in Perfect Tense",
-      "learningOutcome": "Analyze and correct auxiliary choice in German perfect-tense sentences.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Which sentence best combines these ideas formally: 'The product is new. It is already broken.'",
-      "options": ["Obwohl das Produkt neu ist, ist es schon kaputt.", "Weil das Produkt neu ist, ist es schon kaputt.", "Das Produkt neu, aber schon kaputt ist.", "Obwohl ist das Produkt neu, es ist schon kaputt."],
-      "correctAnswer": "Obwohl das Produkt neu ist, ist es schon kaputt.",
-      "explanation": "'Obwohl' expresses the unexpected contrast between newness and being broken.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Formal Complaint Writing",
-      "learningOutcome": "Use contrast clauses to explain problems in formal German complaints.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Read: 'Lena hat den Bus verpasst. Trotzdem kam sie pünktlich zum Unterricht.' What can be inferred?",
-      "options": ["She found another way to arrive on time.", "She skipped the lesson completely.", "The lesson was cancelled before she arrived.", "She drove the missed bus herself."],
-      "correctAnswer": "She found another way to arrive on time.",
-      "explanation": "'Trotzdem' shows contrast: despite missing the bus, she arrived punctually.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Inference from Connectors",
-      "learningOutcome": "Infer meaning from German connectors in short texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Which sentence best uses 'damit' when the subjects are different?",
-      "options": ["Ich erkläre die Regel, damit alle sie verstehen.", "Ich erkläre die Regel, um alle sie zu verstehen.", "Ich erkläre die Regel, damit verstehen alle sie.", "Ich erkläre die Regel, zu damit alle verstehen."],
-      "correctAnswer": "Ich erkläre die Regel, damit alle sie verstehen.",
-      "explanation": "'Damit' is used for purpose when the second clause has its own subject.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Purpose Clauses",
-      "learningOutcome": "Differentiate 'damit' and 'um ... zu' in purpose clauses.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which version is most appropriate for a formal email to a company about an internship?",
-      "options": ["Ich interessiere mich für ein Praktikum in Ihrer Firma.", "Ich will bei euch irgendwie arbeiten.", "Gebt mir schnell einen Job.", "Hey Leute, ich brauche was zu tun."],
-      "correctAnswer": "Ich interessiere mich für ein Praktikum in Ihrer Firma.",
-      "explanation": "The correct option uses formal address, clear purpose, and professional vocabulary.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Application Emails",
-      "learningOutcome": "Choose formal German expressions for internship and job application contexts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly uses the passive to avoid naming the actor?",
-      "options": ["Die Ergebnisse werden morgen veröffentlicht.", "Die Ergebnisse veröffentlichen morgen.", "Die Ergebnisse wird morgen veröffentlichen.", "Die Ergebnisse sind morgen veröffentlicht werden."],
-      "correctAnswer": "Die Ergebnisse werden morgen veröffentlicht.",
-      "explanation": "The passive focuses on the results and uses plural 'werden' plus the participle.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Passive for Formal Information",
-      "learningOutcome": "Use passive constructions to present formal information objectively.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A German host says, 'Fühlen Sie sich wie zu Hause.' What is the intended meaning?",
-      "options": ["Make yourself feel at home.", "Leave the house immediately.", "Clean the whole house alone.", "Describe your home in writing."],
-      "correctAnswer": "Make yourself feel at home.",
-      "explanation": "The phrase is a hospitable expression inviting the guest to feel comfortable.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Hospitality and Courtesy",
-      "learningOutcome": "Interpret common courtesy expressions in German-speaking social contexts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which option best completes a balanced statement: 'Einerseits ist Online-Lernen flexibel, andererseits ___.'",
-      "options": ["fehlt manchmal der direkte Kontakt", "ist Flexibilität ein Wochentag", "lernen online gestern Bücher", "hat direkt der Kontakt gefehlt wird"],
-      "correctAnswer": "fehlt manchmal der direkte Kontakt",
-      "explanation": "The completion gives a contrasting disadvantage and keeps correct verb-second order after 'andererseits'.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Balanced Arguments",
-      "learningOutcome": "Complete German argumentative sentences with coherent contrasting ideas.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which sentence best expresses regret about a missed opportunity?",
-      "options": ["Wenn ich mehr gelernt hätte, hätte ich die Prüfung bestanden.", "Wenn ich mehr lerne, bestand ich die Prüfung.", "Wenn ich mehr gelernt habe, werde ich bestanden.", "Wenn ich mehr lernen, hätte ich die Prüfung bestehen."],
-      "correctAnswer": "Wenn ich mehr gelernt hätte, hätte ich die Prüfung bestanden.",
-      "explanation": "Past unreal conditions use Konjunktiv II with 'hätte' and the past participle.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Past Unreal Conditions",
-      "learningOutcome": "Analyze and form German sentences about unreal past situations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Which sentence best corrects the adjective ending error in 'mit ein guter Freund'?",
-      "options": ["mit einem guten Freund", "mit einen guten Freund", "mit ein guter Freund", "mit einer guten Freund"],
-      "correctAnswer": "mit einem guten Freund",
-      "explanation": "'Mit' takes dative, so masculine 'ein Freund' becomes 'einem guten Freund'.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Dative Adjective Endings",
-      "learningOutcome": "Correct article and adjective endings after dative prepositions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Read: 'Die Bewerbungsfrist endet am 30. Juni. Spätere Unterlagen werden nicht berücksichtigt.' What should an applicant do?",
-      "options": ["Submit the documents by 30 June.", "Send the documents only after 30 June.", "Wait until the company asks twice.", "Ignore the deadline if the CV is strong."],
-      "correctAnswer": "Submit the documents by 30 June.",
-      "explanation": "'Bewerbungsfrist' is the application deadline, and later documents will not be considered.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Application Instructions",
-      "learningOutcome": "Interpret deadlines and conditions in German application texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Which response is best when a formal appointment time is inconvenient?",
-      "options": ["Könnten wir den Termin bitte verschieben?", "Der Termin ist mir egal.", "Ich komme vielleicht irgendwann.", "Warum planen Sie so schlecht?"],
-      "correctAnswer": "Könnten wir den Termin bitte verschieben?",
-      "explanation": "This response politely asks to reschedule without sounding rude or unclear.",
-      "difficulty": 4,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Appointments",
-      "learningOutcome": "Negotiate appointments politely in German-speaking formal contexts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly reports another person's statement in indirect style?",
-      "options": ["Er sagt, dass er morgen kommen kann.", "Er sagt, dass kann er morgen kommen.", "Er sagt, er morgen kommen kann dass.", "Er sagt, dass er kann morgen kommen."],
-      "correctAnswer": "Er sagt, dass er morgen kommen kann.",
-      "explanation": "The reported clause with 'dass' places the modal verb at the end.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Reported Speech with Dass",
-      "learningOutcome": "Report statements using German 'dass' clauses with correct word order.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Which intercultural choice is most appropriate when meeting a teacher or official in a German-speaking setting for the first time?",
-      "options": ["Use 'Sie' until invited to use 'du'.", "Use 'du' immediately with every adult.", "Avoid greetings to save time.", "Use a nickname before learning the person's name."],
-      "correctAnswer": "Use 'Sie' until invited to use 'du'.",
-      "explanation": "Formal address shows respect in first meetings with adults, officials, and teachers.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Register and Social Norms",
-      "learningOutcome": "Apply intercultural awareness when choosing forms of address.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which sentence best expresses 'the more regularly you practise, the better you speak'?",
-      "options": ["Je regelmäßiger du übst, desto besser sprichst du.", "Je du regelmäßiger übst, besser desto sprichst du.", "Desto regelmäßiger du übst, je besser sprichst du.", "Je regelmäßig üben du, desto gut sprechen du."],
-      "correctAnswer": "Je regelmäßiger du übst, desto besser sprichst du.",
-      "explanation": "The correlative structure is 'je ... desto ...' with comparative forms.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Correlative Comparisons",
-      "learningOutcome": "Use advanced comparison structures to express relationships between actions and outcomes.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which sentence best translates 'I am looking forward to your reply' in a formal email?",
-      "options": ["Ich freue mich auf Ihre Antwort.", "Ich freue mich über deine Antwort gestern.", "Ich freue Ihre Antwort mich auf.", "Ich bin froh zu Ihrer Antwort gekommen."],
-      "correctAnswer": "Ich freue mich auf Ihre Antwort.",
-      "explanation": "The expression 'sich auf etwas freuen' is used for looking forward to something expected.",
-      "difficulty": 4,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Formal Email Phrases",
-      "learningOutcome": "Use conventional German phrases to close formal emails politely.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which option best summarizes this sentence: 'Viele Jugendliche nutzen soziale Medien, aber sie sollten ihre persönlichen Daten schützen.'",
-      "options": ["Young people use social media but should protect personal data.", "Young people avoid all technology at school.", "Social media removes the need for privacy.", "Personal data should be shared with strangers."],
-      "correctAnswer": "Young people use social media but should protect personal data.",
-      "explanation": "The sentence contrasts common social media use with the need for data protection.",
-      "difficulty": 4,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Digital Citizenship Texts",
-      "learningOutcome": "Summarize the main idea of short German texts about technology and society.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Which sentence correctly changes direct speech into a 'dass' clause: 'Anna sagt: Ich habe keine Zeit.'",
-      "options": ["Anna sagt, dass sie keine Zeit hat.", "Anna sagt, dass ich keine Zeit habe.", "Anna sagt, dass sie hat keine Zeit.", "Anna sagt, dass keine Zeit sie hat."],
-      "correctAnswer": "Anna sagt, dass sie keine Zeit hat.",
-      "explanation": "The pronoun changes from 'ich' to 'sie', and the verb goes to the end of the 'dass' clause.",
-      "difficulty": 4,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Pronoun Shift in Reported Speech",
-      "learningOutcome": "Analyze pronoun and word-order changes in reported German statements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which statement best compares Kenyan and German school communication norms in a respectful way?",
-      "options": ["Both value respect, but German formal emails often require set greetings and closings.", "Kenyan learners should ignore all German email conventions.", "German teachers never expect respectful language.", "Only one culture has rules for polite school communication."],
-      "correctAnswer": "Both value respect, but German formal emails often require set greetings and closings.",
-      "explanation": "Intercultural comparison should avoid stereotypes while noticing practical language conventions.",
-      "difficulty": 4,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Comparing Communication Norms",
-      "learningOutcome": "Compare communication practices across cultures respectfully and accurately.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Which sentence is the strongest thesis for a German essay about public transport and climate protection?",
-      "options": ["Öffentliche Verkehrsmittel sollten ausgebaut werden, weil sie Staus verringern und das Klima schützen.", "Busse gibt es in vielen Städten und manchmal fahren sie.", "Ich mag Autos, aber Fahrräder sind auch da.", "Verkehr ist ein Wort mit acht Buchstaben."],
-      "correctAnswer": "Öffentliche Verkehrsmittel sollten ausgebaut werden, weil sie Staus verringern und das Klima schützen.",
-      "explanation": "The strongest thesis gives a clear position and two reasons that can be developed in an essay.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Argumentative Thesis Statements",
-      "learningOutcome": "Evaluate and select clear thesis statements for German argumentative writing.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which option best improves this weak sentence for a formal complaint: 'Das Handy ist schlecht'?",
-      "options": ["Das Handy lässt sich seit dem Kauf nicht einschalten.", "Das Handy ist irgendwie nicht mein Freund.", "Das Handy macht schlechte Gefühle und so.", "Handy schlecht, bitte Geld jetzt."],
-      "correctAnswer": "Das Handy lässt sich seit dem Kauf nicht einschalten.",
-      "explanation": "A good complaint gives a specific, verifiable problem instead of vague judgement.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Precision in Formal Complaints",
-      "learningOutcome": "Revise vague German complaint statements into precise formal language.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A text says: 'Obwohl die Wohnung klein ist, wirkt sie hell und praktisch eingerichtet.' Which evaluation is most accurate?",
-      "options": ["The writer sees a disadvantage but gives an overall positive impression.", "The writer says the flat is large and badly furnished.", "The writer refuses to describe the flat.", "The writer only discusses the rent and location."],
-      "correctAnswer": "The writer sees a disadvantage but gives an overall positive impression.",
-      "explanation": "'Obwohl' introduces the small size as a contrast to the positive description that follows.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Evaluating Tone and Contrast",
-      "learningOutcome": "Evaluate tone and implied attitude in short German descriptive texts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which sentence best combines passive voice and purpose in a formal school notice?",
-      "options": ["Die Daten werden gespeichert, damit die Anmeldung schneller bearbeitet werden kann.", "Die Daten speichern, damit schneller die Anmeldung kann bearbeiten.", "Die Daten werden speichern, um die Anmeldung kann schneller.", "Die Anmeldung bearbeitet die Daten, damit gespeichert werden schneller."],
-      "correctAnswer": "Die Daten werden gespeichert, damit die Anmeldung schneller bearbeitet werden kann.",
-      "explanation": "The sentence correctly uses passive forms and a 'damit' clause with the modal at the end.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Complex Formal Sentences",
-      "learningOutcome": "Evaluate complex German sentences that combine passive voice, purpose, and modal verbs.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which intercultural reflection is most appropriate after comparing recycling habits in Kenya and Germany?",
-      "options": ["Different systems can solve similar waste problems, so learners should compare practices without stereotyping people.", "Only German-speaking countries care about the environment.", "Kenyan communities cannot learn from other recycling systems.", "Culture means everyone in a country behaves exactly the same way."],
-      "correctAnswer": "Different systems can solve similar waste problems, so learners should compare practices without stereotyping people.",
-      "explanation": "Good intercultural reflection compares practices thoughtfully and avoids broad claims about people.",
-      "difficulty": 5,
-      "strandTitle": "Culture and Intercultural Competence",
-      "subStrandTitle": "Responsible Cultural Comparison",
-      "learningOutcome": "Evaluate cultural practices respectfully and connect them to local and global issues.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Which option best turns these notes into one coherent German sentence: 'study German - get scholarship - future plan'?",
-      "options": ["Ich lerne Deutsch, weil ich mich später um ein Stipendium bewerben möchte.", "Deutsch lerne ich Stipendium später weil möchte bewerben.", "Ich lerne Deutsch, denn um ein Stipendium zu möchte.", "Weil ich Deutsch ein Stipendium später lernen bewerben."],
-      "correctAnswer": "Ich lerne Deutsch, weil ich mich später um ein Stipendium bewerben möchte.",
-      "explanation": "The sentence links the action and goal clearly with 'weil' and the correct verb-final structure.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Sentence Expansion from Notes",
-      "learningOutcome": "Create coherent German sentences from planning notes using appropriate connectors.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Which sentence best expresses a nuanced opinion about technology in schools?",
-      "options": ["Meiner Meinung nach kann Technik den Unterricht verbessern, solange sie sinnvoll eingesetzt wird.", "Technik ist immer gut und nie schlecht in jeder Schule.", "Schulen brauchen Technik, weil Technik Technik ist.", "Ich mag mein Handy, deshalb ist Lernen egal."],
-      "correctAnswer": "Meiner Meinung nach kann Technik den Unterricht verbessern, solange sie sinnvoll eingesetzt wird.",
-      "explanation": "The strongest option gives an opinion and a condition, making the statement balanced.",
-      "difficulty": 5,
-      "strandTitle": "Communication and Interaction",
-      "subStrandTitle": "Nuanced Opinions",
-      "learningOutcome": "Create balanced German opinions using conditions and precise vocabulary.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which option best summarizes this mini text: 'Nach dem Schulabschluss möchte Amina eine Ausbildung machen. Sie will praktische Erfahrung sammeln und gleichzeitig weiterlernen.'",
-      "options": ["Amina wants vocational training that combines practice and continued learning.", "Amina wants to stop learning after school completely.", "Amina plans to travel without studying or working.", "Amina has already completed university and retired."],
-      "correctAnswer": "Amina wants vocational training that combines practice and continued learning.",
-      "explanation": "The text links 'Ausbildung', practical experience, and continued learning.",
-      "difficulty": 5,
-      "strandTitle": "Reading and Viewing",
-      "subStrandTitle": "Summarizing Career Texts",
-      "learningOutcome": "Synthesize key ideas from short German texts about future pathways.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which sentence best uses an advanced cause-effect structure for an environmental argument?",
-      "options": ["Da viele Autos die Luft verschmutzen, sollten Städte sichere Radwege bauen.", "Viele Autos Luft, deshalb Radwege sicher bauen Städte.", "Autos sind da und Radwege sind auch Sachen.", "Weil Radwege sicher bauen, verschmutzen viele Städte Autos."],
-      "correctAnswer": "Da viele Autos die Luft verschmutzen, sollten Städte sichere Radwege bauen.",
-      "explanation": "'Da' introduces the cause with verb-final order, and the main clause gives a reasoned recommendation.",
-      "difficulty": 5,
-      "strandTitle": "Grammar and Structures",
-      "subStrandTitle": "Cause-Effect Argumentation",
-      "learningOutcome": "Create complex German argument sentences using cause and recommendation structures.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which response best mediates this German instruction for a Kenyan exchange learner: 'Bitte melden Sie sich zuerst im Sekretariat an'?",
-      "options": ["First report to the school office to register or announce your arrival.", "First go to the sports field and wait for friends.", "First buy a train ticket at the station.", "First send your luggage to the cafeteria."],
-      "correctAnswer": "First report to the school office to register or announce your arrival.",
-      "explanation": "'Sich im Sekretariat anmelden' means to check in or register at the school office.",
-      "difficulty": 5,
-      "strandTitle": "Writing and Mediation",
-      "subStrandTitle": "Mediating School Instructions",
-      "learningOutcome": "Mediate practical German school instructions into clear English for an exchange context.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "german",
+ "subjectName": "German",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "What does the German noun 'der Flughafen' mean in English?",
+   "options": [
+    "Airport",
+    "Harbour",
+    "Railway station",
+    "Bus stop"
+   ],
+   "correctAnswer": "Airport",
+   "explanation": "'Der Flughafen' is the place where aeroplanes arrive and depart.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Travel Vocabulary",
+   "learningOutcome": "Identify common German vocabulary used in travel and transport contexts.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which German word means 'curriculum vitae' or 'resume' in a job application?",
+   "options": [
+    "der Lebenslauf",
+    "die Rechnung",
+    "der Reisepass",
+    "die Eintrittskarte"
+   ],
+   "correctAnswer": "der Lebenslauf",
+   "explanation": "'Der Lebenslauf' lists education, experience, and skills for an application.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Career Vocabulary",
+   "learningOutcome": "Recognize German words used in education, work, and application contexts.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which German adjective best translates 'sustainable'?",
+   "options": [
+    "nachhaltig",
+    "laut",
+    "billig",
+    "schmal"
+   ],
+   "correctAnswer": "nachhaltig",
+   "explanation": "'Nachhaltig' describes actions or systems that protect resources for the future.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Environment Vocabulary",
+   "learningOutcome": "Identify German vocabulary related to environment and sustainability topics.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "What does the verb phrase 'sich beschweren' mean?",
+   "options": [
+    "to complain",
+    "to hurry",
+    "to translate",
+    "to introduce oneself"
+   ],
+   "correctAnswer": "to complain",
+   "explanation": "'Sich beschweren' is used when someone expresses dissatisfaction politely or formally.",
+   "difficulty": 1,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Making Complaints",
+   "learningOutcome": "Recognize German phrases used to express complaints and service problems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which option is the German word for 'public transport'?",
+   "options": [
+    "die öffentlichen Verkehrsmittel",
+    "die privaten Aufgaben",
+    "die schnellen Mahlzeiten",
+    "die stillen Ferien"
+   ],
+   "correctAnswer": "die öffentlichen Verkehrsmittel",
+   "explanation": "'Öffentliche Verkehrsmittel' includes buses, trains, trams, and similar shared transport.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Urban Life Vocabulary",
+   "learningOutcome": "Recognize German terms for services and facilities in towns and cities.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which German phrase is a polite formal greeting in an email?",
+   "options": [
+    "Sehr geehrte Frau Weber,",
+    "Bis dann, Frau Weber,",
+    "Na, Weber,",
+    "Tschüss zusammen,"
+   ],
+   "correctAnswer": "Sehr geehrte Frau Weber,",
+   "explanation": "'Sehr geehrte Frau Weber,' is a standard formal opening for written communication.",
+   "difficulty": 1,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Formal Email Conventions",
+   "learningOutcome": "Identify appropriate openings for formal German emails and letters.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which German pronoun is used for formal 'you' when addressing one adult politely?",
+   "options": [
+    "Sie",
+    "du",
+    "er",
+    "wir"
+   ],
+   "correctAnswer": "Sie",
+   "explanation": "The capitalized pronoun 'Sie' is used for formal address in German.",
+   "difficulty": 1,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Formal and Informal Address",
+   "learningOutcome": "Distinguish between formal and informal forms of address in German-speaking contexts.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which German-speaking country has Vienna as its capital city?",
+   "options": [
+    "Austria",
+    "Switzerland",
+    "Germany",
+    "Luxembourg"
+   ],
+   "correctAnswer": "Austria",
+   "explanation": "Vienna is the capital of Austria, one of the major German-speaking countries.",
+   "difficulty": 1,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "German-Speaking Countries",
+   "learningOutcome": "Recall key facts about countries where German is widely used.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which article correctly completes the phrase '___ Schule'?",
+   "options": [
+    "die",
+    "der",
+    "das",
+    "den"
+   ],
+   "correctAnswer": "die",
+   "explanation": "'Schule' is a feminine noun, so the nominative singular article is 'die'.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Noun Gender and Articles",
+   "learningOutcome": "Identify common German noun genders and matching definite articles.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which phrase means 'I am interested in technology'?",
+   "options": [
+    "Ich interessiere mich für Technik.",
+    "Ich ärgere mich über Technik.",
+    "Ich erinnere mich an Technik.",
+    "Ich verabschiede mich von Technik."
+   ],
+   "correctAnswer": "Ich interessiere mich für Technik.",
+   "explanation": "The reflexive phrase 'sich für etwas interessieren' means to be interested in something.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Interests and Preferences",
+   "learningOutcome": "Recognize common reflexive phrases used to express interests.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which German word is the opposite of 'teuer'?",
+   "options": [
+    "billig",
+    "schwer",
+    "trocken",
+    "spät"
+   ],
+   "correctAnswer": "billig",
+   "explanation": "'Teuer' means expensive, while 'billig' means cheap or inexpensive.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Adjectives and Opposites",
+   "learningOutcome": "Recognize common German adjectives and their opposites.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "What does 'die Ausbildung' usually mean in German career discussions?",
+   "options": [
+    "vocational training",
+    "weather forecast",
+    "shopping receipt",
+    "traffic jam"
+   ],
+   "correctAnswer": "vocational training",
+   "explanation": "'Die Ausbildung' often refers to structured professional or vocational training.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Education and Work",
+   "learningOutcome": "Identify German terms linked to study, training, and employment pathways.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which German phrase is commonly used to ask for the bill in a restaurant?",
+   "options": [
+    "Die Rechnung, bitte.",
+    "Die Prüfung, bitte.",
+    "Die Bewerbung, bitte.",
+    "Die Haltestelle, bitte."
+   ],
+   "correctAnswer": "Die Rechnung, bitte.",
+   "explanation": "'Die Rechnung, bitte' politely asks for the bill or invoice.",
+   "difficulty": 1,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Service Encounters",
+   "learningOutcome": "Use common German phrases for everyday service interactions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which option names a German separable-prefix verb meaning 'to pick up'?",
+   "options": [
+    "abholen",
+    "besuchen",
+    "erzählen",
+    "verstehen"
+   ],
+   "correctAnswer": "abholen",
+   "explanation": "'Abholen' means to collect or pick someone or something up.",
+   "difficulty": 1,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Separable Prefix Verbs",
+   "learningOutcome": "Recognize common separable-prefix verbs and their meanings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which word means 'nevertheless' in German?",
+   "options": [
+    "trotzdem",
+    "deshalb",
+    "sondern",
+    "während"
+   ],
+   "correctAnswer": "trotzdem",
+   "explanation": "'Trotzdem' expresses contrast and is similar to 'nevertheless' or 'even so'.",
+   "difficulty": 1,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Connectors",
+   "learningOutcome": "Identify German connectors that show cause, contrast, and sequence.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Choose the correct German sentence: 'Tomorrow I will write an exam.'",
+   "options": [
+    "Morgen schreibe ich eine Prüfung.",
+    "Morgen ich schreibe eine Prüfung.",
+    "Ich morgen schreibe eine Prüfung.",
+    "Schreibe morgen ich eine Prüfung."
+   ],
+   "correctAnswer": "Morgen schreibe ich eine Prüfung.",
+   "explanation": "When a time expression starts the sentence, the conjugated verb remains in second position.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Verb-Second Word Order",
+   "learningOutcome": "Apply German main-clause word order after time expressions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses the modal verb 'müssen'?",
+   "options": [
+    "Wir müssen heute lernen.",
+    "Wir muss heute lernen.",
+    "Wir müsst heute lernen.",
+    "Wir musst heute lernen."
+   ],
+   "correctAnswer": "Wir müssen heute lernen.",
+   "explanation": "With 'wir', the correct present-tense form is 'müssen'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Modal Verbs",
+   "learningOutcome": "Use modal verbs with correct subject-verb agreement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes the sentence 'Ich fahre mit ___ Bus zur Schule'?",
+   "options": [
+    "dem",
+    "den",
+    "der",
+    "das"
+   ],
+   "correctAnswer": "dem",
+   "explanation": "The preposition 'mit' always takes the dative case; 'der Bus' becomes 'dem Bus'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Dative Prepositions",
+   "learningOutcome": "Use dative articles after common German prepositions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly expresses 'I do not have time'?",
+   "options": [
+    "Ich habe keine Zeit.",
+    "Ich habe nicht Zeit.",
+    "Ich bin keine Zeit.",
+    "Ich habe kein Zeit."
+   ],
+   "correctAnswer": "Ich habe keine Zeit.",
+   "explanation": "The feminine noun 'Zeit' takes 'keine' when negated with an indefinite meaning.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Negation with Kein",
+   "learningOutcome": "Choose correct forms of 'kein' to negate nouns in German sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which question is the most polite way to ask for help in a German-speaking office?",
+   "options": [
+    "Könnten Sie mir bitte helfen?",
+    "Hilf mir sofort!",
+    "Warum hilfst du nie?",
+    "Du musst mir helfen, ja?"
+   ],
+   "correctAnswer": "Könnten Sie mir bitte helfen?",
+   "explanation": "The conditional form with 'Sie' and 'bitte' creates a polite formal request.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Polite Requests",
+   "learningOutcome": "Select appropriate German expressions for polite formal requests.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly says 'She has visited Berlin'?",
+   "options": [
+    "Sie hat Berlin besucht.",
+    "Sie ist Berlin besucht.",
+    "Sie hat Berlin besuchen.",
+    "Sie besuchte Berlin hat."
+   ],
+   "correctAnswer": "Sie hat Berlin besucht.",
+   "explanation": "The perfect tense of 'besuchen' uses 'hat' plus the past participle 'besucht'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Perfect Tense",
+   "learningOutcome": "Form the German perfect tense with common regular verbs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which connector best completes 'Ich lerne Deutsch, ___ ich in Deutschland studieren möchte'?",
+   "options": [
+    "weil",
+    "aber",
+    "oder",
+    "denn"
+   ],
+   "correctAnswer": "weil",
+   "explanation": "'Weil' introduces a subordinate clause and gives a reason for learning German.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Subordinating Conjunctions",
+   "learningOutcome": "Use German conjunctions to connect reasons and main ideas.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes 'Der Schüler, ___ in Nairobi wohnt, spricht gut Deutsch'?",
+   "options": [
+    "der",
+    "die",
+    "das",
+    "den"
+   ],
+   "correctAnswer": "der",
+   "explanation": "The relative pronoun refers to 'der Schüler' as the subject of the relative clause.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Relative Pronouns",
+   "learningOutcome": "Choose correct nominative relative pronouns for simple German relative clauses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which phrase is the best German translation of 'I would like to reserve a room'?",
+   "options": [
+    "Ich möchte ein Zimmer reservieren.",
+    "Ich muss ein Zimmer verlieren.",
+    "Ich darf ein Zimmer vergessen.",
+    "Ich soll ein Zimmer verkaufen."
+   ],
+   "correctAnswer": "Ich möchte ein Zimmer reservieren.",
+   "explanation": "'Ich möchte' politely expresses 'I would like', and 'reservieren' means to reserve.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Travel Services",
+   "learningOutcome": "Use German phrases for reservations and travel service requests.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses 'gern' to express a preference?",
+   "options": [
+    "Ich lese gern Romane.",
+    "Ich gern lese Romane.",
+    "Gern ich lese Romane.",
+    "Ich lese Romane gernen."
+   ],
+   "correctAnswer": "Ich lese gern Romane.",
+   "explanation": "'Gern' normally follows the conjugated verb or appears near the activity it describes.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Adverbs of Preference",
+   "learningOutcome": "Express preferences using common German adverbs such as 'gern'.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Read the sentence 'Der Zug hat zehn Minuten Verspätung.' What has happened?",
+   "options": [
+    "The train is ten minutes late.",
+    "The train leaves ten minutes early.",
+    "The ticket costs ten euros.",
+    "The station closes in ten minutes."
+   ],
+   "correctAnswer": "The train is ten minutes late.",
+   "explanation": "'Verspätung' means delay, so the train is running late.",
+   "difficulty": 2,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Public Notices",
+   "learningOutcome": "Extract key meaning from short German travel notices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which option is a suitable response to 'Wie geht es Ihnen?' in a formal conversation?",
+   "options": [
+    "Danke, mir geht es gut.",
+    "Ich bin sechzehn Jahre.",
+    "Ich wohne Deutsch.",
+    "Nein, kein Problem."
+   ],
+   "correctAnswer": "Danke, mir geht es gut.",
+   "explanation": "'Wie geht es Ihnen?' asks how someone is; the answer uses 'mir geht es'.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Formal Conversation",
+   "learningOutcome": "Respond appropriately to common formal German greetings and questions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Which German sentence correctly says 'The students are preparing for the exam'?",
+   "options": [
+    "Die Schüler bereiten sich auf die Prüfung vor.",
+    "Die Schüler vorbereiten sich auf die Prüfung.",
+    "Die Schüler bereiten auf sich die Prüfung vor.",
+    "Die Schüler bereiten die Prüfung sich auf."
+   ],
+   "correctAnswer": "Die Schüler bereiten sich auf die Prüfung vor.",
+   "explanation": "'Sich auf etwas vorbereiten' is reflexive and separable, so 'vor' moves to the end.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Reflexive and Separable Verbs",
+   "learningOutcome": "Use common reflexive separable verbs in present-tense sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which cultural practice is strongly associated with waste separation in many German towns?",
+   "options": [
+    "Using different bins for paper, glass, organic waste, and packaging",
+    "Throwing all household waste into one public drain",
+    "Burning plastic waste beside apartment blocks",
+    "Keeping recyclable bottles without returning them"
+   ],
+   "correctAnswer": "Using different bins for paper, glass, organic waste, and packaging",
+   "explanation": "Waste sorting and recycling systems are common in many German-speaking communities.",
+   "difficulty": 2,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Everyday Sustainable Practices",
+   "learningOutcome": "Describe common sustainability practices in German-speaking communities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which German sentence correctly orders food politely?",
+   "options": [
+    "Ich hätte gern eine Suppe.",
+    "Ich habe gern eine Suppe gestern.",
+    "Ich bin gern eine Suppe.",
+    "Ich würde gern eine Suppe gegessen."
+   ],
+   "correctAnswer": "Ich hätte gern eine Suppe.",
+   "explanation": "'Ich hätte gern' is a polite restaurant phrase meaning 'I would like'.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Restaurant Language",
+   "learningOutcome": "Use polite German phrases for ordering food and drinks.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which German option correctly completes 'Er interessiert sich ___ Musik aus Österreich'?",
+   "options": [
+    "für",
+    "mit",
+    "von",
+    "nach"
+   ],
+   "correctAnswer": "für",
+   "explanation": "The expression is 'sich für etwas interessieren'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Verb-Preposition Phrases",
+   "learningOutcome": "Use common German verb-preposition combinations accurately.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly gives a reason with 'denn'?",
+   "options": [
+    "Ich bleibe zu Hause, denn ich bin krank.",
+    "Ich bleibe zu Hause, denn bin ich krank.",
+    "Ich bleibe zu Hause denn, ich krank bin.",
+    "Denn ich bin krank, ich bleibe zu Hause."
+   ],
+   "correctAnswer": "Ich bleibe zu Hause, denn ich bin krank.",
+   "explanation": "'Denn' is a coordinating conjunction, so the verb stays in normal second position after it.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Coordinating Conjunctions",
+   "learningOutcome": "Use coordinating conjunctions to explain reasons in German main clauses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Read the notice 'Heute bleibt die Bibliothek wegen Renovierung geschlossen.' What should a student understand?",
+   "options": [
+    "The library is closed today because of renovation.",
+    "The library opens longer today for revision.",
+    "The library has moved to another town.",
+    "The library sells renovated books today."
+   ],
+   "correctAnswer": "The library is closed today because of renovation.",
+   "explanation": "'Bleibt geschlossen' means remains closed, and 'wegen Renovierung' gives the reason.",
+   "difficulty": 2,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "School and Public Notices",
+   "learningOutcome": "Interpret short German notices about services and schedules.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which German phrase best expresses 'in my opinion'?",
+   "options": [
+    "Meiner Meinung nach",
+    "Nach meiner Tasche",
+    "Meinung meiner nach",
+    "Mit meinem Wetter"
+   ],
+   "correctAnswer": "Meiner Meinung nach",
+   "explanation": "'Meiner Meinung nach' is a common phrase for introducing an opinion.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Expressing Opinions",
+   "learningOutcome": "Use German phrases to introduce opinions in spoken and written tasks.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes 'Ich habe ___ Bruder und ___ Schwester'?",
+   "options": [
+    "einen; eine",
+    "ein; ein",
+    "eine; einen",
+    "einem; einer"
+   ],
+   "correctAnswer": "einen; eine",
+   "explanation": "'Bruder' is masculine accusative after 'haben', while 'Schwester' is feminine accusative.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Accusative Case",
+   "learningOutcome": "Select correct indefinite articles in accusative noun phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which phrase is the best German translation of 'environmental protection'?",
+   "options": [
+    "der Umweltschutz",
+    "der Stundenplan",
+    "die Hausaufgabe",
+    "das Abendessen"
+   ],
+   "correctAnswer": "der Umweltschutz",
+   "explanation": "'Der Umweltschutz' means protection of the environment.",
+   "difficulty": 2,
+   "strandTitle": "Vocabulary and Language Use",
+   "subStrandTitle": "Environment and Society",
+   "learningOutcome": "Use German vocabulary for social and environmental themes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly forms the comparative of 'schnell'?",
+   "options": [
+    "Der Zug ist schneller als der Bus.",
+    "Der Zug ist am schnell als der Bus.",
+    "Der Zug ist mehr schnell wie der Bus.",
+    "Der Zug ist schnellste als der Bus."
+   ],
+   "correctAnswer": "Der Zug ist schneller als der Bus.",
+   "explanation": "The comparative adds '-er' and uses 'als' for 'than'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Comparatives",
+   "learningOutcome": "Form and use German comparative adjectives in simple comparisons.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses a separable-prefix verb in the perfect tense?",
+   "options": [
+    "Ich bin um sechs Uhr aufgestanden.",
+    "Ich habe um sechs Uhr geaufstanden.",
+    "Ich bin um sechs Uhr gestanden auf.",
+    "Ich stehe um sechs Uhr aufgestanden."
+   ],
+   "correctAnswer": "Ich bin um sechs Uhr aufgestanden.",
+   "explanation": "'Aufstehen' forms the perfect with 'bin' and the participle 'aufgestanden'.",
+   "difficulty": 2,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Perfect Tense with Separable Verbs",
+   "learningOutcome": "Recognize correct perfect-tense forms of common separable-prefix verbs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which response best accepts an invitation in German?",
+   "options": [
+    "Ja, gern. Vielen Dank für die Einladung.",
+    "Leider habe ich keine Zeit.",
+    "Nein, ich komme nicht.",
+    "Ich weiß nicht, wo mein Buch ist."
+   ],
+   "correctAnswer": "Ja, gern. Vielen Dank für die Einladung.",
+   "explanation": "This response clearly accepts and thanks the speaker for the invitation.",
+   "difficulty": 2,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Invitations and Responses",
+   "learningOutcome": "Respond appropriately to invitations in German social situations.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which feature is typical of formal German written communication?",
+   "options": [
+    "Using 'Sie' and a respectful closing",
+    "Using only slang abbreviations",
+    "Omitting the greeting in every email",
+    "Writing all nouns in lowercase"
+   ],
+   "correctAnswer": "Using 'Sie' and a respectful closing",
+   "explanation": "Formal German writing normally uses polite address, clear structure, and a suitable closing.",
+   "difficulty": 2,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Register and Tone",
+   "learningOutcome": "Identify features of formal register in German written communication.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Choose the correct subordinate clause word order: 'I know that he is learning German.'",
+   "options": [
+    "Ich weiß, dass er Deutsch lernt.",
+    "Ich weiß, dass lernt er Deutsch.",
+    "Ich weiß, dass er lernt Deutsch.",
+    "Ich weiß, dass Deutsch er lernt hat."
+   ],
+   "correctAnswer": "Ich weiß, dass er Deutsch lernt.",
+   "explanation": "In a 'dass' subordinate clause, the conjugated verb moves to the end.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Subordinate Clause Word Order",
+   "learningOutcome": "Apply verb-final word order in German subordinate clauses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses the two-way preposition 'in' for movement?",
+   "options": [
+    "Ich gehe in die Bibliothek.",
+    "Ich gehe in der Bibliothek.",
+    "Ich gehe im Bibliothek.",
+    "Ich gehe in dem Bücher."
+   ],
+   "correctAnswer": "Ich gehe in die Bibliothek.",
+   "explanation": "Movement toward a place uses the accusative case; 'die Bibliothek' stays 'die'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Two-Way Prepositions",
+   "learningOutcome": "Distinguish accusative and dative use with two-way prepositions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly describes location with a two-way preposition?",
+   "options": [
+    "Das Handy liegt auf dem Tisch.",
+    "Das Handy liegt auf den Tisch.",
+    "Das Handy legt auf dem Tisch.",
+    "Das Handy liegen auf der Tisch."
+   ],
+   "correctAnswer": "Das Handy liegt auf dem Tisch.",
+   "explanation": "Location uses dative after a two-way preposition, and 'liegen' describes where something is.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Position and Location",
+   "learningOutcome": "Use dative case and correct position verbs to describe location.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly gives advice with 'sollen'?",
+   "options": [
+    "Du solltest früher anfangen.",
+    "Du sollst früher angefangen.",
+    "Du solltest früher anfängst.",
+    "Du sollen früher anfangen."
+   ],
+   "correctAnswer": "Du solltest früher anfangen.",
+   "explanation": "'Solltest' is the polite advisory form of 'sollen' and is followed by the infinitive.",
+   "difficulty": 3,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Giving Advice",
+   "learningOutcome": "Use modal structures to give advice in German.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses Konjunktiv II for a polite request?",
+   "options": [
+    "Könnten Sie das bitte wiederholen?",
+    "Können Sie das gestern wiederholt?",
+    "Könntest Sie das bitte wiederholen?",
+    "Konnten Sie das bitte wiederholen wird?"
+   ],
+   "correctAnswer": "Könnten Sie das bitte wiederholen?",
+   "explanation": "'Könnten Sie ...?' is a polite formal request using Konjunktiv II.",
+   "difficulty": 3,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Formal Requests",
+   "learningOutcome": "Apply Konjunktiv II forms in polite requests and classroom interactions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Read the message 'Ich kann heute nicht kommen, weil ich einen Arzttermin habe.' Why can the person not come?",
+   "options": [
+    "They have a doctor's appointment.",
+    "They lost their phone.",
+    "They missed the train.",
+    "They need to buy a ticket."
+   ],
+   "correctAnswer": "They have a doctor's appointment.",
+   "explanation": "'Weil ich einen Arzttermin habe' gives the reason: a doctor's appointment.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Short Personal Messages",
+   "learningOutcome": "Identify reasons and key details in short German messages.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which option best completes this formal complaint: 'Leider funktioniert das neue Handy ___.'",
+   "options": [
+    "nicht richtig",
+    "sehr freundlich",
+    "mit Geschmack",
+    "bei schönem Wetter"
+   ],
+   "correctAnswer": "nicht richtig",
+   "explanation": "'Nicht richtig' explains the fault clearly and fits a complaint about a product.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Complaints and Problem Statements",
+   "learningOutcome": "Write clear German sentences that describe faults in formal complaints.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly combines contrast with 'obwohl'?",
+   "options": [
+    "Obwohl es regnet, gehen wir spazieren.",
+    "Obwohl es regnet, wir gehen spazieren.",
+    "Obwohl regnet es, gehen wir spazieren.",
+    "Obwohl es regnet gehen spazieren wir."
+   ],
+   "correctAnswer": "Obwohl es regnet, gehen wir spazieren.",
+   "explanation": "'Obwohl' sends the verb to the end of its clause, and the following main clause begins with the verb.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Concessive Clauses",
+   "learningOutcome": "Use 'obwohl' to express contrast with correct German word order.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes 'Ich warte ___ meine Freundin vor dem Kino'?",
+   "options": [
+    "auf",
+    "an",
+    "mit",
+    "gegen"
+   ],
+   "correctAnswer": "auf",
+   "explanation": "The expression is 'auf jemanden warten', meaning to wait for someone.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Verb-Preposition Combinations",
+   "learningOutcome": "Select correct prepositions required by common German verbs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which sentence uses the passive voice correctly?",
+   "options": [
+    "Das Formular wird online ausgefüllt.",
+    "Das Formular ist online ausfüllen.",
+    "Das Formular werden online ausgefüllt.",
+    "Das Formular wird online ausfüllen."
+   ],
+   "correctAnswer": "Das Formular wird online ausgefüllt.",
+   "explanation": "The present passive uses 'werden' plus the past participle; singular 'Formular' takes 'wird'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Passive Voice",
+   "learningOutcome": "Recognize and form the German present passive in practical contexts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly reports past travel using the perfect tense?",
+   "options": [
+    "Wir sind letztes Jahr nach Hamburg gefahren.",
+    "Wir haben letztes Jahr nach Hamburg gefahren.",
+    "Wir sind letztes Jahr nach Hamburg gefahrt.",
+    "Wir fahren letztes Jahr nach Hamburg gewesen."
+   ],
+   "correctAnswer": "Wir sind letztes Jahr nach Hamburg gefahren.",
+   "explanation": "Movement verbs such as 'fahren' usually form the perfect with 'sein' and the participle 'gefahren'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Perfect Tense with Sein",
+   "learningOutcome": "Use 'sein' with movement verbs in German perfect-tense narration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly expresses future intention?",
+   "options": [
+    "Nach der Schule werde ich Informatik studieren.",
+    "Nach der Schule ich werde Informatik studieren.",
+    "Nach der Schule werde ich Informatik studiert.",
+    "Nach der Schule werde studiere ich Informatik."
+   ],
+   "correctAnswer": "Nach der Schule werde ich Informatik studieren.",
+   "explanation": "The future tense uses a conjugated form of 'werden' plus an infinitive at the end.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Future Tense",
+   "learningOutcome": "Form German future-tense sentences about study and career plans.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Which German phrase is most suitable for disagreeing respectfully in a debate?",
+   "options": [
+    "Ich sehe das anders, weil ...",
+    "Das ist total dumm.",
+    "Du hast immer unrecht.",
+    "Ich höre gar nicht zu."
+   ],
+   "correctAnswer": "Ich sehe das anders, weil ...",
+   "explanation": "This phrase signals disagreement and prepares a reason without insulting the speaker.",
+   "difficulty": 3,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Debate Language",
+   "learningOutcome": "Use respectful German phrases to agree, disagree, and justify opinions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly translates 'Before I go to school, I eat breakfast'?",
+   "options": [
+    "Bevor ich zur Schule gehe, frühstücke ich.",
+    "Bevor ich gehe zur Schule, ich frühstücke.",
+    "Bevor ich zur Schule gehe, ich frühstücke.",
+    "Bevor gehe ich zur Schule, frühstücke ich."
+   ],
+   "correctAnswer": "Bevor ich zur Schule gehe, frühstücke ich.",
+   "explanation": "'Bevor' introduces a subordinate clause with the verb at the end.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Time Clauses",
+   "learningOutcome": "Use time conjunctions to sequence actions in German sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses a relative clause to describe a book?",
+   "options": [
+    "Das Buch, das ich lese, ist spannend.",
+    "Das Buch, der ich lese, ist spannend.",
+    "Das Buch, ich lese das, ist spannend.",
+    "Das Buch, das ich lese ist spannend hat."
+   ],
+   "correctAnswer": "Das Buch, das ich lese, ist spannend.",
+   "explanation": "'Das Buch' is neuter, so the relative pronoun is 'das'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Relative Clauses",
+   "learningOutcome": "Use relative pronouns to add detail about people and objects.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Read the short advert 'Wir suchen zuverlässige Praktikanten mit guten Computerkenntnissen.' What quality is required?",
+   "options": [
+    "Reliability and good computer skills",
+    "Fluent driving and cooking skills",
+    "Only sports achievements",
+    "Experience as a shop owner"
+   ],
+   "correctAnswer": "Reliability and good computer skills",
+   "explanation": "'Zuverlässig' means reliable, and 'Computerkenntnisse' are computer skills.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Job Advertisements",
+   "learningOutcome": "Identify requirements in short German job and internship adverts.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which sentence uses adjective endings correctly after an indefinite article?",
+   "options": [
+    "Ich habe einen interessanten Film gesehen.",
+    "Ich habe ein interessanten Film gesehen.",
+    "Ich habe einen interessante Film gesehen.",
+    "Ich habe einem interessanten Film gesehen."
+   ],
+   "correctAnswer": "Ich habe einen interessanten Film gesehen.",
+   "explanation": "'Film' is masculine accusative after 'sehen', so the phrase is 'einen interessanten Film'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Adjective Endings",
+   "learningOutcome": "Apply German adjective endings in common accusative noun phrases.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses 'seit' to show duration from the past to the present?",
+   "options": [
+    "Ich lerne seit drei Jahren Deutsch.",
+    "Ich lernte seit drei Jahren Deutsch gestern.",
+    "Ich habe seit drei Jahren Deutsch gelernt worden.",
+    "Ich werde seit drei Jahren Deutsch lernen gestern."
+   ],
+   "correctAnswer": "Ich lerne seit drei Jahren Deutsch.",
+   "explanation": "German commonly uses the present tense with 'seit' for an action that began in the past and continues now.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Time Expressions",
+   "learningOutcome": "Use 'seit' with appropriate tense to express ongoing duration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which phrase best mediates the meaning of 'Bitte bringen Sie Ihren Ausweis mit' into English?",
+   "options": [
+    "Please bring your identity document with you.",
+    "Please leave your luggage outside.",
+    "Please pay the fee tomorrow.",
+    "Please send your marks by email."
+   ],
+   "correctAnswer": "Please bring your identity document with you.",
+   "explanation": "'Ausweis' means identity document, and 'mitbringen' means to bring along.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Mediating Practical Information",
+   "learningOutcome": "Transfer key information from short German instructions into English accurately.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which German sentence correctly states a health problem?",
+   "options": [
+    "Ich habe seit gestern Kopfschmerzen.",
+    "Ich bin seit gestern Kopfschmerzen.",
+    "Ich mache seit gestern Kopfschmerzen.",
+    "Ich werde seit gestern Kopfschmerzen."
+   ],
+   "correctAnswer": "Ich habe seit gestern Kopfschmerzen.",
+   "explanation": "German commonly uses 'haben' with symptoms such as 'Kopfschmerzen'.",
+   "difficulty": 3,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Health Communication",
+   "learningOutcome": "Describe symptoms and health concerns in simple German sentences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which statement best describes the German dual vocational training system?",
+   "options": [
+    "Learners combine workplace training with study at a vocational school.",
+    "Learners only study theory at university for six years.",
+    "Learners avoid employers until after final exams.",
+    "Learners study two unrelated languages every day."
+   ],
+   "correctAnswer": "Learners combine workplace training with study at a vocational school.",
+   "explanation": "The dual system links practical company training with classroom learning.",
+   "difficulty": 3,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Education and Work Pathways",
+   "learningOutcome": "Compare education and training pathways in German-speaking contexts with local experiences.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses 'um ... zu' to express purpose?",
+   "options": [
+    "Ich spare Geld, um ein Fahrrad zu kaufen.",
+    "Ich spare Geld, um kaufe ein Fahrrad.",
+    "Ich spare Geld, dass ein Fahrrad zu kaufen.",
+    "Ich spare Geld, damit kaufen ein Fahrrad."
+   ],
+   "correctAnswer": "Ich spare Geld, um ein Fahrrad zu kaufen.",
+   "explanation": "'Um ... zu' is used when the subject is the same in both parts of the sentence.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Infinitive Clauses",
+   "learningOutcome": "Use infinitive clauses to express purpose in German.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which German expression best introduces a balanced argument in writing?",
+   "options": [
+    "Einerseits ..., andererseits ...",
+    "Gestern ..., morgen ...",
+    "Oben ..., unten ...",
+    "Niemand ..., niemals ..."
+   ],
+   "correctAnswer": "Einerseits ..., andererseits ...",
+   "explanation": "'Einerseits ... andererseits ...' introduces two contrasting sides of an argument.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Argumentative Connectors",
+   "learningOutcome": "Use German connectors to structure balanced arguments.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which option correctly completes 'Wenn ich mehr Zeit hätte, ___ ich mehr lesen'?",
+   "options": [
+    "würde",
+    "werde",
+    "wurde",
+    "war"
+   ],
+   "correctAnswer": "würde",
+   "explanation": "The sentence expresses an unreal condition, so it uses Konjunktiv II with 'würde'.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Konjunktiv II",
+   "learningOutcome": "Use Konjunktiv II to express hypothetical situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly forms a question about a past event?",
+   "options": [
+    "Wann bist du nach Mombasa gefahren?",
+    "Wann du bist nach Mombasa gefahren?",
+    "Wann hast du nach Mombasa gefahren?",
+    "Wann bist gefahren du nach Mombasa?"
+   ],
+   "correctAnswer": "Wann bist du nach Mombasa gefahren?",
+   "explanation": "A question word is followed by the conjugated auxiliary, then the subject, with the participle at the end.",
+   "difficulty": 3,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Asking About Experiences",
+   "learningOutcome": "Ask accurate German questions about past travel and experiences.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Read the sentence 'Wegen des starken Regens wurde das Fußballspiel abgesagt.' What happened to the match?",
+   "options": [
+    "It was cancelled because of heavy rain.",
+    "It started early because of sunshine.",
+    "It moved indoors because of heat.",
+    "It was won by the home team."
+   ],
+   "correctAnswer": "It was cancelled because of heavy rain.",
+   "explanation": "'Wurde abgesagt' means was cancelled, and 'wegen des starken Regens' gives the cause.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Event Updates",
+   "learningOutcome": "Infer the outcome and reason from short German event notices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses genitive after 'wegen' in formal German?",
+   "options": [
+    "Wegen des Wetters bleiben wir zu Hause.",
+    "Wegen dem Wetter bleiben wir zu Hause in formaler Sprache.",
+    "Wegen der Wetter bleiben wir zu Hause.",
+    "Wegen das Wetter bleiben wir zu Hause."
+   ],
+   "correctAnswer": "Wegen des Wetters bleiben wir zu Hause.",
+   "explanation": "In formal German, 'wegen' is commonly followed by the genitive case.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Genitive Case",
+   "learningOutcome": "Recognize genitive forms after common formal prepositions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which option best completes this sign: 'Rauchen ist im Schulgebäude ___.'",
+   "options": [
+    "verboten",
+    "pünktlich",
+    "glücklich",
+    "nützlich"
+   ],
+   "correctAnswer": "verboten",
+   "explanation": "'Verboten' means forbidden and is common in rules and signs.",
+   "difficulty": 3,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Rules and Signs",
+   "learningOutcome": "Understand common German signs and rule statements.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly expresses a comparison of equality?",
+   "options": [
+    "Deutsch ist so interessant wie Französisch.",
+    "Deutsch ist als interessant wie Französisch.",
+    "Deutsch ist interessanter wie Französisch gleich.",
+    "Deutsch ist so interessant als Französisch."
+   ],
+   "correctAnswer": "Deutsch ist so interessant wie Französisch.",
+   "explanation": "Equality comparisons use 'so ... wie' in German.",
+   "difficulty": 3,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Comparisons",
+   "learningOutcome": "Use German structures for equality and difference in comparisons.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which closing is appropriate for a formal German email?",
+   "options": [
+    "Mit freundlichen Grüßen",
+    "Liebe Grüße an dich",
+    "Bis später",
+    "Tschüssi"
+   ],
+   "correctAnswer": "Mit freundlichen Grüßen",
+   "explanation": "'Mit freundlichen Grüßen' is a standard formal closing in German correspondence.",
+   "difficulty": 3,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Formal Closings",
+   "learningOutcome": "Select suitable closings for formal German letters and emails.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Which sentence best rewrites 'Ich bin krank. Ich komme nicht zur Schule' as one reason sentence?",
+   "options": [
+    "Ich komme nicht zur Schule, weil ich krank bin.",
+    "Ich komme nicht zur Schule, weil ich bin krank.",
+    "Ich bin krank, denn komme ich nicht zur Schule.",
+    "Weil ich krank bin, ich komme nicht zur Schule."
+   ],
+   "correctAnswer": "Ich komme nicht zur Schule, weil ich krank bin.",
+   "explanation": "The 'weil' clause sends the conjugated verb to the end and gives the reason clearly.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Sentence Combining",
+   "learningOutcome": "Combine related German sentences using reason clauses with accurate word order.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "A learner writes 'Ich habe nach Hause gegangen.' Which correction is best?",
+   "options": [
+    "Ich bin nach Hause gegangen.",
+    "Ich habe nach Hause gehen.",
+    "Ich bin nach Hause gehen.",
+    "Ich habe nach Hause gegehen."
+   ],
+   "correctAnswer": "Ich bin nach Hause gegangen.",
+   "explanation": "'Gehen' is a movement verb, so the perfect tense uses 'sein' and the participle 'gegangen'.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Error Correction in Perfect Tense",
+   "learningOutcome": "Analyze and correct auxiliary choice in German perfect-tense sentences.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Which sentence best combines these ideas formally: 'The product is new. It is already broken.'",
+   "options": [
+    "Obwohl das Produkt neu ist, ist es schon kaputt.",
+    "Weil das Produkt neu ist, ist es schon kaputt.",
+    "Das Produkt neu, aber schon kaputt ist.",
+    "Obwohl ist das Produkt neu, es ist schon kaputt."
+   ],
+   "correctAnswer": "Obwohl das Produkt neu ist, ist es schon kaputt.",
+   "explanation": "'Obwohl' expresses the unexpected contrast between newness and being broken.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Formal Complaint Writing",
+   "learningOutcome": "Use contrast clauses to explain problems in formal German complaints.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Read: 'Lena hat den Bus verpasst. Trotzdem kam sie pünktlich zum Unterricht.' What can be inferred?",
+   "options": [
+    "She found another way to arrive on time.",
+    "She skipped the lesson completely.",
+    "The lesson was cancelled before she arrived.",
+    "She drove the missed bus herself."
+   ],
+   "correctAnswer": "She found another way to arrive on time.",
+   "explanation": "'Trotzdem' shows contrast: despite missing the bus, she arrived punctually.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Inference from Connectors",
+   "learningOutcome": "Infer meaning from German connectors in short texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Which sentence best uses 'damit' when the subjects are different?",
+   "options": [
+    "Ich erkläre die Regel, damit alle sie verstehen.",
+    "Ich erkläre die Regel, um alle sie zu verstehen.",
+    "Ich erkläre die Regel, damit verstehen alle sie.",
+    "Ich erkläre die Regel, zu damit alle verstehen."
+   ],
+   "correctAnswer": "Ich erkläre die Regel, damit alle sie verstehen.",
+   "explanation": "'Damit' is used for purpose when the second clause has its own subject.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Purpose Clauses",
+   "learningOutcome": "Differentiate 'damit' and 'um ... zu' in purpose clauses.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which version is most appropriate for a formal email to a company about an internship?",
+   "options": [
+    "Ich interessiere mich für ein Praktikum in Ihrer Firma.",
+    "Ich will bei euch irgendwie arbeiten.",
+    "Gebt mir schnell einen Job.",
+    "Hey Leute, ich brauche was zu tun."
+   ],
+   "correctAnswer": "Ich interessiere mich für ein Praktikum in Ihrer Firma.",
+   "explanation": "The correct option uses formal address, clear purpose, and professional vocabulary.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Application Emails",
+   "learningOutcome": "Choose formal German expressions for internship and job application contexts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly uses the passive to avoid naming the actor?",
+   "options": [
+    "Die Ergebnisse werden morgen veröffentlicht.",
+    "Die Ergebnisse veröffentlichen morgen.",
+    "Die Ergebnisse wird morgen veröffentlichen.",
+    "Die Ergebnisse sind morgen veröffentlicht werden."
+   ],
+   "correctAnswer": "Die Ergebnisse werden morgen veröffentlicht.",
+   "explanation": "The passive focuses on the results and uses plural 'werden' plus the participle.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Passive for Formal Information",
+   "learningOutcome": "Use passive constructions to present formal information objectively.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A German host says, 'Fühlen Sie sich wie zu Hause.' What is the intended meaning?",
+   "options": [
+    "Make yourself feel at home.",
+    "Leave the house immediately.",
+    "Clean the whole house alone.",
+    "Describe your home in writing."
+   ],
+   "correctAnswer": "Make yourself feel at home.",
+   "explanation": "The phrase is a hospitable expression inviting the guest to feel comfortable.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Hospitality and Courtesy",
+   "learningOutcome": "Interpret common courtesy expressions in German-speaking social contexts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which option best completes a balanced statement: 'Einerseits ist Online-Lernen flexibel, andererseits ___.'",
+   "options": [
+    "fehlt manchmal der direkte Kontakt",
+    "ist Flexibilität ein Wochentag",
+    "lernen online gestern Bücher",
+    "hat direkt der Kontakt gefehlt wird"
+   ],
+   "correctAnswer": "fehlt manchmal der direkte Kontakt",
+   "explanation": "The completion gives a contrasting disadvantage and keeps correct verb-second order after 'andererseits'.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Balanced Arguments",
+   "learningOutcome": "Complete German argumentative sentences with coherent contrasting ideas.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which sentence best expresses regret about a missed opportunity?",
+   "options": [
+    "Wenn ich mehr gelernt hätte, hätte ich die Prüfung bestanden.",
+    "Wenn ich mehr lerne, bestand ich die Prüfung.",
+    "Wenn ich mehr gelernt habe, werde ich bestanden.",
+    "Wenn ich mehr lernen, hätte ich die Prüfung bestehen."
+   ],
+   "correctAnswer": "Wenn ich mehr gelernt hätte, hätte ich die Prüfung bestanden.",
+   "explanation": "Past unreal conditions use Konjunktiv II with 'hätte' and the past participle.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Past Unreal Conditions",
+   "learningOutcome": "Analyze and form German sentences about unreal past situations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Which sentence best corrects the adjective ending error in 'mit ein guter Freund'?",
+   "options": [
+    "mit einem guten Freund",
+    "mit einen guten Freund",
+    "mit ein guter Freund",
+    "mit einer guten Freund"
+   ],
+   "correctAnswer": "mit einem guten Freund",
+   "explanation": "'Mit' takes dative, so masculine 'ein Freund' becomes 'einem guten Freund'.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Dative Adjective Endings",
+   "learningOutcome": "Correct article and adjective endings after dative prepositions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Read: 'Die Bewerbungsfrist endet am 30. Juni. Spätere Unterlagen werden nicht berücksichtigt.' What should an applicant do?",
+   "options": [
+    "Submit the documents by 30 June.",
+    "Send the documents only after 30 June.",
+    "Wait until the company asks twice.",
+    "Ignore the deadline if the CV is strong."
+   ],
+   "correctAnswer": "Submit the documents by 30 June.",
+   "explanation": "'Bewerbungsfrist' is the application deadline, and later documents will not be considered.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Application Instructions",
+   "learningOutcome": "Interpret deadlines and conditions in German application texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Which response is best when a formal appointment time is inconvenient?",
+   "options": [
+    "Könnten wir den Termin bitte verschieben?",
+    "Der Termin ist mir egal.",
+    "Ich komme vielleicht irgendwann.",
+    "Warum planen Sie so schlecht?"
+   ],
+   "correctAnswer": "Könnten wir den Termin bitte verschieben?",
+   "explanation": "This response politely asks to reschedule without sounding rude or unclear.",
+   "difficulty": 4,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Appointments",
+   "learningOutcome": "Negotiate appointments politely in German-speaking formal contexts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly reports another person's statement in indirect style?",
+   "options": [
+    "Er sagt, dass er morgen kommen kann.",
+    "Er sagt, dass kann er morgen kommen.",
+    "Er sagt, er morgen kommen kann dass.",
+    "Er sagt, dass er kann morgen kommen."
+   ],
+   "correctAnswer": "Er sagt, dass er morgen kommen kann.",
+   "explanation": "The reported clause with 'dass' places the modal verb at the end.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Reported Speech with Dass",
+   "learningOutcome": "Report statements using German 'dass' clauses with correct word order.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Which intercultural choice is most appropriate when meeting a teacher or official in a German-speaking setting for the first time?",
+   "options": [
+    "Use 'Sie' until invited to use 'du'.",
+    "Use 'du' immediately with every adult.",
+    "Avoid greetings to save time.",
+    "Use a nickname before learning the person's name."
+   ],
+   "correctAnswer": "Use 'Sie' until invited to use 'du'.",
+   "explanation": "Formal address shows respect in first meetings with adults, officials, and teachers.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Register and Social Norms",
+   "learningOutcome": "Apply intercultural awareness when choosing forms of address.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which sentence best expresses 'the more regularly you practise, the better you speak'?",
+   "options": [
+    "Je regelmäßiger du übst, desto besser sprichst du.",
+    "Je du regelmäßiger übst, besser desto sprichst du.",
+    "Desto regelmäßiger du übst, je besser sprichst du.",
+    "Je regelmäßig üben du, desto gut sprechen du."
+   ],
+   "correctAnswer": "Je regelmäßiger du übst, desto besser sprichst du.",
+   "explanation": "The correlative structure is 'je ... desto ...' with comparative forms.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Correlative Comparisons",
+   "learningOutcome": "Use advanced comparison structures to express relationships between actions and outcomes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which sentence best translates 'I am looking forward to your reply' in a formal email?",
+   "options": [
+    "Ich freue mich auf Ihre Antwort.",
+    "Ich freue mich über deine Antwort gestern.",
+    "Ich freue Ihre Antwort mich auf.",
+    "Ich bin froh zu Ihrer Antwort gekommen."
+   ],
+   "correctAnswer": "Ich freue mich auf Ihre Antwort.",
+   "explanation": "The expression 'sich auf etwas freuen' is used for looking forward to something expected.",
+   "difficulty": 4,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Formal Email Phrases",
+   "learningOutcome": "Use conventional German phrases to close formal emails politely.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which option best summarizes this sentence: 'Viele Jugendliche nutzen soziale Medien, aber sie sollten ihre persönlichen Daten schützen.'",
+   "options": [
+    "Young people use social media but should protect personal data.",
+    "Young people avoid all technology at school.",
+    "Social media removes the need for privacy.",
+    "Personal data should be shared with strangers."
+   ],
+   "correctAnswer": "Young people use social media but should protect personal data.",
+   "explanation": "The sentence contrasts common social media use with the need for data protection.",
+   "difficulty": 4,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Digital Citizenship Texts",
+   "learningOutcome": "Summarize the main idea of short German texts about technology and society.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which sentence correctly changes direct speech into a 'dass' clause: 'Anna sagt: Ich habe keine Zeit.'",
+   "options": [
+    "Anna sagt, dass sie keine Zeit hat.",
+    "Anna sagt, dass ich keine Zeit habe.",
+    "Anna sagt, dass sie hat keine Zeit.",
+    "Anna sagt, dass keine Zeit sie hat."
+   ],
+   "correctAnswer": "Anna sagt, dass sie keine Zeit hat.",
+   "explanation": "The pronoun changes from 'ich' to 'sie', and the verb goes to the end of the 'dass' clause.",
+   "difficulty": 4,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Pronoun Shift in Reported Speech",
+   "learningOutcome": "Analyze pronoun and word-order changes in reported German statements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which statement best compares Kenyan and German school communication norms in a respectful way?",
+   "options": [
+    "Both value respect, but German formal emails often require set greetings and closings.",
+    "Kenyan learners should ignore all German email conventions.",
+    "German teachers never expect respectful language.",
+    "Only one culture has rules for polite school communication."
+   ],
+   "correctAnswer": "Both value respect, but German formal emails often require set greetings and closings.",
+   "explanation": "Intercultural comparison should avoid stereotypes while noticing practical language conventions.",
+   "difficulty": 4,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Comparing Communication Norms",
+   "learningOutcome": "Compare communication practices across cultures respectfully and accurately.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Which sentence is the strongest thesis for a German essay about public transport and climate protection?",
+   "options": [
+    "Öffentliche Verkehrsmittel sollten ausgebaut werden, weil sie Staus verringern und das Klima schützen.",
+    "Busse gibt es in vielen Städten und manchmal fahren sie.",
+    "Ich mag Autos, aber Fahrräder sind auch da.",
+    "Verkehr ist ein Wort mit acht Buchstaben."
+   ],
+   "correctAnswer": "Öffentliche Verkehrsmittel sollten ausgebaut werden, weil sie Staus verringern und das Klima schützen.",
+   "explanation": "The strongest thesis gives a clear position and two reasons that can be developed in an essay.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Argumentative Thesis Statements",
+   "learningOutcome": "Evaluate and select clear thesis statements for German argumentative writing.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which option best improves this weak sentence for a formal complaint: 'Das Handy ist schlecht'?",
+   "options": [
+    "Das Handy lässt sich seit dem Kauf nicht einschalten.",
+    "Das Handy ist irgendwie nicht mein Freund.",
+    "Das Handy macht schlechte Gefühle und so.",
+    "Handy schlecht, bitte Geld jetzt."
+   ],
+   "correctAnswer": "Das Handy lässt sich seit dem Kauf nicht einschalten.",
+   "explanation": "A good complaint gives a specific, verifiable problem instead of vague judgement.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Precision in Formal Complaints",
+   "learningOutcome": "Revise vague German complaint statements into precise formal language.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A text says: 'Obwohl die Wohnung klein ist, wirkt sie hell und praktisch eingerichtet.' Which evaluation is most accurate?",
+   "options": [
+    "The writer sees a disadvantage but gives an overall positive impression.",
+    "The writer says the flat is large and badly furnished.",
+    "The writer refuses to describe the flat.",
+    "The writer only discusses the rent and location."
+   ],
+   "correctAnswer": "The writer sees a disadvantage but gives an overall positive impression.",
+   "explanation": "'Obwohl' introduces the small size as a contrast to the positive description that follows.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Evaluating Tone and Contrast",
+   "learningOutcome": "Evaluate tone and implied attitude in short German descriptive texts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which sentence best combines passive voice and purpose in a formal school notice?",
+   "options": [
+    "Die Daten werden gespeichert, damit die Anmeldung schneller bearbeitet werden kann.",
+    "Die Daten speichern, damit schneller die Anmeldung kann bearbeiten.",
+    "Die Daten werden speichern, um die Anmeldung kann schneller.",
+    "Die Anmeldung bearbeitet die Daten, damit gespeichert werden schneller."
+   ],
+   "correctAnswer": "Die Daten werden gespeichert, damit die Anmeldung schneller bearbeitet werden kann.",
+   "explanation": "The sentence correctly uses passive forms and a 'damit' clause with the modal at the end.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Complex Formal Sentences",
+   "learningOutcome": "Evaluate complex German sentences that combine passive voice, purpose, and modal verbs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which intercultural reflection is most appropriate after comparing recycling habits in Kenya and Germany?",
+   "options": [
+    "Different systems can solve similar waste problems, so learners should compare practices without stereotyping people.",
+    "Only German-speaking countries care about the environment.",
+    "Kenyan communities cannot learn from other recycling systems.",
+    "Culture means everyone in a country behaves exactly the same way."
+   ],
+   "correctAnswer": "Different systems can solve similar waste problems, so learners should compare practices without stereotyping people.",
+   "explanation": "Good intercultural reflection compares practices thoughtfully and avoids broad claims about people.",
+   "difficulty": 5,
+   "strandTitle": "Culture and Intercultural Competence",
+   "subStrandTitle": "Responsible Cultural Comparison",
+   "learningOutcome": "Evaluate cultural practices respectfully and connect them to local and global issues.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which option best turns these notes into one coherent German sentence: 'study German - get scholarship - future plan'?",
+   "options": [
+    "Ich lerne Deutsch, weil ich mich später um ein Stipendium bewerben möchte.",
+    "Deutsch lerne ich Stipendium später weil möchte bewerben.",
+    "Ich lerne Deutsch, denn um ein Stipendium zu möchte.",
+    "Weil ich Deutsch ein Stipendium später lernen bewerben."
+   ],
+   "correctAnswer": "Ich lerne Deutsch, weil ich mich später um ein Stipendium bewerben möchte.",
+   "explanation": "The sentence links the action and goal clearly with 'weil' and the correct verb-final structure.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Sentence Expansion from Notes",
+   "learningOutcome": "Create coherent German sentences from planning notes using appropriate connectors.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Which sentence best expresses a nuanced opinion about technology in schools?",
+   "options": [
+    "Meiner Meinung nach kann Technik den Unterricht verbessern, solange sie sinnvoll eingesetzt wird.",
+    "Technik ist immer gut und nie schlecht in jeder Schule.",
+    "Schulen brauchen Technik, weil Technik Technik ist.",
+    "Ich mag mein Handy, deshalb ist Lernen egal."
+   ],
+   "correctAnswer": "Meiner Meinung nach kann Technik den Unterricht verbessern, solange sie sinnvoll eingesetzt wird.",
+   "explanation": "The strongest option gives an opinion and a condition, making the statement balanced.",
+   "difficulty": 5,
+   "strandTitle": "Communication and Interaction",
+   "subStrandTitle": "Nuanced Opinions",
+   "learningOutcome": "Create balanced German opinions using conditions and precise vocabulary.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which option best summarizes this mini text: 'Nach dem Schulabschluss möchte Amina eine Ausbildung machen. Sie will praktische Erfahrung sammeln und gleichzeitig weiterlernen.'",
+   "options": [
+    "Amina wants vocational training that combines practice and continued learning.",
+    "Amina wants to stop learning after school completely.",
+    "Amina plans to travel without studying or working.",
+    "Amina has already completed university and retired."
+   ],
+   "correctAnswer": "Amina wants vocational training that combines practice and continued learning.",
+   "explanation": "The text links 'Ausbildung', practical experience, and continued learning.",
+   "difficulty": 5,
+   "strandTitle": "Reading and Viewing",
+   "subStrandTitle": "Summarizing Career Texts",
+   "learningOutcome": "Synthesize key ideas from short German texts about future pathways.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which sentence best uses an advanced cause-effect structure for an environmental argument?",
+   "options": [
+    "Da viele Autos die Luft verschmutzen, sollten Städte sichere Radwege bauen.",
+    "Viele Autos Luft, deshalb Radwege sicher bauen Städte.",
+    "Autos sind da und Radwege sind auch Sachen.",
+    "Weil Radwege sicher bauen, verschmutzen viele Städte Autos."
+   ],
+   "correctAnswer": "Da viele Autos die Luft verschmutzen, sollten Städte sichere Radwege bauen.",
+   "explanation": "'Da' introduces the cause with verb-final order, and the main clause gives a reasoned recommendation.",
+   "difficulty": 5,
+   "strandTitle": "Grammar and Structures",
+   "subStrandTitle": "Cause-Effect Argumentation",
+   "learningOutcome": "Create complex German argument sentences using cause and recommendation structures.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which response best mediates this German instruction for a Kenyan exchange learner: 'Bitte melden Sie sich zuerst im Sekretariat an'?",
+   "options": [
+    "First report to the school office to register or announce your arrival.",
+    "First go to the sports field and wait for friends.",
+    "First buy a train ticket at the station.",
+    "First send your luggage to the cafeteria."
+   ],
+   "correctAnswer": "First report to the school office to register or announce your arrival.",
+   "explanation": "'Sich im Sekretariat anmelden' means to check in or register at the school office.",
+   "difficulty": 5,
+   "strandTitle": "Writing and Mediation",
+   "subStrandTitle": "Mediating School Instructions",
+   "learningOutcome": "Mediate practical German school instructions into clear English for an exchange context.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

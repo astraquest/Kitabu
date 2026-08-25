@@ -29,7 +29,9 @@ import {
 import { SchoolData, Subject, UserProfile } from '../types/app';
 import type { BillingStatus } from '../types/app';
 import type { MobileAnalyticsRole } from '../services/mobileAnalytics';
-import { SUPPORTED_GRADES } from '../constants/grades';
+import type { SchoolCatalogRecord } from '../services/appDataService';
+import { triggerHaptic } from '../services/haptics';
+import { requiredSubjectCountForGrade, SUPPORTED_GRADES } from '../constants/grades';
 import { AvatarArt, normalizeLocalAvatarKey } from './AvatarArt';
 import { CountryFlagIcon } from './CountryFlagIcon';
 import { MobileAnalyticsConsentCard } from './MobileAnalyticsConsentCard';
@@ -57,7 +59,15 @@ interface ProfileModalProps {
   onStartFocusMode: () => void;
   onOpenFocusModeSettings: () => void;
   user: UserProfile;
-  onSave: (updatedUser: UserProfile) => void;
+  onSave: (
+    updatedUser: UserProfile,
+    options?: { schoolDirectoryId?: string | null },
+  ) => void | Promise<void>;
+  onSearchSchools?: (input: {
+    county?: string;
+    query?: string;
+    limit?: number;
+  }) => Promise<SchoolCatalogRecord[]>;
   schools: SchoolData[];
   allSubjects: Subject[];
   selectedSubjectIds: string[];
@@ -76,7 +86,6 @@ const TEACHER_PORTAL_PROFILE_UI_ENABLED = false;
 
 type EditableField = 'grade' | 'gender' | 'school';
 
-const MAX_PROFILE_SUBJECTS = 5;
 const SUBJECT_CARD_TONES = [
   ['#D9E9FF', '#BBD6FF'],
   ['#D8F8E5', '#B9ECCF'],
@@ -435,6 +444,7 @@ export function ProfileModal({
   onOpenFocusModeSettings,
   user,
   onSave,
+  onSearchSchools,
   schools,
   allSubjects,
   selectedSubjectIds,
@@ -450,6 +460,14 @@ export function ProfileModal({
   const [regionPickerOpen, setRegionPickerOpen] = useState(false);
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [schoolQuery, setSchoolQuery] = useState('');
+  const [selectedSchoolDirectoryId, setSelectedSchoolDirectoryId] = useState<string | null>(null);
+  const [directorySchools, setDirectorySchools] = useState<SchoolCatalogRecord[]>([]);
+  const [directoryLoading, setDirectoryLoading] = useState(false);
+  const [directoryError, setDirectoryError] = useState<string | null>(null);
+  const [directoryRetry, setDirectoryRetry] = useState(0);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const directoryRequestId = useRef(0);
   const [swapCandidate, setSwapCandidate] = useState<Subject | null>(null);
   const [formData, setFormData] = useState<UserProfile>(user);
   const editCardProgress = useRef(new Animated.Value(0)).current;
@@ -472,6 +490,7 @@ export function ProfileModal({
     [allSubjects],
   );
   const selectedSubjectCount = selectedSubjectIds.length;
+  const requiredSubjectCount = requiredSubjectCountForGrade(formData.grade);
   const selectedSubjects = useMemo(
     () => orderedSubjects.filter(subject => selectedSubjectIds.includes(subject.id)),
     [orderedSubjects, selectedSubjectIds],
@@ -480,12 +499,12 @@ export function ProfileModal({
   useEffect(() => {
     if (
       !isOpen ||
-      selectedSubjectCount < MAX_PROFILE_SUBJECTS ||
+      selectedSubjectCount < requiredSubjectCount ||
       (swapCandidate && selectedSubjectIds.includes(swapCandidate.id))
     ) {
       setSwapCandidate(null);
     }
-  }, [isOpen, selectedSubjectCount, selectedSubjectIds, swapCandidate]);
+  }, [isOpen, requiredSubjectCount, selectedSubjectCount, selectedSubjectIds, swapCandidate]);
   const selectedCountry = useMemo(
     () => getProfileCountry(formData.country),
     [formData.country],
@@ -525,6 +544,56 @@ export function ProfileModal({
         : [],
     [formData.county, schoolQuery, schools],
   );
+  const isStudentProfile = user.role?.toLowerCase().includes('student') ?? false;
+  const schoolChanged =
+    formData.school?.trim() !== user.school?.trim() ||
+    formData.county?.trim() !== user.county?.trim();
+
+  useEffect(() => {
+    if (!schoolPickerOpen || !onSearchSchools || !formData.county) {
+      directoryRequestId.current += 1;
+      setDirectoryLoading(false);
+      setDirectoryError(null);
+      setDirectorySchools([]);
+      return;
+    }
+
+    const requestId = ++directoryRequestId.current;
+    const timer = setTimeout(() => {
+      setDirectoryLoading(true);
+      setDirectoryError(null);
+      onSearchSchools({
+        county: formData.county,
+        query: schoolQuery.trim() || undefined,
+        limit: 50,
+      })
+        .then(results => {
+          if (directoryRequestId.current !== requestId) return;
+          setDirectorySchools(results);
+        })
+        .catch(error => {
+          if (directoryRequestId.current !== requestId) return;
+          setDirectoryError(
+            error instanceof Error
+              ? error.message
+              : 'School directory could not be loaded.',
+          );
+          setDirectorySchools([]);
+        })
+        .finally(() => {
+          if (directoryRequestId.current === requestId) {
+            setDirectoryLoading(false);
+          }
+        });
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      if (directoryRequestId.current === requestId) {
+        directoryRequestId.current += 1;
+      }
+    };
+  }, [directoryRetry, formData.county, onSearchSchools, schoolPickerOpen, schoolQuery]);
 
   useEffect(() => {
     if (isOpen) {
@@ -536,6 +605,11 @@ export function ProfileModal({
       setRegionPickerOpen(false);
       setSchoolPickerOpen(false);
       setSchoolQuery('');
+      setSelectedSchoolDirectoryId(null);
+      setDirectorySchools([]);
+      setDirectoryError(null);
+      setSaveError(null);
+      setIsSaving(false);
       editCardProgress.setValue(0);
       lockModalProgress.setValue(0);
       setDeleteState({
@@ -553,6 +627,10 @@ export function ProfileModal({
     setRegionPickerOpen(false);
     setSchoolPickerOpen(false);
     setSchoolQuery('');
+    setSelectedSchoolDirectoryId(null);
+    setDirectorySchools([]);
+    setDirectoryError(null);
+    setSaveError(null);
     editCardProgress.setValue(0);
     setEditCardVisible(true);
     Animated.timing(editCardProgress, {
@@ -577,9 +655,27 @@ export function ProfileModal({
     });
   }
 
-  function saveEditCard() {
-    onSave(formData);
-    closeEditCard({ reset: false });
+  async function saveEditCard() {
+    if (isStudentProfile && schoolChanged && !selectedSchoolDirectoryId) {
+      setSaveError('Choose a school from the directory before saving.');
+      return;
+    }
+
+    setIsSaving(true);
+    setSaveError(null);
+    try {
+      await onSave(formData, {
+        schoolDirectoryId: selectedSchoolDirectoryId,
+      });
+      await triggerHaptic('success');
+      closeEditCard({ reset: false });
+    } catch (error) {
+      setSaveError(
+        error instanceof Error ? error.message : 'Profile could not be saved.',
+      );
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   function handleSwapSubject(replacedSubjectId: string) {
@@ -648,6 +744,10 @@ export function ProfileModal({
       county: '',
       school: '',
     }));
+    setSelectedSchoolDirectoryId(null);
+    setDirectorySchools([]);
+    setDirectoryError(null);
+    setSaveError(null);
     setCountryPickerOpen(false);
     setRegionPickerOpen(false);
     setSchoolPickerOpen(false);
@@ -660,6 +760,10 @@ export function ProfileModal({
       county: region,
       school: '',
     }));
+    setSelectedSchoolDirectoryId(null);
+    setDirectorySchools([]);
+    setDirectoryError(null);
+    setSaveError(null);
     setRegionPickerOpen(false);
     setSchoolPickerOpen(true);
     setSchoolQuery('');
@@ -673,6 +777,18 @@ export function ProfileModal({
     }));
     setSchoolPickerOpen(false);
     setSchoolQuery('');
+  }
+
+  function selectDirectorySchool(school: SchoolCatalogRecord) {
+    setFormData(prev => ({
+      ...prev,
+      school: school.name,
+      county: school.county || prev.county,
+    }));
+    setSelectedSchoolDirectoryId(school.schoolId);
+    setSchoolPickerOpen(false);
+    setSchoolQuery('');
+    setDirectoryError(null);
   }
 
   function renderSelectField(
@@ -971,6 +1087,7 @@ export function ProfileModal({
               subjects={orderedSubjects}
               selectedSubjectIds={selectedSubjectIds}
               selectedCount={selectedSubjectCount}
+              requiredSubjectCount={requiredSubjectCount}
               onToggleSubject={onToggleSubject}
               onRequestSwap={setSwapCandidate}
             />
@@ -1324,34 +1441,91 @@ export function ProfileModal({
                         nestedScrollEnabled
                         style={styles.schoolResultsList}
                       >
-                        {filteredSchools.map(school => {
-                          const selected = formData.school === school.name;
-                          return (
+                        {onSearchSchools
+                          ? directorySchools.map(school => {
+                              const selected =
+                                selectedSchoolDirectoryId === school.schoolId ||
+                                (!selectedSchoolDirectoryId && formData.school === school.name);
+                              return (
+                                <Pressable
+                                  accessibilityLabel={`Choose ${school.name}`}
+                                  accessibilityRole="radio"
+                                  accessibilityState={{ checked: selected }}
+                                  key={school.schoolId}
+                                  onPress={() => selectDirectorySchool(school)}
+                                  style={[
+                                    styles.schoolOption,
+                                    selected && styles.schoolOptionActive,
+                                  ]}
+                                >
+                                  <View style={styles.schoolOptionTextWrap}>
+                                    <Text style={styles.schoolOptionName}>
+                                      {school.name}
+                                    </Text>
+                                    <Text style={styles.schoolOptionMeta}>
+                                      {[school.level, school.schoolCode].filter(Boolean).join(' · ')}
+                                    </Text>
+                                  </View>
+                                  {selected ? (
+                                    <Check
+                                      color="#2563EB"
+                                      size={17}
+                                      strokeWidth={3}
+                                    />
+                                  ) : null}
+                                </Pressable>
+                              );
+                            })
+                          : filteredSchools.map(school => {
+                              const selected = formData.school === school.name;
+                              return (
+                                <Pressable
+                                  accessibilityLabel={`Choose ${school.name}`}
+                                  accessibilityRole="radio"
+                                  accessibilityState={{ checked: selected }}
+                                  key={school.id}
+                                  onPress={() => selectSchool(school)}
+                                  style={[
+                                    styles.schoolOption,
+                                    selected && styles.schoolOptionActive,
+                                  ]}
+                                >
+                                  <Text style={styles.schoolOptionName}>
+                                    {school.name}
+                                  </Text>
+                                  {selected ? (
+                                    <Check
+                                      color="#2563EB"
+                                      size={17}
+                                      strokeWidth={3}
+                                    />
+                                  ) : null}
+                                </Pressable>
+                              );
+                            })}
+                        {directoryLoading ? (
+                          <View style={styles.schoolDirectoryStatus}>
+                            <ActivityIndicator color="#2563EB" />
+                            <Text style={styles.schoolEmptyText}>Searching the school directory…</Text>
+                          </View>
+                        ) : null}
+                        {directoryError ? (
+                          <View style={styles.schoolDirectoryStatus}>
+                            <Text accessibilityRole="alert" style={styles.schoolEmptyText}>
+                              {directoryError}
+                            </Text>
                             <Pressable
-                              accessibilityLabel={`Choose ${school.name}`}
-                              accessibilityRole="radio"
-                              accessibilityState={{ checked: selected }}
-                              key={school.id}
-                              onPress={() => selectSchool(school)}
-                              style={[
-                                styles.schoolOption,
-                                selected && styles.schoolOptionActive,
-                              ]}
+                              accessibilityRole="button"
+                              accessibilityLabel="Retry school directory search"
+                              onPress={() => setDirectoryRetry(value => value + 1)}
+                              style={styles.directoryRetryButton}
                             >
-                              <Text style={styles.schoolOptionName}>
-                                {school.name}
-                              </Text>
-                              {selected ? (
-                                <Check
-                                  color="#2563EB"
-                                  size={17}
-                                  strokeWidth={3}
-                                />
-                              ) : null}
+                              <Text style={styles.directoryRetryText}>Retry</Text>
                             </Pressable>
-                          );
-                        })}
-                        {filteredSchools.length === 0 ? (
+                          </View>
+                        ) : null}
+                        {!directoryLoading && !directoryError &&
+                        (onSearchSchools ? directorySchools.length === 0 : filteredSchools.length === 0) ? (
                           <Text style={styles.schoolEmptyText}>
                             {formData.county
                               ? 'No matching schools in this location.'
@@ -1403,14 +1577,30 @@ export function ProfileModal({
                   </Pressable>
                   <Pressable
                     onPress={saveEditCard}
+                    disabled={
+                      isSaving ||
+                      (isStudentProfile && schoolChanged && !selectedSchoolDirectoryId)
+                    }
                     style={({ pressed }) => [
                       styles.editCardPrimary,
+                      (isSaving ||
+                        (isStudentProfile && schoolChanged && !selectedSchoolDirectoryId)) &&
+                        styles.editCardPrimaryDisabled,
                       pressed && styles.footerButtonPressed,
                     ]}
                   >
-                    <Text style={styles.editCardPrimaryText}>Save</Text>
+                    {isSaving ? (
+                      <ActivityIndicator color="#FFFFFF" />
+                    ) : (
+                      <Text style={styles.editCardPrimaryText}>Save</Text>
+                    )}
                   </Pressable>
                 </View>
+                {saveError ? (
+                  <Text accessibilityRole="alert" style={styles.verificationError}>
+                    {saveError}
+                  </Text>
+                ) : null}
               </ScrollView>
             </Animated.View>
           </View>
@@ -1613,16 +1803,18 @@ function ProfileSubjectTab({
   subjects,
   selectedSubjectIds,
   selectedCount,
+  requiredSubjectCount,
   onToggleSubject,
   onRequestSwap,
 }: {
   subjects: Subject[];
   selectedSubjectIds: string[];
   selectedCount: number;
+  requiredSubjectCount: number;
   onToggleSubject: (subjectId: string) => void;
   onRequestSwap: (subject: Subject) => void;
 }) {
-  const hasReachedLimit = selectedCount >= MAX_PROFILE_SUBJECTS;
+  const hasReachedLimit = selectedCount >= requiredSubjectCount;
 
   function handleSubjectPress(subject: Subject, selected: boolean) {
     if (selected || !hasReachedLimit) {
@@ -1648,7 +1840,7 @@ function ProfileSubjectTab({
           </Text>
         </View>
         <Text style={styles.subjectCountPill}>
-          {selectedCount}/{MAX_PROFILE_SUBJECTS} selected
+          {selectedCount}/{requiredSubjectCount} selected
         </Text>
       </View>
 
@@ -1695,9 +1887,9 @@ function ProfileSubjectTab({
       <View style={styles.subjectConfirmation}>
         <Text style={styles.subjectConfirmationText}>
           {hasReachedLimit
-            ? `Perfect. You've selected ${MAX_PROFILE_SUBJECTS} subjects.`
-            : `Choose ${MAX_PROFILE_SUBJECTS - selectedCount} more subject${
-                MAX_PROFILE_SUBJECTS - selectedCount === 1 ? '' : 's'
+            ? `Perfect. You've selected ${requiredSubjectCount} subjects.`
+            : `Choose ${requiredSubjectCount - selectedCount} more subject${
+                requiredSubjectCount - selectedCount === 1 ? '' : 's'
               }.`}
         </Text>
       </View>
@@ -2814,6 +3006,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 14,
   },
+  schoolDirectoryStatus: {
+    alignItems: 'center',
+    gap: 4,
+  },
+  directoryRetryButton: {
+    alignSelf: 'center',
+    backgroundColor: '#DBEAFE',
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  directoryRetryText: {
+    color: '#1D4ED8',
+    fontSize: 12,
+    fontWeight: '800',
+  },
   textField: {
     backgroundColor: '#F8FAFC',
     borderColor: '#E5E7EB',
@@ -3228,5 +3436,8 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     paddingHorizontal: 14,
     paddingVertical: 12,
+  },
+  editCardPrimaryDisabled: {
+    opacity: 0.52,
   },
 });

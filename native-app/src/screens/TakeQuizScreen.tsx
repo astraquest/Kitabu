@@ -39,6 +39,13 @@ interface TakeQuizScreenProps {
   subjectName: string;
   strandName: string;
   narrationSessionId?: string | null;
+  quizMeSessionId?: string | null;
+  onSubmitAnswer?: (sessionQuestionId: string, answer: string) => Promise<{
+    isCorrect: boolean;
+    score: number;
+    feedback: string;
+    correctAnswer?: string;
+  }>;
   mascotKey: OnboardingMascotKey;
   voiceName?: OnboardingVoiceName;
   onClose: () => void;
@@ -56,6 +63,8 @@ export function TakeQuizScreen({
   subjectName,
   strandName,
   narrationSessionId,
+  quizMeSessionId,
+  onSubmitAnswer,
   mascotKey,
   voiceName,
   onClose,
@@ -66,6 +75,7 @@ export function TakeQuizScreen({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, ResultState>>({});
+  const [serverFeedback, setServerFeedback] = useState<Record<number, { feedback: string; correctAnswer?: string }>>({});
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('quiz');
   const [isGrading, setIsGrading] = useState(false);
@@ -95,6 +105,7 @@ export function TakeQuizScreen({
     setCurrentIndex(0);
     setAnswers({});
     setResults({});
+    setServerFeedback({});
     setFeedback(null);
     setViewMode('quiz');
     setExplanationModal(null);
@@ -220,11 +231,32 @@ export function TakeQuizScreen({
     );
   }
 
-  function setAnswer(value: string) {
+  async function gradeWithServer(value: string) {
+    if (!onSubmitAnswer) return null;
+    setIsGrading(true);
+    try {
+      const result = await onSubmitAnswer(currentQuestion.sessionQuestionId ?? currentQuestion.bankId ?? String(currentQuestion.id), value);
+      setServerFeedback(prev => ({ ...prev, [currentIndex]: { feedback: result.feedback, correctAnswer: result.correctAnswer } }));
+      setFeedback(result.isCorrect ? 'correct' : 'incorrect');
+      setResults(prev => ({ ...prev, [currentIndex]: result.isCorrect ? 'correct' : 'incorrect' }));
+      return result;
+    } catch (error) {
+      setVoiceError('Your answer could not be submitted. Please try again.');
+      return null;
+    } finally {
+      setIsGrading(false);
+    }
+  }
+
+  async function setAnswer(value: string) {
     if (!feedback) {
       setAnswers(prev => ({ ...prev, [currentIndex]: value }));
 
       if (currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') {
+        if (onSubmitAnswer) {
+          await gradeWithServer(value);
+          return;
+        }
         const isCorrect =
           value.trim().toLowerCase() ===
           String(currentQuestion.correctAnswer).trim().toLowerCase();
@@ -282,13 +314,17 @@ export function TakeQuizScreen({
     });
   }
 
-  function checkAnswer() {
+  async function checkAnswer() {
     const userAnswer = answers[currentIndex];
     if (!userAnswer) {
       return;
     }
 
     if (currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') {
+      if (onSubmitAnswer) {
+        await gradeWithServer(userAnswer);
+        return;
+      }
       const isCorrect =
         String(userAnswer).trim().toLowerCase() ===
         String(currentQuestion.correctAnswer).trim().toLowerCase();
@@ -297,6 +333,11 @@ export function TakeQuizScreen({
         ...prev,
         [currentIndex]: isCorrect ? 'correct' : 'incorrect',
       }));
+      return;
+    }
+
+    if (onSubmitAnswer) {
+      await gradeWithServer(userAnswer);
       return;
     }
 
@@ -338,7 +379,7 @@ export function TakeQuizScreen({
 
   async function handleAskAI(text = currentQuestion?.text || '', answer = answers[currentIndex]) {
     setExplanationModal({ isOpen: true, isLoading: true, text: '' });
-    const correctAnswer = String(currentQuestion.correctAnswer ?? '');
+    const correctAnswer = String(serverFeedback[currentIndex]?.correctAnswer ?? currentQuestion.correctAnswer ?? '');
     let prompt = `I'm a ${grade} student.\nQuestion: "${text}"\nCorrect Answer: "${correctAnswer}"`;
     if (answer) {
       prompt += `\nMy Answer: "${answer}"`;
@@ -371,6 +412,7 @@ export function TakeQuizScreen({
     setCurrentIndex(0);
     setAnswers({});
     setResults({});
+    setServerFeedback({});
     setFeedback(null);
     setViewMode('quiz');
   }
@@ -422,10 +464,12 @@ export function TakeQuizScreen({
             <Text style={styles.resultsPrimaryText}>Done</Text>
           </Pressable>
 
-          <Pressable onPress={resetQuiz} style={styles.resultsSecondaryButton}>
-            <RotateCcw size={16} color="#4B5563" />
-            <Text style={styles.resultsSecondaryText}>Try Again</Text>
-          </Pressable>
+          {!quizMeSessionId ? (
+            <Pressable onPress={resetQuiz} style={styles.resultsSecondaryButton}>
+              <RotateCcw size={16} color="#4B5563" />
+              <Text style={styles.resultsSecondaryText}>Try Again</Text>
+            </Pressable>
+          ) : null}
 
           <Pressable onPress={() => setViewMode('review')} style={styles.resultsReviewButton}>
             <Eye size={16} color="#F97316" />
@@ -477,7 +521,7 @@ export function TakeQuizScreen({
                       contentText={[
                         `Question: ${question.text}`,
                         question.options?.length ? `Options: ${question.options.join(' | ')}` : null,
-                        `Correct answer: ${String(question.correctAnswer ?? '')}`,
+                        `Correct answer: ${String(serverFeedback[idx]?.correctAnswer ?? question.correctAnswer ?? '')}`,
                         question.explanation ? `Explanation: ${question.explanation}` : null,
                       ].filter(Boolean).join('\n')}
                       context={{
@@ -496,7 +540,7 @@ export function TakeQuizScreen({
                   <Text style={styles.reviewAnswerText}>{answer || '(No Answer)'}</Text>
                 </View>
 
-                {status !== 'correct' ? (
+                {status !== 'correct' && !quizMeSessionId ? (
                   <View style={styles.reviewCorrectBox}>
                     <Text style={styles.reviewLabel}>Correct Answer</Text>
                     <Text style={styles.reviewAnswerText}>
@@ -505,7 +549,14 @@ export function TakeQuizScreen({
                   </View>
                 ) : null}
 
-                {question.explanation ? (
+                {status !== 'correct' && quizMeSessionId && serverFeedback[idx]?.correctAnswer ? (
+                  <View style={styles.reviewCorrectBox}>
+                    <Text style={styles.reviewLabel}>Correct Answer</Text>
+                    <Text style={styles.reviewAnswerText}>{serverFeedback[idx]?.correctAnswer}</Text>
+                  </View>
+                ) : null}
+
+                {(serverFeedback[idx]?.feedback || question.explanation) ? (
                   <View style={styles.reviewExplanationBox}>
                     <View style={styles.reviewExplanationTop}>
                       <Text style={styles.reviewExplanationTitle}>Explanation</Text>
@@ -515,7 +566,7 @@ export function TakeQuizScreen({
                         <Sparkles size={14} color="#F97316" />
                       </Pressable>
                     </View>
-                    <Text style={styles.reviewExplanationText}>{question.explanation}</Text>
+                    <Text style={styles.reviewExplanationText}>{serverFeedback[idx]?.feedback || question.explanation}</Text>
                   </View>
                 ) : null}
               </View>
@@ -602,7 +653,7 @@ export function TakeQuizScreen({
             contentText={[
               `Question: ${currentQuestion.text}`,
               options.length ? `Options: ${options.join(' | ')}` : null,
-              `Correct answer: ${String(currentQuestion.correctAnswer ?? '')}`,
+              `Correct answer: ${String(serverFeedback[currentIndex]?.correctAnswer ?? currentQuestion.correctAnswer ?? '')}`,
               currentQuestion.explanation ? `Explanation: ${currentQuestion.explanation}` : null,
             ].filter(Boolean).join('\n')}
             context={{
@@ -753,7 +804,7 @@ export function TakeQuizScreen({
                   <Sparkles size={14} color="#F97316" />
                 </Pressable>
               </View>
-              <Text style={styles.feedbackText}>{currentQuestion.explanation}</Text>
+              <Text style={styles.feedbackText}>{serverFeedback[currentIndex]?.feedback || currentQuestion.explanation || 'Keep practicing this skill.'}</Text>
             <AssessmentNarrationControls
               descriptorId={narrationSessionId
                 ? `quizsession:${narrationSessionId}:${currentQuestion.id}`

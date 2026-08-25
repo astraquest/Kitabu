@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 10",
-  "subjectId": "kiswahili",
-  "subjectName": "Kiswahili",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Katika mazungumzo ya darasani, ni tabia ipi inaonyesha usikilizaji makini zaidi?",
-      "options": ["Kutazama mzungumzaji na kunakili hoja muhimu", "Kumkatiza mzungumzaji ili kuonyesha maarifa", "Kujibu kabla ya hoja kukamilika", "Kuzungumza na mwenzako wakati wa maelezo"],
-      "correctAnswer": "Kutazama mzungumzaji na kunakili hoja muhimu",
-      "explanation": "Usikilizaji makini huhitaji umakinifu, heshima na ufuatiliaji wa hoja muhimu kabla ya kujibu.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Usikilizaji Makini",
-      "learningOutcome": "Kutumia mbinu za usikilizaji makini katika mawasiliano ya kielimu.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Hoja kuu katika hotuba hutambuliwa vyema kwa kuzingatia nini?",
-      "options": ["Wazo linalosisitizwa na kuungwa mkono na mifano", "Neno refu zaidi katika hotuba", "Kichekesho cha kwanza cha mzungumzaji", "Mavazi ya mzungumzaji pekee"],
-      "correctAnswer": "Wazo linalosisitizwa na kuungwa mkono na mifano",
-      "explanation": "Hoja kuu hubeba ujumbe wa hotuba na mara nyingi huimarishwa kwa mifano, sababu au takwimu.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Ufahamu wa Kusikiliza",
-      "learningOutcome": "Kutambua hoja kuu katika matini za mdomo za kiwango cha Gredi ya 10.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Kwa nini kiimbo hufaa katika mazungumzo ya Kiswahili sanifu?",
-      "options": ["Husaidia kuonyesha swali, msisitizo au hisia", "Hubadilisha maana ya kila nomino kuwa kitenzi", "Huondoa haja ya kutumia maneno", "Hufanya sentensi zote ziwe amri"],
-      "correctAnswer": "Husaidia kuonyesha swali, msisitizo au hisia",
-      "explanation": "Kiimbo ni mabadiliko ya sauti yanayosaidia msikilizaji kutambua nia na hisia za mzungumzaji.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Matamshi na Kiimbo",
-      "learningOutcome": "Kutambua mchango wa matamshi na kiimbo katika mawasiliano fasaha.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Ni kauli ipi inaonyesha adabu katika majadiliano rasmi?",
-      "options": ["Ningependa kuongeza hoja inayohusiana na maoni yako", "Nyamaza, hoja yako haina maana", "Nitazungumza tu bila kusikiliza wengine", "Hilo swali halistahili kujibiwa"],
-      "correctAnswer": "Ningependa kuongeza hoja inayohusiana na maoni yako",
-      "explanation": "Majadiliano rasmi huhitaji lugha ya heshima, kusikiliza na kujenga hoja bila kumdhalilisha mwingine.",
-      "difficulty": 1,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Adabu za Mazungumzo",
-      "learningOutcome": "Kutumia lugha yenye heshima katika mijadala na mawasiliano rasmi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Katika mahojiano kuhusu mradi wa kupanda miti, ni swali lipi lililo wazi zaidi?",
-      "options": ["Mradi huu umebadilisha vipi mazingira ya shule?", "Je, mlipanda miti?", "Mlipanda miti jana, sivyo?", "Unapenda miti?"],
-      "correctAnswer": "Mradi huu umebadilisha vipi mazingira ya shule?",
-      "explanation": "Swali wazi humruhusu mhojiwa kutoa maelezo, mifano na sababu badala ya kujibu ndiyo au hapana.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mahojiano",
-      "learningOutcome": "Kuunda maswali wazi yanayofaa mahojiano ya kielimu na kijamii.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Mpangilio upi unafaa zaidi kwa hotuba fupi kuhusu usalama mtandaoni?",
-      "options": ["Salamu, utangulizi, hoja kuu, mifano, hitimisho", "Hitimisho, mifano, salamu, mada mpya", "Maswali pekee bila hoja", "Utani, kimya kirefu, kisha kuondoka"],
-      "correctAnswer": "Salamu, utangulizi, hoja kuu, mifano, hitimisho",
-      "explanation": "Hotuba rasmi huwa na mwanzo unaowatambulisha wasikilizaji kwa mada, mwili wenye hoja na mwisho unaohitimisha ujumbe.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Hotuba",
-      "learningOutcome": "Kupanga hotuba fupi kwa mtiririko unaoeleweka.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Ni ishara ipi isiyo ya maneno inaweza kuonyesha kuwa msikilizaji anaelewa hoja?",
-      "options": ["Kutikisa kichwa kwa kiasi kinachofaa", "Kugeuza mgongo kwa mzungumzaji", "Kufunika masikio", "Kucheka bila sababu wakati wote"],
-      "correctAnswer": "Kutikisa kichwa kwa kiasi kinachofaa",
-      "explanation": "Ishara za mwili kama kutikisa kichwa au kumtazama mzungumzaji huweza kuonyesha ufuatiliaji na heshima.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mawasiliano Yasiyo ya Maneno",
-      "learningOutcome": "Kutambua maana ya ishara za mwili katika mawasiliano.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Baada ya kusikiliza tangazo la shule, mwanafunzi anapaswa kufanya nini ili kukumbuka taarifa muhimu?",
-      "options": ["Kuandika tarehe, mahali, muda na hatua zinazohitajika", "Kukumbuka neno moja la mwisho pekee", "Kupuuza sehemu zisizomfurahisha", "Kuandika maoni yake bila taarifa za tangazo"],
-      "correctAnswer": "Kuandika tarehe, mahali, muda na hatua zinazohitajika",
-      "explanation": "Kumbukumbu nzuri za tangazo hunasa taarifa mahususi zinazomsaidia msikilizaji kuchukua hatua sahihi.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Kumbukumbu za Kusikiliza",
-      "learningOutcome": "Kunakili taarifa muhimu kutoka kwa mawasiliano ya mdomo.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Katika taarifa ya mdomo, kauli ipi ni maoni?",
-      "options": ["Klabu hii ndiyo bora zaidi shuleni", "Mkutano ulianza saa nane mchana", "Wanafunzi hamsini walihudhuria", "Miti ishirini ilipandwa jana"],
-      "correctAnswer": "Klabu hii ndiyo bora zaidi shuleni",
-      "explanation": "Maoni hutegemea mtazamo wa mtu, ilhali ukweli unaweza kuthibitishwa kwa ushahidi au takwimu.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Ukweli na Maoni",
-      "learningOutcome": "Kutofautisha ukweli na maoni katika taarifa za mdomo.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Mrejesho upi unafaa baada ya mwanafunzi kutoa wasilisho kuhusu afya ya akili?",
-      "options": ["Umetoa mifano mizuri, ungeongeza takwimu kuthibitisha hoja", "Wasilisho lako halifai kabisa", "Sikuelewa chochote kwa sababu mada ni ngumu", "Usizungumze tena kuhusu mada hiyo"],
-      "correctAnswer": "Umetoa mifano mizuri, ungeongeza takwimu kuthibitisha hoja",
-      "explanation": "Mrejesho mzuri hutambua nguvu za wasilisho na kutoa pendekezo mahususi la kuboresha.",
-      "difficulty": 2,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mrejesho wa Mawasilisho",
-      "learningOutcome": "Kutoa mrejesho wenye heshima na manufaa baada ya kusikiliza wasilisho.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Katika mdahalo, hoja ipi imeungwa mkono vizuri zaidi?",
-      "options": ["Maktaba za kidijitali zisaidiwe kwa sababu hurahisisha upatikanaji wa vitabu na hupunguza gharama za kuchapisha", "Maktaba za kidijitali ni nzuri kwa sababu ni nzuri", "Kila mtu anapenda simu, basi maktaba ibadilishwe", "Tusizungumzie maktaba kwa sababu ni mada ya zamani"],
-      "correctAnswer": "Maktaba za kidijitali zisaidiwe kwa sababu hurahisisha upatikanaji wa vitabu na hupunguza gharama za kuchapisha",
-      "explanation": "Hoja thabiti hutoa msimamo na sababu zinazoweza kuchunguzwa au kujadiliwa.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Mdahalo",
-      "learningOutcome": "Kujenga hoja zenye sababu katika mijadala rasmi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Ni rejesta ipi inafaa unapomkaribisha mgeni rasmi katika hafla ya shule?",
-      "options": ["Tunayo heshima kubwa kukukaribisha katika hafla yetu", "Sasa umefika, kaa hapo tuanze", "Wewe mgeni, ongea haraka", "Karibu, lakini usichukue muda wetu"],
-      "correctAnswer": "Tunayo heshima kubwa kukukaribisha katika hafla yetu",
-      "explanation": "Hafla rasmi huhitaji lugha yenye staha, heshima na uteuzi makini wa maneno.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Rejesta Rasmi",
-      "learningOutcome": "Kuteua rejesta inayofaa hadhira na mazingira ya mawasiliano.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Mwanafunzi anapotofautiana na hoja ya mwenzake katika mjadala, jibu lipi linafaa zaidi?",
-      "options": ["Ninakuelewa, lakini ushahidi mwingine unaonyesha mtazamo tofauti", "Hujui unachosema", "Hoja yako ni ya kuchekesha", "Nitakataa bila sababu yoyote"],
-      "correctAnswer": "Ninakuelewa, lakini ushahidi mwingine unaonyesha mtazamo tofauti",
-      "explanation": "Kutofautiana kwa heshima hulinda mawasiliano na huelekeza mjadala katika ushahidi.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Majadiliano",
-      "learningOutcome": "Kujibu hoja za wengine kwa heshima na ushahidi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Unatoa maelekezo ya mradi wa usafi wa mtaa. Ni kipengele kipi ni muhimu zaidi?",
-      "options": ["Kueleza kazi, vifaa, muda, usalama na mgawanyo wa majukumu", "Kutaja majina ya wanafunzi pekee", "Kusoma mashairi kabla ya kazi", "Kuacha washiriki wajitafutie lengo"],
-      "correctAnswer": "Kueleza kazi, vifaa, muda, usalama na mgawanyo wa majukumu",
-      "explanation": "Maelekezo bora ya mdomo huwa wazi, kamili na yanayoweza kufuatwa bila mkanganyiko.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Maelekezo ya Mdomo",
-      "learningOutcome": "Kutoa maelekezo ya mdomo yaliyo wazi kwa shughuli za kijamii.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Msemaji akisema, 'Jamani, hatuwezi kuendelea kupoteza maji hivi,' kwa sauti ya huzuni, toni yake inaonyesha nini?",
-      "options": ["Wasiwasi na msisitizo kuhusu tatizo", "Furaha ya kutumia maji mengi", "Kukataa kuwa kuna tatizo", "Ucheshi kuhusu upotevu wa maji"],
-      "correctAnswer": "Wasiwasi na msisitizo kuhusu tatizo",
-      "explanation": "Maneno na sauti ya huzuni huonyesha kuwa mzungumzaji anaona suala hilo kuwa la dharura.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Toni na Hisia",
-      "learningOutcome": "Kufasiri toni na hisia katika usemi wa Kiswahili.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Katika taarifa ya redio, msemaji anasema kuwa matumizi ya helmeti hupunguza majeraha ya waendesha bodaboda. Ni hitimisho lipi linafuata taarifa hiyo?",
-      "options": ["Usalama barabarani huimarika waendeshaji wakivaa helmeti", "Helmeti hufanya pikipiki ziwe haraka zaidi", "Bodaboda hazihitaji sheria za barabarani", "Majeraha yote hutokea shuleni pekee"],
-      "correctAnswer": "Usalama barabarani huimarika waendeshaji wakivaa helmeti",
-      "explanation": "Hitimisho linalofaa linatokana na uhusiano kati ya kuvaa helmeti na kupungua kwa majeraha.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Kutoa Hitimisho",
-      "learningOutcome": "Kutoa hitimisho linalotokana na taarifa iliyosikilizwa.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Kiongozi wa majadiliano ana jukumu gani muhimu?",
-      "options": ["Kuelekeza mada, kugawa nafasi ya kuzungumza na kufupisha hoja", "Kushinda hoja zote za washiriki", "Kuwazuia washiriki kuuliza maswali", "Kuchagua upande mmoja bila kusikiliza mwingine"],
-      "correctAnswer": "Kuelekeza mada, kugawa nafasi ya kuzungumza na kufupisha hoja",
-      "explanation": "Kiongozi mzuri huimarisha mtiririko wa majadiliano na kuhakikisha ushiriki wa haki.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Uongozi wa Majadiliano",
-      "learningOutcome": "Kueleza majukumu ya uongozi katika majadiliano ya kikundi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Ni jibu lipi linaonyesha msimamo na ushahidi katika mjadala kuhusu matumizi ya plastiki?",
-      "options": ["Matumizi ya plastiki yapunguzwe kwa sababu taka hizo huziba mitaro na kuchafua mito", "Plastiki ni plastiki tu", "Watu wengine husema mambo mengi", "Mimi sipendi mada hii"],
-      "correctAnswer": "Matumizi ya plastiki yapunguzwe kwa sababu taka hizo huziba mitaro na kuchafua mito",
-      "explanation": "Msimamo unakuwa thabiti unapoungwa mkono na sababu au athari zinazoweza kueleweka.",
-      "difficulty": 3,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Hoja na Ushahidi",
-      "learningOutcome": "Kutoa msimamo unaoungwa mkono na ushahidi katika mazungumzo.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Tangazo linasema, 'Bidhaa yetu ndiyo pekee inayofaa wanafunzi wote.' Udhaifu mkuu wa kauli hii ni upi?",
-      "options": ["Inatoa dai pana bila ushahidi wa kutosha", "Inatumia Kiswahili sanifu kupita kiasi", "Inataja bidhaa kwa njia wazi", "Ina maneno machache sana kueleweka"],
-      "correctAnswer": "Inatoa dai pana bila ushahidi wa kutosha",
-      "explanation": "Matangazo yanaweza kutumia lugha ya kushawishi; msikilizaji anapaswa kuchunguza ushahidi wa madai yake.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Uhakiki wa Matangazo",
-      "learningOutcome": "Kuchambua madai na ushahidi katika matangazo ya mdomo.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Unapotathmini uaminifu wa mzungumzaji katika kongamano, kipengele kipi ni muhimu zaidi?",
-      "options": ["Utaalamu wake, ushahidi anaotoa na usawa wa hoja", "Urefu wa hotuba pekee", "Idadi ya vichekesho alivyotumia", "Rangi ya maandishi kwenye bango"],
-      "correctAnswer": "Utaalamu wake, ushahidi anaotoa na usawa wa hoja",
-      "explanation": "Uaminifu hutegemea maarifa ya mzungumzaji, ubora wa ushahidi na namna anavyoshughulikia mitazamo tofauti.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Uaminifu wa Mzungumzaji",
-      "learningOutcome": "Kutathmini uaminifu wa mzungumzaji kwa kutumia vigezo vya mawasiliano.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Wanafunzi wawili wanapishana kuhusu muda wa kuwasilisha kazi ya kikundi. Kauli ipi inaweza kusaidia kutatua mzozo?",
-      "options": ["Tuchunguze ratiba yetu na tukubaliane muda unaofaa wote", "Mimi ndiye nitaamua bila kusikiliza", "Kazi haitawasilishwa tena", "Tusizungumze kuhusu ratiba"],
-      "correctAnswer": "Tuchunguze ratiba yetu na tukubaliane muda unaofaa wote",
-      "explanation": "Utatuzi wa mzozo huhitaji kusikiliza pande zote, kubainisha tatizo na kufikia uamuzi wa haki.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Utatuzi wa Migogoro",
-      "learningOutcome": "Kutumia lugha ya majadiliano kutatua migogoro midogo ya kikundi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Mjadala umeanza kutoka nje ya mada. Kiongozi afanye nini kwanza?",
-      "options": ["Akumbushe washiriki swali kuu na kufupisha hoja zilizotolewa", "Afute majadiliano yote mara moja", "Aongeze mada nyingine ngumu zaidi", "Awalaumu washiriki wote mbele ya darasa"],
-      "correctAnswer": "Akumbushe washiriki swali kuu na kufupisha hoja zilizotolewa",
-      "explanation": "Kurejesha mjadala kwenye mada huhitaji ukumbusho wa lengo na muhtasari wa mwelekeo uliopo.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Usimamizi wa Majadiliano",
-      "learningOutcome": "Kusimamia mjadala ili ubaki kwenye lengo na mtiririko wake.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Hotuba moja hutumia takwimu kuhusu ajali, nyingine hutegemea hofu bila ushahidi. Ipi ni tathmini sahihi?",
-      "options": ["Hotuba ya takwimu ina msingi thabiti zaidi wa hoja", "Hotuba ya hofu ndiyo ya kisayansi zaidi", "Hotuba zote hazina tofauti yoyote", "Takwimu haziwezi kusaidia hoja za usalama"],
-      "correctAnswer": "Hotuba ya takwimu ina msingi thabiti zaidi wa hoja",
-      "explanation": "Ushahidi kama takwimu huweza kuimarisha hoja iwapo unatokana na chanzo kinachoaminika.",
-      "difficulty": 4,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Kulinganisha Hotuba",
-      "learningOutcome": "Kulinganisha ubora wa hoja katika mawasiliano ya mdomo.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Unatakiwa kuandaa wasilisho la dakika tatu kuhusu kuhifadhi maji. Mpango upi ni bora zaidi?",
-      "options": ["Tatizo, sababu, mifano ya shule, mapendekezo, hitimisho la kuchukua hatua", "Salamu ndefu, hadithi isiyohusiana, kisha mwisho wa ghafla", "Orodha ya maneno bila ufafanuzi", "Kusoma ujumbe wa simu bila kupanga hoja"],
-      "correctAnswer": "Tatizo, sababu, mifano ya shule, mapendekezo, hitimisho la kuchukua hatua",
-      "explanation": "Wasilisho zuri huunganisha tatizo, ushahidi na hatua inayopendekezwa kwa hadhira husika.",
-      "difficulty": 5,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Wasilisho la Hoja",
-      "learningOutcome": "Kupanga wasilisho linaloshawishi kwa kutumia hoja na mifano.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Kikundi kinataka kuhamasisha matumizi ya Kiswahili sanifu shuleni. Mkakati upi wa mawasiliano ni bora zaidi?",
-      "options": ["Kutumia ujumbe mfupi, mifano ya mazungumzo, mabango na mawasilisho ya wanafunzi", "Kukataza mazungumzo yote yasiyo rasmi bila kueleza sababu", "Kutumia maneno magumu ili wanafunzi waogope", "Kusoma kamusi nzima kwenye gwaride"],
-      "correctAnswer": "Kutumia ujumbe mfupi, mifano ya mazungumzo, mabango na mawasilisho ya wanafunzi",
-      "explanation": "Kampeni bora huchanganya njia kadhaa za mawasiliano na mifano rahisi inayowafikia walengwa.",
-      "difficulty": 5,
-      "strandTitle": "Kusikiliza na Kuzungumza",
-      "subStrandTitle": "Kampeni ya Mawasiliano",
-      "learningOutcome": "Kubuni mkakati wa mawasiliano unaofaa hadhira ya shule.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Unapotaka kupata wazo kuu la makala kwa haraka, mbinu ipi ya kusoma inafaa?",
-      "options": ["Kusoma kwa kuruka juu juu ili kuona kichwa, sentensi kuu na hitimisho", "Kukariri kila neno bila kuelewa", "Kusoma ukurasa wa mwisho pekee", "Kupuuza kichwa cha makala"],
-      "correctAnswer": "Kusoma kwa kuruka juu juu ili kuona kichwa, sentensi kuu na hitimisho",
-      "explanation": "Kusoma kwa kuruka juu juu humsaidia msomaji kutambua mwelekeo na wazo kuu la matini.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Mbinu za Kusoma",
-      "learningOutcome": "Kutumia mbinu za kusoma kupata wazo kuu la matini.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Mbinu ya kudondoa taarifa mahususi hutumika wakati gani?",
-      "options": ["Unapotafuta jina, tarehe, nambari au mahali maalumu", "Unapotaka kubadilisha mada ya mwandishi", "Unapotaka kusoma bila lengo", "Unapotaka kuandika upya makala yote"],
-      "correctAnswer": "Unapotafuta jina, tarehe, nambari au mahali maalumu",
-      "explanation": "Kudondoa taarifa mahususi ni kusoma kwa lengo la kupata kipengele fulani cha habari.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kudondoa Habari",
-      "learningOutcome": "Kutafuta taarifa mahususi katika matini kwa ufanisi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Katika sentensi 'Mradi huo uliimarisha mshikamano wa jamii,' neno 'mshikamano' lina maana gani?",
-      "options": ["Umoja na ushirikiano", "Mashindano makali", "Ukosefu wa mawasiliano", "Kutengana kwa watu"],
-      "correctAnswer": "Umoja na ushirikiano",
-      "explanation": "Muktadha wa kuimarisha jamii unaonyesha kuwa mshikamano ni hali ya watu kuwa pamoja na kushirikiana.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Msamiati katika Muktadha",
-      "learningOutcome": "Kufasiri maana ya msamiati kwa kutumia muktadha wa sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Kichwa cha matini husaidia msomaji kufanya nini kabla ya kusoma kwa kina?",
-      "options": ["Kutabiri mada na mwelekeo wa matini", "Kujua majibu yote ya maswali", "Kuepuka kusoma aya za matini", "Kubadilisha ujumbe wa mwandishi"],
-      "correctAnswer": "Kutabiri mada na mwelekeo wa matini",
-      "explanation": "Kichwa hutoa dokezo la mada na kumwandaa msomaji kufuatilia mawazo ya matini.",
-      "difficulty": 1,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kichwa cha Matini",
-      "learningOutcome": "Kutumia kichwa cha matini kutabiri maudhui ya kusoma.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Sentensi 'Mvua ilipungua, hivyo wakulima walipanda mimea inayohimili ukame' inaonyesha uhusiano gani?",
-      "options": ["Sababu na matokeo", "Ulinganisho wa wahusika", "Maagizo ya kupika", "Usemi wa taarifa"],
-      "correctAnswer": "Sababu na matokeo",
-      "explanation": "Kupungua kwa mvua ni sababu, na kupanda mimea inayohimili ukame ni matokeo yake.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Sababu na Matokeo",
-      "learningOutcome": "Kutambua uhusiano wa sababu na matokeo katika matini.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Katika makala, kauli ipi ni ukweli unaoweza kuthibitishwa?",
-      "options": ["Maktaba ilifunguliwa tarehe 12 Machi", "Maktaba hiyo ni nzuri kuliko zote nchini", "Kila mtu anayesoma maktabani huwa mwerevu", "Vitabu vya karatasi havina maana tena"],
-      "correctAnswer": "Maktaba ilifunguliwa tarehe 12 Machi",
-      "explanation": "Ukweli unaweza kuthibitishwa kwa rekodi au ushahidi, tofauti na maoni yanayotegemea mtazamo.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ukweli na Maoni",
-      "learningOutcome": "Kutofautisha taarifa za ukweli na maoni katika matini.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Mwandishi anapotoa sababu nyingi za kupunguza matumizi ya plastiki, kusudi lake kuu linaweza kuwa lipi?",
-      "options": ["Kumshawishi msomaji achukue hatua", "Kueleza ratiba ya michezo", "Kuandika hadithi ya kubuni pekee", "Kufundisha matamshi ya sauti"],
-      "correctAnswer": "Kumshawishi msomaji achukue hatua",
-      "explanation": "Matini yenye sababu na mapendekezo mara nyingi hulenga kushawishi au kuhamasisha msomaji.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kusudi la Mwandishi",
-      "learningOutcome": "Kubainisha kusudi la mwandishi katika matini ya hoja.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Matini ya hoja huwa imara inapokuwa na vipengele gani?",
-      "options": ["Msimamo, sababu, ushahidi na hitimisho", "Majina mengi bila maelezo", "Methali zisizohusiana pekee", "Sentensi zisizo na mpangilio"],
-      "correctAnswer": "Msimamo, sababu, ushahidi na hitimisho",
-      "explanation": "Matini ya hoja humshawishi msomaji kwa msimamo unaoelezwa na kuthibitishwa kwa ushahidi.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Muundo wa Matini ya Hoja",
-      "learningOutcome": "Kutambua vipengele muhimu vya matini ya hoja.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Mwandishi anasema, 'Mtaa ulipumua baada ya taka kuondolewa.' Maana iliyodokezwa ni ipi?",
-      "options": ["Mtaa ulionekana safi na wenye afueni", "Mtaa una mapafu kama binadamu", "Taka ziliongeza hewa safi", "Wakazi wote walihama mtaa huo"],
-      "correctAnswer": "Mtaa ulionekana safi na wenye afueni",
-      "explanation": "Kauli hiyo hutumia tashihisi kuonyesha mabadiliko mazuri ya mazingira baada ya usafi.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Maana Iliyodokezwa",
-      "learningOutcome": "Kufasiri maana iliyodokezwa katika lugha ya picha.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Unapotumia kamusi kuthibitisha maana ya 'kuhimili', ni taarifa ipi muhimu zaidi?",
-      "options": ["Maana, aina ya neno na mfano wa matumizi", "Rangi ya jalada la kamusi", "Idadi ya kurasa za kamusi", "Mwandiko wa neno la kwanza ukurasa huo"],
-      "correctAnswer": "Maana, aina ya neno na mfano wa matumizi",
-      "explanation": "Kamusi husaidia kuelewa maana, matumizi na taarifa za kisarufi za neno.",
-      "difficulty": 2,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Matumizi ya Kamusi",
-      "learningOutcome": "Kutumia kamusi kufafanua maana na matumizi ya msamiati.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Aya inaeleza kuwa michezo huboresha afya, hujenga nidhamu na huimarisha ushirikiano. Muhtasari bora ni upi?",
-      "options": ["Michezo ina manufaa ya kiafya na kijamii kwa wanafunzi", "Wanafunzi wote hupenda michezo kuliko masomo", "Michezo ni shughuli ya watu wazima pekee", "Afya haihusiani na michezo shuleni"],
-      "correctAnswer": "Michezo ina manufaa ya kiafya na kijamii kwa wanafunzi",
-      "explanation": "Muhtasari hubeba hoja kuu bila kupoteza maana au kuongeza taarifa zisizokuwapo.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Muhtasari wa Matini",
-      "learningOutcome": "Kufupisha hoja muhimu za aya kwa maneno machache.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Makala A inapendekeza matumizi ya nishati ya jua; Makala B inaeleza changamoto za gharama yake. Msomaji afanye nini?",
-      "options": ["Alinganishe hoja na ushahidi wa makala zote mbili kabla ya kutoa msimamo", "Achague makala yenye kichwa kifupi zaidi", "Akatae makala zote kwa sababu zinatofautiana", "Asome hitimisho pekee bila kuelewa hoja"],
-      "correctAnswer": "Alinganishe hoja na ushahidi wa makala zote mbili kabla ya kutoa msimamo",
-      "explanation": "Kulinganisha matini husaidia msomaji kuona pande tofauti na kufikia uamuzi wenye msingi.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kulinganisha Matini",
-      "learningOutcome": "Kulinganisha mitazamo na ushahidi katika matini mbili.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Ushahidi upi ungeimarisha zaidi makala kuhusu umuhimu wa kunawa mikono shuleni?",
-      "options": ["Matokeo ya utafiti kuhusu kupungua kwa magonjwa baada ya kunawa mikono", "Kauli kuwa maji huonekana vizuri", "Picha ya rangi ya bomba bila maelezo", "Maoni yasiyotaja sababu yoyote"],
-      "correctAnswer": "Matokeo ya utafiti kuhusu kupungua kwa magonjwa baada ya kunawa mikono",
-      "explanation": "Ushahidi wa utafiti unaohusiana moja kwa moja na mada huimarisha madai ya mwandishi.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Ushahidi katika Matini",
-      "learningOutcome": "Kutathmini ubora wa ushahidi unaotumiwa katika matini ya hoja.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Matini inasifu bidhaa moja na kupuuza kabisa athari zake. Hii inaweza kuonyesha nini?",
-      "options": ["Upendeleo wa mwandishi", "Usahihi kamili wa kisayansi", "Kutokuwepo kwa kusudi", "Ushairi wa kimapokeo"],
-      "correctAnswer": "Upendeleo wa mwandishi",
-      "explanation": "Upendeleo hujitokeza mwandishi anapowasilisha upande mmoja tu na kuficha au kudharau taarifa muhimu.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Upendeleo katika Matini",
-      "learningOutcome": "Kubainisha dalili za upendeleo katika maandishi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Unapotumia tovuti kwa kazi ya Kiswahili, ni kigezo kipi husaidia zaidi kutambua uaminifu wake?",
-      "options": ["Mwandishi, tarehe, chanzo cha ushahidi na kusudi la tovuti", "Idadi ya matangazo pekee", "Rangi nyingi za ukurasa", "Ukubwa wa picha ya kwanza"],
-      "correctAnswer": "Mwandishi, tarehe, chanzo cha ushahidi na kusudi la tovuti",
-      "explanation": "Chanzo cha kidijitali hutathminiwa kwa mamlaka, usasa, ushahidi na lengo lake.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Uhakiki wa Vyanzo vya Kidijitali",
-      "learningOutcome": "Kutathmini uaminifu wa vyanzo vya kidijitali kabla ya kuvitumia.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Sentensi 'Hatimaye wakazi walipata maji safi baada ya miaka ya shida' ina toni gani?",
-      "options": ["Afueni na matumaini", "Hasira kali pekee", "Mzaha usio na maana", "Kukatisha tamaa bila suluhisho"],
-      "correctAnswer": "Afueni na matumaini",
-      "explanation": "Maneno 'hatimaye' na 'maji safi' baada ya shida yanaonyesha kufikia hali bora.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Toni ya Matini",
-      "learningOutcome": "Kuchambua toni inayojitokeza katika sentensi na aya.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Katika sentensi 'Amina alisoma ripoti hiyo kisha akaifupisha,' kiambishi '-i-' katika 'akaifupisha' kinarejelea nini?",
-      "options": ["Ripoti", "Amina", "Kusoma", "Kisha"],
-      "correctAnswer": "Ripoti",
-      "explanation": "Kiambishi rejeshi '-i-' kinarejelea nomino 'ripoti' iliyotajwa awali.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Urejeleaji katika Matini",
-      "learningOutcome": "Kufuatilia virejeleo vya kisarufi ili kuelewa mshikamano wa matini.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Methali 'Haraka haraka haina baraka' inafaa zaidi katika muktadha upi?",
-      "options": ["Kumshauri mwanafunzi apange kazi kabla ya kuiwasilisha", "Kumpongeza mtu kwa kukimbia mbio", "Kueleza kuwa kila kazi lazima ifanywe usiku", "Kukataa kabisa kutumia muda vizuri"],
-      "correctAnswer": "Kumshauri mwanafunzi apange kazi kabla ya kuiwasilisha",
-      "explanation": "Methali hiyo huonya dhidi ya kufanya mambo kwa pupa bila umakini.",
-      "difficulty": 3,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Methali katika Muktadha",
-      "learningOutcome": "Kufasiri methali kulingana na muktadha wa matumizi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Ratiba inaonyesha kuwa klabu ya Kiswahili hukutana Jumanne saa kumi jioni na klabu ya sayansi Alhamisi saa tisa. Ni taarifa ipi sahihi?",
-      "options": ["Klabu ya Kiswahili hukutana Jumanne saa kumi jioni", "Klabu ya sayansi hukutana Jumanne saa kumi", "Klabu zote hukutana siku moja", "Hakuna klabu inayokutana jioni"],
-      "correctAnswer": "Klabu ya Kiswahili hukutana Jumanne saa kumi jioni",
-      "explanation": "Kusoma taarifa za ratiba huhitaji kuoanisha siku, muda na shughuli husika kwa usahihi.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kusoma Taarifa za Ratiba",
-      "learningOutcome": "Kutafsiri taarifa mahususi kutoka ratiba au jedwali lililotolewa kwa maneno.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Katika maelekezo ya kutuma kazi mtandaoni, ni hatua gani inapaswa kuja kabla ya kubonyeza 'tuma'?",
-      "options": ["Kuthibitisha kuwa faili sahihi limeambatanishwa", "Kufuta jina la kazi", "Kuzima kifaa bila kuhifadhi", "Kutuma ujumbe usio na faili"],
-      "correctAnswer": "Kuthibitisha kuwa faili sahihi limeambatanishwa",
-      "explanation": "Matini elekezi hufuata mpangilio wa hatua; uthibitishaji kabla ya kutuma hupunguza makosa.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Matini Elekezi",
-      "learningOutcome": "Kufuatilia na kutathmini mpangilio wa hatua katika matini elekezi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Makala inasema kuwa kuvuna maji ya mvua hupunguza gharama na kusaidia wakati wa kiangazi. Ni hitimisho lipi linafaa?",
-      "options": ["Uvunaji wa maji ya mvua unaweza kusaidia familia na shule kukabiliana na uhaba wa maji", "Maji ya mvua hayana matumizi yoyote", "Kiangazi huongeza maji kwenye mabomba", "Gharama haziwezi kuathiri matumizi ya maji"],
-      "correctAnswer": "Uvunaji wa maji ya mvua unaweza kusaidia familia na shule kukabiliana na uhaba wa maji",
-      "explanation": "Hitimisho sahihi huunganisha hoja kuhusu gharama na upatikanaji wa maji wakati wa kiangazi.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Kutoa Hitimisho",
-      "learningOutcome": "Kutoa hitimisho linaloungwa mkono na maelezo ya matini.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Mwandishi anatumia neno 'huenda' mara kadhaa katika makala ya kisayansi. Hii inaonyesha nini?",
-      "options": ["Mwandishi anatoa uwezekano kwa tahadhari badala ya uhakika kamili", "Mwandishi hana lugha yoyote rasmi", "Matini hiyo ni tangazo la biashara", "Kila hoja katika makala ni ya uwongo"],
-      "correctAnswer": "Mwandishi anatoa uwezekano kwa tahadhari badala ya uhakika kamili",
-      "explanation": "Maneno kama 'huenda' huonyesha tahadhari ya kisomi pale ambapo ushahidi haujathibitisha jambo kwa ukamilifu.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Mtazamo wa Mwandishi",
-      "learningOutcome": "Kuchambua namna uteuzi wa maneno unavyoonyesha mtazamo wa mwandishi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Unaposoma makala mbili kuhusu lishe, moja ya blogu isiyotaja mwandishi na nyingine ya taasisi ya afya yenye tarehe na marejeleo. Ipi inafaa zaidi kwa utafiti?",
-      "options": ["Makala ya taasisi ya afya yenye tarehe na marejeleo", "Blogu isiyotaja mwandishi kwa sababu ni fupi", "Ile yenye picha nyingi tu", "Ile inayotumia maneno ya mzaha pekee"],
-      "correctAnswer": "Makala ya taasisi ya afya yenye tarehe na marejeleo",
-      "explanation": "Kwa utafiti, chanzo chenye mwandishi au taasisi, tarehe na ushahidi huchukuliwa kuwa cha kuaminika zaidi.",
-      "difficulty": 4,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Utafiti wa Kidijitali",
-      "learningOutcome": "Kuchagua vyanzo vinavyofaa kwa kazi ya utafiti wa Kiswahili.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Matini moja inasisitiza faida za teknolojia shuleni, nyingine inaonya kuhusu matumizi kupita kiasi. Msimamo bora wa msomaji ni upi?",
-      "options": ["Teknolojia itumiwe kwa malengo ya kujifunza huku muda na usalama vikidhibitiwa", "Teknolojia yote ikataliwe bila kujadili faida zake", "Wanafunzi watumie vifaa muda wote bila mwongozo", "Mitazamo miwili haiwezi kuchanganywa katika hitimisho"],
-      "correctAnswer": "Teknolojia itumiwe kwa malengo ya kujifunza huku muda na usalama vikidhibitiwa",
-      "explanation": "Usomaji wa kina unaweza kuunganisha faida na tahadhari ili kutoa msimamo uliosawazika.",
-      "difficulty": 5,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Usomaji Linganishi",
-      "learningOutcome": "Kuunganisha hoja kutoka matini tofauti ili kutoa msimamo uliosawazika.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Mwanafunzi anasoma sura ndefu ya kitabu na anahitaji kujiandaa kwa mjadala kesho. Mkakati upi ni bora zaidi?",
-      "options": ["Kugawa sura katika sehemu, kunakili hoja kuu, kuandika maswali na kufupisha mwisho", "Kusoma sentensi ya kwanza tu na kufunga kitabu", "Kukariri ukurasa wa mwisho bila kuelewa", "Kuahirisha kusoma hadi baada ya mjadala"],
-      "correctAnswer": "Kugawa sura katika sehemu, kunakili hoja kuu, kuandika maswali na kufupisha mwisho",
-      "explanation": "Mkakati huo unasaidia kuelewa, kukumbuka na kujiandaa kushiriki katika mjadala wa darasani.",
-      "difficulty": 5,
-      "strandTitle": "Kusoma",
-      "subStrandTitle": "Mikakati ya Usomaji",
-      "learningOutcome": "Kubuni mkakati wa kusoma matini ndefu kwa lengo maalumu.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "Katika sentensi 'Mwalimu ameongoza mjadala,' neno 'mwalimu' liko katika ngeli gani?",
-      "options": ["A-WA", "KI-VI", "LI-YA", "U-I"],
-      "correctAnswer": "A-WA",
-      "explanation": "Majina mengi ya watu kama mwalimu, mwanafunzi na daktari huingia katika ngeli ya A-WA.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya A-WA",
-      "learningOutcome": "Kutambua nomino za ngeli ya A-WA katika sentensi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi ina upatanisho sahihi wa ngeli ya KI-VI?",
-      "options": ["Vitabu vipya vimewasili", "Vitabu mpya imewasili", "Kitabu vipya vimewasili", "Vitabu kipya kimewasili"],
-      "correctAnswer": "Vitabu vipya vimewasili",
-      "explanation": "Nomino 'vitabu' ni wingi wa KI-VI, hivyo kivumishi na kitenzi vinachukua viambishi vya wingi.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya KI-VI",
-      "learningOutcome": "Kutumia upatanisho sahihi wa kisarufi katika ngeli ya KI-VI.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Wingi wa sentensi 'Jani limeanguka' ni upi?",
-      "options": ["Majani yameanguka", "Jani yameanguka", "Majani limeanguka", "Majani vimeanguka"],
-      "correctAnswer": "Majani yameanguka",
-      "explanation": "Nomino 'jani' iko katika ngeli ya LI-YA; wingi wake ni 'majani' na kitenzi huchukua kiambishi 'ya'.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya LI-YA",
-      "learningOutcome": "Kubadilisha sentensi za ngeli ya LI-YA kutoka umoja hadi wingi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi inaonyesha matumizi sahihi ya ngeli ya N-N?",
-      "options": ["Nyumba nzuri imejengwa", "Nyumba mzuri amejengwa", "Nyumba zuri zimejengwa", "Nyumba kizuri kimejengwa"],
-      "correctAnswer": "Nyumba nzuri imejengwa",
-      "explanation": "Nomino nyingi za ngeli ya N-N hutumia kivumishi kisichobadilika sana katika umoja, kama 'nyumba nzuri'.",
-      "difficulty": 1,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ngeli ya N-N",
-      "learningOutcome": "Kutumia upatanisho wa ngeli ya N-N katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Katika sentensi 'Wanafunzi wale wawili wameshinda,' neno 'wale' ni aina gani ya kivumishi?",
-      "options": ["Kivumishi kionyeshi", "Kivumishi cha idadi", "Kivumishi cha sifa", "Kivumishi cha kumiliki"],
-      "correctAnswer": "Kivumishi kionyeshi",
-      "explanation": "Neno 'wale' huonyesha nomino inayorejelewa, hivyo ni kivumishi kionyeshi.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vivumishi",
-      "learningOutcome": "Kutambua aina za vivumishi katika sentensi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Sentensi ipi iko katika wakati ujao?",
-      "options": ["Tutajadili mada kesho", "Tunajadili mada sasa", "Tulijadili mada jana", "Tumejadili mada tayari"],
-      "correctAnswer": "Tutajadili mada kesho",
-      "explanation": "Kiambishi '-ta-' huonyesha wakati ujao katika kitenzi cha Kiswahili.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nyakati za Vitenzi",
-      "learningOutcome": "Kutambua nyakati za vitenzi katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Kanusho sahihi la 'Asha anasoma makala' ni lipi?",
-      "options": ["Asha hasomi makala", "Asha husoma makala", "Asha hakusoma makala", "Asha atasoma makala"],
-      "correctAnswer": "Asha hasomi makala",
-      "explanation": "Kanusho la wakati uliopo kwa nafsi ya tatu umoja hutumia 'ha-' na kitenzi hubadilika kuwa 'hasomi'.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Ukanusho",
-      "learningOutcome": "Kukanusha sentensi za wakati uliopo kwa usahihi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Kauli ya kutendwa ya sentensi 'Wanafunzi waliandika ripoti' ni ipi?",
-      "options": ["Ripoti iliandikwa na wanafunzi", "Wanafunzi waliandikisha ripoti", "Ripoti iliandika wanafunzi", "Wanafunzi waliandikiana ripoti"],
-      "correctAnswer": "Ripoti iliandikwa na wanafunzi",
-      "explanation": "Katika kauli ya kutendwa, mtendwa huwa kiima na kitenzi hupokea kiambishi cha kutendwa kama '-w-'.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Kauli za Vitenzi",
-      "learningOutcome": "Kubadilisha sentensi kutoka kauli ya kutenda hadi kauli ya kutendwa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Usemi wa taarifa wa 'Nitawasilisha kazi kesho,' alisema Juma ni upi?",
-      "options": ["Juma alisema kuwa angewasilisha kazi siku iliyofuata", "Juma alisema nitawasilisha kazi kesho", "Juma asema kuwa atawasilisha jana", "Juma alisema kazi nitawasilisha kesho"],
-      "correctAnswer": "Juma alisema kuwa angewasilisha kazi siku iliyofuata",
-      "explanation": "Usemi wa taarifa hubadilisha nafsi, wakati na vielezi vya wakati kulingana na muktadha wa kuripoti.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Usemi Halisi na Usemi wa Taarifa",
-      "learningOutcome": "Kubadilisha usemi halisi kuwa usemi wa taarifa kwa usahihi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi imeakifishwa kwa usahihi?",
-      "options": ["Je, utahudhuria mjadala kesho?", "Je utahudhuria mjadala kesho.", "Je, utahudhuria mjadala kesho!", "Je utahudhuria, mjadala kesho"],
-      "correctAnswer": "Je, utahudhuria mjadala kesho?",
-      "explanation": "Swali linaloanza kwa 'Je,' huhitaji koma baada ya 'Je' na alama ya kuuliza mwishoni.",
-      "difficulty": 2,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Uakifishaji",
-      "learningOutcome": "Kutumia alama za uakifishaji ipasavyo katika sentensi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Chagua kiunganishi kinachofaa: 'Tulipanga mkutano ___ mvua ilianza kunyesha.'",
-      "options": ["lakini", "kwa sababu", "ili", "kama"],
-      "correctAnswer": "lakini",
-      "explanation": "Kiunganishi 'lakini' huonyesha mabadiliko au kinyume kati ya kupanga mkutano na kuanza kwa mvua.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Viunganishi",
-      "learningOutcome": "Kuteua viunganishi vinavyoonyesha uhusiano sahihi wa mawazo.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Chagua kihusishi kinachofaa: 'Kitabu kimewekwa ___ meza.'",
-      "options": ["juu ya", "kwa sababu ya", "licha ya", "kutokana na"],
-      "correctAnswer": "juu ya",
-      "explanation": "Kihusishi 'juu ya' huonyesha mahali kitu kilipo kuhusiana na kitu kingine.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vihusishi",
-      "learningOutcome": "Kutumia vihusishi vinavyofaa kuonyesha mahali na uhusiano.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi ina kirejeshi sahihi?",
-      "options": ["Mwanafunzi aliyeshinda alipewa tuzo", "Mwanafunzi kilichoshinda alipewa tuzo", "Mwanafunzi zilizoshinda alipewa tuzo", "Mwanafunzi walioshinda alipewa tuzo"],
-      "correctAnswer": "Mwanafunzi aliyeshinda alipewa tuzo",
-      "explanation": "Nomino 'mwanafunzi' iko katika A-WA umoja, hivyo kirejeshi sahihi ni 'aliye-'.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Virejeshi",
-      "learningOutcome": "Kutumia virejeshi kwa kuzingatia ngeli na idadi ya nomino.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Katika sentensi 'Aliandika ripoti kwa makini sana,' neno 'makini' linafanya kazi gani?",
-      "options": ["Kielezi kinachoeleza namna ya kuandika", "Nomino ya mahali", "Kivumishi cha idadi", "Kitenzi kikuu"],
-      "correctAnswer": "Kielezi kinachoeleza namna ya kuandika",
-      "explanation": "Kielezi huonyesha namna, wakati, mahali au kiasi cha tendo; hapa kinaeleza jinsi alivyoandika.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vielezi",
-      "learningOutcome": "Kutambua vielezi na kazi zake katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi ina kitenzi kishirikishi?",
-      "options": ["Mada hii ni muhimu", "Wanafunzi wanakimbia uwanjani", "Mgeni aliwasili mapema", "Mvua ilinyesha jana"],
-      "correctAnswer": "Mada hii ni muhimu",
-      "explanation": "Kitenzi kishirikishi kama 'ni' huunganisha kiima na taarifa inayokieleza.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vitenzi Vishirikishi",
-      "learningOutcome": "Kutambua vitenzi vishirikishi katika sentensi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Sentensi ipi ni changamano?",
-      "options": ["Mwanafunzi aliyesoma kwa bidii alifaulu mtihani", "Mwanafunzi alisoma", "Mvua ilinyesha", "Walimu walifika"],
-      "correctAnswer": "Mwanafunzi aliyesoma kwa bidii alifaulu mtihani",
-      "explanation": "Sentensi changamano huwa na kishazi tegemezi na kishazi huru vinavyounganishwa kimaana.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Vishazi na Sentensi",
-      "learningOutcome": "Kutambua miundo ya sentensi changamano.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Ni sentensi ipi ina upatanisho sahihi?",
-      "options": ["Magari mapya yamepakiwa", "Magari mpya imepakiwa", "Gari mapya wamepakiwa", "Magari kipya kimepakiwa"],
-      "correctAnswer": "Magari mapya yamepakiwa",
-      "explanation": "Nomino 'magari' iko katika wingi wa LI-YA, hivyo kivumishi na kitenzi vinapaswa kuendana nayo.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Upatanisho wa Kisarufi",
-      "learningOutcome": "Kusahihisha makosa ya upatanisho katika sentensi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Neno 'uadilifu' ni aina gani ya nomino?",
-      "options": ["Nomino dhahania", "Nomino ya pekee", "Nomino ya jamii", "Nomino ya mahali"],
-      "correctAnswer": "Nomino dhahania",
-      "explanation": "Nomino dhahania hutaja hali au sifa isiyoweza kushikwa moja kwa moja, kama uadilifu au upendo.",
-      "difficulty": 3,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Aina za Nomino",
-      "learningOutcome": "Kutambua aina za nomino kulingana na maana zake.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Ni kauli ipi inafaa zaidi katika rejesta ya hospitali?",
-      "options": ["Tafadhali eleza dalili zako na muda zilipoanza", "Leta mpira tucheze sasa", "Bei ya nyanya imeshuka sokoni", "Tupige kura ya nahodha wa timu"],
-      "correctAnswer": "Tafadhali eleza dalili zako na muda zilipoanza",
-      "explanation": "Rejesta hubadilika kulingana na mazingira; hospitalini lugha hulenga afya, dalili na huduma.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Rejesta",
-      "learningOutcome": "Kuteua lugha inayofaa mazingira maalumu ya mawasiliano.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Kisawe kinachofaa zaidi cha neno 'jasiri' ni kipi?",
-      "options": ["Shujaa", "Mwoga", "Mzembe", "Mnyonge"],
-      "correctAnswer": "Shujaa",
-      "explanation": "Kisawe ni neno lenye maana inayokaribiana; 'shujaa' hukaribiana na 'jasiri'.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Visawe na Vinyume",
-      "learningOutcome": "Kutumia visawe na vinyume kupanua msamiati.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Neno 'mchezeshaji' limeundwa kwa kuongeza viambishi gani kwa mzizi wa kitenzi?",
-      "options": ["Kiambishi awali, mzizi, kiambishi cha kutendesha na kiishio cha mtenda kazi", "Nomino mbili zisizohusiana", "Alama za uakifishaji pekee", "Kivumishi na kihisishi tu"],
-      "correctAnswer": "Kiambishi awali, mzizi, kiambishi cha kutendesha na kiishio cha mtenda kazi",
-      "explanation": "Uundaji wa maneno ya Kiswahili unaweza kuhusisha mzizi na viambishi vinavyobadilisha maana au dhima ya neno.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Uundaji wa Maneno",
-      "learningOutcome": "Kuchambua muundo wa maneno yanayotokana na mizizi na viambishi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Sentensi 'Wanafunzi mzuri wamewasili' ina kosa gani?",
-      "options": ["Kivumishi hakijaafikiana na nomino ya wingi", "Kitenzi kiko katika wakati ujao", "Nomino imeandikwa kwa herufi kubwa", "Sentensi haina kiima"],
-      "correctAnswer": "Kivumishi hakijaafikiana na nomino ya wingi",
-      "explanation": "Nomino 'wanafunzi' inahitaji kivumishi cha wingi 'wazuri', si 'mzuri'.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Uhariri wa Sentensi",
-      "learningOutcome": "Kuchambua na kusahihisha makosa ya kisarufi katika sentensi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Kauli 'Mwalimu ni taa ya jamii' ni tamathali gani ya usemi?",
-      "options": ["Sitiari", "Tashbihi", "Tanakali ya sauti", "Kinaya"],
-      "correctAnswer": "Sitiari",
-      "explanation": "Sitiari hulinganisha vitu viwili moja kwa moja bila kutumia maneno kama 'kama' au 'mfano wa'.",
-      "difficulty": 4,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Tamathali za Usemi",
-      "learningOutcome": "Kutambua tamathali za usemi na athari zake katika lugha.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Sentensi 'Alikula chumvi nyingi' ikiwa na maana ya uzoefu, inaonyesha matumizi gani ya lugha?",
-      "options": ["Nahau", "Kihisishi", "Kielezi cha mahali", "Nomino ya pekee"],
-      "correctAnswer": "Nahau",
-      "explanation": "Nahau huwa na maana ya kimafumbo isiyotokana moja kwa moja na maana za maneno yake moja moja.",
-      "difficulty": 5,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Nahau",
-      "learningOutcome": "Kufasiri nahau kulingana na muktadha wa matumizi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Unataka kuboresha sentensi 'Tulifika shule. Mvua ilinyesha. Tulianza mjadala.' Ipi ni sentensi bora zaidi?",
-      "options": ["Tulipofika shule, mvua ilinyesha, lakini tulianza mjadala.", "Tulifika shule mvua mjadala tulianza.", "Mvua shule tulifika lakini.", "Tulianza tulifika ilinyesha shule."],
-      "correctAnswer": "Tulipofika shule, mvua ilinyesha, lakini tulianza mjadala.",
-      "explanation": "Sentensi bora huunganisha mawazo kwa viunganishi na uakifishaji unaoonyesha uhusiano wa matukio.",
-      "difficulty": 5,
-      "strandTitle": "Sarufi na Matumizi ya Lugha",
-      "subStrandTitle": "Mshikamano wa Sentensi",
-      "learningOutcome": "Kuunda sentensi zenye mshikamano kwa kutumia viunganishi na uakifishaji.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Hatua ya kwanza bora kabla ya kuandika insha ya hoja ni ipi?",
-      "options": ["Kuelewa mada na kupanga hoja kuu", "Kuandika hitimisho bila kusoma mada", "Kuchagua maneno magumu bila mpangilio", "Kuwasilisha kazi bila rasimu"],
-      "correctAnswer": "Kuelewa mada na kupanga hoja kuu",
-      "explanation": "Upangaji husaidia mwandishi kuelewa lengo, hadhira na hoja zitakazojenga insha.",
-      "difficulty": 1,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kupanga Uandishi",
-      "learningOutcome": "Kupanga mawazo kabla ya kuandika matini ya hoja.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Sentensi kuu katika aya ina kazi gani?",
-      "options": ["Kutambulisha wazo kuu la aya", "Kumaliza maandishi yote kila wakati", "Kuchukua nafasi ya ushahidi", "Kuficha mada ya aya"],
-      "correctAnswer": "Kutambulisha wazo kuu la aya",
-      "explanation": "Sentensi kuu humwongoza msomaji kuelewa hoja inayojadiliwa katika aya.",
-      "difficulty": 1,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Ujenzi wa Aya",
-      "learningOutcome": "Kutambua nafasi ya sentensi kuu katika aya.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Barua rasmi inapaswa kuwa na kipengele gani muhimu?",
-      "options": ["Anwani, tarehe, salamu rasmi, mada, mwili na hitimisho", "Utani mrefu na michoro pekee", "Jina la mpokeaji bila ujumbe", "Maneno ya mazungumzo ya mtaani pekee"],
-      "correctAnswer": "Anwani, tarehe, salamu rasmi, mada, mwili na hitimisho",
-      "explanation": "Barua rasmi hufuata muundo unaowezesha mpokeaji kutambua chanzo, lengo na ujumbe.",
-      "difficulty": 1,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Barua Rasmi",
-      "learningOutcome": "Kutambua vipengele vya msingi vya barua rasmi.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Katika barua pepe rasmi, sehemu ya 'mada' inapaswa kuwa vipi?",
-      "options": ["Fupi, wazi na inayotaja lengo la ujumbe", "Ndefu kuliko mwili wa ujumbe", "Tupu ili msomaji akisie", "Imejaa vichekesho visivyohusiana"],
-      "correctAnswer": "Fupi, wazi na inayotaja lengo la ujumbe",
-      "explanation": "Mada ya barua pepe humsaidia mpokeaji kuelewa lengo la ujumbe kabla ya kuufungua.",
-      "difficulty": 1,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Barua Pepe Rasmi",
-      "learningOutcome": "Kuandika mada inayofaa kwa barua pepe rasmi.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Ripoti ya shughuli ya shule inapaswa kuonyesha nini?",
-      "options": ["Kichwa, tarehe, lengo, yaliyofanyika, matokeo na mapendekezo", "Hisia za mwandishi pekee bila taarifa", "Majina ya marafiki tu", "Methali nyingi bila maelezo ya tukio"],
-      "correctAnswer": "Kichwa, tarehe, lengo, yaliyofanyika, matokeo na mapendekezo",
-      "explanation": "Ripoti hutoa taarifa zilizopangwa kuhusu shughuli, ushahidi wa kilichotokea na hatua zinazopendekezwa.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Ripoti",
-      "learningOutcome": "Kutambua vipengele vinavyounda ripoti ya shughuli.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Kumbukumbu za mkutano zinapaswa kujumuisha nini?",
-      "options": ["Waliokuwepo, ajenda, hoja zilizojadiliwa na maamuzi", "Maoni ya mtu mmoja pekee", "Hadithi isiyohusiana na mkutano", "Orodha ya vitabu vya maktaba"],
-      "correctAnswer": "Waliokuwepo, ajenda, hoja zilizojadiliwa na maamuzi",
-      "explanation": "Kumbukumbu za mkutano huhifadhi rasmi taarifa za mjadala na maamuzi yaliyofikiwa.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kumbukumbu za Mkutano",
-      "learningOutcome": "Kuandika vipengele muhimu vya kumbukumbu za mkutano.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Tangazo la klabu ya Kiswahili linapaswa kuwa na taarifa gani muhimu?",
-      "options": ["Shughuli, tarehe, muda, mahali na anayehusika", "Rangi ya viatu vya wanachama", "Hadithi ndefu ya familia ya mwenyekiti", "Maswali yasiyo na majibu"],
-      "correctAnswer": "Shughuli, tarehe, muda, mahali na anayehusika",
-      "explanation": "Tangazo bora hujibu maswali ya nini, lini, wapi na nani ili hadhira ichukue hatua.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Matangazo",
-      "learningOutcome": "Kuandika tangazo lenye taarifa kamili na fupi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "Katika kuandika muhtasari, mwandishi anapaswa kufanya nini?",
-      "options": ["Kuchagua hoja kuu na kuziacha taarifa zisizo muhimu", "Kuongeza maoni mapya mengi", "Kunakili kila sentensi ya matini", "Kubadilisha maana ya mwandishi"],
-      "correctAnswer": "Kuchagua hoja kuu na kuziacha taarifa zisizo muhimu",
-      "explanation": "Muhtasari huhifadhi maana kuu kwa ufupi bila kuongeza taarifa zisizopatikana katika matini.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Muhtasari",
-      "learningOutcome": "Kuandika muhtasari unaohifadhi hoja kuu za matini.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Kwa nini ni muhimu kutaja chanzo unapotumia taarifa kutoka tovuti katika insha?",
-      "options": ["Kuonyesha uaminifu na kuepuka wizi wa kazi ya wengine", "Kufanya insha iwe ndefu bila sababu", "Kuficha mwandishi wa taarifa", "Kugeuza insha kuwa tangazo"],
-      "correctAnswer": "Kuonyesha uaminifu na kuepuka wizi wa kazi ya wengine",
-      "explanation": "Kutaja chanzo huonyesha maadili ya kitaaluma na kumsaidia msomaji kufuatilia taarifa.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Maadili ya Uandishi",
-      "learningOutcome": "Kutumia vyanzo kwa uadilifu katika uandishi wa kitaaluma.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Ni hatua gani inafaa katika usahihishaji wa rasimu?",
-      "options": ["Kukagua tahajia, uakifishaji, upatanisho na mtiririko wa mawazo", "Kufuta hoja zote zenye ushahidi", "Kuongeza makosa ili maandishi yaonekane halisi", "Kuwasilisha rasimu bila kuisoma tena"],
-      "correctAnswer": "Kukagua tahajia, uakifishaji, upatanisho na mtiririko wa mawazo",
-      "explanation": "Usahihishaji husaidia kuboresha usahihi wa lugha na uwazi wa ujumbe kabla ya kuwasilisha kazi.",
-      "difficulty": 2,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Usahihishaji",
-      "learningOutcome": "Kusahihisha rasimu kwa kuzingatia lugha na mtiririko.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Chagua kiunganishi kinachoboresha mshikamano: 'Wanafunzi walifanya utafiti. ___ waliwasilisha matokeo darasani.'",
-      "options": ["Baadaye", "Ingawa", "Ila", "Kama"],
-      "correctAnswer": "Baadaye",
-      "explanation": "Neno 'Baadaye' huonyesha mfuatano wa matukio kutoka kufanya utafiti hadi kuwasilisha matokeo.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mshikamano wa Maandishi",
-      "learningOutcome": "Kutumia viunganishi na viashiria vya mpito kuboresha mtiririko wa aya.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Katika insha ya hoja kuhusu michezo shuleni, utangulizi bora unapaswa kufanya nini?",
-      "options": ["Kutambulisha mada na kuweka msimamo unaojadiliwa", "Kutoa hitimisho bila hoja", "Kutaja majina ya michezo pekee", "Kuomba radhi kwa kuandika insha"],
-      "correctAnswer": "Kutambulisha mada na kuweka msimamo unaojadiliwa",
-      "explanation": "Utangulizi wa insha ya hoja humwelekeza msomaji kwenye mada na msimamo wa mwandishi.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Insha ya Hoja",
-      "learningOutcome": "Kuandika utangulizi wenye mada na msimamo katika insha ya hoja.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Ni muundo upi unafaa zaidi kwa aya ya hoja?",
-      "options": ["Hoja kuu, ufafanuzi, ushahidi, maelezo na sentensi ya kufunga", "Methali, mzaha, jina la mwandishi na mwisho", "Orodha ya maneno bila uhusiano", "Swali moja lisilojibiwa"],
-      "correctAnswer": "Hoja kuu, ufafanuzi, ushahidi, maelezo na sentensi ya kufunga",
-      "explanation": "Aya ya hoja inahitaji madai, ushahidi na maelezo yanayounganisha ushahidi na msimamo.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Aya ya Hoja",
-      "learningOutcome": "Kujenga aya ya hoja yenye madai na ushahidi.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Kauli isiyo rasmi 'Nitumie hiyo kazi saa hii' ibadilishwe vipi katika barua pepe rasmi kwa mwalimu?",
-      "options": ["Tafadhali nitumie kazi hiyo unapopata nafasi.", "Leta kazi sasa hivi.", "Hiyo kazi iko wapi jamani?", "Usiponitumia kazi sitasoma."],
-      "correctAnswer": "Tafadhali nitumie kazi hiyo unapopata nafasi.",
-      "explanation": "Lugha rasmi hutumia heshima, upole na maneno yanayofaa uhusiano wa mwandishi na mpokeaji.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Urasmi katika Uandishi",
-      "learningOutcome": "Kubadilisha lugha isiyo rasmi kuwa lugha rasmi inayofaa barua pepe.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Maelekezo ya maandishi kwa shughuli ya maabara ya lugha yanapaswa kuwa vipi?",
-      "options": ["Yenye hatua fupi, zilizopangwa kwa mfuatano na maneno wazi", "Yenye methali zisizohusiana na hatua", "Yenye hatua zilizochanganywa kimakusudi", "Yenye sentensi ndefu sana bila alama"],
-      "correctAnswer": "Yenye hatua fupi, zilizopangwa kwa mfuatano na maneno wazi",
-      "explanation": "Maelekezo bora ya maandishi yanapaswa kueleweka haraka na kufuatwa bila mkanganyiko.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuandika Maelekezo",
-      "learningOutcome": "Kuandika maelekezo yaliyo wazi na yenye mpangilio wa hatua.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "Rasimu ina sentensi nyingi zinazorudia wazo moja. Mwandishi afanye nini?",
-      "options": ["Aondoe marudio na aunganishe hoja zinazofanana", "Aongeze marudio zaidi ili kazi ionekane ndefu", "Afute ushahidi wote", "Abadilishe mada ya insha ghafla"],
-      "correctAnswer": "Aondoe marudio na aunganishe hoja zinazofanana",
-      "explanation": "Uhariri mzuri hupunguza urudiaji na kufanya hoja ziwe wazi, fupi na zenye nguvu.",
-      "difficulty": 3,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kuboresha Rasimu",
-      "learningOutcome": "Kuboresha rasimu kwa kupunguza marudio na kuimarisha uwazi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Utangulizi unasema: 'Mazingira ni muhimu. Nitazungumzia mambo mengi.' Udhaifu wake mkuu ni upi?",
-      "options": ["Hauna msimamo au mwelekeo mahususi wa hoja", "Una alama nyingi za kuuliza", "Umetumia methali nyingi", "Umeandika tarehe isiyo sahihi"],
-      "correctAnswer": "Hauna msimamo au mwelekeo mahususi wa hoja",
-      "explanation": "Utangulizi wa insha ya hoja unapaswa kuonyesha mada kwa uwazi na msimamo wa mwandishi.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Tathmini ya Utangulizi",
-      "learningOutcome": "Kutathmini ubora wa utangulizi wa insha ya hoja.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Kichwa kipi kinafaa zaidi kwa makala kuhusu namna vijana wanavyoweza kulinda data zao mtandaoni?",
-      "options": ["Usalama wa Data kwa Vijana Mtandaoni", "Mambo Mengi Sana", "Hadithi ya Jana", "Michezo ya Uwanjani"],
-      "correctAnswer": "Usalama wa Data kwa Vijana Mtandaoni",
-      "explanation": "Kichwa kizuri huwa mahususi, kifupi na kinachoonyesha mada kuu ya maandishi.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Kichwa cha Makala",
-      "learningOutcome": "Kuchagua kichwa kinacholingana na mada na hadhira ya makala.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Ripoti kuhusu upungufu wa vitabu maktabani inapaswa kuhitimishwa vipi?",
-      "options": ["Kwa mapendekezo yanayotekelezeka kama ununuzi, uchangiaji na mfumo wa kukopesha", "Kwa kumlaumu mtu mmoja bila ushahidi", "Kwa kuandika shairi lisilohusiana", "Kwa kuficha idadi ya vitabu vilivyopo"],
-      "correctAnswer": "Kwa mapendekezo yanayotekelezeka kama ununuzi, uchangiaji na mfumo wa kukopesha",
-      "explanation": "Hitimisho la ripoti linapaswa kuonyesha hatua za kutatua tatizo kwa msingi wa taarifa zilizotolewa.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Mapendekezo ya Ripoti",
-      "learningOutcome": "Kuandika mapendekezo yanayofaa kulingana na matokeo ya ripoti.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Rasimu ya kwanza ina hoja nzuri lakini haina mifano; rasimu ya pili ina mifano lakini haina mpangilio. Uamuzi bora ni upi?",
-      "options": ["Kuchukua hoja za rasimu ya kwanza na mifano ya pili kisha kuzipanga upya", "Kutupa rasimu zote bila kujifunza chochote", "Kuchagua rasimu yenye maandishi mengi zaidi tu", "Kuondoa mifano yote kwa sababu ni mingi"],
-      "correctAnswer": "Kuchukua hoja za rasimu ya kwanza na mifano ya pili kisha kuzipanga upya",
-      "explanation": "Uandishi bora hutumia nguvu za rasimu tofauti na kurekebisha udhaifu wake kwa mpangilio.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Tathmini ya Rasimu",
-      "learningOutcome": "Kulinganisha rasimu na kuchagua marekebisho yanayoimarisha maandishi.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Hitimisho la insha ya kushawishi kuhusu kusoma vitabu linapaswa kufanya nini?",
-      "options": ["Kurejelea msimamo na kutoa mwito mfupi wa kuchukua hatua", "Kuanzisha hoja mpya isiyoelezwa mwilini", "Kuomba msomaji asisome vitabu", "Kumalizia kwa orodha ya maneno yasiyohusiana"],
-      "correctAnswer": "Kurejelea msimamo na kutoa mwito mfupi wa kuchukua hatua",
-      "explanation": "Hitimisho la kushawishi huimarisha msimamo na kumwelekeza msomaji kwenye hatua au fikra kuu.",
-      "difficulty": 4,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Hitimisho la Insha",
-      "learningOutcome": "Kuandika hitimisho linaloimarisha hoja na kumshawishi msomaji.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Unapanga makala ya uchunguzi kuhusu upotevu wa chakula shuleni. Mpango upi ni bora zaidi?",
-      "options": ["Lengo, mbinu za kukusanya data, matokeo, uchambuzi na mapendekezo", "Kichwa, methali tano na hitimisho bila data", "Malalamiko ya wanafunzi pekee", "Maelezo ya mchezo wa jana"],
-      "correctAnswer": "Lengo, mbinu za kukusanya data, matokeo, uchambuzi na mapendekezo",
-      "explanation": "Makala ya uchunguzi huhitaji mpangilio unaoonyesha jinsi taarifa zilivyokusanywa na kutafsiriwa.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Makala ya Uchunguzi",
-      "learningOutcome": "Kupanga makala ya uchunguzi yenye data, uchambuzi na mapendekezo.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Ni kigezo kipi kinafaa zaidi kutathmini insha ya hoja ya Gredi ya 10?",
-      "options": ["Uwazi wa msimamo, ushahidi, mpangilio, lugha na uhariri", "Urefu pekee wa maandishi", "Idadi ya maneno magumu bila maana", "Rangi ya kalamu iliyotumiwa"],
-      "correctAnswer": "Uwazi wa msimamo, ushahidi, mpangilio, lugha na uhariri",
-      "explanation": "Insha ya hoja hutathminiwa kwa ubora wa hoja, uthibitisho, muundo na usahihi wa lugha.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Tathmini ya Uandishi",
-      "learningOutcome": "Kubuni vigezo vya kutathmini insha ya hoja.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Unahitaji kuandika makala kutokana na mahojiano na taarifa ya tovuti. Hatua ipi inalinda usahihi wa makala?",
-      "options": ["Kulinganisha taarifa, kutaja vyanzo na kuondoa madai yasiyothibitishwa", "Kuchagua taarifa zinazopendeza tu", "Kubadilisha majibu ya mhojiwa bila kusema", "Kutumia tovuti moja bila kuangalia tarehe"],
-      "correctAnswer": "Kulinganisha taarifa, kutaja vyanzo na kuondoa madai yasiyothibitishwa",
-      "explanation": "Uandishi unaotegemea vyanzo vingi huhitaji uhakiki, uwazi wa marejeleo na uadilifu wa taarifa.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Uandishi Kutokana na Vyanzo",
-      "learningOutcome": "Kuunganisha taarifa kutoka vyanzo tofauti kwa usahihi na uadilifu.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Rasimu ya makala ina utangulizi mzuri, hoja tatu, lakini haina ushahidi wala hitimisho. Mpango bora wa marekebisho ni upi?",
-      "options": ["Kuongeza ushahidi kwa kila hoja, kuunganisha aya na kuandika hitimisho linalorejelea msimamo", "Kubadilisha utangulizi pekee na kuacha hoja bila ushahidi", "Kufuta hoja tatu na kuandika kichwa kipya tu", "Kuongeza picha bila kurekebisha maandishi"],
-      "correctAnswer": "Kuongeza ushahidi kwa kila hoja, kuunganisha aya na kuandika hitimisho linalorejelea msimamo",
-      "explanation": "Marekebisho yenye nguvu hushughulikia mapengo ya ushahidi, mshikamano na kufungwa kwa hoja kuu.",
-      "difficulty": 5,
-      "strandTitle": "Kuandika",
-      "subStrandTitle": "Marekebisho ya Makala",
-      "learningOutcome": "Kubuni mpango wa kurekebisha makala ili iwe na hoja, ushahidi na hitimisho.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 10",
+ "subjectId": "kiswahili",
+ "subjectName": "Kiswahili",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Katika mazungumzo ya darasani, ni tabia ipi inaonyesha usikilizaji makini zaidi?",
+   "options": [
+    "Kutazama mzungumzaji na kunakili hoja muhimu",
+    "Kumkatiza mzungumzaji ili kuonyesha maarifa",
+    "Kujibu kabla ya hoja kukamilika",
+    "Kuzungumza na mwenzako wakati wa maelezo"
+   ],
+   "correctAnswer": "Kutazama mzungumzaji na kunakili hoja muhimu",
+   "explanation": "Usikilizaji makini huhitaji umakinifu, heshima na ufuatiliaji wa hoja muhimu kabla ya kujibu.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Usikilizaji Makini",
+   "learningOutcome": "Kutumia mbinu za usikilizaji makini katika mawasiliano ya kielimu.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Hoja kuu katika hotuba hutambuliwa vyema kwa kuzingatia nini?",
+   "options": [
+    "Wazo linalosisitizwa na kuungwa mkono na mifano",
+    "Neno refu zaidi katika hotuba",
+    "Kichekesho cha kwanza cha mzungumzaji",
+    "Mavazi ya mzungumzaji pekee"
+   ],
+   "correctAnswer": "Wazo linalosisitizwa na kuungwa mkono na mifano",
+   "explanation": "Hoja kuu hubeba ujumbe wa hotuba na mara nyingi huimarishwa kwa mifano, sababu au takwimu.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Ufahamu wa Kusikiliza",
+   "learningOutcome": "Kutambua hoja kuu katika matini za mdomo za kiwango cha Gredi ya 10.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Kwa nini kiimbo hufaa katika mazungumzo ya Kiswahili sanifu?",
+   "options": [
+    "Husaidia kuonyesha swali, msisitizo au hisia",
+    "Hubadilisha maana ya kila nomino kuwa kitenzi",
+    "Huondoa haja ya kutumia maneno",
+    "Hufanya sentensi zote ziwe amri"
+   ],
+   "correctAnswer": "Husaidia kuonyesha swali, msisitizo au hisia",
+   "explanation": "Kiimbo ni mabadiliko ya sauti yanayosaidia msikilizaji kutambua nia na hisia za mzungumzaji.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Matamshi na Kiimbo",
+   "learningOutcome": "Kutambua mchango wa matamshi na kiimbo katika mawasiliano fasaha.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Ni kauli ipi inaonyesha adabu katika majadiliano rasmi?",
+   "options": [
+    "Ningependa kuongeza hoja inayohusiana na maoni yako",
+    "Nyamaza, hoja yako haina maana",
+    "Nitazungumza tu bila kusikiliza wengine",
+    "Hilo swali halistahili kujibiwa"
+   ],
+   "correctAnswer": "Ningependa kuongeza hoja inayohusiana na maoni yako",
+   "explanation": "Majadiliano rasmi huhitaji lugha ya heshima, kusikiliza na kujenga hoja bila kumdhalilisha mwingine.",
+   "difficulty": 1,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Adabu za Mazungumzo",
+   "learningOutcome": "Kutumia lugha yenye heshima katika mijadala na mawasiliano rasmi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Katika mahojiano kuhusu mradi wa kupanda miti, ni swali lipi lililo wazi zaidi?",
+   "options": [
+    "Mradi huu umebadilisha vipi mazingira ya shule?",
+    "Je, mlipanda miti?",
+    "Mlipanda miti jana, sivyo?",
+    "Unapenda miti?"
+   ],
+   "correctAnswer": "Mradi huu umebadilisha vipi mazingira ya shule?",
+   "explanation": "Swali wazi humruhusu mhojiwa kutoa maelezo, mifano na sababu badala ya kujibu ndiyo au hapana.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mahojiano",
+   "learningOutcome": "Kuunda maswali wazi yanayofaa mahojiano ya kielimu na kijamii.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Mpangilio upi unafaa zaidi kwa hotuba fupi kuhusu usalama mtandaoni?",
+   "options": [
+    "Salamu, utangulizi, hoja kuu, mifano, hitimisho",
+    "Hitimisho, mifano, salamu, mada mpya",
+    "Maswali pekee bila hoja",
+    "Utani, kimya kirefu, kisha kuondoka"
+   ],
+   "correctAnswer": "Salamu, utangulizi, hoja kuu, mifano, hitimisho",
+   "explanation": "Hotuba rasmi huwa na mwanzo unaowatambulisha wasikilizaji kwa mada, mwili wenye hoja na mwisho unaohitimisha ujumbe.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Hotuba",
+   "learningOutcome": "Kupanga hotuba fupi kwa mtiririko unaoeleweka.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Ni ishara ipi isiyo ya maneno inaweza kuonyesha kuwa msikilizaji anaelewa hoja?",
+   "options": [
+    "Kutikisa kichwa kwa kiasi kinachofaa",
+    "Kugeuza mgongo kwa mzungumzaji",
+    "Kufunika masikio",
+    "Kucheka bila sababu wakati wote"
+   ],
+   "correctAnswer": "Kutikisa kichwa kwa kiasi kinachofaa",
+   "explanation": "Ishara za mwili kama kutikisa kichwa au kumtazama mzungumzaji huweza kuonyesha ufuatiliaji na heshima.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mawasiliano Yasiyo ya Maneno",
+   "learningOutcome": "Kutambua maana ya ishara za mwili katika mawasiliano.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Baada ya kusikiliza tangazo la shule, mwanafunzi anapaswa kufanya nini ili kukumbuka taarifa muhimu?",
+   "options": [
+    "Kuandika tarehe, mahali, muda na hatua zinazohitajika",
+    "Kukumbuka neno moja la mwisho pekee",
+    "Kupuuza sehemu zisizomfurahisha",
+    "Kuandika maoni yake bila taarifa za tangazo"
+   ],
+   "correctAnswer": "Kuandika tarehe, mahali, muda na hatua zinazohitajika",
+   "explanation": "Kumbukumbu nzuri za tangazo hunasa taarifa mahususi zinazomsaidia msikilizaji kuchukua hatua sahihi.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Kumbukumbu za Kusikiliza",
+   "learningOutcome": "Kunakili taarifa muhimu kutoka kwa mawasiliano ya mdomo.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Katika taarifa ya mdomo, kauli ipi ni maoni?",
+   "options": [
+    "Klabu hii ndiyo bora zaidi shuleni",
+    "Mkutano ulianza saa nane mchana",
+    "Wanafunzi hamsini walihudhuria",
+    "Miti ishirini ilipandwa jana"
+   ],
+   "correctAnswer": "Klabu hii ndiyo bora zaidi shuleni",
+   "explanation": "Maoni hutegemea mtazamo wa mtu, ilhali ukweli unaweza kuthibitishwa kwa ushahidi au takwimu.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Ukweli na Maoni",
+   "learningOutcome": "Kutofautisha ukweli na maoni katika taarifa za mdomo.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Mrejesho upi unafaa baada ya mwanafunzi kutoa wasilisho kuhusu afya ya akili?",
+   "options": [
+    "Umetoa mifano mizuri, ungeongeza takwimu kuthibitisha hoja",
+    "Wasilisho lako halifai kabisa",
+    "Sikuelewa chochote kwa sababu mada ni ngumu",
+    "Usizungumze tena kuhusu mada hiyo"
+   ],
+   "correctAnswer": "Umetoa mifano mizuri, ungeongeza takwimu kuthibitisha hoja",
+   "explanation": "Mrejesho mzuri hutambua nguvu za wasilisho na kutoa pendekezo mahususi la kuboresha.",
+   "difficulty": 2,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mrejesho wa Mawasilisho",
+   "learningOutcome": "Kutoa mrejesho wenye heshima na manufaa baada ya kusikiliza wasilisho.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Katika mdahalo, hoja ipi imeungwa mkono vizuri zaidi?",
+   "options": [
+    "Maktaba za kidijitali zisaidiwe kwa sababu hurahisisha upatikanaji wa vitabu na hupunguza gharama za kuchapisha",
+    "Maktaba za kidijitali ni nzuri kwa sababu ni nzuri",
+    "Kila mtu anapenda simu, basi maktaba ibadilishwe",
+    "Tusizungumzie maktaba kwa sababu ni mada ya zamani"
+   ],
+   "correctAnswer": "Maktaba za kidijitali zisaidiwe kwa sababu hurahisisha upatikanaji wa vitabu na hupunguza gharama za kuchapisha",
+   "explanation": "Hoja thabiti hutoa msimamo na sababu zinazoweza kuchunguzwa au kujadiliwa.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Mdahalo",
+   "learningOutcome": "Kujenga hoja zenye sababu katika mijadala rasmi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Ni rejesta ipi inafaa unapomkaribisha mgeni rasmi katika hafla ya shule?",
+   "options": [
+    "Tunayo heshima kubwa kukukaribisha katika hafla yetu",
+    "Sasa umefika, kaa hapo tuanze",
+    "Wewe mgeni, ongea haraka",
+    "Karibu, lakini usichukue muda wetu"
+   ],
+   "correctAnswer": "Tunayo heshima kubwa kukukaribisha katika hafla yetu",
+   "explanation": "Hafla rasmi huhitaji lugha yenye staha, heshima na uteuzi makini wa maneno.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Rejesta Rasmi",
+   "learningOutcome": "Kuteua rejesta inayofaa hadhira na mazingira ya mawasiliano.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Mwanafunzi anapotofautiana na hoja ya mwenzake katika mjadala, jibu lipi linafaa zaidi?",
+   "options": [
+    "Ninakuelewa, lakini ushahidi mwingine unaonyesha mtazamo tofauti",
+    "Hujui unachosema",
+    "Hoja yako ni ya kuchekesha",
+    "Nitakataa bila sababu yoyote"
+   ],
+   "correctAnswer": "Ninakuelewa, lakini ushahidi mwingine unaonyesha mtazamo tofauti",
+   "explanation": "Kutofautiana kwa heshima hulinda mawasiliano na huelekeza mjadala katika ushahidi.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Majadiliano",
+   "learningOutcome": "Kujibu hoja za wengine kwa heshima na ushahidi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Unatoa maelekezo ya mradi wa usafi wa mtaa. Ni kipengele kipi ni muhimu zaidi?",
+   "options": [
+    "Kueleza kazi, vifaa, muda, usalama na mgawanyo wa majukumu",
+    "Kutaja majina ya wanafunzi pekee",
+    "Kusoma mashairi kabla ya kazi",
+    "Kuacha washiriki wajitafutie lengo"
+   ],
+   "correctAnswer": "Kueleza kazi, vifaa, muda, usalama na mgawanyo wa majukumu",
+   "explanation": "Maelekezo bora ya mdomo huwa wazi, kamili na yanayoweza kufuatwa bila mkanganyiko.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Maelekezo ya Mdomo",
+   "learningOutcome": "Kutoa maelekezo ya mdomo yaliyo wazi kwa shughuli za kijamii.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Msemaji akisema, 'Jamani, hatuwezi kuendelea kupoteza maji hivi,' kwa sauti ya huzuni, toni yake inaonyesha nini?",
+   "options": [
+    "Wasiwasi na msisitizo kuhusu tatizo",
+    "Furaha ya kutumia maji mengi",
+    "Kukataa kuwa kuna tatizo",
+    "Ucheshi kuhusu upotevu wa maji"
+   ],
+   "correctAnswer": "Wasiwasi na msisitizo kuhusu tatizo",
+   "explanation": "Maneno na sauti ya huzuni huonyesha kuwa mzungumzaji anaona suala hilo kuwa la dharura.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Toni na Hisia",
+   "learningOutcome": "Kufasiri toni na hisia katika usemi wa Kiswahili.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Katika taarifa ya redio, msemaji anasema kuwa matumizi ya helmeti hupunguza majeraha ya waendesha bodaboda. Ni hitimisho lipi linafuata taarifa hiyo?",
+   "options": [
+    "Usalama barabarani huimarika waendeshaji wakivaa helmeti",
+    "Helmeti hufanya pikipiki ziwe haraka zaidi",
+    "Bodaboda hazihitaji sheria za barabarani",
+    "Majeraha yote hutokea shuleni pekee"
+   ],
+   "correctAnswer": "Usalama barabarani huimarika waendeshaji wakivaa helmeti",
+   "explanation": "Hitimisho linalofaa linatokana na uhusiano kati ya kuvaa helmeti na kupungua kwa majeraha.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Kutoa Hitimisho",
+   "learningOutcome": "Kutoa hitimisho linalotokana na taarifa iliyosikilizwa.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Kiongozi wa majadiliano ana jukumu gani muhimu?",
+   "options": [
+    "Kuelekeza mada, kugawa nafasi ya kuzungumza na kufupisha hoja",
+    "Kushinda hoja zote za washiriki",
+    "Kuwazuia washiriki kuuliza maswali",
+    "Kuchagua upande mmoja bila kusikiliza mwingine"
+   ],
+   "correctAnswer": "Kuelekeza mada, kugawa nafasi ya kuzungumza na kufupisha hoja",
+   "explanation": "Kiongozi mzuri huimarisha mtiririko wa majadiliano na kuhakikisha ushiriki wa haki.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Uongozi wa Majadiliano",
+   "learningOutcome": "Kueleza majukumu ya uongozi katika majadiliano ya kikundi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Ni jibu lipi linaonyesha msimamo na ushahidi katika mjadala kuhusu matumizi ya plastiki?",
+   "options": [
+    "Matumizi ya plastiki yapunguzwe kwa sababu taka hizo huziba mitaro na kuchafua mito",
+    "Plastiki ni plastiki tu",
+    "Watu wengine husema mambo mengi",
+    "Mimi sipendi mada hii"
+   ],
+   "correctAnswer": "Matumizi ya plastiki yapunguzwe kwa sababu taka hizo huziba mitaro na kuchafua mito",
+   "explanation": "Msimamo unakuwa thabiti unapoungwa mkono na sababu au athari zinazoweza kueleweka.",
+   "difficulty": 3,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Hoja na Ushahidi",
+   "learningOutcome": "Kutoa msimamo unaoungwa mkono na ushahidi katika mazungumzo.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Tangazo linasema, 'Bidhaa yetu ndiyo pekee inayofaa wanafunzi wote.' Udhaifu mkuu wa kauli hii ni upi?",
+   "options": [
+    "Inatoa dai pana bila ushahidi wa kutosha",
+    "Inatumia Kiswahili sanifu kupita kiasi",
+    "Inataja bidhaa kwa njia wazi",
+    "Ina maneno machache sana kueleweka"
+   ],
+   "correctAnswer": "Inatoa dai pana bila ushahidi wa kutosha",
+   "explanation": "Matangazo yanaweza kutumia lugha ya kushawishi; msikilizaji anapaswa kuchunguza ushahidi wa madai yake.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Uhakiki wa Matangazo",
+   "learningOutcome": "Kuchambua madai na ushahidi katika matangazo ya mdomo.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Unapotathmini uaminifu wa mzungumzaji katika kongamano, kipengele kipi ni muhimu zaidi?",
+   "options": [
+    "Utaalamu wake, ushahidi anaotoa na usawa wa hoja",
+    "Urefu wa hotuba pekee",
+    "Idadi ya vichekesho alivyotumia",
+    "Rangi ya maandishi kwenye bango"
+   ],
+   "correctAnswer": "Utaalamu wake, ushahidi anaotoa na usawa wa hoja",
+   "explanation": "Uaminifu hutegemea maarifa ya mzungumzaji, ubora wa ushahidi na namna anavyoshughulikia mitazamo tofauti.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Uaminifu wa Mzungumzaji",
+   "learningOutcome": "Kutathmini uaminifu wa mzungumzaji kwa kutumia vigezo vya mawasiliano.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Wanafunzi wawili wanapishana kuhusu muda wa kuwasilisha kazi ya kikundi. Kauli ipi inaweza kusaidia kutatua mzozo?",
+   "options": [
+    "Tuchunguze ratiba yetu na tukubaliane muda unaofaa wote",
+    "Mimi ndiye nitaamua bila kusikiliza",
+    "Kazi haitawasilishwa tena",
+    "Tusizungumze kuhusu ratiba"
+   ],
+   "correctAnswer": "Tuchunguze ratiba yetu na tukubaliane muda unaofaa wote",
+   "explanation": "Utatuzi wa mzozo huhitaji kusikiliza pande zote, kubainisha tatizo na kufikia uamuzi wa haki.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Utatuzi wa Migogoro",
+   "learningOutcome": "Kutumia lugha ya majadiliano kutatua migogoro midogo ya kikundi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Mjadala umeanza kutoka nje ya mada. Kiongozi afanye nini kwanza?",
+   "options": [
+    "Akumbushe washiriki swali kuu na kufupisha hoja zilizotolewa",
+    "Afute majadiliano yote mara moja",
+    "Aongeze mada nyingine ngumu zaidi",
+    "Awalaumu washiriki wote mbele ya darasa"
+   ],
+   "correctAnswer": "Akumbushe washiriki swali kuu na kufupisha hoja zilizotolewa",
+   "explanation": "Kurejesha mjadala kwenye mada huhitaji ukumbusho wa lengo na muhtasari wa mwelekeo uliopo.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Usimamizi wa Majadiliano",
+   "learningOutcome": "Kusimamia mjadala ili ubaki kwenye lengo na mtiririko wake.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Hotuba moja hutumia takwimu kuhusu ajali, nyingine hutegemea hofu bila ushahidi. Ipi ni tathmini sahihi?",
+   "options": [
+    "Hotuba ya takwimu ina msingi thabiti zaidi wa hoja",
+    "Hotuba ya hofu ndiyo ya kisayansi zaidi",
+    "Hotuba zote hazina tofauti yoyote",
+    "Takwimu haziwezi kusaidia hoja za usalama"
+   ],
+   "correctAnswer": "Hotuba ya takwimu ina msingi thabiti zaidi wa hoja",
+   "explanation": "Ushahidi kama takwimu huweza kuimarisha hoja iwapo unatokana na chanzo kinachoaminika.",
+   "difficulty": 4,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Kulinganisha Hotuba",
+   "learningOutcome": "Kulinganisha ubora wa hoja katika mawasiliano ya mdomo.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Unatakiwa kuandaa wasilisho la dakika tatu kuhusu kuhifadhi maji. Mpango upi ni bora zaidi?",
+   "options": [
+    "Tatizo, sababu, mifano ya shule, mapendekezo, hitimisho la kuchukua hatua",
+    "Salamu ndefu, hadithi isiyohusiana, kisha mwisho wa ghafla",
+    "Orodha ya maneno bila ufafanuzi",
+    "Kusoma ujumbe wa simu bila kupanga hoja"
+   ],
+   "correctAnswer": "Tatizo, sababu, mifano ya shule, mapendekezo, hitimisho la kuchukua hatua",
+   "explanation": "Wasilisho zuri huunganisha tatizo, ushahidi na hatua inayopendekezwa kwa hadhira husika.",
+   "difficulty": 5,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Wasilisho la Hoja",
+   "learningOutcome": "Kupanga wasilisho linaloshawishi kwa kutumia hoja na mifano.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Kikundi kinataka kuhamasisha matumizi ya Kiswahili sanifu shuleni. Mkakati upi wa mawasiliano ni bora zaidi?",
+   "options": [
+    "Kutumia ujumbe mfupi, mifano ya mazungumzo, mabango na mawasilisho ya wanafunzi",
+    "Kukataza mazungumzo yote yasiyo rasmi bila kueleza sababu",
+    "Kutumia maneno magumu ili wanafunzi waogope",
+    "Kusoma kamusi nzima kwenye gwaride"
+   ],
+   "correctAnswer": "Kutumia ujumbe mfupi, mifano ya mazungumzo, mabango na mawasilisho ya wanafunzi",
+   "explanation": "Kampeni bora huchanganya njia kadhaa za mawasiliano na mifano rahisi inayowafikia walengwa.",
+   "difficulty": 5,
+   "strandTitle": "Kusikiliza na Kuzungumza",
+   "subStrandTitle": "Kampeni ya Mawasiliano",
+   "learningOutcome": "Kubuni mkakati wa mawasiliano unaofaa hadhira ya shule.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Unapotaka kupata wazo kuu la makala kwa haraka, mbinu ipi ya kusoma inafaa?",
+   "options": [
+    "Kusoma kwa kuruka juu juu ili kuona kichwa, sentensi kuu na hitimisho",
+    "Kukariri kila neno bila kuelewa",
+    "Kusoma ukurasa wa mwisho pekee",
+    "Kupuuza kichwa cha makala"
+   ],
+   "correctAnswer": "Kusoma kwa kuruka juu juu ili kuona kichwa, sentensi kuu na hitimisho",
+   "explanation": "Kusoma kwa kuruka juu juu humsaidia msomaji kutambua mwelekeo na wazo kuu la matini.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Mbinu za Kusoma",
+   "learningOutcome": "Kutumia mbinu za kusoma kupata wazo kuu la matini.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Mbinu ya kudondoa taarifa mahususi hutumika wakati gani?",
+   "options": [
+    "Unapotafuta jina, tarehe, nambari au mahali maalumu",
+    "Unapotaka kubadilisha mada ya mwandishi",
+    "Unapotaka kusoma bila lengo",
+    "Unapotaka kuandika upya makala yote"
+   ],
+   "correctAnswer": "Unapotafuta jina, tarehe, nambari au mahali maalumu",
+   "explanation": "Kudondoa taarifa mahususi ni kusoma kwa lengo la kupata kipengele fulani cha habari.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kudondoa Habari",
+   "learningOutcome": "Kutafuta taarifa mahususi katika matini kwa ufanisi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Katika sentensi 'Mradi huo uliimarisha mshikamano wa jamii,' neno 'mshikamano' lina maana gani?",
+   "options": [
+    "Umoja na ushirikiano",
+    "Mashindano makali",
+    "Ukosefu wa mawasiliano",
+    "Kutengana kwa watu"
+   ],
+   "correctAnswer": "Umoja na ushirikiano",
+   "explanation": "Muktadha wa kuimarisha jamii unaonyesha kuwa mshikamano ni hali ya watu kuwa pamoja na kushirikiana.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Msamiati katika Muktadha",
+   "learningOutcome": "Kufasiri maana ya msamiati kwa kutumia muktadha wa sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Kichwa cha matini husaidia msomaji kufanya nini kabla ya kusoma kwa kina?",
+   "options": [
+    "Kutabiri mada na mwelekeo wa matini",
+    "Kujua majibu yote ya maswali",
+    "Kuepuka kusoma aya za matini",
+    "Kubadilisha ujumbe wa mwandishi"
+   ],
+   "correctAnswer": "Kutabiri mada na mwelekeo wa matini",
+   "explanation": "Kichwa hutoa dokezo la mada na kumwandaa msomaji kufuatilia mawazo ya matini.",
+   "difficulty": 1,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kichwa cha Matini",
+   "learningOutcome": "Kutumia kichwa cha matini kutabiri maudhui ya kusoma.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Sentensi 'Mvua ilipungua, hivyo wakulima walipanda mimea inayohimili ukame' inaonyesha uhusiano gani?",
+   "options": [
+    "Sababu na matokeo",
+    "Ulinganisho wa wahusika",
+    "Maagizo ya kupika",
+    "Usemi wa taarifa"
+   ],
+   "correctAnswer": "Sababu na matokeo",
+   "explanation": "Kupungua kwa mvua ni sababu, na kupanda mimea inayohimili ukame ni matokeo yake.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Sababu na Matokeo",
+   "learningOutcome": "Kutambua uhusiano wa sababu na matokeo katika matini.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Katika makala, kauli ipi ni ukweli unaoweza kuthibitishwa?",
+   "options": [
+    "Maktaba ilifunguliwa tarehe 12 Machi",
+    "Maktaba hiyo ni nzuri kuliko zote nchini",
+    "Kila mtu anayesoma maktabani huwa mwerevu",
+    "Vitabu vya karatasi havina maana tena"
+   ],
+   "correctAnswer": "Maktaba ilifunguliwa tarehe 12 Machi",
+   "explanation": "Ukweli unaweza kuthibitishwa kwa rekodi au ushahidi, tofauti na maoni yanayotegemea mtazamo.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ukweli na Maoni",
+   "learningOutcome": "Kutofautisha taarifa za ukweli na maoni katika matini.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Mwandishi anapotoa sababu nyingi za kupunguza matumizi ya plastiki, kusudi lake kuu linaweza kuwa lipi?",
+   "options": [
+    "Kumshawishi msomaji achukue hatua",
+    "Kueleza ratiba ya michezo",
+    "Kuandika hadithi ya kubuni pekee",
+    "Kufundisha matamshi ya sauti"
+   ],
+   "correctAnswer": "Kumshawishi msomaji achukue hatua",
+   "explanation": "Matini yenye sababu na mapendekezo mara nyingi hulenga kushawishi au kuhamasisha msomaji.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kusudi la Mwandishi",
+   "learningOutcome": "Kubainisha kusudi la mwandishi katika matini ya hoja.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Matini ya hoja huwa imara inapokuwa na vipengele gani?",
+   "options": [
+    "Msimamo, sababu, ushahidi na hitimisho",
+    "Majina mengi bila maelezo",
+    "Methali zisizohusiana pekee",
+    "Sentensi zisizo na mpangilio"
+   ],
+   "correctAnswer": "Msimamo, sababu, ushahidi na hitimisho",
+   "explanation": "Matini ya hoja humshawishi msomaji kwa msimamo unaoelezwa na kuthibitishwa kwa ushahidi.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Muundo wa Matini ya Hoja",
+   "learningOutcome": "Kutambua vipengele muhimu vya matini ya hoja.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Mwandishi anasema, 'Mtaa ulipumua baada ya taka kuondolewa.' Maana iliyodokezwa ni ipi?",
+   "options": [
+    "Mtaa ulionekana safi na wenye afueni",
+    "Mtaa una mapafu kama binadamu",
+    "Taka ziliongeza hewa safi",
+    "Wakazi wote walihama mtaa huo"
+   ],
+   "correctAnswer": "Mtaa ulionekana safi na wenye afueni",
+   "explanation": "Kauli hiyo hutumia tashihisi kuonyesha mabadiliko mazuri ya mazingira baada ya usafi.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Maana Iliyodokezwa",
+   "learningOutcome": "Kufasiri maana iliyodokezwa katika lugha ya picha.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Unapotumia kamusi kuthibitisha maana ya 'kuhimili', ni taarifa ipi muhimu zaidi?",
+   "options": [
+    "Maana, aina ya neno na mfano wa matumizi",
+    "Rangi ya jalada la kamusi",
+    "Idadi ya kurasa za kamusi",
+    "Mwandiko wa neno la kwanza ukurasa huo"
+   ],
+   "correctAnswer": "Maana, aina ya neno na mfano wa matumizi",
+   "explanation": "Kamusi husaidia kuelewa maana, matumizi na taarifa za kisarufi za neno.",
+   "difficulty": 2,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Matumizi ya Kamusi",
+   "learningOutcome": "Kutumia kamusi kufafanua maana na matumizi ya msamiati.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Aya inaeleza kuwa michezo huboresha afya, hujenga nidhamu na huimarisha ushirikiano. Muhtasari bora ni upi?",
+   "options": [
+    "Michezo ina manufaa ya kiafya na kijamii kwa wanafunzi",
+    "Wanafunzi wote hupenda michezo kuliko masomo",
+    "Michezo ni shughuli ya watu wazima pekee",
+    "Afya haihusiani na michezo shuleni"
+   ],
+   "correctAnswer": "Michezo ina manufaa ya kiafya na kijamii kwa wanafunzi",
+   "explanation": "Muhtasari hubeba hoja kuu bila kupoteza maana au kuongeza taarifa zisizokuwapo.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Muhtasari wa Matini",
+   "learningOutcome": "Kufupisha hoja muhimu za aya kwa maneno machache.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Makala A inapendekeza matumizi ya nishati ya jua; Makala B inaeleza changamoto za gharama yake. Msomaji afanye nini?",
+   "options": [
+    "Alinganishe hoja na ushahidi wa makala zote mbili kabla ya kutoa msimamo",
+    "Achague makala yenye kichwa kifupi zaidi",
+    "Akatae makala zote kwa sababu zinatofautiana",
+    "Asome hitimisho pekee bila kuelewa hoja"
+   ],
+   "correctAnswer": "Alinganishe hoja na ushahidi wa makala zote mbili kabla ya kutoa msimamo",
+   "explanation": "Kulinganisha matini husaidia msomaji kuona pande tofauti na kufikia uamuzi wenye msingi.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kulinganisha Matini",
+   "learningOutcome": "Kulinganisha mitazamo na ushahidi katika matini mbili.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Ushahidi upi ungeimarisha zaidi makala kuhusu umuhimu wa kunawa mikono shuleni?",
+   "options": [
+    "Matokeo ya utafiti kuhusu kupungua kwa magonjwa baada ya kunawa mikono",
+    "Kauli kuwa maji huonekana vizuri",
+    "Picha ya rangi ya bomba bila maelezo",
+    "Maoni yasiyotaja sababu yoyote"
+   ],
+   "correctAnswer": "Matokeo ya utafiti kuhusu kupungua kwa magonjwa baada ya kunawa mikono",
+   "explanation": "Ushahidi wa utafiti unaohusiana moja kwa moja na mada huimarisha madai ya mwandishi.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Ushahidi katika Matini",
+   "learningOutcome": "Kutathmini ubora wa ushahidi unaotumiwa katika matini ya hoja.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Matini inasifu bidhaa moja na kupuuza kabisa athari zake. Hii inaweza kuonyesha nini?",
+   "options": [
+    "Upendeleo wa mwandishi",
+    "Usahihi kamili wa kisayansi",
+    "Kutokuwepo kwa kusudi",
+    "Ushairi wa kimapokeo"
+   ],
+   "correctAnswer": "Upendeleo wa mwandishi",
+   "explanation": "Upendeleo hujitokeza mwandishi anapowasilisha upande mmoja tu na kuficha au kudharau taarifa muhimu.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Upendeleo katika Matini",
+   "learningOutcome": "Kubainisha dalili za upendeleo katika maandishi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Unapotumia tovuti kwa kazi ya Kiswahili, ni kigezo kipi husaidia zaidi kutambua uaminifu wake?",
+   "options": [
+    "Mwandishi, tarehe, chanzo cha ushahidi na kusudi la tovuti",
+    "Idadi ya matangazo pekee",
+    "Rangi nyingi za ukurasa",
+    "Ukubwa wa picha ya kwanza"
+   ],
+   "correctAnswer": "Mwandishi, tarehe, chanzo cha ushahidi na kusudi la tovuti",
+   "explanation": "Chanzo cha kidijitali hutathminiwa kwa mamlaka, usasa, ushahidi na lengo lake.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Uhakiki wa Vyanzo vya Kidijitali",
+   "learningOutcome": "Kutathmini uaminifu wa vyanzo vya kidijitali kabla ya kuvitumia.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Sentensi 'Hatimaye wakazi walipata maji safi baada ya miaka ya shida' ina toni gani?",
+   "options": [
+    "Afueni na matumaini",
+    "Hasira kali pekee",
+    "Mzaha usio na maana",
+    "Kukatisha tamaa bila suluhisho"
+   ],
+   "correctAnswer": "Afueni na matumaini",
+   "explanation": "Maneno 'hatimaye' na 'maji safi' baada ya shida yanaonyesha kufikia hali bora.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Toni ya Matini",
+   "learningOutcome": "Kuchambua toni inayojitokeza katika sentensi na aya.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Katika sentensi 'Amina alisoma ripoti hiyo kisha akaifupisha,' kiambishi '-i-' katika 'akaifupisha' kinarejelea nini?",
+   "options": [
+    "Ripoti",
+    "Amina",
+    "Kusoma",
+    "Kisha"
+   ],
+   "correctAnswer": "Ripoti",
+   "explanation": "Kiambishi rejeshi '-i-' kinarejelea nomino 'ripoti' iliyotajwa awali.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Urejeleaji katika Matini",
+   "learningOutcome": "Kufuatilia virejeleo vya kisarufi ili kuelewa mshikamano wa matini.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Methali 'Haraka haraka haina baraka' inafaa zaidi katika muktadha upi?",
+   "options": [
+    "Kumshauri mwanafunzi apange kazi kabla ya kuiwasilisha",
+    "Kumpongeza mtu kwa kukimbia mbio",
+    "Kueleza kuwa kila kazi lazima ifanywe usiku",
+    "Kukataa kabisa kutumia muda vizuri"
+   ],
+   "correctAnswer": "Kumshauri mwanafunzi apange kazi kabla ya kuiwasilisha",
+   "explanation": "Methali hiyo huonya dhidi ya kufanya mambo kwa pupa bila umakini.",
+   "difficulty": 3,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Methali katika Muktadha",
+   "learningOutcome": "Kufasiri methali kulingana na muktadha wa matumizi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Ratiba inaonyesha kuwa klabu ya Kiswahili hukutana Jumanne saa kumi jioni na klabu ya sayansi Alhamisi saa tisa. Ni taarifa ipi sahihi?",
+   "options": [
+    "Klabu ya Kiswahili hukutana Jumanne saa kumi jioni",
+    "Klabu ya sayansi hukutana Jumanne saa kumi",
+    "Klabu zote hukutana siku moja",
+    "Hakuna klabu inayokutana jioni"
+   ],
+   "correctAnswer": "Klabu ya Kiswahili hukutana Jumanne saa kumi jioni",
+   "explanation": "Kusoma taarifa za ratiba huhitaji kuoanisha siku, muda na shughuli husika kwa usahihi.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kusoma Taarifa za Ratiba",
+   "learningOutcome": "Kutafsiri taarifa mahususi kutoka ratiba au jedwali lililotolewa kwa maneno.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Katika maelekezo ya kutuma kazi mtandaoni, ni hatua gani inapaswa kuja kabla ya kubonyeza 'tuma'?",
+   "options": [
+    "Kuthibitisha kuwa faili sahihi limeambatanishwa",
+    "Kufuta jina la kazi",
+    "Kuzima kifaa bila kuhifadhi",
+    "Kutuma ujumbe usio na faili"
+   ],
+   "correctAnswer": "Kuthibitisha kuwa faili sahihi limeambatanishwa",
+   "explanation": "Matini elekezi hufuata mpangilio wa hatua; uthibitishaji kabla ya kutuma hupunguza makosa.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Matini Elekezi",
+   "learningOutcome": "Kufuatilia na kutathmini mpangilio wa hatua katika matini elekezi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Makala inasema kuwa kuvuna maji ya mvua hupunguza gharama na kusaidia wakati wa kiangazi. Ni hitimisho lipi linafaa?",
+   "options": [
+    "Uvunaji wa maji ya mvua unaweza kusaidia familia na shule kukabiliana na uhaba wa maji",
+    "Maji ya mvua hayana matumizi yoyote",
+    "Kiangazi huongeza maji kwenye mabomba",
+    "Gharama haziwezi kuathiri matumizi ya maji"
+   ],
+   "correctAnswer": "Uvunaji wa maji ya mvua unaweza kusaidia familia na shule kukabiliana na uhaba wa maji",
+   "explanation": "Hitimisho sahihi huunganisha hoja kuhusu gharama na upatikanaji wa maji wakati wa kiangazi.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Kutoa Hitimisho",
+   "learningOutcome": "Kutoa hitimisho linaloungwa mkono na maelezo ya matini.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Mwandishi anatumia neno 'huenda' mara kadhaa katika makala ya kisayansi. Hii inaonyesha nini?",
+   "options": [
+    "Mwandishi anatoa uwezekano kwa tahadhari badala ya uhakika kamili",
+    "Mwandishi hana lugha yoyote rasmi",
+    "Matini hiyo ni tangazo la biashara",
+    "Kila hoja katika makala ni ya uwongo"
+   ],
+   "correctAnswer": "Mwandishi anatoa uwezekano kwa tahadhari badala ya uhakika kamili",
+   "explanation": "Maneno kama 'huenda' huonyesha tahadhari ya kisomi pale ambapo ushahidi haujathibitisha jambo kwa ukamilifu.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Mtazamo wa Mwandishi",
+   "learningOutcome": "Kuchambua namna uteuzi wa maneno unavyoonyesha mtazamo wa mwandishi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Unaposoma makala mbili kuhusu lishe, moja ya blogu isiyotaja mwandishi na nyingine ya taasisi ya afya yenye tarehe na marejeleo. Ipi inafaa zaidi kwa utafiti?",
+   "options": [
+    "Makala ya taasisi ya afya yenye tarehe na marejeleo",
+    "Blogu isiyotaja mwandishi kwa sababu ni fupi",
+    "Ile yenye picha nyingi tu",
+    "Ile inayotumia maneno ya mzaha pekee"
+   ],
+   "correctAnswer": "Makala ya taasisi ya afya yenye tarehe na marejeleo",
+   "explanation": "Kwa utafiti, chanzo chenye mwandishi au taasisi, tarehe na ushahidi huchukuliwa kuwa cha kuaminika zaidi.",
+   "difficulty": 4,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Utafiti wa Kidijitali",
+   "learningOutcome": "Kuchagua vyanzo vinavyofaa kwa kazi ya utafiti wa Kiswahili.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Matini moja inasisitiza faida za teknolojia shuleni, nyingine inaonya kuhusu matumizi kupita kiasi. Msimamo bora wa msomaji ni upi?",
+   "options": [
+    "Teknolojia itumiwe kwa malengo ya kujifunza huku muda na usalama vikidhibitiwa",
+    "Teknolojia yote ikataliwe bila kujadili faida zake",
+    "Wanafunzi watumie vifaa muda wote bila mwongozo",
+    "Mitazamo miwili haiwezi kuchanganywa katika hitimisho"
+   ],
+   "correctAnswer": "Teknolojia itumiwe kwa malengo ya kujifunza huku muda na usalama vikidhibitiwa",
+   "explanation": "Usomaji wa kina unaweza kuunganisha faida na tahadhari ili kutoa msimamo uliosawazika.",
+   "difficulty": 5,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Usomaji Linganishi",
+   "learningOutcome": "Kuunganisha hoja kutoka matini tofauti ili kutoa msimamo uliosawazika.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Mwanafunzi anasoma sura ndefu ya kitabu na anahitaji kujiandaa kwa mjadala kesho. Mkakati upi ni bora zaidi?",
+   "options": [
+    "Kugawa sura katika sehemu, kunakili hoja kuu, kuandika maswali na kufupisha mwisho",
+    "Kusoma sentensi ya kwanza tu na kufunga kitabu",
+    "Kukariri ukurasa wa mwisho bila kuelewa",
+    "Kuahirisha kusoma hadi baada ya mjadala"
+   ],
+   "correctAnswer": "Kugawa sura katika sehemu, kunakili hoja kuu, kuandika maswali na kufupisha mwisho",
+   "explanation": "Mkakati huo unasaidia kuelewa, kukumbuka na kujiandaa kushiriki katika mjadala wa darasani.",
+   "difficulty": 5,
+   "strandTitle": "Kusoma",
+   "subStrandTitle": "Mikakati ya Usomaji",
+   "learningOutcome": "Kubuni mkakati wa kusoma matini ndefu kwa lengo maalumu.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Katika sentensi 'Mwalimu ameongoza mjadala,' neno 'mwalimu' liko katika ngeli gani?",
+   "options": [
+    "A-WA",
+    "KI-VI",
+    "LI-YA",
+    "U-I"
+   ],
+   "correctAnswer": "A-WA",
+   "explanation": "Majina mengi ya watu kama mwalimu, mwanafunzi na daktari huingia katika ngeli ya A-WA.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya A-WA",
+   "learningOutcome": "Kutambua nomino za ngeli ya A-WA katika sentensi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi ina upatanisho sahihi wa ngeli ya KI-VI?",
+   "options": [
+    "Vitabu vipya vimewasili",
+    "Vitabu mpya imewasili",
+    "Kitabu vipya vimewasili",
+    "Vitabu kipya kimewasili"
+   ],
+   "correctAnswer": "Vitabu vipya vimewasili",
+   "explanation": "Nomino 'vitabu' ni wingi wa KI-VI, hivyo kivumishi na kitenzi vinachukua viambishi vya wingi.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya KI-VI",
+   "learningOutcome": "Kutumia upatanisho sahihi wa kisarufi katika ngeli ya KI-VI.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Wingi wa sentensi 'Jani limeanguka' ni upi?",
+   "options": [
+    "Majani yameanguka",
+    "Jani yameanguka",
+    "Majani limeanguka",
+    "Majani vimeanguka"
+   ],
+   "correctAnswer": "Majani yameanguka",
+   "explanation": "Nomino 'jani' iko katika ngeli ya LI-YA; wingi wake ni 'majani' na kitenzi huchukua kiambishi 'ya'.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya LI-YA",
+   "learningOutcome": "Kubadilisha sentensi za ngeli ya LI-YA kutoka umoja hadi wingi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi inaonyesha matumizi sahihi ya ngeli ya N-N?",
+   "options": [
+    "Nyumba nzuri imejengwa",
+    "Nyumba mzuri amejengwa",
+    "Nyumba zuri zimejengwa",
+    "Nyumba kizuri kimejengwa"
+   ],
+   "correctAnswer": "Nyumba nzuri imejengwa",
+   "explanation": "Nomino nyingi za ngeli ya N-N hutumia kivumishi kisichobadilika sana katika umoja, kama 'nyumba nzuri'.",
+   "difficulty": 1,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ngeli ya N-N",
+   "learningOutcome": "Kutumia upatanisho wa ngeli ya N-N katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Katika sentensi 'Wanafunzi wale wawili wameshinda,' neno 'wale' ni aina gani ya kivumishi?",
+   "options": [
+    "Kivumishi kionyeshi",
+    "Kivumishi cha idadi",
+    "Kivumishi cha sifa",
+    "Kivumishi cha kumiliki"
+   ],
+   "correctAnswer": "Kivumishi kionyeshi",
+   "explanation": "Neno 'wale' huonyesha nomino inayorejelewa, hivyo ni kivumishi kionyeshi.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vivumishi",
+   "learningOutcome": "Kutambua aina za vivumishi katika sentensi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Sentensi ipi iko katika wakati ujao?",
+   "options": [
+    "Tutajadili mada kesho",
+    "Tunajadili mada sasa",
+    "Tulijadili mada jana",
+    "Tumejadili mada tayari"
+   ],
+   "correctAnswer": "Tutajadili mada kesho",
+   "explanation": "Kiambishi '-ta-' huonyesha wakati ujao katika kitenzi cha Kiswahili.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nyakati za Vitenzi",
+   "learningOutcome": "Kutambua nyakati za vitenzi katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Kanusho sahihi la 'Asha anasoma makala' ni lipi?",
+   "options": [
+    "Asha hasomi makala",
+    "Asha husoma makala",
+    "Asha hakusoma makala",
+    "Asha atasoma makala"
+   ],
+   "correctAnswer": "Asha hasomi makala",
+   "explanation": "Kanusho la wakati uliopo kwa nafsi ya tatu umoja hutumia 'ha-' na kitenzi hubadilika kuwa 'hasomi'.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Ukanusho",
+   "learningOutcome": "Kukanusha sentensi za wakati uliopo kwa usahihi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Kauli ya kutendwa ya sentensi 'Wanafunzi waliandika ripoti' ni ipi?",
+   "options": [
+    "Ripoti iliandikwa na wanafunzi",
+    "Wanafunzi waliandikisha ripoti",
+    "Ripoti iliandika wanafunzi",
+    "Wanafunzi waliandikiana ripoti"
+   ],
+   "correctAnswer": "Ripoti iliandikwa na wanafunzi",
+   "explanation": "Katika kauli ya kutendwa, mtendwa huwa kiima na kitenzi hupokea kiambishi cha kutendwa kama '-w-'.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Kauli za Vitenzi",
+   "learningOutcome": "Kubadilisha sentensi kutoka kauli ya kutenda hadi kauli ya kutendwa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Usemi wa taarifa wa 'Nitawasilisha kazi kesho,' alisema Juma ni upi?",
+   "options": [
+    "Juma alisema kuwa angewasilisha kazi siku iliyofuata",
+    "Juma alisema nitawasilisha kazi kesho",
+    "Juma asema kuwa atawasilisha jana",
+    "Juma alisema kazi nitawasilisha kesho"
+   ],
+   "correctAnswer": "Juma alisema kuwa angewasilisha kazi siku iliyofuata",
+   "explanation": "Usemi wa taarifa hubadilisha nafsi, wakati na vielezi vya wakati kulingana na muktadha wa kuripoti.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Usemi Halisi na Usemi wa Taarifa",
+   "learningOutcome": "Kubadilisha usemi halisi kuwa usemi wa taarifa kwa usahihi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi imeakifishwa kwa usahihi?",
+   "options": [
+    "Je, utahudhuria mjadala kesho?",
+    "Je utahudhuria mjadala kesho.",
+    "Je, utahudhuria mjadala kesho!",
+    "Je utahudhuria, mjadala kesho"
+   ],
+   "correctAnswer": "Je, utahudhuria mjadala kesho?",
+   "explanation": "Swali linaloanza kwa 'Je,' huhitaji koma baada ya 'Je' na alama ya kuuliza mwishoni.",
+   "difficulty": 2,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Uakifishaji",
+   "learningOutcome": "Kutumia alama za uakifishaji ipasavyo katika sentensi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Chagua kiunganishi kinachofaa: 'Tulipanga mkutano ___ mvua ilianza kunyesha.'",
+   "options": [
+    "lakini",
+    "kwa sababu",
+    "ili",
+    "kama"
+   ],
+   "correctAnswer": "lakini",
+   "explanation": "Kiunganishi 'lakini' huonyesha mabadiliko au kinyume kati ya kupanga mkutano na kuanza kwa mvua.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Viunganishi",
+   "learningOutcome": "Kuteua viunganishi vinavyoonyesha uhusiano sahihi wa mawazo.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Chagua kihusishi kinachofaa: 'Kitabu kimewekwa ___ meza.'",
+   "options": [
+    "juu ya",
+    "kwa sababu ya",
+    "licha ya",
+    "kutokana na"
+   ],
+   "correctAnswer": "juu ya",
+   "explanation": "Kihusishi 'juu ya' huonyesha mahali kitu kilipo kuhusiana na kitu kingine.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vihusishi",
+   "learningOutcome": "Kutumia vihusishi vinavyofaa kuonyesha mahali na uhusiano.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi ina kirejeshi sahihi?",
+   "options": [
+    "Mwanafunzi aliyeshinda alipewa tuzo",
+    "Mwanafunzi kilichoshinda alipewa tuzo",
+    "Mwanafunzi zilizoshinda alipewa tuzo",
+    "Mwanafunzi walioshinda alipewa tuzo"
+   ],
+   "correctAnswer": "Mwanafunzi aliyeshinda alipewa tuzo",
+   "explanation": "Nomino 'mwanafunzi' iko katika A-WA umoja, hivyo kirejeshi sahihi ni 'aliye-'.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Virejeshi",
+   "learningOutcome": "Kutumia virejeshi kwa kuzingatia ngeli na idadi ya nomino.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Katika sentensi 'Aliandika ripoti kwa makini sana,' neno 'makini' linafanya kazi gani?",
+   "options": [
+    "Kielezi kinachoeleza namna ya kuandika",
+    "Nomino ya mahali",
+    "Kivumishi cha idadi",
+    "Kitenzi kikuu"
+   ],
+   "correctAnswer": "Kielezi kinachoeleza namna ya kuandika",
+   "explanation": "Kielezi huonyesha namna, wakati, mahali au kiasi cha tendo; hapa kinaeleza jinsi alivyoandika.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vielezi",
+   "learningOutcome": "Kutambua vielezi na kazi zake katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi ina kitenzi kishirikishi?",
+   "options": [
+    "Mada hii ni muhimu",
+    "Wanafunzi wanakimbia uwanjani",
+    "Mgeni aliwasili mapema",
+    "Mvua ilinyesha jana"
+   ],
+   "correctAnswer": "Mada hii ni muhimu",
+   "explanation": "Kitenzi kishirikishi kama 'ni' huunganisha kiima na taarifa inayokieleza.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vitenzi Vishirikishi",
+   "learningOutcome": "Kutambua vitenzi vishirikishi katika sentensi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Sentensi ipi ni changamano?",
+   "options": [
+    "Mwanafunzi aliyesoma kwa bidii alifaulu mtihani",
+    "Mwanafunzi alisoma",
+    "Mvua ilinyesha",
+    "Walimu walifika"
+   ],
+   "correctAnswer": "Mwanafunzi aliyesoma kwa bidii alifaulu mtihani",
+   "explanation": "Sentensi changamano huwa na kishazi tegemezi na kishazi huru vinavyounganishwa kimaana.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Vishazi na Sentensi",
+   "learningOutcome": "Kutambua miundo ya sentensi changamano.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Ni sentensi ipi ina upatanisho sahihi?",
+   "options": [
+    "Magari mapya yamepakiwa",
+    "Magari mpya imepakiwa",
+    "Gari mapya wamepakiwa",
+    "Magari kipya kimepakiwa"
+   ],
+   "correctAnswer": "Magari mapya yamepakiwa",
+   "explanation": "Nomino 'magari' iko katika wingi wa LI-YA, hivyo kivumishi na kitenzi vinapaswa kuendana nayo.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Upatanisho wa Kisarufi",
+   "learningOutcome": "Kusahihisha makosa ya upatanisho katika sentensi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Neno 'uadilifu' ni aina gani ya nomino?",
+   "options": [
+    "Nomino dhahania",
+    "Nomino ya pekee",
+    "Nomino ya jamii",
+    "Nomino ya mahali"
+   ],
+   "correctAnswer": "Nomino dhahania",
+   "explanation": "Nomino dhahania hutaja hali au sifa isiyoweza kushikwa moja kwa moja, kama uadilifu au upendo.",
+   "difficulty": 3,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Aina za Nomino",
+   "learningOutcome": "Kutambua aina za nomino kulingana na maana zake.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Ni kauli ipi inafaa zaidi katika rejesta ya hospitali?",
+   "options": [
+    "Tafadhali eleza dalili zako na muda zilipoanza",
+    "Leta mpira tucheze sasa",
+    "Bei ya nyanya imeshuka sokoni",
+    "Tupige kura ya nahodha wa timu"
+   ],
+   "correctAnswer": "Tafadhali eleza dalili zako na muda zilipoanza",
+   "explanation": "Rejesta hubadilika kulingana na mazingira; hospitalini lugha hulenga afya, dalili na huduma.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Rejesta",
+   "learningOutcome": "Kuteua lugha inayofaa mazingira maalumu ya mawasiliano.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Kisawe kinachofaa zaidi cha neno 'jasiri' ni kipi?",
+   "options": [
+    "Shujaa",
+    "Mwoga",
+    "Mzembe",
+    "Mnyonge"
+   ],
+   "correctAnswer": "Shujaa",
+   "explanation": "Kisawe ni neno lenye maana inayokaribiana; 'shujaa' hukaribiana na 'jasiri'.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Visawe na Vinyume",
+   "learningOutcome": "Kutumia visawe na vinyume kupanua msamiati.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Neno 'mchezeshaji' limeundwa kwa kuongeza viambishi gani kwa mzizi wa kitenzi?",
+   "options": [
+    "Kiambishi awali, mzizi, kiambishi cha kutendesha na kiishio cha mtenda kazi",
+    "Nomino mbili zisizohusiana",
+    "Alama za uakifishaji pekee",
+    "Kivumishi na kihisishi tu"
+   ],
+   "correctAnswer": "Kiambishi awali, mzizi, kiambishi cha kutendesha na kiishio cha mtenda kazi",
+   "explanation": "Uundaji wa maneno ya Kiswahili unaweza kuhusisha mzizi na viambishi vinavyobadilisha maana au dhima ya neno.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Uundaji wa Maneno",
+   "learningOutcome": "Kuchambua muundo wa maneno yanayotokana na mizizi na viambishi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Sentensi 'Wanafunzi mzuri wamewasili' ina kosa gani?",
+   "options": [
+    "Kivumishi hakijaafikiana na nomino ya wingi",
+    "Kitenzi kiko katika wakati ujao",
+    "Nomino imeandikwa kwa herufi kubwa",
+    "Sentensi haina kiima"
+   ],
+   "correctAnswer": "Kivumishi hakijaafikiana na nomino ya wingi",
+   "explanation": "Nomino 'wanafunzi' inahitaji kivumishi cha wingi 'wazuri', si 'mzuri'.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Uhariri wa Sentensi",
+   "learningOutcome": "Kuchambua na kusahihisha makosa ya kisarufi katika sentensi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Kauli 'Mwalimu ni taa ya jamii' ni tamathali gani ya usemi?",
+   "options": [
+    "Sitiari",
+    "Tashbihi",
+    "Tanakali ya sauti",
+    "Kinaya"
+   ],
+   "correctAnswer": "Sitiari",
+   "explanation": "Sitiari hulinganisha vitu viwili moja kwa moja bila kutumia maneno kama 'kama' au 'mfano wa'.",
+   "difficulty": 4,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Tamathali za Usemi",
+   "learningOutcome": "Kutambua tamathali za usemi na athari zake katika lugha.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Sentensi 'Alikula chumvi nyingi' ikiwa na maana ya uzoefu, inaonyesha matumizi gani ya lugha?",
+   "options": [
+    "Nahau",
+    "Kihisishi",
+    "Kielezi cha mahali",
+    "Nomino ya pekee"
+   ],
+   "correctAnswer": "Nahau",
+   "explanation": "Nahau huwa na maana ya kimafumbo isiyotokana moja kwa moja na maana za maneno yake moja moja.",
+   "difficulty": 5,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Nahau",
+   "learningOutcome": "Kufasiri nahau kulingana na muktadha wa matumizi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Unataka kuboresha sentensi 'Tulifika shule. Mvua ilinyesha. Tulianza mjadala.' Ipi ni sentensi bora zaidi?",
+   "options": [
+    "Tulipofika shule, mvua ilinyesha, lakini tulianza mjadala.",
+    "Tulifika shule mvua mjadala tulianza.",
+    "Mvua shule tulifika lakini.",
+    "Tulianza tulifika ilinyesha shule."
+   ],
+   "correctAnswer": "Tulipofika shule, mvua ilinyesha, lakini tulianza mjadala.",
+   "explanation": "Sentensi bora huunganisha mawazo kwa viunganishi na uakifishaji unaoonyesha uhusiano wa matukio.",
+   "difficulty": 5,
+   "strandTitle": "Sarufi na Matumizi ya Lugha",
+   "subStrandTitle": "Mshikamano wa Sentensi",
+   "learningOutcome": "Kuunda sentensi zenye mshikamano kwa kutumia viunganishi na uakifishaji.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Hatua ya kwanza bora kabla ya kuandika insha ya hoja ni ipi?",
+   "options": [
+    "Kuelewa mada na kupanga hoja kuu",
+    "Kuandika hitimisho bila kusoma mada",
+    "Kuchagua maneno magumu bila mpangilio",
+    "Kuwasilisha kazi bila rasimu"
+   ],
+   "correctAnswer": "Kuelewa mada na kupanga hoja kuu",
+   "explanation": "Upangaji husaidia mwandishi kuelewa lengo, hadhira na hoja zitakazojenga insha.",
+   "difficulty": 1,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kupanga Uandishi",
+   "learningOutcome": "Kupanga mawazo kabla ya kuandika matini ya hoja.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Sentensi kuu katika aya ina kazi gani?",
+   "options": [
+    "Kutambulisha wazo kuu la aya",
+    "Kumaliza maandishi yote kila wakati",
+    "Kuchukua nafasi ya ushahidi",
+    "Kuficha mada ya aya"
+   ],
+   "correctAnswer": "Kutambulisha wazo kuu la aya",
+   "explanation": "Sentensi kuu humwongoza msomaji kuelewa hoja inayojadiliwa katika aya.",
+   "difficulty": 1,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Ujenzi wa Aya",
+   "learningOutcome": "Kutambua nafasi ya sentensi kuu katika aya.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Barua rasmi inapaswa kuwa na kipengele gani muhimu?",
+   "options": [
+    "Anwani, tarehe, salamu rasmi, mada, mwili na hitimisho",
+    "Utani mrefu na michoro pekee",
+    "Jina la mpokeaji bila ujumbe",
+    "Maneno ya mazungumzo ya mtaani pekee"
+   ],
+   "correctAnswer": "Anwani, tarehe, salamu rasmi, mada, mwili na hitimisho",
+   "explanation": "Barua rasmi hufuata muundo unaowezesha mpokeaji kutambua chanzo, lengo na ujumbe.",
+   "difficulty": 1,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Barua Rasmi",
+   "learningOutcome": "Kutambua vipengele vya msingi vya barua rasmi.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Katika barua pepe rasmi, sehemu ya 'mada' inapaswa kuwa vipi?",
+   "options": [
+    "Fupi, wazi na inayotaja lengo la ujumbe",
+    "Ndefu kuliko mwili wa ujumbe",
+    "Tupu ili msomaji akisie",
+    "Imejaa vichekesho visivyohusiana"
+   ],
+   "correctAnswer": "Fupi, wazi na inayotaja lengo la ujumbe",
+   "explanation": "Mada ya barua pepe humsaidia mpokeaji kuelewa lengo la ujumbe kabla ya kuufungua.",
+   "difficulty": 1,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Barua Pepe Rasmi",
+   "learningOutcome": "Kuandika mada inayofaa kwa barua pepe rasmi.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Ripoti ya shughuli ya shule inapaswa kuonyesha nini?",
+   "options": [
+    "Kichwa, tarehe, lengo, yaliyofanyika, matokeo na mapendekezo",
+    "Hisia za mwandishi pekee bila taarifa",
+    "Majina ya marafiki tu",
+    "Methali nyingi bila maelezo ya tukio"
+   ],
+   "correctAnswer": "Kichwa, tarehe, lengo, yaliyofanyika, matokeo na mapendekezo",
+   "explanation": "Ripoti hutoa taarifa zilizopangwa kuhusu shughuli, ushahidi wa kilichotokea na hatua zinazopendekezwa.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Ripoti",
+   "learningOutcome": "Kutambua vipengele vinavyounda ripoti ya shughuli.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Kumbukumbu za mkutano zinapaswa kujumuisha nini?",
+   "options": [
+    "Waliokuwepo, ajenda, hoja zilizojadiliwa na maamuzi",
+    "Maoni ya mtu mmoja pekee",
+    "Hadithi isiyohusiana na mkutano",
+    "Orodha ya vitabu vya maktaba"
+   ],
+   "correctAnswer": "Waliokuwepo, ajenda, hoja zilizojadiliwa na maamuzi",
+   "explanation": "Kumbukumbu za mkutano huhifadhi rasmi taarifa za mjadala na maamuzi yaliyofikiwa.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kumbukumbu za Mkutano",
+   "learningOutcome": "Kuandika vipengele muhimu vya kumbukumbu za mkutano.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Tangazo la klabu ya Kiswahili linapaswa kuwa na taarifa gani muhimu?",
+   "options": [
+    "Shughuli, tarehe, muda, mahali na anayehusika",
+    "Rangi ya viatu vya wanachama",
+    "Hadithi ndefu ya familia ya mwenyekiti",
+    "Maswali yasiyo na majibu"
+   ],
+   "correctAnswer": "Shughuli, tarehe, muda, mahali na anayehusika",
+   "explanation": "Tangazo bora hujibu maswali ya nini, lini, wapi na nani ili hadhira ichukue hatua.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Matangazo",
+   "learningOutcome": "Kuandika tangazo lenye taarifa kamili na fupi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Katika kuandika muhtasari, mwandishi anapaswa kufanya nini?",
+   "options": [
+    "Kuchagua hoja kuu na kuziacha taarifa zisizo muhimu",
+    "Kuongeza maoni mapya mengi",
+    "Kunakili kila sentensi ya matini",
+    "Kubadilisha maana ya mwandishi"
+   ],
+   "correctAnswer": "Kuchagua hoja kuu na kuziacha taarifa zisizo muhimu",
+   "explanation": "Muhtasari huhifadhi maana kuu kwa ufupi bila kuongeza taarifa zisizopatikana katika matini.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Muhtasari",
+   "learningOutcome": "Kuandika muhtasari unaohifadhi hoja kuu za matini.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Kwa nini ni muhimu kutaja chanzo unapotumia taarifa kutoka tovuti katika insha?",
+   "options": [
+    "Kuonyesha uaminifu na kuepuka wizi wa kazi ya wengine",
+    "Kufanya insha iwe ndefu bila sababu",
+    "Kuficha mwandishi wa taarifa",
+    "Kugeuza insha kuwa tangazo"
+   ],
+   "correctAnswer": "Kuonyesha uaminifu na kuepuka wizi wa kazi ya wengine",
+   "explanation": "Kutaja chanzo huonyesha maadili ya kitaaluma na kumsaidia msomaji kufuatilia taarifa.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Maadili ya Uandishi",
+   "learningOutcome": "Kutumia vyanzo kwa uadilifu katika uandishi wa kitaaluma.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Ni hatua gani inafaa katika usahihishaji wa rasimu?",
+   "options": [
+    "Kukagua tahajia, uakifishaji, upatanisho na mtiririko wa mawazo",
+    "Kufuta hoja zote zenye ushahidi",
+    "Kuongeza makosa ili maandishi yaonekane halisi",
+    "Kuwasilisha rasimu bila kuisoma tena"
+   ],
+   "correctAnswer": "Kukagua tahajia, uakifishaji, upatanisho na mtiririko wa mawazo",
+   "explanation": "Usahihishaji husaidia kuboresha usahihi wa lugha na uwazi wa ujumbe kabla ya kuwasilisha kazi.",
+   "difficulty": 2,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Usahihishaji",
+   "learningOutcome": "Kusahihisha rasimu kwa kuzingatia lugha na mtiririko.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Chagua kiunganishi kinachoboresha mshikamano: 'Wanafunzi walifanya utafiti. ___ waliwasilisha matokeo darasani.'",
+   "options": [
+    "Baadaye",
+    "Ingawa",
+    "Ila",
+    "Kama"
+   ],
+   "correctAnswer": "Baadaye",
+   "explanation": "Neno 'Baadaye' huonyesha mfuatano wa matukio kutoka kufanya utafiti hadi kuwasilisha matokeo.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mshikamano wa Maandishi",
+   "learningOutcome": "Kutumia viunganishi na viashiria vya mpito kuboresha mtiririko wa aya.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Katika insha ya hoja kuhusu michezo shuleni, utangulizi bora unapaswa kufanya nini?",
+   "options": [
+    "Kutambulisha mada na kuweka msimamo unaojadiliwa",
+    "Kutoa hitimisho bila hoja",
+    "Kutaja majina ya michezo pekee",
+    "Kuomba radhi kwa kuandika insha"
+   ],
+   "correctAnswer": "Kutambulisha mada na kuweka msimamo unaojadiliwa",
+   "explanation": "Utangulizi wa insha ya hoja humwelekeza msomaji kwenye mada na msimamo wa mwandishi.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Insha ya Hoja",
+   "learningOutcome": "Kuandika utangulizi wenye mada na msimamo katika insha ya hoja.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Ni muundo upi unafaa zaidi kwa aya ya hoja?",
+   "options": [
+    "Hoja kuu, ufafanuzi, ushahidi, maelezo na sentensi ya kufunga",
+    "Methali, mzaha, jina la mwandishi na mwisho",
+    "Orodha ya maneno bila uhusiano",
+    "Swali moja lisilojibiwa"
+   ],
+   "correctAnswer": "Hoja kuu, ufafanuzi, ushahidi, maelezo na sentensi ya kufunga",
+   "explanation": "Aya ya hoja inahitaji madai, ushahidi na maelezo yanayounganisha ushahidi na msimamo.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Aya ya Hoja",
+   "learningOutcome": "Kujenga aya ya hoja yenye madai na ushahidi.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Kauli isiyo rasmi 'Nitumie hiyo kazi saa hii' ibadilishwe vipi katika barua pepe rasmi kwa mwalimu?",
+   "options": [
+    "Tafadhali nitumie kazi hiyo unapopata nafasi.",
+    "Leta kazi sasa hivi.",
+    "Hiyo kazi iko wapi jamani?",
+    "Usiponitumia kazi sitasoma."
+   ],
+   "correctAnswer": "Tafadhali nitumie kazi hiyo unapopata nafasi.",
+   "explanation": "Lugha rasmi hutumia heshima, upole na maneno yanayofaa uhusiano wa mwandishi na mpokeaji.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Urasmi katika Uandishi",
+   "learningOutcome": "Kubadilisha lugha isiyo rasmi kuwa lugha rasmi inayofaa barua pepe.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Maelekezo ya maandishi kwa shughuli ya maabara ya lugha yanapaswa kuwa vipi?",
+   "options": [
+    "Yenye hatua fupi, zilizopangwa kwa mfuatano na maneno wazi",
+    "Yenye methali zisizohusiana na hatua",
+    "Yenye hatua zilizochanganywa kimakusudi",
+    "Yenye sentensi ndefu sana bila alama"
+   ],
+   "correctAnswer": "Yenye hatua fupi, zilizopangwa kwa mfuatano na maneno wazi",
+   "explanation": "Maelekezo bora ya maandishi yanapaswa kueleweka haraka na kufuatwa bila mkanganyiko.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuandika Maelekezo",
+   "learningOutcome": "Kuandika maelekezo yaliyo wazi na yenye mpangilio wa hatua.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Rasimu ina sentensi nyingi zinazorudia wazo moja. Mwandishi afanye nini?",
+   "options": [
+    "Aondoe marudio na aunganishe hoja zinazofanana",
+    "Aongeze marudio zaidi ili kazi ionekane ndefu",
+    "Afute ushahidi wote",
+    "Abadilishe mada ya insha ghafla"
+   ],
+   "correctAnswer": "Aondoe marudio na aunganishe hoja zinazofanana",
+   "explanation": "Uhariri mzuri hupunguza urudiaji na kufanya hoja ziwe wazi, fupi na zenye nguvu.",
+   "difficulty": 3,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kuboresha Rasimu",
+   "learningOutcome": "Kuboresha rasimu kwa kupunguza marudio na kuimarisha uwazi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Utangulizi unasema: 'Mazingira ni muhimu. Nitazungumzia mambo mengi.' Udhaifu wake mkuu ni upi?",
+   "options": [
+    "Hauna msimamo au mwelekeo mahususi wa hoja",
+    "Una alama nyingi za kuuliza",
+    "Umetumia methali nyingi",
+    "Umeandika tarehe isiyo sahihi"
+   ],
+   "correctAnswer": "Hauna msimamo au mwelekeo mahususi wa hoja",
+   "explanation": "Utangulizi wa insha ya hoja unapaswa kuonyesha mada kwa uwazi na msimamo wa mwandishi.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Tathmini ya Utangulizi",
+   "learningOutcome": "Kutathmini ubora wa utangulizi wa insha ya hoja.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Kichwa kipi kinafaa zaidi kwa makala kuhusu namna vijana wanavyoweza kulinda data zao mtandaoni?",
+   "options": [
+    "Usalama wa Data kwa Vijana Mtandaoni",
+    "Mambo Mengi Sana",
+    "Hadithi ya Jana",
+    "Michezo ya Uwanjani"
+   ],
+   "correctAnswer": "Usalama wa Data kwa Vijana Mtandaoni",
+   "explanation": "Kichwa kizuri huwa mahususi, kifupi na kinachoonyesha mada kuu ya maandishi.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Kichwa cha Makala",
+   "learningOutcome": "Kuchagua kichwa kinacholingana na mada na hadhira ya makala.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Ripoti kuhusu upungufu wa vitabu maktabani inapaswa kuhitimishwa vipi?",
+   "options": [
+    "Kwa mapendekezo yanayotekelezeka kama ununuzi, uchangiaji na mfumo wa kukopesha",
+    "Kwa kumlaumu mtu mmoja bila ushahidi",
+    "Kwa kuandika shairi lisilohusiana",
+    "Kwa kuficha idadi ya vitabu vilivyopo"
+   ],
+   "correctAnswer": "Kwa mapendekezo yanayotekelezeka kama ununuzi, uchangiaji na mfumo wa kukopesha",
+   "explanation": "Hitimisho la ripoti linapaswa kuonyesha hatua za kutatua tatizo kwa msingi wa taarifa zilizotolewa.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Mapendekezo ya Ripoti",
+   "learningOutcome": "Kuandika mapendekezo yanayofaa kulingana na matokeo ya ripoti.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Rasimu ya kwanza ina hoja nzuri lakini haina mifano; rasimu ya pili ina mifano lakini haina mpangilio. Uamuzi bora ni upi?",
+   "options": [
+    "Kuchukua hoja za rasimu ya kwanza na mifano ya pili kisha kuzipanga upya",
+    "Kutupa rasimu zote bila kujifunza chochote",
+    "Kuchagua rasimu yenye maandishi mengi zaidi tu",
+    "Kuondoa mifano yote kwa sababu ni mingi"
+   ],
+   "correctAnswer": "Kuchukua hoja za rasimu ya kwanza na mifano ya pili kisha kuzipanga upya",
+   "explanation": "Uandishi bora hutumia nguvu za rasimu tofauti na kurekebisha udhaifu wake kwa mpangilio.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Tathmini ya Rasimu",
+   "learningOutcome": "Kulinganisha rasimu na kuchagua marekebisho yanayoimarisha maandishi.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Hitimisho la insha ya kushawishi kuhusu kusoma vitabu linapaswa kufanya nini?",
+   "options": [
+    "Kurejelea msimamo na kutoa mwito mfupi wa kuchukua hatua",
+    "Kuanzisha hoja mpya isiyoelezwa mwilini",
+    "Kuomba msomaji asisome vitabu",
+    "Kumalizia kwa orodha ya maneno yasiyohusiana"
+   ],
+   "correctAnswer": "Kurejelea msimamo na kutoa mwito mfupi wa kuchukua hatua",
+   "explanation": "Hitimisho la kushawishi huimarisha msimamo na kumwelekeza msomaji kwenye hatua au fikra kuu.",
+   "difficulty": 4,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Hitimisho la Insha",
+   "learningOutcome": "Kuandika hitimisho linaloimarisha hoja na kumshawishi msomaji.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Unapanga makala ya uchunguzi kuhusu upotevu wa chakula shuleni. Mpango upi ni bora zaidi?",
+   "options": [
+    "Lengo, mbinu za kukusanya data, matokeo, uchambuzi na mapendekezo",
+    "Kichwa, methali tano na hitimisho bila data",
+    "Malalamiko ya wanafunzi pekee",
+    "Maelezo ya mchezo wa jana"
+   ],
+   "correctAnswer": "Lengo, mbinu za kukusanya data, matokeo, uchambuzi na mapendekezo",
+   "explanation": "Makala ya uchunguzi huhitaji mpangilio unaoonyesha jinsi taarifa zilivyokusanywa na kutafsiriwa.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Makala ya Uchunguzi",
+   "learningOutcome": "Kupanga makala ya uchunguzi yenye data, uchambuzi na mapendekezo.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Ni kigezo kipi kinafaa zaidi kutathmini insha ya hoja ya Gredi ya 10?",
+   "options": [
+    "Uwazi wa msimamo, ushahidi, mpangilio, lugha na uhariri",
+    "Urefu pekee wa maandishi",
+    "Idadi ya maneno magumu bila maana",
+    "Rangi ya kalamu iliyotumiwa"
+   ],
+   "correctAnswer": "Uwazi wa msimamo, ushahidi, mpangilio, lugha na uhariri",
+   "explanation": "Insha ya hoja hutathminiwa kwa ubora wa hoja, uthibitisho, muundo na usahihi wa lugha.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Tathmini ya Uandishi",
+   "learningOutcome": "Kubuni vigezo vya kutathmini insha ya hoja.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Unahitaji kuandika makala kutokana na mahojiano na taarifa ya tovuti. Hatua ipi inalinda usahihi wa makala?",
+   "options": [
+    "Kulinganisha taarifa, kutaja vyanzo na kuondoa madai yasiyothibitishwa",
+    "Kuchagua taarifa zinazopendeza tu",
+    "Kubadilisha majibu ya mhojiwa bila kusema",
+    "Kutumia tovuti moja bila kuangalia tarehe"
+   ],
+   "correctAnswer": "Kulinganisha taarifa, kutaja vyanzo na kuondoa madai yasiyothibitishwa",
+   "explanation": "Uandishi unaotegemea vyanzo vingi huhitaji uhakiki, uwazi wa marejeleo na uadilifu wa taarifa.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Uandishi Kutokana na Vyanzo",
+   "learningOutcome": "Kuunganisha taarifa kutoka vyanzo tofauti kwa usahihi na uadilifu.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Rasimu ya makala ina utangulizi mzuri, hoja tatu, lakini haina ushahidi wala hitimisho. Mpango bora wa marekebisho ni upi?",
+   "options": [
+    "Kuongeza ushahidi kwa kila hoja, kuunganisha aya na kuandika hitimisho linalorejelea msimamo",
+    "Kubadilisha utangulizi pekee na kuacha hoja bila ushahidi",
+    "Kufuta hoja tatu na kuandika kichwa kipya tu",
+    "Kuongeza picha bila kurekebisha maandishi"
+   ],
+   "correctAnswer": "Kuongeza ushahidi kwa kila hoja, kuunganisha aya na kuandika hitimisho linalorejelea msimamo",
+   "explanation": "Marekebisho yenye nguvu hushughulikia mapengo ya ushahidi, mshikamano na kufungwa kwa hoja kuu.",
+   "difficulty": 5,
+   "strandTitle": "Kuandika",
+   "subStrandTitle": "Marekebisho ya Makala",
+   "learningOutcome": "Kubuni mpango wa kurekebisha makala ili iwe na hoja, ushahidi na hitimisho.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

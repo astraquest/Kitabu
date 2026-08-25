@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Svg, { Defs, LinearGradient as SvgLinearGradient, Path, Stop, SvgUri } from 'react-native-svg';
-import { Activity, AlertCircle, Award, BookOpen, Calculator, CheckCircle2, ClipboardList, Frown, Globe, Heart, Meh, Star, Target, TrendingUp, User, X } from 'lucide-react-native';
+import { Activity, AlertCircle, Award, BookOpen, CheckCircle2, ClipboardList, Frown, Heart, Meh, Star, Target, TrendingUp, User, X } from 'lucide-react-native';
 
-import { DEFAULT_GRADE } from '../constants/grades';
-import { UserProfile } from '../types/app';
+import { getAdminStudentAnalytics } from '../services/appDataService';
+import { AdminStudentAnalytics, UserProfile } from '../types/app';
 import { ReportAiContentSheet } from './ReportAiContentSheet';
 import {
   buildRemedialReport,
@@ -18,30 +18,15 @@ interface StudentDetailsModalProps {
   user: UserProfile;
   onClose: () => void;
   assessmentScore?: number;
+  analytics?: AdminStudentAnalytics | null;
+  analyticsLoading?: boolean;
+  analyticsError?: string | null;
+  onRetryAnalytics?: () => void;
   onCreateRemedialAssignment?: (assignment: RemedialAssignmentPayload) => void;
 }
 
 type ActiveTab = 'performance' | 'remedial' | 'profile';
 type RemedialStatus = 'idle' | 'running' | 'complete';
-
-const RECENT_ACTIVITY = [
-  { id: 1, title: 'Algebra Quiz', time: 'Today, 9:30 AM', score: 92, icon: Calculator },
-  { id: 2, title: 'Biology Reading', time: 'Today, 8:15 AM', score: 75, icon: BookOpen },
-  { id: 3, title: 'World War II Essay', time: 'Yesterday, 8:30 AM', score: 45, icon: Globe },
-  { id: 4, title: 'Poetry Analysis', time: 'Yesterday, 8:30 AM', score: 88, icon: BookOpen },
-  { id: 5, title: 'Geometry Test', time: '2 days ago', score: 85, icon: Calculator },
-  { id: 6, title: 'Lab Report', time: '3 days ago', score: 90, icon: BookOpen },
-];
-
-const WEEKLY_STATS = [
-  { day: 'Sun', val: 80, color: '#22C55E' },
-  { day: 'Mon', val: 40, color: '#FBBF24' },
-  { day: 'Tue', val: 90, color: '#22C55E' },
-  { day: 'Wed', val: 65, color: '#22C55E' },
-  { day: 'Thu', val: 70, color: '#22C55E' },
-  { day: 'Fri', val: 30, color: '#EF4444' },
-  { day: 'Sat', val: 85, color: '#22C55E' },
-];
 
 function getPerformanceAnalysis(score: number) {
   if (score >= 80) return { label: 'Exceeding Expectations', color: '#16A34A', Icon: Award };
@@ -75,42 +60,126 @@ function getAvatarUri(value?: string) {
   return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(value)}`;
 }
 
+function formatActivityTime(value: string) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime())
+    ? 'Date unavailable'
+    : date.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+}
+
+function formatTrendDay(value: string) {
+  const date = new Date(`${value}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? '—' : date.toLocaleDateString(undefined, { weekday: 'short' });
+}
+
+function emptyTrendDays() {
+  const today = new Date();
+  return Array.from({ length: 7 }, (_, index) => {
+    const day = new Date(today);
+    day.setHours(0, 0, 0, 0);
+    day.setDate(today.getDate() - (6 - index));
+    const year = day.getFullYear();
+    const month = String(day.getMonth() + 1).padStart(2, '0');
+    const date = String(day.getDate()).padStart(2, '0');
+    return { date: `${year}-${month}-${date}`, score: null };
+  });
+}
+
+function activityIcon(kind: AdminStudentAnalytics['recentActivity'][number]['kind']) {
+  if (kind === 'assignment') return ClipboardList;
+  if (kind === 'weekly_exam') return Award;
+  return BookOpen;
+}
+
+function trendColor(score: number | null) {
+  if (score === null) return '#D1D5DB';
+  if (score >= 80) return '#22C55E';
+  if (score >= 60) return '#FBBF24';
+  return '#EF4444';
+}
+
 export function StudentDetailsModal({
   user,
   onClose,
   assessmentScore,
+  analytics: providedAnalytics,
+  analyticsLoading: providedAnalyticsLoading = false,
+  analyticsError: providedAnalyticsError = null,
+  onRetryAnalytics: providedRetryAnalytics,
   onCreateRemedialAssignment,
 }: StudentDetailsModalProps) {
   const [activeTab, setActiveTab] = useState<ActiveTab>('performance');
   const [showAllActivities, setShowAllActivities] = useState(false);
   const [remedialStatus, setRemedialStatus] = useState<RemedialStatus>('idle');
   const [remedialReport, setRemedialReport] = useState<RemedialReport | null>(null);
+  const [fetchedAnalytics, setFetchedAnalytics] = useState<AdminStudentAnalytics | null>(null);
+  const [fetchedAnalyticsLoading, setFetchedAnalyticsLoading] = useState(false);
+  const [fetchedAnalyticsError, setFetchedAnalyticsError] = useState<string | null>(null);
+  const [analyticsRetryToken, setAnalyticsRetryToken] = useState(0);
   const progress = useRef(new Animated.Value(0)).current;
-  const bars = useRef(WEEKLY_STATS.map(() => new Animated.Value(0))).current;
+  const bars = useRef(Array.from({ length: 7 }, () => new Animated.Value(0))).current;
 
-  const score = assessmentScore ?? 75;
-  const analysis = getPerformanceAnalysis(score);
-  const displayedActivities = showAllActivities ? RECENT_ACTIVITY : RECENT_ACTIVITY.slice(0, 3);
+  const isAdminModal = Boolean(user.adminAnalyticsEnabled);
+  const adminStudentId = isAdminModal && user.id ? user.id : null;
+  const analytics = (providedAnalytics?.studentId === user.id ? providedAnalytics : null)
+    ?? (fetchedAnalytics?.studentId === user.id ? fetchedAnalytics : null);
+  const analyticsLoading = providedAnalytics ? providedAnalyticsLoading : isAdminModal ? fetchedAnalyticsLoading : false;
+  const analyticsError = providedAnalytics ? providedAnalyticsError : isAdminModal ? fetchedAnalyticsError : null;
+  const retryAnalytics = providedRetryAnalytics ?? (() => setAnalyticsRetryToken(value => value + 1));
+  const score = analytics?.overallScore ?? (isAdminModal ? null : assessmentScore ?? null);
+  const analysis = score === null ? null : getPerformanceAnalysis(score);
+  const displayedActivities = analytics
+    ? (showAllActivities ? analytics.recentActivity : analytics.recentActivity.slice(0, 3))
+    : [];
+  const trendDays = analytics?.trend ?? emptyTrendDays();
   const avatarUri = getAvatarUri(user.avatar);
   const report = remedialReport ?? buildRemedialReport(user);
   const details = useMemo(() => ({
-    school: user.school || 'ABC High School',
-    grade: user.grade || DEFAULT_GRADE,
-    dateJoined: user.dateJoined || '2024-01-15',
-    lastSeen: user.lastSeen || 'Today',
-    assignmentsAttempted: 25,
-    phone: user.phone || 'Not Set',
-    email: user.email || 'student@example.com',
-  }), [user]);
+    school: user.school || 'Not set',
+    grade: user.grade || 'Not set',
+    dateJoined: user.dateJoined || 'Not set',
+    lastSeen: user.lastSeen || 'Not set',
+    assignmentsCompleted: analytics?.completedAssignments,
+    phone: user.phone || 'Not set',
+    email: user.email || 'Not set',
+  }), [analytics?.completedAssignments, user]);
+
+  useEffect(() => {
+    if (!adminStudentId || providedAnalytics) return;
+    setFetchedAnalytics(null);
+    let cancelled = false;
+    const load = async () => {
+      setFetchedAnalyticsLoading(true);
+      setFetchedAnalyticsError(null);
+      try {
+        const result = await getAdminStudentAnalytics(adminStudentId);
+        if (!cancelled) setFetchedAnalytics(result);
+      } catch (error) {
+        if (!cancelled) {
+          setFetchedAnalytics(null);
+          setFetchedAnalyticsError(error instanceof Error ? error.message : 'Unable to load student analytics');
+        }
+      } finally {
+        if (!cancelled) setFetchedAnalyticsLoading(false);
+      }
+    };
+    load().catch(() => undefined);
+    const refreshTimer = setInterval(() => { load().catch(() => undefined); }, 30_000);
+    return () => {
+      cancelled = true;
+      clearInterval(refreshTimer);
+    };
+  }, [adminStudentId, providedAnalytics, analyticsRetryToken]);
 
   useEffect(() => {
     progress.setValue(0);
     bars.forEach(bar => bar.setValue(0));
+    const measuredScore = score ?? 0;
     Animated.parallel([
-      Animated.timing(progress, { toValue: score, duration: 1000, useNativeDriver: false }),
-      ...bars.map((bar, index) => Animated.timing(bar, { toValue: WEEKLY_STATS[index].val, duration: 1000, delay: index * 40, useNativeDriver: false })),
+      Animated.timing(progress, { toValue: measuredScore, duration: 1000, useNativeDriver: false }),
+      ...bars.map((bar, index) => Animated.timing(bar, { toValue: analytics?.trend[index]?.score ?? 0, duration: 1000, delay: index * 40, useNativeDriver: false })),
     ]).start();
-  }, [bars, progress, score]);
+  }, [analytics, bars, progress, score]);
 
   useEffect(() => {
     setActiveTab('performance');
@@ -182,25 +251,38 @@ export function StudentDetailsModal({
                       <AnimatedPath d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGradient)" strokeWidth={20} strokeLinecap="round" strokeDasharray="251.2" strokeDashoffset={gaugeOffset} />
                     </Svg>
                     <View style={s.gaugeValueWrap}>
-                      <Text style={s.gaugeValue}>{score}%</Text>
+                      <Text style={s.gaugeValue}>{score === null ? '—' : `${score}%`}</Text>
                     </View>
                   </View>
-                  <View style={s.analysisRow}>
-                    <analysis.Icon size={18} color={analysis.color} />
-                    <Text style={[s.analysisText, { color: analysis.color }]}>{analysis.label}</Text>
-                  </View>
+                  {analysis ? (
+                    <View style={s.analysisRow}>
+                      <analysis.Icon size={18} color={analysis.color} />
+                      <Text style={[s.analysisText, { color: analysis.color }]}>{analysis.label}</Text>
+                    </View>
+                  ) : (
+                    <Text style={s.noDataText}>
+                      {analyticsLoading ? 'Loading analytics…' : analyticsError ? 'Analytics unavailable' : 'No scored performance data yet'}
+                    </Text>
+                  )}
                 </View>
 
                 <View style={s.card}>
                   <View style={s.rowBetween}>
                     <Text style={s.cardTitle}>Recent Activity</Text>
-                    <Pressable onPress={() => setShowAllActivities(v => !v)}>
-                      <Text style={s.link}>{showAllActivities ? 'View Less' : 'View All'}</Text>
-                    </Pressable>
+                    {analytics?.recentActivity.length ? (
+                      <Pressable onPress={() => setShowAllActivities(v => !v)}>
+                        <Text style={s.link}>{showAllActivities ? 'View Less' : 'View All'}</Text>
+                      </Pressable>
+                    ) : null}
                   </View>
                   <View style={s.activityList}>
-                    {displayedActivities.map(item => {
-                      const Icon = item.icon;
+                    {analyticsLoading ? <Text style={s.emptyText}>Loading analytics…</Text> : analyticsError ? (
+                      <View style={s.emptyState}>
+                        <Text style={s.emptyText}>Unable to load analytics.</Text>
+                        <Pressable onPress={retryAnalytics}><Text style={s.link}>Retry</Text></Pressable>
+                      </View>
+                    ) : displayedActivities.length ? displayedActivities.map(item => {
+                      const Icon = activityIcon(item.kind);
                       return (
                         <View key={item.id} style={s.activityRow}>
                           <View style={s.activityLead}>
@@ -209,13 +291,13 @@ export function StudentDetailsModal({
                             </View>
                             <View>
                               <Text style={s.activityTitle}>{item.title}</Text>
-                              <Text style={s.activityTime}>{item.time}</Text>
+                              <Text style={s.activityTime}>{formatActivityTime(item.occurredAt)}</Text>
                             </View>
                           </View>
                           <Text style={[s.activityScore, item.score >= 80 ? s.goodText : s.normalText]}>{item.score}%</Text>
                         </View>
                       );
-                    })}
+                    }) : <Text style={s.emptyText}>No scored activity yet.</Text>}
                   </View>
                 </View>
 
@@ -225,12 +307,13 @@ export function StudentDetailsModal({
                     <Text style={s.trendMeta}>Last 7 Days</Text>
                   </View>
                   <View style={s.trendBars}>
-                    {WEEKLY_STATS.map((stat, index) => (
-                      <View key={stat.day} style={s.trendCol}>
+                    {trendDays.map((stat, index) => (
+                      <View key={`${stat.date}-${index}`} style={s.trendCol}>
                         <View style={s.trendTrack}>
-                          <Animated.View style={[s.trendFill, { backgroundColor: stat.color, height: bars[index].interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }) }]} />
+                          <Animated.View style={[s.trendFill, { backgroundColor: trendColor(stat.score), height: bars[index].interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }) }]} />
                         </View>
-                        <Text style={s.trendLabel}>{stat.day}</Text>
+                        <Text style={s.trendLabel}>{formatTrendDay(stat.date)}</Text>
+                        <Text style={s.trendValue}>{stat.score === null ? '—' : `${stat.score}%`}</Text>
                       </View>
                     ))}
                   </View>
@@ -399,7 +482,7 @@ export function StudentDetailsModal({
                       { label: 'Grade', value: details.grade },
                       { label: 'Date Joined', value: details.dateJoined },
                       { label: 'Last Active', value: details.lastSeen },
-                      { label: 'Assignments', value: `${details.assignmentsAttempted} Completed` },
+                      { label: 'Assignments', value: details.assignmentsCompleted === undefined ? 'Not available' : `${details.assignmentsCompleted} Completed` },
                     ].map(item => (
                       <View key={item.label} style={s.infoRow}>
                         <Text style={s.infoLabel}>{item.label}</Text>
@@ -482,11 +565,11 @@ const s = StyleSheet.create({
   gaugeValueWrap: { position: 'absolute', bottom: 0, left: 0, right: 0, alignItems: 'center' },
   gaugeValue: { color: '#111827', fontSize: 40, fontWeight: '900', lineHeight: 42 },
   analysisRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 6 },
-  analysisText: { fontSize: 14, fontWeight: '800' },
+  analysisText: { fontSize: 14, fontWeight: '800' }, noDataText: { color: '#6B7280', fontSize: 14, fontWeight: '700' },
   rowBetween: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   cardTitle: { color: '#111827', fontSize: 14, fontWeight: '800' },
   link: { color: '#2563EB', fontSize: 12, fontWeight: '800' },
-  activityList: { marginTop: 16, gap: 16 },
+  activityList: { marginTop: 16, gap: 16 }, emptyState: { alignItems: 'center', gap: 8 }, emptyText: { color: '#6B7280', fontSize: 13, fontWeight: '600' },
   activityRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   activityLead: { flexDirection: 'row', alignItems: 'center', gap: 12, flex: 1 },
   activityIconWrap: { width: 40, height: 40, borderRadius: 16, backgroundColor: '#F9FAFB', borderWidth: 1, borderColor: '#F3F4F6', alignItems: 'center', justifyContent: 'center' },
@@ -500,7 +583,7 @@ const s = StyleSheet.create({
   trendCol: { flex: 1, alignItems: 'center', gap: 8 },
   trendTrack: { width: '100%', flex: 1, borderRadius: 10, backgroundColor: '#F3F4F6', justifyContent: 'flex-end', overflow: 'hidden' },
   trendFill: { width: '100%', borderRadius: 10, opacity: 0.8 },
-  trendLabel: { color: '#9CA3AF', fontSize: 10, fontWeight: '800' },
+  trendLabel: { color: '#9CA3AF', fontSize: 10, fontWeight: '800' }, trendValue: { color: '#6B7280', fontSize: 9, fontWeight: '700', marginTop: 2 },
   profileStack: { gap: 24, paddingTop: 8 },
   profileHero: { backgroundColor: '#FFFFFF', borderRadius: 24, borderWidth: 1, borderColor: '#F3F4F6', overflow: 'hidden', alignItems: 'center' },
   profileGradient: { position: 'absolute', top: 0, left: 0, right: 0, height: 96, backgroundColor: 'rgba(59,130,246,0.1)' },

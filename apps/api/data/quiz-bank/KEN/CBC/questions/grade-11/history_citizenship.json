@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 11",
-  "subjectId": "history_citizenship",
-  "subjectName": "History & Citizenship",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which source is most useful for studying the exact wording of a treaty signed during colonial rule?",
-      "options": ["An archived written copy of the treaty", "A folk song about migration", "A stone tool from a settlement site", "A modern tourist brochure"],
-      "correctAnswer": "An archived written copy of the treaty",
-      "explanation": "A written archive preserves the wording, signatures, and dates needed for close study of a treaty.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Sources",
-      "learningOutcome": "Identify appropriate sources for investigating historical questions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Why should a historian compare oral evidence with written and archaeological evidence?",
-      "options": ["To test reliability and build a fuller account", "To remove all community memories from history", "To make every source give the same date", "To prove that oral sources are never useful"],
-      "correctAnswer": "To test reliability and build a fuller account",
-      "explanation": "Comparing different sources helps confirm details, notice bias, and fill gaps in the evidence.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Source Corroboration",
-      "learningOutcome": "Explain why historians corroborate evidence from different sources.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "A learner finds two accounts of the same protest, one written by a colonial officer and one by a local participant. What should the learner examine first?",
-      "options": ["The author's position, purpose, and likely bias", "The account with the longest sentences only", "The account that is easier to memorize", "The source printed on newer paper only"],
-      "correctAnswer": "The author's position, purpose, and likely bias",
-      "explanation": "Authorship and purpose shape how events are described, so they must be considered before accepting claims.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Bias and Perspective",
-      "learningOutcome": "Evaluate perspective and bias in accounts of historical events.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which question best guides historical interpretation rather than simple recall?",
-      "options": ["How did different groups explain the causes of the uprising?", "What year did the uprising begin?", "What was the name of one leader?", "Where is the monument located?"],
-      "correctAnswer": "How did different groups explain the causes of the uprising?",
-      "explanation": "Interpretation asks learners to compare meanings, causes, and viewpoints instead of listing isolated facts.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Interpretation",
-      "learningOutcome": "Distinguish interpretive historical questions from factual recall questions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which plan would best support a balanced class investigation of a disputed historical event?",
-      "options": ["Use official records, participant memories, newspaper reports, and archaeological context", "Use only one textbook paragraph and ignore other evidence", "Choose the version that supports the loudest speaker", "Avoid sources that disagree with the first source found"],
-      "correctAnswer": "Use official records, participant memories, newspaper reports, and archaeological context",
-      "explanation": "A balanced inquiry uses varied evidence and allows learners to weigh agreement, contradiction, and context.",
-      "difficulty": 5,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Investigation",
-      "learningOutcome": "Design a balanced inquiry using multiple sources of evidence.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "What is chronology mainly used for in historical study?",
-      "options": ["Arranging events in time order", "Naming all ethnic communities", "Decorating maps with symbols", "Replacing evidence with opinion"],
-      "correctAnswer": "Arranging events in time order",
-      "explanation": "Chronology helps learners see sequence, change, continuity, and cause over time.",
-      "difficulty": 1,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Chronology",
-      "learningOutcome": "Use chronology to organize historical events.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Why are maps important when studying migration and settlement?",
-      "options": ["They show routes, locations, distance, and environmental context", "They prove that every migration followed one straight road", "They remove the need for oral and written sources", "They show exact thoughts of every migrant"],
-      "correctAnswer": "They show routes, locations, distance, and environmental context",
-      "explanation": "Maps connect movement to physical space, resources, barriers, and neighbouring communities.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Historical Maps",
-      "learningOutcome": "Explain how maps support the study of migration and settlement.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "A museum label states that an iron tool was used for farming. Which additional evidence would best strengthen this claim?",
-      "options": ["Wear marks and soil traces matching agricultural use", "The tool's colour after cleaning", "A guess by a visitor", "The size of the display case"],
-      "correctAnswer": "Wear marks and soil traces matching agricultural use",
-      "explanation": "Physical traces can link an artefact to its actual use more strongly than appearance alone.",
-      "difficulty": 3,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Archaeological Evidence",
-      "learningOutcome": "Use archaeological evidence to support claims about past livelihoods.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why historical accounts may change when new evidence is discovered?",
-      "options": ["Interpretations are revised when stronger evidence challenges earlier conclusions", "History has no concern for evidence", "New evidence must always be ignored", "Older accounts are automatically false"],
-      "correctAnswer": "Interpretations are revised when stronger evidence challenges earlier conclusions",
-      "explanation": "Historical knowledge grows when new sources allow better-supported explanations.",
-      "difficulty": 4,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Changing Interpretations",
-      "learningOutcome": "Analyze how new evidence can change historical explanations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which ethical practice should guide learners interviewing elders about community history?",
-      "options": ["Seek consent, listen respectfully, and record views accurately", "Change the interviewee's words to fit a preferred story", "Share private information without permission", "Mock memories that differ from textbooks"],
-      "correctAnswer": "Seek consent, listen respectfully, and record views accurately",
-      "explanation": "Ethical interviewing protects dignity and improves the trustworthiness of oral history.",
-      "difficulty": 2,
-      "strandTitle": "Historical Inquiry and Interpretation",
-      "subStrandTitle": "Oral History Ethics",
-      "learningOutcome": "Apply ethical practices when collecting oral historical evidence.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which African civilization is strongly associated with stone enclosures in present-day Zimbabwe?",
-      "options": ["Great Zimbabwe", "Carthage", "Benin", "Aksum"],
-      "correctAnswer": "Great Zimbabwe",
-      "explanation": "Great Zimbabwe is known for its large dry-stone structures and its role in regional trade.",
-      "difficulty": 1,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Great Zimbabwe",
-      "learningOutcome": "Identify major features of selected African civilizations.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "What factor helped the growth of Swahili city-states along the East African coast?",
-      "options": ["Indian Ocean trade linking Africa, Arabia, and Asia", "Isolation from all maritime routes", "Permanent absence of craft production", "Lack of contact with inland communities"],
-      "correctAnswer": "Indian Ocean trade linking Africa, Arabia, and Asia",
-      "explanation": "Coastal towns grew as trade centres exchanging African goods with merchants across the Indian Ocean.",
-      "difficulty": 2,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Swahili City-States",
-      "learningOutcome": "Explain factors that supported the growth of coastal city-states.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which pair correctly links a West African empire with a major source of wealth?",
-      "options": ["Mali - gold and trans-Saharan trade", "Mali - oil pipelines", "Songhai - Atlantic steamships", "Ghana - diamond mines in South Africa"],
-      "correctAnswer": "Mali - gold and trans-Saharan trade",
-      "explanation": "The Mali Empire benefited from goldfields and trade routes across the Sahara.",
-      "difficulty": 2,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "West African Empires",
-      "learningOutcome": "Relate economic resources to the growth of West African empires.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "A learner argues that trade networks spread more than goods. Which evidence best supports this view?",
-      "options": ["Spread of ideas, religions, technologies, and languages along routes", "A complete stop to cultural borrowing", "The disappearance of all towns near trade routes", "A ban on communication between traders"],
-      "correctAnswer": "Spread of ideas, religions, technologies, and languages along routes",
-      "explanation": "Trade networks encouraged cultural exchange as merchants, scholars, and travellers interacted.",
-      "difficulty": 3,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Cultural Exchange",
-      "learningOutcome": "Analyze cultural effects of regional and long-distance trade.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which comparison best shows a shared feature of Aksum and the Swahili city-states?",
-      "options": ["Both connected African societies to wider trade networks", "Both rejected all external contacts", "Both were founded by European colonial governments", "Both depended only on industrial factories"],
-      "correctAnswer": "Both connected African societies to wider trade networks",
-      "explanation": "Aksum and Swahili towns both used trade links to connect local production with wider regions.",
-      "difficulty": 4,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Comparative Civilizations",
-      "learningOutcome": "Compare how African civilizations participated in wider trade networks.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Why did control of caravan routes matter to many African states before colonial rule?",
-      "options": ["It allowed leaders to tax trade and protect merchants", "It prevented all movement of goods", "It made farming unnecessary everywhere", "It ended the need for political authority"],
-      "correctAnswer": "It allowed leaders to tax trade and protect merchants",
-      "explanation": "Control of routes strengthened states through revenue, security, and influence over exchange.",
-      "difficulty": 3,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Trade and State Power",
-      "learningOutcome": "Explain how trade routes influenced state power in precolonial Africa.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which product was commonly linked to long-distance trade from the East African interior to the coast before colonial rule?",
-      "options": ["Ivory", "Plastic electronics", "Petrol from refineries", "Printed bank cards"],
-      "correctAnswer": "Ivory",
-      "explanation": "Ivory was among the major goods moved from the interior to coastal markets in earlier trade systems.",
-      "difficulty": 1,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "East African Trade",
-      "learningOutcome": "Identify goods exchanged in East African long-distance trade.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Which effect did Islam have on many towns of the East African coast?",
-      "options": ["It influenced architecture, education, law, and written culture", "It removed all trade from the coast", "It stopped the use of Kiswahili", "It made towns abandon the Indian Ocean"],
-      "correctAnswer": "It influenced architecture, education, law, and written culture",
-      "explanation": "Islam shaped social institutions and cultural practices in many coastal towns while interacting with local traditions.",
-      "difficulty": 2,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Religion and Culture",
-      "learningOutcome": "Explain religious and cultural influences on coastal societies.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which argument best challenges the old claim that Africa had no complex societies before European colonialism?",
-      "options": ["Evidence from cities, states, trade systems, art, and written records", "The absence of all archaeological sites", "The idea that only Europe had history", "A refusal to study African sources"],
-      "correctAnswer": "Evidence from cities, states, trade systems, art, and written records",
-      "explanation": "African evidence shows diverse political, economic, and cultural complexity before colonial rule.",
-      "difficulty": 4,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "African Historical Agency",
-      "learningOutcome": "Use evidence to challenge inaccurate interpretations of African history.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which project would best demonstrate the interconnected nature of precolonial African economies?",
-      "options": ["A map linking production areas, trade routes, markets, and cultural exchanges", "A list of modern mobile phone brands", "A drawing of one isolated village with no routes", "A debate that ignores economic evidence"],
-      "correctAnswer": "A map linking production areas, trade routes, markets, and cultural exchanges",
-      "explanation": "A route-based project can show how producers, traders, rulers, and consumers were connected across regions.",
-      "difficulty": 5,
-      "strandTitle": "African Civilizations and Trade Networks",
-      "subStrandTitle": "Economic Interdependence",
-      "learningOutcome": "Create a historical representation of economic links in precolonial Africa.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "What was the Berlin Conference of 1884-1885 mainly concerned with?",
-      "options": ["European rules for claiming territory in Africa", "The founding of the United Nations", "The independence of African states", "The creation of the East African Community"],
-      "correctAnswer": "European rules for claiming territory in Africa",
-      "explanation": "The conference set rules that guided European partition and occupation of African territories.",
-      "difficulty": 1,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Scramble and Partition",
-      "learningOutcome": "Describe key events linked to the scramble and partition of Africa.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which motive best explains European interest in African colonies in the late nineteenth century?",
-      "options": ["Access to raw materials, markets, land, and strategic influence", "A plan to end all international trade", "A desire to give up industrial growth", "A decision to avoid overseas territories"],
-      "correctAnswer": "Access to raw materials, markets, land, and strategic influence",
-      "explanation": "Industrial and strategic competition pushed European powers to seek resources, markets, and political influence.",
-      "difficulty": 2,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Motives for Colonialism",
-      "learningOutcome": "Explain economic and political motives behind European colonial expansion.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which feature best describes indirect rule in many British colonies?",
-      "options": ["Using existing local authorities under colonial supervision", "Replacing all local leaders with elected African presidents", "Giving colonies complete independence immediately", "Allowing communities to reject colonial laws freely"],
-      "correctAnswer": "Using existing local authorities under colonial supervision",
-      "explanation": "Indirect rule worked through selected local rulers while colonial officials retained final authority.",
-      "difficulty": 2,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Colonial Administration",
-      "learningOutcome": "Describe forms of colonial administration and their effects.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "How did forced labour and taxation help colonial governments control African communities?",
-      "options": ["They pushed people into wage labour and colonial economic systems", "They allowed people to avoid colonial markets completely", "They ended the need for cash crops", "They removed colonial authority from rural areas"],
-      "correctAnswer": "They pushed people into wage labour and colonial economic systems",
-      "explanation": "Taxes and labour demands pressured Africans to work for wages, produce cash crops, or enter colonial markets.",
-      "difficulty": 3,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Colonial Economy",
-      "learningOutcome": "Analyze how colonial economic policies affected African livelihoods.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which response best illustrates African resistance to colonial rule?",
-      "options": ["Organizing armed, political, or cultural opposition to colonial control", "Accepting every colonial policy without question", "Ending all community leadership before colonization", "Refusing to preserve any local identity"],
-      "correctAnswer": "Organizing armed, political, or cultural opposition to colonial control",
-      "explanation": "Resistance took many forms, including armed struggle, petitions, strikes, religious movements, and cultural defence.",
-      "difficulty": 2,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Resistance and Collaboration",
-      "learningOutcome": "Explain different African responses to colonial rule.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Why is the term collaboration sometimes difficult for historians to use?",
-      "options": ["Some African leaders acted under pressure, limited choices, or strategic calculation", "It means every African leader supported colonial rule equally", "It proves that colonialism was harmless", "It removes the need to study local contexts"],
-      "correctAnswer": "Some African leaders acted under pressure, limited choices, or strategic calculation",
-      "explanation": "Historical judgement must consider context, power imbalance, survival strategies, and local interests.",
-      "difficulty": 4,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Resistance and Collaboration",
-      "learningOutcome": "Analyze the complexity of African responses to colonial power.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which colonial policy most directly changed land ownership patterns in parts of Kenya?",
-      "options": ["Alienation of fertile land for settler agriculture", "Building public libraries in every village", "Abolition of all taxes", "Equal distribution of land to every household"],
-      "correctAnswer": "Alienation of fertile land for settler agriculture",
-      "explanation": "Land alienation displaced many Africans and created long-term social and economic grievances.",
-      "difficulty": 3,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Land and Settlement",
-      "learningOutcome": "Explain how colonial land policies affected Kenyan communities.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "What was one major effect of colonial education in Kenya?",
-      "options": ["It created new opportunities while often serving colonial labour needs", "It gave all learners equal access to university", "It had no connection to employment", "It immediately ended social inequality"],
-      "correctAnswer": "It created new opportunities while often serving colonial labour needs",
-      "explanation": "Colonial education opened literacy and professional paths but was shaped by unequal colonial priorities.",
-      "difficulty": 3,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Education and Social Change",
-      "learningOutcome": "Assess social effects of colonial education in Kenya.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which statement best evaluates the building of railways during colonial rule in East Africa?",
-      "options": ["They improved transport but mainly served colonial economic and administrative goals", "They were built only for holiday travel", "They ended all forms of African trade", "They were unrelated to colonial control"],
-      "correctAnswer": "They improved transport but mainly served colonial economic and administrative goals",
-      "explanation": "Railways linked regions and markets, but their routes and priorities were shaped by colonial extraction and control.",
-      "difficulty": 4,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Infrastructure and Control",
-      "learningOutcome": "Evaluate colonial infrastructure using multiple historical perspectives.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which inquiry question would best help learners connect colonial land policies to later nationalist demands?",
-      "options": ["How did land alienation shape grievances, organization, and calls for self-rule?", "What colour were colonial office buildings?", "How many pages are in one history textbook?", "Which road is nearest to the classroom?"],
-      "correctAnswer": "How did land alienation shape grievances, organization, and calls for self-rule?",
-      "explanation": "The question links cause, consequence, and political mobilization, which supports deeper historical analysis.",
-      "difficulty": 5,
-      "strandTitle": "Colonialism and African Responses",
-      "subStrandTitle": "Colonial Legacies",
-      "learningOutcome": "Frame historical questions that connect colonial policies to nationalism.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "What does nationalism generally mean in the study of African decolonization?",
-      "options": ["A people's desire for self-rule and national identity", "A plan to preserve colonial rule forever", "The rejection of all political organization", "A belief that history should not be studied"],
-      "correctAnswer": "A people's desire for self-rule and national identity",
-      "explanation": "Nationalism mobilized people to demand political rights, dignity, and independence from colonial rule.",
-      "difficulty": 1,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Meaning of Nationalism",
-      "learningOutcome": "Define nationalism in the context of African decolonization.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which factor contributed to the growth of African nationalism after the Second World War?",
-      "options": ["Ex-servicemen returned with wider political awareness and demands for rights", "Colonial governments abolished all restrictions immediately", "African newspapers stopped discussing politics", "Workers lost all interest in wages and conditions"],
-      "correctAnswer": "Ex-servicemen returned with wider political awareness and demands for rights",
-      "explanation": "War service exposed many Africans to global politics and strengthened demands for equality and self-rule.",
-      "difficulty": 2,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Growth of Nationalism",
-      "learningOutcome": "Explain factors that encouraged nationalist movements in Africa.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which method was commonly used by nationalist movements to challenge colonial rule?",
-      "options": ["Petitions, strikes, political parties, newspapers, and demonstrations", "Avoiding all communication among supporters", "Defending colonial segregation as permanent", "Destroying all records of public grievances"],
-      "correctAnswer": "Petitions, strikes, political parties, newspapers, and demonstrations",
-      "explanation": "Nationalists used organized civic and political action to publicize grievances and pressure colonial authorities.",
-      "difficulty": 2,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Nationalist Strategies",
-      "learningOutcome": "Describe methods used by nationalist movements to pursue independence.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Why were newspapers and pamphlets important in nationalist struggles?",
-      "options": ["They spread political ideas and helped mobilize public opinion", "They stopped people from learning about rights", "They replaced all forms of leadership", "They were used only for weather reports"],
-      "correctAnswer": "They spread political ideas and helped mobilize public opinion",
-      "explanation": "Print media helped share grievances, explain goals, and connect supporters across different areas.",
-      "difficulty": 3,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Media and Mobilization",
-      "learningOutcome": "Explain the role of media in nationalist mobilization.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which statement best links Pan-Africanism to African independence movements?",
-      "options": ["It encouraged solidarity among people of African descent against colonialism and racism", "It promoted permanent colonial rule in Africa", "It opposed cooperation among African peoples", "It focused only on European royal families"],
-      "correctAnswer": "It encouraged solidarity among people of African descent against colonialism and racism",
-      "explanation": "Pan-Africanism provided ideas, networks, and moral support for anti-colonial struggles.",
-      "difficulty": 3,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Pan-Africanism",
-      "learningOutcome": "Analyze the contribution of Pan-African ideas to decolonization.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which challenge commonly faced newly independent African states?",
-      "options": ["Building national unity while addressing colonial economic inequalities", "Lack of any need for public services", "Immediate disappearance of all political disagreements", "Absence of inherited colonial borders"],
-      "correctAnswer": "Building national unity while addressing colonial economic inequalities",
-      "explanation": "New states inherited unequal economies, contested borders, and diverse populations that required careful nation building.",
-      "difficulty": 3,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Post-Independence Challenges",
-      "learningOutcome": "Explain challenges faced by African states at independence.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Why did some African independence movements use armed struggle while others relied mainly on negotiations?",
-      "options": ["Colonial conditions, settler interests, repression, and political opportunities differed by territory", "All colonies had identical conditions", "Negotiations were illegal everywhere", "Armed struggle was required by every constitution"],
-      "correctAnswer": "Colonial conditions, settler interests, repression, and political opportunities differed by territory",
-      "explanation": "The path to independence depended on local context, colonial policy, leadership, and the balance of power.",
-      "difficulty": 4,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Paths to Independence",
-      "learningOutcome": "Compare different paths used by African countries to achieve independence.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which factor made labour unions important in nationalist politics?",
-      "options": ["They organized workers around wages, rights, and colonial economic grievances", "They prevented workers from discussing public issues", "They were created only to support forced labour", "They had no connection to urban life"],
-      "correctAnswer": "They organized workers around wages, rights, and colonial economic grievances",
-      "explanation": "Workers' organizations could turn workplace grievances into wider political pressure for change.",
-      "difficulty": 3,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Labour and Nationalism",
-      "learningOutcome": "Analyze the role of labour movements in nationalist struggles.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which evaluation best explains why independence did not automatically solve all colonial-era problems?",
-      "options": ["Political sovereignty had to be followed by difficult economic, social, and institutional reforms", "Independence ended all poverty in one day", "Colonial economies had been perfectly equal", "New governments inherited no institutions"],
-      "correctAnswer": "Political sovereignty had to be followed by difficult economic, social, and institutional reforms",
-      "explanation": "Independence gave control of government, but deep structural problems required long-term policy choices.",
-      "difficulty": 4,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Meaning of Independence",
-      "learningOutcome": "Evaluate the difference between political independence and broader social transformation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which classroom product would best compare two African nationalist movements without oversimplifying them?",
-      "options": ["A matrix showing causes, leaders, methods, colonial response, and outcomes", "A single slogan copied for both countries", "A list of dates with no explanation", "A poster ranking one country as always superior"],
-      "correctAnswer": "A matrix showing causes, leaders, methods, colonial response, and outcomes",
-      "explanation": "A comparison matrix helps learners examine similarities and differences using clear historical criteria.",
-      "difficulty": 5,
-      "strandTitle": "Nationalism and Decolonization",
-      "subStrandTitle": "Comparative Nationalism",
-      "learningOutcome": "Create a structured comparison of nationalist movements in Africa.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "What is nation building?",
-      "options": ["The process of strengthening unity, identity, institutions, and shared citizenship", "The construction of private houses only", "The rejection of all national symbols", "The end of every public service"],
-      "correctAnswer": "The process of strengthening unity, identity, institutions, and shared citizenship",
-      "explanation": "Nation building involves creating bonds and institutions that help diverse citizens live under a shared state.",
-      "difficulty": 1,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Nation Building",
-      "learningOutcome": "Define nation building in post-independence Kenya.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Which policy goal was central to post-independence Kenya's expansion of education?",
-      "options": ["Developing human resources and widening access to learning", "Reducing literacy among citizens", "Ending all teacher training", "Making schools serve only one county"],
-      "correctAnswer": "Developing human resources and widening access to learning",
-      "explanation": "Education was viewed as a way to build skills, citizenship, and capacity for national development.",
-      "difficulty": 2,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Education and Development",
-      "learningOutcome": "Explain the role of education in Kenya's national development.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Why was land reform a major issue in Kenya after independence?",
-      "options": ["Colonial land alienation had created displacement and unequal access to land", "No Kenyan community used land before independence", "Land had no economic or cultural value", "All land disputes disappeared before independence"],
-      "correctAnswer": "Colonial land alienation had created displacement and unequal access to land",
-      "explanation": "Land remained central because colonial policies had changed ownership, settlement, and livelihoods.",
-      "difficulty": 3,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Land and Settlement",
-      "learningOutcome": "Analyze why land remained a major issue in post-independence Kenya.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Which statement best describes Harambee in Kenya's development history?",
-      "options": ["A self-help approach where communities contribute to public projects", "A colonial tax used to force labour", "A system that bans community participation", "A foreign military alliance"],
-      "correctAnswer": "A self-help approach where communities contribute to public projects",
-      "explanation": "Harambee encouraged local fundraising and labour for schools, health facilities, and other community needs.",
-      "difficulty": 2,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Community Development",
-      "learningOutcome": "Explain the meaning and role of Harambee in Kenyan development.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which challenge did rapid urban growth create in post-independence Kenya?",
-      "options": ["Pressure on housing, transport, sanitation, and employment", "A complete end to rural-urban migration", "Too many empty schools in every city", "No demand for public services"],
-      "correctAnswer": "Pressure on housing, transport, sanitation, and employment",
-      "explanation": "Urban growth can create opportunities but also strains services when planning and investment lag behind population change.",
-      "difficulty": 3,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Urbanization",
-      "learningOutcome": "Assess social challenges linked to urban growth in Kenya.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "What was a major aim of constitutional reform efforts in Kenya before the 2010 Constitution?",
-      "options": ["Expanding democracy, rights, accountability, and public participation", "Ending all elections permanently", "Removing every limit on state power", "Reducing citizen involvement in governance"],
-      "correctAnswer": "Expanding democracy, rights, accountability, and public participation",
-      "explanation": "Reform campaigns sought stronger rights, checks on power, fairer representation, and more accountable institutions.",
-      "difficulty": 3,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Constitutional Reform",
-      "learningOutcome": "Explain historical reasons for constitutional reform in Kenya.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why national symbols matter in Kenya?",
-      "options": ["They represent shared identity and can promote unity across diversity", "They replace the Constitution in all legal matters", "They remove the need for public service", "They belong only to one region"],
-      "correctAnswer": "They represent shared identity and can promote unity across diversity",
-      "explanation": "Symbols such as the flag and national anthem can strengthen belonging when used inclusively.",
-      "difficulty": 4,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "National Identity",
-      "learningOutcome": "Analyze the role of national symbols in promoting unity.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which factor has most shaped debates about equitable development in Kenya?",
-      "options": ["Unequal regional access to infrastructure, services, and economic opportunities", "Equal resources in every locality at all times", "Absence of rural communities", "A ban on development planning"],
-      "correctAnswer": "Unequal regional access to infrastructure, services, and economic opportunities",
-      "explanation": "Development debates often focus on how to reduce historical and regional inequalities in public investment.",
-      "difficulty": 4,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Development and Equity",
-      "learningOutcome": "Evaluate debates about equity in Kenya's development history.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which civic habit best supports national cohesion in a diverse society?",
-      "options": ["Respecting different identities while defending equal rights for all citizens", "Spreading stereotypes about communities", "Refusing to cooperate with people from other regions", "Treating public resources as private property"],
-      "correctAnswer": "Respecting different identities while defending equal rights for all citizens",
-      "explanation": "Cohesion grows when diversity is respected and citizenship rights are applied equally.",
-      "difficulty": 2,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Social Cohesion",
-      "learningOutcome": "Apply civic values that support national cohesion.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which policy brief topic would best connect Kenya's history since independence to present citizenship learning?",
-      "options": ["How constitutional reform, devolution, and public participation respond to past governance challenges", "How to memorize all public holidays without context", "Why citizens should avoid public decision-making", "Why historical evidence is unnecessary for policy debate"],
-      "correctAnswer": "How constitutional reform, devolution, and public participation respond to past governance challenges",
-      "explanation": "A strong policy brief links historical problems to institutional changes and active citizenship.",
-      "difficulty": 5,
-      "strandTitle": "Kenya Since Independence",
-      "subStrandTitle": "Historical Lessons for Citizenship",
-      "learningOutcome": "Create evidence-based links between post-independence history and citizenship practice.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "What does constitutional supremacy mean?",
-      "options": ["The Constitution is the highest law and other laws must conform to it", "Parliament may ignore the Constitution at any time", "County laws are always above national law", "Citizenship replaces all courts"],
-      "correctAnswer": "The Constitution is the highest law and other laws must conform to it",
-      "explanation": "Constitutional supremacy means public power and laws are valid only when they follow the Constitution.",
-      "difficulty": 1,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Supremacy of the Constitution",
-      "learningOutcome": "Explain the meaning of constitutional supremacy.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which principle is shown when the legislature makes laws, the executive implements them, and the judiciary interprets them?",
-      "options": ["Separation of powers", "Forced labour", "Direct colonial rule", "Cultural assimilation"],
-      "correctAnswer": "Separation of powers",
-      "explanation": "Separation of powers distributes government functions to reduce abuse and improve accountability.",
-      "difficulty": 1,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Separation of Powers",
-      "learningOutcome": "Identify the roles of the main arms of government.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Why is judicial independence important in constitutional democracy?",
-      "options": ["It enables courts to decide disputes fairly without improper pressure", "It allows judges to make laws alone", "It removes the need for evidence in court", "It gives courts power to ignore the Constitution"],
-      "correctAnswer": "It enables courts to decide disputes fairly without improper pressure",
-      "explanation": "Independent courts protect rights, resolve disputes, and check unlawful use of power.",
-      "difficulty": 2,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Judicial Independence",
-      "learningOutcome": "Explain the importance of judicial independence in governance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which example best shows checks and balances?",
-      "options": ["A court reviews whether a government action follows the Constitution", "One leader makes all decisions without review", "Citizens are banned from asking questions", "Public officials spend funds without records"],
-      "correctAnswer": "A court reviews whether a government action follows the Constitution",
-      "explanation": "Checks and balances allow institutions to limit one another so power is exercised lawfully.",
-      "difficulty": 3,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Checks and Balances",
-      "learningOutcome": "Apply the idea of checks and balances to governance situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which value is included among Kenya's national values and principles of governance?",
-      "options": ["Rule of law", "Secret public budgeting", "Discrimination", "Absolute personal rule"],
-      "correctAnswer": "Rule of law",
-      "explanation": "The national values include rule of law, democracy, public participation, equality, integrity, and related principles.",
-      "difficulty": 1,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "National Values",
-      "learningOutcome": "Identify national values and principles of governance in Kenya.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Why does public participation matter when making laws or policies?",
-      "options": ["It allows citizens to contribute views and improves legitimacy", "It stops citizens from knowing public decisions", "It makes evidence unnecessary", "It gives one official all public power"],
-      "correctAnswer": "It allows citizens to contribute views and improves legitimacy",
-      "explanation": "Public participation connects government decisions to people's needs and strengthens accountability.",
-      "difficulty": 2,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Public Participation",
-      "learningOutcome": "Explain why public participation is important in democratic governance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "A county plans a market but ignores traders, residents, and accessibility needs. Which governance principle is most at risk?",
-      "options": ["Public participation", "Historical chronology", "Trans-Saharan trade", "Oral tradition"],
-      "correctAnswer": "Public participation",
-      "explanation": "Planning public services should involve affected people so decisions respond to real needs.",
-      "difficulty": 3,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Participatory Governance",
-      "learningOutcome": "Apply public participation principles to local governance scenarios.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why the rule of law protects citizens?",
-      "options": ["It requires public power to be exercised according to known and fair laws", "It lets officials punish people without legal process", "It gives different laws to each family", "It removes courts from public life"],
-      "correctAnswer": "It requires public power to be exercised according to known and fair laws",
-      "explanation": "The rule of law limits arbitrary power and helps citizens claim rights through lawful procedures.",
-      "difficulty": 4,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Rule of Law",
-      "learningOutcome": "Analyze how rule of law protects citizens and institutions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which situation best shows accountability in public office?",
-      "options": ["Officials explain decisions, keep records, and face lawful review", "Officials refuse audits and hide public spending", "Citizens are blocked from all information", "Leaders use public resources for private gain"],
-      "correctAnswer": "Officials explain decisions, keep records, and face lawful review",
-      "explanation": "Accountability requires answerability, transparency, and consequences for misuse of authority.",
-      "difficulty": 3,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Accountability",
-      "learningOutcome": "Apply accountability principles to public leadership.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which civic education activity best helps learners evaluate constitutional governance in their county?",
-      "options": ["Compare a county plan with public participation records, budget data, and service outcomes", "Memorize county names without checking services", "Ask only one official for an unsupported opinion", "Ignore public documents because they are difficult"],
-      "correctAnswer": "Compare a county plan with public participation records, budget data, and service outcomes",
-      "explanation": "Evaluating governance requires evidence about planning, citizen input, spending, and actual results.",
-      "difficulty": 5,
-      "strandTitle": "Constitutional Governance",
-      "subStrandTitle": "Civic Evaluation",
-      "learningOutcome": "Design an evidence-based activity for evaluating constitutional governance.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which statement describes citizenship by birth in general terms?",
-      "options": ["A legal status acquired through birth under constitutional rules", "A temporary school club membership", "A colonial labour contract", "A business licence issued to a company"],
-      "correctAnswer": "A legal status acquired through birth under constitutional rules",
-      "explanation": "Citizenship by birth is a legal connection to the state that carries rights and responsibilities.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Citizenship Status",
-      "learningOutcome": "Describe basic forms of citizenship recognized in Kenya.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which right is protected in a democratic society when citizens peacefully express different views?",
-      "options": ["Freedom of expression", "Forced silence", "Collective punishment", "Denial of identity"],
-      "correctAnswer": "Freedom of expression",
-      "explanation": "Freedom of expression allows lawful sharing of ideas and supports democratic debate.",
-      "difficulty": 1,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Bill of Rights",
-      "learningOutcome": "Identify rights and freedoms that support democratic citizenship.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Why are rights usually linked to responsibilities?",
-      "options": ["Responsible conduct helps protect the rights of other people", "Rights work only when others are denied dignity", "Responsibilities cancel all legal protections", "Citizens have duties only during elections"],
-      "correctAnswer": "Responsible conduct helps protect the rights of other people",
-      "explanation": "Rights are enjoyed in society, so citizens should exercise them while respecting others and the law.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Rights and Duties",
-      "learningOutcome": "Explain the relationship between rights and responsibilities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which action best demonstrates responsible digital citizenship during a public debate online?",
-      "options": ["Checking sources before sharing claims about public issues", "Forwarding every rumour immediately", "Insulting people with different views", "Editing images to mislead voters"],
-      "correctAnswer": "Checking sources before sharing claims about public issues",
-      "explanation": "Responsible digital citizenship requires accuracy, respect, and care with information that affects public life.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Digital Citizenship",
-      "learningOutcome": "Apply responsible citizenship values in digital public spaces.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of human rights?",
-      "options": ["To protect dignity, freedom, equality, and basic welfare", "To give rights only to powerful people", "To replace all responsibilities", "To prevent citizens from seeking justice"],
-      "correctAnswer": "To protect dignity, freedom, equality, and basic welfare",
-      "explanation": "Human rights recognize the worth of every person and limit actions that harm dignity and freedom.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Human Rights",
-      "learningOutcome": "Explain the purpose of human rights in society.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which example best shows active citizenship outside an election period?",
-      "options": ["Attending a budget forum and giving evidence-based views", "Waiting silently until the next general election", "Refusing to report damaged public infrastructure", "Avoiding all community problem-solving"],
-      "correctAnswer": "Attending a budget forum and giving evidence-based views",
-      "explanation": "Active citizenship includes ongoing participation in public decisions, not only voting.",
-      "difficulty": 3,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Civic Participation",
-      "learningOutcome": "Apply active citizenship practices to community issues.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why equality before the law matters?",
-      "options": ["It prevents different legal treatment based only on status, wealth, or identity", "It allows officials to favour their friends legally", "It means laws apply only to citizens in cities", "It removes all legal remedies for poor citizens"],
-      "correctAnswer": "It prevents different legal treatment based only on status, wealth, or identity",
-      "explanation": "Equality before the law supports fairness by requiring the same legal standards for all people.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Equality and Non-Discrimination",
-      "learningOutcome": "Analyze the importance of equality before the law.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "A student council wants to solve bullying while respecting rights. Which approach is best?",
-      "options": ["Create clear reporting channels, fair hearing procedures, counselling, and prevention education", "Punish accused learners without listening to evidence", "Ignore complaints to protect the school's image", "Publish private details of all learners online"],
-      "correctAnswer": "Create clear reporting channels, fair hearing procedures, counselling, and prevention education",
-      "explanation": "A rights-based response protects victims, respects due process, and works to prevent repeated harm.",
-      "difficulty": 5,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Rights-Based Problem Solving",
-      "learningOutcome": "Design rights-respecting responses to school and community problems.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which responsibility supports fair public services?",
-      "options": ["Paying lawful taxes and protecting public property", "Destroying shared facilities", "Demanding services while hiding all public information", "Using false documents to gain benefits"],
-      "correctAnswer": "Paying lawful taxes and protecting public property",
-      "explanation": "Public services depend on lawful revenue and responsible use of shared resources.",
-      "difficulty": 2,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Citizen Responsibilities",
-      "learningOutcome": "Identify responsibilities that support public services and social order.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which media literacy question is most useful before accepting a political claim shared online?",
-      "options": ["Who produced it, what evidence is given, and can the claim be verified?", "Does it make me angry quickly?", "Can I share it before reading?", "Does it attack people I already dislike?"],
-      "correctAnswer": "Who produced it, what evidence is given, and can the claim be verified?",
-      "explanation": "Critical questions about source, evidence, and verification help citizens avoid misinformation.",
-      "difficulty": 4,
-      "strandTitle": "Citizenship, Rights, and Responsibilities",
-      "subStrandTitle": "Media Literacy",
-      "learningOutcome": "Evaluate public information using media literacy questions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "What is devolution in Kenya's constitutional system?",
-      "options": ["Sharing governance functions and resources between national and county governments", "A return to direct colonial administration", "A system where counties have no public role", "The abolition of local service delivery"],
-      "correctAnswer": "Sharing governance functions and resources between national and county governments",
-      "explanation": "Devolution brings some powers and resources closer to citizens through county governments.",
-      "difficulty": 1,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Meaning of Devolution",
-      "learningOutcome": "Define devolution in Kenya's governance structure.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "Which office heads the county executive in Kenya?",
-      "options": ["Governor", "Speaker of the National Assembly", "Chief Justice", "Cabinet Secretary for Foreign Affairs"],
-      "correctAnswer": "Governor",
-      "explanation": "The governor leads the county executive and is responsible for implementing county functions.",
-      "difficulty": 1,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "County Government Structure",
-      "learningOutcome": "Identify key offices in county government.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Why was devolution introduced as an important part of Kenya's 2010 constitutional order?",
-      "options": ["To promote local participation, equity, and access to services", "To centralize every service in one office", "To end all county-level planning", "To prevent citizens from monitoring leaders"],
-      "correctAnswer": "To promote local participation, equity, and access to services",
-      "explanation": "Devolution seeks to bring government closer to people and address unequal development.",
-      "difficulty": 2,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Objectives of Devolution",
-      "learningOutcome": "Explain objectives of devolution in Kenya.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Which function is commonly associated with county governments in Kenya?",
-      "options": ["County health services", "Issuing national currency", "Defending national borders", "Running diplomatic missions abroad"],
-      "correctAnswer": "County health services",
-      "explanation": "County governments handle functions such as county health services, local markets, and some local infrastructure.",
-      "difficulty": 2,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "County Functions",
-      "learningOutcome": "Identify examples of county government functions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "A ward has poor drainage and residents want county action. Which first step best fits participatory devolution?",
-      "options": ["Raise the issue through public forums, ward representatives, and county planning channels", "Destroy public roads to attract attention", "Ignore the issue until another county solves it", "Send private threats to county staff"],
-      "correctAnswer": "Raise the issue through public forums, ward representatives, and county planning channels",
-      "explanation": "Participatory channels allow citizens to present needs lawfully and link them to county planning.",
-      "difficulty": 3,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Citizen Participation in Counties",
-      "learningOutcome": "Apply lawful participation methods to county service challenges.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why county budgets should be publicly available?",
-      "options": ["Citizens need budget information to track priorities, spending, and service delivery", "Budgets are private property of officials", "Public information prevents all planning", "County funds do not affect residents"],
-      "correctAnswer": "Citizens need budget information to track priorities, spending, and service delivery",
-      "explanation": "Budget transparency helps citizens judge whether public money matches local needs and legal priorities.",
-      "difficulty": 4,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Budget Accountability",
-      "learningOutcome": "Analyze why transparency is important in county budgeting.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "What is a county assembly mainly expected to do?",
-      "options": ["Make county laws, approve budgets, and oversee the county executive", "Command the national military", "Register international treaties alone", "Print Kenyan currency"],
-      "correctAnswer": "Make county laws, approve budgets, and oversee the county executive",
-      "explanation": "County assemblies legislate for counties and check how the executive uses power and resources.",
-      "difficulty": 2,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "County Assembly",
-      "learningOutcome": "Describe the role of county assemblies in devolved government.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Which situation would most likely weaken devolution?",
-      "options": ["Duplicating projects without coordination between national and county governments", "Holding lawful public participation meetings", "Publishing service delivery reports", "Auditing public funds"],
-      "correctAnswer": "Duplicating projects without coordination between national and county governments",
-      "explanation": "Poor coordination wastes resources and can make it unclear which level of government is responsible.",
-      "difficulty": 4,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Intergovernmental Relations",
-      "learningOutcome": "Analyze challenges that can affect devolved service delivery.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "Which tool would best help citizens monitor whether a county health project is progressing?",
-      "options": ["A checklist comparing budget allocation, procurement, timelines, site visits, and service indicators", "A rumour from an anonymous social media account", "A list of unrelated national holidays", "A drawing of a hospital with no data"],
-      "correctAnswer": "A checklist comparing budget allocation, procurement, timelines, site visits, and service indicators",
-      "explanation": "Monitoring needs evidence from financial records, implementation timelines, physical progress, and service results.",
-      "difficulty": 5,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Citizen Oversight",
-      "learningOutcome": "Create an evidence-based tool for monitoring county projects.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Which statement best describes equitable sharing of public resources?",
-      "options": ["Allocating resources in ways that consider need, fairness, and development gaps", "Giving all resources to the wealthiest area", "Banning poorer areas from public services", "Spending without considering population or need"],
-      "correctAnswer": "Allocating resources in ways that consider need, fairness, and development gaps",
-      "explanation": "Equity focuses on fair allocation that addresses unequal needs and historical disadvantages.",
-      "difficulty": 3,
-      "strandTitle": "Devolution and Public Finance",
-      "subStrandTitle": "Resource Equity",
-      "learningOutcome": "Explain the idea of equity in public resource allocation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Which organization promotes cooperation among East African partner states?",
-      "options": ["East African Community", "Great Zimbabwe Council", "Berlin Conference Secretariat", "League of Ancient Empires"],
-      "correctAnswer": "East African Community",
-      "explanation": "The East African Community supports regional cooperation in areas such as trade, movement, and policy coordination.",
-      "difficulty": 1,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "East African Community",
-      "learningOutcome": "Identify institutions that support regional integration in East Africa.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Which benefit is commonly linked to regional integration?",
-      "options": ["Expanded markets and cooperation across borders", "Permanent closure of all borders to trade", "A ban on cultural exchange", "Ending all diplomatic dialogue"],
-      "correctAnswer": "Expanded markets and cooperation across borders",
-      "explanation": "Regional integration can increase trade, mobility, shared infrastructure, and peaceful cooperation.",
-      "difficulty": 2,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Benefits of Integration",
-      "learningOutcome": "Explain benefits of regional integration for citizens and states.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "What is the African Union mainly intended to promote?",
-      "options": ["African unity, cooperation, peace, and development", "The return of colonial partition", "Isolation of all African states", "Abolition of all continental diplomacy"],
-      "correctAnswer": "African unity, cooperation, peace, and development",
-      "explanation": "The African Union provides a continental platform for cooperation on peace, governance, and development.",
-      "difficulty": 1,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "African Union",
-      "learningOutcome": "Identify the broad purpose of the African Union.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Which situation best shows global citizenship?",
-      "options": ["Working with others to address climate, peace, health, or human rights issues beyond one country", "Ignoring problems because they cross borders", "Refusing to learn about other societies", "Treating international cooperation as useless"],
-      "correctAnswer": "Working with others to address climate, peace, health, or human rights issues beyond one country",
-      "explanation": "Global citizenship recognizes shared responsibilities and cooperation across national boundaries.",
-      "difficulty": 2,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Global Citizenship",
-      "learningOutcome": "Explain the meaning of global citizenship through practical examples.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "How can cross-border trade support peace among neighbouring communities?",
-      "options": ["It creates shared economic interests and regular communication", "It requires communities to stop talking", "It always removes the need for law", "It prevents any cooperation over resources"],
-      "correctAnswer": "It creates shared economic interests and regular communication",
-      "explanation": "Trade can build interdependence, relationships, and incentives to resolve disputes peacefully.",
-      "difficulty": 3,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Trade and Peace",
-      "learningOutcome": "Analyze how economic cooperation can contribute to peaceful relations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Which challenge can limit the success of regional integration?",
-      "options": ["Differences in laws, infrastructure, security, and economic priorities", "Too much accurate information", "Complete absence of trade routes", "Perfect agreement on every policy"],
-      "correctAnswer": "Differences in laws, infrastructure, security, and economic priorities",
-      "explanation": "Integration requires coordination, and differences among states can slow implementation.",
-      "difficulty": 3,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Challenges of Integration",
-      "learningOutcome": "Explain challenges that affect regional integration efforts.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why peacekeeping may require regional cooperation?",
-      "options": ["Conflict can affect refugees, trade, security, and stability across borders", "Conflict never crosses borders", "Neighbouring countries are always unaffected", "Peacekeeping is only a local school activity"],
-      "correctAnswer": "Conflict can affect refugees, trade, security, and stability across borders",
-      "explanation": "Regional cooperation helps address the wider effects of conflict and supports shared security.",
-      "difficulty": 4,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Peace and Security",
-      "learningOutcome": "Analyze why peace and security often require regional cooperation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Which policy choice best supports humane treatment of refugees while respecting national law?",
-      "options": ["Register people fairly, protect basic rights, and coordinate with humanitarian agencies", "Deny all displaced people any legal process", "Spread fear about all foreigners", "Ignore international and national obligations"],
-      "correctAnswer": "Register people fairly, protect basic rights, and coordinate with humanitarian agencies",
-      "explanation": "A lawful and humane response balances security, dignity, rights, and coordinated support.",
-      "difficulty": 5,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Refugees and Humanitarian Responsibility",
-      "learningOutcome": "Evaluate rights-respecting responses to displacement and refugee issues.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Why are international organizations such as the United Nations important in global affairs?",
-      "options": ["They provide forums for cooperation on peace, development, rights, and humanitarian issues", "They replace every national constitution", "They make all countries identical", "They end the need for local citizenship"],
-      "correctAnswer": "They provide forums for cooperation on peace, development, rights, and humanitarian issues",
-      "explanation": "International organizations help states coordinate responses to problems that require collective action.",
-      "difficulty": 2,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "International Organizations",
-      "learningOutcome": "Explain the role of international organizations in global cooperation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "Which student project best links regional integration to everyday citizenship?",
-      "options": ["Investigating how border trade, transport, and shared resources affect local livelihoods", "Listing capitals without explaining any connection", "Copying a map with no interpretation", "Avoiding interviews with affected residents"],
-      "correctAnswer": "Investigating how border trade, transport, and shared resources affect local livelihoods",
-      "explanation": "A strong project connects regional institutions and policies to real experiences of citizens and communities.",
-      "difficulty": 4,
-      "strandTitle": "Regional Integration and Global Citizenship",
-      "subStrandTitle": "Integration in Daily Life",
-      "learningOutcome": "Evaluate how regional integration affects citizens' everyday lives.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "What is cultural heritage?",
-      "options": ["Inherited practices, places, objects, knowledge, and values passed between generations", "Only newly imported products", "Anything with no link to identity", "A law that bans museums"],
-      "correctAnswer": "Inherited practices, places, objects, knowledge, and values passed between generations",
-      "explanation": "Cultural heritage includes both tangible and intangible inheritance that communities value and transmit.",
-      "difficulty": 1,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Cultural Heritage",
-      "learningOutcome": "Define cultural heritage and give examples of its forms.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Why are museums important for historical learning?",
-      "options": ["They preserve artefacts and help interpret evidence from the past", "They replace all schools permanently", "They exist only for selling modern goods", "They prevent learners from seeing evidence"],
-      "correctAnswer": "They preserve artefacts and help interpret evidence from the past",
-      "explanation": "Museums conserve objects, provide context, and support public learning about history and culture.",
-      "difficulty": 2,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Museums and Archives",
-      "learningOutcome": "Explain the role of museums and archives in preserving history.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "Which action best protects a historical site from damage?",
-      "options": ["Following conservation rules and reporting vandalism or illegal excavation", "Removing artefacts for private display", "Writing names on walls for memory", "Digging at the site without permission"],
-      "correctAnswer": "Following conservation rules and reporting vandalism or illegal excavation",
-      "explanation": "Historical sites need lawful conservation so evidence and meaning are protected for future generations.",
-      "difficulty": 2,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Conservation Ethics",
-      "learningOutcome": "Apply responsible practices for conserving historical sites.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "How can heritage contribute to national cohesion?",
-      "options": ["By helping citizens appreciate diverse histories as part of a shared national story", "By proving that only one community has history", "By encouraging discrimination against minority cultures", "By making learners ignore other regions"],
-      "correctAnswer": "By helping citizens appreciate diverse histories as part of a shared national story",
-      "explanation": "Inclusive heritage learning can promote respect, belonging, and mutual recognition across communities.",
-      "difficulty": 3,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Heritage and Cohesion",
-      "learningOutcome": "Explain how heritage can support national cohesion.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which analysis best explains why monuments can be debated in society?",
-      "options": ["Different groups may remember the same person or event in different ways", "Monuments never carry meaning", "All citizens must have identical memories", "Historical memory cannot be discussed"],
-      "correctAnswer": "Different groups may remember the same person or event in different ways",
-      "explanation": "Public memory can be contested because experiences, values, and interpretations differ.",
-      "difficulty": 4,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Public Memory",
-      "learningOutcome": "Analyze why public memory and monuments may be contested.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "Which method best helps preserve oral traditions accurately?",
-      "options": ["Recording interviews with consent and storing transcripts with context", "Changing stories to make them more dramatic", "Ignoring the names of interviewees and locations", "Destroying recordings after one lesson"],
-      "correctAnswer": "Recording interviews with consent and storing transcripts with context",
-      "explanation": "Accurate preservation records the speaker, context, consent, and content for responsible future use.",
-      "difficulty": 3,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Oral Traditions",
-      "learningOutcome": "Apply responsible methods for preserving oral traditions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "Why should heritage tourism be managed carefully?",
-      "options": ["It can support livelihoods but may damage sites or disrespect communities if unmanaged", "It always destroys every historical site", "It has no economic or cultural effect", "It requires communities to abandon their heritage"],
-      "correctAnswer": "It can support livelihoods but may damage sites or disrespect communities if unmanaged",
-      "explanation": "Good management balances conservation, local benefit, visitor education, and respect for community values.",
-      "difficulty": 4,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Heritage Tourism",
-      "learningOutcome": "Evaluate opportunities and risks linked to heritage tourism.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which digital heritage project would be most ethical and useful for a school?",
-      "options": ["A consent-based archive with captions, dates, source notes, and community review", "A public upload of private family photos without permission", "A collection with no source information", "A page that mocks unfamiliar traditions"],
-      "correctAnswer": "A consent-based archive with captions, dates, source notes, and community review",
-      "explanation": "Ethical digital heritage protects rights, records context, and allows communities to review how their heritage is represented.",
-      "difficulty": 5,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Digital Heritage",
-      "learningOutcome": "Create ethical digital heritage resources using accurate source information.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "Which statement best distinguishes tangible from intangible heritage?",
-      "options": ["Tangible heritage can be physically touched, while intangible heritage includes practices and knowledge", "Tangible heritage is always modern, while intangible heritage is always foreign", "Intangible heritage is never important", "Tangible heritage cannot be preserved"],
-      "correctAnswer": "Tangible heritage can be physically touched, while intangible heritage includes practices and knowledge",
-      "explanation": "Buildings, artefacts, and sites are tangible, while songs, skills, ceremonies, and oral traditions are intangible.",
-      "difficulty": 2,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Forms of Heritage",
-      "learningOutcome": "Distinguish tangible and intangible forms of heritage.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which school exhibition theme best connects history, citizenship, and cohesion?",
-      "options": ["Shared Histories: evidence, rights, responsibilities, and respect for diverse heritage", "One Community Owns All History", "Memorizing Dates Without Meaning", "Ignoring Heritage to Avoid Discussion"],
-      "correctAnswer": "Shared Histories: evidence, rights, responsibilities, and respect for diverse heritage",
-      "explanation": "A strong exhibition connects evidence-based history with inclusive citizenship and respect for diversity.",
-      "difficulty": 5,
-      "strandTitle": "Heritage, Memory, and National Cohesion",
-      "subStrandTitle": "Public History Projects",
-      "learningOutcome": "Create a public history theme that promotes evidence-based citizenship and cohesion.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 11",
+ "subjectId": "history_citizenship",
+ "subjectName": "History & Citizenship",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which source is most useful for studying the exact wording of a treaty signed during colonial rule?",
+   "options": [
+    "An archived written copy of the treaty",
+    "A folk song about migration",
+    "A stone tool from a settlement site",
+    "A modern tourist brochure"
+   ],
+   "correctAnswer": "An archived written copy of the treaty",
+   "explanation": "A written archive preserves the wording, signatures, and dates needed for close study of a treaty.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Sources",
+   "learningOutcome": "Identify appropriate sources for investigating historical questions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Why should a historian compare oral evidence with written and archaeological evidence?",
+   "options": [
+    "To test reliability and build a fuller account",
+    "To remove all community memories from history",
+    "To make every source give the same date",
+    "To prove that oral sources are never useful"
+   ],
+   "correctAnswer": "To test reliability and build a fuller account",
+   "explanation": "Comparing different sources helps confirm details, notice bias, and fill gaps in the evidence.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Source Corroboration",
+   "learningOutcome": "Explain why historians corroborate evidence from different sources.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "A learner finds two accounts of the same protest, one written by a colonial officer and one by a local participant. What should the learner examine first?",
+   "options": [
+    "The author's position, purpose, and likely bias",
+    "The account with the longest sentences only",
+    "The account that is easier to memorize",
+    "The source printed on newer paper only"
+   ],
+   "correctAnswer": "The author's position, purpose, and likely bias",
+   "explanation": "Authorship and purpose shape how events are described, so they must be considered before accepting claims.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Bias and Perspective",
+   "learningOutcome": "Evaluate perspective and bias in accounts of historical events.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which question best guides historical interpretation rather than simple recall?",
+   "options": [
+    "How did different groups explain the causes of the uprising?",
+    "What year did the uprising begin?",
+    "What was the name of one leader?",
+    "Where is the monument located?"
+   ],
+   "correctAnswer": "How did different groups explain the causes of the uprising?",
+   "explanation": "Interpretation asks learners to compare meanings, causes, and viewpoints instead of listing isolated facts.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Interpretation",
+   "learningOutcome": "Distinguish interpretive historical questions from factual recall questions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which plan would best support a balanced class investigation of a disputed historical event?",
+   "options": [
+    "Use official records, participant memories, newspaper reports, and archaeological context",
+    "Use only one textbook paragraph and ignore other evidence",
+    "Choose the version that supports the loudest speaker",
+    "Avoid sources that disagree with the first source found"
+   ],
+   "correctAnswer": "Use official records, participant memories, newspaper reports, and archaeological context",
+   "explanation": "A balanced inquiry uses varied evidence and allows learners to weigh agreement, contradiction, and context.",
+   "difficulty": 5,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Investigation",
+   "learningOutcome": "Design a balanced inquiry using multiple sources of evidence.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "What is chronology mainly used for in historical study?",
+   "options": [
+    "Arranging events in time order",
+    "Naming all ethnic communities",
+    "Decorating maps with symbols",
+    "Replacing evidence with opinion"
+   ],
+   "correctAnswer": "Arranging events in time order",
+   "explanation": "Chronology helps learners see sequence, change, continuity, and cause over time.",
+   "difficulty": 1,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Chronology",
+   "learningOutcome": "Use chronology to organize historical events.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Why are maps important when studying migration and settlement?",
+   "options": [
+    "They show routes, locations, distance, and environmental context",
+    "They prove that every migration followed one straight road",
+    "They remove the need for oral and written sources",
+    "They show exact thoughts of every migrant"
+   ],
+   "correctAnswer": "They show routes, locations, distance, and environmental context",
+   "explanation": "Maps connect movement to physical space, resources, barriers, and neighbouring communities.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Historical Maps",
+   "learningOutcome": "Explain how maps support the study of migration and settlement.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "A museum label states that an iron tool was used for farming. Which additional evidence would best strengthen this claim?",
+   "options": [
+    "Wear marks and soil traces matching agricultural use",
+    "The tool's colour after cleaning",
+    "A guess by a visitor",
+    "The size of the display case"
+   ],
+   "correctAnswer": "Wear marks and soil traces matching agricultural use",
+   "explanation": "Physical traces can link an artefact to its actual use more strongly than appearance alone.",
+   "difficulty": 3,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Archaeological Evidence",
+   "learningOutcome": "Use archaeological evidence to support claims about past livelihoods.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why historical accounts may change when new evidence is discovered?",
+   "options": [
+    "Interpretations are revised when stronger evidence challenges earlier conclusions",
+    "History has no concern for evidence",
+    "New evidence must always be ignored",
+    "Older accounts are automatically false"
+   ],
+   "correctAnswer": "Interpretations are revised when stronger evidence challenges earlier conclusions",
+   "explanation": "Historical knowledge grows when new sources allow better-supported explanations.",
+   "difficulty": 4,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Changing Interpretations",
+   "learningOutcome": "Analyze how new evidence can change historical explanations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which ethical practice should guide learners interviewing elders about community history?",
+   "options": [
+    "Seek consent, listen respectfully, and record views accurately",
+    "Change the interviewee's words to fit a preferred story",
+    "Share private information without permission",
+    "Mock memories that differ from textbooks"
+   ],
+   "correctAnswer": "Seek consent, listen respectfully, and record views accurately",
+   "explanation": "Ethical interviewing protects dignity and improves the trustworthiness of oral history.",
+   "difficulty": 2,
+   "strandTitle": "Historical Inquiry and Interpretation",
+   "subStrandTitle": "Oral History Ethics",
+   "learningOutcome": "Apply ethical practices when collecting oral historical evidence.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which African civilization is strongly associated with stone enclosures in present-day Zimbabwe?",
+   "options": [
+    "Great Zimbabwe",
+    "Carthage",
+    "Benin",
+    "Aksum"
+   ],
+   "correctAnswer": "Great Zimbabwe",
+   "explanation": "Great Zimbabwe is known for its large dry-stone structures and its role in regional trade.",
+   "difficulty": 1,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Great Zimbabwe",
+   "learningOutcome": "Identify major features of selected African civilizations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "What factor helped the growth of Swahili city-states along the East African coast?",
+   "options": [
+    "Indian Ocean trade linking Africa, Arabia, and Asia",
+    "Isolation from all maritime routes",
+    "Permanent absence of craft production",
+    "Lack of contact with inland communities"
+   ],
+   "correctAnswer": "Indian Ocean trade linking Africa, Arabia, and Asia",
+   "explanation": "Coastal towns grew as trade centres exchanging African goods with merchants across the Indian Ocean.",
+   "difficulty": 2,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Swahili City-States",
+   "learningOutcome": "Explain factors that supported the growth of coastal city-states.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which pair correctly links a West African empire with a major source of wealth?",
+   "options": [
+    "Mali - gold and trans-Saharan trade",
+    "Mali - oil pipelines",
+    "Songhai - Atlantic steamships",
+    "Ghana - diamond mines in South Africa"
+   ],
+   "correctAnswer": "Mali - gold and trans-Saharan trade",
+   "explanation": "The Mali Empire benefited from goldfields and trade routes across the Sahara.",
+   "difficulty": 2,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "West African Empires",
+   "learningOutcome": "Relate economic resources to the growth of West African empires.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "A learner argues that trade networks spread more than goods. Which evidence best supports this view?",
+   "options": [
+    "Spread of ideas, religions, technologies, and languages along routes",
+    "A complete stop to cultural borrowing",
+    "The disappearance of all towns near trade routes",
+    "A ban on communication between traders"
+   ],
+   "correctAnswer": "Spread of ideas, religions, technologies, and languages along routes",
+   "explanation": "Trade networks encouraged cultural exchange as merchants, scholars, and travellers interacted.",
+   "difficulty": 3,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Cultural Exchange",
+   "learningOutcome": "Analyze cultural effects of regional and long-distance trade.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which comparison best shows a shared feature of Aksum and the Swahili city-states?",
+   "options": [
+    "Both connected African societies to wider trade networks",
+    "Both rejected all external contacts",
+    "Both were founded by European colonial governments",
+    "Both depended only on industrial factories"
+   ],
+   "correctAnswer": "Both connected African societies to wider trade networks",
+   "explanation": "Aksum and Swahili towns both used trade links to connect local production with wider regions.",
+   "difficulty": 4,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Comparative Civilizations",
+   "learningOutcome": "Compare how African civilizations participated in wider trade networks.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Why did control of caravan routes matter to many African states before colonial rule?",
+   "options": [
+    "It allowed leaders to tax trade and protect merchants",
+    "It prevented all movement of goods",
+    "It made farming unnecessary everywhere",
+    "It ended the need for political authority"
+   ],
+   "correctAnswer": "It allowed leaders to tax trade and protect merchants",
+   "explanation": "Control of routes strengthened states through revenue, security, and influence over exchange.",
+   "difficulty": 3,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Trade and State Power",
+   "learningOutcome": "Explain how trade routes influenced state power in precolonial Africa.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which product was commonly linked to long-distance trade from the East African interior to the coast before colonial rule?",
+   "options": [
+    "Ivory",
+    "Plastic electronics",
+    "Petrol from refineries",
+    "Printed bank cards"
+   ],
+   "correctAnswer": "Ivory",
+   "explanation": "Ivory was among the major goods moved from the interior to coastal markets in earlier trade systems.",
+   "difficulty": 1,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "East African Trade",
+   "learningOutcome": "Identify goods exchanged in East African long-distance trade.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Which effect did Islam have on many towns of the East African coast?",
+   "options": [
+    "It influenced architecture, education, law, and written culture",
+    "It removed all trade from the coast",
+    "It stopped the use of Kiswahili",
+    "It made towns abandon the Indian Ocean"
+   ],
+   "correctAnswer": "It influenced architecture, education, law, and written culture",
+   "explanation": "Islam shaped social institutions and cultural practices in many coastal towns while interacting with local traditions.",
+   "difficulty": 2,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Religion and Culture",
+   "learningOutcome": "Explain religious and cultural influences on coastal societies.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which argument best challenges the old claim that Africa had no complex societies before European colonialism?",
+   "options": [
+    "Evidence from cities, states, trade systems, art, and written records",
+    "The absence of all archaeological sites",
+    "The idea that only Europe had history",
+    "A refusal to study African sources"
+   ],
+   "correctAnswer": "Evidence from cities, states, trade systems, art, and written records",
+   "explanation": "African evidence shows diverse political, economic, and cultural complexity before colonial rule.",
+   "difficulty": 4,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "African Historical Agency",
+   "learningOutcome": "Use evidence to challenge inaccurate interpretations of African history.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which project would best demonstrate the interconnected nature of precolonial African economies?",
+   "options": [
+    "A map linking production areas, trade routes, markets, and cultural exchanges",
+    "A list of modern mobile phone brands",
+    "A drawing of one isolated village with no routes",
+    "A debate that ignores economic evidence"
+   ],
+   "correctAnswer": "A map linking production areas, trade routes, markets, and cultural exchanges",
+   "explanation": "A route-based project can show how producers, traders, rulers, and consumers were connected across regions.",
+   "difficulty": 5,
+   "strandTitle": "African Civilizations and Trade Networks",
+   "subStrandTitle": "Economic Interdependence",
+   "learningOutcome": "Create a historical representation of economic links in precolonial Africa.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "What was the Berlin Conference of 1884-1885 mainly concerned with?",
+   "options": [
+    "European rules for claiming territory in Africa",
+    "The founding of the United Nations",
+    "The independence of African states",
+    "The creation of the East African Community"
+   ],
+   "correctAnswer": "European rules for claiming territory in Africa",
+   "explanation": "The conference set rules that guided European partition and occupation of African territories.",
+   "difficulty": 1,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Scramble and Partition",
+   "learningOutcome": "Describe key events linked to the scramble and partition of Africa.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which motive best explains European interest in African colonies in the late nineteenth century?",
+   "options": [
+    "Access to raw materials, markets, land, and strategic influence",
+    "A plan to end all international trade",
+    "A desire to give up industrial growth",
+    "A decision to avoid overseas territories"
+   ],
+   "correctAnswer": "Access to raw materials, markets, land, and strategic influence",
+   "explanation": "Industrial and strategic competition pushed European powers to seek resources, markets, and political influence.",
+   "difficulty": 2,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Motives for Colonialism",
+   "learningOutcome": "Explain economic and political motives behind European colonial expansion.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which feature best describes indirect rule in many British colonies?",
+   "options": [
+    "Using existing local authorities under colonial supervision",
+    "Replacing all local leaders with elected African presidents",
+    "Giving colonies complete independence immediately",
+    "Allowing communities to reject colonial laws freely"
+   ],
+   "correctAnswer": "Using existing local authorities under colonial supervision",
+   "explanation": "Indirect rule worked through selected local rulers while colonial officials retained final authority.",
+   "difficulty": 2,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Colonial Administration",
+   "learningOutcome": "Describe forms of colonial administration and their effects.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "How did forced labour and taxation help colonial governments control African communities?",
+   "options": [
+    "They pushed people into wage labour and colonial economic systems",
+    "They allowed people to avoid colonial markets completely",
+    "They ended the need for cash crops",
+    "They removed colonial authority from rural areas"
+   ],
+   "correctAnswer": "They pushed people into wage labour and colonial economic systems",
+   "explanation": "Taxes and labour demands pressured Africans to work for wages, produce cash crops, or enter colonial markets.",
+   "difficulty": 3,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Colonial Economy",
+   "learningOutcome": "Analyze how colonial economic policies affected African livelihoods.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which response best illustrates African resistance to colonial rule?",
+   "options": [
+    "Organizing armed, political, or cultural opposition to colonial control",
+    "Accepting every colonial policy without question",
+    "Ending all community leadership before colonization",
+    "Refusing to preserve any local identity"
+   ],
+   "correctAnswer": "Organizing armed, political, or cultural opposition to colonial control",
+   "explanation": "Resistance took many forms, including armed struggle, petitions, strikes, religious movements, and cultural defence.",
+   "difficulty": 2,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Resistance and Collaboration",
+   "learningOutcome": "Explain different African responses to colonial rule.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Why is the term collaboration sometimes difficult for historians to use?",
+   "options": [
+    "Some African leaders acted under pressure, limited choices, or strategic calculation",
+    "It means every African leader supported colonial rule equally",
+    "It proves that colonialism was harmless",
+    "It removes the need to study local contexts"
+   ],
+   "correctAnswer": "Some African leaders acted under pressure, limited choices, or strategic calculation",
+   "explanation": "Historical judgement must consider context, power imbalance, survival strategies, and local interests.",
+   "difficulty": 4,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Resistance and Collaboration",
+   "learningOutcome": "Analyze the complexity of African responses to colonial power.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which colonial policy most directly changed land ownership patterns in parts of Kenya?",
+   "options": [
+    "Alienation of fertile land for settler agriculture",
+    "Building public libraries in every village",
+    "Abolition of all taxes",
+    "Equal distribution of land to every household"
+   ],
+   "correctAnswer": "Alienation of fertile land for settler agriculture",
+   "explanation": "Land alienation displaced many Africans and created long-term social and economic grievances.",
+   "difficulty": 3,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Land and Settlement",
+   "learningOutcome": "Explain how colonial land policies affected Kenyan communities.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "What was one major effect of colonial education in Kenya?",
+   "options": [
+    "It created new opportunities while often serving colonial labour needs",
+    "It gave all learners equal access to university",
+    "It had no connection to employment",
+    "It immediately ended social inequality"
+   ],
+   "correctAnswer": "It created new opportunities while often serving colonial labour needs",
+   "explanation": "Colonial education opened literacy and professional paths but was shaped by unequal colonial priorities.",
+   "difficulty": 3,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Education and Social Change",
+   "learningOutcome": "Assess social effects of colonial education in Kenya.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which statement best evaluates the building of railways during colonial rule in East Africa?",
+   "options": [
+    "They improved transport but mainly served colonial economic and administrative goals",
+    "They were built only for holiday travel",
+    "They ended all forms of African trade",
+    "They were unrelated to colonial control"
+   ],
+   "correctAnswer": "They improved transport but mainly served colonial economic and administrative goals",
+   "explanation": "Railways linked regions and markets, but their routes and priorities were shaped by colonial extraction and control.",
+   "difficulty": 4,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Infrastructure and Control",
+   "learningOutcome": "Evaluate colonial infrastructure using multiple historical perspectives.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which inquiry question would best help learners connect colonial land policies to later nationalist demands?",
+   "options": [
+    "How did land alienation shape grievances, organization, and calls for self-rule?",
+    "What colour were colonial office buildings?",
+    "How many pages are in one history textbook?",
+    "Which road is nearest to the classroom?"
+   ],
+   "correctAnswer": "How did land alienation shape grievances, organization, and calls for self-rule?",
+   "explanation": "The question links cause, consequence, and political mobilization, which supports deeper historical analysis.",
+   "difficulty": 5,
+   "strandTitle": "Colonialism and African Responses",
+   "subStrandTitle": "Colonial Legacies",
+   "learningOutcome": "Frame historical questions that connect colonial policies to nationalism.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "What does nationalism generally mean in the study of African decolonization?",
+   "options": [
+    "A people's desire for self-rule and national identity",
+    "A plan to preserve colonial rule forever",
+    "The rejection of all political organization",
+    "A belief that history should not be studied"
+   ],
+   "correctAnswer": "A people's desire for self-rule and national identity",
+   "explanation": "Nationalism mobilized people to demand political rights, dignity, and independence from colonial rule.",
+   "difficulty": 1,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Meaning of Nationalism",
+   "learningOutcome": "Define nationalism in the context of African decolonization.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which factor contributed to the growth of African nationalism after the Second World War?",
+   "options": [
+    "Ex-servicemen returned with wider political awareness and demands for rights",
+    "Colonial governments abolished all restrictions immediately",
+    "African newspapers stopped discussing politics",
+    "Workers lost all interest in wages and conditions"
+   ],
+   "correctAnswer": "Ex-servicemen returned with wider political awareness and demands for rights",
+   "explanation": "War service exposed many Africans to global politics and strengthened demands for equality and self-rule.",
+   "difficulty": 2,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Growth of Nationalism",
+   "learningOutcome": "Explain factors that encouraged nationalist movements in Africa.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which method was commonly used by nationalist movements to challenge colonial rule?",
+   "options": [
+    "Petitions, strikes, political parties, newspapers, and demonstrations",
+    "Avoiding all communication among supporters",
+    "Defending colonial segregation as permanent",
+    "Destroying all records of public grievances"
+   ],
+   "correctAnswer": "Petitions, strikes, political parties, newspapers, and demonstrations",
+   "explanation": "Nationalists used organized civic and political action to publicize grievances and pressure colonial authorities.",
+   "difficulty": 2,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Nationalist Strategies",
+   "learningOutcome": "Describe methods used by nationalist movements to pursue independence.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Why were newspapers and pamphlets important in nationalist struggles?",
+   "options": [
+    "They spread political ideas and helped mobilize public opinion",
+    "They stopped people from learning about rights",
+    "They replaced all forms of leadership",
+    "They were used only for weather reports"
+   ],
+   "correctAnswer": "They spread political ideas and helped mobilize public opinion",
+   "explanation": "Print media helped share grievances, explain goals, and connect supporters across different areas.",
+   "difficulty": 3,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Media and Mobilization",
+   "learningOutcome": "Explain the role of media in nationalist mobilization.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which statement best links Pan-Africanism to African independence movements?",
+   "options": [
+    "It encouraged solidarity among people of African descent against colonialism and racism",
+    "It promoted permanent colonial rule in Africa",
+    "It opposed cooperation among African peoples",
+    "It focused only on European royal families"
+   ],
+   "correctAnswer": "It encouraged solidarity among people of African descent against colonialism and racism",
+   "explanation": "Pan-Africanism provided ideas, networks, and moral support for anti-colonial struggles.",
+   "difficulty": 3,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Pan-Africanism",
+   "learningOutcome": "Analyze the contribution of Pan-African ideas to decolonization.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which challenge commonly faced newly independent African states?",
+   "options": [
+    "Building national unity while addressing colonial economic inequalities",
+    "Lack of any need for public services",
+    "Immediate disappearance of all political disagreements",
+    "Absence of inherited colonial borders"
+   ],
+   "correctAnswer": "Building national unity while addressing colonial economic inequalities",
+   "explanation": "New states inherited unequal economies, contested borders, and diverse populations that required careful nation building.",
+   "difficulty": 3,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Post-Independence Challenges",
+   "learningOutcome": "Explain challenges faced by African states at independence.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Why did some African independence movements use armed struggle while others relied mainly on negotiations?",
+   "options": [
+    "Colonial conditions, settler interests, repression, and political opportunities differed by territory",
+    "All colonies had identical conditions",
+    "Negotiations were illegal everywhere",
+    "Armed struggle was required by every constitution"
+   ],
+   "correctAnswer": "Colonial conditions, settler interests, repression, and political opportunities differed by territory",
+   "explanation": "The path to independence depended on local context, colonial policy, leadership, and the balance of power.",
+   "difficulty": 4,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Paths to Independence",
+   "learningOutcome": "Compare different paths used by African countries to achieve independence.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which factor made labour unions important in nationalist politics?",
+   "options": [
+    "They organized workers around wages, rights, and colonial economic grievances",
+    "They prevented workers from discussing public issues",
+    "They were created only to support forced labour",
+    "They had no connection to urban life"
+   ],
+   "correctAnswer": "They organized workers around wages, rights, and colonial economic grievances",
+   "explanation": "Workers' organizations could turn workplace grievances into wider political pressure for change.",
+   "difficulty": 3,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Labour and Nationalism",
+   "learningOutcome": "Analyze the role of labour movements in nationalist struggles.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which evaluation best explains why independence did not automatically solve all colonial-era problems?",
+   "options": [
+    "Political sovereignty had to be followed by difficult economic, social, and institutional reforms",
+    "Independence ended all poverty in one day",
+    "Colonial economies had been perfectly equal",
+    "New governments inherited no institutions"
+   ],
+   "correctAnswer": "Political sovereignty had to be followed by difficult economic, social, and institutional reforms",
+   "explanation": "Independence gave control of government, but deep structural problems required long-term policy choices.",
+   "difficulty": 4,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Meaning of Independence",
+   "learningOutcome": "Evaluate the difference between political independence and broader social transformation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which classroom product would best compare two African nationalist movements without oversimplifying them?",
+   "options": [
+    "A matrix showing causes, leaders, methods, colonial response, and outcomes",
+    "A single slogan copied for both countries",
+    "A list of dates with no explanation",
+    "A poster ranking one country as always superior"
+   ],
+   "correctAnswer": "A matrix showing causes, leaders, methods, colonial response, and outcomes",
+   "explanation": "A comparison matrix helps learners examine similarities and differences using clear historical criteria.",
+   "difficulty": 5,
+   "strandTitle": "Nationalism and Decolonization",
+   "subStrandTitle": "Comparative Nationalism",
+   "learningOutcome": "Create a structured comparison of nationalist movements in Africa.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "What is nation building?",
+   "options": [
+    "The process of strengthening unity, identity, institutions, and shared citizenship",
+    "The construction of private houses only",
+    "The rejection of all national symbols",
+    "The end of every public service"
+   ],
+   "correctAnswer": "The process of strengthening unity, identity, institutions, and shared citizenship",
+   "explanation": "Nation building involves creating bonds and institutions that help diverse citizens live under a shared state.",
+   "difficulty": 1,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Nation Building",
+   "learningOutcome": "Define nation building in post-independence Kenya.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Which policy goal was central to post-independence Kenya's expansion of education?",
+   "options": [
+    "Developing human resources and widening access to learning",
+    "Reducing literacy among citizens",
+    "Ending all teacher training",
+    "Making schools serve only one county"
+   ],
+   "correctAnswer": "Developing human resources and widening access to learning",
+   "explanation": "Education was viewed as a way to build skills, citizenship, and capacity for national development.",
+   "difficulty": 2,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Education and Development",
+   "learningOutcome": "Explain the role of education in Kenya's national development.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Why was land reform a major issue in Kenya after independence?",
+   "options": [
+    "Colonial land alienation had created displacement and unequal access to land",
+    "No Kenyan community used land before independence",
+    "Land had no economic or cultural value",
+    "All land disputes disappeared before independence"
+   ],
+   "correctAnswer": "Colonial land alienation had created displacement and unequal access to land",
+   "explanation": "Land remained central because colonial policies had changed ownership, settlement, and livelihoods.",
+   "difficulty": 3,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Land and Settlement",
+   "learningOutcome": "Analyze why land remained a major issue in post-independence Kenya.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Which statement best describes Harambee in Kenya's development history?",
+   "options": [
+    "A self-help approach where communities contribute to public projects",
+    "A colonial tax used to force labour",
+    "A system that bans community participation",
+    "A foreign military alliance"
+   ],
+   "correctAnswer": "A self-help approach where communities contribute to public projects",
+   "explanation": "Harambee encouraged local fundraising and labour for schools, health facilities, and other community needs.",
+   "difficulty": 2,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Community Development",
+   "learningOutcome": "Explain the meaning and role of Harambee in Kenyan development.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which challenge did rapid urban growth create in post-independence Kenya?",
+   "options": [
+    "Pressure on housing, transport, sanitation, and employment",
+    "A complete end to rural-urban migration",
+    "Too many empty schools in every city",
+    "No demand for public services"
+   ],
+   "correctAnswer": "Pressure on housing, transport, sanitation, and employment",
+   "explanation": "Urban growth can create opportunities but also strains services when planning and investment lag behind population change.",
+   "difficulty": 3,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Urbanization",
+   "learningOutcome": "Assess social challenges linked to urban growth in Kenya.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "What was a major aim of constitutional reform efforts in Kenya before the 2010 Constitution?",
+   "options": [
+    "Expanding democracy, rights, accountability, and public participation",
+    "Ending all elections permanently",
+    "Removing every limit on state power",
+    "Reducing citizen involvement in governance"
+   ],
+   "correctAnswer": "Expanding democracy, rights, accountability, and public participation",
+   "explanation": "Reform campaigns sought stronger rights, checks on power, fairer representation, and more accountable institutions.",
+   "difficulty": 3,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Constitutional Reform",
+   "learningOutcome": "Explain historical reasons for constitutional reform in Kenya.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why national symbols matter in Kenya?",
+   "options": [
+    "They represent shared identity and can promote unity across diversity",
+    "They replace the Constitution in all legal matters",
+    "They remove the need for public service",
+    "They belong only to one region"
+   ],
+   "correctAnswer": "They represent shared identity and can promote unity across diversity",
+   "explanation": "Symbols such as the flag and national anthem can strengthen belonging when used inclusively.",
+   "difficulty": 4,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "National Identity",
+   "learningOutcome": "Analyze the role of national symbols in promoting unity.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which factor has most shaped debates about equitable development in Kenya?",
+   "options": [
+    "Unequal regional access to infrastructure, services, and economic opportunities",
+    "Equal resources in every locality at all times",
+    "Absence of rural communities",
+    "A ban on development planning"
+   ],
+   "correctAnswer": "Unequal regional access to infrastructure, services, and economic opportunities",
+   "explanation": "Development debates often focus on how to reduce historical and regional inequalities in public investment.",
+   "difficulty": 4,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Development and Equity",
+   "learningOutcome": "Evaluate debates about equity in Kenya's development history.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which civic habit best supports national cohesion in a diverse society?",
+   "options": [
+    "Respecting different identities while defending equal rights for all citizens",
+    "Spreading stereotypes about communities",
+    "Refusing to cooperate with people from other regions",
+    "Treating public resources as private property"
+   ],
+   "correctAnswer": "Respecting different identities while defending equal rights for all citizens",
+   "explanation": "Cohesion grows when diversity is respected and citizenship rights are applied equally.",
+   "difficulty": 2,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Social Cohesion",
+   "learningOutcome": "Apply civic values that support national cohesion.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which policy brief topic would best connect Kenya's history since independence to present citizenship learning?",
+   "options": [
+    "How constitutional reform, devolution, and public participation respond to past governance challenges",
+    "How to memorize all public holidays without context",
+    "Why citizens should avoid public decision-making",
+    "Why historical evidence is unnecessary for policy debate"
+   ],
+   "correctAnswer": "How constitutional reform, devolution, and public participation respond to past governance challenges",
+   "explanation": "A strong policy brief links historical problems to institutional changes and active citizenship.",
+   "difficulty": 5,
+   "strandTitle": "Kenya Since Independence",
+   "subStrandTitle": "Historical Lessons for Citizenship",
+   "learningOutcome": "Create evidence-based links between post-independence history and citizenship practice.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "What does constitutional supremacy mean?",
+   "options": [
+    "The Constitution is the highest law and other laws must conform to it",
+    "Parliament may ignore the Constitution at any time",
+    "County laws are always above national law",
+    "Citizenship replaces all courts"
+   ],
+   "correctAnswer": "The Constitution is the highest law and other laws must conform to it",
+   "explanation": "Constitutional supremacy means public power and laws are valid only when they follow the Constitution.",
+   "difficulty": 1,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Supremacy of the Constitution",
+   "learningOutcome": "Explain the meaning of constitutional supremacy.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which principle is shown when the legislature makes laws, the executive implements them, and the judiciary interprets them?",
+   "options": [
+    "Separation of powers",
+    "Forced labour",
+    "Direct colonial rule",
+    "Cultural assimilation"
+   ],
+   "correctAnswer": "Separation of powers",
+   "explanation": "Separation of powers distributes government functions to reduce abuse and improve accountability.",
+   "difficulty": 1,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Separation of Powers",
+   "learningOutcome": "Identify the roles of the main arms of government.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Why is judicial independence important in constitutional democracy?",
+   "options": [
+    "It enables courts to decide disputes fairly without improper pressure",
+    "It allows judges to make laws alone",
+    "It removes the need for evidence in court",
+    "It gives courts power to ignore the Constitution"
+   ],
+   "correctAnswer": "It enables courts to decide disputes fairly without improper pressure",
+   "explanation": "Independent courts protect rights, resolve disputes, and check unlawful use of power.",
+   "difficulty": 2,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Judicial Independence",
+   "learningOutcome": "Explain the importance of judicial independence in governance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which example best shows checks and balances?",
+   "options": [
+    "A court reviews whether a government action follows the Constitution",
+    "One leader makes all decisions without review",
+    "Citizens are banned from asking questions",
+    "Public officials spend funds without records"
+   ],
+   "correctAnswer": "A court reviews whether a government action follows the Constitution",
+   "explanation": "Checks and balances allow institutions to limit one another so power is exercised lawfully.",
+   "difficulty": 3,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Checks and Balances",
+   "learningOutcome": "Apply the idea of checks and balances to governance situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which value is included among Kenya's national values and principles of governance?",
+   "options": [
+    "Rule of law",
+    "Secret public budgeting",
+    "Discrimination",
+    "Absolute personal rule"
+   ],
+   "correctAnswer": "Rule of law",
+   "explanation": "The national values include rule of law, democracy, public participation, equality, integrity, and related principles.",
+   "difficulty": 1,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "National Values",
+   "learningOutcome": "Identify national values and principles of governance in Kenya.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Why does public participation matter when making laws or policies?",
+   "options": [
+    "It allows citizens to contribute views and improves legitimacy",
+    "It stops citizens from knowing public decisions",
+    "It makes evidence unnecessary",
+    "It gives one official all public power"
+   ],
+   "correctAnswer": "It allows citizens to contribute views and improves legitimacy",
+   "explanation": "Public participation connects government decisions to people's needs and strengthens accountability.",
+   "difficulty": 2,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Public Participation",
+   "learningOutcome": "Explain why public participation is important in democratic governance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "A county plans a market but ignores traders, residents, and accessibility needs. Which governance principle is most at risk?",
+   "options": [
+    "Public participation",
+    "Historical chronology",
+    "Trans-Saharan trade",
+    "Oral tradition"
+   ],
+   "correctAnswer": "Public participation",
+   "explanation": "Planning public services should involve affected people so decisions respond to real needs.",
+   "difficulty": 3,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Participatory Governance",
+   "learningOutcome": "Apply public participation principles to local governance scenarios.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why the rule of law protects citizens?",
+   "options": [
+    "It requires public power to be exercised according to known and fair laws",
+    "It lets officials punish people without legal process",
+    "It gives different laws to each family",
+    "It removes courts from public life"
+   ],
+   "correctAnswer": "It requires public power to be exercised according to known and fair laws",
+   "explanation": "The rule of law limits arbitrary power and helps citizens claim rights through lawful procedures.",
+   "difficulty": 4,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Rule of Law",
+   "learningOutcome": "Analyze how rule of law protects citizens and institutions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which situation best shows accountability in public office?",
+   "options": [
+    "Officials explain decisions, keep records, and face lawful review",
+    "Officials refuse audits and hide public spending",
+    "Citizens are blocked from all information",
+    "Leaders use public resources for private gain"
+   ],
+   "correctAnswer": "Officials explain decisions, keep records, and face lawful review",
+   "explanation": "Accountability requires answerability, transparency, and consequences for misuse of authority.",
+   "difficulty": 3,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Accountability",
+   "learningOutcome": "Apply accountability principles to public leadership.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which civic education activity best helps learners evaluate constitutional governance in their county?",
+   "options": [
+    "Compare a county plan with public participation records, budget data, and service outcomes",
+    "Memorize county names without checking services",
+    "Ask only one official for an unsupported opinion",
+    "Ignore public documents because they are difficult"
+   ],
+   "correctAnswer": "Compare a county plan with public participation records, budget data, and service outcomes",
+   "explanation": "Evaluating governance requires evidence about planning, citizen input, spending, and actual results.",
+   "difficulty": 5,
+   "strandTitle": "Constitutional Governance",
+   "subStrandTitle": "Civic Evaluation",
+   "learningOutcome": "Design an evidence-based activity for evaluating constitutional governance.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which statement describes citizenship by birth in general terms?",
+   "options": [
+    "A legal status acquired through birth under constitutional rules",
+    "A temporary school club membership",
+    "A colonial labour contract",
+    "A business licence issued to a company"
+   ],
+   "correctAnswer": "A legal status acquired through birth under constitutional rules",
+   "explanation": "Citizenship by birth is a legal connection to the state that carries rights and responsibilities.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Citizenship Status",
+   "learningOutcome": "Describe basic forms of citizenship recognized in Kenya.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which right is protected in a democratic society when citizens peacefully express different views?",
+   "options": [
+    "Freedom of expression",
+    "Forced silence",
+    "Collective punishment",
+    "Denial of identity"
+   ],
+   "correctAnswer": "Freedom of expression",
+   "explanation": "Freedom of expression allows lawful sharing of ideas and supports democratic debate.",
+   "difficulty": 1,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Bill of Rights",
+   "learningOutcome": "Identify rights and freedoms that support democratic citizenship.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Why are rights usually linked to responsibilities?",
+   "options": [
+    "Responsible conduct helps protect the rights of other people",
+    "Rights work only when others are denied dignity",
+    "Responsibilities cancel all legal protections",
+    "Citizens have duties only during elections"
+   ],
+   "correctAnswer": "Responsible conduct helps protect the rights of other people",
+   "explanation": "Rights are enjoyed in society, so citizens should exercise them while respecting others and the law.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Rights and Duties",
+   "learningOutcome": "Explain the relationship between rights and responsibilities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which action best demonstrates responsible digital citizenship during a public debate online?",
+   "options": [
+    "Checking sources before sharing claims about public issues",
+    "Forwarding every rumour immediately",
+    "Insulting people with different views",
+    "Editing images to mislead voters"
+   ],
+   "correctAnswer": "Checking sources before sharing claims about public issues",
+   "explanation": "Responsible digital citizenship requires accuracy, respect, and care with information that affects public life.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Digital Citizenship",
+   "learningOutcome": "Apply responsible citizenship values in digital public spaces.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of human rights?",
+   "options": [
+    "To protect dignity, freedom, equality, and basic welfare",
+    "To give rights only to powerful people",
+    "To replace all responsibilities",
+    "To prevent citizens from seeking justice"
+   ],
+   "correctAnswer": "To protect dignity, freedom, equality, and basic welfare",
+   "explanation": "Human rights recognize the worth of every person and limit actions that harm dignity and freedom.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Human Rights",
+   "learningOutcome": "Explain the purpose of human rights in society.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which example best shows active citizenship outside an election period?",
+   "options": [
+    "Attending a budget forum and giving evidence-based views",
+    "Waiting silently until the next general election",
+    "Refusing to report damaged public infrastructure",
+    "Avoiding all community problem-solving"
+   ],
+   "correctAnswer": "Attending a budget forum and giving evidence-based views",
+   "explanation": "Active citizenship includes ongoing participation in public decisions, not only voting.",
+   "difficulty": 3,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Civic Participation",
+   "learningOutcome": "Apply active citizenship practices to community issues.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why equality before the law matters?",
+   "options": [
+    "It prevents different legal treatment based only on status, wealth, or identity",
+    "It allows officials to favour their friends legally",
+    "It means laws apply only to citizens in cities",
+    "It removes all legal remedies for poor citizens"
+   ],
+   "correctAnswer": "It prevents different legal treatment based only on status, wealth, or identity",
+   "explanation": "Equality before the law supports fairness by requiring the same legal standards for all people.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Equality and Non-Discrimination",
+   "learningOutcome": "Analyze the importance of equality before the law.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A student council wants to solve bullying while respecting rights. Which approach is best?",
+   "options": [
+    "Create clear reporting channels, fair hearing procedures, counselling, and prevention education",
+    "Punish accused learners without listening to evidence",
+    "Ignore complaints to protect the school's image",
+    "Publish private details of all learners online"
+   ],
+   "correctAnswer": "Create clear reporting channels, fair hearing procedures, counselling, and prevention education",
+   "explanation": "A rights-based response protects victims, respects due process, and works to prevent repeated harm.",
+   "difficulty": 5,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Rights-Based Problem Solving",
+   "learningOutcome": "Design rights-respecting responses to school and community problems.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which responsibility supports fair public services?",
+   "options": [
+    "Paying lawful taxes and protecting public property",
+    "Destroying shared facilities",
+    "Demanding services while hiding all public information",
+    "Using false documents to gain benefits"
+   ],
+   "correctAnswer": "Paying lawful taxes and protecting public property",
+   "explanation": "Public services depend on lawful revenue and responsible use of shared resources.",
+   "difficulty": 2,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Citizen Responsibilities",
+   "learningOutcome": "Identify responsibilities that support public services and social order.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which media literacy question is most useful before accepting a political claim shared online?",
+   "options": [
+    "Who produced it, what evidence is given, and can the claim be verified?",
+    "Does it make me angry quickly?",
+    "Can I share it before reading?",
+    "Does it attack people I already dislike?"
+   ],
+   "correctAnswer": "Who produced it, what evidence is given, and can the claim be verified?",
+   "explanation": "Critical questions about source, evidence, and verification help citizens avoid misinformation.",
+   "difficulty": 4,
+   "strandTitle": "Citizenship, Rights, and Responsibilities",
+   "subStrandTitle": "Media Literacy",
+   "learningOutcome": "Evaluate public information using media literacy questions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "What is devolution in Kenya's constitutional system?",
+   "options": [
+    "Sharing governance functions and resources between national and county governments",
+    "A return to direct colonial administration",
+    "A system where counties have no public role",
+    "The abolition of local service delivery"
+   ],
+   "correctAnswer": "Sharing governance functions and resources between national and county governments",
+   "explanation": "Devolution brings some powers and resources closer to citizens through county governments.",
+   "difficulty": 1,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Meaning of Devolution",
+   "learningOutcome": "Define devolution in Kenya's governance structure.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "Which office heads the county executive in Kenya?",
+   "options": [
+    "Governor",
+    "Speaker of the National Assembly",
+    "Chief Justice",
+    "Cabinet Secretary for Foreign Affairs"
+   ],
+   "correctAnswer": "Governor",
+   "explanation": "The governor leads the county executive and is responsible for implementing county functions.",
+   "difficulty": 1,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "County Government Structure",
+   "learningOutcome": "Identify key offices in county government.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Why was devolution introduced as an important part of Kenya's 2010 constitutional order?",
+   "options": [
+    "To promote local participation, equity, and access to services",
+    "To centralize every service in one office",
+    "To end all county-level planning",
+    "To prevent citizens from monitoring leaders"
+   ],
+   "correctAnswer": "To promote local participation, equity, and access to services",
+   "explanation": "Devolution seeks to bring government closer to people and address unequal development.",
+   "difficulty": 2,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Objectives of Devolution",
+   "learningOutcome": "Explain objectives of devolution in Kenya.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Which function is commonly associated with county governments in Kenya?",
+   "options": [
+    "County health services",
+    "Issuing national currency",
+    "Defending national borders",
+    "Running diplomatic missions abroad"
+   ],
+   "correctAnswer": "County health services",
+   "explanation": "County governments handle functions such as county health services, local markets, and some local infrastructure.",
+   "difficulty": 2,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "County Functions",
+   "learningOutcome": "Identify examples of county government functions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "A ward has poor drainage and residents want county action. Which first step best fits participatory devolution?",
+   "options": [
+    "Raise the issue through public forums, ward representatives, and county planning channels",
+    "Destroy public roads to attract attention",
+    "Ignore the issue until another county solves it",
+    "Send private threats to county staff"
+   ],
+   "correctAnswer": "Raise the issue through public forums, ward representatives, and county planning channels",
+   "explanation": "Participatory channels allow citizens to present needs lawfully and link them to county planning.",
+   "difficulty": 3,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Citizen Participation in Counties",
+   "learningOutcome": "Apply lawful participation methods to county service challenges.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why county budgets should be publicly available?",
+   "options": [
+    "Citizens need budget information to track priorities, spending, and service delivery",
+    "Budgets are private property of officials",
+    "Public information prevents all planning",
+    "County funds do not affect residents"
+   ],
+   "correctAnswer": "Citizens need budget information to track priorities, spending, and service delivery",
+   "explanation": "Budget transparency helps citizens judge whether public money matches local needs and legal priorities.",
+   "difficulty": 4,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Budget Accountability",
+   "learningOutcome": "Analyze why transparency is important in county budgeting.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "What is a county assembly mainly expected to do?",
+   "options": [
+    "Make county laws, approve budgets, and oversee the county executive",
+    "Command the national military",
+    "Register international treaties alone",
+    "Print Kenyan currency"
+   ],
+   "correctAnswer": "Make county laws, approve budgets, and oversee the county executive",
+   "explanation": "County assemblies legislate for counties and check how the executive uses power and resources.",
+   "difficulty": 2,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "County Assembly",
+   "learningOutcome": "Describe the role of county assemblies in devolved government.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Which situation would most likely weaken devolution?",
+   "options": [
+    "Duplicating projects without coordination between national and county governments",
+    "Holding lawful public participation meetings",
+    "Publishing service delivery reports",
+    "Auditing public funds"
+   ],
+   "correctAnswer": "Duplicating projects without coordination between national and county governments",
+   "explanation": "Poor coordination wastes resources and can make it unclear which level of government is responsible.",
+   "difficulty": 4,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Intergovernmental Relations",
+   "learningOutcome": "Analyze challenges that can affect devolved service delivery.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "Which tool would best help citizens monitor whether a county health project is progressing?",
+   "options": [
+    "A checklist comparing budget allocation, procurement, timelines, site visits, and service indicators",
+    "A rumour from an anonymous social media account",
+    "A list of unrelated national holidays",
+    "A drawing of a hospital with no data"
+   ],
+   "correctAnswer": "A checklist comparing budget allocation, procurement, timelines, site visits, and service indicators",
+   "explanation": "Monitoring needs evidence from financial records, implementation timelines, physical progress, and service results.",
+   "difficulty": 5,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Citizen Oversight",
+   "learningOutcome": "Create an evidence-based tool for monitoring county projects.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Which statement best describes equitable sharing of public resources?",
+   "options": [
+    "Allocating resources in ways that consider need, fairness, and development gaps",
+    "Giving all resources to the wealthiest area",
+    "Banning poorer areas from public services",
+    "Spending without considering population or need"
+   ],
+   "correctAnswer": "Allocating resources in ways that consider need, fairness, and development gaps",
+   "explanation": "Equity focuses on fair allocation that addresses unequal needs and historical disadvantages.",
+   "difficulty": 3,
+   "strandTitle": "Devolution and Public Finance",
+   "subStrandTitle": "Resource Equity",
+   "learningOutcome": "Explain the idea of equity in public resource allocation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Which organization promotes cooperation among East African partner states?",
+   "options": [
+    "East African Community",
+    "Great Zimbabwe Council",
+    "Berlin Conference Secretariat",
+    "League of Ancient Empires"
+   ],
+   "correctAnswer": "East African Community",
+   "explanation": "The East African Community supports regional cooperation in areas such as trade, movement, and policy coordination.",
+   "difficulty": 1,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "East African Community",
+   "learningOutcome": "Identify institutions that support regional integration in East Africa.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Which benefit is commonly linked to regional integration?",
+   "options": [
+    "Expanded markets and cooperation across borders",
+    "Permanent closure of all borders to trade",
+    "A ban on cultural exchange",
+    "Ending all diplomatic dialogue"
+   ],
+   "correctAnswer": "Expanded markets and cooperation across borders",
+   "explanation": "Regional integration can increase trade, mobility, shared infrastructure, and peaceful cooperation.",
+   "difficulty": 2,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Benefits of Integration",
+   "learningOutcome": "Explain benefits of regional integration for citizens and states.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "What is the African Union mainly intended to promote?",
+   "options": [
+    "African unity, cooperation, peace, and development",
+    "The return of colonial partition",
+    "Isolation of all African states",
+    "Abolition of all continental diplomacy"
+   ],
+   "correctAnswer": "African unity, cooperation, peace, and development",
+   "explanation": "The African Union provides a continental platform for cooperation on peace, governance, and development.",
+   "difficulty": 1,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "African Union",
+   "learningOutcome": "Identify the broad purpose of the African Union.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which situation best shows global citizenship?",
+   "options": [
+    "Working with others to address climate, peace, health, or human rights issues beyond one country",
+    "Ignoring problems because they cross borders",
+    "Refusing to learn about other societies",
+    "Treating international cooperation as useless"
+   ],
+   "correctAnswer": "Working with others to address climate, peace, health, or human rights issues beyond one country",
+   "explanation": "Global citizenship recognizes shared responsibilities and cooperation across national boundaries.",
+   "difficulty": 2,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Global Citizenship",
+   "learningOutcome": "Explain the meaning of global citizenship through practical examples.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "How can cross-border trade support peace among neighbouring communities?",
+   "options": [
+    "It creates shared economic interests and regular communication",
+    "It requires communities to stop talking",
+    "It always removes the need for law",
+    "It prevents any cooperation over resources"
+   ],
+   "correctAnswer": "It creates shared economic interests and regular communication",
+   "explanation": "Trade can build interdependence, relationships, and incentives to resolve disputes peacefully.",
+   "difficulty": 3,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Trade and Peace",
+   "learningOutcome": "Analyze how economic cooperation can contribute to peaceful relations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Which challenge can limit the success of regional integration?",
+   "options": [
+    "Differences in laws, infrastructure, security, and economic priorities",
+    "Too much accurate information",
+    "Complete absence of trade routes",
+    "Perfect agreement on every policy"
+   ],
+   "correctAnswer": "Differences in laws, infrastructure, security, and economic priorities",
+   "explanation": "Integration requires coordination, and differences among states can slow implementation.",
+   "difficulty": 3,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Challenges of Integration",
+   "learningOutcome": "Explain challenges that affect regional integration efforts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why peacekeeping may require regional cooperation?",
+   "options": [
+    "Conflict can affect refugees, trade, security, and stability across borders",
+    "Conflict never crosses borders",
+    "Neighbouring countries are always unaffected",
+    "Peacekeeping is only a local school activity"
+   ],
+   "correctAnswer": "Conflict can affect refugees, trade, security, and stability across borders",
+   "explanation": "Regional cooperation helps address the wider effects of conflict and supports shared security.",
+   "difficulty": 4,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Peace and Security",
+   "learningOutcome": "Analyze why peace and security often require regional cooperation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which policy choice best supports humane treatment of refugees while respecting national law?",
+   "options": [
+    "Register people fairly, protect basic rights, and coordinate with humanitarian agencies",
+    "Deny all displaced people any legal process",
+    "Spread fear about all foreigners",
+    "Ignore international and national obligations"
+   ],
+   "correctAnswer": "Register people fairly, protect basic rights, and coordinate with humanitarian agencies",
+   "explanation": "A lawful and humane response balances security, dignity, rights, and coordinated support.",
+   "difficulty": 5,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Refugees and Humanitarian Responsibility",
+   "learningOutcome": "Evaluate rights-respecting responses to displacement and refugee issues.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Why are international organizations such as the United Nations important in global affairs?",
+   "options": [
+    "They provide forums for cooperation on peace, development, rights, and humanitarian issues",
+    "They replace every national constitution",
+    "They make all countries identical",
+    "They end the need for local citizenship"
+   ],
+   "correctAnswer": "They provide forums for cooperation on peace, development, rights, and humanitarian issues",
+   "explanation": "International organizations help states coordinate responses to problems that require collective action.",
+   "difficulty": 2,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "International Organizations",
+   "learningOutcome": "Explain the role of international organizations in global cooperation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Which student project best links regional integration to everyday citizenship?",
+   "options": [
+    "Investigating how border trade, transport, and shared resources affect local livelihoods",
+    "Listing capitals without explaining any connection",
+    "Copying a map with no interpretation",
+    "Avoiding interviews with affected residents"
+   ],
+   "correctAnswer": "Investigating how border trade, transport, and shared resources affect local livelihoods",
+   "explanation": "A strong project connects regional institutions and policies to real experiences of citizens and communities.",
+   "difficulty": 4,
+   "strandTitle": "Regional Integration and Global Citizenship",
+   "subStrandTitle": "Integration in Daily Life",
+   "learningOutcome": "Evaluate how regional integration affects citizens' everyday lives.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "What is cultural heritage?",
+   "options": [
+    "Inherited practices, places, objects, knowledge, and values passed between generations",
+    "Only newly imported products",
+    "Anything with no link to identity",
+    "A law that bans museums"
+   ],
+   "correctAnswer": "Inherited practices, places, objects, knowledge, and values passed between generations",
+   "explanation": "Cultural heritage includes both tangible and intangible inheritance that communities value and transmit.",
+   "difficulty": 1,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Cultural Heritage",
+   "learningOutcome": "Define cultural heritage and give examples of its forms.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Why are museums important for historical learning?",
+   "options": [
+    "They preserve artefacts and help interpret evidence from the past",
+    "They replace all schools permanently",
+    "They exist only for selling modern goods",
+    "They prevent learners from seeing evidence"
+   ],
+   "correctAnswer": "They preserve artefacts and help interpret evidence from the past",
+   "explanation": "Museums conserve objects, provide context, and support public learning about history and culture.",
+   "difficulty": 2,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Museums and Archives",
+   "learningOutcome": "Explain the role of museums and archives in preserving history.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "Which action best protects a historical site from damage?",
+   "options": [
+    "Following conservation rules and reporting vandalism or illegal excavation",
+    "Removing artefacts for private display",
+    "Writing names on walls for memory",
+    "Digging at the site without permission"
+   ],
+   "correctAnswer": "Following conservation rules and reporting vandalism or illegal excavation",
+   "explanation": "Historical sites need lawful conservation so evidence and meaning are protected for future generations.",
+   "difficulty": 2,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Conservation Ethics",
+   "learningOutcome": "Apply responsible practices for conserving historical sites.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "How can heritage contribute to national cohesion?",
+   "options": [
+    "By helping citizens appreciate diverse histories as part of a shared national story",
+    "By proving that only one community has history",
+    "By encouraging discrimination against minority cultures",
+    "By making learners ignore other regions"
+   ],
+   "correctAnswer": "By helping citizens appreciate diverse histories as part of a shared national story",
+   "explanation": "Inclusive heritage learning can promote respect, belonging, and mutual recognition across communities.",
+   "difficulty": 3,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Heritage and Cohesion",
+   "learningOutcome": "Explain how heritage can support national cohesion.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which analysis best explains why monuments can be debated in society?",
+   "options": [
+    "Different groups may remember the same person or event in different ways",
+    "Monuments never carry meaning",
+    "All citizens must have identical memories",
+    "Historical memory cannot be discussed"
+   ],
+   "correctAnswer": "Different groups may remember the same person or event in different ways",
+   "explanation": "Public memory can be contested because experiences, values, and interpretations differ.",
+   "difficulty": 4,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Public Memory",
+   "learningOutcome": "Analyze why public memory and monuments may be contested.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Which method best helps preserve oral traditions accurately?",
+   "options": [
+    "Recording interviews with consent and storing transcripts with context",
+    "Changing stories to make them more dramatic",
+    "Ignoring the names of interviewees and locations",
+    "Destroying recordings after one lesson"
+   ],
+   "correctAnswer": "Recording interviews with consent and storing transcripts with context",
+   "explanation": "Accurate preservation records the speaker, context, consent, and content for responsible future use.",
+   "difficulty": 3,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Oral Traditions",
+   "learningOutcome": "Apply responsible methods for preserving oral traditions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Why should heritage tourism be managed carefully?",
+   "options": [
+    "It can support livelihoods but may damage sites or disrespect communities if unmanaged",
+    "It always destroys every historical site",
+    "It has no economic or cultural effect",
+    "It requires communities to abandon their heritage"
+   ],
+   "correctAnswer": "It can support livelihoods but may damage sites or disrespect communities if unmanaged",
+   "explanation": "Good management balances conservation, local benefit, visitor education, and respect for community values.",
+   "difficulty": 4,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Heritage Tourism",
+   "learningOutcome": "Evaluate opportunities and risks linked to heritage tourism.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which digital heritage project would be most ethical and useful for a school?",
+   "options": [
+    "A consent-based archive with captions, dates, source notes, and community review",
+    "A public upload of private family photos without permission",
+    "A collection with no source information",
+    "A page that mocks unfamiliar traditions"
+   ],
+   "correctAnswer": "A consent-based archive with captions, dates, source notes, and community review",
+   "explanation": "Ethical digital heritage protects rights, records context, and allows communities to review how their heritage is represented.",
+   "difficulty": 5,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Digital Heritage",
+   "learningOutcome": "Create ethical digital heritage resources using accurate source information.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which statement best distinguishes tangible from intangible heritage?",
+   "options": [
+    "Tangible heritage can be physically touched, while intangible heritage includes practices and knowledge",
+    "Tangible heritage is always modern, while intangible heritage is always foreign",
+    "Intangible heritage is never important",
+    "Tangible heritage cannot be preserved"
+   ],
+   "correctAnswer": "Tangible heritage can be physically touched, while intangible heritage includes practices and knowledge",
+   "explanation": "Buildings, artefacts, and sites are tangible, while songs, skills, ceremonies, and oral traditions are intangible.",
+   "difficulty": 2,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Forms of Heritage",
+   "learningOutcome": "Distinguish tangible and intangible forms of heritage.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which school exhibition theme best connects history, citizenship, and cohesion?",
+   "options": [
+    "Shared Histories: evidence, rights, responsibilities, and respect for diverse heritage",
+    "One Community Owns All History",
+    "Memorizing Dates Without Meaning",
+    "Ignoring Heritage to Avoid Discussion"
+   ],
+   "correctAnswer": "Shared Histories: evidence, rights, responsibilities, and respect for diverse heritage",
+   "explanation": "A strong exhibition connects evidence-based history with inclusive citizenship and respect for diversity.",
+   "difficulty": 5,
+   "strandTitle": "Heritage, Memory, and National Cohesion",
+   "subStrandTitle": "Public History Projects",
+   "learningOutcome": "Create a public history theme that promotes evidence-based citizenship and cohesion.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

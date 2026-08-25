@@ -1,1409 +1,2475 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "computer_studies",
-  "subjectName": "Computer Studies",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which component performs arithmetic and logic operations inside a computer system?",
-      "options": ["Central processing unit", "Solid-state drive", "Network switch", "Display adapter"],
-      "correctAnswer": "Central processing unit",
-      "explanation": "The central processing unit executes instructions and handles arithmetic, logic, and control tasks.",
-      "difficulty": 1,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Processor Architecture",
-      "learningOutcome": "Identify core hardware components and their functions in a computer system.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which memory type loses its contents when power is switched off?",
-      "options": ["RAM", "ROM", "Flash storage", "Optical disc"],
-      "correctAnswer": "RAM",
-      "explanation": "RAM is volatile memory, so it stores active data only while the computer has power.",
-      "difficulty": 1,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Memory Technologies",
-      "learningOutcome": "Distinguish volatile and non-volatile storage in computer systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of an operating system?",
-      "options": ["Managing hardware and software resources", "Replacing all application programs", "Increasing screen size physically", "Printing documents without a printer"],
-      "correctAnswer": "Managing hardware and software resources",
-      "explanation": "An operating system coordinates hardware, files, memory, processes, and user interaction for other programs.",
-      "difficulty": 1,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "System Software",
-      "learningOutcome": "State the role of operating systems in managing computing resources.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which number system uses base sixteen?",
-      "options": ["Hexadecimal", "Binary", "Octal", "Decimal"],
-      "correctAnswer": "Hexadecimal",
-      "explanation": "Hexadecimal is a base sixteen system that uses digits 0 to 9 and letters A to F.",
-      "difficulty": 1,
-      "strandTitle": "Data Representation",
-      "subStrandTitle": "Number Systems",
-      "learningOutcome": "Recognize number systems used to represent digital data.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which data structure stores items in indexed positions under one variable name?",
-      "options": ["Array", "Constant", "Comment", "Operator"],
-      "correctAnswer": "Array",
-      "explanation": "An array groups related values and lets a program access each value by position.",
-      "difficulty": 1,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Data Structures",
-      "learningOutcome": "Identify basic data structures used in program design.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which control structure repeats statements while a condition remains true?",
-      "options": ["Loop", "Sequence", "Declaration", "Comment"],
-      "correctAnswer": "Loop",
-      "explanation": "A loop controls repeated execution, often until a condition changes or a counter reaches a limit.",
-      "difficulty": 1,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Control Structures",
-      "learningOutcome": "Recognize control structures used to express repetition in algorithms.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "What does a primary key do in a relational database table?",
-      "options": ["Uniquely identifies each record", "Formats records for printing", "Encrypts every field automatically", "Deletes duplicate tables"],
-      "correctAnswer": "Uniquely identifies each record",
-      "explanation": "A primary key gives each row a unique identifier so records can be referenced reliably.",
-      "difficulty": 1,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Relational Tables",
-      "learningOutcome": "Define key fields used in relational database design.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "Which database language is commonly used to query relational databases?",
-      "options": ["SQL", "HTML", "CSS", "SVG"],
-      "correctAnswer": "SQL",
-      "explanation": "SQL is used to create, retrieve, update, and manage data in relational databases.",
-      "difficulty": 1,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Query Languages",
-      "learningOutcome": "Identify query languages used to work with structured data.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which type of network covers a small area such as a school laboratory or office?",
-      "options": ["Local area network", "Wide area network", "Storage area network", "Satellite navigation network"],
-      "correctAnswer": "Local area network",
-      "explanation": "A local area network connects devices in a limited area such as a room, building, or school compound.",
-      "difficulty": 1,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Types",
-      "learningOutcome": "Identify networks by their coverage area and common use.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which device forwards data packets between different networks?",
-      "options": ["Router", "Scanner", "Projector", "Keyboard"],
-      "correctAnswer": "Router",
-      "explanation": "A router directs packets between networks using destination address information.",
-      "difficulty": 1,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Devices",
-      "learningOutcome": "State the function of common devices used in computer networks.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "What is encryption mainly used for in information security?",
-      "options": ["Making data unreadable without the required key", "Increasing the physical size of a file", "Changing a monitor into an input device", "Removing the need for backups"],
-      "correctAnswer": "Making data unreadable without the required key",
-      "explanation": "Encryption transforms data so only authorized parties with the right key can read it.",
-      "difficulty": 1,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Data Protection",
-      "learningOutcome": "Recognize basic methods for protecting digital information.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which practice requires a password plus another proof such as a code or token?",
-      "options": ["Multi-factor authentication", "File compression", "Screen calibration", "Disk partitioning"],
-      "correctAnswer": "Multi-factor authentication",
-      "explanation": "Multi-factor authentication checks more than one evidence type before granting access.",
-      "difficulty": 1,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Authentication",
-      "learningOutcome": "Identify account protection methods used in secure systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "What is a dataset in data science?",
-      "options": ["A collection of related data for analysis", "A cable used for power supply", "A command that shuts down a computer", "A special type of printer tray"],
-      "correctAnswer": "A collection of related data for analysis",
-      "explanation": "A dataset is organized information that can be cleaned, explored, analyzed, or used for modelling.",
-      "difficulty": 1,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Data Basics",
-      "learningOutcome": "Define foundational terms used in data analysis.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which term describes an AI model learning patterns from labelled examples?",
-      "options": ["Supervised learning", "Disk formatting", "Manual sorting", "Optical zoom"],
-      "correctAnswer": "Supervised learning",
-      "explanation": "In supervised learning, examples include inputs and expected labels that guide the model during training.",
-      "difficulty": 1,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Machine Learning Concepts",
-      "learningOutcome": "Identify common approaches used to train AI systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which concept means using technology in a fair, legal, and responsible way?",
-      "options": ["ICT ethics", "Cache memory", "Packet routing", "Screen resolution"],
-      "correctAnswer": "ICT ethics",
-      "explanation": "ICT ethics covers responsible digital behavior, respect for rights, privacy, and legal use of resources.",
-      "difficulty": 1,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Responsible Technology Use",
-      "learningOutcome": "Recognize ethical principles that guide the use of digital technologies.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "A learner converts binary 1101 to decimal. What value should they get?",
-      "options": ["13", "11", "14", "7"],
-      "correctAnswer": "13",
-      "explanation": "Binary 1101 equals 8 plus 4 plus 1, which gives 13 in decimal.",
-      "difficulty": 2,
-      "strandTitle": "Data Representation",
-      "subStrandTitle": "Binary Conversion",
-      "learningOutcome": "Convert binary numbers to their decimal equivalents.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Which hexadecimal symbol represents decimal 15?",
-      "options": ["F (fifteen)", "A (ten)", "10 (sixteen)", "1F (thirty-one)"],
-      "correctAnswer": "F (fifteen)",
-      "explanation": "In hexadecimal, the symbol F represents the decimal value 15.",
-      "difficulty": 2,
-      "strandTitle": "Data Representation",
-      "subStrandTitle": "Hexadecimal Notation",
-      "learningOutcome": "Relate hexadecimal symbols to decimal values.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "A school computer needs fast storage for the operating system and applications. Which storage device is most suitable?",
-      "options": ["Solid-state drive", "Magnetic tape only", "Optical disc only", "Barcode scanner"],
-      "correctAnswer": "Solid-state drive",
-      "explanation": "A solid-state drive provides fast read and write access, which improves startup and application loading.",
-      "difficulty": 2,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Storage Selection",
-      "learningOutcome": "Choose appropriate storage technologies for different computing needs.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which statement best describes the relationship between hardware and software?",
-      "options": ["Hardware is physical equipment, while software gives instructions to it", "Hardware stores only poems, while software stores only photos", "Hardware is always free, while software is always paid", "Hardware works only when software is deleted"],
-      "correctAnswer": "Hardware is physical equipment, while software gives instructions to it",
-      "explanation": "Hardware provides physical capability, and software controls how that capability is used.",
-      "difficulty": 2,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Hardware and Software",
-      "learningOutcome": "Explain how hardware and software interact in a computer system.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Which operating system function is most directly involved when several programs appear to run at the same time?",
-      "options": ["Process scheduling", "Page orientation", "Font selection", "Cable crimping"],
-      "correctAnswer": "Process scheduling",
-      "explanation": "Process scheduling allocates processor time among active tasks so the system remains responsive.",
-      "difficulty": 2,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Process Management",
-      "learningOutcome": "Describe operating system functions that coordinate running programs.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "A program needs to store whether a learner has paid school fees. Which data type is most suitable?",
-      "options": ["Boolean", "Real", "Character", "Array index"],
-      "correctAnswer": "Boolean",
-      "explanation": "A Boolean value stores one of two states, such as true or false, yes or no.",
-      "difficulty": 2,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Data Types",
-      "learningOutcome": "Select suitable data types for program variables.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which pseudocode statement increases the variable count by one?",
-      "options": ["count = count + 1", "count = count - 1", "count = 1 - count", "count + 1 = count"],
-      "correctAnswer": "count = count + 1",
-      "explanation": "The expression on the right is evaluated first, then the increased value is stored back in count.",
-      "difficulty": 2,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Variables and Assignment",
-      "learningOutcome": "Write assignment statements that update variable values.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which algorithm step should be used to choose between awarding pass or fail based on a mark?",
-      "options": ["IF mark >= 50 THEN grade = pass ELSE grade = fail", "FOR mark FROM 1 TO 50", "PRINT mark without testing it", "DECLARE mark AS string only"],
-      "correctAnswer": "IF mark >= 50 THEN grade = pass ELSE grade = fail",
-      "explanation": "Selection uses a condition to choose one of two or more possible paths.",
-      "difficulty": 2,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Selection Logic",
-      "learningOutcome": "Use conditional logic to solve simple programming problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "A table named Learners has fields learner_id, name, and class. Which field is the best primary key?",
-      "options": ["learner_id", "name", "class", "All fields together always"],
-      "correctAnswer": "learner_id",
-      "explanation": "The learner_id field is intended to be unique, unlike names or class labels that can repeat.",
-      "difficulty": 2,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Keys and Identifiers",
-      "learningOutcome": "Choose fields that can uniquely identify database records.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which SQL clause filters rows so only records meeting a condition are returned?",
-      "options": ["WHERE", "PRINT", "STYLE", "SCREEN"],
-      "correctAnswer": "WHERE",
-      "explanation": "The WHERE clause limits selected rows to those that satisfy a stated condition.",
-      "difficulty": 2,
-      "strandTitle": "Databases",
-      "subStrandTitle": "SQL Filtering",
-      "learningOutcome": "Identify SQL clauses used to retrieve selected records.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of a foreign key in a relational database?",
-      "options": ["Linking records in one table to records in another table", "Changing all text to uppercase", "Compressing every database file", "Replacing passwords with names"],
-      "correctAnswer": "Linking records in one table to records in another table",
-      "explanation": "A foreign key stores values that refer to primary keys in another table, creating a relationship.",
-      "difficulty": 2,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Table Relationships",
-      "learningOutcome": "Explain how database tables are linked using keys.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which network topology connects each computer to a central switch?",
-      "options": ["Star topology", "Bus topology", "Ring topology", "Point-to-point only"],
-      "correctAnswer": "Star topology",
-      "explanation": "In a star topology, each device connects separately to a central device such as a switch.",
-      "difficulty": 2,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Topologies",
-      "learningOutcome": "Identify topologies from their connection patterns.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "What does DNS do when a user opens a website by typing its domain name?",
-      "options": ["Translates the domain name to an IP address", "Deletes browser history automatically", "Converts images into sound files", "Prevents all network traffic from moving"],
-      "correctAnswer": "Translates the domain name to an IP address",
-      "explanation": "DNS maps human-readable names to IP addresses that computers use to locate servers.",
-      "difficulty": 2,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Internet Services",
-      "learningOutcome": "Explain the role of common internet services.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which protocol is commonly associated with secure web browsing?",
-      "options": ["HTTPS", "FTP only", "SMTP only", "POP3 only"],
-      "correctAnswer": "HTTPS",
-      "explanation": "HTTPS protects web communication by using encryption and server authentication through TLS.",
-      "difficulty": 2,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Internet Protocols",
-      "learningOutcome": "Recognize protocols that support secure internet communication.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Which action is safest when an email asks a learner to enter their school portal password on an unfamiliar page?",
-      "options": ["Report the email and avoid entering the password", "Reply with the password to save time", "Forward the password to classmates", "Disable account protection before opening the page"],
-      "correctAnswer": "Report the email and avoid entering the password",
-      "explanation": "Suspicious credential requests are common phishing signs, so the learner should report the message and keep the password private.",
-      "difficulty": 2,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Phishing Awareness",
-      "learningOutcome": "Apply safe responses to suspicious online communication.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which password is strongest among the following choices?",
-      "options": ["Nairobi#River2026!", "12345678", "computer", "password"],
-      "correctAnswer": "Nairobi#River2026!",
-      "explanation": "A strong password is longer and mixes letters, numbers, and symbols without using an obvious single word.",
-      "difficulty": 2,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Password Security",
-      "learningOutcome": "Choose stronger authentication secrets for user accounts.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which spreadsheet formula finds the average of cells B2 to B6?",
-      "options": ["=AVERAGE(B2:B6)", "=SUM(B2-B6)", "=COUNT(B2+B6)", "=MEAN ONLY B2"],
-      "correctAnswer": "=AVERAGE(B2:B6)",
-      "explanation": "The AVERAGE function calculates the mean of values in the specified cell range.",
-      "difficulty": 2,
-      "strandTitle": "Productivity and Data Tools",
-      "subStrandTitle": "Spreadsheet Formulas",
-      "learningOutcome": "Use spreadsheet functions to summarize numeric data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which chart is most suitable for comparing the number of computers in several school departments?",
-      "options": ["Bar chart", "Flowchart", "Entity relationship diagram", "Truth table"],
-      "correctAnswer": "Bar chart",
-      "explanation": "A bar chart compares quantities across categories clearly, such as departments.",
-      "difficulty": 2,
-      "strandTitle": "Productivity and Data Tools",
-      "subStrandTitle": "Data Visualization",
-      "learningOutcome": "Select appropriate chart types for common data presentation tasks.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Why should a dataset be cleaned before analysis?",
-      "options": ["To reduce errors such as missing, duplicate, or inconsistent values", "To make all values secret without checking them", "To delete every record before modelling", "To convert the database into a keyboard"],
-      "correctAnswer": "To reduce errors such as missing, duplicate, or inconsistent values",
-      "explanation": "Cleaning improves data quality so summaries and models are based on more reliable values.",
-      "difficulty": 2,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Data Preparation",
-      "learningOutcome": "Explain why data quality matters before analysis.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which measure describes how often a classification model makes the right prediction on tested examples?",
-      "options": ["Accuracy", "Latency only", "Resolution", "Bandwidth"],
-      "correctAnswer": "Accuracy",
-      "explanation": "Accuracy is the proportion of tested examples whose predicted labels match their actual labels.",
-      "difficulty": 2,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Model Evaluation",
-      "learningOutcome": "Interpret simple measures used to evaluate AI models.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which action best respects copyright when using an image in a school project?",
-      "options": ["Use an image with permission and acknowledge the source", "Remove the creator's name and claim ownership", "Download paid images from unauthorized sites", "Use any image because it appears online"],
-      "correctAnswer": "Use an image with permission and acknowledge the source",
-      "explanation": "Responsible use requires permission or a suitable licence and clear acknowledgement of the creator.",
-      "difficulty": 2,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Intellectual Property",
-      "learningOutcome": "Apply ethical and legal rules when using digital content.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which information should normally be treated as personal data in a school information system?",
-      "options": ["Learner admission number linked to a name", "The school bell time only", "A public subject list only", "A generic keyboard shortcut"],
-      "correctAnswer": "Learner admission number linked to a name",
-      "explanation": "Personal data can identify a person directly or indirectly, especially when identifiers are linked to names.",
-      "difficulty": 2,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Data Privacy",
-      "learningOutcome": "Identify personal data that requires careful handling.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which accessibility practice helps visually impaired users understand an image on a web page?",
-      "options": ["Provide meaningful alternative text", "Use only tiny text inside the image", "Remove all headings from the page", "Disable keyboard navigation"],
-      "correctAnswer": "Provide meaningful alternative text",
-      "explanation": "Alternative text lets assistive technologies describe important image content to users.",
-      "difficulty": 2,
-      "strandTitle": "Web and Multimedia Development",
-      "subStrandTitle": "Web Accessibility",
-      "learningOutcome": "Apply basic accessibility practices in digital content design.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which file format is commonly used for structured data exchange between systems?",
-      "options": ["JSON", "MP3", "JPEG", "WAV"],
-      "correctAnswer": "JSON",
-      "explanation": "JSON represents structured data as key-value pairs and arrays, making it useful for system integration.",
-      "difficulty": 2,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "Data Exchange",
-      "learningOutcome": "Recognize common formats used to exchange digital data.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Which activity belongs to requirements analysis in a system development project?",
-      "options": ["Interviewing users to understand needed functions", "Deleting user feedback before design", "Choosing a wallpaper for all computers only", "Printing code without testing it"],
-      "correctAnswer": "Interviewing users to understand needed functions",
-      "explanation": "Requirements analysis gathers and clarifies what users need the system to do.",
-      "difficulty": 2,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "Requirements Analysis",
-      "learningOutcome": "Describe fact-finding activities used before designing an information system.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "A processor has a clock speed of 3 GHz. What does this most directly indicate?",
-      "options": ["It can perform about three billion clock cycles per second", "It stores exactly three gigabytes of files", "It always uses three monitors", "It connects to exactly three networks"],
-      "correctAnswer": "It can perform about three billion clock cycles per second",
-      "explanation": "Gigahertz measures cycles per second, although overall performance also depends on architecture and workload.",
-      "difficulty": 3,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Processor Performance",
-      "learningOutcome": "Interpret common processor specifications and their limits.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "A computer has 8 GB RAM and frequently slows when many applications are open. Which upgrade most directly helps multitasking?",
-      "options": ["Increase RAM capacity", "Use a darker desktop background", "Replace the mouse pad", "Rename all folders"],
-      "correctAnswer": "Increase RAM capacity",
-      "explanation": "More RAM allows the system to keep more active programs and data in fast primary memory.",
-      "difficulty": 3,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "System Performance",
-      "learningOutcome": "Recommend hardware improvements based on performance symptoms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Which factor best explains why an SSD is usually faster than a hard disk drive for random file access?",
-      "options": ["An SSD has no moving read-write head to reposition", "An SSD always has a larger screen", "An SSD stores data only as printed paper", "An SSD cannot use binary data"],
-      "correctAnswer": "An SSD has no moving read-write head to reposition",
-      "explanation": "Solid-state storage uses electronic memory, so it avoids mechanical seek delays common in hard disk drives.",
-      "difficulty": 3,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Storage Performance",
-      "learningOutcome": "Compare storage technologies using performance characteristics.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "What is the decimal value of the binary number 101101?",
-      "options": ["45", "43", "37", "53"],
-      "correctAnswer": "45",
-      "explanation": "Binary 101101 equals 32 plus 8 plus 4 plus 1, giving 45.",
-      "difficulty": 3,
-      "strandTitle": "Data Representation",
-      "subStrandTitle": "Binary Conversion",
-      "learningOutcome": "Convert multi-bit binary values to decimal values.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "Which hexadecimal value is equivalent to binary 1111 0000?",
-      "options": ["F0", "0F", "FF", "10"],
-      "correctAnswer": "F0",
-      "explanation": "The first four bits 1111 equal F, and the second four bits 0000 equal 0.",
-      "difficulty": 3,
-      "strandTitle": "Data Representation",
-      "subStrandTitle": "Binary and Hexadecimal",
-      "learningOutcome": "Convert between grouped binary and hexadecimal notation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which truth table result matches the expression A AND NOT B when A is true and B is false?",
-      "options": ["True", "False", "Undefined", "It depends only on B"],
-      "correctAnswer": "True",
-      "explanation": "NOT B is true when B is false, and true AND true evaluates to true.",
-      "difficulty": 3,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Boolean Logic",
-      "learningOutcome": "Evaluate Boolean expressions used in program decisions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "A loop starts with total = 0 and adds the numbers 1, 2, 3, and 4. What is the final value of total?",
-      "options": ["10", "9", "11", "24"],
-      "correctAnswer": "10",
-      "explanation": "The loop accumulates 1 plus 2 plus 3 plus 4, which equals 10.",
-      "difficulty": 3,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Tracing Algorithms",
-      "learningOutcome": "Trace loop execution to determine final variable values.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "A program must store marks for 40 learners and then calculate the highest mark. Which approach is most suitable?",
-      "options": ["Store the marks in an array and loop through them", "Create 40 separate unrelated programs", "Overwrite one variable after each entry without comparing", "Store all marks as one picture"],
-      "correctAnswer": "Store the marks in an array and loop through them",
-      "explanation": "An array keeps related marks together, and a loop can compare each value systematically.",
-      "difficulty": 3,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Arrays and Iteration",
-      "learningOutcome": "Use arrays and loops to process a collection of values.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which validation check ensures an exam mark entered by a user is between 0 and 100?",
-      "options": ["Range check", "Presence check only", "Format brush", "Mail merge"],
-      "correctAnswer": "Range check",
-      "explanation": "A range check verifies that a value falls within allowed minimum and maximum limits.",
-      "difficulty": 3,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "Input Validation",
-      "learningOutcome": "Select validation checks for common data entry requirements.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which set of test values best checks a program that accepts ages from 13 to 19 inclusive?",
-      "options": ["12, 13, 14, 18, 19, 20", "15, 16, 17 only", "1, 2, 3 only", "A, B, C only"],
-      "correctAnswer": "12, 13, 14, 18, 19, 20",
-      "explanation": "The set includes boundary values, valid nearby values, and invalid values just outside the accepted range.",
-      "difficulty": 3,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Testing and Debugging",
-      "learningOutcome": "Choose test data that covers valid, invalid, and boundary cases.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "A student table stores class teacher names repeatedly in every learner record. Which database issue can this cause?",
-      "options": ["Data redundancy and update inconsistency", "Automatic backup verification", "Improved normalization", "Guaranteed password security"],
-      "correctAnswer": "Data redundancy and update inconsistency",
-      "explanation": "Repeated values waste space and can become inconsistent when one copy is updated but others are missed.",
-      "difficulty": 3,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Normalization",
-      "learningOutcome": "Explain why relational databases reduce repeated data.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "Which SQL statement retrieves names from Learners where class is Grade 12?",
-      "options": ["SELECT name FROM Learners WHERE class = 'Grade 12';", "SHOW name TO Learners IF class Grade 12;", "PRINT Learners.name CLASS Grade 12;", "GET Grade 12 FROM name IN Learners;"],
-      "correctAnswer": "SELECT name FROM Learners WHERE class = 'Grade 12';",
-      "explanation": "SELECT names the field, FROM names the table, and WHERE applies the class condition.",
-      "difficulty": 3,
-      "strandTitle": "Databases",
-      "subStrandTitle": "SQL Queries",
-      "learningOutcome": "Write simple SQL queries that filter records by a condition.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "In a database for library loans, which relationship is most likely between Borrowers and Loans?",
-      "options": ["One borrower can have many loan records", "Every loan must have many unrelated borrowers", "Borrowers and loans cannot be related", "One borrower can never borrow more than one book"],
-      "correctAnswer": "One borrower can have many loan records",
-      "explanation": "A borrower may borrow several books over time, so one borrower can be linked to many loan records.",
-      "difficulty": 3,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Entity Relationships",
-      "learningOutcome": "Identify one-to-many relationships in practical database scenarios.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "A school wants to connect computers in two buildings on the same compound. Which design is most appropriate?",
-      "options": ["A campus LAN with switches and managed wired or wireless links", "A separate calculator for each learner only", "One USB cable stretched between all rooms", "Printed notices instead of any network"],
-      "correctAnswer": "A campus LAN with switches and managed wired or wireless links",
-      "explanation": "A planned LAN can connect nearby buildings and share resources while maintaining network control.",
-      "difficulty": 3,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Design",
-      "learningOutcome": "Select suitable network designs for school environments.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which factor most affects how many learners can stream a lesson video smoothly over a shared connection?",
-      "options": ["Available bandwidth", "Keyboard language", "Mouse colour", "Monitor stand height"],
-      "correctAnswer": "Available bandwidth",
-      "explanation": "Bandwidth determines how much data can move through the connection over time.",
-      "difficulty": 3,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Bandwidth and Performance",
-      "learningOutcome": "Relate network capacity to user experience in shared environments.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "Why is a star topology usually easier to troubleshoot than a bus topology?",
-      "options": ["A single cable fault often affects only one connected device", "It has no central device to inspect", "All devices share one long backbone cable", "It cannot support network addresses"],
-      "correctAnswer": "A single cable fault often affects only one connected device",
-      "explanation": "Separate links to a central device make it easier to isolate failures to a device or cable.",
-      "difficulty": 3,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Topology Evaluation",
-      "learningOutcome": "Compare network topologies for reliability and maintenance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which security control limits users to only the files and functions they are allowed to use?",
-      "options": ["Access permissions", "Screen brightness", "Image cropping", "Page numbering"],
-      "correctAnswer": "Access permissions",
-      "explanation": "Permissions define what each user or group can view, change, create, or delete.",
-      "difficulty": 3,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Access Control",
-      "learningOutcome": "Explain how permissions protect shared computing resources.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A school stores marks on a computer used by several staff members. Which practice improves accountability?",
-      "options": ["Use individual staff accounts with audit logs", "Share one account with no password", "Leave the computer signed in all day", "Write passwords on a public notice board"],
-      "correctAnswer": "Use individual staff accounts with audit logs",
-      "explanation": "Individual accounts and logs make actions traceable while reducing unauthorized access.",
-      "difficulty": 3,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "User Accountability",
-      "learningOutcome": "Apply access control practices in shared school systems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which backup strategy best protects school records against both accidental deletion and theft of one computer?",
-      "options": ["Regular backups with a copy stored separately from the main computer", "One copy on the same computer only", "A screenshot of the first record only", "Backups only after data is already lost"],
-      "correctAnswer": "Regular backups with a copy stored separately from the main computer",
-      "explanation": "Regular separate backups improve recovery if the main device fails, is stolen, or contains deleted files.",
-      "difficulty": 3,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Backup and Recovery",
-      "learningOutcome": "Choose backup practices that reduce data loss risk.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "Which spreadsheet formula calculates the balance when total fee is in C2 and amount paid is in D2?",
-      "options": ["=C2-D2", "=D2-C2", "=C2+D2", "=C2*D2"],
-      "correctAnswer": "=C2-D2",
-      "explanation": "A balance is found by subtracting the amount paid from the total fee.",
-      "difficulty": 3,
-      "strandTitle": "Productivity and Data Tools",
-      "subStrandTitle": "Spreadsheet Modelling",
-      "learningOutcome": "Create spreadsheet formulas for practical school calculations.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "A dataset has marks recorded as 80, 75, absent, and 90 in the same column. Which issue should be handled before calculating an average?",
-      "options": ["A non-numeric value appears in a numeric field", "The values are already perfectly clean", "The marks are all outside the valid range", "The column name is automatically encrypted"],
-      "correctAnswer": "A non-numeric value appears in a numeric field",
-      "explanation": "The word absent must be handled consistently because it can distort or block numeric calculations.",
-      "difficulty": 3,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Data Cleaning",
-      "learningOutcome": "Identify data quality problems that affect analysis.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "A crop disease image model is trained only on photos from one farm. What risk is most likely?",
-      "options": ["The model may perform poorly on crops from different farms", "The model will understand every crop perfectly", "The model will stop needing data", "The model will become a spreadsheet formula"],
-      "correctAnswer": "The model may perform poorly on crops from different farms",
-      "explanation": "Limited training data can fail to represent different lighting, crop varieties, soils, and camera conditions.",
-      "difficulty": 3,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Training Data Quality",
-      "learningOutcome": "Explain how training data affects AI system reliability.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which step should come before deploying an AI model that predicts learners who may need extra revision support?",
-      "options": ["Evaluate the model and review privacy and fairness risks", "Publish all learner records publicly", "Remove teacher oversight from all decisions", "Ignore model errors if the interface looks good"],
-      "correctAnswer": "Evaluate the model and review privacy and fairness risks",
-      "explanation": "Educational AI should be tested for performance and reviewed for privacy, fairness, and appropriate human oversight.",
-      "difficulty": 3,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Responsible AI",
-      "learningOutcome": "Apply responsible AI checks before using learner data in decision support.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which web design choice improves use on both phones and laptops?",
-      "options": ["Responsive layout that adapts to screen width", "Fixed wide tables on every page", "Navigation links hidden with no labels", "Text stored only inside images"],
-      "correctAnswer": "Responsive layout that adapts to screen width",
-      "explanation": "Responsive design adjusts layout and spacing so content remains usable on different screen sizes.",
-      "difficulty": 3,
-      "strandTitle": "Web and Multimedia Development",
-      "subStrandTitle": "Responsive Design",
-      "learningOutcome": "Choose design practices that support varied devices.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "A school website uses pale grey text on a white background. Which usability issue is most direct?",
-      "options": ["Low contrast makes the text hard to read", "The database becomes automatically normalized", "The network bandwidth doubles", "All images become encrypted"],
-      "correctAnswer": "Low contrast makes the text hard to read",
-      "explanation": "Poor contrast reduces readability, especially on small screens or for users with visual difficulties.",
-      "difficulty": 3,
-      "strandTitle": "Web and Multimedia Development",
-      "subStrandTitle": "Usability and Accessibility",
-      "learningOutcome": "Evaluate digital designs for readability and accessibility.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Which diagram best shows tables, fields, keys, and relationships before building a database?",
-      "options": ["Entity relationship diagram", "Pie chart", "Gantt chart only", "Audio waveform"],
-      "correctAnswer": "Entity relationship diagram",
-      "explanation": "An entity relationship diagram models entities, attributes, keys, and relationships for database design.",
-      "difficulty": 3,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "System Modelling",
-      "learningOutcome": "Use modelling tools to plan information systems before implementation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which conversion approach reduces risk when replacing an old library system with a new one?",
-      "options": ["Parallel running until the new system is proven reliable", "Deleting the old system before any testing", "Preventing librarians from training", "Changing all book numbers randomly"],
-      "correctAnswer": "Parallel running until the new system is proven reliable",
-      "explanation": "Parallel running keeps both systems in use for a period, allowing comparison and fallback during transition.",
-      "difficulty": 3,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "System Implementation",
-      "learningOutcome": "Compare system changeover methods for risk management.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which method best gathers detailed user opinions about problems in an existing school records system?",
-      "options": ["Interviews with clerks, teachers, and administrators", "Guessing without talking to users", "Ignoring current documents", "Selecting colours before requirements"],
-      "correctAnswer": "Interviews with clerks, teachers, and administrators",
-      "explanation": "Interviews help analysts understand user needs, pain points, exceptions, and priorities.",
-      "difficulty": 3,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "Fact Finding",
-      "learningOutcome": "Select suitable fact-finding methods for system analysis.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Which ICT ethics issue is raised when a learner shares another learner's marks online without permission?",
-      "options": ["Privacy violation", "Improved data security", "Correct backup scheduling", "Network load balancing"],
-      "correctAnswer": "Privacy violation",
-      "explanation": "Marks linked to a learner are personal information and should not be disclosed without proper authority.",
-      "difficulty": 3,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Privacy and Consent",
-      "learningOutcome": "Analyze privacy responsibilities when handling digital information.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "Which action best reduces e-waste when replacing old computer equipment?",
-      "options": ["Repair, donate, or recycle through approved channels where possible", "Dump devices in open fields", "Burn cables to recover metal", "Throw batteries into ordinary bins"],
-      "correctAnswer": "Repair, donate, or recycle through approved channels where possible",
-      "explanation": "Responsible disposal reduces environmental harm and supports safe reuse or recycling of materials.",
-      "difficulty": 3,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Environmental Responsibility",
-      "learningOutcome": "Apply responsible practices for managing electronic waste.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "A processor upgrade gives little improvement because the computer still uses a very slow storage drive. Which idea best explains this?",
-      "options": ["A system bottleneck can limit overall performance", "Clock speed alone guarantees full performance", "Storage speed never affects applications", "All components work independently with no interaction"],
-      "correctAnswer": "A system bottleneck can limit overall performance",
-      "explanation": "Overall performance depends on how components work together, so one slow component can limit gains elsewhere.",
-      "difficulty": 4,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Performance Bottlenecks",
-      "learningOutcome": "Analyze how system components interact to affect performance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "A school server must keep running during short power outages. Which solution is most suitable?",
-      "options": ["Install an uninterruptible power supply and safe shutdown plan", "Use brighter monitor settings", "Store all data only on the desktop", "Disable backups to save power"],
-      "correctAnswer": "Install an uninterruptible power supply and safe shutdown plan",
-      "explanation": "A UPS provides temporary power and allows orderly shutdown or continued operation during brief outages.",
-      "difficulty": 4,
-      "strandTitle": "Computer Systems",
-      "subStrandTitle": "Reliability and Maintenance",
-      "learningOutcome": "Recommend reliability measures for important computer systems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "A program tests IF score >= 50 AND attendance >= 80. A learner has score 65 and attendance 75. What happens?",
-      "options": ["The condition is false because attendance is below 80", "The condition is true because score is above 50", "The condition cannot be evaluated", "The condition changes attendance to 80"],
-      "correctAnswer": "The condition is false because attendance is below 80",
-      "explanation": "With AND, both parts must be true; here the attendance requirement is not met.",
-      "difficulty": 4,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Compound Conditions",
-      "learningOutcome": "Evaluate compound Boolean expressions in program decisions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A search program checks each item in an unsorted list from first to last until it finds the target. Which algorithm is this?",
-      "options": ["Linear search", "Binary search", "Bubble sort", "Merge sort"],
-      "correctAnswer": "Linear search",
-      "explanation": "Linear search examines items one by one and does not require the list to be sorted.",
-      "difficulty": 4,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Search Algorithms",
-      "learningOutcome": "Identify suitable search algorithms based on data organization.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "Why does binary search require sorted data?",
-      "options": ["It discards half of the search range by comparing with the middle value", "It checks every item without using order", "It works only on image files", "It changes unsorted data into encrypted data"],
-      "correctAnswer": "It discards half of the search range by comparing with the middle value",
-      "explanation": "Binary search uses order to decide which half cannot contain the target after each comparison.",
-      "difficulty": 4,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Algorithm Efficiency",
-      "learningOutcome": "Explain why algorithm requirements affect correctness and efficiency.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "A normalised database separates Students, Subjects, and Marks into related tables. What is a main benefit?",
-      "options": ["Reduced duplication and more reliable updates", "More repeated fields in every row", "Automatic removal of all passwords", "No need for primary keys"],
-      "correctAnswer": "Reduced duplication and more reliable updates",
-      "explanation": "Normalization organizes data into related tables to reduce repeated values and update anomalies.",
-      "difficulty": 4,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Database Normalization",
-      "learningOutcome": "Analyze the benefits of normalizing relational database tables.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Which SQL statement counts how many learners are in each class?",
-      "options": ["SELECT class, COUNT(*) FROM Learners GROUP BY class;", "SELECT class FROM Learners ORDER ONLY;", "COUNT Learners BY screen;", "GROUP Learners PRINT class COUNT;"],
-      "correctAnswer": "SELECT class, COUNT(*) FROM Learners GROUP BY class;",
-      "explanation": "GROUP BY class forms class groups, and COUNT(*) returns the number of rows in each group.",
-      "difficulty": 4,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Aggregate Queries",
-      "learningOutcome": "Use aggregate SQL queries to summarize grouped records.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A library database should prevent a loan from referencing a borrower who does not exist. Which constraint supports this?",
-      "options": ["Referential integrity constraint", "Page margin setting", "Slide transition rule", "Audio balance setting"],
-      "correctAnswer": "Referential integrity constraint",
-      "explanation": "Referential integrity ensures foreign key values match existing primary key values in related tables.",
-      "difficulty": 4,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Data Integrity",
-      "learningOutcome": "Explain constraints that protect valid relationships between tables.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "A computer lab has slow file sharing because all devices use an old 100 Mbps switch. Which upgrade most directly addresses the network bottleneck?",
-      "options": ["Use a higher-capacity switch and suitable cabling", "Change every desktop wallpaper", "Disable all user accounts", "Replace keyboards with wireless keyboards only"],
-      "correctAnswer": "Use a higher-capacity switch and suitable cabling",
-      "explanation": "A faster switch and cabling can increase local network throughput for file transfers.",
-      "difficulty": 4,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Performance",
-      "learningOutcome": "Analyze causes of poor network performance and propose improvements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "Why should a school segment guest Wi-Fi from the administration network?",
-      "options": ["To reduce access from guest devices to sensitive internal systems", "To make all passwords unnecessary", "To stop teachers from using the internet", "To convert wireless signals into printed reports"],
-      "correctAnswer": "To reduce access from guest devices to sensitive internal systems",
-      "explanation": "Network segmentation separates traffic and limits exposure of sensitive resources to less trusted devices.",
-      "difficulty": 4,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Network Security Design",
-      "learningOutcome": "Evaluate network design choices that protect shared resources.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "A user reports that a browser says a certificate is invalid on a site requesting login credentials. Which response is safest?",
-      "options": ["Stop and verify the site through an official channel before entering credentials", "Ignore the warning and type the password quickly", "Share the warning publicly with the password visible", "Disable all security updates permanently"],
-      "correctAnswer": "Stop and verify the site through an official channel before entering credentials",
-      "explanation": "Certificate warnings can indicate a misconfigured or unsafe connection, so credentials should not be entered until verified.",
-      "difficulty": 4,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Secure Web Use",
-      "learningOutcome": "Evaluate safe responses to security warnings during web use.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "Which incident response order is most suitable after discovering possible unauthorized access to school records?",
-      "options": ["Contain access, preserve evidence, notify responsible staff, recover safely", "Delete all logs first, then guess what happened", "Publish records online, then change passwords later", "Ignore the issue if the computer still starts"],
-      "correctAnswer": "Contain access, preserve evidence, notify responsible staff, recover safely",
-      "explanation": "A careful response limits harm, keeps useful evidence, involves accountable staff, and restores service safely.",
-      "difficulty": 4,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Incident Response",
-      "learningOutcome": "Sequence safe response steps after a suspected security incident.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A learner wants to publish a dataset of classmates' study habits. Which step is most important before sharing it?",
-      "options": ["Remove identifying details and obtain appropriate permission", "Add admission numbers to make it easier to identify people", "Share private comments without review", "Ignore consent because the data was collected at school"],
-      "correctAnswer": "Remove identifying details and obtain appropriate permission",
-      "explanation": "Privacy protection requires consent where needed and removal of details that can identify individuals.",
-      "difficulty": 4,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Data Privacy and Consent",
-      "learningOutcome": "Evaluate ethical safeguards before sharing collected data.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "An AI attendance system makes more errors for learners in poorly lit classrooms. What is the most likely data issue?",
-      "options": ["The training data did not represent varied lighting conditions well", "The system has too many keyboard shortcuts", "The database uses too many primary keys", "The monitor brightness is the only possible cause"],
-      "correctAnswer": "The training data did not represent varied lighting conditions well",
-      "explanation": "Models can fail under conditions that were underrepresented during training or evaluation.",
-      "difficulty": 4,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Bias and Generalization",
-      "learningOutcome": "Analyze how unrepresentative data can affect AI performance across groups and conditions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A confusion matrix shows 90 correct predictions out of 120 tested cases. What is the model accuracy?",
-      "options": ["75%", "30%", "90%", "120%"],
-      "correctAnswer": "75%",
-      "explanation": "Accuracy is 90 divided by 120, which equals 0.75 or 75%.",
-      "difficulty": 4,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Model Evaluation",
-      "learningOutcome": "Calculate simple evaluation metrics for classification models.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "A school survey has many missing responses for internet access at home. Which statement is most responsible?",
-      "options": ["Report the missing data and consider how it may affect conclusions", "Pretend every missing response means high-speed internet", "Delete the survey method from the report", "Publish exact home addresses to complete the dataset"],
-      "correctAnswer": "Report the missing data and consider how it may affect conclusions",
-      "explanation": "Missing data can bias results, so it should be disclosed and handled using a justified method.",
-      "difficulty": 4,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Data Interpretation",
-      "learningOutcome": "Evaluate limitations in datasets before drawing conclusions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Which spreadsheet design makes a fee projection model easiest to audit?",
-      "options": ["Clearly labelled input cells, formulas, and separate result cells", "Hidden formulas with no labels", "Final values typed over formulas", "Random cell colours with no structure"],
-      "correctAnswer": "Clearly labelled input cells, formulas, and separate result cells",
-      "explanation": "Clear structure helps users check assumptions, trace calculations, and find mistakes.",
-      "difficulty": 4,
-      "strandTitle": "Productivity and Data Tools",
-      "subStrandTitle": "Spreadsheet Modelling",
-      "learningOutcome": "Evaluate spreadsheet models for clarity, reliability, and maintainability.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A website form asks for a national identity number when only a newsletter email is needed. Which principle is most affected?",
-      "options": ["Data minimization", "Image compression", "Packet switching", "Loop initialization"],
-      "correctAnswer": "Data minimization",
-      "explanation": "Data minimization means collecting only the information needed for a clear purpose.",
-      "difficulty": 4,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Privacy Principles",
-      "learningOutcome": "Apply privacy principles when designing digital forms and services.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "During system testing, users can log in but cannot generate required reports. Which test type should have caught this user workflow issue?",
-      "options": ["Acceptance testing against user requirements", "Screen saver testing only", "Printer cable colour testing", "Typing speed testing only"],
-      "correctAnswer": "Acceptance testing against user requirements",
-      "explanation": "Acceptance testing checks whether the system supports agreed user tasks and business requirements.",
-      "difficulty": 4,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "Testing and Evaluation",
-      "learningOutcome": "Analyze testing methods used to verify system requirements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "A water tank IoT system must send an alert when water is low and keep readings for reports. Which components are essential?",
-      "options": ["Sensor, controller, network link, alert rule, and data storage", "Projector, speaker, joystick, and wallpaper", "Scanner, slide transition, and page border", "Keyboard only with no sensing or storage"],
-      "correctAnswer": "Sensor, controller, network link, alert rule, and data storage",
-      "explanation": "The system needs sensing, processing, communication, decision logic, and storage for later analysis.",
-      "difficulty": 4,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "IoT Data Systems",
-      "learningOutcome": "Analyze components required in simple IoT monitoring solutions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A school wants a database for learners, guardians, subjects, teachers, and term marks. Which design is strongest?",
-      "options": ["Related tables with primary keys, foreign keys, and validation rules", "One paragraph in a word processor for all records", "One table with repeated guardian and subject details in every mark row", "Screenshots of marks saved in unnamed folders"],
-      "correctAnswer": "Related tables with primary keys, foreign keys, and validation rules",
-      "explanation": "A relational design reduces duplication, preserves relationships, and supports accurate data entry.",
-      "difficulty": 5,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Relational Database Design",
-      "learningOutcome": "Design normalized database structures for school information systems.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "A program must process daily rainfall values for a month, find the total, and report the highest day. Which design is best?",
-      "options": ["Store values in an array, loop through them, accumulate total, and track the maximum", "Use 31 separate variables and compare values manually on paper only", "Overwrite one value repeatedly without storing earlier readings", "Save all readings as one unlabelled image file"],
-      "correctAnswer": "Store values in an array, loop through them, accumulate total, and track the maximum",
-      "explanation": "An array and loop provide a clear, scalable method for total and maximum calculations.",
-      "difficulty": 5,
-      "strandTitle": "Programming",
-      "subStrandTitle": "Algorithm Design",
-      "learningOutcome": "Design efficient algorithms that process collections of numeric values.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A school lab security plan must reduce unauthorized access, accidental data loss, and unclear responsibility. Which combination is strongest?",
-      "options": ["Individual accounts, least-privilege permissions, MFA, audit logs, and tested backups", "One shared administrator account and no backups", "Public passwords and unrestricted file access", "Only changing the desktop background weekly"],
-      "correctAnswer": "Individual accounts, least-privilege permissions, MFA, audit logs, and tested backups",
-      "explanation": "Layered controls protect accounts, limit damage, support accountability, and allow recovery.",
-      "difficulty": 5,
-      "strandTitle": "Cybersecurity",
-      "subStrandTitle": "Security Planning",
-      "learningOutcome": "Design layered security controls for shared computing environments.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A school needs reliable internet for classrooms, an admin block, and a library with separate guest access. Which network plan is best?",
-      "options": ["Managed switches or access points, segmented networks, secure gateway, monitoring, and documented cabling", "A single open Wi-Fi password for every device and no monitoring", "Moving one flash disk between buildings to share files", "Bluetooth links only for all rooms and departments"],
-      "correctAnswer": "Managed switches or access points, segmented networks, secure gateway, monitoring, and documented cabling",
-      "explanation": "A planned network should handle coverage, performance, separation, security, and maintainability.",
-      "difficulty": 5,
-      "strandTitle": "Networks and Communication",
-      "subStrandTitle": "Campus Network Design",
-      "learningOutcome": "Propose secure and maintainable network designs for institutional environments.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "An AI tool recommends revision activities to learners. Which design best supports ethical use in school?",
-      "options": ["Explain recommendations, protect learner data, test for bias, and keep teacher oversight", "Hide how recommendations are made and collect unnecessary personal data", "Use only one learner's history to guide every learner", "Prevent teachers from reviewing model suggestions"],
-      "correctAnswer": "Explain recommendations, protect learner data, test for bias, and keep teacher oversight",
-      "explanation": "Responsible educational AI needs transparency, privacy protection, fairness checks, and human supervision.",
-      "difficulty": 5,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Responsible AI Design",
-      "learningOutcome": "Evaluate ethical requirements for AI systems used in learning environments.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A system analyst is designing an exam registration system. Which output best belongs in the design specification?",
-      "options": ["Data flow, database schema, interface sketches, validation rules, and security controls", "Only the analyst's favourite font and wallpaper", "A list of unrelated computer games", "A promise to test after users complain"],
-      "correctAnswer": "Data flow, database schema, interface sketches, validation rules, and security controls",
-      "explanation": "A design specification should describe how data, interfaces, rules, and controls will satisfy requirements.",
-      "difficulty": 5,
-      "strandTitle": "Systems Development",
-      "subStrandTitle": "System Design Documentation",
-      "learningOutcome": "Create design specifications for information systems based on requirements.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A county education office wants to publish school performance summaries without exposing individual learners. Which approach is most appropriate?",
-      "options": ["Aggregate results and remove identifiers before publication", "Publish raw learner records with names and admission numbers", "Share the full database because summaries are easier to verify", "Replace learner names with nicknames but keep phone numbers"],
-      "correctAnswer": "Aggregate results and remove identifiers before publication",
-      "explanation": "Aggregated, de-identified data supports public reporting while reducing privacy risk.",
-      "difficulty": 5,
-      "strandTitle": "ICT Ethics and Society",
-      "subStrandTitle": "Data Governance",
-      "learningOutcome": "Design privacy-preserving approaches for sharing education data.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "A school records database must allow quick searches by admission number while keeping each learner unique. Which design choice best supports this?",
-      "options": ["Make admission number a primary key or indexed unique field", "Store admission numbers only in an image", "Allow the same admission number for many learners", "Remove identifiers and search by first name only"],
-      "correctAnswer": "Make admission number a primary key or indexed unique field",
-      "explanation": "A unique key or index supports fast lookup and prevents duplicate identifiers.",
-      "difficulty": 5,
-      "strandTitle": "Databases",
-      "subStrandTitle": "Indexing and Integrity",
-      "learningOutcome": "Design database fields for efficient search and data integrity.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A web portal for assignments must be usable by learners on phones, keyboards, and screen readers. Which design set is strongest?",
-      "options": ["Semantic HTML, visible focus states, readable contrast, alt text, and responsive layout", "Tiny fixed text, unlabeled buttons, and images without descriptions", "Autoplay audio with no controls and links named click here", "A desktop-only table that requires horizontal scrolling"],
-      "correctAnswer": "Semantic HTML, visible focus states, readable contrast, alt text, and responsive layout",
-      "explanation": "Inclusive web design supports different devices and assistive technologies while keeping navigation understandable.",
-      "difficulty": 5,
-      "strandTitle": "Web and Multimedia Development",
-      "subStrandTitle": "Inclusive Web Design",
-      "learningOutcome": "Create accessible and responsive web interface plans.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "A data project predicts crop yield from rainfall, soil type, and planting date. Which workflow is most appropriate?",
-      "options": ["Define the question, collect relevant data, clean it, explore patterns, train and test a model, then report limits", "Start with a final conclusion, ignore data quality, and skip testing", "Collect unrelated music files and rename them as rainfall data", "Publish farmer details before checking consent or accuracy"],
-      "correctAnswer": "Define the question, collect relevant data, clean it, explore patterns, train and test a model, then report limits",
-      "explanation": "A responsible data workflow moves from a clear problem through quality data handling, evaluation, and transparent reporting.",
-      "difficulty": 5,
-      "strandTitle": "Data Science and AI",
-      "subStrandTitle": "Data Project Workflow",
-      "learningOutcome": "Design a complete data analysis workflow for a practical problem.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "homework", "flashcards"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "computer_studies",
+ "subjectName": "Computer Studies",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which component performs arithmetic and logic operations inside a computer system?",
+   "options": [
+    "Central processing unit",
+    "Solid-state drive",
+    "Network switch",
+    "Display adapter"
+   ],
+   "correctAnswer": "Central processing unit",
+   "explanation": "The central processing unit executes instructions and handles arithmetic, logic, and control tasks.",
+   "difficulty": 1,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Processor Architecture",
+   "learningOutcome": "Identify core hardware components and their functions in a computer system.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which memory type loses its contents when power is switched off?",
+   "options": [
+    "RAM",
+    "ROM",
+    "Flash storage",
+    "Optical disc"
+   ],
+   "correctAnswer": "RAM",
+   "explanation": "RAM is volatile memory, so it stores active data only while the computer has power.",
+   "difficulty": 1,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Memory Technologies",
+   "learningOutcome": "Distinguish volatile and non-volatile storage in computer systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of an operating system?",
+   "options": [
+    "Managing hardware and software resources",
+    "Replacing all application programs",
+    "Increasing screen size physically",
+    "Printing documents without a printer"
+   ],
+   "correctAnswer": "Managing hardware and software resources",
+   "explanation": "An operating system coordinates hardware, files, memory, processes, and user interaction for other programs.",
+   "difficulty": 1,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "System Software",
+   "learningOutcome": "State the role of operating systems in managing computing resources.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which number system uses base sixteen?",
+   "options": [
+    "Hexadecimal",
+    "Binary",
+    "Octal",
+    "Decimal"
+   ],
+   "correctAnswer": "Hexadecimal",
+   "explanation": "Hexadecimal is a base sixteen system that uses digits 0 to 9 and letters A to F.",
+   "difficulty": 1,
+   "strandTitle": "Data Representation",
+   "subStrandTitle": "Number Systems",
+   "learningOutcome": "Recognize number systems used to represent digital data.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which data structure stores items in indexed positions under one variable name?",
+   "options": [
+    "Array",
+    "Constant",
+    "Comment",
+    "Operator"
+   ],
+   "correctAnswer": "Array",
+   "explanation": "An array groups related values and lets a program access each value by position.",
+   "difficulty": 1,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Data Structures",
+   "learningOutcome": "Identify basic data structures used in program design.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which control structure repeats statements while a condition remains true?",
+   "options": [
+    "Loop",
+    "Sequence",
+    "Declaration",
+    "Comment"
+   ],
+   "correctAnswer": "Loop",
+   "explanation": "A loop controls repeated execution, often until a condition changes or a counter reaches a limit.",
+   "difficulty": 1,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Control Structures",
+   "learningOutcome": "Recognize control structures used to express repetition in algorithms.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "What does a primary key do in a relational database table?",
+   "options": [
+    "Uniquely identifies each record",
+    "Formats records for printing",
+    "Encrypts every field automatically",
+    "Deletes duplicate tables"
+   ],
+   "correctAnswer": "Uniquely identifies each record",
+   "explanation": "A primary key gives each row a unique identifier so records can be referenced reliably.",
+   "difficulty": 1,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Relational Tables",
+   "learningOutcome": "Define key fields used in relational database design.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "Which database language is commonly used to query relational databases?",
+   "options": [
+    "SQL",
+    "HTML",
+    "CSS",
+    "SVG"
+   ],
+   "correctAnswer": "SQL",
+   "explanation": "SQL is used to create, retrieve, update, and manage data in relational databases.",
+   "difficulty": 1,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Query Languages",
+   "learningOutcome": "Identify query languages used to work with structured data.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which type of network covers a small area such as a school laboratory or office?",
+   "options": [
+    "Local area network",
+    "Wide area network",
+    "Storage area network",
+    "Satellite navigation network"
+   ],
+   "correctAnswer": "Local area network",
+   "explanation": "A local area network connects devices in a limited area such as a room, building, or school compound.",
+   "difficulty": 1,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Types",
+   "learningOutcome": "Identify networks by their coverage area and common use.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which device forwards data packets between different networks?",
+   "options": [
+    "Router",
+    "Scanner",
+    "Projector",
+    "Keyboard"
+   ],
+   "correctAnswer": "Router",
+   "explanation": "A router directs packets between networks using destination address information.",
+   "difficulty": 1,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Devices",
+   "learningOutcome": "State the function of common devices used in computer networks.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "What is encryption mainly used for in information security?",
+   "options": [
+    "Making data unreadable without the required key",
+    "Increasing the physical size of a file",
+    "Changing a monitor into an input device",
+    "Removing the need for backups"
+   ],
+   "correctAnswer": "Making data unreadable without the required key",
+   "explanation": "Encryption transforms data so only authorized parties with the right key can read it.",
+   "difficulty": 1,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Data Protection",
+   "learningOutcome": "Recognize basic methods for protecting digital information.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which practice requires a password plus another proof such as a code or token?",
+   "options": [
+    "Multi-factor authentication",
+    "File compression",
+    "Screen calibration",
+    "Disk partitioning"
+   ],
+   "correctAnswer": "Multi-factor authentication",
+   "explanation": "Multi-factor authentication checks more than one evidence type before granting access.",
+   "difficulty": 1,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Authentication",
+   "learningOutcome": "Identify account protection methods used in secure systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What is a dataset in data science?",
+   "options": [
+    "A collection of related data for analysis",
+    "A cable used for power supply",
+    "A command that shuts down a computer",
+    "A special type of printer tray"
+   ],
+   "correctAnswer": "A collection of related data for analysis",
+   "explanation": "A dataset is organized information that can be cleaned, explored, analyzed, or used for modelling.",
+   "difficulty": 1,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Data Basics",
+   "learningOutcome": "Define foundational terms used in data analysis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which term describes an AI model learning patterns from labelled examples?",
+   "options": [
+    "Supervised learning",
+    "Disk formatting",
+    "Manual sorting",
+    "Optical zoom"
+   ],
+   "correctAnswer": "Supervised learning",
+   "explanation": "In supervised learning, examples include inputs and expected labels that guide the model during training.",
+   "difficulty": 1,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Machine Learning Concepts",
+   "learningOutcome": "Identify common approaches used to train AI systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which concept means using technology in a fair, legal, and responsible way?",
+   "options": [
+    "ICT ethics",
+    "Cache memory",
+    "Packet routing",
+    "Screen resolution"
+   ],
+   "correctAnswer": "ICT ethics",
+   "explanation": "ICT ethics covers responsible digital behavior, respect for rights, privacy, and legal use of resources.",
+   "difficulty": 1,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Responsible Technology Use",
+   "learningOutcome": "Recognize ethical principles that guide the use of digital technologies.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "A learner converts binary 1101 to decimal. What value should they get?",
+   "options": [
+    "13",
+    "11",
+    "14",
+    "7"
+   ],
+   "correctAnswer": "13",
+   "explanation": "Binary 1101 equals 8 plus 4 plus 1, which gives 13 in decimal.",
+   "difficulty": 2,
+   "strandTitle": "Data Representation",
+   "subStrandTitle": "Binary Conversion",
+   "learningOutcome": "Convert binary numbers to their decimal equivalents.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Which hexadecimal symbol represents decimal 15?",
+   "options": [
+    "F (fifteen)",
+    "A (ten)",
+    "10 (sixteen)",
+    "1F (thirty-one)"
+   ],
+   "correctAnswer": "F (fifteen)",
+   "explanation": "In hexadecimal, the symbol F represents the decimal value 15.",
+   "difficulty": 2,
+   "strandTitle": "Data Representation",
+   "subStrandTitle": "Hexadecimal Notation",
+   "learningOutcome": "Relate hexadecimal symbols to decimal values.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "A school computer needs fast storage for the operating system and applications. Which storage device is most suitable?",
+   "options": [
+    "Solid-state drive",
+    "Magnetic tape only",
+    "Optical disc only",
+    "Barcode scanner"
+   ],
+   "correctAnswer": "Solid-state drive",
+   "explanation": "A solid-state drive provides fast read and write access, which improves startup and application loading.",
+   "difficulty": 2,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Storage Selection",
+   "learningOutcome": "Choose appropriate storage technologies for different computing needs.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which statement best describes the relationship between hardware and software?",
+   "options": [
+    "Hardware is physical equipment, while software gives instructions to it",
+    "Hardware stores only poems, while software stores only photos",
+    "Hardware is always free, while software is always paid",
+    "Hardware works only when software is deleted"
+   ],
+   "correctAnswer": "Hardware is physical equipment, while software gives instructions to it",
+   "explanation": "Hardware provides physical capability, and software controls how that capability is used.",
+   "difficulty": 2,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Hardware and Software",
+   "learningOutcome": "Explain how hardware and software interact in a computer system.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Which operating system function is most directly involved when several programs appear to run at the same time?",
+   "options": [
+    "Process scheduling",
+    "Page orientation",
+    "Font selection",
+    "Cable crimping"
+   ],
+   "correctAnswer": "Process scheduling",
+   "explanation": "Process scheduling allocates processor time among active tasks so the system remains responsive.",
+   "difficulty": 2,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Process Management",
+   "learningOutcome": "Describe operating system functions that coordinate running programs.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "A program needs to store whether a learner has paid school fees. Which data type is most suitable?",
+   "options": [
+    "Boolean",
+    "Real",
+    "Character",
+    "Array index"
+   ],
+   "correctAnswer": "Boolean",
+   "explanation": "A Boolean value stores one of two states, such as true or false, yes or no.",
+   "difficulty": 2,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Data Types",
+   "learningOutcome": "Select suitable data types for program variables.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which pseudocode statement increases the variable count by one?",
+   "options": [
+    "count = count + 1",
+    "count = count - 1",
+    "count = 1 - count",
+    "count + 1 = count"
+   ],
+   "correctAnswer": "count = count + 1",
+   "explanation": "The expression on the right is evaluated first, then the increased value is stored back in count.",
+   "difficulty": 2,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Variables and Assignment",
+   "learningOutcome": "Write assignment statements that update variable values.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which algorithm step should be used to choose between awarding pass or fail based on a mark?",
+   "options": [
+    "IF mark >= 50 THEN grade = pass ELSE grade = fail",
+    "FOR mark FROM 1 TO 50",
+    "PRINT mark without testing it",
+    "DECLARE mark AS string only"
+   ],
+   "correctAnswer": "IF mark >= 50 THEN grade = pass ELSE grade = fail",
+   "explanation": "Selection uses a condition to choose one of two or more possible paths.",
+   "difficulty": 2,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Selection Logic",
+   "learningOutcome": "Use conditional logic to solve simple programming problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "A table named Learners has fields learner_id, name, and class. Which field is the best primary key?",
+   "options": [
+    "learner_id",
+    "name",
+    "class",
+    "All fields together always"
+   ],
+   "correctAnswer": "learner_id",
+   "explanation": "The learner_id field is intended to be unique, unlike names or class labels that can repeat.",
+   "difficulty": 2,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Keys and Identifiers",
+   "learningOutcome": "Choose fields that can uniquely identify database records.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which SQL clause filters rows so only records meeting a condition are returned?",
+   "options": [
+    "WHERE",
+    "PRINT",
+    "STYLE",
+    "SCREEN"
+   ],
+   "correctAnswer": "WHERE",
+   "explanation": "The WHERE clause limits selected rows to those that satisfy a stated condition.",
+   "difficulty": 2,
+   "strandTitle": "Databases",
+   "subStrandTitle": "SQL Filtering",
+   "learningOutcome": "Identify SQL clauses used to retrieve selected records.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of a foreign key in a relational database?",
+   "options": [
+    "Linking records in one table to records in another table",
+    "Changing all text to uppercase",
+    "Compressing every database file",
+    "Replacing passwords with names"
+   ],
+   "correctAnswer": "Linking records in one table to records in another table",
+   "explanation": "A foreign key stores values that refer to primary keys in another table, creating a relationship.",
+   "difficulty": 2,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Table Relationships",
+   "learningOutcome": "Explain how database tables are linked using keys.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which network topology connects each computer to a central switch?",
+   "options": [
+    "Star topology",
+    "Bus topology",
+    "Ring topology",
+    "Point-to-point only"
+   ],
+   "correctAnswer": "Star topology",
+   "explanation": "In a star topology, each device connects separately to a central device such as a switch.",
+   "difficulty": 2,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Topologies",
+   "learningOutcome": "Identify topologies from their connection patterns.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "What does DNS do when a user opens a website by typing its domain name?",
+   "options": [
+    "Translates the domain name to an IP address",
+    "Deletes browser history automatically",
+    "Converts images into sound files",
+    "Prevents all network traffic from moving"
+   ],
+   "correctAnswer": "Translates the domain name to an IP address",
+   "explanation": "DNS maps human-readable names to IP addresses that computers use to locate servers.",
+   "difficulty": 2,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Internet Services",
+   "learningOutcome": "Explain the role of common internet services.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which protocol is commonly associated with secure web browsing?",
+   "options": [
+    "HTTPS",
+    "FTP only",
+    "SMTP only",
+    "POP3 only"
+   ],
+   "correctAnswer": "HTTPS",
+   "explanation": "HTTPS protects web communication by using encryption and server authentication through TLS.",
+   "difficulty": 2,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Internet Protocols",
+   "learningOutcome": "Recognize protocols that support secure internet communication.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which action is safest when an email asks a learner to enter their school portal password on an unfamiliar page?",
+   "options": [
+    "Report the email and avoid entering the password",
+    "Reply with the password to save time",
+    "Forward the password to classmates",
+    "Disable account protection before opening the page"
+   ],
+   "correctAnswer": "Report the email and avoid entering the password",
+   "explanation": "Suspicious credential requests are common phishing signs, so the learner should report the message and keep the password private.",
+   "difficulty": 2,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Phishing Awareness",
+   "learningOutcome": "Apply safe responses to suspicious online communication.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which password is strongest among the following choices?",
+   "options": [
+    "Nairobi#River2026!",
+    "12345678",
+    "computer",
+    "password"
+   ],
+   "correctAnswer": "Nairobi#River2026!",
+   "explanation": "A strong password is longer and mixes letters, numbers, and symbols without using an obvious single word.",
+   "difficulty": 2,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Password Security",
+   "learningOutcome": "Choose stronger authentication secrets for user accounts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which spreadsheet formula finds the average of cells B2 to B6?",
+   "options": [
+    "=AVERAGE(B2:B6)",
+    "=SUM(B2-B6)",
+    "=COUNT(B2+B6)",
+    "=MEAN ONLY B2"
+   ],
+   "correctAnswer": "=AVERAGE(B2:B6)",
+   "explanation": "The AVERAGE function calculates the mean of values in the specified cell range.",
+   "difficulty": 2,
+   "strandTitle": "Productivity and Data Tools",
+   "subStrandTitle": "Spreadsheet Formulas",
+   "learningOutcome": "Use spreadsheet functions to summarize numeric data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which chart is most suitable for comparing the number of computers in several school departments?",
+   "options": [
+    "Bar chart",
+    "Flowchart",
+    "Entity relationship diagram",
+    "Truth table"
+   ],
+   "correctAnswer": "Bar chart",
+   "explanation": "A bar chart compares quantities across categories clearly, such as departments.",
+   "difficulty": 2,
+   "strandTitle": "Productivity and Data Tools",
+   "subStrandTitle": "Data Visualization",
+   "learningOutcome": "Select appropriate chart types for common data presentation tasks.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Why should a dataset be cleaned before analysis?",
+   "options": [
+    "To reduce errors such as missing, duplicate, or inconsistent values",
+    "To make all values secret without checking them",
+    "To delete every record before modelling",
+    "To convert the database into a keyboard"
+   ],
+   "correctAnswer": "To reduce errors such as missing, duplicate, or inconsistent values",
+   "explanation": "Cleaning improves data quality so summaries and models are based on more reliable values.",
+   "difficulty": 2,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Data Preparation",
+   "learningOutcome": "Explain why data quality matters before analysis.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which measure describes how often a classification model makes the right prediction on tested examples?",
+   "options": [
+    "Accuracy",
+    "Latency only",
+    "Resolution",
+    "Bandwidth"
+   ],
+   "correctAnswer": "Accuracy",
+   "explanation": "Accuracy is the proportion of tested examples whose predicted labels match their actual labels.",
+   "difficulty": 2,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Model Evaluation",
+   "learningOutcome": "Interpret simple measures used to evaluate AI models.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which action best respects copyright when using an image in a school project?",
+   "options": [
+    "Use an image with permission and acknowledge the source",
+    "Remove the creator's name and claim ownership",
+    "Download paid images from unauthorized sites",
+    "Use any image because it appears online"
+   ],
+   "correctAnswer": "Use an image with permission and acknowledge the source",
+   "explanation": "Responsible use requires permission or a suitable licence and clear acknowledgement of the creator.",
+   "difficulty": 2,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Intellectual Property",
+   "learningOutcome": "Apply ethical and legal rules when using digital content.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which information should normally be treated as personal data in a school information system?",
+   "options": [
+    "Learner admission number linked to a name",
+    "The school bell time only",
+    "A public subject list only",
+    "A generic keyboard shortcut"
+   ],
+   "correctAnswer": "Learner admission number linked to a name",
+   "explanation": "Personal data can identify a person directly or indirectly, especially when identifiers are linked to names.",
+   "difficulty": 2,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Data Privacy",
+   "learningOutcome": "Identify personal data that requires careful handling.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which accessibility practice helps visually impaired users understand an image on a web page?",
+   "options": [
+    "Provide meaningful alternative text",
+    "Use only tiny text inside the image",
+    "Remove all headings from the page",
+    "Disable keyboard navigation"
+   ],
+   "correctAnswer": "Provide meaningful alternative text",
+   "explanation": "Alternative text lets assistive technologies describe important image content to users.",
+   "difficulty": 2,
+   "strandTitle": "Web and Multimedia Development",
+   "subStrandTitle": "Web Accessibility",
+   "learningOutcome": "Apply basic accessibility practices in digital content design.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which file format is commonly used for structured data exchange between systems?",
+   "options": [
+    "JSON",
+    "MP3",
+    "JPEG",
+    "WAV"
+   ],
+   "correctAnswer": "JSON",
+   "explanation": "JSON represents structured data as key-value pairs and arrays, making it useful for system integration.",
+   "difficulty": 2,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "Data Exchange",
+   "learningOutcome": "Recognize common formats used to exchange digital data.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Which activity belongs to requirements analysis in a system development project?",
+   "options": [
+    "Interviewing users to understand needed functions",
+    "Deleting user feedback before design",
+    "Choosing a wallpaper for all computers only",
+    "Printing code without testing it"
+   ],
+   "correctAnswer": "Interviewing users to understand needed functions",
+   "explanation": "Requirements analysis gathers and clarifies what users need the system to do.",
+   "difficulty": 2,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "Requirements Analysis",
+   "learningOutcome": "Describe fact-finding activities used before designing an information system.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "A processor has a clock speed of 3 GHz. What does this most directly indicate?",
+   "options": [
+    "It can perform about three billion clock cycles per second",
+    "It stores exactly three gigabytes of files",
+    "It always uses three monitors",
+    "It connects to exactly three networks"
+   ],
+   "correctAnswer": "It can perform about three billion clock cycles per second",
+   "explanation": "Gigahertz measures cycles per second, although overall performance also depends on architecture and workload.",
+   "difficulty": 3,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Processor Performance",
+   "learningOutcome": "Interpret common processor specifications and their limits.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "A computer has 8 GB RAM and frequently slows when many applications are open. Which upgrade most directly helps multitasking?",
+   "options": [
+    "Increase RAM capacity",
+    "Use a darker desktop background",
+    "Replace the mouse pad",
+    "Rename all folders"
+   ],
+   "correctAnswer": "Increase RAM capacity",
+   "explanation": "More RAM allows the system to keep more active programs and data in fast primary memory.",
+   "difficulty": 3,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "System Performance",
+   "learningOutcome": "Recommend hardware improvements based on performance symptoms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Which factor best explains why an SSD is usually faster than a hard disk drive for random file access?",
+   "options": [
+    "An SSD has no moving read-write head to reposition",
+    "An SSD always has a larger screen",
+    "An SSD stores data only as printed paper",
+    "An SSD cannot use binary data"
+   ],
+   "correctAnswer": "An SSD has no moving read-write head to reposition",
+   "explanation": "Solid-state storage uses electronic memory, so it avoids mechanical seek delays common in hard disk drives.",
+   "difficulty": 3,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Storage Performance",
+   "learningOutcome": "Compare storage technologies using performance characteristics.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "What is the decimal value of the binary number 101101?",
+   "options": [
+    "45",
+    "43",
+    "37",
+    "53"
+   ],
+   "correctAnswer": "45",
+   "explanation": "Binary 101101 equals 32 plus 8 plus 4 plus 1, giving 45.",
+   "difficulty": 3,
+   "strandTitle": "Data Representation",
+   "subStrandTitle": "Binary Conversion",
+   "learningOutcome": "Convert multi-bit binary values to decimal values.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "Which hexadecimal value is equivalent to binary 1111 0000?",
+   "options": [
+    "F0",
+    "0F",
+    "FF",
+    "10"
+   ],
+   "correctAnswer": "F0",
+   "explanation": "The first four bits 1111 equal F, and the second four bits 0000 equal 0.",
+   "difficulty": 3,
+   "strandTitle": "Data Representation",
+   "subStrandTitle": "Binary and Hexadecimal",
+   "learningOutcome": "Convert between grouped binary and hexadecimal notation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which truth table result matches the expression A AND NOT B when A is true and B is false?",
+   "options": [
+    "True",
+    "False",
+    "Undefined",
+    "It depends only on B"
+   ],
+   "correctAnswer": "True",
+   "explanation": "NOT B is true when B is false, and true AND true evaluates to true.",
+   "difficulty": 3,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Boolean Logic",
+   "learningOutcome": "Evaluate Boolean expressions used in program decisions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "A loop starts with total = 0 and adds the numbers 1, 2, 3, and 4. What is the final value of total?",
+   "options": [
+    "10",
+    "9",
+    "11",
+    "24"
+   ],
+   "correctAnswer": "10",
+   "explanation": "The loop accumulates 1 plus 2 plus 3 plus 4, which equals 10.",
+   "difficulty": 3,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Tracing Algorithms",
+   "learningOutcome": "Trace loop execution to determine final variable values.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A program must store marks for 40 learners and then calculate the highest mark. Which approach is most suitable?",
+   "options": [
+    "Store the marks in an array and loop through them",
+    "Create 40 separate unrelated programs",
+    "Overwrite one variable after each entry without comparing",
+    "Store all marks as one picture"
+   ],
+   "correctAnswer": "Store the marks in an array and loop through them",
+   "explanation": "An array keeps related marks together, and a loop can compare each value systematically.",
+   "difficulty": 3,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Arrays and Iteration",
+   "learningOutcome": "Use arrays and loops to process a collection of values.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which validation check ensures an exam mark entered by a user is between 0 and 100?",
+   "options": [
+    "Range check",
+    "Presence check only",
+    "Format brush",
+    "Mail merge"
+   ],
+   "correctAnswer": "Range check",
+   "explanation": "A range check verifies that a value falls within allowed minimum and maximum limits.",
+   "difficulty": 3,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "Input Validation",
+   "learningOutcome": "Select validation checks for common data entry requirements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which set of test values best checks a program that accepts ages from 13 to 19 inclusive?",
+   "options": [
+    "12, 13, 14, 18, 19, 20",
+    "15, 16, 17 only",
+    "1, 2, 3 only",
+    "A, B, C only"
+   ],
+   "correctAnswer": "12, 13, 14, 18, 19, 20",
+   "explanation": "The set includes boundary values, valid nearby values, and invalid values just outside the accepted range.",
+   "difficulty": 3,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Testing and Debugging",
+   "learningOutcome": "Choose test data that covers valid, invalid, and boundary cases.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A student table stores class teacher names repeatedly in every learner record. Which database issue can this cause?",
+   "options": [
+    "Data redundancy and update inconsistency",
+    "Automatic backup verification",
+    "Improved normalization",
+    "Guaranteed password security"
+   ],
+   "correctAnswer": "Data redundancy and update inconsistency",
+   "explanation": "Repeated values waste space and can become inconsistent when one copy is updated but others are missed.",
+   "difficulty": 3,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Normalization",
+   "learningOutcome": "Explain why relational databases reduce repeated data.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "Which SQL statement retrieves names from Learners where class is Grade 12?",
+   "options": [
+    "SELECT name FROM Learners WHERE class = 'Grade 12';",
+    "SHOW name TO Learners IF class Grade 12;",
+    "PRINT Learners.name CLASS Grade 12;",
+    "GET Grade 12 FROM name IN Learners;"
+   ],
+   "correctAnswer": "SELECT name FROM Learners WHERE class = 'Grade 12';",
+   "explanation": "SELECT names the field, FROM names the table, and WHERE applies the class condition.",
+   "difficulty": 3,
+   "strandTitle": "Databases",
+   "subStrandTitle": "SQL Queries",
+   "learningOutcome": "Write simple SQL queries that filter records by a condition.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "In a database for library loans, which relationship is most likely between Borrowers and Loans?",
+   "options": [
+    "One borrower can have many loan records",
+    "Every loan must have many unrelated borrowers",
+    "Borrowers and loans cannot be related",
+    "One borrower can never borrow more than one book"
+   ],
+   "correctAnswer": "One borrower can have many loan records",
+   "explanation": "A borrower may borrow several books over time, so one borrower can be linked to many loan records.",
+   "difficulty": 3,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Entity Relationships",
+   "learningOutcome": "Identify one-to-many relationships in practical database scenarios.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "A school wants to connect computers in two buildings on the same compound. Which design is most appropriate?",
+   "options": [
+    "A campus LAN with switches and managed wired or wireless links",
+    "A separate calculator for each learner only",
+    "One USB cable stretched between all rooms",
+    "Printed notices instead of any network"
+   ],
+   "correctAnswer": "A campus LAN with switches and managed wired or wireless links",
+   "explanation": "A planned LAN can connect nearby buildings and share resources while maintaining network control.",
+   "difficulty": 3,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Design",
+   "learningOutcome": "Select suitable network designs for school environments.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which factor most affects how many learners can stream a lesson video smoothly over a shared connection?",
+   "options": [
+    "Available bandwidth",
+    "Keyboard language",
+    "Mouse colour",
+    "Monitor stand height"
+   ],
+   "correctAnswer": "Available bandwidth",
+   "explanation": "Bandwidth determines how much data can move through the connection over time.",
+   "difficulty": 3,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Bandwidth and Performance",
+   "learningOutcome": "Relate network capacity to user experience in shared environments.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Why is a star topology usually easier to troubleshoot than a bus topology?",
+   "options": [
+    "A single cable fault often affects only one connected device",
+    "It has no central device to inspect",
+    "All devices share one long backbone cable",
+    "It cannot support network addresses"
+   ],
+   "correctAnswer": "A single cable fault often affects only one connected device",
+   "explanation": "Separate links to a central device make it easier to isolate failures to a device or cable.",
+   "difficulty": 3,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Topology Evaluation",
+   "learningOutcome": "Compare network topologies for reliability and maintenance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which security control limits users to only the files and functions they are allowed to use?",
+   "options": [
+    "Access permissions",
+    "Screen brightness",
+    "Image cropping",
+    "Page numbering"
+   ],
+   "correctAnswer": "Access permissions",
+   "explanation": "Permissions define what each user or group can view, change, create, or delete.",
+   "difficulty": 3,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Access Control",
+   "learningOutcome": "Explain how permissions protect shared computing resources.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A school stores marks on a computer used by several staff members. Which practice improves accountability?",
+   "options": [
+    "Use individual staff accounts with audit logs",
+    "Share one account with no password",
+    "Leave the computer signed in all day",
+    "Write passwords on a public notice board"
+   ],
+   "correctAnswer": "Use individual staff accounts with audit logs",
+   "explanation": "Individual accounts and logs make actions traceable while reducing unauthorized access.",
+   "difficulty": 3,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "User Accountability",
+   "learningOutcome": "Apply access control practices in shared school systems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which backup strategy best protects school records against both accidental deletion and theft of one computer?",
+   "options": [
+    "Regular backups with a copy stored separately from the main computer",
+    "One copy on the same computer only",
+    "A screenshot of the first record only",
+    "Backups only after data is already lost"
+   ],
+   "correctAnswer": "Regular backups with a copy stored separately from the main computer",
+   "explanation": "Regular separate backups improve recovery if the main device fails, is stolen, or contains deleted files.",
+   "difficulty": 3,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Backup and Recovery",
+   "learningOutcome": "Choose backup practices that reduce data loss risk.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which spreadsheet formula calculates the balance when total fee is in C2 and amount paid is in D2?",
+   "options": [
+    "=C2-D2",
+    "=D2-C2",
+    "=C2+D2",
+    "=C2*D2"
+   ],
+   "correctAnswer": "=C2-D2",
+   "explanation": "A balance is found by subtracting the amount paid from the total fee.",
+   "difficulty": 3,
+   "strandTitle": "Productivity and Data Tools",
+   "subStrandTitle": "Spreadsheet Modelling",
+   "learningOutcome": "Create spreadsheet formulas for practical school calculations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "A dataset has marks recorded as 80, 75, absent, and 90 in the same column. Which issue should be handled before calculating an average?",
+   "options": [
+    "A non-numeric value appears in a numeric field",
+    "The values are already perfectly clean",
+    "The marks are all outside the valid range",
+    "The column name is automatically encrypted"
+   ],
+   "correctAnswer": "A non-numeric value appears in a numeric field",
+   "explanation": "The word absent must be handled consistently because it can distort or block numeric calculations.",
+   "difficulty": 3,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Data Cleaning",
+   "learningOutcome": "Identify data quality problems that affect analysis.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "A crop disease image model is trained only on photos from one farm. What risk is most likely?",
+   "options": [
+    "The model may perform poorly on crops from different farms",
+    "The model will understand every crop perfectly",
+    "The model will stop needing data",
+    "The model will become a spreadsheet formula"
+   ],
+   "correctAnswer": "The model may perform poorly on crops from different farms",
+   "explanation": "Limited training data can fail to represent different lighting, crop varieties, soils, and camera conditions.",
+   "difficulty": 3,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Training Data Quality",
+   "learningOutcome": "Explain how training data affects AI system reliability.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which step should come before deploying an AI model that predicts learners who may need extra revision support?",
+   "options": [
+    "Evaluate the model and review privacy and fairness risks",
+    "Publish all learner records publicly",
+    "Remove teacher oversight from all decisions",
+    "Ignore model errors if the interface looks good"
+   ],
+   "correctAnswer": "Evaluate the model and review privacy and fairness risks",
+   "explanation": "Educational AI should be tested for performance and reviewed for privacy, fairness, and appropriate human oversight.",
+   "difficulty": 3,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Responsible AI",
+   "learningOutcome": "Apply responsible AI checks before using learner data in decision support.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which web design choice improves use on both phones and laptops?",
+   "options": [
+    "Responsive layout that adapts to screen width",
+    "Fixed wide tables on every page",
+    "Navigation links hidden with no labels",
+    "Text stored only inside images"
+   ],
+   "correctAnswer": "Responsive layout that adapts to screen width",
+   "explanation": "Responsive design adjusts layout and spacing so content remains usable on different screen sizes.",
+   "difficulty": 3,
+   "strandTitle": "Web and Multimedia Development",
+   "subStrandTitle": "Responsive Design",
+   "learningOutcome": "Choose design practices that support varied devices.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "A school website uses pale grey text on a white background. Which usability issue is most direct?",
+   "options": [
+    "Low contrast makes the text hard to read",
+    "The database becomes automatically normalized",
+    "The network bandwidth doubles",
+    "All images become encrypted"
+   ],
+   "correctAnswer": "Low contrast makes the text hard to read",
+   "explanation": "Poor contrast reduces readability, especially on small screens or for users with visual difficulties.",
+   "difficulty": 3,
+   "strandTitle": "Web and Multimedia Development",
+   "subStrandTitle": "Usability and Accessibility",
+   "learningOutcome": "Evaluate digital designs for readability and accessibility.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Which diagram best shows tables, fields, keys, and relationships before building a database?",
+   "options": [
+    "Entity relationship diagram",
+    "Pie chart",
+    "Gantt chart only",
+    "Audio waveform"
+   ],
+   "correctAnswer": "Entity relationship diagram",
+   "explanation": "An entity relationship diagram models entities, attributes, keys, and relationships for database design.",
+   "difficulty": 3,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "System Modelling",
+   "learningOutcome": "Use modelling tools to plan information systems before implementation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which conversion approach reduces risk when replacing an old library system with a new one?",
+   "options": [
+    "Parallel running until the new system is proven reliable",
+    "Deleting the old system before any testing",
+    "Preventing librarians from training",
+    "Changing all book numbers randomly"
+   ],
+   "correctAnswer": "Parallel running until the new system is proven reliable",
+   "explanation": "Parallel running keeps both systems in use for a period, allowing comparison and fallback during transition.",
+   "difficulty": 3,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "System Implementation",
+   "learningOutcome": "Compare system changeover methods for risk management.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which method best gathers detailed user opinions about problems in an existing school records system?",
+   "options": [
+    "Interviews with clerks, teachers, and administrators",
+    "Guessing without talking to users",
+    "Ignoring current documents",
+    "Selecting colours before requirements"
+   ],
+   "correctAnswer": "Interviews with clerks, teachers, and administrators",
+   "explanation": "Interviews help analysts understand user needs, pain points, exceptions, and priorities.",
+   "difficulty": 3,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "Fact Finding",
+   "learningOutcome": "Select suitable fact-finding methods for system analysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which ICT ethics issue is raised when a learner shares another learner's marks online without permission?",
+   "options": [
+    "Privacy violation",
+    "Improved data security",
+    "Correct backup scheduling",
+    "Network load balancing"
+   ],
+   "correctAnswer": "Privacy violation",
+   "explanation": "Marks linked to a learner are personal information and should not be disclosed without proper authority.",
+   "difficulty": 3,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Privacy and Consent",
+   "learningOutcome": "Analyze privacy responsibilities when handling digital information.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Which action best reduces e-waste when replacing old computer equipment?",
+   "options": [
+    "Repair, donate, or recycle through approved channels where possible",
+    "Dump devices in open fields",
+    "Burn cables to recover metal",
+    "Throw batteries into ordinary bins"
+   ],
+   "correctAnswer": "Repair, donate, or recycle through approved channels where possible",
+   "explanation": "Responsible disposal reduces environmental harm and supports safe reuse or recycling of materials.",
+   "difficulty": 3,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Environmental Responsibility",
+   "learningOutcome": "Apply responsible practices for managing electronic waste.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A processor upgrade gives little improvement because the computer still uses a very slow storage drive. Which idea best explains this?",
+   "options": [
+    "A system bottleneck can limit overall performance",
+    "Clock speed alone guarantees full performance",
+    "Storage speed never affects applications",
+    "All components work independently with no interaction"
+   ],
+   "correctAnswer": "A system bottleneck can limit overall performance",
+   "explanation": "Overall performance depends on how components work together, so one slow component can limit gains elsewhere.",
+   "difficulty": 4,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Performance Bottlenecks",
+   "learningOutcome": "Analyze how system components interact to affect performance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "A school server must keep running during short power outages. Which solution is most suitable?",
+   "options": [
+    "Install an uninterruptible power supply and safe shutdown plan",
+    "Use brighter monitor settings",
+    "Store all data only on the desktop",
+    "Disable backups to save power"
+   ],
+   "correctAnswer": "Install an uninterruptible power supply and safe shutdown plan",
+   "explanation": "A UPS provides temporary power and allows orderly shutdown or continued operation during brief outages.",
+   "difficulty": 4,
+   "strandTitle": "Computer Systems",
+   "subStrandTitle": "Reliability and Maintenance",
+   "learningOutcome": "Recommend reliability measures for important computer systems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A program tests IF score >= 50 AND attendance >= 80. A learner has score 65 and attendance 75. What happens?",
+   "options": [
+    "The condition is false because attendance is below 80",
+    "The condition is true because score is above 50",
+    "The condition cannot be evaluated",
+    "The condition changes attendance to 80"
+   ],
+   "correctAnswer": "The condition is false because attendance is below 80",
+   "explanation": "With AND, both parts must be true; here the attendance requirement is not met.",
+   "difficulty": 4,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Compound Conditions",
+   "learningOutcome": "Evaluate compound Boolean expressions in program decisions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A search program checks each item in an unsorted list from first to last until it finds the target. Which algorithm is this?",
+   "options": [
+    "Linear search",
+    "Binary search",
+    "Bubble sort",
+    "Merge sort"
+   ],
+   "correctAnswer": "Linear search",
+   "explanation": "Linear search examines items one by one and does not require the list to be sorted.",
+   "difficulty": 4,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Search Algorithms",
+   "learningOutcome": "Identify suitable search algorithms based on data organization.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "Why does binary search require sorted data?",
+   "options": [
+    "It discards half of the search range by comparing with the middle value",
+    "It checks every item without using order",
+    "It works only on image files",
+    "It changes unsorted data into encrypted data"
+   ],
+   "correctAnswer": "It discards half of the search range by comparing with the middle value",
+   "explanation": "Binary search uses order to decide which half cannot contain the target after each comparison.",
+   "difficulty": 4,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Algorithm Efficiency",
+   "learningOutcome": "Explain why algorithm requirements affect correctness and efficiency.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A normalised database separates Students, Subjects, and Marks into related tables. What is a main benefit?",
+   "options": [
+    "Reduced duplication and more reliable updates",
+    "More repeated fields in every row",
+    "Automatic removal of all passwords",
+    "No need for primary keys"
+   ],
+   "correctAnswer": "Reduced duplication and more reliable updates",
+   "explanation": "Normalization organizes data into related tables to reduce repeated values and update anomalies.",
+   "difficulty": 4,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Database Normalization",
+   "learningOutcome": "Analyze the benefits of normalizing relational database tables.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which SQL statement counts how many learners are in each class?",
+   "options": [
+    "SELECT class, COUNT(*) FROM Learners GROUP BY class;",
+    "SELECT class FROM Learners ORDER ONLY;",
+    "COUNT Learners BY screen;",
+    "GROUP Learners PRINT class COUNT;"
+   ],
+   "correctAnswer": "SELECT class, COUNT(*) FROM Learners GROUP BY class;",
+   "explanation": "GROUP BY class forms class groups, and COUNT(*) returns the number of rows in each group.",
+   "difficulty": 4,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Aggregate Queries",
+   "learningOutcome": "Use aggregate SQL queries to summarize grouped records.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A library database should prevent a loan from referencing a borrower who does not exist. Which constraint supports this?",
+   "options": [
+    "Referential integrity constraint",
+    "Page margin setting",
+    "Slide transition rule",
+    "Audio balance setting"
+   ],
+   "correctAnswer": "Referential integrity constraint",
+   "explanation": "Referential integrity ensures foreign key values match existing primary key values in related tables.",
+   "difficulty": 4,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Data Integrity",
+   "learningOutcome": "Explain constraints that protect valid relationships between tables.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "A computer lab has slow file sharing because all devices use an old 100 Mbps switch. Which upgrade most directly addresses the network bottleneck?",
+   "options": [
+    "Use a higher-capacity switch and suitable cabling",
+    "Change every desktop wallpaper",
+    "Disable all user accounts",
+    "Replace keyboards with wireless keyboards only"
+   ],
+   "correctAnswer": "Use a higher-capacity switch and suitable cabling",
+   "explanation": "A faster switch and cabling can increase local network throughput for file transfers.",
+   "difficulty": 4,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Performance",
+   "learningOutcome": "Analyze causes of poor network performance and propose improvements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "Why should a school segment guest Wi-Fi from the administration network?",
+   "options": [
+    "To reduce access from guest devices to sensitive internal systems",
+    "To make all passwords unnecessary",
+    "To stop teachers from using the internet",
+    "To convert wireless signals into printed reports"
+   ],
+   "correctAnswer": "To reduce access from guest devices to sensitive internal systems",
+   "explanation": "Network segmentation separates traffic and limits exposure of sensitive resources to less trusted devices.",
+   "difficulty": 4,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Network Security Design",
+   "learningOutcome": "Evaluate network design choices that protect shared resources.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A user reports that a browser says a certificate is invalid on a site requesting login credentials. Which response is safest?",
+   "options": [
+    "Stop and verify the site through an official channel before entering credentials",
+    "Ignore the warning and type the password quickly",
+    "Share the warning publicly with the password visible",
+    "Disable all security updates permanently"
+   ],
+   "correctAnswer": "Stop and verify the site through an official channel before entering credentials",
+   "explanation": "Certificate warnings can indicate a misconfigured or unsafe connection, so credentials should not be entered until verified.",
+   "difficulty": 4,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Secure Web Use",
+   "learningOutcome": "Evaluate safe responses to security warnings during web use.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Which incident response order is most suitable after discovering possible unauthorized access to school records?",
+   "options": [
+    "Contain access, preserve evidence, notify responsible staff, recover safely",
+    "Delete all logs first, then guess what happened",
+    "Publish records online, then change passwords later",
+    "Ignore the issue if the computer still starts"
+   ],
+   "correctAnswer": "Contain access, preserve evidence, notify responsible staff, recover safely",
+   "explanation": "A careful response limits harm, keeps useful evidence, involves accountable staff, and restores service safely.",
+   "difficulty": 4,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Incident Response",
+   "learningOutcome": "Sequence safe response steps after a suspected security incident.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A learner wants to publish a dataset of classmates' study habits. Which step is most important before sharing it?",
+   "options": [
+    "Remove identifying details and obtain appropriate permission",
+    "Add admission numbers to make it easier to identify people",
+    "Share private comments without review",
+    "Ignore consent because the data was collected at school"
+   ],
+   "correctAnswer": "Remove identifying details and obtain appropriate permission",
+   "explanation": "Privacy protection requires consent where needed and removal of details that can identify individuals.",
+   "difficulty": 4,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Data Privacy and Consent",
+   "learningOutcome": "Evaluate ethical safeguards before sharing collected data.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "An AI attendance system makes more errors for learners in poorly lit classrooms. What is the most likely data issue?",
+   "options": [
+    "The training data did not represent varied lighting conditions well",
+    "The system has too many keyboard shortcuts",
+    "The database uses too many primary keys",
+    "The monitor brightness is the only possible cause"
+   ],
+   "correctAnswer": "The training data did not represent varied lighting conditions well",
+   "explanation": "Models can fail under conditions that were underrepresented during training or evaluation.",
+   "difficulty": 4,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Bias and Generalization",
+   "learningOutcome": "Analyze how unrepresentative data can affect AI performance across groups and conditions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A confusion matrix shows 90 correct predictions out of 120 tested cases. What is the model accuracy?",
+   "options": [
+    "75%",
+    "30%",
+    "90%",
+    "120%"
+   ],
+   "correctAnswer": "75%",
+   "explanation": "Accuracy is 90 divided by 120, which equals 0.75 or 75%.",
+   "difficulty": 4,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Model Evaluation",
+   "learningOutcome": "Calculate simple evaluation metrics for classification models.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A school survey has many missing responses for internet access at home. Which statement is most responsible?",
+   "options": [
+    "Report the missing data and consider how it may affect conclusions",
+    "Pretend every missing response means high-speed internet",
+    "Delete the survey method from the report",
+    "Publish exact home addresses to complete the dataset"
+   ],
+   "correctAnswer": "Report the missing data and consider how it may affect conclusions",
+   "explanation": "Missing data can bias results, so it should be disclosed and handled using a justified method.",
+   "difficulty": 4,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Data Interpretation",
+   "learningOutcome": "Evaluate limitations in datasets before drawing conclusions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which spreadsheet design makes a fee projection model easiest to audit?",
+   "options": [
+    "Clearly labelled input cells, formulas, and separate result cells",
+    "Hidden formulas with no labels",
+    "Final values typed over formulas",
+    "Random cell colours with no structure"
+   ],
+   "correctAnswer": "Clearly labelled input cells, formulas, and separate result cells",
+   "explanation": "Clear structure helps users check assumptions, trace calculations, and find mistakes.",
+   "difficulty": 4,
+   "strandTitle": "Productivity and Data Tools",
+   "subStrandTitle": "Spreadsheet Modelling",
+   "learningOutcome": "Evaluate spreadsheet models for clarity, reliability, and maintainability.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A website form asks for a national identity number when only a newsletter email is needed. Which principle is most affected?",
+   "options": [
+    "Data minimization",
+    "Image compression",
+    "Packet switching",
+    "Loop initialization"
+   ],
+   "correctAnswer": "Data minimization",
+   "explanation": "Data minimization means collecting only the information needed for a clear purpose.",
+   "difficulty": 4,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Privacy Principles",
+   "learningOutcome": "Apply privacy principles when designing digital forms and services.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "During system testing, users can log in but cannot generate required reports. Which test type should have caught this user workflow issue?",
+   "options": [
+    "Acceptance testing against user requirements",
+    "Screen saver testing only",
+    "Printer cable colour testing",
+    "Typing speed testing only"
+   ],
+   "correctAnswer": "Acceptance testing against user requirements",
+   "explanation": "Acceptance testing checks whether the system supports agreed user tasks and business requirements.",
+   "difficulty": 4,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "Testing and Evaluation",
+   "learningOutcome": "Analyze testing methods used to verify system requirements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A water tank IoT system must send an alert when water is low and keep readings for reports. Which components are essential?",
+   "options": [
+    "Sensor, controller, network link, alert rule, and data storage",
+    "Projector, speaker, joystick, and wallpaper",
+    "Scanner, slide transition, and page border",
+    "Keyboard only with no sensing or storage"
+   ],
+   "correctAnswer": "Sensor, controller, network link, alert rule, and data storage",
+   "explanation": "The system needs sensing, processing, communication, decision logic, and storage for later analysis.",
+   "difficulty": 4,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "IoT Data Systems",
+   "learningOutcome": "Analyze components required in simple IoT monitoring solutions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A school wants a database for learners, guardians, subjects, teachers, and term marks. Which design is strongest?",
+   "options": [
+    "Related tables with primary keys, foreign keys, and validation rules",
+    "One paragraph in a word processor for all records",
+    "One table with repeated guardian and subject details in every mark row",
+    "Screenshots of marks saved in unnamed folders"
+   ],
+   "correctAnswer": "Related tables with primary keys, foreign keys, and validation rules",
+   "explanation": "A relational design reduces duplication, preserves relationships, and supports accurate data entry.",
+   "difficulty": 5,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Relational Database Design",
+   "learningOutcome": "Design normalized database structures for school information systems.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "A program must process daily rainfall values for a month, find the total, and report the highest day. Which design is best?",
+   "options": [
+    "Store values in an array, loop through them, accumulate total, and track the maximum",
+    "Use 31 separate variables and compare values manually on paper only",
+    "Overwrite one value repeatedly without storing earlier readings",
+    "Save all readings as one unlabelled image file"
+   ],
+   "correctAnswer": "Store values in an array, loop through them, accumulate total, and track the maximum",
+   "explanation": "An array and loop provide a clear, scalable method for total and maximum calculations.",
+   "difficulty": 5,
+   "strandTitle": "Programming",
+   "subStrandTitle": "Algorithm Design",
+   "learningOutcome": "Design efficient algorithms that process collections of numeric values.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A school lab security plan must reduce unauthorized access, accidental data loss, and unclear responsibility. Which combination is strongest?",
+   "options": [
+    "Individual accounts, least-privilege permissions, MFA, audit logs, and tested backups",
+    "One shared administrator account and no backups",
+    "Public passwords and unrestricted file access",
+    "Only changing the desktop background weekly"
+   ],
+   "correctAnswer": "Individual accounts, least-privilege permissions, MFA, audit logs, and tested backups",
+   "explanation": "Layered controls protect accounts, limit damage, support accountability, and allow recovery.",
+   "difficulty": 5,
+   "strandTitle": "Cybersecurity",
+   "subStrandTitle": "Security Planning",
+   "learningOutcome": "Design layered security controls for shared computing environments.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A school needs reliable internet for classrooms, an admin block, and a library with separate guest access. Which network plan is best?",
+   "options": [
+    "Managed switches or access points, segmented networks, secure gateway, monitoring, and documented cabling",
+    "A single open Wi-Fi password for every device and no monitoring",
+    "Moving one flash disk between buildings to share files",
+    "Bluetooth links only for all rooms and departments"
+   ],
+   "correctAnswer": "Managed switches or access points, segmented networks, secure gateway, monitoring, and documented cabling",
+   "explanation": "A planned network should handle coverage, performance, separation, security, and maintainability.",
+   "difficulty": 5,
+   "strandTitle": "Networks and Communication",
+   "subStrandTitle": "Campus Network Design",
+   "learningOutcome": "Propose secure and maintainable network designs for institutional environments.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "An AI tool recommends revision activities to learners. Which design best supports ethical use in school?",
+   "options": [
+    "Explain recommendations, protect learner data, test for bias, and keep teacher oversight",
+    "Hide how recommendations are made and collect unnecessary personal data",
+    "Use only one learner's history to guide every learner",
+    "Prevent teachers from reviewing model suggestions"
+   ],
+   "correctAnswer": "Explain recommendations, protect learner data, test for bias, and keep teacher oversight",
+   "explanation": "Responsible educational AI needs transparency, privacy protection, fairness checks, and human supervision.",
+   "difficulty": 5,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Responsible AI Design",
+   "learningOutcome": "Evaluate ethical requirements for AI systems used in learning environments.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A system analyst is designing an exam registration system. Which output best belongs in the design specification?",
+   "options": [
+    "Data flow, database schema, interface sketches, validation rules, and security controls",
+    "Only the analyst's favourite font and wallpaper",
+    "A list of unrelated computer games",
+    "A promise to test after users complain"
+   ],
+   "correctAnswer": "Data flow, database schema, interface sketches, validation rules, and security controls",
+   "explanation": "A design specification should describe how data, interfaces, rules, and controls will satisfy requirements.",
+   "difficulty": 5,
+   "strandTitle": "Systems Development",
+   "subStrandTitle": "System Design Documentation",
+   "learningOutcome": "Create design specifications for information systems based on requirements.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A county education office wants to publish school performance summaries without exposing individual learners. Which approach is most appropriate?",
+   "options": [
+    "Aggregate results and remove identifiers before publication",
+    "Publish raw learner records with names and admission numbers",
+    "Share the full database because summaries are easier to verify",
+    "Replace learner names with nicknames but keep phone numbers"
+   ],
+   "correctAnswer": "Aggregate results and remove identifiers before publication",
+   "explanation": "Aggregated, de-identified data supports public reporting while reducing privacy risk.",
+   "difficulty": 5,
+   "strandTitle": "ICT Ethics and Society",
+   "subStrandTitle": "Data Governance",
+   "learningOutcome": "Design privacy-preserving approaches for sharing education data.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "A school records database must allow quick searches by admission number while keeping each learner unique. Which design choice best supports this?",
+   "options": [
+    "Make admission number a primary key or indexed unique field",
+    "Store admission numbers only in an image",
+    "Allow the same admission number for many learners",
+    "Remove identifiers and search by first name only"
+   ],
+   "correctAnswer": "Make admission number a primary key or indexed unique field",
+   "explanation": "A unique key or index supports fast lookup and prevents duplicate identifiers.",
+   "difficulty": 5,
+   "strandTitle": "Databases",
+   "subStrandTitle": "Indexing and Integrity",
+   "learningOutcome": "Design database fields for efficient search and data integrity.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A web portal for assignments must be usable by learners on phones, keyboards, and screen readers. Which design set is strongest?",
+   "options": [
+    "Semantic HTML, visible focus states, readable contrast, alt text, and responsive layout",
+    "Tiny fixed text, unlabeled buttons, and images without descriptions",
+    "Autoplay audio with no controls and links named click here",
+    "A desktop-only table that requires horizontal scrolling"
+   ],
+   "correctAnswer": "Semantic HTML, visible focus states, readable contrast, alt text, and responsive layout",
+   "explanation": "Inclusive web design supports different devices and assistive technologies while keeping navigation understandable.",
+   "difficulty": 5,
+   "strandTitle": "Web and Multimedia Development",
+   "subStrandTitle": "Inclusive Web Design",
+   "learningOutcome": "Create accessible and responsive web interface plans.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "A data project predicts crop yield from rainfall, soil type, and planting date. Which workflow is most appropriate?",
+   "options": [
+    "Define the question, collect relevant data, clean it, explore patterns, train and test a model, then report limits",
+    "Start with a final conclusion, ignore data quality, and skip testing",
+    "Collect unrelated music files and rename them as rainfall data",
+    "Publish farmer details before checking consent or accuracy"
+   ],
+   "correctAnswer": "Define the question, collect relevant data, clean it, explore patterns, train and test a model, then report limits",
+   "explanation": "A responsible data workflow moves from a clear problem through quality data handling, evaluation, and transparent reporting.",
+   "difficulty": 5,
+   "strandTitle": "Data Science and AI",
+   "subStrandTitle": "Data Project Workflow",
+   "learningOutcome": "Design a complete data analysis workflow for a practical problem.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  }
+ ]
 }

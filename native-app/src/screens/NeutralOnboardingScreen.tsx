@@ -50,7 +50,9 @@ import {
   DEFAULT_GRADE,
   LOWER_PRIMARY_GRADES,
   LOWER_PRIMARY_SUBJECTS,
+  requiredSubjectCountForGrade,
   SUPPORTED_GRADES,
+  toggleSubjectSelection,
 } from '../constants/grades';
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
@@ -97,7 +99,6 @@ import {
 } from '../types/app';
 
 const MPESA_PHONE_ERROR = 'Enter a valid Safaricom M-Pesa number, for example 0716175485.';
-const MAX_ONBOARDING_SUBJECTS = 5;
 const LEARNER_MIN_AGE = 4;
 const LEARNER_MAX_AGE = 20;
 const AUTO_ADVANCE_DELAY_MS = 200;
@@ -2072,7 +2073,9 @@ export function NeutralOnboardingScreen({
   const [gender, setGender] = useState<GenderOption | null>(includeIntroChoices ? null : 'not_specified');
   const [grade, setGrade] = useState(includeIntroChoices ? '' : DEFAULT_GRADE);
   const [selectedSubjectIds, setSelectedSubjectIds] = useState<string[]>(
-    includeIntroChoices ? [] : SUBJECTS.slice(0, MAX_ONBOARDING_SUBJECTS).map(subject => subject.id),
+    includeIntroChoices || role === 'student' || role === 'other'
+      ? []
+      : SUBJECTS.slice(0, 5).map(subject => subject.id),
   );
   const [countryCode, setCountryCode] = useState<string>(() => detectDefaultCountryCode());
   const [countryPickerOpen, setCountryPickerOpen] = useState(false);
@@ -2305,6 +2308,7 @@ export function NeutralOnboardingScreen({
                                         ? 'Save account'
                   : content.coachTips[step];
   const activeGradeBand = grade ? gradeBandForGrade(grade) : null;
+  const requiredSubjectCount = requiredSubjectCountForGrade(grade);
   const isTeacherSubjectFlow = role === 'teacher' && includeIntroChoices;
   const isParentSubjectFlow = role === 'parent' && includeIntroChoices;
   const primaryParentChild = {
@@ -2657,7 +2661,9 @@ export function NeutralOnboardingScreen({
       : role === 'parent'
         ? 'Pick the subjects you want progress reports and support prompts for.'
       : usesLearnerFlow
-        ? 'Pick up to five CBC subjects you want on your dashboard first.'
+        ? selectedSubjectCount === requiredSubjectCount
+          ? `You have selected all ${requiredSubjectCount} dashboard subjects.`
+          : `Select exactly ${requiredSubjectCount} CBC subjects for your dashboard (${requiredSubjectCount - selectedSubjectCount} remaining).`
         : null;
   const profileOwnerName = displayName.trim() || (role === 'teacher' ? 'your class' : role === 'parent' ? 'your family' : 'your');
   const rolePlanLabel =
@@ -3524,14 +3530,14 @@ export function NeutralOnboardingScreen({
         ? true
         : step === 0
           ? includeIntroChoices
-            ? role === 'teacher'
+              ? role === 'teacher'
               ? true
               : usesLearnerFlow
-                ? Boolean(grade)
+                ? studentFullIntro ? Boolean(grade) : Boolean(grade) && selectedSubjectCount === requiredSubjectCount
                 : true
-            : Boolean(grade)
+            : Boolean(grade) && (!usesLearnerFlow || selectedSubjectCount === requiredSubjectCount)
         : step === 1
-            ? studentFullIntro ? true : hasSelectedSchool
+            ? studentFullIntro ? selectedSubjectCount === requiredSubjectCount : hasSelectedSchool
             : step === 2 && studentFullIntro
               ? hasSelectedSchool
               : true;
@@ -5162,22 +5168,18 @@ export function NeutralOnboardingScreen({
     triggerHaptic('selection');
     const subject = subjectOptions.find(option => option.id === subjectId);
     setSelectedSubjectIds(current => {
-      if (current.includes(subjectId)) {
-        return current.length > 1 ? current.filter(id => id !== subjectId) : current;
-      }
-
-      if (current.length >= MAX_ONBOARDING_SUBJECTS) {
-        return current;
-      }
+      const toggled = toggleSubjectSelection(current, subjectId, requiredSubjectCount, true);
+      const next = !usesLearnerFlow && toggled.length === 0 ? current : toggled;
+      if (next.length === current.length) return current;
 
       trackOnboardingSelection('subject', subjectId, subject?.name ?? subjectId);
-      return [...current, subjectId];
+      return next;
     });
   }
 
   function handleGradeSelect(value: string) {
     triggerHaptic('selection');
-    if (includeIntroChoices && value !== grade) {
+    if (usesLearnerFlow && value !== grade) {
       setSelectedSubjectIds([]);
     }
     setGrade(value);
@@ -7537,7 +7539,7 @@ export function NeutralOnboardingScreen({
                             accessibilityLiveRegion="polite"
                             role="status"
                             style={[styles.subjectCount, { color: content.accent }]}>
-                            {`${selectedSubjectCount}/${MAX_ONBOARDING_SUBJECTS}`}
+                            {`${selectedSubjectCount}/${requiredSubjectCount}`}
                           </Text>
                         </View>
                         <Text style={[styles.subjectHelpText, compactLayout && styles.subjectHelpTextCompact]}>
@@ -7573,9 +7575,8 @@ export function NeutralOnboardingScreen({
                                 const disabled =
                                   role !== 'teacher' &&
                                   role !== 'parent' &&
-                                  !(usesLearnerFlow && includeIntroChoices) &&
                                   !selected &&
-                                  selectedSubjectCount >= MAX_ONBOARDING_SUBJECTS;
+                                  selectedSubjectCount >= requiredSubjectCount;
                                 return (
                                   <Pressable
                                     accessibilityRole="button"

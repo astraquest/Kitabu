@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "general_science",
-  "subjectName": "General Science",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which practice best represents a fair scientific test?",
-      "options": ["Changing one independent variable while keeping other factors constant", "Changing all conditions at the same time", "Choosing results that support the expected outcome", "Avoiding repeated measurements to save time"],
-      "correctAnswer": "Changing one independent variable while keeping other factors constant",
-      "explanation": "A fair test isolates the effect of one factor so that the measured response can be linked to that factor.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Experimental Design",
-      "learningOutcome": "Identify features of a fair scientific investigation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "What is the dependent variable in an investigation?",
-      "options": ["The factor measured as the response", "The factor deliberately changed", "A factor kept constant", "The equipment used for measurement"],
-      "correctAnswer": "The factor measured as the response",
-      "explanation": "The dependent variable is the outcome observed or measured after changing the independent variable.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Variables and Controls",
-      "learningOutcome": "Distinguish dependent variables from other investigation factors.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which SI unit is used to measure electric current?",
-      "options": ["Ampere", "Volt", "Ohm", "Watt"],
-      "correctAnswer": "Ampere",
-      "explanation": "Electric current is measured in amperes, while volts measure potential difference and ohms measure resistance.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Measurement and Units",
-      "learningOutcome": "Recall SI units used for common scientific quantities.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Which instrument is most suitable for measuring the temperature of a liquid in a beaker?",
-      "options": ["Thermometer", "Ammeter", "Spring balance", "Barometer"],
-      "correctAnswer": "Thermometer",
-      "explanation": "A thermometer measures temperature. The other instruments measure current, force, or atmospheric pressure.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Laboratory Instruments",
-      "learningOutcome": "Select appropriate instruments for basic laboratory measurements.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which statement describes renewable energy?",
-      "options": ["Energy from sources naturally replenished on a human time scale", "Energy that can never be converted to another form", "Energy stored only in fossil fuels", "Energy that has no environmental effects"],
-      "correctAnswer": "Energy from sources naturally replenished on a human time scale",
-      "explanation": "Renewable energy comes from sources such as sunlight, wind, flowing water, and biomass that can be replenished naturally.",
-      "difficulty": 1,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Renewable Energy",
-      "learningOutcome": "Define renewable energy and identify its general characteristics.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "Which energy source produces electricity directly using photovoltaic cells?",
-      "options": ["Solar energy", "Geothermal steam", "Diesel fuel", "Biogas"],
-      "correctAnswer": "Solar energy",
-      "explanation": "Photovoltaic cells convert light energy from the Sun directly into electrical energy.",
-      "difficulty": 1,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Solar Technology",
-      "learningOutcome": "Identify the energy source used by photovoltaic systems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Which gas is most directly associated with enhanced greenhouse warming from burning fossil fuels?",
-      "options": ["Carbon dioxide", "Nitrogen", "Argon", "Hydrogen"],
-      "correctAnswer": "Carbon dioxide",
-      "explanation": "Burning fossil fuels releases carbon dioxide, a greenhouse gas that traps infrared radiation in the atmosphere.",
-      "difficulty": 1,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Climate Change",
-      "learningOutcome": "Identify greenhouse gases linked to human energy use.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "What is biodiversity?",
-      "options": ["The variety of living organisms in an area", "The total rainfall received in a year", "The number of rocks in a landscape", "The speed of wind across an ecosystem"],
-      "correctAnswer": "The variety of living organisms in an area",
-      "explanation": "Biodiversity refers to variation among organisms, including species, genes, and ecosystems.",
-      "difficulty": 1,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Ecosystem Diversity",
-      "learningOutcome": "Define biodiversity in relation to ecosystems.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "Which organ pumps blood through the human circulatory system?",
-      "options": ["Heart", "Liver", "Kidney", "Pancreas"],
-      "correctAnswer": "Heart",
-      "explanation": "The heart contracts rhythmically to move blood through vessels around the body.",
-      "difficulty": 1,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Circulatory System",
-      "learningOutcome": "Recall the main function of the heart in blood circulation.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "Which nutrient is the body's main quick source of energy?",
-      "options": ["Carbohydrate", "Vitamin C", "Calcium", "Water"],
-      "correctAnswer": "Carbohydrate",
-      "explanation": "Carbohydrates are broken down to glucose, which cells commonly use for energy release.",
-      "difficulty": 1,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Nutrition and Metabolism",
-      "learningOutcome": "Identify nutrients according to their major roles in the body.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "Which simple action helps reduce the spread of many infectious diseases?",
-      "options": ["Washing hands with soap and clean water", "Sharing drinking cups during illness", "Stopping ventilation in classrooms", "Ignoring vaccination schedules"],
-      "correctAnswer": "Washing hands with soap and clean water",
-      "explanation": "Handwashing removes many disease-causing organisms and reduces transfer from surfaces to the mouth, nose, or eyes.",
-      "difficulty": 1,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Disease Prevention",
-      "learningOutcome": "Recognize basic practices that reduce infection transmission.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "Which particle in an atom has a negative charge?",
-      "options": ["Electron", "Proton", "Neutron", "Nucleus"],
-      "correctAnswer": "Electron",
-      "explanation": "Electrons are negatively charged particles found around the atomic nucleus.",
-      "difficulty": 1,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Atomic Structure",
-      "learningOutcome": "Identify charges of subatomic particles.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which process separates a dissolved solid from a liquid by forming crystals?",
-      "options": ["Crystallisation", "Filtration", "Decanting", "Magnetisation"],
-      "correctAnswer": "Crystallisation",
-      "explanation": "Crystallisation uses evaporation or cooling to form solid crystals from a solution.",
-      "difficulty": 1,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Separation Techniques",
-      "learningOutcome": "Name separation methods used for mixtures and solutions.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "Which technology uses satellites to identify position on Earth's surface?",
-      "options": ["Global Positioning System", "Microscope imaging", "Electroplating", "Fermentation"],
-      "correctAnswer": "Global Positioning System",
-      "explanation": "GPS receivers use signals from satellites to calculate location, time, and movement.",
-      "difficulty": 1,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Earth Observation and Navigation",
-      "learningOutcome": "Identify common technologies used for location and monitoring.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which protective equipment is most important when handling a dilute acid in the laboratory?",
-      "options": ["Safety goggles", "Woollen scarf", "Open sandals", "Loose bracelet"],
-      "correctAnswer": "Safety goggles",
-      "explanation": "Safety goggles protect the eyes from accidental splashes during chemical handling.",
-      "difficulty": 1,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Laboratory Safety",
-      "learningOutcome": "Select suitable safety equipment for common laboratory activities.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "A student compares germination in two seed trays. One tray receives water and the other does not, while light and temperature are the same. What is the independent variable?",
-      "options": ["Amount of water supplied", "Percentage of seeds germinating", "Type of seed tray", "Room temperature"],
-      "correctAnswer": "Amount of water supplied",
-      "explanation": "The independent variable is the factor deliberately changed, which is the water supplied to each tray.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Variables and Controls",
-      "learningOutcome": "Identify variables in a controlled biological investigation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Why is peer review important before scientific findings are accepted?",
-      "options": ["It allows other experts to check methods, evidence, and reasoning", "It guarantees that every result is profitable", "It replaces the need for data collection", "It makes a weak sample size acceptable"],
-      "correctAnswer": "It allows other experts to check methods, evidence, and reasoning",
-      "explanation": "Peer review helps detect errors, unsupported claims, and unclear methods before findings are widely used.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Scientific Communication",
-      "learningOutcome": "Explain the role of peer review in improving scientific reliability.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "A data point lies far away from the trend followed by all other measurements. What is the best first response?",
-      "options": ["Check the measurement and method before deciding whether to exclude it", "Erase it immediately because it is inconvenient", "Change the scale until it disappears", "Average it twice to hide its effect"],
-      "correctAnswer": "Check the measurement and method before deciding whether to exclude it",
-      "explanation": "An outlier may reveal error or a real effect, so the method and record should be checked before making a decision.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Data Quality",
-      "learningOutcome": "Describe responsible handling of unusual experimental results.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why repeated readings improve an experiment?",
-      "options": ["They reduce the influence of random error on the final result", "They remove the need for a control", "They make all instruments perfectly accurate", "They change a hypothesis into a law"],
-      "correctAnswer": "They reduce the influence of random error on the final result",
-      "explanation": "Repeating readings and using a mean reduces the effect of random variations in individual measurements.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Reliability and Precision",
-      "learningOutcome": "Explain how repeated measurements improve reliability.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Why is a scatter graph useful when comparing two continuous variables?",
-      "options": ["It can show whether a relationship or trend exists", "It lists safety rules for the experiment", "It proves causation without further evidence", "It removes all uncertainty from measurements"],
-      "correctAnswer": "It can show whether a relationship or trend exists",
-      "explanation": "A scatter graph displays paired values and helps reveal correlation, patterns, or unusual points.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Data Representation",
-      "learningOutcome": "Choose suitable graph types for scientific data.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "Which statement best describes the difference between accuracy and precision?",
-      "options": ["Accuracy is closeness to the true value, while precision is closeness of repeated readings to each other", "Accuracy means using a digital instrument, while precision means using an analogue instrument", "Accuracy is the size of the sample, while precision is the number of variables", "Accuracy is only needed in chemistry, while precision is only needed in physics"],
-      "correctAnswer": "Accuracy is closeness to the true value, while precision is closeness of repeated readings to each other",
-      "explanation": "A set of readings can be precise without being accurate if they cluster together but are far from the accepted value.",
-      "difficulty": 2,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Measurement Quality",
-      "learningOutcome": "Distinguish accuracy and precision in scientific measurement.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which environmental effect is most closely linked to excessive use of nitrate fertiliser near a lake?",
-      "options": ["Eutrophication from rapid algal growth", "Formation of volcanic ash", "Increased ozone in the stratosphere", "Permanent removal of gravity"],
-      "correctAnswer": "Eutrophication from rapid algal growth",
-      "explanation": "Nitrate runoff can enrich water, causing algal blooms that reduce oxygen and harm aquatic life.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Water Pollution",
-      "learningOutcome": "Explain how nutrient pollution affects aquatic ecosystems.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Why can wetlands reduce flood risk in a catchment?",
-      "options": ["They store and slowly release excess water", "They prevent all rainfall from reaching the ground", "They turn river water into salt water", "They make slopes steeper and faster"],
-      "correctAnswer": "They store and slowly release excess water",
-      "explanation": "Wetlands act like natural buffers by absorbing water during heavy rainfall and releasing it gradually.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Wetland Ecosystems",
-      "learningOutcome": "Describe ecosystem services provided by wetlands.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Which activity is an example of climate change adaptation?",
-      "options": ["Planting drought-tolerant crop varieties in drier areas", "Increasing avoidable fuel wastage", "Draining wetlands to build on floodplains", "Ignoring early warning weather information"],
-      "correctAnswer": "Planting drought-tolerant crop varieties in drier areas",
-      "explanation": "Adaptation reduces vulnerability to climate impacts, such as drought, flood, heat, or disease shifts.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Climate Resilience",
-      "learningOutcome": "Identify adaptation strategies for climate-related risks.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "Which farming practice best helps conserve soil on a sloping field?",
-      "options": ["Terracing across the slope", "Clearing all vegetation before rains", "Ploughing straight down the slope", "Leaving gullies to deepen each season"],
-      "correctAnswer": "Terracing across the slope",
-      "explanation": "Terracing reduces the speed of surface runoff and helps prevent soil erosion on slopes.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Soil Conservation",
-      "learningOutcome": "Relate land management practices to erosion control.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which process returns water vapour to liquid droplets in the water cycle?",
-      "options": ["Condensation", "Infiltration", "Transpiration", "Combustion"],
-      "correctAnswer": "Condensation",
-      "explanation": "Condensation occurs when water vapour cools and changes into liquid droplets, forming clouds or dew.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Water Cycle",
-      "learningOutcome": "Explain key processes in the water cycle.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Which waste management action follows the most preferred step in the waste hierarchy?",
-      "options": ["Avoiding unnecessary packaging before it becomes waste", "Burning mixed plastics in an open area", "Dumping waste in a river channel", "Burying recyclable metals without sorting"],
-      "correctAnswer": "Avoiding unnecessary packaging before it becomes waste",
-      "explanation": "The most preferred approach is to prevent or reduce waste before reuse, recycling, treatment, or disposal.",
-      "difficulty": 2,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Waste Management",
-      "learningOutcome": "Apply the waste hierarchy to everyday resource choices.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Why does using a clean cookstove usually improve household air quality compared with an open fire?",
-      "options": ["It burns fuel more efficiently and releases less smoke indoors", "It converts smoke into oxygen for breathing", "It removes the need for ventilation", "It increases soot to trap heat"],
-      "correctAnswer": "It burns fuel more efficiently and releases less smoke indoors",
-      "explanation": "Cleaner combustion reduces particulate matter and harmful gases that can affect respiratory health.",
-      "difficulty": 2,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Household Energy",
-      "learningOutcome": "Explain links between energy technology and health outcomes.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "Which energy conversion occurs in a wind turbine generator?",
-      "options": ["Kinetic energy of moving air to electrical energy", "Chemical energy of fuel to light energy", "Nuclear energy to sound energy", "Thermal energy of soil to elastic energy"],
-      "correctAnswer": "Kinetic energy of moving air to electrical energy",
-      "explanation": "Wind turns turbine blades, and the generator converts mechanical rotation into electrical energy.",
-      "difficulty": 2,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Wind Power",
-      "learningOutcome": "Describe energy conversions in renewable electricity systems.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Why does insulation reduce energy loss from a hot water tank?",
-      "options": ["It slows heat transfer from the tank to the surroundings", "It creates extra heat without energy input", "It changes water into a metal", "It stops all molecules from moving"],
-      "correctAnswer": "It slows heat transfer from the tank to the surroundings",
-      "explanation": "Insulating materials reduce conduction, convection, or radiation, helping retain thermal energy.",
-      "difficulty": 2,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Energy Efficiency",
-      "learningOutcome": "Explain how insulation improves energy efficiency.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why a fuse is used in an electrical circuit?",
-      "options": ["It melts and breaks the circuit when current becomes too high", "It stores current for later use", "It changes alternating current into sunlight", "It removes the need for insulation on wires"],
-      "correctAnswer": "It melts and breaks the circuit when current becomes too high",
-      "explanation": "A fuse protects wiring and appliances by opening the circuit during excessive current flow.",
-      "difficulty": 2,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Electrical Safety",
-      "learningOutcome": "Explain the protective function of circuit safety devices.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Which statement explains why antibiotics should not be used for viral infections such as common colds?",
-      "options": ["Antibiotics act against bacteria, not viruses", "Antibiotics work only when mixed with sugar", "Viruses are killed only by high salt intake", "Bacteria and viruses are identical organisms"],
-      "correctAnswer": "Antibiotics act against bacteria, not viruses",
-      "explanation": "Antibiotics target bacterial structures or processes that viruses do not have.",
-      "difficulty": 2,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Infectious Disease",
-      "learningOutcome": "Distinguish bacterial and viral disease control methods.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Which statement best describes vaccination?",
-      "options": ["It prepares the immune system to respond faster to a specific pathogen", "It provides all nutrients needed for growth", "It cures every disease immediately", "It replaces hygiene and sanitation practices"],
-      "correctAnswer": "It prepares the immune system to respond faster to a specific pathogen",
-      "explanation": "Vaccination exposes the immune system to a safe form or part of a pathogen so memory responses can develop.",
-      "difficulty": 2,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Immunity and Vaccination",
-      "learningOutcome": "Explain how vaccination supports disease prevention.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Which organ removes urea and helps regulate water balance in the body?",
-      "options": ["Kidney", "Stomach", "Lung", "Spleen"],
-      "correctAnswer": "Kidney",
-      "explanation": "Kidneys filter blood, remove urea in urine, and help maintain water and salt balance.",
-      "difficulty": 2,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Excretion and Homeostasis",
-      "learningOutcome": "Describe the role of kidneys in excretion and regulation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which component of blood mainly carries oxygen from the lungs to body tissues?",
-      "options": ["Red blood cells", "Platelets", "Plasma water", "White blood cells"],
-      "correctAnswer": "Red blood cells",
-      "explanation": "Red blood cells contain haemoglobin, which binds oxygen for transport through the bloodstream.",
-      "difficulty": 2,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Blood and Transport",
-      "learningOutcome": "Relate blood components to their functions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Which statement best describes pH 3 compared with pH 7?",
-      "options": ["pH 3 is acidic while pH 7 is neutral", "pH 3 is neutral while pH 7 is acidic", "Both values are strongly alkaline", "Both values show pure metals"],
-      "correctAnswer": "pH 3 is acidic while pH 7 is neutral",
-      "explanation": "On the pH scale, values below 7 are acidic, 7 is neutral, and values above 7 are alkaline.",
-      "difficulty": 2,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Acids, Bases and Salts",
-      "learningOutcome": "Interpret pH values for common solutions.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Why does rusting of iron increase in damp air?",
-      "options": ["Water and oxygen are both needed for the corrosion process", "Iron becomes a noble gas in damp air", "Water removes oxygen completely", "Damp air prevents all chemical reactions"],
-      "correctAnswer": "Water and oxygen are both needed for the corrosion process",
-      "explanation": "Rusting is oxidation of iron that occurs faster when both moisture and oxygen are present.",
-      "difficulty": 2,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Corrosion and Materials",
-      "learningOutcome": "Explain conditions that promote corrosion of metals.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which property makes aluminium useful for aircraft bodies and lightweight structures?",
-      "options": ["Low density with good corrosion resistance", "High radioactivity in air", "Ability to dissolve quickly in rainwater", "Extreme brittleness at room temperature"],
-      "correctAnswer": "Low density with good corrosion resistance",
-      "explanation": "Aluminium is light and forms a protective oxide layer, making it useful in transport and construction materials.",
-      "difficulty": 2,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Materials Selection",
-      "learningOutcome": "Relate material properties to technological applications.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which statement explains why polymers can be useful but environmentally challenging?",
-      "options": ["Many are durable and light but can persist as waste if poorly managed", "All polymers dissolve harmlessly in rainwater within minutes", "Polymers cannot be shaped into useful products", "Polymers are always natural and never synthetic"],
-      "correctAnswer": "Many are durable and light but can persist as waste if poorly managed",
-      "explanation": "Durability makes polymers useful, but the same persistence can create pollution when disposal and recycling are weak.",
-      "difficulty": 2,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Polymers and Sustainability",
-      "learningOutcome": "Explain benefits and environmental concerns of polymer materials.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Why are satellites useful in monitoring drought risk?",
-      "options": ["They can collect repeated images and data over large land areas", "They replace all ground observations permanently", "They create rainfall by reflecting moonlight", "They make soil moisture impossible to estimate"],
-      "correctAnswer": "They can collect repeated images and data over large land areas",
-      "explanation": "Satellite data can track vegetation, surface temperature, and rainfall patterns across wide regions.",
-      "difficulty": 2,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Remote Sensing",
-      "learningOutcome": "Explain how remote sensing supports environmental monitoring.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "A learner records masses of 10.2 g, 10.4 g, and 10.3 g for the same sample. What is the mean mass?",
-      "options": ["10.3 g", "10.9 g", "9.9 g", "30.9 g"],
-      "correctAnswer": "10.3 g",
-      "explanation": "The mean is (10.2 + 10.4 + 10.3) divided by 3, which equals 10.3 g.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Data Processing",
-      "learningOutcome": "Calculate mean values from repeated scientific measurements.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "A 250 cm3 water sample contains 5 mg of nitrate. What is the nitrate concentration in mg per litre?",
-      "options": ["20 mg/L", "5 mg/L", "1.25 mg/L", "62.5 mg/L"],
-      "correctAnswer": "20 mg/L",
-      "explanation": "250 cm3 is 0.25 L, so 5 mg divided by 0.25 L gives 20 mg/L.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Concentration Calculations",
-      "learningOutcome": "Calculate concentration from mass and solution volume.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "A student wants to test whether a water filter reduces turbidity. Which comparison gives the strongest evidence?",
-      "options": ["Measure turbidity before and after filtration using the same method", "Smell the filtered water only", "Change the water source after filtration", "Ask classmates whether the water looks clean without measuring"],
-      "correctAnswer": "Measure turbidity before and after filtration using the same method",
-      "explanation": "Using the same measurement method before and after filtration gives comparable evidence of change.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Evidence and Evaluation",
-      "learningOutcome": "Design data comparisons to evaluate a technology's effectiveness.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "In a class survey of respiratory symptoms, why should names be removed before sharing the dataset?",
-      "options": ["To protect participants' privacy while allowing analysis", "To make all symptoms disappear from the data", "To prevent calculation of percentages", "To change the biological meaning of the survey"],
-      "correctAnswer": "To protect participants' privacy while allowing analysis",
-      "explanation": "Removing identifiers supports ethical data handling when health information is collected.",
-      "difficulty": 3,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Ethics in Science",
-      "learningOutcome": "Apply ethical principles when collecting and sharing human data.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "A solution changes blue litmus paper red. What can be concluded?",
-      "options": ["The solution is acidic", "The solution is neutral", "The solution is alkaline", "The solution is a pure metal"],
-      "correctAnswer": "The solution is acidic",
-      "explanation": "Acids turn blue litmus red, while alkaline solutions turn red litmus blue.",
-      "difficulty": 3,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Acids and Indicators",
-      "learningOutcome": "Use indicator observations to classify solutions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "Which salt is formed when hydrochloric acid reacts completely with sodium hydroxide?",
-      "options": ["Sodium chloride", "Sodium nitrate", "Calcium chloride", "Hydrogen carbonate"],
-      "correctAnswer": "Sodium chloride",
-      "explanation": "Hydrochloric acid provides chloride ions and sodium hydroxide provides sodium ions, forming sodium chloride and water.",
-      "difficulty": 3,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Neutralisation",
-      "learningOutcome": "Predict salts formed in simple acid-base reactions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "A metal spoon feels colder than a wooden spoon in the same room. What is the best explanation?",
-      "options": ["Metal conducts heat away from the hand faster than wood", "Metal has a lower room temperature than wood", "Wood produces heat when touched", "Metal contains no particles at room temperature"],
-      "correctAnswer": "Metal conducts heat away from the hand faster than wood",
-      "explanation": "Metals are good thermal conductors, so they transfer heat from the hand more quickly than wood.",
-      "difficulty": 3,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Thermal Properties of Materials",
-      "learningOutcome": "Apply thermal conductivity to everyday material behaviour.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "A farmer stores grain in a dry, sealed container. Which problem is this mainly designed to reduce?",
-      "options": ["Fungal growth and pest damage promoted by moisture", "Formation of extra minerals in the grain", "Conversion of starch into glass", "Increase of atmospheric pressure inside each seed"],
-      "correctAnswer": "Fungal growth and pest damage promoted by moisture",
-      "explanation": "Low moisture and sealed storage reduce conditions that support mould growth and pests.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Food Safety",
-      "learningOutcome": "Apply scientific principles to safe food storage.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which method is most appropriate for separating sand from a mixture of sand and water?",
-      "options": ["Filtration", "Evaporation only", "Fractional distillation", "Chromatography"],
-      "correctAnswer": "Filtration",
-      "explanation": "Filtration separates an insoluble solid such as sand from a liquid using a filter medium.",
-      "difficulty": 3,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Mixture Separation",
-      "learningOutcome": "Select suitable separation methods based on mixture properties.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "A house uses ten 10 W LED lamps instead of ten 60 W filament lamps for 5 hours. How much power is saved while all lamps are on?",
-      "options": ["500 W", "50 W", "250 W", "700 W"],
-      "correctAnswer": "500 W",
-      "explanation": "Ten filament lamps use 600 W and ten LED lamps use 100 W, so the power saved is 500 W.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Energy Efficiency",
-      "learningOutcome": "Calculate power savings from efficient lighting choices.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "A 2 kW electric kettle runs for 0.25 hours. How much electrical energy does it use?",
-      "options": ["0.5 kWh", "2.25 kWh", "8 kWh", "0.125 kWh"],
-      "correctAnswer": "0.5 kWh",
-      "explanation": "Energy in kilowatt-hours equals power in kilowatts multiplied by time in hours: 2 times 0.25 equals 0.5 kWh.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Electrical Energy Use",
-      "learningOutcome": "Calculate electrical energy consumption from power and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "A solar panel produces 120 W under strong sunlight. How much energy is produced in 4 hours if output stays constant?",
-      "options": ["480 Wh", "30 Wh", "124 Wh", "960 Wh"],
-      "correctAnswer": "480 Wh",
-      "explanation": "Energy equals power multiplied by time, so 120 W times 4 h gives 480 Wh.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Solar Energy Calculations",
-      "learningOutcome": "Calculate energy output from a solar device using power and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "In a simple circuit, a 12 V battery supplies a current of 3 A through a device. What is the device resistance?",
-      "options": ["4 ohms", "36 ohms", "15 ohms", "0.25 ohms"],
-      "correctAnswer": "4 ohms",
-      "explanation": "Using Ohm's law, resistance equals voltage divided by current: 12 V divided by 3 A equals 4 ohms.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Electric Circuits",
-      "learningOutcome": "Use Ohm's law to calculate resistance in simple circuits.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Which design change would make a charcoal stove transfer more heat to a cooking pot?",
-      "options": ["Directing hot gases around the pot before they escape", "Increasing gaps that let heat bypass the pot", "Removing all support for the pot", "Painting the fuel black after burning"],
-      "correctAnswer": "Directing hot gases around the pot before they escape",
-      "explanation": "Improved heat transfer to the pot raises efficiency and reduces wasted heat.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Stove Design and Efficiency",
-      "learningOutcome": "Apply heat transfer ideas to improve energy device design.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "A community biogas digester works best when organic waste is broken down without oxygen. What process is involved?",
-      "options": ["Anaerobic digestion", "Photosynthesis", "Electrolysis of copper", "Fractional distillation"],
-      "correctAnswer": "Anaerobic digestion",
-      "explanation": "Anaerobic digestion uses microorganisms to break down organic matter in the absence of oxygen, producing biogas.",
-      "difficulty": 3,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Bioenergy",
-      "learningOutcome": "Relate anaerobic digestion to biogas production.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "A patient is dehydrated after heavy sweating. Which change is most likely in the body?",
-      "options": ["The kidneys conserve water by producing more concentrated urine", "The kidneys stop filtering blood permanently", "The lungs take over urine production", "The heart stops needing blood plasma"],
-      "correctAnswer": "The kidneys conserve water by producing more concentrated urine",
-      "explanation": "Homeostatic control reduces water loss in urine when the body needs to conserve water.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Homeostasis",
-      "learningOutcome": "Apply homeostasis concepts to water balance in humans.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Which meal combination best improves iron absorption from plant foods?",
-      "options": ["Beans with orange or citrus fruit", "Tea taken immediately with beans", "Plain polished rice only", "Fried cassava with no vegetables"],
-      "correctAnswer": "Beans with orange or citrus fruit",
-      "explanation": "Vitamin C from citrus fruits improves absorption of non-haem iron from plant foods such as beans.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Nutrition and Micronutrients",
-      "learningOutcome": "Apply nutrition knowledge to improve micronutrient uptake.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "A person begins breathing faster during exercise. What is the main reason?",
-      "options": ["Working muscles need more oxygen and produce more carbon dioxide", "Bones stop storing calcium during exercise", "The stomach begins digesting oxygen", "The skin stops releasing heat"],
-      "correctAnswer": "Working muscles need more oxygen and produce more carbon dioxide",
-      "explanation": "Increased respiration in muscles raises oxygen demand and carbon dioxide removal needs.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Respiration and Exercise",
-      "learningOutcome": "Relate exercise to changes in breathing and gas exchange.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which public health action most directly breaks the life cycle of mosquitoes that breed in stagnant water?",
-      "options": ["Draining or covering standing water near homes", "Sharing untreated water during outbreaks", "Leaving open tins to collect rainwater", "Keeping windows open without nets at night"],
-      "correctAnswer": "Draining or covering standing water near homes",
-      "explanation": "Removing or covering stagnant water reduces mosquito breeding sites and lowers disease transmission risk.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Vector-Borne Disease Control",
-      "learningOutcome": "Apply life-cycle knowledge to control disease vectors.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "A learner wants to reduce risk from contaminated drinking water during an emergency. Which action is most scientifically sound?",
-      "options": ["Boil the water and store it in a clean covered container", "Add soil until the water looks darker", "Mix in untreated river water to dilute germs", "Leave the water uncovered overnight beside waste"],
-      "correctAnswer": "Boil the water and store it in a clean covered container",
-      "explanation": "Boiling kills many pathogens, and clean covered storage reduces recontamination.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Water, Sanitation and Health",
-      "learningOutcome": "Apply safe water practices to reduce disease risk.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Which observation would best indicate that fermentation is occurring in a sugar and yeast mixture?",
-      "options": ["Bubbles of gas are produced as sugar is broken down", "The mixture becomes a solid metal", "The yeast changes into sand grains", "The container loses all mass instantly"],
-      "correctAnswer": "Bubbles of gas are produced as sugar is broken down",
-      "explanation": "Yeast fermentation releases carbon dioxide gas, which appears as bubbles in the mixture.",
-      "difficulty": 3,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Microorganisms and Biotechnology",
-      "learningOutcome": "Use observations to identify fermentation by microorganisms.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "In an ecosystem, what would most likely happen if decomposers were removed?",
-      "options": ["Nutrient recycling would slow and dead organic matter would accumulate", "Producers would no longer need sunlight", "All food chains would gain unlimited energy", "Carbon dioxide would stop existing in air"],
-      "correctAnswer": "Nutrient recycling would slow and dead organic matter would accumulate",
-      "explanation": "Decomposers break down dead matter and return nutrients to soil and water for reuse by producers.",
-      "difficulty": 3,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Nutrient Cycling",
-      "learningOutcome": "Explain the ecological role of decomposers in nutrient cycles.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "A river section downstream from untreated sewage has low dissolved oxygen. Which cause is most likely?",
-      "options": ["Microorganisms use oxygen while decomposing organic waste", "Fish produce oxygen faster than plants", "Stones absorb oxygen from air permanently", "Sewage prevents all microbial activity"],
-      "correctAnswer": "Microorganisms use oxygen while decomposing organic waste",
-      "explanation": "Organic pollution increases microbial respiration, which can reduce dissolved oxygen for aquatic organisms.",
-      "difficulty": 3,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Water Quality",
-      "learningOutcome": "Relate organic pollution to dissolved oxygen changes in water.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which action is most likely to increase carbon storage in a school compound over several years?",
-      "options": ["Planting and maintaining trees and ground cover", "Burning dry leaves every week", "Removing all vegetation and exposing soil", "Covering all soil with loose plastic waste"],
-      "correctAnswer": "Planting and maintaining trees and ground cover",
-      "explanation": "Growing plants take in carbon dioxide through photosynthesis and store carbon in biomass and soil.",
-      "difficulty": 3,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Carbon Cycle",
-      "learningOutcome": "Apply carbon cycle ideas to local environmental action.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "A community wants to monitor water quality monthly. Which set of measurements is most useful for a basic science record?",
-      "options": ["pH, turbidity, temperature, and dissolved oxygen", "Shoe size, road width, wall colour, and song choice", "Moon phase only", "Classroom attendance only"],
-      "correctAnswer": "pH, turbidity, temperature, and dissolved oxygen",
-      "explanation": "These measurements describe chemical and physical water conditions that affect organisms and safety.",
-      "difficulty": 3,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Environmental Monitoring",
-      "learningOutcome": "Select relevant indicators for monitoring water quality.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "A hillside has lost vegetation after overgrazing. Which process is likely to increase during heavy rain?",
-      "options": ["Soil erosion by surface runoff", "Formation of new ozone in soil", "Increase in soil anchoring by roots", "Instant conversion of soil into granite"],
-      "correctAnswer": "Soil erosion by surface runoff",
-      "explanation": "Vegetation protects soil and roots hold it in place, so loss of cover increases erosion risk.",
-      "difficulty": 3,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Land Degradation",
-      "learningOutcome": "Apply ecosystem knowledge to explain soil erosion risks.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which technology would best support early warning for a flood-prone river basin?",
-      "options": ["Rain gauges, river level sensors, and communication alerts", "Only a classroom wall clock", "A microscope slide of dry sand", "A sealed thermometer kept in a drawer"],
-      "correctAnswer": "Rain gauges, river level sensors, and communication alerts",
-      "explanation": "Flood early warning uses rainfall and river data plus timely communication to communities at risk.",
-      "difficulty": 3,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Disaster Risk Monitoring",
-      "learningOutcome": "Select technologies for environmental risk warning systems.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "A mobile health app reminds users to take prescribed medicine. Which data practice is most responsible?",
-      "options": ["Protect personal health data and collect only necessary information", "Publish each user's medicine history publicly", "Sell user passwords as research data", "Disable consent because science is involved"],
-      "correctAnswer": "Protect personal health data and collect only necessary information",
-      "explanation": "Digital health tools should protect privacy, use consent, and limit data collection to what is needed.",
-      "difficulty": 3,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Digital Health",
-      "learningOutcome": "Apply ethical data practices to health technology.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "A farmer uses a soil moisture sensor to decide when to irrigate. What is the main benefit?",
-      "options": ["Water can be applied when crops need it, reducing waste", "The sensor makes rainfall unnecessary everywhere", "Soil organisms stop needing air", "Irrigation becomes unrelated to plant growth"],
-      "correctAnswer": "Water can be applied when crops need it, reducing waste",
-      "explanation": "Sensor data supports precision irrigation by matching water application to soil and crop needs.",
-      "difficulty": 3,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Agricultural Technology",
-      "learningOutcome": "Explain how sensors support efficient resource use.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "In a simple water treatment sequence, why is filtration done after sedimentation?",
-      "options": ["Settling removes larger particles first, so filtration can remove smaller suspended particles more effectively", "Filtration must always create more mud before settling", "Sedimentation kills all viruses instantly", "The order has no effect on filter loading"],
-      "correctAnswer": "Settling removes larger particles first, so filtration can remove smaller suspended particles more effectively",
-      "explanation": "Sedimentation reduces the solid load before filtration, improving filter performance and reducing clogging.",
-      "difficulty": 3,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Water Treatment",
-      "learningOutcome": "Explain the purpose of steps in basic water treatment.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "A school wants to compare air quality near a busy road and a garden. Which plan gives the most reliable comparison?",
-      "options": ["Measure particulate levels at both sites at the same times over several days", "Measure the road once and the garden next year", "Ask one learner to guess which site feels cleaner", "Measure only wind direction and ignore particles"],
-      "correctAnswer": "Measure particulate levels at both sites at the same times over several days",
-      "explanation": "Comparable timing and repeated measurements reduce bias from weather and daily traffic variation.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Field Investigation Design",
-      "learningOutcome": "Evaluate investigation designs for reliable environmental comparisons.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "A class finds a strong positive correlation between hours of sunshine and solar panel output. Which conclusion is most scientifically careful?",
-      "options": ["Output tends to increase with sunshine, but other factors should also be considered", "Sunshine is the only factor that can ever affect output", "The data prove that panel angle is irrelevant", "The measurements are invalid because correlation can never be useful"],
-      "correctAnswer": "Output tends to increase with sunshine, but other factors should also be considered",
-      "explanation": "Correlation supports a relationship, but temperature, panel angle, shading, and equipment condition may also influence output.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Interpreting Correlation",
-      "learningOutcome": "Draw cautious conclusions from correlation data.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "Two groups test a plant extract against bacteria. Group A uses sterile water as a control, while Group B has no control. Why is Group A's design stronger?",
-      "options": ["It shows whether any effect is due to the extract rather than the liquid or procedure", "It prevents bacteria from growing in every possible situation", "It guarantees the extract is safe for people to drink", "It removes the need to record results"],
-      "correctAnswer": "It shows whether any effect is due to the extract rather than the liquid or procedure",
-      "explanation": "A control helps separate the effect of the tested extract from other parts of the method.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Controls and Validity",
-      "learningOutcome": "Evaluate the role of controls in biological investigations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A learner wants to report the uncertainty of a measuring cylinder marked every 1 cm3. Which statement is most reasonable for one reading?",
-      "options": ["The reading is limited by the scale interval, so uncertainty should be considered in the result", "The reading has no uncertainty because numbers are printed on the cylinder", "The reading must be wrong unless it is a whole litre", "The uncertainty is always larger than the measured volume"],
-      "correctAnswer": "The reading is limited by the scale interval, so uncertainty should be considered in the result",
-      "explanation": "Instrument resolution limits how finely a measurement can be read, so uncertainty should be acknowledged.",
-      "difficulty": 4,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Measurement Uncertainty",
-      "learningOutcome": "Analyze how instrument resolution affects measurement uncertainty.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "A new material for food packaging is cheap, strong, and non-biodegradable. Which evaluation is most balanced?",
-      "options": ["It may be useful, but disposal, recycling, and pollution impacts must be assessed", "It should be rejected only because it is strong", "It is automatically harmless because it is cheap", "It cannot affect waste systems because it is packaging"],
-      "correctAnswer": "It may be useful, but disposal, recycling, and pollution impacts must be assessed",
-      "explanation": "Responsible materials selection considers performance, cost, life cycle impacts, and waste management options.",
-      "difficulty": 4,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Life Cycle Thinking",
-      "learningOutcome": "Evaluate material choices using performance and sustainability criteria.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "A water sample has pH 5 and high metal ion concentration near an abandoned mine. Which interpretation is most likely?",
-      "options": ["Acidic drainage may be dissolving metals into the water", "The water is strongly alkaline and metal-free", "The mine has converted water into pure oxygen", "Metal ions prove the pH meter cannot work"],
-      "correctAnswer": "Acidic drainage may be dissolving metals into the water",
-      "explanation": "Acidic water can dissolve metal ions from rocks and mine waste, reducing water quality.",
-      "difficulty": 4,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Environmental Chemistry",
-      "learningOutcome": "Analyze chemical indicators of water pollution.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "A cooking pot is made from aluminium but has plastic handles. What design reasoning explains this choice?",
-      "options": ["Aluminium conducts heat to cook food, while plastic reduces heat transfer to hands", "Plastic handles increase heat transfer to hands", "Aluminium is used because it is a poor conductor", "The two materials have identical thermal properties"],
-      "correctAnswer": "Aluminium conducts heat to cook food, while plastic reduces heat transfer to hands",
-      "explanation": "The design combines a conductive metal body with insulating handles for function and safety.",
-      "difficulty": 4,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Composite Product Design",
-      "learningOutcome": "Analyze how different material properties are combined in product design.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A mini-grid can use solar panels, batteries, and a diesel generator backup. What is the main advantage of this hybrid system?",
-      "options": ["It improves reliability while reducing diesel use when sunlight is available", "It makes energy storage unnecessary at night", "It ensures diesel fuel is never consumed", "It prevents electrical loads from changing"],
-      "correctAnswer": "It improves reliability while reducing diesel use when sunlight is available",
-      "explanation": "A hybrid system can balance renewable supply, storage, and backup generation to serve loads more reliably.",
-      "difficulty": 4,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Hybrid Energy Systems",
-      "learningOutcome": "Analyze tradeoffs in combined renewable and backup energy systems.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "A village borehole pump uses solar power. During cloudy periods, water supply becomes unreliable. Which improvement best addresses the system weakness?",
-      "options": ["Add suitable storage for pumped water or electrical energy", "Remove the water tank to reduce storage", "Use thinner pipes to increase friction losses", "Disconnect the pump from all controls"],
-      "correctAnswer": "Add suitable storage for pumped water or electrical energy",
-      "explanation": "Storage helps bridge times when solar output is low, improving continuity of supply.",
-      "difficulty": 4,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Solar Water Pumping",
-      "learningOutcome": "Evaluate design improvements for renewable-powered water systems.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "A building has large west-facing windows and overheats in the afternoon. Which passive design response is most suitable?",
-      "options": ["Add shading and improve ventilation to reduce heat gain", "Paint all windows black to absorb more heat", "Seal every vent and remove shade trees", "Increase indoor cooking fires during hot hours"],
-      "correctAnswer": "Add shading and improve ventilation to reduce heat gain",
-      "explanation": "Shading reduces solar heat gain and ventilation helps remove warm indoor air.",
-      "difficulty": 4,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Passive Building Design",
-      "learningOutcome": "Analyze how building design affects thermal comfort and energy demand.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "A patient completes only half of an antibiotic course without medical advice. What community-level risk can this contribute to?",
-      "options": ["Selection of bacteria that are harder to treat", "Immediate immunity to all viral diseases", "Permanent removal of all bacteria from the body", "Conversion of antibiotics into vaccines"],
-      "correctAnswer": "Selection of bacteria that are harder to treat",
-      "explanation": "Incomplete or inappropriate antibiotic use can favour survival and spread of resistant bacteria.",
-      "difficulty": 4,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Antimicrobial Resistance",
-      "learningOutcome": "Analyze how medicine use practices affect antimicrobial resistance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "A meal is high in refined sugar and low in fibre every day. Which long-term health concern is most scientifically linked to this pattern?",
-      "options": ["Increased risk of metabolic health problems", "Guaranteed prevention of all infections", "Instant strengthening of bones", "Complete replacement of physical activity"],
-      "correctAnswer": "Increased risk of metabolic health problems",
-      "explanation": "A diet repeatedly high in refined sugar and low in fibre can contribute to poor metabolic health when combined with other risk factors.",
-      "difficulty": 4,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Lifestyle and Non-Communicable Disease",
-      "learningOutcome": "Analyze links between diet patterns and long-term health risks.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A community clinic notices more malaria cases after heavy rains. Which explanation best links environment and health?",
-      "options": ["Rain can create stagnant breeding sites that increase mosquito populations", "Rainwater turns malaria into a mineral deficiency", "Mosquitoes reproduce only in dry dust", "Heavy rain makes bed nets scientifically useless"],
-      "correctAnswer": "Rain can create stagnant breeding sites that increase mosquito populations",
-      "explanation": "After rains, stagnant water can support mosquito breeding, increasing the risk of mosquito-borne disease.",
-      "difficulty": 4,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Environment and Disease",
-      "learningOutcome": "Analyze environmental factors that influence disease transmission.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "A school cafeteria wants to improve nutrition without raising costs greatly. Which evidence-based approach is strongest?",
-      "options": ["Use locally available legumes, vegetables, and whole grains in planned portions", "Replace all meals with sugary drinks", "Serve one food group only for every meal", "Remove vegetables because they contain water"],
-      "correctAnswer": "Use locally available legumes, vegetables, and whole grains in planned portions",
-      "explanation": "Balanced meals can improve nutrient quality by combining affordable local sources of protein, fibre, vitamins, and energy.",
-      "difficulty": 4,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Community Nutrition",
-      "learningOutcome": "Evaluate practical strategies for improving meal quality.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A lake food web loses many small fish due to pollution. Which wider effect is most likely?",
-      "options": ["Predators depending on those fish may decline or shift feeding", "All organisms in the lake become producers", "The lake stops exchanging gases with air", "Pollution can no longer affect any trophic level"],
-      "correctAnswer": "Predators depending on those fish may decline or shift feeding",
-      "explanation": "Changes at one trophic level can affect predators, prey, and competition across the food web.",
-      "difficulty": 4,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Food Webs",
-      "learningOutcome": "Analyze how disturbances affect ecosystem relationships.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "A county wants to reduce plastic pollution from markets. Which policy mix is most likely to work sustainably?",
-      "options": ["Reduce single-use packaging, improve collection, and support reuse or recycling systems", "Move all waste to open drains after market day", "Ban collection points so waste is invisible", "Encourage thicker disposable bags without disposal planning"],
-      "correctAnswer": "Reduce single-use packaging, improve collection, and support reuse or recycling systems",
-      "explanation": "Pollution reduction needs prevention, infrastructure, and practical alternatives rather than disposal alone.",
-      "difficulty": 4,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Pollution Control",
-      "learningOutcome": "Evaluate integrated strategies for reducing solid waste pollution.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "A dryland area is experiencing lower crop yields, bare soil, and stronger runoff. Which response addresses both ecosystem recovery and farming needs?",
-      "options": ["Agroforestry with soil cover, water harvesting, and controlled grazing", "Clearing remaining trees and increasing bare soil", "Burning crop residues before every rainfall", "Removing terraces to speed runoff"],
-      "correctAnswer": "Agroforestry with soil cover, water harvesting, and controlled grazing",
-      "explanation": "Combining trees, soil cover, water conservation, and grazing control can restore soil function and support production.",
-      "difficulty": 4,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Land Restoration",
-      "learningOutcome": "Analyze integrated land restoration practices for dryland resilience.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A sensor network reports rising river turbidity after road construction. Which inference is most reasonable?",
-      "options": ["Soil disturbance may be increasing sediment runoff into the river", "The river has become chemically pure", "The sensors must be ignored because roads cannot affect water", "Turbidity means there is no suspended material"],
-      "correctAnswer": "Soil disturbance may be increasing sediment runoff into the river",
-      "explanation": "Construction can expose soil, and rainfall can wash sediment into rivers, raising turbidity.",
-      "difficulty": 4,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Sensor Data Interpretation",
-      "learningOutcome": "Interpret environmental sensor data in relation to human activities.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "An AI model predicts crop disease from leaf photos. Which validation step is most important before farmers rely on it?",
-      "options": ["Test it on local crops and conditions using expert-checked diagnoses", "Assume it works because it uses a computer", "Use only one image from a different continent", "Remove all records of wrong predictions"],
-      "correctAnswer": "Test it on local crops and conditions using expert-checked diagnoses",
-      "explanation": "Models should be validated with representative local data and reliable reference diagnoses before use.",
-      "difficulty": 4,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Artificial Intelligence in Science",
-      "learningOutcome": "Evaluate reliability requirements for AI-supported scientific tools.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "A low-cost microscope attachment for a phone is used to view pond water. Which limitation should be considered when interpreting results?",
-      "options": ["Image quality and magnification may limit identification accuracy", "A phone microscope changes all organisms into bacteria", "Viewing a sample proves all pond water is unsafe", "Magnification removes the need for careful sampling"],
-      "correctAnswer": "Image quality and magnification may limit identification accuracy",
-      "explanation": "Low-cost tools can support observation, but resolution, lighting, and sampling affect what can be concluded.",
-      "difficulty": 4,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Low-Cost Scientific Tools",
-      "learningOutcome": "Analyze strengths and limitations of accessible science technologies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A student proposes that a new water filter is effective because filtered water looks clear. Which added evidence would most strengthen the claim?",
-      "options": ["Before-and-after measurements of turbidity and microbial indicators from repeated samples", "A single photograph of one clean glass", "The colour of the filter container only", "A promise that all filters work the same way"],
-      "correctAnswer": "Before-and-after measurements of turbidity and microbial indicators from repeated samples",
-      "explanation": "Clear appearance alone cannot confirm safety; repeated physical and microbial measurements give stronger evidence.",
-      "difficulty": 5,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Evidence-Based Claims",
-      "learningOutcome": "Evaluate the evidence needed to support a scientific technology claim.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "A community chooses between a diesel pump and a solar pump for water supply. Which set of criteria best supports a life-cycle decision?",
-      "options": ["Initial cost, maintenance, fuel or sunlight availability, emissions, reliability, and disposal", "Paint colour, brand slogan, and the loudest advertisement", "Only the purchase price on the first day", "The opinion of one person without site data"],
-      "correctAnswer": "Initial cost, maintenance, fuel or sunlight availability, emissions, reliability, and disposal",
-      "explanation": "Life-cycle decisions consider costs, resource availability, environmental impacts, operation, and end-of-life handling.",
-      "difficulty": 5,
-      "strandTitle": "Energy Systems and Resources",
-      "subStrandTitle": "Energy Technology Evaluation",
-      "learningOutcome": "Develop criteria for evaluating energy technologies over their life cycle.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A town wants to reduce flooding, improve biodiversity, and cool streets. Which integrated intervention best addresses all three goals?",
-      "options": ["Protect wetlands, plant urban trees, and create permeable drainage areas", "Concrete over streams and remove roadside vegetation", "Increase bare roofs and block drains", "Dispose of solid waste in waterways"],
-      "correctAnswer": "Protect wetlands, plant urban trees, and create permeable drainage areas",
-      "explanation": "Green and blue infrastructure can store water, support habitats, and reduce urban heat.",
-      "difficulty": 5,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Nature-Based Solutions",
-      "learningOutcome": "Synthesize ecosystem-based actions for multiple urban resilience goals.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A school science club wants to compare composting, recycling, and landfill disposal for organic waste. Which investigation design is strongest?",
-      "options": ["Track equal masses of waste, time, odour, final product, cost, and environmental effects for each method", "Study only the method that is already preferred", "Use different waste types and masses without records", "Decide by guessing which bin looks newer"],
-      "correctAnswer": "Track equal masses of waste, time, odour, final product, cost, and environmental effects for each method",
-      "explanation": "A fair comparison uses common starting conditions and multiple relevant outcome measures.",
-      "difficulty": 5,
-      "strandTitle": "Environmental Systems and Sustainability",
-      "subStrandTitle": "Circular Resource Use",
-      "learningOutcome": "Design a comparative investigation for waste management options.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "A county health team wants to reduce respiratory illness linked to indoor smoke. Which plan best combines science, technology, and behaviour change?",
-      "options": ["Promote cleaner stoves, ventilation, user training, and monitoring of smoke exposure", "Tell households to cook in sealed rooms", "Replace health education with rumours about smoke", "Measure smoke once and ignore cooking practices"],
-      "correctAnswer": "Promote cleaner stoves, ventilation, user training, and monitoring of smoke exposure",
-      "explanation": "An effective plan combines improved technology, correct use, ventilation, and evidence on exposure levels.",
-      "difficulty": 5,
-      "strandTitle": "Health Science and Human Biology",
-      "subStrandTitle": "Environmental Health Interventions",
-      "learningOutcome": "Synthesize interventions that reduce environmental health risks.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A team designs a low-cost handwashing station for a school. Which design requirement is most complete?",
-      "options": ["It should provide clean water, soap access, drainage, durability, easy maintenance, and inclusive height", "It should look modern even if it cannot hold water", "It should require rare imported parts for every repair", "It should work only when no learners are present"],
-      "correctAnswer": "It should provide clean water, soap access, drainage, durability, easy maintenance, and inclusive height",
-      "explanation": "A useful school health design must meet hygiene, safety, maintenance, and accessibility needs.",
-      "difficulty": 5,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Human-Centred Design",
-      "learningOutcome": "Create design criteria for a practical health-supporting technology.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A learner must choose sensors for a small greenhouse automation project. Which set best matches plant growth needs?",
-      "options": ["Temperature, humidity, soil moisture, and light sensors", "Sound level, shoe size, paint thickness, and ringtone sensors", "Only a compass with no environmental sensors", "A clock hidden outside the greenhouse only"],
-      "correctAnswer": "Temperature, humidity, soil moisture, and light sensors",
-      "explanation": "Plant growth in a greenhouse is strongly affected by temperature, humidity, soil water, and light conditions.",
-      "difficulty": 5,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Automation and Sensors",
-      "learningOutcome": "Select sensor inputs for a simple automated biological system.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "A school laboratory wants to reduce chemical waste from practical lessons. Which approach best follows green chemistry thinking?",
-      "options": ["Use microscale experiments, safer reagents, clear labelling, and planned waste collection", "Mix all waste chemicals together to save bottles", "Pour unknown chemicals into sinks without records", "Increase reagent volumes so results look bigger"],
-      "correctAnswer": "Use microscale experiments, safer reagents, clear labelling, and planned waste collection",
-      "explanation": "Green chemistry reduces hazards and waste by using smaller quantities, safer materials, and proper handling systems.",
-      "difficulty": 5,
-      "strandTitle": "Matter, Materials and Technology",
-      "subStrandTitle": "Green Chemistry",
-      "learningOutcome": "Create practical strategies for reducing laboratory chemical waste.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A public health dashboard shows disease cases by ward each week. Which feature would make the dashboard more useful for decisions?",
-      "options": ["Trends, population-adjusted rates, location, and clear alerts for unusual increases", "Only decorative colours with no labels", "Hidden data sources and no dates", "One total number with no comparison over time"],
-      "correctAnswer": "Trends, population-adjusted rates, location, and clear alerts for unusual increases",
-      "explanation": "Decision-makers need patterns over time and place, rates for fair comparison, and transparent alerts.",
-      "difficulty": 5,
-      "strandTitle": "Technology Applications in Science",
-      "subStrandTitle": "Public Health Data Systems",
-      "learningOutcome": "Design information features that support evidence-based health decisions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "A group is planning a citizen science project to monitor stream health. Which plan best supports valid and ethical participation?",
-      "options": ["Train volunteers, use standard methods, protect private data, verify samples, and share results responsibly", "Let everyone use different methods and edit results to match expectations", "Collect personal data without consent because the project is local", "Report only good results and delete unusual findings"],
-      "correctAnswer": "Train volunteers, use standard methods, protect private data, verify samples, and share results responsibly",
-      "explanation": "Citizen science needs consistent methods, participant care, quality checks, and responsible communication of findings.",
-      "difficulty": 5,
-      "strandTitle": "Scientific Inquiry and Data Skills",
-      "subStrandTitle": "Citizen Science",
-      "learningOutcome": "Design a responsible citizen science monitoring project.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "general_science",
+ "subjectName": "General Science",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which practice best represents a fair scientific test?",
+   "options": [
+    "Changing one independent variable while keeping other factors constant",
+    "Changing all conditions at the same time",
+    "Choosing results that support the expected outcome",
+    "Avoiding repeated measurements to save time"
+   ],
+   "correctAnswer": "Changing one independent variable while keeping other factors constant",
+   "explanation": "A fair test isolates the effect of one factor so that the measured response can be linked to that factor.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Experimental Design",
+   "learningOutcome": "Identify features of a fair scientific investigation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "What is the dependent variable in an investigation?",
+   "options": [
+    "The factor measured as the response",
+    "The factor deliberately changed",
+    "A factor kept constant",
+    "The equipment used for measurement"
+   ],
+   "correctAnswer": "The factor measured as the response",
+   "explanation": "The dependent variable is the outcome observed or measured after changing the independent variable.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Variables and Controls",
+   "learningOutcome": "Distinguish dependent variables from other investigation factors.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which SI unit is used to measure electric current?",
+   "options": [
+    "Ampere",
+    "Volt",
+    "Ohm",
+    "Watt"
+   ],
+   "correctAnswer": "Ampere",
+   "explanation": "Electric current is measured in amperes, while volts measure potential difference and ohms measure resistance.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Measurement and Units",
+   "learningOutcome": "Recall SI units used for common scientific quantities.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Which instrument is most suitable for measuring the temperature of a liquid in a beaker?",
+   "options": [
+    "Thermometer",
+    "Ammeter",
+    "Spring balance",
+    "Barometer"
+   ],
+   "correctAnswer": "Thermometer",
+   "explanation": "A thermometer measures temperature. The other instruments measure current, force, or atmospheric pressure.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Laboratory Instruments",
+   "learningOutcome": "Select appropriate instruments for basic laboratory measurements.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which statement describes renewable energy?",
+   "options": [
+    "Energy from sources naturally replenished on a human time scale",
+    "Energy that can never be converted to another form",
+    "Energy stored only in fossil fuels",
+    "Energy that has no environmental effects"
+   ],
+   "correctAnswer": "Energy from sources naturally replenished on a human time scale",
+   "explanation": "Renewable energy comes from sources such as sunlight, wind, flowing water, and biomass that can be replenished naturally.",
+   "difficulty": 1,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Renewable Energy",
+   "learningOutcome": "Define renewable energy and identify its general characteristics.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which energy source produces electricity directly using photovoltaic cells?",
+   "options": [
+    "Solar energy",
+    "Geothermal steam",
+    "Diesel fuel",
+    "Biogas"
+   ],
+   "correctAnswer": "Solar energy",
+   "explanation": "Photovoltaic cells convert light energy from the Sun directly into electrical energy.",
+   "difficulty": 1,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Solar Technology",
+   "learningOutcome": "Identify the energy source used by photovoltaic systems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Which gas is most directly associated with enhanced greenhouse warming from burning fossil fuels?",
+   "options": [
+    "Carbon dioxide",
+    "Nitrogen",
+    "Argon",
+    "Hydrogen"
+   ],
+   "correctAnswer": "Carbon dioxide",
+   "explanation": "Burning fossil fuels releases carbon dioxide, a greenhouse gas that traps infrared radiation in the atmosphere.",
+   "difficulty": 1,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Climate Change",
+   "learningOutcome": "Identify greenhouse gases linked to human energy use.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "What is biodiversity?",
+   "options": [
+    "The variety of living organisms in an area",
+    "The total rainfall received in a year",
+    "The number of rocks in a landscape",
+    "The speed of wind across an ecosystem"
+   ],
+   "correctAnswer": "The variety of living organisms in an area",
+   "explanation": "Biodiversity refers to variation among organisms, including species, genes, and ecosystems.",
+   "difficulty": 1,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Ecosystem Diversity",
+   "learningOutcome": "Define biodiversity in relation to ecosystems.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which organ pumps blood through the human circulatory system?",
+   "options": [
+    "Heart",
+    "Liver",
+    "Kidney",
+    "Pancreas"
+   ],
+   "correctAnswer": "Heart",
+   "explanation": "The heart contracts rhythmically to move blood through vessels around the body.",
+   "difficulty": 1,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Circulatory System",
+   "learningOutcome": "Recall the main function of the heart in blood circulation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "Which nutrient is the body's main quick source of energy?",
+   "options": [
+    "Carbohydrate",
+    "Vitamin C",
+    "Calcium",
+    "Water"
+   ],
+   "correctAnswer": "Carbohydrate",
+   "explanation": "Carbohydrates are broken down to glucose, which cells commonly use for energy release.",
+   "difficulty": 1,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Nutrition and Metabolism",
+   "learningOutcome": "Identify nutrients according to their major roles in the body.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which simple action helps reduce the spread of many infectious diseases?",
+   "options": [
+    "Washing hands with soap and clean water",
+    "Sharing drinking cups during illness",
+    "Stopping ventilation in classrooms",
+    "Ignoring vaccination schedules"
+   ],
+   "correctAnswer": "Washing hands with soap and clean water",
+   "explanation": "Handwashing removes many disease-causing organisms and reduces transfer from surfaces to the mouth, nose, or eyes.",
+   "difficulty": 1,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Disease Prevention",
+   "learningOutcome": "Recognize basic practices that reduce infection transmission.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which particle in an atom has a negative charge?",
+   "options": [
+    "Electron",
+    "Proton",
+    "Neutron",
+    "Nucleus"
+   ],
+   "correctAnswer": "Electron",
+   "explanation": "Electrons are negatively charged particles found around the atomic nucleus.",
+   "difficulty": 1,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Atomic Structure",
+   "learningOutcome": "Identify charges of subatomic particles.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which process separates a dissolved solid from a liquid by forming crystals?",
+   "options": [
+    "Crystallisation",
+    "Filtration",
+    "Decanting",
+    "Magnetisation"
+   ],
+   "correctAnswer": "Crystallisation",
+   "explanation": "Crystallisation uses evaporation or cooling to form solid crystals from a solution.",
+   "difficulty": 1,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Separation Techniques",
+   "learningOutcome": "Name separation methods used for mixtures and solutions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "Which technology uses satellites to identify position on Earth's surface?",
+   "options": [
+    "Global Positioning System",
+    "Microscope imaging",
+    "Electroplating",
+    "Fermentation"
+   ],
+   "correctAnswer": "Global Positioning System",
+   "explanation": "GPS receivers use signals from satellites to calculate location, time, and movement.",
+   "difficulty": 1,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Earth Observation and Navigation",
+   "learningOutcome": "Identify common technologies used for location and monitoring.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which protective equipment is most important when handling a dilute acid in the laboratory?",
+   "options": [
+    "Safety goggles",
+    "Woollen scarf",
+    "Open sandals",
+    "Loose bracelet"
+   ],
+   "correctAnswer": "Safety goggles",
+   "explanation": "Safety goggles protect the eyes from accidental splashes during chemical handling.",
+   "difficulty": 1,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Laboratory Safety",
+   "learningOutcome": "Select suitable safety equipment for common laboratory activities.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "A student compares germination in two seed trays. One tray receives water and the other does not, while light and temperature are the same. What is the independent variable?",
+   "options": [
+    "Amount of water supplied",
+    "Percentage of seeds germinating",
+    "Type of seed tray",
+    "Room temperature"
+   ],
+   "correctAnswer": "Amount of water supplied",
+   "explanation": "The independent variable is the factor deliberately changed, which is the water supplied to each tray.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Variables and Controls",
+   "learningOutcome": "Identify variables in a controlled biological investigation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Why is peer review important before scientific findings are accepted?",
+   "options": [
+    "It allows other experts to check methods, evidence, and reasoning",
+    "It guarantees that every result is profitable",
+    "It replaces the need for data collection",
+    "It makes a weak sample size acceptable"
+   ],
+   "correctAnswer": "It allows other experts to check methods, evidence, and reasoning",
+   "explanation": "Peer review helps detect errors, unsupported claims, and unclear methods before findings are widely used.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Scientific Communication",
+   "learningOutcome": "Explain the role of peer review in improving scientific reliability.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "A data point lies far away from the trend followed by all other measurements. What is the best first response?",
+   "options": [
+    "Check the measurement and method before deciding whether to exclude it",
+    "Erase it immediately because it is inconvenient",
+    "Change the scale until it disappears",
+    "Average it twice to hide its effect"
+   ],
+   "correctAnswer": "Check the measurement and method before deciding whether to exclude it",
+   "explanation": "An outlier may reveal error or a real effect, so the method and record should be checked before making a decision.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Data Quality",
+   "learningOutcome": "Describe responsible handling of unusual experimental results.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why repeated readings improve an experiment?",
+   "options": [
+    "They reduce the influence of random error on the final result",
+    "They remove the need for a control",
+    "They make all instruments perfectly accurate",
+    "They change a hypothesis into a law"
+   ],
+   "correctAnswer": "They reduce the influence of random error on the final result",
+   "explanation": "Repeating readings and using a mean reduces the effect of random variations in individual measurements.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Reliability and Precision",
+   "learningOutcome": "Explain how repeated measurements improve reliability.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Why is a scatter graph useful when comparing two continuous variables?",
+   "options": [
+    "It can show whether a relationship or trend exists",
+    "It lists safety rules for the experiment",
+    "It proves causation without further evidence",
+    "It removes all uncertainty from measurements"
+   ],
+   "correctAnswer": "It can show whether a relationship or trend exists",
+   "explanation": "A scatter graph displays paired values and helps reveal correlation, patterns, or unusual points.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Data Representation",
+   "learningOutcome": "Choose suitable graph types for scientific data.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "Which statement best describes the difference between accuracy and precision?",
+   "options": [
+    "Accuracy is closeness to the true value, while precision is closeness of repeated readings to each other",
+    "Accuracy means using a digital instrument, while precision means using an analogue instrument",
+    "Accuracy is the size of the sample, while precision is the number of variables",
+    "Accuracy is only needed in chemistry, while precision is only needed in physics"
+   ],
+   "correctAnswer": "Accuracy is closeness to the true value, while precision is closeness of repeated readings to each other",
+   "explanation": "A set of readings can be precise without being accurate if they cluster together but are far from the accepted value.",
+   "difficulty": 2,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Measurement Quality",
+   "learningOutcome": "Distinguish accuracy and precision in scientific measurement.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which environmental effect is most closely linked to excessive use of nitrate fertiliser near a lake?",
+   "options": [
+    "Eutrophication from rapid algal growth",
+    "Formation of volcanic ash",
+    "Increased ozone in the stratosphere",
+    "Permanent removal of gravity"
+   ],
+   "correctAnswer": "Eutrophication from rapid algal growth",
+   "explanation": "Nitrate runoff can enrich water, causing algal blooms that reduce oxygen and harm aquatic life.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Water Pollution",
+   "learningOutcome": "Explain how nutrient pollution affects aquatic ecosystems.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Why can wetlands reduce flood risk in a catchment?",
+   "options": [
+    "They store and slowly release excess water",
+    "They prevent all rainfall from reaching the ground",
+    "They turn river water into salt water",
+    "They make slopes steeper and faster"
+   ],
+   "correctAnswer": "They store and slowly release excess water",
+   "explanation": "Wetlands act like natural buffers by absorbing water during heavy rainfall and releasing it gradually.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Wetland Ecosystems",
+   "learningOutcome": "Describe ecosystem services provided by wetlands.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which activity is an example of climate change adaptation?",
+   "options": [
+    "Planting drought-tolerant crop varieties in drier areas",
+    "Increasing avoidable fuel wastage",
+    "Draining wetlands to build on floodplains",
+    "Ignoring early warning weather information"
+   ],
+   "correctAnswer": "Planting drought-tolerant crop varieties in drier areas",
+   "explanation": "Adaptation reduces vulnerability to climate impacts, such as drought, flood, heat, or disease shifts.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Climate Resilience",
+   "learningOutcome": "Identify adaptation strategies for climate-related risks.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "Which farming practice best helps conserve soil on a sloping field?",
+   "options": [
+    "Terracing across the slope",
+    "Clearing all vegetation before rains",
+    "Ploughing straight down the slope",
+    "Leaving gullies to deepen each season"
+   ],
+   "correctAnswer": "Terracing across the slope",
+   "explanation": "Terracing reduces the speed of surface runoff and helps prevent soil erosion on slopes.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Soil Conservation",
+   "learningOutcome": "Relate land management practices to erosion control.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which process returns water vapour to liquid droplets in the water cycle?",
+   "options": [
+    "Condensation",
+    "Infiltration",
+    "Transpiration",
+    "Combustion"
+   ],
+   "correctAnswer": "Condensation",
+   "explanation": "Condensation occurs when water vapour cools and changes into liquid droplets, forming clouds or dew.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Water Cycle",
+   "learningOutcome": "Explain key processes in the water cycle.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which waste management action follows the most preferred step in the waste hierarchy?",
+   "options": [
+    "Avoiding unnecessary packaging before it becomes waste",
+    "Burning mixed plastics in an open area",
+    "Dumping waste in a river channel",
+    "Burying recyclable metals without sorting"
+   ],
+   "correctAnswer": "Avoiding unnecessary packaging before it becomes waste",
+   "explanation": "The most preferred approach is to prevent or reduce waste before reuse, recycling, treatment, or disposal.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Waste Management",
+   "learningOutcome": "Apply the waste hierarchy to everyday resource choices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Why does using a clean cookstove usually improve household air quality compared with an open fire?",
+   "options": [
+    "It burns fuel more efficiently and releases less smoke indoors",
+    "It converts smoke into oxygen for breathing",
+    "It removes the need for ventilation",
+    "It increases soot to trap heat"
+   ],
+   "correctAnswer": "It burns fuel more efficiently and releases less smoke indoors",
+   "explanation": "Cleaner combustion reduces particulate matter and harmful gases that can affect respiratory health.",
+   "difficulty": 2,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Household Energy",
+   "learningOutcome": "Explain links between energy technology and health outcomes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "Which energy conversion occurs in a wind turbine generator?",
+   "options": [
+    "Kinetic energy of moving air to electrical energy",
+    "Chemical energy of fuel to light energy",
+    "Nuclear energy to sound energy",
+    "Thermal energy of soil to elastic energy"
+   ],
+   "correctAnswer": "Kinetic energy of moving air to electrical energy",
+   "explanation": "Wind turns turbine blades, and the generator converts mechanical rotation into electrical energy.",
+   "difficulty": 2,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Wind Power",
+   "learningOutcome": "Describe energy conversions in renewable electricity systems.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Why does insulation reduce energy loss from a hot water tank?",
+   "options": [
+    "It slows heat transfer from the tank to the surroundings",
+    "It creates extra heat without energy input",
+    "It changes water into a metal",
+    "It stops all molecules from moving"
+   ],
+   "correctAnswer": "It slows heat transfer from the tank to the surroundings",
+   "explanation": "Insulating materials reduce conduction, convection, or radiation, helping retain thermal energy.",
+   "difficulty": 2,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Energy Efficiency",
+   "learningOutcome": "Explain how insulation improves energy efficiency.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why a fuse is used in an electrical circuit?",
+   "options": [
+    "It melts and breaks the circuit when current becomes too high",
+    "It stores current for later use",
+    "It changes alternating current into sunlight",
+    "It removes the need for insulation on wires"
+   ],
+   "correctAnswer": "It melts and breaks the circuit when current becomes too high",
+   "explanation": "A fuse protects wiring and appliances by opening the circuit during excessive current flow.",
+   "difficulty": 2,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Electrical Safety",
+   "learningOutcome": "Explain the protective function of circuit safety devices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which statement explains why antibiotics should not be used for viral infections such as common colds?",
+   "options": [
+    "Antibiotics act against bacteria, not viruses",
+    "Antibiotics work only when mixed with sugar",
+    "Viruses are killed only by high salt intake",
+    "Bacteria and viruses are identical organisms"
+   ],
+   "correctAnswer": "Antibiotics act against bacteria, not viruses",
+   "explanation": "Antibiotics target bacterial structures or processes that viruses do not have.",
+   "difficulty": 2,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Infectious Disease",
+   "learningOutcome": "Distinguish bacterial and viral disease control methods.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Which statement best describes vaccination?",
+   "options": [
+    "It prepares the immune system to respond faster to a specific pathogen",
+    "It provides all nutrients needed for growth",
+    "It cures every disease immediately",
+    "It replaces hygiene and sanitation practices"
+   ],
+   "correctAnswer": "It prepares the immune system to respond faster to a specific pathogen",
+   "explanation": "Vaccination exposes the immune system to a safe form or part of a pathogen so memory responses can develop.",
+   "difficulty": 2,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Immunity and Vaccination",
+   "learningOutcome": "Explain how vaccination supports disease prevention.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Which organ removes urea and helps regulate water balance in the body?",
+   "options": [
+    "Kidney",
+    "Stomach",
+    "Lung",
+    "Spleen"
+   ],
+   "correctAnswer": "Kidney",
+   "explanation": "Kidneys filter blood, remove urea in urine, and help maintain water and salt balance.",
+   "difficulty": 2,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Excretion and Homeostasis",
+   "learningOutcome": "Describe the role of kidneys in excretion and regulation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which component of blood mainly carries oxygen from the lungs to body tissues?",
+   "options": [
+    "Red blood cells",
+    "Platelets",
+    "Plasma water",
+    "White blood cells"
+   ],
+   "correctAnswer": "Red blood cells",
+   "explanation": "Red blood cells contain haemoglobin, which binds oxygen for transport through the bloodstream.",
+   "difficulty": 2,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Blood and Transport",
+   "learningOutcome": "Relate blood components to their functions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which statement best describes pH 3 compared with pH 7?",
+   "options": [
+    "pH 3 is acidic while pH 7 is neutral",
+    "pH 3 is neutral while pH 7 is acidic",
+    "Both values are strongly alkaline",
+    "Both values show pure metals"
+   ],
+   "correctAnswer": "pH 3 is acidic while pH 7 is neutral",
+   "explanation": "On the pH scale, values below 7 are acidic, 7 is neutral, and values above 7 are alkaline.",
+   "difficulty": 2,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Acids, Bases and Salts",
+   "learningOutcome": "Interpret pH values for common solutions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Why does rusting of iron increase in damp air?",
+   "options": [
+    "Water and oxygen are both needed for the corrosion process",
+    "Iron becomes a noble gas in damp air",
+    "Water removes oxygen completely",
+    "Damp air prevents all chemical reactions"
+   ],
+   "correctAnswer": "Water and oxygen are both needed for the corrosion process",
+   "explanation": "Rusting is oxidation of iron that occurs faster when both moisture and oxygen are present.",
+   "difficulty": 2,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Corrosion and Materials",
+   "learningOutcome": "Explain conditions that promote corrosion of metals.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which property makes aluminium useful for aircraft bodies and lightweight structures?",
+   "options": [
+    "Low density with good corrosion resistance",
+    "High radioactivity in air",
+    "Ability to dissolve quickly in rainwater",
+    "Extreme brittleness at room temperature"
+   ],
+   "correctAnswer": "Low density with good corrosion resistance",
+   "explanation": "Aluminium is light and forms a protective oxide layer, making it useful in transport and construction materials.",
+   "difficulty": 2,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Materials Selection",
+   "learningOutcome": "Relate material properties to technological applications.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which statement explains why polymers can be useful but environmentally challenging?",
+   "options": [
+    "Many are durable and light but can persist as waste if poorly managed",
+    "All polymers dissolve harmlessly in rainwater within minutes",
+    "Polymers cannot be shaped into useful products",
+    "Polymers are always natural and never synthetic"
+   ],
+   "correctAnswer": "Many are durable and light but can persist as waste if poorly managed",
+   "explanation": "Durability makes polymers useful, but the same persistence can create pollution when disposal and recycling are weak.",
+   "difficulty": 2,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Polymers and Sustainability",
+   "learningOutcome": "Explain benefits and environmental concerns of polymer materials.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Why are satellites useful in monitoring drought risk?",
+   "options": [
+    "They can collect repeated images and data over large land areas",
+    "They replace all ground observations permanently",
+    "They create rainfall by reflecting moonlight",
+    "They make soil moisture impossible to estimate"
+   ],
+   "correctAnswer": "They can collect repeated images and data over large land areas",
+   "explanation": "Satellite data can track vegetation, surface temperature, and rainfall patterns across wide regions.",
+   "difficulty": 2,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Remote Sensing",
+   "learningOutcome": "Explain how remote sensing supports environmental monitoring.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "A learner records masses of 10.2 g, 10.4 g, and 10.3 g for the same sample. What is the mean mass?",
+   "options": [
+    "10.3 g",
+    "10.9 g",
+    "9.9 g",
+    "30.9 g"
+   ],
+   "correctAnswer": "10.3 g",
+   "explanation": "The mean is (10.2 + 10.4 + 10.3) divided by 3, which equals 10.3 g.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Data Processing",
+   "learningOutcome": "Calculate mean values from repeated scientific measurements.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "A 250 cm3 water sample contains 5 mg of nitrate. What is the nitrate concentration in mg per litre?",
+   "options": [
+    "20 mg/L",
+    "5 mg/L",
+    "1.25 mg/L",
+    "62.5 mg/L"
+   ],
+   "correctAnswer": "20 mg/L",
+   "explanation": "250 cm3 is 0.25 L, so 5 mg divided by 0.25 L gives 20 mg/L.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Concentration Calculations",
+   "learningOutcome": "Calculate concentration from mass and solution volume.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "A student wants to test whether a water filter reduces turbidity. Which comparison gives the strongest evidence?",
+   "options": [
+    "Measure turbidity before and after filtration using the same method",
+    "Smell the filtered water only",
+    "Change the water source after filtration",
+    "Ask classmates whether the water looks clean without measuring"
+   ],
+   "correctAnswer": "Measure turbidity before and after filtration using the same method",
+   "explanation": "Using the same measurement method before and after filtration gives comparable evidence of change.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Evidence and Evaluation",
+   "learningOutcome": "Design data comparisons to evaluate a technology's effectiveness.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "In a class survey of respiratory symptoms, why should names be removed before sharing the dataset?",
+   "options": [
+    "To protect participants' privacy while allowing analysis",
+    "To make all symptoms disappear from the data",
+    "To prevent calculation of percentages",
+    "To change the biological meaning of the survey"
+   ],
+   "correctAnswer": "To protect participants' privacy while allowing analysis",
+   "explanation": "Removing identifiers supports ethical data handling when health information is collected.",
+   "difficulty": 3,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Ethics in Science",
+   "learningOutcome": "Apply ethical principles when collecting and sharing human data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "A solution changes blue litmus paper red. What can be concluded?",
+   "options": [
+    "The solution is acidic",
+    "The solution is neutral",
+    "The solution is alkaline",
+    "The solution is a pure metal"
+   ],
+   "correctAnswer": "The solution is acidic",
+   "explanation": "Acids turn blue litmus red, while alkaline solutions turn red litmus blue.",
+   "difficulty": 3,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Acids and Indicators",
+   "learningOutcome": "Use indicator observations to classify solutions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "Which salt is formed when hydrochloric acid reacts completely with sodium hydroxide?",
+   "options": [
+    "Sodium chloride",
+    "Sodium nitrate",
+    "Calcium chloride",
+    "Hydrogen carbonate"
+   ],
+   "correctAnswer": "Sodium chloride",
+   "explanation": "Hydrochloric acid provides chloride ions and sodium hydroxide provides sodium ions, forming sodium chloride and water.",
+   "difficulty": 3,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Neutralisation",
+   "learningOutcome": "Predict salts formed in simple acid-base reactions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "A metal spoon feels colder than a wooden spoon in the same room. What is the best explanation?",
+   "options": [
+    "Metal conducts heat away from the hand faster than wood",
+    "Metal has a lower room temperature than wood",
+    "Wood produces heat when touched",
+    "Metal contains no particles at room temperature"
+   ],
+   "correctAnswer": "Metal conducts heat away from the hand faster than wood",
+   "explanation": "Metals are good thermal conductors, so they transfer heat from the hand more quickly than wood.",
+   "difficulty": 3,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Thermal Properties of Materials",
+   "learningOutcome": "Apply thermal conductivity to everyday material behaviour.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A farmer stores grain in a dry, sealed container. Which problem is this mainly designed to reduce?",
+   "options": [
+    "Fungal growth and pest damage promoted by moisture",
+    "Formation of extra minerals in the grain",
+    "Conversion of starch into glass",
+    "Increase of atmospheric pressure inside each seed"
+   ],
+   "correctAnswer": "Fungal growth and pest damage promoted by moisture",
+   "explanation": "Low moisture and sealed storage reduce conditions that support mould growth and pests.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Food Safety",
+   "learningOutcome": "Apply scientific principles to safe food storage.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which method is most appropriate for separating sand from a mixture of sand and water?",
+   "options": [
+    "Filtration",
+    "Evaporation only",
+    "Fractional distillation",
+    "Chromatography"
+   ],
+   "correctAnswer": "Filtration",
+   "explanation": "Filtration separates an insoluble solid such as sand from a liquid using a filter medium.",
+   "difficulty": 3,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Mixture Separation",
+   "learningOutcome": "Select suitable separation methods based on mixture properties.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "A house uses ten 10 W LED lamps instead of ten 60 W filament lamps for 5 hours. How much power is saved while all lamps are on?",
+   "options": [
+    "500 W",
+    "50 W",
+    "250 W",
+    "700 W"
+   ],
+   "correctAnswer": "500 W",
+   "explanation": "Ten filament lamps use 600 W and ten LED lamps use 100 W, so the power saved is 500 W.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Energy Efficiency",
+   "learningOutcome": "Calculate power savings from efficient lighting choices.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "A 2 kW electric kettle runs for 0.25 hours. How much electrical energy does it use?",
+   "options": [
+    "0.5 kWh",
+    "2.25 kWh",
+    "8 kWh",
+    "0.125 kWh"
+   ],
+   "correctAnswer": "0.5 kWh",
+   "explanation": "Energy in kilowatt-hours equals power in kilowatts multiplied by time in hours: 2 times 0.25 equals 0.5 kWh.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Electrical Energy Use",
+   "learningOutcome": "Calculate electrical energy consumption from power and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "A solar panel produces 120 W under strong sunlight. How much energy is produced in 4 hours if output stays constant?",
+   "options": [
+    "480 Wh",
+    "30 Wh",
+    "124 Wh",
+    "960 Wh"
+   ],
+   "correctAnswer": "480 Wh",
+   "explanation": "Energy equals power multiplied by time, so 120 W times 4 h gives 480 Wh.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Solar Energy Calculations",
+   "learningOutcome": "Calculate energy output from a solar device using power and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "In a simple circuit, a 12 V battery supplies a current of 3 A through a device. What is the device resistance?",
+   "options": [
+    "4 ohms",
+    "36 ohms",
+    "15 ohms",
+    "0.25 ohms"
+   ],
+   "correctAnswer": "4 ohms",
+   "explanation": "Using Ohm's law, resistance equals voltage divided by current: 12 V divided by 3 A equals 4 ohms.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Electric Circuits",
+   "learningOutcome": "Use Ohm's law to calculate resistance in simple circuits.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Which design change would make a charcoal stove transfer more heat to a cooking pot?",
+   "options": [
+    "Directing hot gases around the pot before they escape",
+    "Increasing gaps that let heat bypass the pot",
+    "Removing all support for the pot",
+    "Painting the fuel black after burning"
+   ],
+   "correctAnswer": "Directing hot gases around the pot before they escape",
+   "explanation": "Improved heat transfer to the pot raises efficiency and reduces wasted heat.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Stove Design and Efficiency",
+   "learningOutcome": "Apply heat transfer ideas to improve energy device design.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "A community biogas digester works best when organic waste is broken down without oxygen. What process is involved?",
+   "options": [
+    "Anaerobic digestion",
+    "Photosynthesis",
+    "Electrolysis of copper",
+    "Fractional distillation"
+   ],
+   "correctAnswer": "Anaerobic digestion",
+   "explanation": "Anaerobic digestion uses microorganisms to break down organic matter in the absence of oxygen, producing biogas.",
+   "difficulty": 3,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Bioenergy",
+   "learningOutcome": "Relate anaerobic digestion to biogas production.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A patient is dehydrated after heavy sweating. Which change is most likely in the body?",
+   "options": [
+    "The kidneys conserve water by producing more concentrated urine",
+    "The kidneys stop filtering blood permanently",
+    "The lungs take over urine production",
+    "The heart stops needing blood plasma"
+   ],
+   "correctAnswer": "The kidneys conserve water by producing more concentrated urine",
+   "explanation": "Homeostatic control reduces water loss in urine when the body needs to conserve water.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Homeostasis",
+   "learningOutcome": "Apply homeostasis concepts to water balance in humans.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Which meal combination best improves iron absorption from plant foods?",
+   "options": [
+    "Beans with orange or citrus fruit",
+    "Tea taken immediately with beans",
+    "Plain polished rice only",
+    "Fried cassava with no vegetables"
+   ],
+   "correctAnswer": "Beans with orange or citrus fruit",
+   "explanation": "Vitamin C from citrus fruits improves absorption of non-haem iron from plant foods such as beans.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Nutrition and Micronutrients",
+   "learningOutcome": "Apply nutrition knowledge to improve micronutrient uptake.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "A person begins breathing faster during exercise. What is the main reason?",
+   "options": [
+    "Working muscles need more oxygen and produce more carbon dioxide",
+    "Bones stop storing calcium during exercise",
+    "The stomach begins digesting oxygen",
+    "The skin stops releasing heat"
+   ],
+   "correctAnswer": "Working muscles need more oxygen and produce more carbon dioxide",
+   "explanation": "Increased respiration in muscles raises oxygen demand and carbon dioxide removal needs.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Respiration and Exercise",
+   "learningOutcome": "Relate exercise to changes in breathing and gas exchange.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which public health action most directly breaks the life cycle of mosquitoes that breed in stagnant water?",
+   "options": [
+    "Draining or covering standing water near homes",
+    "Sharing untreated water during outbreaks",
+    "Leaving open tins to collect rainwater",
+    "Keeping windows open without nets at night"
+   ],
+   "correctAnswer": "Draining or covering standing water near homes",
+   "explanation": "Removing or covering stagnant water reduces mosquito breeding sites and lowers disease transmission risk.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Vector-Borne Disease Control",
+   "learningOutcome": "Apply life-cycle knowledge to control disease vectors.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A learner wants to reduce risk from contaminated drinking water during an emergency. Which action is most scientifically sound?",
+   "options": [
+    "Boil the water and store it in a clean covered container",
+    "Add soil until the water looks darker",
+    "Mix in untreated river water to dilute germs",
+    "Leave the water uncovered overnight beside waste"
+   ],
+   "correctAnswer": "Boil the water and store it in a clean covered container",
+   "explanation": "Boiling kills many pathogens, and clean covered storage reduces recontamination.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Water, Sanitation and Health",
+   "learningOutcome": "Apply safe water practices to reduce disease risk.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which observation would best indicate that fermentation is occurring in a sugar and yeast mixture?",
+   "options": [
+    "Bubbles of gas are produced as sugar is broken down",
+    "The mixture becomes a solid metal",
+    "The yeast changes into sand grains",
+    "The container loses all mass instantly"
+   ],
+   "correctAnswer": "Bubbles of gas are produced as sugar is broken down",
+   "explanation": "Yeast fermentation releases carbon dioxide gas, which appears as bubbles in the mixture.",
+   "difficulty": 3,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Microorganisms and Biotechnology",
+   "learningOutcome": "Use observations to identify fermentation by microorganisms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "In an ecosystem, what would most likely happen if decomposers were removed?",
+   "options": [
+    "Nutrient recycling would slow and dead organic matter would accumulate",
+    "Producers would no longer need sunlight",
+    "All food chains would gain unlimited energy",
+    "Carbon dioxide would stop existing in air"
+   ],
+   "correctAnswer": "Nutrient recycling would slow and dead organic matter would accumulate",
+   "explanation": "Decomposers break down dead matter and return nutrients to soil and water for reuse by producers.",
+   "difficulty": 3,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Nutrient Cycling",
+   "learningOutcome": "Explain the ecological role of decomposers in nutrient cycles.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "A river section downstream from untreated sewage has low dissolved oxygen. Which cause is most likely?",
+   "options": [
+    "Microorganisms use oxygen while decomposing organic waste",
+    "Fish produce oxygen faster than plants",
+    "Stones absorb oxygen from air permanently",
+    "Sewage prevents all microbial activity"
+   ],
+   "correctAnswer": "Microorganisms use oxygen while decomposing organic waste",
+   "explanation": "Organic pollution increases microbial respiration, which can reduce dissolved oxygen for aquatic organisms.",
+   "difficulty": 3,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Water Quality",
+   "learningOutcome": "Relate organic pollution to dissolved oxygen changes in water.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which action is most likely to increase carbon storage in a school compound over several years?",
+   "options": [
+    "Planting and maintaining trees and ground cover",
+    "Burning dry leaves every week",
+    "Removing all vegetation and exposing soil",
+    "Covering all soil with loose plastic waste"
+   ],
+   "correctAnswer": "Planting and maintaining trees and ground cover",
+   "explanation": "Growing plants take in carbon dioxide through photosynthesis and store carbon in biomass and soil.",
+   "difficulty": 3,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Carbon Cycle",
+   "learningOutcome": "Apply carbon cycle ideas to local environmental action.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "A community wants to monitor water quality monthly. Which set of measurements is most useful for a basic science record?",
+   "options": [
+    "pH, turbidity, temperature, and dissolved oxygen",
+    "Shoe size, road width, wall colour, and song choice",
+    "Moon phase only",
+    "Classroom attendance only"
+   ],
+   "correctAnswer": "pH, turbidity, temperature, and dissolved oxygen",
+   "explanation": "These measurements describe chemical and physical water conditions that affect organisms and safety.",
+   "difficulty": 3,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Environmental Monitoring",
+   "learningOutcome": "Select relevant indicators for monitoring water quality.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "A hillside has lost vegetation after overgrazing. Which process is likely to increase during heavy rain?",
+   "options": [
+    "Soil erosion by surface runoff",
+    "Formation of new ozone in soil",
+    "Increase in soil anchoring by roots",
+    "Instant conversion of soil into granite"
+   ],
+   "correctAnswer": "Soil erosion by surface runoff",
+   "explanation": "Vegetation protects soil and roots hold it in place, so loss of cover increases erosion risk.",
+   "difficulty": 3,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Land Degradation",
+   "learningOutcome": "Apply ecosystem knowledge to explain soil erosion risks.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which technology would best support early warning for a flood-prone river basin?",
+   "options": [
+    "Rain gauges, river level sensors, and communication alerts",
+    "Only a classroom wall clock",
+    "A microscope slide of dry sand",
+    "A sealed thermometer kept in a drawer"
+   ],
+   "correctAnswer": "Rain gauges, river level sensors, and communication alerts",
+   "explanation": "Flood early warning uses rainfall and river data plus timely communication to communities at risk.",
+   "difficulty": 3,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Disaster Risk Monitoring",
+   "learningOutcome": "Select technologies for environmental risk warning systems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "A mobile health app reminds users to take prescribed medicine. Which data practice is most responsible?",
+   "options": [
+    "Protect personal health data and collect only necessary information",
+    "Publish each user's medicine history publicly",
+    "Sell user passwords as research data",
+    "Disable consent because science is involved"
+   ],
+   "correctAnswer": "Protect personal health data and collect only necessary information",
+   "explanation": "Digital health tools should protect privacy, use consent, and limit data collection to what is needed.",
+   "difficulty": 3,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Digital Health",
+   "learningOutcome": "Apply ethical data practices to health technology.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "A farmer uses a soil moisture sensor to decide when to irrigate. What is the main benefit?",
+   "options": [
+    "Water can be applied when crops need it, reducing waste",
+    "The sensor makes rainfall unnecessary everywhere",
+    "Soil organisms stop needing air",
+    "Irrigation becomes unrelated to plant growth"
+   ],
+   "correctAnswer": "Water can be applied when crops need it, reducing waste",
+   "explanation": "Sensor data supports precision irrigation by matching water application to soil and crop needs.",
+   "difficulty": 3,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Agricultural Technology",
+   "learningOutcome": "Explain how sensors support efficient resource use.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "In a simple water treatment sequence, why is filtration done after sedimentation?",
+   "options": [
+    "Settling removes larger particles first, so filtration can remove smaller suspended particles more effectively",
+    "Filtration must always create more mud before settling",
+    "Sedimentation kills all viruses instantly",
+    "The order has no effect on filter loading"
+   ],
+   "correctAnswer": "Settling removes larger particles first, so filtration can remove smaller suspended particles more effectively",
+   "explanation": "Sedimentation reduces the solid load before filtration, improving filter performance and reducing clogging.",
+   "difficulty": 3,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Water Treatment",
+   "learningOutcome": "Explain the purpose of steps in basic water treatment.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "A school wants to compare air quality near a busy road and a garden. Which plan gives the most reliable comparison?",
+   "options": [
+    "Measure particulate levels at both sites at the same times over several days",
+    "Measure the road once and the garden next year",
+    "Ask one learner to guess which site feels cleaner",
+    "Measure only wind direction and ignore particles"
+   ],
+   "correctAnswer": "Measure particulate levels at both sites at the same times over several days",
+   "explanation": "Comparable timing and repeated measurements reduce bias from weather and daily traffic variation.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Field Investigation Design",
+   "learningOutcome": "Evaluate investigation designs for reliable environmental comparisons.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "A class finds a strong positive correlation between hours of sunshine and solar panel output. Which conclusion is most scientifically careful?",
+   "options": [
+    "Output tends to increase with sunshine, but other factors should also be considered",
+    "Sunshine is the only factor that can ever affect output",
+    "The data prove that panel angle is irrelevant",
+    "The measurements are invalid because correlation can never be useful"
+   ],
+   "correctAnswer": "Output tends to increase with sunshine, but other factors should also be considered",
+   "explanation": "Correlation supports a relationship, but temperature, panel angle, shading, and equipment condition may also influence output.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Interpreting Correlation",
+   "learningOutcome": "Draw cautious conclusions from correlation data.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "Two groups test a plant extract against bacteria. Group A uses sterile water as a control, while Group B has no control. Why is Group A's design stronger?",
+   "options": [
+    "It shows whether any effect is due to the extract rather than the liquid or procedure",
+    "It prevents bacteria from growing in every possible situation",
+    "It guarantees the extract is safe for people to drink",
+    "It removes the need to record results"
+   ],
+   "correctAnswer": "It shows whether any effect is due to the extract rather than the liquid or procedure",
+   "explanation": "A control helps separate the effect of the tested extract from other parts of the method.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Controls and Validity",
+   "learningOutcome": "Evaluate the role of controls in biological investigations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A learner wants to report the uncertainty of a measuring cylinder marked every 1 cm3. Which statement is most reasonable for one reading?",
+   "options": [
+    "The reading is limited by the scale interval, so uncertainty should be considered in the result",
+    "The reading has no uncertainty because numbers are printed on the cylinder",
+    "The reading must be wrong unless it is a whole litre",
+    "The uncertainty is always larger than the measured volume"
+   ],
+   "correctAnswer": "The reading is limited by the scale interval, so uncertainty should be considered in the result",
+   "explanation": "Instrument resolution limits how finely a measurement can be read, so uncertainty should be acknowledged.",
+   "difficulty": 4,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Measurement Uncertainty",
+   "learningOutcome": "Analyze how instrument resolution affects measurement uncertainty.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "A new material for food packaging is cheap, strong, and non-biodegradable. Which evaluation is most balanced?",
+   "options": [
+    "It may be useful, but disposal, recycling, and pollution impacts must be assessed",
+    "It should be rejected only because it is strong",
+    "It is automatically harmless because it is cheap",
+    "It cannot affect waste systems because it is packaging"
+   ],
+   "correctAnswer": "It may be useful, but disposal, recycling, and pollution impacts must be assessed",
+   "explanation": "Responsible materials selection considers performance, cost, life cycle impacts, and waste management options.",
+   "difficulty": 4,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Life Cycle Thinking",
+   "learningOutcome": "Evaluate material choices using performance and sustainability criteria.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A water sample has pH 5 and high metal ion concentration near an abandoned mine. Which interpretation is most likely?",
+   "options": [
+    "Acidic drainage may be dissolving metals into the water",
+    "The water is strongly alkaline and metal-free",
+    "The mine has converted water into pure oxygen",
+    "Metal ions prove the pH meter cannot work"
+   ],
+   "correctAnswer": "Acidic drainage may be dissolving metals into the water",
+   "explanation": "Acidic water can dissolve metal ions from rocks and mine waste, reducing water quality.",
+   "difficulty": 4,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Environmental Chemistry",
+   "learningOutcome": "Analyze chemical indicators of water pollution.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "A cooking pot is made from aluminium but has plastic handles. What design reasoning explains this choice?",
+   "options": [
+    "Aluminium conducts heat to cook food, while plastic reduces heat transfer to hands",
+    "Plastic handles increase heat transfer to hands",
+    "Aluminium is used because it is a poor conductor",
+    "The two materials have identical thermal properties"
+   ],
+   "correctAnswer": "Aluminium conducts heat to cook food, while plastic reduces heat transfer to hands",
+   "explanation": "The design combines a conductive metal body with insulating handles for function and safety.",
+   "difficulty": 4,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Composite Product Design",
+   "learningOutcome": "Analyze how different material properties are combined in product design.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A mini-grid can use solar panels, batteries, and a diesel generator backup. What is the main advantage of this hybrid system?",
+   "options": [
+    "It improves reliability while reducing diesel use when sunlight is available",
+    "It makes energy storage unnecessary at night",
+    "It ensures diesel fuel is never consumed",
+    "It prevents electrical loads from changing"
+   ],
+   "correctAnswer": "It improves reliability while reducing diesel use when sunlight is available",
+   "explanation": "A hybrid system can balance renewable supply, storage, and backup generation to serve loads more reliably.",
+   "difficulty": 4,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Hybrid Energy Systems",
+   "learningOutcome": "Analyze tradeoffs in combined renewable and backup energy systems.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "A village borehole pump uses solar power. During cloudy periods, water supply becomes unreliable. Which improvement best addresses the system weakness?",
+   "options": [
+    "Add suitable storage for pumped water or electrical energy",
+    "Remove the water tank to reduce storage",
+    "Use thinner pipes to increase friction losses",
+    "Disconnect the pump from all controls"
+   ],
+   "correctAnswer": "Add suitable storage for pumped water or electrical energy",
+   "explanation": "Storage helps bridge times when solar output is low, improving continuity of supply.",
+   "difficulty": 4,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Solar Water Pumping",
+   "learningOutcome": "Evaluate design improvements for renewable-powered water systems.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "A building has large west-facing windows and overheats in the afternoon. Which passive design response is most suitable?",
+   "options": [
+    "Add shading and improve ventilation to reduce heat gain",
+    "Paint all windows black to absorb more heat",
+    "Seal every vent and remove shade trees",
+    "Increase indoor cooking fires during hot hours"
+   ],
+   "correctAnswer": "Add shading and improve ventilation to reduce heat gain",
+   "explanation": "Shading reduces solar heat gain and ventilation helps remove warm indoor air.",
+   "difficulty": 4,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Passive Building Design",
+   "learningOutcome": "Analyze how building design affects thermal comfort and energy demand.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "A patient completes only half of an antibiotic course without medical advice. What community-level risk can this contribute to?",
+   "options": [
+    "Selection of bacteria that are harder to treat",
+    "Immediate immunity to all viral diseases",
+    "Permanent removal of all bacteria from the body",
+    "Conversion of antibiotics into vaccines"
+   ],
+   "correctAnswer": "Selection of bacteria that are harder to treat",
+   "explanation": "Incomplete or inappropriate antibiotic use can favour survival and spread of resistant bacteria.",
+   "difficulty": 4,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Antimicrobial Resistance",
+   "learningOutcome": "Analyze how medicine use practices affect antimicrobial resistance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A meal is high in refined sugar and low in fibre every day. Which long-term health concern is most scientifically linked to this pattern?",
+   "options": [
+    "Increased risk of metabolic health problems",
+    "Guaranteed prevention of all infections",
+    "Instant strengthening of bones",
+    "Complete replacement of physical activity"
+   ],
+   "correctAnswer": "Increased risk of metabolic health problems",
+   "explanation": "A diet repeatedly high in refined sugar and low in fibre can contribute to poor metabolic health when combined with other risk factors.",
+   "difficulty": 4,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Lifestyle and Non-Communicable Disease",
+   "learningOutcome": "Analyze links between diet patterns and long-term health risks.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A community clinic notices more malaria cases after heavy rains. Which explanation best links environment and health?",
+   "options": [
+    "Rain can create stagnant breeding sites that increase mosquito populations",
+    "Rainwater turns malaria into a mineral deficiency",
+    "Mosquitoes reproduce only in dry dust",
+    "Heavy rain makes bed nets scientifically useless"
+   ],
+   "correctAnswer": "Rain can create stagnant breeding sites that increase mosquito populations",
+   "explanation": "After rains, stagnant water can support mosquito breeding, increasing the risk of mosquito-borne disease.",
+   "difficulty": 4,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Environment and Disease",
+   "learningOutcome": "Analyze environmental factors that influence disease transmission.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A school cafeteria wants to improve nutrition without raising costs greatly. Which evidence-based approach is strongest?",
+   "options": [
+    "Use locally available legumes, vegetables, and whole grains in planned portions",
+    "Replace all meals with sugary drinks",
+    "Serve one food group only for every meal",
+    "Remove vegetables because they contain water"
+   ],
+   "correctAnswer": "Use locally available legumes, vegetables, and whole grains in planned portions",
+   "explanation": "Balanced meals can improve nutrient quality by combining affordable local sources of protein, fibre, vitamins, and energy.",
+   "difficulty": 4,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Community Nutrition",
+   "learningOutcome": "Evaluate practical strategies for improving meal quality.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A lake food web loses many small fish due to pollution. Which wider effect is most likely?",
+   "options": [
+    "Predators depending on those fish may decline or shift feeding",
+    "All organisms in the lake become producers",
+    "The lake stops exchanging gases with air",
+    "Pollution can no longer affect any trophic level"
+   ],
+   "correctAnswer": "Predators depending on those fish may decline or shift feeding",
+   "explanation": "Changes at one trophic level can affect predators, prey, and competition across the food web.",
+   "difficulty": 4,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Food Webs",
+   "learningOutcome": "Analyze how disturbances affect ecosystem relationships.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A county wants to reduce plastic pollution from markets. Which policy mix is most likely to work sustainably?",
+   "options": [
+    "Reduce single-use packaging, improve collection, and support reuse or recycling systems",
+    "Move all waste to open drains after market day",
+    "Ban collection points so waste is invisible",
+    "Encourage thicker disposable bags without disposal planning"
+   ],
+   "correctAnswer": "Reduce single-use packaging, improve collection, and support reuse or recycling systems",
+   "explanation": "Pollution reduction needs prevention, infrastructure, and practical alternatives rather than disposal alone.",
+   "difficulty": 4,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Pollution Control",
+   "learningOutcome": "Evaluate integrated strategies for reducing solid waste pollution.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "A dryland area is experiencing lower crop yields, bare soil, and stronger runoff. Which response addresses both ecosystem recovery and farming needs?",
+   "options": [
+    "Agroforestry with soil cover, water harvesting, and controlled grazing",
+    "Clearing remaining trees and increasing bare soil",
+    "Burning crop residues before every rainfall",
+    "Removing terraces to speed runoff"
+   ],
+   "correctAnswer": "Agroforestry with soil cover, water harvesting, and controlled grazing",
+   "explanation": "Combining trees, soil cover, water conservation, and grazing control can restore soil function and support production.",
+   "difficulty": 4,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Land Restoration",
+   "learningOutcome": "Analyze integrated land restoration practices for dryland resilience.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A sensor network reports rising river turbidity after road construction. Which inference is most reasonable?",
+   "options": [
+    "Soil disturbance may be increasing sediment runoff into the river",
+    "The river has become chemically pure",
+    "The sensors must be ignored because roads cannot affect water",
+    "Turbidity means there is no suspended material"
+   ],
+   "correctAnswer": "Soil disturbance may be increasing sediment runoff into the river",
+   "explanation": "Construction can expose soil, and rainfall can wash sediment into rivers, raising turbidity.",
+   "difficulty": 4,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Sensor Data Interpretation",
+   "learningOutcome": "Interpret environmental sensor data in relation to human activities.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "An AI model predicts crop disease from leaf photos. Which validation step is most important before farmers rely on it?",
+   "options": [
+    "Test it on local crops and conditions using expert-checked diagnoses",
+    "Assume it works because it uses a computer",
+    "Use only one image from a different continent",
+    "Remove all records of wrong predictions"
+   ],
+   "correctAnswer": "Test it on local crops and conditions using expert-checked diagnoses",
+   "explanation": "Models should be validated with representative local data and reliable reference diagnoses before use.",
+   "difficulty": 4,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Artificial Intelligence in Science",
+   "learningOutcome": "Evaluate reliability requirements for AI-supported scientific tools.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A low-cost microscope attachment for a phone is used to view pond water. Which limitation should be considered when interpreting results?",
+   "options": [
+    "Image quality and magnification may limit identification accuracy",
+    "A phone microscope changes all organisms into bacteria",
+    "Viewing a sample proves all pond water is unsafe",
+    "Magnification removes the need for careful sampling"
+   ],
+   "correctAnswer": "Image quality and magnification may limit identification accuracy",
+   "explanation": "Low-cost tools can support observation, but resolution, lighting, and sampling affect what can be concluded.",
+   "difficulty": 4,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Low-Cost Scientific Tools",
+   "learningOutcome": "Analyze strengths and limitations of accessible science technologies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A student proposes that a new water filter is effective because filtered water looks clear. Which added evidence would most strengthen the claim?",
+   "options": [
+    "Before-and-after measurements of turbidity and microbial indicators from repeated samples",
+    "A single photograph of one clean glass",
+    "The colour of the filter container only",
+    "A promise that all filters work the same way"
+   ],
+   "correctAnswer": "Before-and-after measurements of turbidity and microbial indicators from repeated samples",
+   "explanation": "Clear appearance alone cannot confirm safety; repeated physical and microbial measurements give stronger evidence.",
+   "difficulty": 5,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Evidence-Based Claims",
+   "learningOutcome": "Evaluate the evidence needed to support a scientific technology claim.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "A community chooses between a diesel pump and a solar pump for water supply. Which set of criteria best supports a life-cycle decision?",
+   "options": [
+    "Initial cost, maintenance, fuel or sunlight availability, emissions, reliability, and disposal",
+    "Paint colour, brand slogan, and the loudest advertisement",
+    "Only the purchase price on the first day",
+    "The opinion of one person without site data"
+   ],
+   "correctAnswer": "Initial cost, maintenance, fuel or sunlight availability, emissions, reliability, and disposal",
+   "explanation": "Life-cycle decisions consider costs, resource availability, environmental impacts, operation, and end-of-life handling.",
+   "difficulty": 5,
+   "strandTitle": "Energy Systems and Resources",
+   "subStrandTitle": "Energy Technology Evaluation",
+   "learningOutcome": "Develop criteria for evaluating energy technologies over their life cycle.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A town wants to reduce flooding, improve biodiversity, and cool streets. Which integrated intervention best addresses all three goals?",
+   "options": [
+    "Protect wetlands, plant urban trees, and create permeable drainage areas",
+    "Concrete over streams and remove roadside vegetation",
+    "Increase bare roofs and block drains",
+    "Dispose of solid waste in waterways"
+   ],
+   "correctAnswer": "Protect wetlands, plant urban trees, and create permeable drainage areas",
+   "explanation": "Green and blue infrastructure can store water, support habitats, and reduce urban heat.",
+   "difficulty": 5,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Nature-Based Solutions",
+   "learningOutcome": "Synthesize ecosystem-based actions for multiple urban resilience goals.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A school science club wants to compare composting, recycling, and landfill disposal for organic waste. Which investigation design is strongest?",
+   "options": [
+    "Track equal masses of waste, time, odour, final product, cost, and environmental effects for each method",
+    "Study only the method that is already preferred",
+    "Use different waste types and masses without records",
+    "Decide by guessing which bin looks newer"
+   ],
+   "correctAnswer": "Track equal masses of waste, time, odour, final product, cost, and environmental effects for each method",
+   "explanation": "A fair comparison uses common starting conditions and multiple relevant outcome measures.",
+   "difficulty": 5,
+   "strandTitle": "Environmental Systems and Sustainability",
+   "subStrandTitle": "Circular Resource Use",
+   "learningOutcome": "Design a comparative investigation for waste management options.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A county health team wants to reduce respiratory illness linked to indoor smoke. Which plan best combines science, technology, and behaviour change?",
+   "options": [
+    "Promote cleaner stoves, ventilation, user training, and monitoring of smoke exposure",
+    "Tell households to cook in sealed rooms",
+    "Replace health education with rumours about smoke",
+    "Measure smoke once and ignore cooking practices"
+   ],
+   "correctAnswer": "Promote cleaner stoves, ventilation, user training, and monitoring of smoke exposure",
+   "explanation": "An effective plan combines improved technology, correct use, ventilation, and evidence on exposure levels.",
+   "difficulty": 5,
+   "strandTitle": "Health Science and Human Biology",
+   "subStrandTitle": "Environmental Health Interventions",
+   "learningOutcome": "Synthesize interventions that reduce environmental health risks.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A team designs a low-cost handwashing station for a school. Which design requirement is most complete?",
+   "options": [
+    "It should provide clean water, soap access, drainage, durability, easy maintenance, and inclusive height",
+    "It should look modern even if it cannot hold water",
+    "It should require rare imported parts for every repair",
+    "It should work only when no learners are present"
+   ],
+   "correctAnswer": "It should provide clean water, soap access, drainage, durability, easy maintenance, and inclusive height",
+   "explanation": "A useful school health design must meet hygiene, safety, maintenance, and accessibility needs.",
+   "difficulty": 5,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Human-Centred Design",
+   "learningOutcome": "Create design criteria for a practical health-supporting technology.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A learner must choose sensors for a small greenhouse automation project. Which set best matches plant growth needs?",
+   "options": [
+    "Temperature, humidity, soil moisture, and light sensors",
+    "Sound level, shoe size, paint thickness, and ringtone sensors",
+    "Only a compass with no environmental sensors",
+    "A clock hidden outside the greenhouse only"
+   ],
+   "correctAnswer": "Temperature, humidity, soil moisture, and light sensors",
+   "explanation": "Plant growth in a greenhouse is strongly affected by temperature, humidity, soil water, and light conditions.",
+   "difficulty": 5,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Automation and Sensors",
+   "learningOutcome": "Select sensor inputs for a simple automated biological system.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "A school laboratory wants to reduce chemical waste from practical lessons. Which approach best follows green chemistry thinking?",
+   "options": [
+    "Use microscale experiments, safer reagents, clear labelling, and planned waste collection",
+    "Mix all waste chemicals together to save bottles",
+    "Pour unknown chemicals into sinks without records",
+    "Increase reagent volumes so results look bigger"
+   ],
+   "correctAnswer": "Use microscale experiments, safer reagents, clear labelling, and planned waste collection",
+   "explanation": "Green chemistry reduces hazards and waste by using smaller quantities, safer materials, and proper handling systems.",
+   "difficulty": 5,
+   "strandTitle": "Matter, Materials and Technology",
+   "subStrandTitle": "Green Chemistry",
+   "learningOutcome": "Create practical strategies for reducing laboratory chemical waste.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A public health dashboard shows disease cases by ward each week. Which feature would make the dashboard more useful for decisions?",
+   "options": [
+    "Trends, population-adjusted rates, location, and clear alerts for unusual increases",
+    "Only decorative colours with no labels",
+    "Hidden data sources and no dates",
+    "One total number with no comparison over time"
+   ],
+   "correctAnswer": "Trends, population-adjusted rates, location, and clear alerts for unusual increases",
+   "explanation": "Decision-makers need patterns over time and place, rates for fair comparison, and transparent alerts.",
+   "difficulty": 5,
+   "strandTitle": "Technology Applications in Science",
+   "subStrandTitle": "Public Health Data Systems",
+   "learningOutcome": "Design information features that support evidence-based health decisions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "A group is planning a citizen science project to monitor stream health. Which plan best supports valid and ethical participation?",
+   "options": [
+    "Train volunteers, use standard methods, protect private data, verify samples, and share results responsibly",
+    "Let everyone use different methods and edit results to match expectations",
+    "Collect personal data without consent because the project is local",
+    "Report only good results and delete unusual findings"
+   ],
+   "correctAnswer": "Train volunteers, use standard methods, protect private data, verify samples, and share results responsibly",
+   "explanation": "Citizen science needs consistent methods, participant care, quality checks, and responsible communication of findings.",
+   "difficulty": 5,
+   "strandTitle": "Scientific Inquiry and Data Skills",
+   "subStrandTitle": "Citizen Science",
+   "learningOutcome": "Design a responsible citizen science monitoring project.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

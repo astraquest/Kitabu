@@ -1,2532 +1,2532 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 10",
-  "subjectId": "mathematics",
-  "subjectName": "Mathematics",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Simplify 2^3 x 2^4.",
-      "options": [
-        "2^7",
-        "2^12",
-        "4^7",
-        "2^1"
-      ],
-      "correctAnswer": "2^7",
-      "explanation": "When powers with the same base are multiplied, their indices are added: 3 + 4 = 7.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Laws of Indices",
-      "learningOutcome": "Apply the multiplication law of indices to simplify powers.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Evaluate 5^-2.",
-      "options": [
-        "1/25",
-        "-25",
-        "25",
-        "-1/25"
-      ],
-      "correctAnswer": "1/25",
-      "explanation": "A negative index gives the reciprocal, so 5^-2 = 1/(5^2) = 1/25.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Laws of Indices",
-      "learningOutcome": "Evaluate expressions involving negative indices.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Write 0.00072 in standard form.",
-      "options": [
-        "7.2 x 10^-4",
-        "72 x 10^-5",
-        "7.2 x 10^4",
-        "0.72 x 10^-3"
-      ],
-      "correctAnswer": "7.2 x 10^-4",
-      "explanation": "Moving the decimal point four places to the right gives 7.2, so the power is -4.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Standard Form",
-      "learningOutcome": "Express small numbers in standard form.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "Rationalise the denominator of 6/sqrt(3).",
-      "options": [
-        "2sqrt(3)",
-        "3sqrt(2)",
-        "6sqrt(3)",
-        "sqrt(3)/2"
-      ],
-      "correctAnswer": "2sqrt(3)",
-      "explanation": "Multiplying top and bottom by sqrt(3) gives 6sqrt(3)/3, which simplifies to 2sqrt(3).",
-      "difficulty": 4,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Surds",
-      "learningOutcome": "Rationalise simple surd denominators.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Simplify sqrt(72).",
-      "options": [
-        "6sqrt(2)",
-        "8sqrt(2)",
-        "12sqrt(6)",
-        "36sqrt(2)"
-      ],
-      "correctAnswer": "6sqrt(2)",
-      "explanation": "Since 72 = 36 x 2, sqrt(72) = sqrt(36) x sqrt(2) = 6sqrt(2).",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Surds",
-      "learningOutcome": "Simplify surds by identifying square factors.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "If log base 10 of 1000 is n, what is n?",
-      "options": [
-        "3 exactly",
-        "10",
-        "100",
-        "1000"
-      ],
-      "correctAnswer": "3 exactly",
-      "explanation": "The statement means 10^n = 1000. Since 10^3 = 1000, n = 3.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Logarithms",
-      "learningOutcome": "Interpret a logarithm as an index.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "Solve log base 2 of x = 5.",
-      "options": [
-        "32",
-        "10",
-        "25",
-        "7"
-      ],
-      "correctAnswer": "32",
-      "explanation": "Converting to index form gives x = 2^5, which equals 32.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Logarithms",
-      "learningOutcome": "Solve simple equations written in logarithmic form.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "A school bag increases in price from 800 shillings to 920 shillings. What is the percentage increase?",
-      "options": [
-        "15%",
-        "12%",
-        "20%",
-        "120%"
-      ],
-      "correctAnswer": "15%",
-      "explanation": "The increase is 120 shillings. 120/800 x 100% = 15%.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Percentages",
-      "learningOutcome": "Calculate percentage increase in everyday financial situations.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "A principal amount of 5000 shillings earns compound interest at 10% per year for 2 years. What is the amount?",
-      "options": [
-        "6050 shillings",
-        "6000 shillings",
-        "5500 shillings",
-        "6200 shillings"
-      ],
-      "correctAnswer": "6050 shillings",
-      "explanation": "The amount is 5000 x 1.10 x 1.10 = 6050 shillings.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Compound Interest",
-      "learningOutcome": "Calculate compound interest over two periods.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "An item marked 2000 shillings is sold at a 12% discount. What is the selling price?",
-      "options": [
-        "1760 shillings",
-        "1880 shillings",
-        "2240 shillings",
-        "1660 shillings"
-      ],
-      "correctAnswer": "1760 shillings",
-      "explanation": "The discount is 12% of 2000 = 240 shillings, so the selling price is 2000 - 240 = 1760 shillings.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Commercial Arithmetic",
-      "learningOutcome": "Determine selling price after a discount.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "The ratio of boys to girls in a club is 3:5. If there are 24 boys, how many girls are there?",
-      "options": [
-        "40",
-        "30",
-        "15",
-        "64"
-      ],
-      "correctAnswer": "40",
-      "explanation": "Three ratio parts represent 24 boys, so one part is 8. Girls are 5 parts, which is 5 x 8 = 40.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Ratio and Proportion",
-      "learningOutcome": "Use ratios to solve contextual sharing problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "A length is measured as 8.6 cm to the nearest 0.1 cm. What is the upper bound?",
-      "options": [
-        "8.65 cm",
-        "8.64 cm",
-        "8.55 cm",
-        "8.70 cm"
-      ],
-      "correctAnswer": "8.65 cm",
-      "explanation": "For a measurement to the nearest 0.1 cm, the half interval is 0.05 cm. The upper bound is 8.6 + 0.05 = 8.65 cm.",
-      "difficulty": 4,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Limits of Accuracy",
-      "learningOutcome": "Determine upper and lower bounds for rounded measurements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Find the next term in the sequence 4, 9, 14, 19, ...",
-      "options": [
-        "24",
-        "23",
-        "25",
-        "29"
-      ],
-      "correctAnswer": "24",
-      "explanation": "The sequence increases by 5 each time, so the next term is 19 + 5 = 24.",
-      "difficulty": 1,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Sequences",
-      "learningOutcome": "Identify the common difference in an arithmetic sequence.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "The nth term of an arithmetic sequence is 3n + 2. What is the 20th term?",
-      "options": [
-        "62",
-        "60",
-        "65",
-        "23"
-      ],
-      "correctAnswer": "62",
-      "explanation": "Substitute n = 20: 3(20) + 2 = 62.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Sequences",
-      "learningOutcome": "Use the nth term rule to find a term in a sequence.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "A geometric sequence starts 3, 6, 12, 24. What is the common ratio?",
-      "options": [
-        "2 exactly",
-        "3",
-        "6",
-        "9"
-      ],
-      "correctAnswer": "2 exactly",
-      "explanation": "Each term is obtained by multiplying the previous term by 2.",
-      "difficulty": 2,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Sequences",
-      "learningOutcome": "Recognise the common ratio of a geometric sequence.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Expand and simplify 3(x + 4) - 2(x - 5).",
-      "options": [
-        "x + 22",
-        "x + 2",
-        "5x + 2",
-        "5x + 22"
-      ],
-      "correctAnswer": "x + 22",
-      "explanation": "Expanding gives 3x + 12 - 2x + 10, which simplifies to x + 22.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Expressions",
-      "learningOutcome": "Expand brackets and collect like terms.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "Factorise x^2 + 7x + 12.",
-      "options": [
-        "(x + 3)(x + 4)",
-        "(x + 2)(x + 6)",
-        "(x - 3)(x - 4)",
-        "(x + 1)(x + 12)"
-      ],
-      "correctAnswer": "(x + 3)(x + 4)",
-      "explanation": "The numbers 3 and 4 multiply to 12 and add to 7.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Quadratic Expressions",
-      "learningOutcome": "Factorise simple monic quadratic expressions.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "Solve 5x - 7 = 18.",
-      "options": [
-        "5 exactly",
-        "11/5",
-        "25",
-        "125"
-      ],
-      "correctAnswer": "5 exactly",
-      "explanation": "Adding 7 to both sides gives 5x = 25, so x = 5.",
-      "difficulty": 1,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Equations",
-      "learningOutcome": "Solve one-step and two-step linear equations.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Solve the simultaneous equations x + y = 11 and x - y = 3.",
-      "options": [
-        "x = 7, y = 4",
-        "x = 4, y = 7",
-        "x = 8, y = 3",
-        "x = 5, y = 6"
-      ],
-      "correctAnswer": "x = 7, y = 4",
-      "explanation": "Adding the equations gives 2x = 14, so x = 7. Then y = 4.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Simultaneous Equations",
-      "learningOutcome": "Solve two linear simultaneous equations by elimination.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Solve x^2 - 5x + 6 = 0.",
-      "options": [
-        "x = 2 or x = 3",
-        "x = -2 or x = -3",
-        "x = 1 or x = 6",
-        "x = -1 or x = -6"
-      ],
-      "correctAnswer": "x = 2 or x = 3",
-      "explanation": "The quadratic factorises as (x - 2)(x - 3) = 0, so x is 2 or 3.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Quadratic Equations",
-      "learningOutcome": "Solve simple quadratic equations by factorisation.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "What is the vertex of y = (x - 4)^2 + 3?",
-      "options": [
-        "(4, 3)",
-        "(-4, 3)",
-        "(4, -3)",
-        "(-4, -3)"
-      ],
-      "correctAnswer": "(4, 3)",
-      "explanation": "In vertex form y = (x - h)^2 + k, the vertex is (h, k). Here h = 4 and k = 3.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Quadratic Functions",
-      "learningOutcome": "Interpret the vertex form of a quadratic function.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Solve the inequality 2x + 5 < 17.",
-      "options": [
-        "x < 6",
-        "x > 6",
-        "x < 11",
-        "x > 11"
-      ],
-      "correctAnswer": "x < 6",
-      "explanation": "Subtracting 5 gives 2x < 12, and dividing by 2 gives x < 6.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Inequalities",
-      "learningOutcome": "Solve simple linear inequalities.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Make x the subject of y = 3x - 8.",
-      "options": [
-        "x = (y + 8)/3",
-        "x = 3(y + 8)",
-        "x = (y - 8)/3",
-        "x = 3y - 8"
-      ],
-      "correctAnswer": "x = (y + 8)/3",
-      "explanation": "Add 8 to both sides to get y + 8 = 3x, then divide by 3.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Formulae",
-      "learningOutcome": "Change the subject of a linear formula.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Simplify (x^2 - 9)/(x - 3), where x is not 3.",
-      "options": [
-        "x + 3",
-        "x - 3",
-        "x^2 + 3",
-        "1/(x + 3)"
-      ],
-      "correctAnswer": "x + 3",
-      "explanation": "The numerator is a difference of squares: x^2 - 9 = (x - 3)(x + 3). Cancel the common factor x - 3.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Fractions",
-      "learningOutcome": "Simplify algebraic fractions by factorising.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "If f(x) = 2x^2 - 1, find f(3).",
-      "options": [
-        "17",
-        "11",
-        "35",
-        "5"
-      ],
-      "correctAnswer": "17",
-      "explanation": "Substitute x = 3: f(3) = 2(3^2) - 1 = 18 - 1 = 17.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Functions",
-      "learningOutcome": "Evaluate a function for a given input.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Find the inverse of f(x) = 2x + 5.",
-      "options": [
-        "f^-1(x) = (x - 5)/2",
-        "f^-1(x) = 2x - 5",
-        "f^-1(x) = (x + 5)/2",
-        "f^-1(x) = 5x + 2"
-      ],
-      "correctAnswer": "f^-1(x) = (x - 5)/2",
-      "explanation": "Let y = 2x + 5. Swap x and y, then solve: x = 2y + 5, so y = (x - 5)/2.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Functions",
-      "learningOutcome": "Find the inverse of a linear function.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "If f(x) = x + 2 and g(x) = 3x, find f(g(4)).",
-      "options": [
-        "14",
-        "18",
-        "9",
-        "20"
-      ],
-      "correctAnswer": "14",
-      "explanation": "First g(4) = 12. Then f(12) = 12 + 2 = 14.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Composite Functions",
-      "learningOutcome": "Evaluate a composite function in the correct order.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Find the gradient of the line passing through (2, 5) and (6, 13).",
-      "options": [
-        "2 exactly",
-        "3",
-        "1/2",
-        "8"
-      ],
-      "correctAnswer": "2 exactly",
-      "explanation": "Gradient = change in y divided by change in x = (13 - 5)/(6 - 2) = 8/4 = 2.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Graphs",
-      "learningOutcome": "Calculate the gradient of a straight line from two points.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "What is the equation of the line with gradient 3 and y-intercept -4?",
-      "options": [
-        "y = 3x - 4",
-        "y = -4x + 3",
-        "y = 3x + 4",
-        "y = x - 4"
-      ],
-      "correctAnswer": "y = 3x - 4",
-      "explanation": "The form y = mx + c uses gradient m and y-intercept c. Here m = 3 and c = -4.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Graphs",
-      "learningOutcome": "Write the equation of a straight line from its gradient and intercept.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "y varies directly as x. If y = 18 when x = 6, find y when x = 10.",
-      "options": [
-        "30",
-        "28",
-        "24",
-        "60"
-      ],
-      "correctAnswer": "30",
-      "explanation": "The constant of variation is 18/6 = 3. When x = 10, y = 3 x 10 = 30.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Variation",
-      "learningOutcome": "Solve direct variation problems using a constant of proportionality.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "What is the determinant of the matrix [[4, 2], [1, 3]]?",
-      "options": [
-        "10",
-        "14",
-        "5",
-        "8"
-      ],
-      "correctAnswer": "10",
-      "explanation": "For a 2 by 2 matrix, determinant = ad - bc = 4 x 3 - 2 x 1 = 10.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Matrices",
-      "learningOutcome": "Find the determinant of a 2 by 2 matrix.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "Multiply the matrix [[1, 2], [3, 4]] by the column vector [[5], [6]]. What is the resulting column vector?",
-      "options": [
-        "[[17], [39]]",
-        "[[11], [23]]",
-        "[[7], [33]]",
-        "[[22], [33]]"
-      ],
-      "correctAnswer": "[[17], [39]]",
-      "explanation": "The first entry is 1 x 5 + 2 x 6 = 17. The second entry is 3 x 5 + 4 x 6 = 39.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Matrices",
-      "learningOutcome": "Multiply a 2 by 2 matrix by a column vector.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "The product of two consecutive positive integers is 42. Which equation can be used to find the smaller integer x?",
-      "options": [
-        "x(x + 1) = 42",
-        "x + (x + 1) = 42",
-        "2x = 42",
-        "x(x - 1) = 42"
-      ],
-      "correctAnswer": "x(x + 1) = 42",
-      "explanation": "Consecutive positive integers can be written as x and x + 1, and their product is 42.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Quadratic Equations",
-      "learningOutcome": "Form a quadratic equation from a word problem.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "Simplify (a^3b^2)(a^2b^5).",
-      "options": [
-        "a^5b^7",
-        "a^6b^10",
-        "a^5b^10",
-        "a^1b^3"
-      ],
-      "correctAnswer": "a^5b^7",
-      "explanation": "Add powers of like bases: a^(3+2)b^(2+5) = a^5b^7.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Algebraic Indices",
-      "learningOutcome": "Apply index laws to algebraic terms.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "A taxi charges 150 shillings plus 40 shillings per kilometre. Which expression gives the cost for d kilometres?",
-      "options": [
-        "150 + 40d",
-        "190d",
-        "150d + 40",
-        "40 + d"
-      ],
-      "correctAnswer": "150 + 40d",
-      "explanation": "The fixed charge is 150 shillings and the distance charge is 40d shillings.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Modelling",
-      "learningOutcome": "Form a linear expression from a real-life situation.",
-      "cognitiveLevel": "create",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Two parallel lines are cut by a transversal. If one corresponding angle is 68 degrees, what is the matching corresponding angle?",
-      "options": [
-        "68 degrees",
-        "112 degrees",
-        "34 degrees",
-        "136 degrees"
-      ],
-      "correctAnswer": "68 degrees",
-      "explanation": "Corresponding angles formed by a transversal across parallel lines are equal.",
-      "difficulty": 1,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Angles on Parallel Lines",
-      "learningOutcome": "Use angle properties of parallel lines to find equal angles.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "An exterior angle of a triangle is 125 degrees. One opposite interior angle is 55 degrees. Find the other opposite interior angle.",
-      "options": [
-        "70 degrees",
-        "55 degrees",
-        "125 degrees",
-        "180 degrees"
-      ],
-      "correctAnswer": "70 degrees",
-      "explanation": "An exterior angle equals the sum of the two opposite interior angles, so the missing angle is 125 - 55 = 70 degrees.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Angles in Triangles",
-      "learningOutcome": "Apply the exterior angle property of triangles.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "What is the sum of the interior angles of a hexagon?",
-      "options": [
-        "720 degrees",
-        "540 degrees",
-        "900 degrees",
-        "1080 degrees"
-      ],
-      "correctAnswer": "720 degrees",
-      "explanation": "The sum of interior angles of an n-sided polygon is (n - 2) x 180 degrees. For n = 6, it is 4 x 180 = 720 degrees.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Polygons",
-      "learningOutcome": "Calculate the sum of interior angles of a polygon.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "A right-angled triangle has shorter sides 9 cm and 12 cm. Find the hypotenuse.",
-      "options": [
-        "15 cm",
-        "21 cm",
-        "18 cm",
-        "13 cm"
-      ],
-      "correctAnswer": "15 cm",
-      "explanation": "Using Pythagoras, c^2 = 9^2 + 12^2 = 81 + 144 = 225, so c = 15 cm.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Pythagoras' Theorem",
-      "learningOutcome": "Use Pythagoras' theorem to find the hypotenuse of a right triangle.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Find the distance between points A(1, 2) and B(7, 10).",
-      "options": [
-        "10 units",
-        "8 units",
-        "12 units",
-        "14 units"
-      ],
-      "correctAnswer": "10 units",
-      "explanation": "The horizontal change is 6 and the vertical change is 8. The distance is sqrt(6^2 + 8^2) = 10 units.",
-      "difficulty": 4,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Coordinate Geometry",
-      "learningOutcome": "Use the distance formula between two points.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "Using pi = 22/7, find the circumference of a circle with radius 7 cm.",
-      "options": [
-        "44 cm",
-        "22 cm",
-        "154 cm",
-        "49 cm"
-      ],
-      "correctAnswer": "44 cm",
-      "explanation": "Circumference = 2pi r = 2 x 22/7 x 7 = 44 cm.",
-      "difficulty": 1,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Circle Measurements",
-      "learningOutcome": "Calculate circumference from radius.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "Find the area of a sector with radius 6 cm and angle 60 degrees, using pi = 3.142.",
-      "options": [
-        "18.852 cm^2",
-        "37.704 cm^2",
-        "113.112 cm^2",
-        "9.426 cm^2"
-      ],
-      "correctAnswer": "18.852 cm^2",
-      "explanation": "Sector area = 60/360 x pi x 6^2 = 1/6 x 3.142 x 36 = 18.852 cm^2.",
-      "difficulty": 4,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Sectors",
-      "learningOutcome": "Calculate the area of a sector using its angle and radius.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Using pi = 22/7, find the volume of a cylinder with radius 7 cm and height 10 cm.",
-      "options": [
-        "1540 cm^3",
-        "440 cm^3",
-        "770 cm^3",
-        "3080 cm^3"
-      ],
-      "correctAnswer": "1540 cm^3",
-      "explanation": "Volume = pi r^2 h = 22/7 x 7 x 7 x 10 = 1540 cm^3.",
-      "difficulty": 3,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Volume",
-      "learningOutcome": "Calculate the volume of a cylinder.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Find the total surface area of a cuboid measuring 5 cm by 4 cm by 3 cm.",
-      "options": [
-        "94 cm^2",
-        "60 cm^2",
-        "47 cm^2",
-        "120 cm^2"
-      ],
-      "correctAnswer": "94 cm^2",
-      "explanation": "Surface area = 2(lw + lh + wh) = 2(20 + 15 + 12) = 94 cm^2.",
-      "difficulty": 2,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Surface Area",
-      "learningOutcome": "Find the total surface area of a cuboid.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "On a scale drawing, 1 cm represents 5 m. What real distance is represented by 7 cm?",
-      "options": [
-        "35 m",
-        "12 m",
-        "25 m",
-        "75 m"
-      ],
-      "correctAnswer": "35 m",
-      "explanation": "Multiply the drawing distance by the scale: 7 x 5 = 35 m.",
-      "difficulty": 2,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Scale Drawing",
-      "learningOutcome": "Use a simple scale to find actual distance.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "A point B is on a bearing of 070 degrees from point A. What is the bearing of A from B?",
-      "options": [
-        "250 degrees",
-        "110 degrees",
-        "070 degrees",
-        "290 degrees"
-      ],
-      "correctAnswer": "250 degrees",
-      "explanation": "Reverse bearings differ by 180 degrees. 070 degrees + 180 degrees = 250 degrees.",
-      "difficulty": 4,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Bearings",
-      "learningOutcome": "Find a reverse bearing from a given bearing.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Two similar triangles have corresponding side lengths 4 cm and 10 cm. What is the scale factor from the smaller triangle to the larger triangle?",
-      "options": [
-        "2.5",
-        "0.4",
-        "6",
-        "14"
-      ],
-      "correctAnswer": "2.5",
-      "explanation": "Scale factor = larger corresponding side divided by smaller corresponding side = 10/4 = 2.5.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Similarity",
-      "learningOutcome": "Determine scale factor between similar shapes.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "Which condition is enough to prove two triangles are congruent?",
-      "options": [
-        "SSS: all three corresponding sides are equal",
-        "AAA: all angles are equal",
-        "One side is equal",
-        "The perimeters are equal"
-      ],
-      "correctAnswer": "SSS: all three corresponding sides are equal",
-      "explanation": "SSS congruence fixes the size and shape of a triangle. AAA proves similarity, not necessarily congruence.",
-      "difficulty": 3,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Congruence",
-      "learningOutcome": "Identify valid conditions for triangle congruence.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which description gives the locus of points 5 cm from a fixed point P?",
-      "options": [
-        "A circle with centre P and radius 5 cm",
-        "A straight line 5 cm from P",
-        "A ray starting at P",
-        "A diameter through P"
-      ],
-      "correctAnswer": "A circle with centre P and radius 5 cm",
-      "explanation": "All points at a fixed distance from one point form a circle with that point as centre.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Loci",
-      "learningOutcome": "Describe simple loci involving fixed distance from a point.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "Which pair of instruments is normally used to construct a perpendicular bisector accurately?",
-      "options": [
-        "Compass and straightedge",
-        "Protractor and calculator",
-        "Tape measure and set square",
-        "Ruler and weighing scale"
-      ],
-      "correctAnswer": "Compass and straightedge",
-      "explanation": "A perpendicular bisector is constructed by drawing equal arcs from both endpoints using a compass, then joining the arc intersections with a straightedge.",
-      "difficulty": 2,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Constructions",
-      "learningOutcome": "Select appropriate instruments for basic geometrical constructions.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "In a right triangle, the side opposite angle A is 5 cm and the hypotenuse is 13 cm. What is sin A?",
-      "options": [
-        "5/13",
-        "12/13",
-        "5/12",
-        "13/5"
-      ],
-      "correctAnswer": "5/13",
-      "explanation": "Sine of an angle is opposite side divided by hypotenuse.",
-      "difficulty": 1,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Trigonometric Ratios",
-      "learningOutcome": "Identify sine ratio in a right-angled triangle.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "In a right triangle, the side adjacent to angle B is 8 cm and the hypotenuse is 10 cm. What is cos B?",
-      "options": [
-        "4/5",
-        "3/5",
-        "5/4",
-        "1/5"
-      ],
-      "correctAnswer": "4/5",
-      "explanation": "Cosine is adjacent side divided by hypotenuse, so cos B = 8/10 = 4/5.",
-      "difficulty": 1,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Trigonometric Ratios",
-      "learningOutcome": "Identify cosine ratio in a right-angled triangle.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "A ladder leans against a wall. The angle with the ground is 60 degrees and the foot is 4 m from the wall. Which expression gives the height reached?",
-      "options": [
-        "4tan60 degrees",
-        "4cos60 degrees",
-        "4/sin60 degrees",
-        "4tan30 degrees"
-      ],
-      "correctAnswer": "4tan60 degrees",
-      "explanation": "The height is opposite the 60 degree angle and the ground distance is adjacent, so tan60 degrees = height/4.",
-      "difficulty": 3,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Heights and Distances",
-      "learningOutcome": "Choose the correct trigonometric ratio for a height problem.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "If tan theta = 1 in a right triangle and theta is acute, what is theta?",
-      "options": [
-        "45 degrees",
-        "30 degrees",
-        "60 degrees",
-        "90 degrees"
-      ],
-      "correctAnswer": "45 degrees",
-      "explanation": "For an acute angle, tan45 degrees = 1.",
-      "difficulty": 2,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Trigonometric Ratios",
-      "learningOutcome": "Recall exact trigonometric values for common angles.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "In triangle ABC, a/sin A = b/sin B. If a = 10, A = 30 degrees, and B = 60 degrees, which expression gives b?",
-      "options": [
-        "10sin60 degrees/sin30 degrees",
-        "10sin30 degrees/sin60 degrees",
-        "10sin90 degrees",
-        "10/(sin60 degrees + sin30 degrees)"
-      ],
-      "correctAnswer": "10sin60 degrees/sin30 degrees",
-      "explanation": "By the sine rule, b = a sin B / sin A, so b = 10sin60 degrees/sin30 degrees.",
-      "difficulty": 4,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Sine Rule",
-      "learningOutcome": "Use the sine rule to set up a missing side calculation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "For triangle sides 5 cm, 6 cm, and included angle 60 degrees, which formula gives the opposite side c using the cosine rule?",
-      "options": [
-        "c^2 = 5^2 + 6^2 - 2 x 5 x 6 x cos60 degrees",
-        "c^2 = 5^2 + 6^2 + 2 x 5 x 6 x cos60 degrees",
-        "c = 5 + 6 - cos60 degrees",
-        "c^2 = 5^2 - 6^2"
-      ],
-      "correctAnswer": "c^2 = 5^2 + 6^2 - 2 x 5 x 6 x cos60 degrees",
-      "explanation": "The cosine rule for an included angle is c^2 = a^2 + b^2 - 2ab cos C.",
-      "difficulty": 4,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Cosine Rule",
-      "learningOutcome": "Select the correct cosine rule setup for finding a side.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "Find the area of a triangle with sides 8 cm and 10 cm enclosing an angle of 30 degrees.",
-      "options": [
-        "20 cm^2",
-        "40 cm^2",
-        "80 cm^2",
-        "10 cm^2"
-      ],
-      "correctAnswer": "20 cm^2",
-      "explanation": "Area = 1/2 ab sin C = 1/2 x 8 x 10 x sin30 degrees = 40 x 1/2 = 20 cm^2.",
-      "difficulty": 3,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Area of a Triangle",
-      "learningOutcome": "Use trigonometry to calculate the area of a triangle.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "From a point 30 m from the base of a tower, the angle of elevation is 45 degrees. What is the tower height?",
-      "options": [
-        "30 m",
-        "15 m",
-        "60 m",
-        "30sqrt(2) m"
-      ],
-      "correctAnswer": "30 m",
-      "explanation": "tan45 degrees = height/30. Since tan45 degrees = 1, the height is 30 m.",
-      "difficulty": 2,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Angles of Elevation",
-      "learningOutcome": "Apply tangent ratio to a simple elevation problem.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which exact value is equal to sin30 degrees?",
-      "options": [
-        "1/2",
-        "sqrt(3)/2",
-        "1",
-        "0"
-      ],
-      "correctAnswer": "1/2",
-      "explanation": "The exact value of sin30 degrees is 1/2.",
-      "difficulty": 1,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Exact Values",
-      "learningOutcome": "Recall exact trigonometric values for special angles.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "A line has equation y = -2x + 7. What is its gradient?",
-      "options": [
-        "-2",
-        "7",
-        "2",
-        "-7"
-      ],
-      "correctAnswer": "-2",
-      "explanation": "In y = mx + c, the coefficient of x is the gradient. Here m = -2.",
-      "difficulty": 1,
-      "strandTitle": "Coordinate Geometry",
-      "subStrandTitle": "Straight Lines",
-      "learningOutcome": "Identify the gradient from the equation of a straight line.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "Find the midpoint of the line segment joining (2, -1) and (8, 5).",
-      "options": [
-        "(5, 2)",
-        "(6, 4)",
-        "(10, 4)",
-        "(3, 6)"
-      ],
-      "correctAnswer": "(5, 2)",
-      "explanation": "Average the x-coordinates and y-coordinates: ((2 + 8)/2, (-1 + 5)/2) = (5, 2).",
-      "difficulty": 2,
-      "strandTitle": "Coordinate Geometry",
-      "subStrandTitle": "Midpoint",
-      "learningOutcome": "Find the midpoint of a line segment on the coordinate plane.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which equation represents a circle with centre (0, 0) and radius 5?",
-      "options": [
-        "x^2 + y^2 = 25",
-        "x^2 + y^2 = 5",
-        "x + y = 5",
-        "x^2 - y^2 = 25"
-      ],
-      "correctAnswer": "x^2 + y^2 = 25",
-      "explanation": "A circle centred at the origin has equation x^2 + y^2 = r^2. With r = 5, r^2 = 25.",
-      "difficulty": 3,
-      "strandTitle": "Coordinate Geometry",
-      "subStrandTitle": "Circles",
-      "learningOutcome": "Recognise the equation of a circle centred at the origin.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Point P(3, 4) is translated by vector (2, -5). What are the coordinates of the image?",
-      "options": [
-        "(5, -1)",
-        "(1, 9)",
-        "(6, -20)",
-        "(2, -5)"
-      ],
-      "correctAnswer": "(5, -1)",
-      "explanation": "Add the translation vector to the point: (3 + 2, 4 - 5) = (5, -1).",
-      "difficulty": 2,
-      "strandTitle": "Transformations",
-      "subStrandTitle": "Translation",
-      "learningOutcome": "Translate a point using a column vector.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "What is the reflection of point (4, -3) in the x-axis?",
-      "options": [
-        "(4, 3)",
-        "(-4, -3)",
-        "(-4, 3)",
-        "(3, -4)"
-      ],
-      "correctAnswer": "(4, 3)",
-      "explanation": "Reflection in the x-axis keeps the x-coordinate and changes the sign of the y-coordinate.",
-      "difficulty": 2,
-      "strandTitle": "Transformations",
-      "subStrandTitle": "Reflection",
-      "learningOutcome": "Find the image of a point reflected in an axis.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "An enlargement with centre at the origin and scale factor 3 maps point (2, -1) to which point?",
-      "options": [
-        "(6, -3)",
-        "(5, 2)",
-        "(-6, 3)",
-        "(2/3, -1/3)"
-      ],
-      "correctAnswer": "(6, -3)",
-      "explanation": "Multiply each coordinate by the scale factor: (2 x 3, -1 x 3) = (6, -3).",
-      "difficulty": 2,
-      "strandTitle": "Transformations",
-      "subStrandTitle": "Enlargement",
-      "learningOutcome": "Apply enlargement from the origin to a point.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "Find the mean of 4, 6, 10, and 12.",
-      "options": [
-        "8 exactly",
-        "7",
-        "9",
-        "32"
-      ],
-      "correctAnswer": "8 exactly",
-      "explanation": "The sum is 32 and there are 4 values, so the mean is 32/4 = 8.",
-      "difficulty": 1,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Measures of Central Tendency",
-      "learningOutcome": "Calculate the mean of a small data set.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Find the median of 3, 8, 5, 11, and 6.",
-      "options": [
-        "6 exactly",
-        "5",
-        "8",
-        "33"
-      ],
-      "correctAnswer": "6 exactly",
-      "explanation": "Arrange the values as 3, 5, 6, 8, 11. The middle value is 6.",
-      "difficulty": 1,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Measures of Central Tendency",
-      "learningOutcome": "Find the median of an odd number of values.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "The scores are 7, 9, 7, 10, 8, 7, and 9. What is the mode?",
-      "options": [
-        "7 exactly",
-        "9",
-        "8",
-        "10"
-      ],
-      "correctAnswer": "7 exactly",
-      "explanation": "The mode is the value that occurs most often. The score 7 occurs three times.",
-      "difficulty": 1,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Measures of Central Tendency",
-      "learningOutcome": "Identify the mode of a data set.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "Find the range of the data set 14, 22, 18, 30, 16.",
-      "options": [
-        "16",
-        "30",
-        "14",
-        "100"
-      ],
-      "correctAnswer": "16",
-      "explanation": "Range = highest value - lowest value = 30 - 14 = 16.",
-      "difficulty": 1,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Dispersion",
-      "learningOutcome": "Calculate the range of a data set.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "A grouped frequency table has values 2, 4, and 6 with frequencies 3, 5, and 2. What is the mean?",
-      "options": [
-        "3.8",
-        "4.0",
-        "12.0",
-        "10.0"
-      ],
-      "correctAnswer": "3.8",
-      "explanation": "The weighted sum is 2 x 3 + 4 x 5 + 6 x 2 = 38. Total frequency is 10, so the mean is 3.8.",
-      "difficulty": 4,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Grouped Data",
-      "learningOutcome": "Calculate the mean from a frequency table.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "In a cumulative frequency table, the total frequency is 80. Which position is used to estimate the median?",
-      "options": [
-        "40th value",
-        "20th value",
-        "80th value",
-        "10th value"
-      ],
-      "correctAnswer": "40th value",
-      "explanation": "The median position is half the total frequency, so 80/2 = 40.",
-      "difficulty": 2,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Cumulative Frequency",
-      "learningOutcome": "Identify the median position from cumulative frequency.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "If the lower quartile is 12 and the upper quartile is 27, what is the interquartile range?",
-      "options": [
-        "15",
-        "39",
-        "12",
-        "27"
-      ],
-      "correctAnswer": "15",
-      "explanation": "Interquartile range = upper quartile - lower quartile = 27 - 12 = 15.",
-      "difficulty": 2,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Quartiles",
-      "learningOutcome": "Calculate interquartile range from quartiles.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "In a pie chart, 18 out of 60 learners prefer football. What angle represents football?",
-      "options": [
-        "108 degrees",
-        "90 degrees",
-        "120 degrees",
-        "72 degrees"
-      ],
-      "correctAnswer": "108 degrees",
-      "explanation": "The angle is 18/60 x 360 degrees = 108 degrees.",
-      "difficulty": 2,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Data Representation",
-      "learningOutcome": "Calculate sector angles for a pie chart.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "A histogram class has frequency 24 and class width 6. What is the frequency density?",
-      "options": [
-        "4 exactly",
-        "144",
-        "18",
-        "30"
-      ],
-      "correctAnswer": "4 exactly",
-      "explanation": "Frequency density = frequency divided by class width = 24/6 = 4.",
-      "difficulty": 4,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Histograms",
-      "learningOutcome": "Calculate frequency density for a histogram bar.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "A scatter graph shows that as revision time increases, test score generally increases. What type of correlation is shown?",
-      "options": [
-        "Positive correlation",
-        "Negative correlation",
-        "No correlation",
-        "Perfect inverse correlation"
-      ],
-      "correctAnswer": "Positive correlation",
-      "explanation": "When both variables tend to increase together, the correlation is positive.",
-      "difficulty": 2,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Correlation",
-      "learningOutcome": "Interpret the direction of correlation from a scatter graph description.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "A bag has 5 red balls and 3 blue balls. What is the probability of picking a blue ball at random?",
-      "options": [
-        "3/8",
-        "5/8",
-        "3/5",
-        "1/3"
-      ],
-      "correctAnswer": "3/8",
-      "explanation": "There are 3 blue balls out of 8 balls in total, so the probability is 3/8.",
-      "difficulty": 1,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Simple Probability",
-      "learningOutcome": "Calculate probability as favourable outcomes over total outcomes.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "The probability that a bus arrives late is 0.15. What is the probability that it does not arrive late?",
-      "options": [
-        "0.85",
-        "0.15",
-        "1.15",
-        "0.75"
-      ],
-      "correctAnswer": "0.85",
-      "explanation": "Complementary probabilities add to 1, so 1 - 0.15 = 0.85.",
-      "difficulty": 2,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Complementary Events",
-      "learningOutcome": "Use complementary probability to find the chance an event does not occur.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "A fair coin is tossed and a fair die is rolled. What is the probability of getting a head and a 6?",
-      "options": [
-        "1/12",
-        "1/8",
-        "1/6",
-        "1/2"
-      ],
-      "correctAnswer": "1/12",
-      "explanation": "The events are independent, so multiply: 1/2 x 1/6 = 1/12.",
-      "difficulty": 2,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Independent Events",
-      "learningOutcome": "Calculate probability for two independent events.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "A box has 4 green pens and 6 black pens. Two pens are picked without replacement. What is the probability both are green?",
-      "options": [
-        "2/15",
-        "4/25",
-        "1/5",
-        "4/10"
-      ],
-      "correctAnswer": "2/15",
-      "explanation": "The probability is 4/10 x 3/9 = 12/90 = 2/15.",
-      "difficulty": 4,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Dependent Events",
-      "learningOutcome": "Calculate probability without replacement.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "A weather record shows that on days when clouds are dark, rain follows 7 out of 10 times. Which estimate is reasonable for rain after dark clouds?",
-      "options": [
-        "0.7",
-        "0.3",
-        "1.7",
-        "7.0"
-      ],
-      "correctAnswer": "0.7",
-      "explanation": "The experimental probability is favourable outcomes divided by trials: 7/10 = 0.7.",
-      "difficulty": 2,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Experimental Probability",
-      "learningOutcome": "Estimate probability from observed relative frequency.",
-      "cognitiveLevel": "understand",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "Find the simple interest on 12000 shillings at 8% per year for 3 years.",
-      "options": [
-        "2880 shillings",
-        "960 shillings",
-        "14880 shillings",
-        "2400 shillings"
-      ],
-      "correctAnswer": "2880 shillings",
-      "explanation": "Simple interest = PRT/100 = 12000 x 8 x 3 / 100 = 2880 shillings.",
-      "difficulty": 2,
-      "strandTitle": "Financial Mathematics",
-      "subStrandTitle": "Simple Interest",
-      "learningOutcome": "Calculate simple interest for a given principal, rate, and time.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "A phone worth 30000 shillings depreciates by 20% in one year. What is its value after one year?",
-      "options": [
-        "24000 shillings",
-        "36000 shillings",
-        "6000 shillings",
-        "28000 shillings"
-      ],
-      "correctAnswer": "24000 shillings",
-      "explanation": "The phone retains 80% of its value, so 0.80 x 30000 = 24000 shillings.",
-      "difficulty": 2,
-      "strandTitle": "Financial Mathematics",
-      "subStrandTitle": "Depreciation",
-      "learningOutcome": "Calculate value after percentage depreciation.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "A fridge is bought on hire purchase with a deposit of 6000 shillings and 12 monthly payments of 3500 shillings. What is the total hire purchase price?",
-      "options": [
-        "48000 shillings",
-        "42000 shillings",
-        "45500 shillings",
-        "54000 shillings"
-      ],
-      "correctAnswer": "48000 shillings",
-      "explanation": "The total is deposit plus instalments: 6000 + 12 x 3500 = 48000 shillings.",
-      "difficulty": 3,
-      "strandTitle": "Financial Mathematics",
-      "subStrandTitle": "Hire Purchase",
-      "learningOutcome": "Calculate total cost under a hire purchase plan.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "A bank buys 1 US dollar at 128 shillings. How many shillings does a customer receive for 50 US dollars?",
-      "options": [
-        "6400 shillings",
-        "178 shillings",
-        "2500 shillings",
-        "12800 shillings"
-      ],
-      "correctAnswer": "6400 shillings",
-      "explanation": "Multiply the dollars by the buying rate: 50 x 128 = 6400 shillings.",
-      "difficulty": 2,
-      "strandTitle": "Financial Mathematics",
-      "subStrandTitle": "Foreign Exchange",
-      "learningOutcome": "Convert foreign currency into Kenya shillings using a given rate.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "A matatu travels 180 km in 3 hours. What is its average speed?",
-      "options": [
-        "60 km/h",
-        "54 km/h",
-        "90 km/h",
-        "183 km/h"
-      ],
-      "correctAnswer": "60 km/h",
-      "explanation": "Average speed = distance/time = 180/3 = 60 km/h.",
-      "difficulty": 1,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Speed",
-      "learningOutcome": "Calculate average speed from distance and time.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "A metal block has mass 540 g and volume 60 cm^3. What is its density?",
-      "options": [
-        "9 g/cm^3",
-        "600 g/cm^3",
-        "480 g/cm^3",
-        "0.11 g/cm^3"
-      ],
-      "correctAnswer": "9 g/cm^3",
-      "explanation": "Density = mass/volume = 540/60 = 9 g/cm^3.",
-      "difficulty": 1,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Density",
-      "learningOutcome": "Calculate density from mass and volume.",
-      "cognitiveLevel": "recall",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "A map has scale 1:50000. What real distance is represented by 3 cm on the map?",
-      "options": [
-        "1.5 km",
-        "15 km",
-        "150 km",
-        "0.15 km"
-      ],
-      "correctAnswer": "1.5 km",
-      "explanation": "3 cm represents 150000 cm, which is 1500 m or 1.5 km.",
-      "difficulty": 3,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Map Scales",
-      "learningOutcome": "Convert map distances to actual distances using a ratio scale.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "A rectangle has perimeter 50 cm and length 15 cm. What is its width?",
-      "options": [
-        "10 cm",
-        "20 cm",
-        "25 cm",
-        "35 cm"
-      ],
-      "correctAnswer": "10 cm",
-      "explanation": "For a rectangle, 2(l + w) = 50, so l + w = 25. With l = 15, w = 10 cm.",
-      "difficulty": 2,
-      "strandTitle": "Measurement",
-      "subStrandTitle": "Perimeter",
-      "learningOutcome": "Use perimeter of a rectangle to find a missing dimension.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "quiz_battle",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "A shop sells x pencils at 12 shillings each and y pens at 25 shillings each. Which expression gives the total sales?",
-      "options": [
-        "12x + 25y",
-        "37xy",
-        "25x + 12y",
-        "12 + 25 + x + y"
-      ],
-      "correctAnswer": "12x + 25y",
-      "explanation": "Multiply each item price by its quantity and add the two amounts.",
-      "difficulty": 2,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Linear Modelling",
-      "learningOutcome": "Form an expression to model total cost from quantities and unit prices.",
-      "cognitiveLevel": "create",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "If y is inversely proportional to x and y = 12 when x = 5, find y when x = 10.",
-      "options": [
-        "6 exactly",
-        "24",
-        "17",
-        "2"
-      ],
-      "correctAnswer": "6 exactly",
-      "explanation": "For inverse proportion, xy is constant. The constant is 12 x 5 = 60, so y = 60/10 = 6.",
-      "difficulty": 4,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Variation",
-      "learningOutcome": "Solve inverse variation problems.",
-      "cognitiveLevel": "apply",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A savings account grows by the same percentage each year. Which model best represents its value over time?",
-      "options": [
-        "Exponential model",
-        "Linear model",
-        "Constant model",
-        "Random model"
-      ],
-      "correctAnswer": "Exponential model",
-      "explanation": "Repeated growth by a fixed percentage multiplies the amount each year, which is exponential growth.",
-      "difficulty": 5,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Mathematical Modelling",
-      "learningOutcome": "Choose an appropriate model for percentage growth.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "A measured length is 12.4 cm to the nearest 0.1 cm and a width is 5.2 cm to the nearest 0.1 cm. Which product gives the maximum possible area?",
-      "options": [
-        "12.45 x 5.25",
-        "12.35 x 5.15",
-        "12.4 x 5.2",
-        "12.45 x 5.15"
-      ],
-      "correctAnswer": "12.45 x 5.25",
-      "explanation": "Maximum area uses the upper bound of each measurement: 12.45 cm and 5.25 cm.",
-      "difficulty": 5,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Limits of Accuracy",
-      "learningOutcome": "Apply bounds to find a maximum possible product.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A rectangle has perimeter 40 cm. If its length is x cm, which expression gives its area in terms of x?",
-      "options": [
-        "x(20 - x)",
-        "x(40 - x)",
-        "2x(20 - x)",
-        "x + 20"
-      ],
-      "correctAnswer": "x(20 - x)",
-      "explanation": "Since 2(l + w) = 40, l + w = 20. If l = x, then w = 20 - x, so area is x(20 - x).",
-      "difficulty": 5,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Quadratic Modelling",
-      "learningOutcome": "Form a quadratic expression for area under a perimeter constraint.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "A ticket for an adult costs 500 shillings and for a student costs 300 shillings. A group bought 10 tickets for 4200 shillings. Which pair of equations can find the numbers of adult tickets a and student tickets s?",
-      "options": [
-        "a + s = 10 and 500a + 300s = 4200",
-        "a + s = 4200 and 500a + 300s = 10",
-        "500a + 300s = 10 only",
-        "a - s = 10 and 300a + 500s = 4200"
-      ],
-      "correctAnswer": "a + s = 10 and 500a + 300s = 4200",
-      "explanation": "One equation counts tickets and the other totals the cost using each ticket price.",
-      "difficulty": 3,
-      "strandTitle": "Algebra",
-      "subStrandTitle": "Simultaneous Equations",
-      "learningOutcome": "Form simultaneous equations from a cost and quantity context.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "Which statement best explains why the sum of angles in any triangle is 180 degrees?",
-      "options": [
-        "A line through one vertex parallel to the opposite side forms alternate angles on a straight line",
-        "All triangles are equilateral after scaling",
-        "The longest side determines all three angles",
-        "Angles are measured using a compass"
-      ],
-      "correctAnswer": "A line through one vertex parallel to the opposite side forms alternate angles on a straight line",
-      "explanation": "Drawing a parallel line lets the three triangle angles match angles on a straight line, whose sum is 180 degrees.",
-      "difficulty": 5,
-      "strandTitle": "Geometry",
-      "subStrandTitle": "Geometrical Reasoning",
-      "learningOutcome": "Explain a proof of the angle sum of a triangle.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "An arithmetic sequence has first term 7 and common difference 4. Which formula gives the nth term?",
-      "options": [
-        "4n + 3",
-        "7n + 4",
-        "4n + 7",
-        "3n + 4"
-      ],
-      "correctAnswer": "4n + 3",
-      "explanation": "The nth term is a + (n - 1)d = 7 + 4(n - 1) = 4n + 3.",
-      "difficulty": 3,
-      "strandTitle": "Numbers",
-      "subStrandTitle": "Sequences",
-      "learningOutcome": "Create an nth term formula for an arithmetic sequence.",
-      "cognitiveLevel": "create",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards"
-      ]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A learner wants to estimate the average time Grade 10 students spend on homework. Which sampling method is most reliable?",
-      "options": [
-        "Randomly select students from several Grade 10 classes",
-        "Ask only close friends",
-        "Ask only students who finished early",
-        "Use one student's diary"
-      ],
-      "correctAnswer": "Randomly select students from several Grade 10 classes",
-      "explanation": "A random sample from several classes reduces bias and better represents the Grade 10 group.",
-      "difficulty": 5,
-      "strandTitle": "Statistics",
-      "subStrandTitle": "Data Collection",
-      "learningOutcome": "Choose a fair sampling method for a statistical investigation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "A class wants to test whether a coin is fair. Which plan gives the best evidence?",
-      "options": [
-        "Toss the coin many times and compare heads and tails",
-        "Toss the coin once and decide",
-        "Look at the coin colour",
-        "Ask one learner to guess"
-      ],
-      "correctAnswer": "Toss the coin many times and compare heads and tails",
-      "explanation": "Many trials give a more reliable experimental probability than a single toss or a guess.",
-      "difficulty": 5,
-      "strandTitle": "Probability",
-      "subStrandTitle": "Experimental Probability",
-      "learningOutcome": "Design a simple experiment to test fairness of a chance device.",
-      "cognitiveLevel": "create",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A surveyor needs the height of a tree without climbing it. Which data are sufficient for a simple trigonometric estimate?",
-      "options": [
-        "Horizontal distance from tree and angle of elevation to the top",
-        "Tree colour and leaf size",
-        "Time of day only",
-        "Number of branches only"
-      ],
-      "correctAnswer": "Horizontal distance from tree and angle of elevation to the top",
-      "explanation": "With horizontal distance and angle of elevation, tangent can be used to estimate the height.",
-      "difficulty": 5,
-      "strandTitle": "Trigonometry",
-      "subStrandTitle": "Heights and Distances",
-      "learningOutcome": "Plan a trigonometric measurement strategy for an inaccessible height.",
-      "cognitiveLevel": "create",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Two payment plans are offered for a laptop. Plan A is 60000 shillings cash. Plan B is a 12000 shillings deposit plus 12 monthly payments of 4500 shillings. Which conclusion is correct?",
-      "options": [
-        "Plan A is cheaper by 6000 shillings",
-        "Plan B is cheaper by 6000 shillings",
-        "Both plans cost the same",
-        "Plan A is cheaper by 12000 shillings"
-      ],
-      "correctAnswer": "Plan A is cheaper by 6000 shillings",
-      "explanation": "Plan B costs 12000 + 12 x 4500 = 66000 shillings, which is 6000 shillings more than Plan A.",
-      "difficulty": 5,
-      "strandTitle": "Financial Mathematics",
-      "subStrandTitle": "Cost Comparison",
-      "learningOutcome": "Compare payment plans using total cost calculations.",
-      "cognitiveLevel": "analyze",
-      "featureTags": [
-        "quiz_me",
-        "take_quiz",
-        "homework",
-        "flashcards",
-        "games"
-      ]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 10",
+ "subjectId": "mathematics",
+ "subjectName": "Mathematics",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Simplify 2^3 x 2^4.",
+   "options": [
+    "2^7",
+    "2^12",
+    "4^7",
+    "2^1"
+   ],
+   "correctAnswer": "2^7",
+   "explanation": "When powers with the same base are multiplied, their indices are added: 3 + 4 = 7.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Laws of Indices",
+   "learningOutcome": "Apply the multiplication law of indices to simplify powers.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Evaluate 5^-2.",
+   "options": [
+    "1/25",
+    "-25",
+    "25",
+    "-1/25"
+   ],
+   "correctAnswer": "1/25",
+   "explanation": "A negative index gives the reciprocal, so 5^-2 = 1/(5^2) = 1/25.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Laws of Indices",
+   "learningOutcome": "Evaluate expressions involving negative indices.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Write 0.00072 in standard form.",
+   "options": [
+    "7.2 x 10^-4",
+    "72 x 10^-5",
+    "7.2 x 10^4",
+    "0.72 x 10^-3"
+   ],
+   "correctAnswer": "7.2 x 10^-4",
+   "explanation": "Moving the decimal point four places to the right gives 7.2, so the power is -4.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Standard Form",
+   "learningOutcome": "Express small numbers in standard form.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "Rationalise the denominator of 6/sqrt(3).",
+   "options": [
+    "2sqrt(3)",
+    "3sqrt(2)",
+    "6sqrt(3)",
+    "sqrt(3)/2"
+   ],
+   "correctAnswer": "2sqrt(3)",
+   "explanation": "Multiplying top and bottom by sqrt(3) gives 6sqrt(3)/3, which simplifies to 2sqrt(3).",
+   "difficulty": 4,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Surds",
+   "learningOutcome": "Rationalise simple surd denominators.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Simplify sqrt(72).",
+   "options": [
+    "6sqrt(2)",
+    "8sqrt(2)",
+    "12sqrt(6)",
+    "36sqrt(2)"
+   ],
+   "correctAnswer": "6sqrt(2)",
+   "explanation": "Since 72 = 36 x 2, sqrt(72) = sqrt(36) x sqrt(2) = 6sqrt(2).",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Surds",
+   "learningOutcome": "Simplify surds by identifying square factors.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "If log base 10 of 1000 is n, what is n?",
+   "options": [
+    "3 exactly",
+    "10",
+    "100",
+    "1000"
+   ],
+   "correctAnswer": "3 exactly",
+   "explanation": "The statement means 10^n = 1000. Since 10^3 = 1000, n = 3.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Logarithms",
+   "learningOutcome": "Interpret a logarithm as an index.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "Solve log base 2 of x = 5.",
+   "options": [
+    "32",
+    "10",
+    "25",
+    "7"
+   ],
+   "correctAnswer": "32",
+   "explanation": "Converting to index form gives x = 2^5, which equals 32.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Logarithms",
+   "learningOutcome": "Solve simple equations written in logarithmic form.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "A school bag increases in price from 800 shillings to 920 shillings. What is the percentage increase?",
+   "options": [
+    "15%",
+    "12%",
+    "20%",
+    "120%"
+   ],
+   "correctAnswer": "15%",
+   "explanation": "The increase is 120 shillings. 120/800 x 100% = 15%.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Percentages",
+   "learningOutcome": "Calculate percentage increase in everyday financial situations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "A principal amount of 5000 shillings earns compound interest at 10% per year for 2 years. What is the amount?",
+   "options": [
+    "6050 shillings",
+    "6000 shillings",
+    "5500 shillings",
+    "6200 shillings"
+   ],
+   "correctAnswer": "6050 shillings",
+   "explanation": "The amount is 5000 x 1.10 x 1.10 = 6050 shillings.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Compound Interest",
+   "learningOutcome": "Calculate compound interest over two periods.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "An item marked 2000 shillings is sold at a 12% discount. What is the selling price?",
+   "options": [
+    "1760 shillings",
+    "1880 shillings",
+    "2240 shillings",
+    "1660 shillings"
+   ],
+   "correctAnswer": "1760 shillings",
+   "explanation": "The discount is 12% of 2000 = 240 shillings, so the selling price is 2000 - 240 = 1760 shillings.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Commercial Arithmetic",
+   "learningOutcome": "Determine selling price after a discount.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "The ratio of boys to girls in a club is 3:5. If there are 24 boys, how many girls are there?",
+   "options": [
+    "40",
+    "30",
+    "15",
+    "64"
+   ],
+   "correctAnswer": "40",
+   "explanation": "Three ratio parts represent 24 boys, so one part is 8. Girls are 5 parts, which is 5 x 8 = 40.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Ratio and Proportion",
+   "learningOutcome": "Use ratios to solve contextual sharing problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "A length is measured as 8.6 cm to the nearest 0.1 cm. What is the upper bound?",
+   "options": [
+    "8.65 cm",
+    "8.64 cm",
+    "8.55 cm",
+    "8.70 cm"
+   ],
+   "correctAnswer": "8.65 cm",
+   "explanation": "For a measurement to the nearest 0.1 cm, the half interval is 0.05 cm. The upper bound is 8.6 + 0.05 = 8.65 cm.",
+   "difficulty": 4,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Limits of Accuracy",
+   "learningOutcome": "Determine upper and lower bounds for rounded measurements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Find the next term in the sequence 4, 9, 14, 19, ...",
+   "options": [
+    "24",
+    "23",
+    "25",
+    "29"
+   ],
+   "correctAnswer": "24",
+   "explanation": "The sequence increases by 5 each time, so the next term is 19 + 5 = 24.",
+   "difficulty": 1,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Sequences",
+   "learningOutcome": "Identify the common difference in an arithmetic sequence.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "The nth term of an arithmetic sequence is 3n + 2. What is the 20th term?",
+   "options": [
+    "62",
+    "60",
+    "65",
+    "23"
+   ],
+   "correctAnswer": "62",
+   "explanation": "Substitute n = 20: 3(20) + 2 = 62.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Sequences",
+   "learningOutcome": "Use the nth term rule to find a term in a sequence.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "A geometric sequence starts 3, 6, 12, 24. What is the common ratio?",
+   "options": [
+    "2 exactly",
+    "3",
+    "6",
+    "9"
+   ],
+   "correctAnswer": "2 exactly",
+   "explanation": "Each term is obtained by multiplying the previous term by 2.",
+   "difficulty": 2,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Sequences",
+   "learningOutcome": "Recognise the common ratio of a geometric sequence.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Expand and simplify 3(x + 4) - 2(x - 5).",
+   "options": [
+    "x + 22",
+    "x + 2",
+    "5x + 2",
+    "5x + 22"
+   ],
+   "correctAnswer": "x + 22",
+   "explanation": "Expanding gives 3x + 12 - 2x + 10, which simplifies to x + 22.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Expressions",
+   "learningOutcome": "Expand brackets and collect like terms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "Factorise x^2 + 7x + 12.",
+   "options": [
+    "(x + 3)(x + 4)",
+    "(x + 2)(x + 6)",
+    "(x - 3)(x - 4)",
+    "(x + 1)(x + 12)"
+   ],
+   "correctAnswer": "(x + 3)(x + 4)",
+   "explanation": "The numbers 3 and 4 multiply to 12 and add to 7.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Quadratic Expressions",
+   "learningOutcome": "Factorise simple monic quadratic expressions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "Solve 5x - 7 = 18.",
+   "options": [
+    "5 exactly",
+    "11/5",
+    "25",
+    "125"
+   ],
+   "correctAnswer": "5 exactly",
+   "explanation": "Adding 7 to both sides gives 5x = 25, so x = 5.",
+   "difficulty": 1,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Equations",
+   "learningOutcome": "Solve one-step and two-step linear equations.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Solve the simultaneous equations x + y = 11 and x - y = 3.",
+   "options": [
+    "x = 7, y = 4",
+    "x = 4, y = 7",
+    "x = 8, y = 3",
+    "x = 5, y = 6"
+   ],
+   "correctAnswer": "x = 7, y = 4",
+   "explanation": "Adding the equations gives 2x = 14, so x = 7. Then y = 4.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Simultaneous Equations",
+   "learningOutcome": "Solve two linear simultaneous equations by elimination.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Solve x^2 - 5x + 6 = 0.",
+   "options": [
+    "x = 2 or x = 3",
+    "x = -2 or x = -3",
+    "x = 1 or x = 6",
+    "x = -1 or x = -6"
+   ],
+   "correctAnswer": "x = 2 or x = 3",
+   "explanation": "The quadratic factorises as (x - 2)(x - 3) = 0, so x is 2 or 3.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Quadratic Equations",
+   "learningOutcome": "Solve simple quadratic equations by factorisation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "What is the vertex of y = (x - 4)^2 + 3?",
+   "options": [
+    "(4, 3)",
+    "(-4, 3)",
+    "(4, -3)",
+    "(-4, -3)"
+   ],
+   "correctAnswer": "(4, 3)",
+   "explanation": "In vertex form y = (x - h)^2 + k, the vertex is (h, k). Here h = 4 and k = 3.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Quadratic Functions",
+   "learningOutcome": "Interpret the vertex form of a quadratic function.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Solve the inequality 2x + 5 < 17.",
+   "options": [
+    "x < 6",
+    "x > 6",
+    "x < 11",
+    "x > 11"
+   ],
+   "correctAnswer": "x < 6",
+   "explanation": "Subtracting 5 gives 2x < 12, and dividing by 2 gives x < 6.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Inequalities",
+   "learningOutcome": "Solve simple linear inequalities.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Make x the subject of y = 3x - 8.",
+   "options": [
+    "x = (y + 8)/3",
+    "x = 3(y + 8)",
+    "x = (y - 8)/3",
+    "x = 3y - 8"
+   ],
+   "correctAnswer": "x = (y + 8)/3",
+   "explanation": "Add 8 to both sides to get y + 8 = 3x, then divide by 3.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Formulae",
+   "learningOutcome": "Change the subject of a linear formula.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Simplify (x^2 - 9)/(x - 3), where x is not 3.",
+   "options": [
+    "x + 3",
+    "x - 3",
+    "x^2 + 3",
+    "1/(x + 3)"
+   ],
+   "correctAnswer": "x + 3",
+   "explanation": "The numerator is a difference of squares: x^2 - 9 = (x - 3)(x + 3). Cancel the common factor x - 3.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Fractions",
+   "learningOutcome": "Simplify algebraic fractions by factorising.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "If f(x) = 2x^2 - 1, find f(3).",
+   "options": [
+    "17",
+    "11",
+    "35",
+    "5"
+   ],
+   "correctAnswer": "17",
+   "explanation": "Substitute x = 3: f(3) = 2(3^2) - 1 = 18 - 1 = 17.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Functions",
+   "learningOutcome": "Evaluate a function for a given input.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Find the inverse of f(x) = 2x + 5.",
+   "options": [
+    "f^-1(x) = (x - 5)/2",
+    "f^-1(x) = 2x - 5",
+    "f^-1(x) = (x + 5)/2",
+    "f^-1(x) = 5x + 2"
+   ],
+   "correctAnswer": "f^-1(x) = (x - 5)/2",
+   "explanation": "Let y = 2x + 5. Swap x and y, then solve: x = 2y + 5, so y = (x - 5)/2.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Functions",
+   "learningOutcome": "Find the inverse of a linear function.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "If f(x) = x + 2 and g(x) = 3x, find f(g(4)).",
+   "options": [
+    "14",
+    "18",
+    "9",
+    "20"
+   ],
+   "correctAnswer": "14",
+   "explanation": "First g(4) = 12. Then f(12) = 12 + 2 = 14.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Composite Functions",
+   "learningOutcome": "Evaluate a composite function in the correct order.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Find the gradient of the line passing through (2, 5) and (6, 13).",
+   "options": [
+    "2 exactly",
+    "3",
+    "1/2",
+    "8"
+   ],
+   "correctAnswer": "2 exactly",
+   "explanation": "Gradient = change in y divided by change in x = (13 - 5)/(6 - 2) = 8/4 = 2.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Graphs",
+   "learningOutcome": "Calculate the gradient of a straight line from two points.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "What is the equation of the line with gradient 3 and y-intercept -4?",
+   "options": [
+    "y = 3x - 4",
+    "y = -4x + 3",
+    "y = 3x + 4",
+    "y = x - 4"
+   ],
+   "correctAnswer": "y = 3x - 4",
+   "explanation": "The form y = mx + c uses gradient m and y-intercept c. Here m = 3 and c = -4.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Graphs",
+   "learningOutcome": "Write the equation of a straight line from its gradient and intercept.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "y varies directly as x. If y = 18 when x = 6, find y when x = 10.",
+   "options": [
+    "30",
+    "28",
+    "24",
+    "60"
+   ],
+   "correctAnswer": "30",
+   "explanation": "The constant of variation is 18/6 = 3. When x = 10, y = 3 x 10 = 30.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Variation",
+   "learningOutcome": "Solve direct variation problems using a constant of proportionality.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "What is the determinant of the matrix [[4, 2], [1, 3]]?",
+   "options": [
+    "10",
+    "14",
+    "5",
+    "8"
+   ],
+   "correctAnswer": "10",
+   "explanation": "For a 2 by 2 matrix, determinant = ad - bc = 4 x 3 - 2 x 1 = 10.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Matrices",
+   "learningOutcome": "Find the determinant of a 2 by 2 matrix.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Multiply the matrix [[1, 2], [3, 4]] by the column vector [[5], [6]]. What is the resulting column vector?",
+   "options": [
+    "[[17], [39]]",
+    "[[11], [23]]",
+    "[[7], [33]]",
+    "[[22], [33]]"
+   ],
+   "correctAnswer": "[[17], [39]]",
+   "explanation": "The first entry is 1 x 5 + 2 x 6 = 17. The second entry is 3 x 5 + 4 x 6 = 39.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Matrices",
+   "learningOutcome": "Multiply a 2 by 2 matrix by a column vector.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "The product of two consecutive positive integers is 42. Which equation can be used to find the smaller integer x?",
+   "options": [
+    "x(x + 1) = 42",
+    "x + (x + 1) = 42",
+    "2x = 42",
+    "x(x - 1) = 42"
+   ],
+   "correctAnswer": "x(x + 1) = 42",
+   "explanation": "Consecutive positive integers can be written as x and x + 1, and their product is 42.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Quadratic Equations",
+   "learningOutcome": "Form a quadratic equation from a word problem.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Simplify (a^3b^2)(a^2b^5).",
+   "options": [
+    "a^5b^7",
+    "a^6b^10",
+    "a^5b^10",
+    "a^1b^3"
+   ],
+   "correctAnswer": "a^5b^7",
+   "explanation": "Add powers of like bases: a^(3+2)b^(2+5) = a^5b^7.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Algebraic Indices",
+   "learningOutcome": "Apply index laws to algebraic terms.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "A taxi charges 150 shillings plus 40 shillings per kilometre. Which expression gives the cost for d kilometres?",
+   "options": [
+    "150 + 40d",
+    "190d",
+    "150d + 40",
+    "40 + d"
+   ],
+   "correctAnswer": "150 + 40d",
+   "explanation": "The fixed charge is 150 shillings and the distance charge is 40d shillings.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Modelling",
+   "learningOutcome": "Form a linear expression from a real-life situation.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Two parallel lines are cut by a transversal. If one corresponding angle is 68 degrees, what is the matching corresponding angle?",
+   "options": [
+    "68 degrees",
+    "112 degrees",
+    "34 degrees",
+    "136 degrees"
+   ],
+   "correctAnswer": "68 degrees",
+   "explanation": "Corresponding angles formed by a transversal across parallel lines are equal.",
+   "difficulty": 1,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Angles on Parallel Lines",
+   "learningOutcome": "Use angle properties of parallel lines to find equal angles.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "An exterior angle of a triangle is 125 degrees. One opposite interior angle is 55 degrees. Find the other opposite interior angle.",
+   "options": [
+    "70 degrees",
+    "55 degrees",
+    "125 degrees",
+    "180 degrees"
+   ],
+   "correctAnswer": "70 degrees",
+   "explanation": "An exterior angle equals the sum of the two opposite interior angles, so the missing angle is 125 - 55 = 70 degrees.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Angles in Triangles",
+   "learningOutcome": "Apply the exterior angle property of triangles.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "What is the sum of the interior angles of a hexagon?",
+   "options": [
+    "720 degrees",
+    "540 degrees",
+    "900 degrees",
+    "1080 degrees"
+   ],
+   "correctAnswer": "720 degrees",
+   "explanation": "The sum of interior angles of an n-sided polygon is (n - 2) x 180 degrees. For n = 6, it is 4 x 180 = 720 degrees.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Polygons",
+   "learningOutcome": "Calculate the sum of interior angles of a polygon.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "A right-angled triangle has shorter sides 9 cm and 12 cm. Find the hypotenuse.",
+   "options": [
+    "15 cm",
+    "21 cm",
+    "18 cm",
+    "13 cm"
+   ],
+   "correctAnswer": "15 cm",
+   "explanation": "Using Pythagoras, c^2 = 9^2 + 12^2 = 81 + 144 = 225, so c = 15 cm.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Pythagoras' Theorem",
+   "learningOutcome": "Use Pythagoras' theorem to find the hypotenuse of a right triangle.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Find the distance between points A(1, 2) and B(7, 10).",
+   "options": [
+    "10 units",
+    "8 units",
+    "12 units",
+    "14 units"
+   ],
+   "correctAnswer": "10 units",
+   "explanation": "The horizontal change is 6 and the vertical change is 8. The distance is sqrt(6^2 + 8^2) = 10 units.",
+   "difficulty": 4,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Coordinate Geometry",
+   "learningOutcome": "Use the distance formula between two points.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "Using pi = 22/7, find the circumference of a circle with radius 7 cm.",
+   "options": [
+    "44 cm",
+    "22 cm",
+    "154 cm",
+    "49 cm"
+   ],
+   "correctAnswer": "44 cm",
+   "explanation": "Circumference = 2pi r = 2 x 22/7 x 7 = 44 cm.",
+   "difficulty": 1,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Circle Measurements",
+   "learningOutcome": "Calculate circumference from radius.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "Find the area of a sector with radius 6 cm and angle 60 degrees, using pi = 3.142.",
+   "options": [
+    "18.852 cm^2",
+    "37.704 cm^2",
+    "113.112 cm^2",
+    "9.426 cm^2"
+   ],
+   "correctAnswer": "18.852 cm^2",
+   "explanation": "Sector area = 60/360 x pi x 6^2 = 1/6 x 3.142 x 36 = 18.852 cm^2.",
+   "difficulty": 4,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Sectors",
+   "learningOutcome": "Calculate the area of a sector using its angle and radius.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Using pi = 22/7, find the volume of a cylinder with radius 7 cm and height 10 cm.",
+   "options": [
+    "1540 cm^3",
+    "440 cm^3",
+    "770 cm^3",
+    "3080 cm^3"
+   ],
+   "correctAnswer": "1540 cm^3",
+   "explanation": "Volume = pi r^2 h = 22/7 x 7 x 7 x 10 = 1540 cm^3.",
+   "difficulty": 3,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Volume",
+   "learningOutcome": "Calculate the volume of a cylinder.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Find the total surface area of a cuboid measuring 5 cm by 4 cm by 3 cm.",
+   "options": [
+    "94 cm^2",
+    "60 cm^2",
+    "47 cm^2",
+    "120 cm^2"
+   ],
+   "correctAnswer": "94 cm^2",
+   "explanation": "Surface area = 2(lw + lh + wh) = 2(20 + 15 + 12) = 94 cm^2.",
+   "difficulty": 2,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Surface Area",
+   "learningOutcome": "Find the total surface area of a cuboid.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "On a scale drawing, 1 cm represents 5 m. What real distance is represented by 7 cm?",
+   "options": [
+    "35 m",
+    "12 m",
+    "25 m",
+    "75 m"
+   ],
+   "correctAnswer": "35 m",
+   "explanation": "Multiply the drawing distance by the scale: 7 x 5 = 35 m.",
+   "difficulty": 2,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Scale Drawing",
+   "learningOutcome": "Use a simple scale to find actual distance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "A point B is on a bearing of 070 degrees from point A. What is the bearing of A from B?",
+   "options": [
+    "250 degrees",
+    "110 degrees",
+    "070 degrees",
+    "290 degrees"
+   ],
+   "correctAnswer": "250 degrees",
+   "explanation": "Reverse bearings differ by 180 degrees. 070 degrees + 180 degrees = 250 degrees.",
+   "difficulty": 4,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Bearings",
+   "learningOutcome": "Find a reverse bearing from a given bearing.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Two similar triangles have corresponding side lengths 4 cm and 10 cm. What is the scale factor from the smaller triangle to the larger triangle?",
+   "options": [
+    "2.5",
+    "0.4",
+    "6",
+    "14"
+   ],
+   "correctAnswer": "2.5",
+   "explanation": "Scale factor = larger corresponding side divided by smaller corresponding side = 10/4 = 2.5.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Similarity",
+   "learningOutcome": "Determine scale factor between similar shapes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "Which condition is enough to prove two triangles are congruent?",
+   "options": [
+    "SSS: all three corresponding sides are equal",
+    "AAA: all angles are equal",
+    "One side is equal",
+    "The perimeters are equal"
+   ],
+   "correctAnswer": "SSS: all three corresponding sides are equal",
+   "explanation": "SSS congruence fixes the size and shape of a triangle. AAA proves similarity, not necessarily congruence.",
+   "difficulty": 3,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Congruence",
+   "learningOutcome": "Identify valid conditions for triangle congruence.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which description gives the locus of points 5 cm from a fixed point P?",
+   "options": [
+    "A circle with centre P and radius 5 cm",
+    "A straight line 5 cm from P",
+    "A ray starting at P",
+    "A diameter through P"
+   ],
+   "correctAnswer": "A circle with centre P and radius 5 cm",
+   "explanation": "All points at a fixed distance from one point form a circle with that point as centre.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Loci",
+   "learningOutcome": "Describe simple loci involving fixed distance from a point.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "Which pair of instruments is normally used to construct a perpendicular bisector accurately?",
+   "options": [
+    "Compass and straightedge",
+    "Protractor and calculator",
+    "Tape measure and set square",
+    "Ruler and weighing scale"
+   ],
+   "correctAnswer": "Compass and straightedge",
+   "explanation": "A perpendicular bisector is constructed by drawing equal arcs from both endpoints using a compass, then joining the arc intersections with a straightedge.",
+   "difficulty": 2,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Constructions",
+   "learningOutcome": "Select appropriate instruments for basic geometrical constructions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "In a right triangle, the side opposite angle A is 5 cm and the hypotenuse is 13 cm. What is sin A?",
+   "options": [
+    "5/13",
+    "12/13",
+    "5/12",
+    "13/5"
+   ],
+   "correctAnswer": "5/13",
+   "explanation": "Sine of an angle is opposite side divided by hypotenuse.",
+   "difficulty": 1,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Trigonometric Ratios",
+   "learningOutcome": "Identify sine ratio in a right-angled triangle.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "In a right triangle, the side adjacent to angle B is 8 cm and the hypotenuse is 10 cm. What is cos B?",
+   "options": [
+    "4/5",
+    "3/5",
+    "5/4",
+    "1/5"
+   ],
+   "correctAnswer": "4/5",
+   "explanation": "Cosine is adjacent side divided by hypotenuse, so cos B = 8/10 = 4/5.",
+   "difficulty": 1,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Trigonometric Ratios",
+   "learningOutcome": "Identify cosine ratio in a right-angled triangle.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "A ladder leans against a wall. The angle with the ground is 60 degrees and the foot is 4 m from the wall. Which expression gives the height reached?",
+   "options": [
+    "4tan60 degrees",
+    "4cos60 degrees",
+    "4/sin60 degrees",
+    "4tan30 degrees"
+   ],
+   "correctAnswer": "4tan60 degrees",
+   "explanation": "The height is opposite the 60 degree angle and the ground distance is adjacent, so tan60 degrees = height/4.",
+   "difficulty": 3,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Heights and Distances",
+   "learningOutcome": "Choose the correct trigonometric ratio for a height problem.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "If tan theta = 1 in a right triangle and theta is acute, what is theta?",
+   "options": [
+    "45 degrees",
+    "30 degrees",
+    "60 degrees",
+    "90 degrees"
+   ],
+   "correctAnswer": "45 degrees",
+   "explanation": "For an acute angle, tan45 degrees = 1.",
+   "difficulty": 2,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Trigonometric Ratios",
+   "learningOutcome": "Recall exact trigonometric values for common angles.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "In triangle ABC, a/sin A = b/sin B. If a = 10, A = 30 degrees, and B = 60 degrees, which expression gives b?",
+   "options": [
+    "10sin60 degrees/sin30 degrees",
+    "10sin30 degrees/sin60 degrees",
+    "10sin90 degrees",
+    "10/(sin60 degrees + sin30 degrees)"
+   ],
+   "correctAnswer": "10sin60 degrees/sin30 degrees",
+   "explanation": "By the sine rule, b = a sin B / sin A, so b = 10sin60 degrees/sin30 degrees.",
+   "difficulty": 4,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Sine Rule",
+   "learningOutcome": "Use the sine rule to set up a missing side calculation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "For triangle sides 5 cm, 6 cm, and included angle 60 degrees, which formula gives the opposite side c using the cosine rule?",
+   "options": [
+    "c^2 = 5^2 + 6^2 - 2 x 5 x 6 x cos60 degrees",
+    "c^2 = 5^2 + 6^2 + 2 x 5 x 6 x cos60 degrees",
+    "c = 5 + 6 - cos60 degrees",
+    "c^2 = 5^2 - 6^2"
+   ],
+   "correctAnswer": "c^2 = 5^2 + 6^2 - 2 x 5 x 6 x cos60 degrees",
+   "explanation": "The cosine rule for an included angle is c^2 = a^2 + b^2 - 2ab cos C.",
+   "difficulty": 4,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Cosine Rule",
+   "learningOutcome": "Select the correct cosine rule setup for finding a side.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Find the area of a triangle with sides 8 cm and 10 cm enclosing an angle of 30 degrees.",
+   "options": [
+    "20 cm^2",
+    "40 cm^2",
+    "80 cm^2",
+    "10 cm^2"
+   ],
+   "correctAnswer": "20 cm^2",
+   "explanation": "Area = 1/2 ab sin C = 1/2 x 8 x 10 x sin30 degrees = 40 x 1/2 = 20 cm^2.",
+   "difficulty": 3,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Area of a Triangle",
+   "learningOutcome": "Use trigonometry to calculate the area of a triangle.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "From a point 30 m from the base of a tower, the angle of elevation is 45 degrees. What is the tower height?",
+   "options": [
+    "30 m",
+    "15 m",
+    "60 m",
+    "30sqrt(2) m"
+   ],
+   "correctAnswer": "30 m",
+   "explanation": "tan45 degrees = height/30. Since tan45 degrees = 1, the height is 30 m.",
+   "difficulty": 2,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Angles of Elevation",
+   "learningOutcome": "Apply tangent ratio to a simple elevation problem.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which exact value is equal to sin30 degrees?",
+   "options": [
+    "1/2",
+    "sqrt(3)/2",
+    "1",
+    "0"
+   ],
+   "correctAnswer": "1/2",
+   "explanation": "The exact value of sin30 degrees is 1/2.",
+   "difficulty": 1,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Exact Values",
+   "learningOutcome": "Recall exact trigonometric values for special angles.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A line has equation y = -2x + 7. What is its gradient?",
+   "options": [
+    "-2",
+    "7",
+    "2",
+    "-7"
+   ],
+   "correctAnswer": "-2",
+   "explanation": "In y = mx + c, the coefficient of x is the gradient. Here m = -2.",
+   "difficulty": 1,
+   "strandTitle": "Coordinate Geometry",
+   "subStrandTitle": "Straight Lines",
+   "learningOutcome": "Identify the gradient from the equation of a straight line.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Find the midpoint of the line segment joining (2, -1) and (8, 5).",
+   "options": [
+    "(5, 2)",
+    "(6, 4)",
+    "(10, 4)",
+    "(3, 6)"
+   ],
+   "correctAnswer": "(5, 2)",
+   "explanation": "Average the x-coordinates and y-coordinates: ((2 + 8)/2, (-1 + 5)/2) = (5, 2).",
+   "difficulty": 2,
+   "strandTitle": "Coordinate Geometry",
+   "subStrandTitle": "Midpoint",
+   "learningOutcome": "Find the midpoint of a line segment on the coordinate plane.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which equation represents a circle with centre (0, 0) and radius 5?",
+   "options": [
+    "x^2 + y^2 = 25",
+    "x^2 + y^2 = 5",
+    "x + y = 5",
+    "x^2 - y^2 = 25"
+   ],
+   "correctAnswer": "x^2 + y^2 = 25",
+   "explanation": "A circle centred at the origin has equation x^2 + y^2 = r^2. With r = 5, r^2 = 25.",
+   "difficulty": 3,
+   "strandTitle": "Coordinate Geometry",
+   "subStrandTitle": "Circles",
+   "learningOutcome": "Recognise the equation of a circle centred at the origin.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Point P(3, 4) is translated by vector (2, -5). What are the coordinates of the image?",
+   "options": [
+    "(5, -1)",
+    "(1, 9)",
+    "(6, -20)",
+    "(2, -5)"
+   ],
+   "correctAnswer": "(5, -1)",
+   "explanation": "Add the translation vector to the point: (3 + 2, 4 - 5) = (5, -1).",
+   "difficulty": 2,
+   "strandTitle": "Transformations",
+   "subStrandTitle": "Translation",
+   "learningOutcome": "Translate a point using a column vector.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "What is the reflection of point (4, -3) in the x-axis?",
+   "options": [
+    "(4, 3)",
+    "(-4, -3)",
+    "(-4, 3)",
+    "(3, -4)"
+   ],
+   "correctAnswer": "(4, 3)",
+   "explanation": "Reflection in the x-axis keeps the x-coordinate and changes the sign of the y-coordinate.",
+   "difficulty": 2,
+   "strandTitle": "Transformations",
+   "subStrandTitle": "Reflection",
+   "learningOutcome": "Find the image of a point reflected in an axis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "An enlargement with centre at the origin and scale factor 3 maps point (2, -1) to which point?",
+   "options": [
+    "(6, -3)",
+    "(5, 2)",
+    "(-6, 3)",
+    "(2/3, -1/3)"
+   ],
+   "correctAnswer": "(6, -3)",
+   "explanation": "Multiply each coordinate by the scale factor: (2 x 3, -1 x 3) = (6, -3).",
+   "difficulty": 2,
+   "strandTitle": "Transformations",
+   "subStrandTitle": "Enlargement",
+   "learningOutcome": "Apply enlargement from the origin to a point.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Find the mean of 4, 6, 10, and 12.",
+   "options": [
+    "8 exactly",
+    "7",
+    "9",
+    "32"
+   ],
+   "correctAnswer": "8 exactly",
+   "explanation": "The sum is 32 and there are 4 values, so the mean is 32/4 = 8.",
+   "difficulty": 1,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Measures of Central Tendency",
+   "learningOutcome": "Calculate the mean of a small data set.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Find the median of 3, 8, 5, 11, and 6.",
+   "options": [
+    "6 exactly",
+    "5",
+    "8",
+    "33"
+   ],
+   "correctAnswer": "6 exactly",
+   "explanation": "Arrange the values as 3, 5, 6, 8, 11. The middle value is 6.",
+   "difficulty": 1,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Measures of Central Tendency",
+   "learningOutcome": "Find the median of an odd number of values.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "The scores are 7, 9, 7, 10, 8, 7, and 9. What is the mode?",
+   "options": [
+    "7 exactly",
+    "9",
+    "8",
+    "10"
+   ],
+   "correctAnswer": "7 exactly",
+   "explanation": "The mode is the value that occurs most often. The score 7 occurs three times.",
+   "difficulty": 1,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Measures of Central Tendency",
+   "learningOutcome": "Identify the mode of a data set.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Find the range of the data set 14, 22, 18, 30, 16.",
+   "options": [
+    "16",
+    "30",
+    "14",
+    "100"
+   ],
+   "correctAnswer": "16",
+   "explanation": "Range = highest value - lowest value = 30 - 14 = 16.",
+   "difficulty": 1,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Dispersion",
+   "learningOutcome": "Calculate the range of a data set.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "A grouped frequency table has values 2, 4, and 6 with frequencies 3, 5, and 2. What is the mean?",
+   "options": [
+    "3.8",
+    "4.0",
+    "12.0",
+    "10.0"
+   ],
+   "correctAnswer": "3.8",
+   "explanation": "The weighted sum is 2 x 3 + 4 x 5 + 6 x 2 = 38. Total frequency is 10, so the mean is 3.8.",
+   "difficulty": 4,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Grouped Data",
+   "learningOutcome": "Calculate the mean from a frequency table.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "In a cumulative frequency table, the total frequency is 80. Which position is used to estimate the median?",
+   "options": [
+    "40th value",
+    "20th value",
+    "80th value",
+    "10th value"
+   ],
+   "correctAnswer": "40th value",
+   "explanation": "The median position is half the total frequency, so 80/2 = 40.",
+   "difficulty": 2,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Cumulative Frequency",
+   "learningOutcome": "Identify the median position from cumulative frequency.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "If the lower quartile is 12 and the upper quartile is 27, what is the interquartile range?",
+   "options": [
+    "15",
+    "39",
+    "12",
+    "27"
+   ],
+   "correctAnswer": "15",
+   "explanation": "Interquartile range = upper quartile - lower quartile = 27 - 12 = 15.",
+   "difficulty": 2,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Quartiles",
+   "learningOutcome": "Calculate interquartile range from quartiles.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "In a pie chart, 18 out of 60 learners prefer football. What angle represents football?",
+   "options": [
+    "108 degrees",
+    "90 degrees",
+    "120 degrees",
+    "72 degrees"
+   ],
+   "correctAnswer": "108 degrees",
+   "explanation": "The angle is 18/60 x 360 degrees = 108 degrees.",
+   "difficulty": 2,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Data Representation",
+   "learningOutcome": "Calculate sector angles for a pie chart.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "A histogram class has frequency 24 and class width 6. What is the frequency density?",
+   "options": [
+    "4 exactly",
+    "144",
+    "18",
+    "30"
+   ],
+   "correctAnswer": "4 exactly",
+   "explanation": "Frequency density = frequency divided by class width = 24/6 = 4.",
+   "difficulty": 4,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Histograms",
+   "learningOutcome": "Calculate frequency density for a histogram bar.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "A scatter graph shows that as revision time increases, test score generally increases. What type of correlation is shown?",
+   "options": [
+    "Positive correlation",
+    "Negative correlation",
+    "No correlation",
+    "Perfect inverse correlation"
+   ],
+   "correctAnswer": "Positive correlation",
+   "explanation": "When both variables tend to increase together, the correlation is positive.",
+   "difficulty": 2,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Correlation",
+   "learningOutcome": "Interpret the direction of correlation from a scatter graph description.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A bag has 5 red balls and 3 blue balls. What is the probability of picking a blue ball at random?",
+   "options": [
+    "3/8",
+    "5/8",
+    "3/5",
+    "1/3"
+   ],
+   "correctAnswer": "3/8",
+   "explanation": "There are 3 blue balls out of 8 balls in total, so the probability is 3/8.",
+   "difficulty": 1,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Simple Probability",
+   "learningOutcome": "Calculate probability as favourable outcomes over total outcomes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "The probability that a bus arrives late is 0.15. What is the probability that it does not arrive late?",
+   "options": [
+    "0.85",
+    "0.15",
+    "1.15",
+    "0.75"
+   ],
+   "correctAnswer": "0.85",
+   "explanation": "Complementary probabilities add to 1, so 1 - 0.15 = 0.85.",
+   "difficulty": 2,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Complementary Events",
+   "learningOutcome": "Use complementary probability to find the chance an event does not occur.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "A fair coin is tossed and a fair die is rolled. What is the probability of getting a head and a 6?",
+   "options": [
+    "1/12",
+    "1/8",
+    "1/6",
+    "1/2"
+   ],
+   "correctAnswer": "1/12",
+   "explanation": "The events are independent, so multiply: 1/2 x 1/6 = 1/12.",
+   "difficulty": 2,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Independent Events",
+   "learningOutcome": "Calculate probability for two independent events.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "A box has 4 green pens and 6 black pens. Two pens are picked without replacement. What is the probability both are green?",
+   "options": [
+    "2/15",
+    "4/25",
+    "1/5",
+    "4/10"
+   ],
+   "correctAnswer": "2/15",
+   "explanation": "The probability is 4/10 x 3/9 = 12/90 = 2/15.",
+   "difficulty": 4,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Dependent Events",
+   "learningOutcome": "Calculate probability without replacement.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "A weather record shows that on days when clouds are dark, rain follows 7 out of 10 times. Which estimate is reasonable for rain after dark clouds?",
+   "options": [
+    "0.7",
+    "0.3",
+    "1.7",
+    "7.0"
+   ],
+   "correctAnswer": "0.7",
+   "explanation": "The experimental probability is favourable outcomes divided by trials: 7/10 = 0.7.",
+   "difficulty": 2,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Experimental Probability",
+   "learningOutcome": "Estimate probability from observed relative frequency.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "Find the simple interest on 12000 shillings at 8% per year for 3 years.",
+   "options": [
+    "2880 shillings",
+    "960 shillings",
+    "14880 shillings",
+    "2400 shillings"
+   ],
+   "correctAnswer": "2880 shillings",
+   "explanation": "Simple interest = PRT/100 = 12000 x 8 x 3 / 100 = 2880 shillings.",
+   "difficulty": 2,
+   "strandTitle": "Financial Mathematics",
+   "subStrandTitle": "Simple Interest",
+   "learningOutcome": "Calculate simple interest for a given principal, rate, and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A phone worth 30000 shillings depreciates by 20% in one year. What is its value after one year?",
+   "options": [
+    "24000 shillings",
+    "36000 shillings",
+    "6000 shillings",
+    "28000 shillings"
+   ],
+   "correctAnswer": "24000 shillings",
+   "explanation": "The phone retains 80% of its value, so 0.80 x 30000 = 24000 shillings.",
+   "difficulty": 2,
+   "strandTitle": "Financial Mathematics",
+   "subStrandTitle": "Depreciation",
+   "learningOutcome": "Calculate value after percentage depreciation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "A fridge is bought on hire purchase with a deposit of 6000 shillings and 12 monthly payments of 3500 shillings. What is the total hire purchase price?",
+   "options": [
+    "48000 shillings",
+    "42000 shillings",
+    "45500 shillings",
+    "54000 shillings"
+   ],
+   "correctAnswer": "48000 shillings",
+   "explanation": "The total is deposit plus instalments: 6000 + 12 x 3500 = 48000 shillings.",
+   "difficulty": 3,
+   "strandTitle": "Financial Mathematics",
+   "subStrandTitle": "Hire Purchase",
+   "learningOutcome": "Calculate total cost under a hire purchase plan.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "A bank buys 1 US dollar at 128 shillings. How many shillings does a customer receive for 50 US dollars?",
+   "options": [
+    "6400 shillings",
+    "178 shillings",
+    "2500 shillings",
+    "12800 shillings"
+   ],
+   "correctAnswer": "6400 shillings",
+   "explanation": "Multiply the dollars by the buying rate: 50 x 128 = 6400 shillings.",
+   "difficulty": 2,
+   "strandTitle": "Financial Mathematics",
+   "subStrandTitle": "Foreign Exchange",
+   "learningOutcome": "Convert foreign currency into Kenya shillings using a given rate.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A matatu travels 180 km in 3 hours. What is its average speed?",
+   "options": [
+    "60 km/h",
+    "54 km/h",
+    "90 km/h",
+    "183 km/h"
+   ],
+   "correctAnswer": "60 km/h",
+   "explanation": "Average speed = distance/time = 180/3 = 60 km/h.",
+   "difficulty": 1,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Speed",
+   "learningOutcome": "Calculate average speed from distance and time.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "A metal block has mass 540 g and volume 60 cm^3. What is its density?",
+   "options": [
+    "9 g/cm^3",
+    "600 g/cm^3",
+    "480 g/cm^3",
+    "0.11 g/cm^3"
+   ],
+   "correctAnswer": "9 g/cm^3",
+   "explanation": "Density = mass/volume = 540/60 = 9 g/cm^3.",
+   "difficulty": 1,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Density",
+   "learningOutcome": "Calculate density from mass and volume.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "A map has scale 1:50000. What real distance is represented by 3 cm on the map?",
+   "options": [
+    "1.5 km",
+    "15 km",
+    "150 km",
+    "0.15 km"
+   ],
+   "correctAnswer": "1.5 km",
+   "explanation": "3 cm represents 150000 cm, which is 1500 m or 1.5 km.",
+   "difficulty": 3,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Map Scales",
+   "learningOutcome": "Convert map distances to actual distances using a ratio scale.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "A rectangle has perimeter 50 cm and length 15 cm. What is its width?",
+   "options": [
+    "10 cm",
+    "20 cm",
+    "25 cm",
+    "35 cm"
+   ],
+   "correctAnswer": "10 cm",
+   "explanation": "For a rectangle, 2(l + w) = 50, so l + w = 25. With l = 15, w = 10 cm.",
+   "difficulty": 2,
+   "strandTitle": "Measurement",
+   "subStrandTitle": "Perimeter",
+   "learningOutcome": "Use perimeter of a rectangle to find a missing dimension.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "A shop sells x pencils at 12 shillings each and y pens at 25 shillings each. Which expression gives the total sales?",
+   "options": [
+    "12x + 25y",
+    "37xy",
+    "25x + 12y",
+    "12 + 25 + x + y"
+   ],
+   "correctAnswer": "12x + 25y",
+   "explanation": "Multiply each item price by its quantity and add the two amounts.",
+   "difficulty": 2,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Linear Modelling",
+   "learningOutcome": "Form an expression to model total cost from quantities and unit prices.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "If y is inversely proportional to x and y = 12 when x = 5, find y when x = 10.",
+   "options": [
+    "6 exactly",
+    "24",
+    "17",
+    "2"
+   ],
+   "correctAnswer": "6 exactly",
+   "explanation": "For inverse proportion, xy is constant. The constant is 12 x 5 = 60, so y = 60/10 = 6.",
+   "difficulty": 4,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Variation",
+   "learningOutcome": "Solve inverse variation problems.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A savings account grows by the same percentage each year. Which model best represents its value over time?",
+   "options": [
+    "Exponential model",
+    "Linear model",
+    "Constant model",
+    "Random model"
+   ],
+   "correctAnswer": "Exponential model",
+   "explanation": "Repeated growth by a fixed percentage multiplies the amount each year, which is exponential growth.",
+   "difficulty": 5,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Mathematical Modelling",
+   "learningOutcome": "Choose an appropriate model for percentage growth.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "A measured length is 12.4 cm to the nearest 0.1 cm and a width is 5.2 cm to the nearest 0.1 cm. Which product gives the maximum possible area?",
+   "options": [
+    "12.45 x 5.25",
+    "12.35 x 5.15",
+    "12.4 x 5.2",
+    "12.45 x 5.15"
+   ],
+   "correctAnswer": "12.45 x 5.25",
+   "explanation": "Maximum area uses the upper bound of each measurement: 12.45 cm and 5.25 cm.",
+   "difficulty": 5,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Limits of Accuracy",
+   "learningOutcome": "Apply bounds to find a maximum possible product.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A rectangle has perimeter 40 cm. If its length is x cm, which expression gives its area in terms of x?",
+   "options": [
+    "x(20 - x)",
+    "x(40 - x)",
+    "2x(20 - x)",
+    "x + 20"
+   ],
+   "correctAnswer": "x(20 - x)",
+   "explanation": "Since 2(l + w) = 40, l + w = 20. If l = x, then w = 20 - x, so area is x(20 - x).",
+   "difficulty": 5,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Quadratic Modelling",
+   "learningOutcome": "Form a quadratic expression for area under a perimeter constraint.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A ticket for an adult costs 500 shillings and for a student costs 300 shillings. A group bought 10 tickets for 4200 shillings. Which pair of equations can find the numbers of adult tickets a and student tickets s?",
+   "options": [
+    "a + s = 10 and 500a + 300s = 4200",
+    "a + s = 4200 and 500a + 300s = 10",
+    "500a + 300s = 10 only",
+    "a - s = 10 and 300a + 500s = 4200"
+   ],
+   "correctAnswer": "a + s = 10 and 500a + 300s = 4200",
+   "explanation": "One equation counts tickets and the other totals the cost using each ticket price.",
+   "difficulty": 3,
+   "strandTitle": "Algebra",
+   "subStrandTitle": "Simultaneous Equations",
+   "learningOutcome": "Form simultaneous equations from a cost and quantity context.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "Which statement best explains why the sum of angles in any triangle is 180 degrees?",
+   "options": [
+    "A line through one vertex parallel to the opposite side forms alternate angles on a straight line",
+    "All triangles are equilateral after scaling",
+    "The longest side determines all three angles",
+    "Angles are measured using a compass"
+   ],
+   "correctAnswer": "A line through one vertex parallel to the opposite side forms alternate angles on a straight line",
+   "explanation": "Drawing a parallel line lets the three triangle angles match angles on a straight line, whose sum is 180 degrees.",
+   "difficulty": 5,
+   "strandTitle": "Geometry",
+   "subStrandTitle": "Geometrical Reasoning",
+   "learningOutcome": "Explain a proof of the angle sum of a triangle.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "An arithmetic sequence has first term 7 and common difference 4. Which formula gives the nth term?",
+   "options": [
+    "4n + 3",
+    "7n + 4",
+    "4n + 7",
+    "3n + 4"
+   ],
+   "correctAnswer": "4n + 3",
+   "explanation": "The nth term is a + (n - 1)d = 7 + 4(n - 1) = 4n + 3.",
+   "difficulty": 3,
+   "strandTitle": "Numbers",
+   "subStrandTitle": "Sequences",
+   "learningOutcome": "Create an nth term formula for an arithmetic sequence.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A learner wants to estimate the average time Grade 10 students spend on homework. Which sampling method is most reliable?",
+   "options": [
+    "Randomly select students from several Grade 10 classes",
+    "Ask only close friends",
+    "Ask only students who finished early",
+    "Use one student's diary"
+   ],
+   "correctAnswer": "Randomly select students from several Grade 10 classes",
+   "explanation": "A random sample from several classes reduces bias and better represents the Grade 10 group.",
+   "difficulty": 5,
+   "strandTitle": "Statistics",
+   "subStrandTitle": "Data Collection",
+   "learningOutcome": "Choose a fair sampling method for a statistical investigation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "A class wants to test whether a coin is fair. Which plan gives the best evidence?",
+   "options": [
+    "Toss the coin many times and compare heads and tails",
+    "Toss the coin once and decide",
+    "Look at the coin colour",
+    "Ask one learner to guess"
+   ],
+   "correctAnswer": "Toss the coin many times and compare heads and tails",
+   "explanation": "Many trials give a more reliable experimental probability than a single toss or a guess.",
+   "difficulty": 5,
+   "strandTitle": "Probability",
+   "subStrandTitle": "Experimental Probability",
+   "learningOutcome": "Design a simple experiment to test fairness of a chance device.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A surveyor needs the height of a tree without climbing it. Which data are sufficient for a simple trigonometric estimate?",
+   "options": [
+    "Horizontal distance from tree and angle of elevation to the top",
+    "Tree colour and leaf size",
+    "Time of day only",
+    "Number of branches only"
+   ],
+   "correctAnswer": "Horizontal distance from tree and angle of elevation to the top",
+   "explanation": "With horizontal distance and angle of elevation, tangent can be used to estimate the height.",
+   "difficulty": 5,
+   "strandTitle": "Trigonometry",
+   "subStrandTitle": "Heights and Distances",
+   "learningOutcome": "Plan a trigonometric measurement strategy for an inaccessible height.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Two payment plans are offered for a laptop. Plan A is 60000 shillings cash. Plan B is a 12000 shillings deposit plus 12 monthly payments of 4500 shillings. Which conclusion is correct?",
+   "options": [
+    "Plan A is cheaper by 6000 shillings",
+    "Plan B is cheaper by 6000 shillings",
+    "Both plans cost the same",
+    "Plan A is cheaper by 12000 shillings"
+   ],
+   "correctAnswer": "Plan A is cheaper by 6000 shillings",
+   "explanation": "Plan B costs 12000 + 12 x 4500 = 66000 shillings, which is 6000 shillings more than Plan A.",
+   "difficulty": 5,
+   "strandTitle": "Financial Mathematics",
+   "subStrandTitle": "Cost Comparison",
+   "learningOutcome": "Compare payment plans using total cost calculations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

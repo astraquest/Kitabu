@@ -127,9 +127,16 @@ const kitabuTeacherSchoolLabel = 'Choose Kitabu Demo School, Nairobi, 120 learne
 const kitabuGrade8SchoolLabel = 'Choose Kitabu Demo School, Nairobi, No Grade 8 learners yet';
 const kisiiGrade6SchoolLabel = 'Choose Kisii Demo School, Kisii County, Kenya, 18 Grade 6 learners';
 const defaultOnboardingSubjectIds = SUBJECTS.slice(0, 5).map(subject => subject.id);
-const selectedFullIntroSubjectIds = SUBJECTS.filter(subject =>
-  ['Mathematics', 'English'].includes(subject.name),
-).map(subject => subject.id);
+const selectedFullIntroSubjectIds = [
+  'english',
+  'math',
+  'kiswahili',
+  'cbc-science-technology',
+  'social',
+  'cbc-religious-education',
+  'creative_arts',
+  'cbc-agriculture-nutrition',
+];
 
 function renderedText(root: ReactTestRenderer.ReactTestInstance) {
   return root
@@ -193,6 +200,20 @@ async function selectCounty(root: ReactTestRenderer.ReactTestInstance, county = 
   });
 }
 
+async function selectSubjectOptions(root: ReactTestRenderer.ReactTestInstance, count: number) {
+  const options = root.findAll(
+    node =>
+      typeof node.props?.accessibilityLabel === 'string' &&
+      node.props.accessibilityLabel.startsWith('Add ') &&
+      typeof node.props?.onPress === 'function',
+  );
+  for (const option of options.slice(0, count)) {
+    await act(() => {
+      option.props.onPress();
+    });
+  }
+}
+
 
 test('mock homework includes sample assignments for testing', () => {
   expect(INITIAL_ASSIGNMENTS).toHaveLength(5);
@@ -201,9 +222,9 @@ test('mock homework includes sample assignments for testing', () => {
   expect(INITIAL_ASSIGNMENTS.every(item => item.questions.length >= 3)).toBe(true);
 });
 
-test('subject selector disables new selections after five subjects', async () => {
+test('subject selector disables new selections after the required subject count', async () => {
   const onToggleSubject = jest.fn();
-  const selectedSubjectIds = SUBJECTS.slice(0, 5).map(subject => subject.id);
+  const selectedSubjectIds = SUBJECTS.slice(0, 8).map(subject => subject.id);
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -212,13 +233,14 @@ test('subject selector disables new selections after five subjects', async () =>
         allSubjects={SUBJECTS}
         selectedSubjectIds={selectedSubjectIds}
         onToggleSubject={onToggleSubject}
+        grade="Grade 6"
       />,
     );
   });
 
   const text = renderedText(renderer!.root);
-  expect(text).toContain('5/5 selected');
-  expect(text).toContain('Limit reached');
+  expect(text).toContain('8/8 selected');
+  expect(text).toContain('Required subjects selected');
   expect(
     renderer!.root.findAll(node => node.props?.disabled === true).length,
   ).toBeGreaterThan(0);
@@ -767,13 +789,8 @@ test('onboarding full intro captures profile details before account setup', asyn
     now: 13,
     text: 'Step 13 of 25, Subjects',
   });
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Add Mathematics' }).props.onPress();
-  });
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Add English' }).props.onPress();
-  });
-  expect(renderedText(renderer!.root)).toContain('2 zimechaguliwa \u2713');
+  await selectSubjectOptions(renderer!.root, 8);
+  expect(renderedText(renderer!.root)).toContain('8 zimechaguliwa \u2713');
   expect(renderedText(renderer!.root)).toContain('\u2713 Mathematics');
 
   await act(() => {
@@ -1021,7 +1038,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).not.toContain('Nia, Profaili yako ya masomo iko tayari!');
   expect(renderedText(renderer!.root)).toContain('Nia,Mpango wako wa masomo uko tayari.');
   expect(renderedText(renderer!.root)).toContain('Malengo ya kufikiwa');
-  expect(renderedText(renderer!.root)).toContain('Grade 6 \u00B7 2 masomo \u00B7 Kenya CBC');
+  expect(renderedText(renderer!.root)).toContain('Grade 6 \u00B7 8 masomo \u00B7 Kenya CBC');
   expect(renderedText(renderer!.root)).toContain('4.89');
   expect(renderedText(renderer!.root)).toContain('Kitabu ilinisaidia kupanda daraja moja kwa term.');
   expect(renderedText(renderer!.root)).toContain('Wanjiru - Grade 8');
@@ -1210,7 +1227,16 @@ test('onboarding full intro captures profile details before account setup', asyn
     needKey: 'exam',
     displayName: 'Nia',
     age: '13',
-    subjects: ['Mathematics', 'English'],
+    subjects: [
+      'English',
+      'Mathematics',
+      'Kiswahili',
+      'Science & Technology',
+      'Social Studies',
+      'Religious Education',
+      'Creative Arts',
+      'Agriculture & Nutrition',
+    ],
     county: 'Nairobi City',
     school: 'Kitabu Demo School',
     goal: 'consistent',
@@ -1299,6 +1325,7 @@ test('onboarding displays Form aliases and filters subjects by selected senior g
     renderer!.root.findByProps({ accessibilityLabel: 'Select Form 4 · KNEC' }).props.onPress();
   });
   expect(renderedText(renderer!.root)).toContain('Senior School (KNEC)');
+  await selectSubjectOptions(renderer!.root, 7);
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
@@ -2574,7 +2601,7 @@ test('student onboarding exposes accessible gender and grade selections', async 
   expect(renderedText(renderer!.root)).toContain('Smart lessons');
   expect(renderedText(renderer!.root)).toContain('CBC grade');
   expect(renderedText(renderer!.root)).toContain('Subjects you study');
-  expect(renderedText(renderer!.root)).toContain('Pick up to five CBC subjects');
+  expect(renderedText(renderer!.root)).toContain('Select exactly 8 CBC subjects for your dashboard');
   const mascot = renderer!.root.findByProps({ accessibilityLabel: 'Rafiki the Rabbit student mascot' });
   expect(mascot).toBeTruthy();
   const mascotMotion = renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' });
@@ -2602,10 +2629,11 @@ test('student onboarding exposes accessible gender and grade selections', async 
     .toHaveLength(1);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Subjects you study' }).props.accessibilityRole)
     .toBe('list');
+  await selectSubjectOptions(renderer!.root, 8);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Remove Mathematics' }).props.accessibilityState)
     .toEqual({ disabled: false, selected: true });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Agriculture' }).props.accessibilityState)
-    .toEqual({ disabled: true, selected: false });
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Remove Agriculture' }).props.accessibilityState)
+    .toEqual({ disabled: false, selected: true });
 
   await act(() => {
     girl.props.onPress();
@@ -2620,11 +2648,11 @@ test('student onboarding exposes accessible gender and grade selections', async 
     renderer!.root.findByProps({ accessibilityLabel: 'Remove Social Studies' }).props.onPress();
   });
 
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Agriculture' }).props.accessibilityState)
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Social Studies' }).props.accessibilityState)
     .toEqual({ disabled: false, selected: false });
 
   await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Add Agriculture' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Add Social Studies' }).props.onPress();
   });
 
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Remove Agriculture' }).props.accessibilityState)
@@ -3151,6 +3179,11 @@ test('onboarding dismisses keyboard during step navigation and uses mobile keybo
   dismissSpy.mockClear();
 
   await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Select Grade 6' }).props.onPress();
+  });
+  await selectSubjectOptions(renderer!.root, 8);
+
+  await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
@@ -3203,6 +3236,13 @@ test('onboarding selected controls use role accent colors', async () => {
       StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.style)
         .backgroundColor,
     ).toBe(expectation.accent);
+
+    if (expectation.role === 'student') {
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Select Grade 6' }).props.onPress();
+      });
+      await selectSubjectOptions(renderer!.root, 8);
+    }
 
     await act(() => {
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();

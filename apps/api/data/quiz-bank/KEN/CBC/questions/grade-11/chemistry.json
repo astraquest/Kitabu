@@ -1,109 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 11",
-  "subjectId": "chemistry",
-  "subjectName": "Chemistry",
-  "questions": [
-    {"questionNumber":1,"type":"MCQ","prompt":"What is one mole of a substance?","options":["The amount containing Avogadro's number of particles","The mass of exactly one atom","The volume of any liquid at room temperature","The number of protons in an element"],"correctAnswer":"The amount containing Avogadro's number of particles","explanation":"A mole is an amount of substance containing 6.02 x 10^23 specified particles such as atoms, molecules or ions.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"The Mole Concept","learningOutcome":"Define the mole as a counting unit in chemistry.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":2,"type":"MCQ","prompt":"Which value is commonly used for Avogadro's constant?","options":["6.02 x 10^23 mol-1","3.00 x 10^8 mol-1","1.60 x 10^-19 mol-1","9.81 x 10^0 mol-1"],"correctAnswer":"6.02 x 10^23 mol-1","explanation":"Avogadro's constant gives the number of particles in one mole of a substance.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"The Mole Concept","learningOutcome":"State Avogadro's constant and its meaning.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":3,"type":"MCQ","prompt":"What is the relative molecular mass of water, H2O?","options":["18","16","20","10"],"correctAnswer":"18","explanation":"Water has two hydrogen atoms and one oxygen atom, so its relative molecular mass is 2 x 1 plus 16.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"Formula Masses","learningOutcome":"Calculate simple relative molecular masses from atomic masses.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":4,"type":"MCQ","prompt":"What volume is occupied by one mole of any gas at room temperature and pressure?","options":["24 dm3","22.4 dm3","12 dm3","1 dm3"],"correctAnswer":"24 dm3","explanation":"At room temperature and pressure, one mole of a gas is usually taken to occupy 24 dm3.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"Gas Molar Volume","learningOutcome":"Recall the molar gas volume at room temperature and pressure.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":5,"type":"MCQ","prompt":"What is the role of a catalyst in a chemical reaction?","options":["It increases reaction rate without being used up","It changes the mass of products formed at completion","It supplies all the reactants needed","It makes every reaction release heat"],"correctAnswer":"It increases reaction rate without being used up","explanation":"A catalyst provides an alternative pathway of lower activation energy and is regenerated in the reaction.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Describe the function of catalysts in reactions.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":6,"type":"MCQ","prompt":"Which statement describes an exothermic reaction?","options":["It releases heat to the surroundings","It always absorbs light only","It cannot be measured in a laboratory","It stops before products are formed"],"correctAnswer":"It releases heat to the surroundings","explanation":"In an exothermic reaction, the surroundings usually become warmer because energy is released.","difficulty":1,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Energetics","learningOutcome":"Distinguish exothermic reactions from other energy changes.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":7,"type":"MCQ","prompt":"In terms of electrons, what is oxidation?","options":["Loss of electrons","Gain of electrons","Sharing of neutrons","Formation of isotopes"],"correctAnswer":"Loss of electrons","explanation":"Oxidation can be defined as loss of electrons by an atom, ion or molecule.","difficulty":1,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Define oxidation using electron transfer.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":8,"type":"MCQ","prompt":"In terms of electrons, what is reduction?","options":["Gain of electrons","Loss of electrons","Loss of protons","Gain of neutrons"],"correctAnswer":"Gain of electrons","explanation":"Reduction occurs when a species gains electrons during a redox reaction.","difficulty":1,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Define reduction using electron transfer.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":9,"type":"MCQ","prompt":"Which substance is an electrolyte?","options":["A substance that conducts electricity when molten or in solution","A solid that never forms ions","A gas that cannot dissolve in water","A metal that cannot react chemically"],"correctAnswer":"A substance that conducts electricity when molten or in solution","explanation":"Electrolytes contain mobile ions when molten or dissolved, allowing electric current to pass.","difficulty":1,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Explain the meaning of electrolyte in electrolysis.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":10,"type":"MCQ","prompt":"What is a homologous series in organic chemistry?","options":["A family of compounds with the same functional group and similar chemical properties","A list of elements arranged by atomic mass only","A group of salts with different anions only","A set of metals with no chemical relationship"],"correctAnswer":"A family of compounds with the same functional group and similar chemical properties","explanation":"Members of a homologous series have a common functional group and show gradual changes in physical properties.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Homologous Series","learningOutcome":"Describe the meaning of a homologous series.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":11,"type":"MCQ","prompt":"Which general formula represents alkanes?","options":["CnH2n+2","CnH2n","CnH2n-2","CnH2nO"],"correctAnswer":"CnH2n+2","explanation":"Alkanes are saturated hydrocarbons, so their general formula is CnH2n+2.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Hydrocarbons","learningOutcome":"Recall the general formula of alkanes.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":12,"type":"MCQ","prompt":"Which functional group is present in esters?","options":["-COO-","-OH","-COOH","-NH2"],"correctAnswer":"-COO-","explanation":"Esters contain the -COO- linkage formed when a carboxylic acid reacts with an alcohol.","difficulty":1,"strandTitle":"Organic Chemistry","subStrandTitle":"Esters","learningOutcome":"Identify the functional group found in esters.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":13,"type":"MCQ","prompt":"What mass of carbon dioxide is present in 0.50 mol of CO2?","options":["22 g","11 g","44 g","88 g"],"correctAnswer":"22 g","explanation":"Carbon dioxide has molar mass 44 g mol-1, so 0.50 mol has mass 0.50 x 44 = 22 g.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"The Mole Concept","learningOutcome":"Calculate mass from amount of substance and molar mass.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":14,"type":"MCQ","prompt":"How many moles are in 5.85 g of sodium chloride, NaCl, if its molar mass is 58.5 g mol-1?","options":["0.100 mol","1.00 mol","10.0 mol","0.010 mol"],"correctAnswer":"0.100 mol","explanation":"Amount in moles equals mass divided by molar mass: 5.85 divided by 58.5 = 0.100 mol.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"The Mole Concept","learningOutcome":"Calculate moles from mass and molar mass.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":15,"type":"MCQ","prompt":"What is the concentration of a solution containing 2.0 mol of solute in 0.50 dm3 of solution?","options":["4.0 mol dm-3","1.0 mol dm-3","2.5 mol dm-3","0.25 mol dm-3"],"correctAnswer":"4.0 mol dm-3","explanation":"Concentration equals moles divided by volume in dm3, so 2.0 divided by 0.50 gives 4.0 mol dm-3.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Solutions and Concentration","learningOutcome":"Calculate molar concentration from amount and volume.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":16,"type":"MCQ","prompt":"What volume is occupied by 0.25 mol of a gas at room temperature and pressure?","options":["6.0 dm3","12.0 dm3","24.0 dm3","0.25 dm3"],"correctAnswer":"6.0 dm3","explanation":"At room temperature and pressure, gas volume equals moles x 24 dm3, so 0.25 x 24 = 6.0 dm3.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Gas Molar Volume","learningOutcome":"Use molar gas volume to calculate gas volumes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":17,"type":"MCQ","prompt":"What is the percentage by mass of oxygen in magnesium oxide, MgO, if Mg = 24 and O = 16?","options":["40%","60%","24%","16%"],"correctAnswer":"40%","explanation":"The formula mass of MgO is 40, and oxygen contributes 16, so 16 divided by 40 times 100 gives 40%.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Formulae and Composition","learningOutcome":"Calculate percentage composition from formula masses.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":18,"type":"MCQ","prompt":"A hydrocarbon contains 92.3% carbon and 7.7% hydrogen by mass. What is its empirical formula?","options":["CH","CH2","C2H","C2H6"],"correctAnswer":"CH","explanation":"Dividing by atomic masses gives about 7.69 mol C and 7.7 mol H, giving the simplest ratio 1:1.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Empirical Formulae","learningOutcome":"Determine empirical formula from percentage composition.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":19,"type":"MCQ","prompt":"Which equation correctly represents complete combustion of propane?","options":["C3H8 + 5O2 -> 3CO2 + 4H2O","C3H8 + O2 -> CO2 + H2O","C3H8 + 3O2 -> 3CO + 4H2O","C3H8 + 4O2 -> 3CO2 + 4H2"],"correctAnswer":"C3H8 + 5O2 -> 3CO2 + 4H2O","explanation":"Complete combustion forms carbon dioxide and water, and the balanced equation preserves all atoms.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Hydrocarbons","learningOutcome":"Write balanced equations for complete combustion of alkanes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":20,"type":"MCQ","prompt":"What is the limiting reagent in a reaction mixture?","options":["The reactant used up first and controlling the maximum product formed","The catalyst added in the smallest amount","The product with the lowest mass","The solvent with the highest boiling point"],"correctAnswer":"The reactant used up first and controlling the maximum product formed","explanation":"The limiting reagent is consumed before other reactants and therefore determines the theoretical yield.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Stoichiometry","learningOutcome":"Explain the meaning of limiting reagent.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":21,"type":"MCQ","prompt":"What is activation energy?","options":["The minimum energy particles need for a successful reaction","The heat stored only in products","The total mass of reactants before reaction","The energy released by every collision"],"correctAnswer":"The minimum energy particles need for a successful reaction","explanation":"Only collisions with enough activation energy and suitable orientation can form products.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Describe activation energy in collision theory.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":22,"type":"MCQ","prompt":"Why does increasing temperature usually increase the rate of a chemical reaction?","options":["Particles move faster and more collisions have enough energy","Particles stop colliding and become stable","The catalyst is always destroyed","The mass of reactants increases automatically"],"correctAnswer":"Particles move faster and more collisions have enough energy","explanation":"Higher temperature increases kinetic energy, producing more frequent and more energetic effective collisions.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Explain the effect of temperature on reaction rate.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":23,"type":"MCQ","prompt":"Why does powdered calcium carbonate react faster with dilute acid than marble chips of the same mass?","options":["The powder has a larger surface area exposed to acid","The powder has a lower atomic number","The acid becomes a catalyst only with powder","The products have lower molar masses"],"correctAnswer":"The powder has a larger surface area exposed to acid","explanation":"A larger surface area allows more acid particles to collide with calcium carbonate each second.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Relate surface area to rate of reaction.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":24,"type":"MCQ","prompt":"Which statement best describes dynamic equilibrium?","options":["Forward and reverse reactions continue at equal rates in a closed system","All reactants have disappeared completely","Only the forward reaction is taking place","Products are removed as soon as they form"],"correctAnswer":"Forward and reverse reactions continue at equal rates in a closed system","explanation":"At dynamic equilibrium, concentrations remain constant because the opposing reaction rates are equal.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Describe dynamic equilibrium in reversible reactions.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":25,"type":"MCQ","prompt":"For N2 + 3H2 <-> 2NH3, what happens when pressure is increased at constant temperature?","options":["Equilibrium shifts towards ammonia","Equilibrium shifts towards nitrogen and hydrogen","No molecules remain in the vessel","The catalyst changes into ammonia"],"correctAnswer":"Equilibrium shifts towards ammonia","explanation":"Higher pressure favours the side with fewer gas molecules, which is the ammonia side in this equation.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Predict the effect of pressure on gaseous equilibrium.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":26,"type":"MCQ","prompt":"What is the pH of 0.010 mol dm-3 hydrochloric acid if it fully ionises?","options":["pH 2","pH 1","pH 10","pH 12"],"correctAnswer":"pH 2","explanation":"A fully ionised 0.010 mol dm-3 acid has hydrogen ion concentration 10^-2 mol dm-3, so pH is 2.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Acids and Bases","learningOutcome":"Calculate pH of a dilute strong acid from hydrogen ion concentration.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":27,"type":"MCQ","prompt":"Which ionic equation represents neutralisation?","options":["H+ + OH- -> H2O","Na+ + Cl- -> NaCl","Cu2+ + 2e- -> Cu","Ag+ + Cl- -> AgCl"],"correctAnswer":"H+ + OH- -> H2O","explanation":"Neutralisation is the reaction of hydrogen ions with hydroxide ions to form water.","difficulty":2,"strandTitle":"Physical Chemistry","subStrandTitle":"Acids and Bases","learningOutcome":"Write the ionic equation for neutralisation.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":28,"type":"MCQ","prompt":"What colour change is expected when acidified potassium manganate(VII) is reduced by iron(II) ions?","options":["Purple to colourless","Colourless to purple","Green to blue","Yellow to black"],"correctAnswer":"Purple to colourless","explanation":"Manganate(VII) ions are purple and are reduced to nearly colourless manganese(II) ions in acidic solution.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Recognise colour changes in common redox reactions.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":29,"type":"MCQ","prompt":"At which electrode does oxidation occur during electrolysis?","options":["Anode","Cathode","Salt bridge","Voltmeter"],"correctAnswer":"Anode","explanation":"Oxidation is loss of electrons, and it occurs at the anode in both electrolytic and electrochemical cells.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Identify electrode processes in electrolysis.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":30,"type":"MCQ","prompt":"Which products are formed during electrolysis of concentrated sodium chloride solution using inert electrodes?","options":["Hydrogen, chlorine and sodium hydroxide solution","Sodium metal and oxygen only","Hydrogen chloride and sodium metal","Chlorine and molten sodium only"],"correctAnswer":"Hydrogen, chlorine and sodium hydroxide solution","explanation":"In brine electrolysis, hydrogen forms at the cathode, chlorine at the anode and sodium hydroxide remains in solution.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Identify products of brine electrolysis.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":31,"type":"MCQ","prompt":"Which two substances are necessary for iron to rust?","options":["Water and oxygen","Nitrogen and carbon dioxide","Hydrogen and chlorine","Petrol and sand"],"correctAnswer":"Water and oxygen","explanation":"Rusting is the corrosion of iron that requires both oxygen and moisture.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Metals and Corrosion","learningOutcome":"Describe conditions needed for rusting of iron.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":32,"type":"MCQ","prompt":"Which metals are the main components of brass?","options":["Copper and zinc","Iron and carbon","Aluminium and magnesium","Lead and tin"],"correctAnswer":"Copper and zinc","explanation":"Brass is an alloy mainly made of copper and zinc, used in fittings and decorative items.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Metals and Alloys","learningOutcome":"Identify common alloys and their components.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":33,"type":"MCQ","prompt":"What is the chemical formula of limestone?","options":["CaCO3","CaO","Ca(OH)2","CaSO4"],"correctAnswer":"CaCO3","explanation":"Limestone is mainly calcium carbonate, a raw material in cement and lime production.","difficulty":2,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Carbonates and Industrial Chemistry","learningOutcome":"State the formula and uses of calcium carbonate.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":34,"type":"MCQ","prompt":"Temporary hardness of water is mainly caused by which ions in hydrogencarbonate salts?","options":["Calcium and magnesium ions","Sodium and potassium ions","Silver and lead ions","Hydrogen and hydroxide ions"],"correctAnswer":"Calcium and magnesium ions","explanation":"Temporary hardness is caused by dissolved calcium and magnesium hydrogencarbonates, which can be removed by boiling.","difficulty":2,"strandTitle":"Environmental Chemistry","subStrandTitle":"Water Chemistry","learningOutcome":"Explain causes of temporary hardness in water.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":35,"type":"MCQ","prompt":"Which functional group is found in ethanol?","options":["Hydroxyl group, -OH","Carboxyl group, -COOH","Ester group, -COO-","Amine group, -NH2"],"correctAnswer":"Hydroxyl group, -OH","explanation":"Ethanol is an alcohol, and alcohols contain the hydroxyl functional group.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Alcohols","learningOutcome":"Identify the functional group in alcohols.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":36,"type":"MCQ","prompt":"Which test can distinguish ethene from ethane?","options":["Ethene decolourises bromine water while ethane does not","Ethane turns blue litmus red while ethene does not","Ethene forms a white precipitate with barium chloride","Ethane relights a glowing splint"],"correctAnswer":"Ethene decolourises bromine water while ethane does not","explanation":"Alkenes such as ethene undergo addition with bromine, removing the orange-brown colour of bromine water.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Alkenes","learningOutcome":"Use bromine water to test for unsaturation.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":37,"type":"MCQ","prompt":"Which polymer is formed by addition polymerisation of ethene?","options":["Poly(ethene)","Nylon","Terylene","Starch"],"correctAnswer":"Poly(ethene)","explanation":"Ethene monomers join by addition polymerisation to form poly(ethene), a common plastic.","difficulty":2,"strandTitle":"Organic Chemistry","subStrandTitle":"Polymers","learningOutcome":"Name the polymer formed from ethene.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":38,"type":"MCQ","prompt":"What mass of calcium carbonate, CaCO3, is present in 0.20 mol if its molar mass is 100 g mol-1?","options":["20 g","50 g","100 g","5 g"],"correctAnswer":"20 g","explanation":"Mass equals amount x molar mass, so 0.20 x 100 gives 20 g.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"The Mole Concept","learningOutcome":"Use molar mass to calculate mass of a compound.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":39,"type":"MCQ","prompt":"A learner dilutes 25.0 cm3 of 2.0 mol dm-3 sodium hydroxide to 250 cm3. What is the new concentration?","options":["0.20 mol dm-3","0.50 mol dm-3","1.0 mol dm-3","20 mol dm-3"],"correctAnswer":"0.20 mol dm-3","explanation":"Diluting from 25.0 cm3 to 250 cm3 makes the volume ten times larger, so concentration becomes one tenth.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Solutions and Concentration","learningOutcome":"Calculate concentration after dilution.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":40,"type":"MCQ","prompt":"25.0 cm3 of 0.100 mol dm-3 NaOH is neutralised by 20.0 cm3 of HCl. What is the concentration of the acid?","options":["0.125 mol dm-3","0.080 mol dm-3","0.100 mol dm-3","0.250 mol dm-3"],"correctAnswer":"0.125 mol dm-3","explanation":"The reaction is 1:1, so moles of HCl equal 0.100 x 25.0/1000, giving 0.00250 mol in 20.0 cm3.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Volumetric Analysis","learningOutcome":"Use titration data to calculate acid concentration.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":41,"type":"MCQ","prompt":"What mass of magnesium oxide forms when 4.8 g of magnesium burns completely? Mg = 24, MgO = 40.","options":["8.0 g","4.0 g","12.0 g","2.4 g"],"correctAnswer":"8.0 g","explanation":"4.8 g of magnesium is 0.20 mol, which forms 0.20 mol of MgO with mass 0.20 x 40 = 8.0 g.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Stoichiometry","learningOutcome":"Calculate product mass from a balanced equation.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":42,"type":"MCQ","prompt":"What volume of CO2 at room temperature and pressure forms when 10.0 g of CaCO3 reacts completely with dilute acid? CaCO3 = 100.","options":["2.4 dm3","1.2 dm3","24.0 dm3","0.24 dm3"],"correctAnswer":"2.4 dm3","explanation":"10.0 g CaCO3 is 0.100 mol and produces 0.100 mol CO2, which occupies 2.4 dm3 at room temperature and pressure.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Gas Stoichiometry","learningOutcome":"Calculate gas volume from mass of reactant.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":43,"type":"MCQ","prompt":"An oxide of iron contains 70% iron and 30% oxygen by mass. What is its empirical formula? Fe = 56, O = 16.","options":["Fe2O3","FeO","Fe3O4","FeO2"],"correctAnswer":"Fe2O3","explanation":"Mole ratio is 70/56 to 30/16, which is 1.25 to 1.875 or 2 to 3 after simplification.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Empirical Formulae","learningOutcome":"Determine empirical formula from percentage composition.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":44,"type":"MCQ","prompt":"What is the oxidation number of sulphur in SO4^2-?","options":["+6","+4","-2","+2"],"correctAnswer":"+6","explanation":"Four oxygen atoms contribute -8 in total, so sulphur must be +6 to give the overall -2 charge.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Calculate oxidation numbers in ions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":45,"type":"MCQ","prompt":"In the reaction CuO + H2 -> Cu + H2O, which substance is the oxidising agent?","options":["CuO","H2","Cu","H2O"],"correctAnswer":"CuO","explanation":"Copper(II) oxide oxidises hydrogen to water while it is reduced to copper.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Identify oxidising and reducing agents in equations.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":46,"type":"MCQ","prompt":"In a zinc-copper electrochemical cell, in which direction do electrons flow through the external circuit?","options":["From zinc to copper","From copper to zinc","From the salt bridge to zinc","From the solution to the voltmeter only"],"correctAnswer":"From zinc to copper","explanation":"Zinc is more reactive and is oxidised, releasing electrons that flow to the copper electrode.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrochemical Cells","learningOutcome":"Describe electron flow in a simple electrochemical cell.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":47,"type":"MCQ","prompt":"Why does galvanising help protect iron roofing sheets from rusting?","options":["Zinc acts as a protective coating and sacrificial metal","Zinc turns iron into stainless steel instantly","Zinc removes all oxygen from the air","Zinc makes iron dissolve in rainwater"],"correctAnswer":"Zinc acts as a protective coating and sacrificial metal","explanation":"Zinc blocks contact with air and water and oxidises more readily than iron if the coating is scratched.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Metals and Corrosion","learningOutcome":"Explain sacrificial protection of iron.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":48,"type":"MCQ","prompt":"What are the products when molten lead(II) bromide is electrolysed using inert electrodes?","options":["Lead and bromine","Lead oxide and hydrogen","Hydrogen and oxygen","Lead chloride and sodium"],"correctAnswer":"Lead and bromine","explanation":"Pb2+ ions gain electrons to form lead at the cathode, while Br- ions lose electrons to form bromine at the anode.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Predict products of electrolysis of molten ionic compounds.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":49,"type":"MCQ","prompt":"What quantity of charge passes when a current of 2.0 A flows for 10 minutes?","options":["1200 C","20 C","200 C","12 C"],"correctAnswer":"1200 C","explanation":"Charge equals current x time, so 2.0 A x 600 s gives 1200 C.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Calculate electric charge from current and time.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":50,"type":"MCQ","prompt":"On an energy profile diagram for an exothermic reaction, where are the products compared with the reactants?","options":["At a lower energy level","At a higher energy level","At exactly the activation energy peak","Outside the energy profile"],"correctAnswer":"At a lower energy level","explanation":"Exothermic reactions release energy, so the products have lower stored chemical energy than the reactants.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Energetics","learningOutcome":"Interpret energy profile diagrams for exothermic reactions.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":51,"type":"MCQ","prompt":"Why is a reaction exothermic in terms of bond energies?","options":["Bond formation releases more energy than bond breaking absorbs","Bond breaking releases more energy than bond formation absorbs","No bonds are broken or formed","All reactant particles lose their nuclei"],"correctAnswer":"Bond formation releases more energy than bond breaking absorbs","explanation":"The net release of energy occurs when forming product bonds gives out more energy than is needed to break reactant bonds.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Energetics","learningOutcome":"Explain reaction enthalpy using bond breaking and bond formation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":52,"type":"MCQ","prompt":"In a reaction rate graph, why does the curve usually become less steep as time passes?","options":["Reactant concentration decreases, so successful collisions become less frequent","Products change back into elements only","The stopwatch slows down during the experiment","The reaction vessel gains mass from air"],"correctAnswer":"Reactant concentration decreases, so successful collisions become less frequent","explanation":"As reactants are used up, there are fewer particles available for effective collisions each second.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Interpret changes in gradient on rate graphs.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":53,"type":"MCQ","prompt":"How does a catalyst increase reaction rate according to collision theory?","options":["It provides a pathway with lower activation energy","It increases the mass of every particle","It prevents particles from colliding","It changes products back into reactants permanently"],"correctAnswer":"It provides a pathway with lower activation energy","explanation":"With lower activation energy, a larger fraction of collisions can lead to product formation.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Explain catalytic action using activation energy.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":54,"type":"MCQ","prompt":"For a reversible reaction at equilibrium, what is the effect of adding more reactant at constant temperature?","options":["The equilibrium shifts towards products","The equilibrium stops completely","The reverse reaction disappears forever","The catalyst is consumed"],"correctAnswer":"The equilibrium shifts towards products","explanation":"Adding reactant disturbs equilibrium, so the system shifts to consume some of the added reactant.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Apply Le Chatelier's principle to concentration changes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":55,"type":"MCQ","prompt":"For N2O4(g) <-> 2NO2(g), the forward reaction is endothermic and NO2 is brown. What happens when the mixture is heated?","options":["The brown colour becomes more intense","The mixture becomes permanently colourless","Only solid nitrogen forms","The pressure becomes zero"],"correctAnswer":"The brown colour becomes more intense","explanation":"Heating favours the endothermic forward reaction, producing more brown nitrogen dioxide.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Predict temperature effects on reversible reactions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":56,"type":"MCQ","prompt":"Which factor helps explain whether an ionic solid dissolves readily in water?","options":["The balance between lattice energy and hydration energy","The colour of the solid only","The number of glass rods used","The shape of the beaker"],"correctAnswer":"The balance between lattice energy and hydration energy","explanation":"Dissolving is favoured when hydration of ions can compensate for the energy needed to separate the ionic lattice.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Solutions and Solubility","learningOutcome":"Relate dissolving of ionic compounds to energy changes.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":57,"type":"MCQ","prompt":"Why is aqueous ammonia described as a weak base?","options":["It partially ionises in water","It has no nitrogen atoms","It cannot react with acids","It always has pH 7"],"correctAnswer":"It partially ionises in water","explanation":"A weak base produces hydroxide ions only partially in aqueous solution.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Acids and Bases","learningOutcome":"Compare strong and weak bases using ionisation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":58,"type":"MCQ","prompt":"Which oxide is amphoteric and reacts with both acids and alkalis?","options":["Zinc oxide","Sodium oxide","Sulphur dioxide","Carbon monoxide"],"correctAnswer":"Zinc oxide","explanation":"Zinc oxide is amphoteric because it reacts with acids as well as strong alkalis.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Acids, Bases and Oxides","learningOutcome":"Identify amphoteric oxides and their reactions.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":59,"type":"MCQ","prompt":"Which method is most suitable for preparing a pure dry sample of potassium sulphate from potassium hydroxide and sulphuric(VI) acid?","options":["Titration followed by evaporation and crystallisation","Precipitation followed by decanting only","Direct heating of potassium metal in air","Filtration of two insoluble solids"],"correctAnswer":"Titration followed by evaporation and crystallisation","explanation":"Both reactants are soluble, so titration gives a neutral solution that can be concentrated to crystallise the salt.","difficulty":3,"strandTitle":"Physical Chemistry","subStrandTitle":"Salts","learningOutcome":"Select appropriate methods for preparing soluble salts.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":60,"type":"MCQ","prompt":"Which observation shows that a solid contains carbonate ions when dilute acid is added?","options":["Effervescence and limewater turns milky","A blue solution forms without gas","A glowing splint relights","A white solid dissolves with no gas"],"correctAnswer":"Effervescence and limewater turns milky","explanation":"Carbonates react with acids to produce carbon dioxide, which turns limewater milky.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Test for carbonate ions using dilute acid and limewater.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":61,"type":"MCQ","prompt":"Which test result identifies ammonia gas?","options":["Damp red litmus paper turns blue","A glowing splint relights","Limewater turns milky","Damp blue litmus paper is bleached"],"correctAnswer":"Damp red litmus paper turns blue","explanation":"Ammonia is alkaline and turns damp red litmus paper blue.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Identify ammonia gas using litmus paper.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":62,"type":"MCQ","prompt":"A solution gives a green precipitate with sodium hydroxide, which turns brown on standing. Which ion is likely present?","options":["Fe2+","Cu2+","Al3+","Ca2+"],"correctAnswer":"Fe2+","explanation":"Iron(II) ions form a green hydroxide precipitate that oxidises in air to a brown iron(III) compound.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Use sodium hydroxide tests to identify metal ions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":63,"type":"MCQ","prompt":"Which flame colour is produced by sodium ions?","options":["Yellow","Lilac","Brick red","Blue-green"],"correctAnswer":"Yellow","explanation":"Sodium ions give an intense yellow flame in a flame test.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Identify selected metal ions using flame tests.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":64,"type":"MCQ","prompt":"Across Period 3 from sodium oxide to sulphur trioxide, what trend is shown by the oxides?","options":["They change from basic to acidic","They change from acidic to basic","They all become neutral salts","They all become metallic conductors"],"correctAnswer":"They change from basic to acidic","explanation":"Metal oxides on the left are basic, while non-metal oxides towards the right are acidic.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Periodicity","learningOutcome":"Describe acid-base trends in Period 3 oxides.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":65,"type":"MCQ","prompt":"Why can chlorine displace iodine from potassium iodide solution?","options":["Chlorine is a stronger oxidising agent than iodine","Iodine has a lower relative atomic mass than chlorine","Potassium reacts explosively with iodine","Chlorine is a noble gas"],"correctAnswer":"Chlorine is a stronger oxidising agent than iodine","explanation":"A more reactive halogen oxidises the halide ions of a less reactive halogen.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Halogens","learningOutcome":"Explain displacement reactions of halogens.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":66,"type":"MCQ","prompt":"Why is aluminium extracted by electrolysis rather than by reduction with carbon?","options":["Aluminium is more reactive than carbon","Aluminium ore is always a liquid","Carbon cannot react with oxygen","Aluminium has no ions in its compounds"],"correctAnswer":"Aluminium is more reactive than carbon","explanation":"Carbon cannot reduce oxides of metals above it in the reactivity series, so aluminium oxide is electrolysed.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Extraction of Metals","learningOutcome":"Relate extraction methods to metal reactivity.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":67,"type":"MCQ","prompt":"What is the main reducing agent in the blast furnace extraction of iron?","options":["Carbon monoxide","Oxygen","Calcium carbonate","Nitrogen"],"correctAnswer":"Carbon monoxide","explanation":"Carbon monoxide reduces iron(III) oxide to iron by removing oxygen from the ore.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Extraction of Metals","learningOutcome":"Describe the role of carbon monoxide in iron extraction.","cognitiveLevel":"recall","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":68,"type":"MCQ","prompt":"What is the purpose of limestone in the blast furnace?","options":["It forms calcium oxide that removes silica as slag","It provides the main iron ore","It cools the furnace gases","It forms pure oxygen gas"],"correctAnswer":"It forms calcium oxide that removes silica as slag","explanation":"Limestone decomposes to calcium oxide, which reacts with acidic silica impurities to form calcium silicate slag.","difficulty":3,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Extraction of Metals","learningOutcome":"Explain the function of limestone in iron extraction.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":69,"type":"MCQ","prompt":"Which property allows fractional distillation to separate crude oil into useful fractions?","options":["Different boiling point ranges","Different flame colours only","Different magnetic strengths","Different pH values only"],"correctAnswer":"Different boiling point ranges","explanation":"Crude oil fractions vaporise and condense at different temperature ranges because their molecules differ in size.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Petroleum and Fuels","learningOutcome":"Explain separation of crude oil by fractional distillation.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":70,"type":"MCQ","prompt":"Why are shorter-chain hydrocarbons generally more useful as petrol than very long-chain hydrocarbons?","options":["They are more volatile and ignite more easily","They are always solids at room temperature","They never burn in oxygen","They contain no carbon atoms"],"correctAnswer":"They are more volatile and ignite more easily","explanation":"Shorter-chain hydrocarbons usually have lower boiling points and burn more readily in engines.","difficulty":3,"strandTitle":"Organic Chemistry","subStrandTitle":"Petroleum and Fuels","learningOutcome":"Relate hydrocarbon chain length to fuel properties.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":71,"type":"MCQ","prompt":"In 2H2 + O2 -> 2H2O, 5 mol of H2 reacts with 2 mol of O2. Which statement is true?","options":["O2 is limiting and 4 mol of H2O can form","H2 is limiting and 5 mol of H2O can form","O2 is in excess and 2 mol of H2O can form","Both reactants form 7 mol of H2O"],"correctAnswer":"O2 is limiting and 4 mol of H2O can form","explanation":"Two moles of oxygen need four moles of hydrogen and form four moles of water, leaving one mole of hydrogen unused.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Stoichiometry","learningOutcome":"Use mole ratios to identify limiting reagents and product amounts.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":72,"type":"MCQ","prompt":"A reaction has a theoretical yield of 10.0 g but gives 7.5 g of product. What is the percentage yield?","options":["75%","25%","50%","133%"],"correctAnswer":"75%","explanation":"Percentage yield equals actual yield divided by theoretical yield times 100, so 7.5/10.0 x 100 = 75%.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Stoichiometry","learningOutcome":"Calculate percentage yield from experimental data.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":73,"type":"MCQ","prompt":"A reaction needs 2640 kJ mol-1 to break bonds and releases 3460 kJ mol-1 when new bonds form. What is the enthalpy change?","options":["-820 kJ mol-1","+820 kJ mol-1","-6100 kJ mol-1","+6100 kJ mol-1"],"correctAnswer":"-820 kJ mol-1","explanation":"Enthalpy change is energy absorbed minus energy released, so 2640 - 3460 = -820 kJ mol-1.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Energetics","learningOutcome":"Calculate enthalpy change using bond energy data.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":74,"type":"MCQ","prompt":"What is the equilibrium expression for 2SO2(g) + O2(g) <-> 2SO3(g)?","options":["Kc = [SO3]^2 / ([SO2]^2[O2])","Kc = [SO2]^2[O2] / [SO3]^2","Kc = [SO3] / [SO2][O2]","Kc = [SO2][O2] / [SO3]"],"correctAnswer":"Kc = [SO3]^2 / ([SO2]^2[O2])","explanation":"Products appear in the numerator and reactants in the denominator, each raised to its balancing coefficient.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Write equilibrium constant expressions for homogeneous reactions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":75,"type":"MCQ","prompt":"In the Haber process, the forward reaction is exothermic. Why is a moderate temperature used instead of the lowest possible temperature?","options":["A low temperature gives a higher equilibrium yield but an impractically slow rate","A low temperature destroys nitrogen molecules completely","A high temperature is needed to make ammonia stable forever","Temperature has no effect on yield or rate"],"correctAnswer":"A low temperature gives a higher equilibrium yield but an impractically slow rate","explanation":"Industrial conditions balance equilibrium yield with a reaction rate that is economically useful.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Evaluate industrial compromise conditions using equilibrium and rate ideas.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":76,"type":"MCQ","prompt":"A student repeats the acid-carbonate reaction using twice the acid concentration. Why is the initial rate expected to increase?","options":["There are more acid particles per unit volume colliding with carbonate","The carbonate changes into a catalyst before reacting","The reaction becomes endothermic automatically","The gas produced has a larger molar volume"],"correctAnswer":"There are more acid particles per unit volume colliding with carbonate","explanation":"Increasing concentration raises collision frequency at the reacting surface, increasing initial rate.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Reaction Rates","learningOutcome":"Explain rate changes using concentration and collision frequency.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":77,"type":"MCQ","prompt":"Which statement correctly compares acid strength and acid concentration?","options":["Strength describes degree of ionisation, while concentration describes amount per unit volume","Strength and concentration always mean the same thing","A dilute acid cannot be strong","A concentrated acid must always be weak"],"correctAnswer":"Strength describes degree of ionisation, while concentration describes amount per unit volume","explanation":"A strong acid may be dilute, and a weak acid may be concentrated because the terms describe different ideas.","difficulty":4,"strandTitle":"Physical Chemistry","subStrandTitle":"Acids and Bases","learningOutcome":"Distinguish acid strength from acid concentration.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":78,"type":"MCQ","prompt":"Which half-equation represents oxidation of iron(II) ions to iron(III) ions?","options":["Fe2+ -> Fe3+ + e-","Fe3+ + e- -> Fe2+","Fe2+ + 2e- -> Fe","Fe -> Fe2+ + 2e-"],"correctAnswer":"Fe2+ -> Fe3+ + e-","explanation":"Iron(II) loses one electron to become iron(III), so the electron appears on the product side.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Write ionic half-equations for oxidation processes.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":79,"type":"MCQ","prompt":"In chlorine reacting with cold dilute sodium hydroxide, chlorine is converted to both chloride and chlorate(I) ions. What type of redox change is this?","options":["Disproportionation","Neutralisation only","Precipitation only","Hydration"],"correctAnswer":"Disproportionation","explanation":"Disproportionation occurs when the same element is both oxidised and reduced in one reaction.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Reactions","learningOutcome":"Recognise disproportionation in halogen reactions.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":80,"type":"MCQ","prompt":"What products form at inert electrodes during electrolysis of aqueous copper(II) sulphate solution?","options":["Copper at the cathode and oxygen at the anode","Hydrogen at the cathode and copper at the anode","Copper at both electrodes","Sulphur at the cathode and hydrogen at the anode"],"correctAnswer":"Copper at the cathode and oxygen at the anode","explanation":"Copper(II) ions are preferentially discharged at the cathode, while water is oxidised to oxygen at the anode.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Predict products in electrolysis of aqueous salts using inert electrodes.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":81,"type":"MCQ","prompt":"How much copper is deposited when 19300 C passes through CuSO4 solution? Cu2+ + 2e- -> Cu, F = 96500 C mol-1, Cu = 64.","options":["6.4 g","3.2 g","12.8 g","1.6 g"],"correctAnswer":"6.4 g","explanation":"The charge is 0.200 mol of electrons, which deposits 0.100 mol of copper with mass 0.100 x 64 = 6.4 g.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrolysis","learningOutcome":"Use Faraday's law to calculate mass deposited during electrolysis.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":82,"type":"MCQ","prompt":"Why can graphite be used as a lubricant while diamond cannot?","options":["Graphite has layers that can slide over each other","Graphite contains sodium ions between layers","Diamond has weak bonds between all atoms","Diamond melts at room temperature"],"correctAnswer":"Graphite has layers that can slide over each other","explanation":"Graphite has strong covalent layers with weak forces between layers, allowing sliding.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Structure and Bonding","learningOutcome":"Relate giant covalent structures to physical properties and uses.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":83,"type":"MCQ","prompt":"Why is the first ionisation energy of magnesium higher than that of sodium?","options":["Magnesium has a greater nuclear charge and similar shielding","Magnesium has fewer protons than sodium","Sodium has a full outer shell","Magnesium atoms are larger and easier to ionise"],"correctAnswer":"Magnesium has a greater nuclear charge and similar shielding","explanation":"Across the period, increased nuclear charge attracts outer electrons more strongly when shielding changes little.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Periodicity","learningOutcome":"Explain trends in first ionisation energy across a period.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":84,"type":"MCQ","prompt":"Which reagent can confirm the presence of barium ions by forming a white precipitate of barium sulphate?","options":["Sodium sulphate solution","Sodium nitrate solution","Dilute sodium hydroxide only","Universal indicator"],"correctAnswer":"Sodium sulphate solution","explanation":"Barium ions react with sulphate ions to form insoluble white barium sulphate.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Use precipitation reactions to identify selected ions.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":85,"type":"MCQ","prompt":"A solution forms a white precipitate with NaOH that dissolves in excess NaOH but not in excess ammonia. Which cation is most likely present?","options":["Al3+","Cu2+","Fe2+","Ca2+"],"correctAnswer":"Al3+","explanation":"Aluminium hydroxide is amphoteric and dissolves in excess sodium hydroxide but not in excess ammonia.","difficulty":4,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Differentiate cations using excess sodium hydroxide and ammonia tests.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":86,"type":"MCQ","prompt":"How many structural isomers does butane, C4H10, have?","options":["Two","One","Three","Four"],"correctAnswer":"Two","explanation":"Butane can exist as straight-chain butane or branched methylpropane.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Isomerism","learningOutcome":"Identify structural isomerism in simple alkanes.","cognitiveLevel":"understand","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":87,"type":"MCQ","prompt":"Which reagent can distinguish ethanoic acid from ethanol?","options":["Sodium carbonate solution","Bromine water","Acidified potassium manganate(VII) only","Universal solvent"],"correctAnswer":"Sodium carbonate solution","explanation":"Ethanoic acid reacts with carbonates to release carbon dioxide, while ethanol does not.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Carboxylic Acids and Alcohols","learningOutcome":"Select chemical tests to distinguish organic functional groups.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":88,"type":"MCQ","prompt":"Which products form when ethanol reacts with ethanoic acid in the presence of concentrated sulphuric(VI) acid?","options":["Ethyl ethanoate and water","Ethene and hydrogen","Methane and carbon dioxide","Sodium ethanoate and hydrogen"],"correctAnswer":"Ethyl ethanoate and water","explanation":"Alcohols react with carboxylic acids to form esters and water in esterification.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Esters","learningOutcome":"Describe esterification reactions and products.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":89,"type":"MCQ","prompt":"Which equation represents a possible cracking reaction?","options":["C10H22 -> C8H18 + C2H4","CH4 + 2O2 -> CO2 + 2H2O","C2H5OH -> CH3COOH + H2","NaOH + HCl -> NaCl + H2O"],"correctAnswer":"C10H22 -> C8H18 + C2H4","explanation":"Cracking breaks a long-chain alkane into a shorter alkane and an alkene while conserving atoms.","difficulty":4,"strandTitle":"Organic Chemistry","subStrandTitle":"Petroleum and Fuels","learningOutcome":"Represent cracking of hydrocarbons using balanced equations.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":90,"type":"MCQ","prompt":"Why can excess nitrate fertiliser washed into Lake Victoria or a farm pond reduce fish populations?","options":["It encourages algal blooms that later lower dissolved oxygen","It instantly changes all water into petrol","It removes all minerals from fish bones directly","It prevents any plant from growing in water"],"correctAnswer":"It encourages algal blooms that later lower dissolved oxygen","explanation":"Nutrient enrichment can cause eutrophication; decomposition of algae uses oxygen needed by aquatic animals.","difficulty":4,"strandTitle":"Environmental Chemistry","subStrandTitle":"Water Pollution","learningOutcome":"Explain chemical causes and effects of eutrophication.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":91,"type":"MCQ","prompt":"Which titration plan gives the most reliable value for acid concentration?","options":["Rinse apparatus properly, add indicator, titrate to endpoint, and repeat until concordant titres are obtained","Use one rough titre only and record it as final","Fill the burette with water after adding acid","Stop the titration as soon as any colour appears at the start"],"correctAnswer":"Rinse apparatus properly, add indicator, titrate to endpoint, and repeat until concordant titres are obtained","explanation":"Reliable titration needs clean apparatus, controlled endpoint detection and repeated close readings.","difficulty":5,"strandTitle":"Physical Chemistry","subStrandTitle":"Volumetric Analysis","learningOutcome":"Design reliable procedures for acid-base titration.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":92,"type":"MCQ","prompt":"Which set of Haber process conditions best balances yield, rate and cost?","options":["High pressure, moderate temperature, iron catalyst and recycling unreacted gases","Very low pressure, room temperature and no catalyst","Atmospheric pressure, no catalyst and single-pass gases only","Extremely high temperature with ammonia removed before forming"],"correctAnswer":"High pressure, moderate temperature, iron catalyst and recycling unreacted gases","explanation":"Industrial ammonia production uses compromise conditions that give acceptable yield and fast enough rate with manageable costs.","difficulty":5,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Equilibrium","learningOutcome":"Evaluate industrial conditions for ammonia manufacture.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":93,"type":"MCQ","prompt":"An unknown solid gives effervescence with dilute hydrochloric acid, turns limewater milky, and gives a brick-red flame. Which compound is most likely?","options":["Calcium carbonate","Sodium chloride","Copper(II) sulphate","Potassium nitrate"],"correctAnswer":"Calcium carbonate","explanation":"The acid test shows carbonate ions, and the brick-red flame points to calcium ions.","difficulty":5,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Qualitative Analysis","learningOutcome":"Combine anion and cation tests to identify an unknown salt.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":94,"type":"MCQ","prompt":"A compound contains 40.0% C, 6.7% H and 53.3% O by mass. Its relative molecular mass is 60. What is its molecular formula?","options":["C2H4O2","CH2O","C3H6O","C2H6O"],"correctAnswer":"C2H4O2","explanation":"The empirical formula is CH2O with formula mass 30; molecular mass 60 is twice this, giving C2H4O2.","difficulty":5,"strandTitle":"Physical Chemistry","subStrandTitle":"Empirical and Molecular Formulae","learningOutcome":"Determine molecular formula from percentage composition and molar mass.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":95,"type":"MCQ","prompt":"In acid solution, 20.0 cm3 of 0.0200 mol dm-3 MnO4- reacts with 25.0 cm3 of Fe2+ solution. If 1 mol MnO4- reacts with 5 mol Fe2+, what is the Fe2+ concentration?","options":["0.0800 mol dm-3","0.0160 mol dm-3","0.0200 mol dm-3","0.400 mol dm-3"],"correctAnswer":"0.0800 mol dm-3","explanation":"Moles of MnO4- are 0.000400, so moles of Fe2+ are 0.00200; dividing by 0.0250 dm3 gives 0.0800 mol dm-3.","difficulty":5,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Redox Titration","learningOutcome":"Use redox titration stoichiometry to calculate concentration.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":96,"type":"MCQ","prompt":"Given E values Cu2+/Cu = +0.34 V and Zn2+/Zn = -0.76 V, what is the cell voltage for a zinc-copper cell?","options":["1.10 V","0.42 V","-1.10 V","0.76 V"],"correctAnswer":"1.10 V","explanation":"Cell voltage is cathode potential minus anode potential, so 0.34 - (-0.76) = 1.10 V.","difficulty":5,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Electrochemical Cells","learningOutcome":"Calculate cell voltage from electrode potentials.","cognitiveLevel":"apply","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":97,"type":"MCQ","prompt":"Use these enthalpy changes: C + O2 -> CO2 is -394 kJ mol-1, H2 + 1/2O2 -> H2O is -286 kJ mol-1, and CH4 + 2O2 -> CO2 + 2H2O is -890 kJ mol-1. What is the enthalpy of formation of CH4?","options":["-76 kJ mol-1","+76 kJ mol-1","-966 kJ mol-1","+890 kJ mol-1"],"correctAnswer":"-76 kJ mol-1","explanation":"Products from elements to CO2 and water total -966 kJ mol-1; subtracting the combustion route gives formation of CH4 as -76 kJ mol-1.","difficulty":5,"strandTitle":"Physical Chemistry","subStrandTitle":"Chemical Energetics","learningOutcome":"Apply Hess's law to calculate enthalpy of formation.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":98,"type":"MCQ","prompt":"Which extraction plan matches the reactivity series best?","options":["Extract aluminium by electrolysis and iron by reduction with carbon monoxide","Extract aluminium by heating with carbon and iron by electrolysis only","Extract all metals by washing ores with water","Extract sodium by reducing sodium chloride with iron"],"correctAnswer":"Extract aluminium by electrolysis and iron by reduction with carbon monoxide","explanation":"Very reactive metals need electrolysis, while metals below carbon such as iron can be extracted by chemical reduction.","difficulty":5,"strandTitle":"Inorganic Chemistry","subStrandTitle":"Extraction of Metals","learningOutcome":"Select extraction methods based on metal reactivity.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":99,"type":"MCQ","prompt":"Which sequence best describes treatment of muddy river water before safe supply to a town?","options":["Coagulation and sedimentation, filtration, then chlorination","Chlorination, petrol addition, then open storage","Electrolysis only, followed by direct bottling","Heating with limestone, then adding fertiliser"],"correctAnswer":"Coagulation and sedimentation, filtration, then chlorination","explanation":"Suspended solids are removed before disinfection, so clearer water is filtered and then treated to kill pathogens.","difficulty":5,"strandTitle":"Environmental Chemistry","subStrandTitle":"Water Treatment","learningOutcome":"Design a chemical treatment sequence for water purification.","cognitiveLevel":"create","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]},
-    {"questionNumber":100,"type":"MCQ","prompt":"Which approach best reduces environmental harm from plastic waste in a school chemistry project?","options":["Reduce use, sort clean plastics for recycling, reuse suitable containers and avoid open burning","Burn all plastics behind the laboratory after lessons","Bury mixed plastics beside a water source","Mix plastics with food waste and leave them in drains"],"correctAnswer":"Reduce use, sort clean plastics for recycling, reuse suitable containers and avoid open burning","explanation":"Waste management should reduce demand, support recycling and avoid toxic emissions from uncontrolled burning.","difficulty":5,"strandTitle":"Environmental Chemistry","subStrandTitle":"Polymers and Sustainability","learningOutcome":"Evaluate safer ways to manage polymer waste.","cognitiveLevel":"analyze","featureTags":["quiz_me","take_quiz","quiz_battle","homework","flashcards","games"]}
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 11",
+ "subjectId": "chemistry",
+ "subjectName": "Chemistry",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "What is one mole of a substance?",
+   "options": [
+    "The amount containing Avogadro's number of particles",
+    "The mass of exactly one atom",
+    "The volume of any liquid at room temperature",
+    "The number of protons in an element"
+   ],
+   "correctAnswer": "The amount containing Avogadro's number of particles",
+   "explanation": "A mole is an amount of substance containing 6.02 x 10^23 specified particles such as atoms, molecules or ions.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "The Mole Concept",
+   "learningOutcome": "Define the mole as a counting unit in chemistry.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which value is commonly used for Avogadro's constant?",
+   "options": [
+    "6.02 x 10^23 mol-1",
+    "3.00 x 10^8 mol-1",
+    "1.60 x 10^-19 mol-1",
+    "9.81 x 10^0 mol-1"
+   ],
+   "correctAnswer": "6.02 x 10^23 mol-1",
+   "explanation": "Avogadro's constant gives the number of particles in one mole of a substance.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "The Mole Concept",
+   "learningOutcome": "State Avogadro's constant and its meaning.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "What is the relative molecular mass of water, H2O?",
+   "options": [
+    "18",
+    "16",
+    "20",
+    "10"
+   ],
+   "correctAnswer": "18",
+   "explanation": "Water has two hydrogen atoms and one oxygen atom, so its relative molecular mass is 2 x 1 plus 16.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Formula Masses",
+   "learningOutcome": "Calculate simple relative molecular masses from atomic masses.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "What volume is occupied by one mole of any gas at room temperature and pressure?",
+   "options": [
+    "24 dm3",
+    "22.4 dm3",
+    "12 dm3",
+    "1 dm3"
+   ],
+   "correctAnswer": "24 dm3",
+   "explanation": "At room temperature and pressure, one mole of a gas is usually taken to occupy 24 dm3.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Gas Molar Volume",
+   "learningOutcome": "Recall the molar gas volume at room temperature and pressure.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "What is the role of a catalyst in a chemical reaction?",
+   "options": [
+    "It increases reaction rate without being used up",
+    "It changes the mass of products formed at completion",
+    "It supplies all the reactants needed",
+    "It makes every reaction release heat"
+   ],
+   "correctAnswer": "It increases reaction rate without being used up",
+   "explanation": "A catalyst provides an alternative pathway of lower activation energy and is regenerated in the reaction.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Describe the function of catalysts in reactions.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "Which statement describes an exothermic reaction?",
+   "options": [
+    "It releases heat to the surroundings",
+    "It always absorbs light only",
+    "It cannot be measured in a laboratory",
+    "It stops before products are formed"
+   ],
+   "correctAnswer": "It releases heat to the surroundings",
+   "explanation": "In an exothermic reaction, the surroundings usually become warmer because energy is released.",
+   "difficulty": 1,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Energetics",
+   "learningOutcome": "Distinguish exothermic reactions from other energy changes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "In terms of electrons, what is oxidation?",
+   "options": [
+    "Loss of electrons",
+    "Gain of electrons",
+    "Sharing of neutrons",
+    "Formation of isotopes"
+   ],
+   "correctAnswer": "Loss of electrons",
+   "explanation": "Oxidation can be defined as loss of electrons by an atom, ion or molecule.",
+   "difficulty": 1,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Define oxidation using electron transfer.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "In terms of electrons, what is reduction?",
+   "options": [
+    "Gain of electrons",
+    "Loss of electrons",
+    "Loss of protons",
+    "Gain of neutrons"
+   ],
+   "correctAnswer": "Gain of electrons",
+   "explanation": "Reduction occurs when a species gains electrons during a redox reaction.",
+   "difficulty": 1,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Define reduction using electron transfer.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "Which substance is an electrolyte?",
+   "options": [
+    "A substance that conducts electricity when molten or in solution",
+    "A solid that never forms ions",
+    "A gas that cannot dissolve in water",
+    "A metal that cannot react chemically"
+   ],
+   "correctAnswer": "A substance that conducts electricity when molten or in solution",
+   "explanation": "Electrolytes contain mobile ions when molten or dissolved, allowing electric current to pass.",
+   "difficulty": 1,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Explain the meaning of electrolyte in electrolysis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "What is a homologous series in organic chemistry?",
+   "options": [
+    "A family of compounds with the same functional group and similar chemical properties",
+    "A list of elements arranged by atomic mass only",
+    "A group of salts with different anions only",
+    "A set of metals with no chemical relationship"
+   ],
+   "correctAnswer": "A family of compounds with the same functional group and similar chemical properties",
+   "explanation": "Members of a homologous series have a common functional group and show gradual changes in physical properties.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Homologous Series",
+   "learningOutcome": "Describe the meaning of a homologous series.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "Which general formula represents alkanes?",
+   "options": [
+    "CnH2n+2",
+    "CnH2n",
+    "CnH2n-2",
+    "CnH2nO"
+   ],
+   "correctAnswer": "CnH2n+2",
+   "explanation": "Alkanes are saturated hydrocarbons, so their general formula is CnH2n+2.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Hydrocarbons",
+   "learningOutcome": "Recall the general formula of alkanes.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "Which functional group is present in esters?",
+   "options": [
+    "-COO-",
+    "-OH",
+    "-COOH",
+    "-NH2"
+   ],
+   "correctAnswer": "-COO-",
+   "explanation": "Esters contain the -COO- linkage formed when a carboxylic acid reacts with an alcohol.",
+   "difficulty": 1,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Esters",
+   "learningOutcome": "Identify the functional group found in esters.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "What mass of carbon dioxide is present in 0.50 mol of CO2?",
+   "options": [
+    "22 g",
+    "11 g",
+    "44 g",
+    "88 g"
+   ],
+   "correctAnswer": "22 g",
+   "explanation": "Carbon dioxide has molar mass 44 g mol-1, so 0.50 mol has mass 0.50 x 44 = 22 g.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "The Mole Concept",
+   "learningOutcome": "Calculate mass from amount of substance and molar mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "How many moles are in 5.85 g of sodium chloride, NaCl, if its molar mass is 58.5 g mol-1?",
+   "options": [
+    "0.100 mol",
+    "1.00 mol",
+    "10.0 mol",
+    "0.010 mol"
+   ],
+   "correctAnswer": "0.100 mol",
+   "explanation": "Amount in moles equals mass divided by molar mass: 5.85 divided by 58.5 = 0.100 mol.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "The Mole Concept",
+   "learningOutcome": "Calculate moles from mass and molar mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "What is the concentration of a solution containing 2.0 mol of solute in 0.50 dm3 of solution?",
+   "options": [
+    "4.0 mol dm-3",
+    "1.0 mol dm-3",
+    "2.5 mol dm-3",
+    "0.25 mol dm-3"
+   ],
+   "correctAnswer": "4.0 mol dm-3",
+   "explanation": "Concentration equals moles divided by volume in dm3, so 2.0 divided by 0.50 gives 4.0 mol dm-3.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Solutions and Concentration",
+   "learningOutcome": "Calculate molar concentration from amount and volume.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "What volume is occupied by 0.25 mol of a gas at room temperature and pressure?",
+   "options": [
+    "6.0 dm3",
+    "12.0 dm3",
+    "24.0 dm3",
+    "0.25 dm3"
+   ],
+   "correctAnswer": "6.0 dm3",
+   "explanation": "At room temperature and pressure, gas volume equals moles x 24 dm3, so 0.25 x 24 = 6.0 dm3.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Gas Molar Volume",
+   "learningOutcome": "Use molar gas volume to calculate gas volumes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "What is the percentage by mass of oxygen in magnesium oxide, MgO, if Mg = 24 and O = 16?",
+   "options": [
+    "40%",
+    "60%",
+    "24%",
+    "16%"
+   ],
+   "correctAnswer": "40%",
+   "explanation": "The formula mass of MgO is 40, and oxygen contributes 16, so 16 divided by 40 times 100 gives 40%.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Formulae and Composition",
+   "learningOutcome": "Calculate percentage composition from formula masses.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "A hydrocarbon contains 92.3% carbon and 7.7% hydrogen by mass. What is its empirical formula?",
+   "options": [
+    "CH",
+    "CH2",
+    "C2H",
+    "C2H6"
+   ],
+   "correctAnswer": "CH",
+   "explanation": "Dividing by atomic masses gives about 7.69 mol C and 7.7 mol H, giving the simplest ratio 1:1.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Empirical Formulae",
+   "learningOutcome": "Determine empirical formula from percentage composition.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which equation correctly represents complete combustion of propane?",
+   "options": [
+    "C3H8 + 5O2 -> 3CO2 + 4H2O",
+    "C3H8 + O2 -> CO2 + H2O",
+    "C3H8 + 3O2 -> 3CO + 4H2O",
+    "C3H8 + 4O2 -> 3CO2 + 4H2"
+   ],
+   "correctAnswer": "C3H8 + 5O2 -> 3CO2 + 4H2O",
+   "explanation": "Complete combustion forms carbon dioxide and water, and the balanced equation preserves all atoms.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Hydrocarbons",
+   "learningOutcome": "Write balanced equations for complete combustion of alkanes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "What is the limiting reagent in a reaction mixture?",
+   "options": [
+    "The reactant used up first and controlling the maximum product formed",
+    "The catalyst added in the smallest amount",
+    "The product with the lowest mass",
+    "The solvent with the highest boiling point"
+   ],
+   "correctAnswer": "The reactant used up first and controlling the maximum product formed",
+   "explanation": "The limiting reagent is consumed before other reactants and therefore determines the theoretical yield.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Stoichiometry",
+   "learningOutcome": "Explain the meaning of limiting reagent.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "What is activation energy?",
+   "options": [
+    "The minimum energy particles need for a successful reaction",
+    "The heat stored only in products",
+    "The total mass of reactants before reaction",
+    "The energy released by every collision"
+   ],
+   "correctAnswer": "The minimum energy particles need for a successful reaction",
+   "explanation": "Only collisions with enough activation energy and suitable orientation can form products.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Describe activation energy in collision theory.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Why does increasing temperature usually increase the rate of a chemical reaction?",
+   "options": [
+    "Particles move faster and more collisions have enough energy",
+    "Particles stop colliding and become stable",
+    "The catalyst is always destroyed",
+    "The mass of reactants increases automatically"
+   ],
+   "correctAnswer": "Particles move faster and more collisions have enough energy",
+   "explanation": "Higher temperature increases kinetic energy, producing more frequent and more energetic effective collisions.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Explain the effect of temperature on reaction rate.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Why does powdered calcium carbonate react faster with dilute acid than marble chips of the same mass?",
+   "options": [
+    "The powder has a larger surface area exposed to acid",
+    "The powder has a lower atomic number",
+    "The acid becomes a catalyst only with powder",
+    "The products have lower molar masses"
+   ],
+   "correctAnswer": "The powder has a larger surface area exposed to acid",
+   "explanation": "A larger surface area allows more acid particles to collide with calcium carbonate each second.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Relate surface area to rate of reaction.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Which statement best describes dynamic equilibrium?",
+   "options": [
+    "Forward and reverse reactions continue at equal rates in a closed system",
+    "All reactants have disappeared completely",
+    "Only the forward reaction is taking place",
+    "Products are removed as soon as they form"
+   ],
+   "correctAnswer": "Forward and reverse reactions continue at equal rates in a closed system",
+   "explanation": "At dynamic equilibrium, concentrations remain constant because the opposing reaction rates are equal.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Describe dynamic equilibrium in reversible reactions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "For N2 + 3H2 <-> 2NH3, what happens when pressure is increased at constant temperature?",
+   "options": [
+    "Equilibrium shifts towards ammonia",
+    "Equilibrium shifts towards nitrogen and hydrogen",
+    "No molecules remain in the vessel",
+    "The catalyst changes into ammonia"
+   ],
+   "correctAnswer": "Equilibrium shifts towards ammonia",
+   "explanation": "Higher pressure favours the side with fewer gas molecules, which is the ammonia side in this equation.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Predict the effect of pressure on gaseous equilibrium.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "What is the pH of 0.010 mol dm-3 hydrochloric acid if it fully ionises?",
+   "options": [
+    "pH 2",
+    "pH 1",
+    "pH 10",
+    "pH 12"
+   ],
+   "correctAnswer": "pH 2",
+   "explanation": "A fully ionised 0.010 mol dm-3 acid has hydrogen ion concentration 10^-2 mol dm-3, so pH is 2.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Acids and Bases",
+   "learningOutcome": "Calculate pH of a dilute strong acid from hydrogen ion concentration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Which ionic equation represents neutralisation?",
+   "options": [
+    "H+ + OH- -> H2O",
+    "Na+ + Cl- -> NaCl",
+    "Cu2+ + 2e- -> Cu",
+    "Ag+ + Cl- -> AgCl"
+   ],
+   "correctAnswer": "H+ + OH- -> H2O",
+   "explanation": "Neutralisation is the reaction of hydrogen ions with hydroxide ions to form water.",
+   "difficulty": 2,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Acids and Bases",
+   "learningOutcome": "Write the ionic equation for neutralisation.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "What colour change is expected when acidified potassium manganate(VII) is reduced by iron(II) ions?",
+   "options": [
+    "Purple to colourless",
+    "Colourless to purple",
+    "Green to blue",
+    "Yellow to black"
+   ],
+   "correctAnswer": "Purple to colourless",
+   "explanation": "Manganate(VII) ions are purple and are reduced to nearly colourless manganese(II) ions in acidic solution.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Recognise colour changes in common redox reactions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "At which electrode does oxidation occur during electrolysis?",
+   "options": [
+    "Anode",
+    "Cathode",
+    "Salt bridge",
+    "Voltmeter"
+   ],
+   "correctAnswer": "Anode",
+   "explanation": "Oxidation is loss of electrons, and it occurs at the anode in both electrolytic and electrochemical cells.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Identify electrode processes in electrolysis.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Which products are formed during electrolysis of concentrated sodium chloride solution using inert electrodes?",
+   "options": [
+    "Hydrogen, chlorine and sodium hydroxide solution",
+    "Sodium metal and oxygen only",
+    "Hydrogen chloride and sodium metal",
+    "Chlorine and molten sodium only"
+   ],
+   "correctAnswer": "Hydrogen, chlorine and sodium hydroxide solution",
+   "explanation": "In brine electrolysis, hydrogen forms at the cathode, chlorine at the anode and sodium hydroxide remains in solution.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Identify products of brine electrolysis.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "Which two substances are necessary for iron to rust?",
+   "options": [
+    "Water and oxygen",
+    "Nitrogen and carbon dioxide",
+    "Hydrogen and chlorine",
+    "Petrol and sand"
+   ],
+   "correctAnswer": "Water and oxygen",
+   "explanation": "Rusting is the corrosion of iron that requires both oxygen and moisture.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Metals and Corrosion",
+   "learningOutcome": "Describe conditions needed for rusting of iron.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "Which metals are the main components of brass?",
+   "options": [
+    "Copper and zinc",
+    "Iron and carbon",
+    "Aluminium and magnesium",
+    "Lead and tin"
+   ],
+   "correctAnswer": "Copper and zinc",
+   "explanation": "Brass is an alloy mainly made of copper and zinc, used in fittings and decorative items.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Metals and Alloys",
+   "learningOutcome": "Identify common alloys and their components.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "What is the chemical formula of limestone?",
+   "options": [
+    "CaCO3",
+    "CaO",
+    "Ca(OH)2",
+    "CaSO4"
+   ],
+   "correctAnswer": "CaCO3",
+   "explanation": "Limestone is mainly calcium carbonate, a raw material in cement and lime production.",
+   "difficulty": 2,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Carbonates and Industrial Chemistry",
+   "learningOutcome": "State the formula and uses of calcium carbonate.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "Temporary hardness of water is mainly caused by which ions in hydrogencarbonate salts?",
+   "options": [
+    "Calcium and magnesium ions",
+    "Sodium and potassium ions",
+    "Silver and lead ions",
+    "Hydrogen and hydroxide ions"
+   ],
+   "correctAnswer": "Calcium and magnesium ions",
+   "explanation": "Temporary hardness is caused by dissolved calcium and magnesium hydrogencarbonates, which can be removed by boiling.",
+   "difficulty": 2,
+   "strandTitle": "Environmental Chemistry",
+   "subStrandTitle": "Water Chemistry",
+   "learningOutcome": "Explain causes of temporary hardness in water.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which functional group is found in ethanol?",
+   "options": [
+    "Hydroxyl group, -OH",
+    "Carboxyl group, -COOH",
+    "Ester group, -COO-",
+    "Amine group, -NH2"
+   ],
+   "correctAnswer": "Hydroxyl group, -OH",
+   "explanation": "Ethanol is an alcohol, and alcohols contain the hydroxyl functional group.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alcohols",
+   "learningOutcome": "Identify the functional group in alcohols.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Which test can distinguish ethene from ethane?",
+   "options": [
+    "Ethene decolourises bromine water while ethane does not",
+    "Ethane turns blue litmus red while ethene does not",
+    "Ethene forms a white precipitate with barium chloride",
+    "Ethane relights a glowing splint"
+   ],
+   "correctAnswer": "Ethene decolourises bromine water while ethane does not",
+   "explanation": "Alkenes such as ethene undergo addition with bromine, removing the orange-brown colour of bromine water.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Alkenes",
+   "learningOutcome": "Use bromine water to test for unsaturation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which polymer is formed by addition polymerisation of ethene?",
+   "options": [
+    "Poly(ethene)",
+    "Nylon",
+    "Terylene",
+    "Starch"
+   ],
+   "correctAnswer": "Poly(ethene)",
+   "explanation": "Ethene monomers join by addition polymerisation to form poly(ethene), a common plastic.",
+   "difficulty": 2,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Polymers",
+   "learningOutcome": "Name the polymer formed from ethene.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "What mass of calcium carbonate, CaCO3, is present in 0.20 mol if its molar mass is 100 g mol-1?",
+   "options": [
+    "20 g",
+    "50 g",
+    "100 g",
+    "5 g"
+   ],
+   "correctAnswer": "20 g",
+   "explanation": "Mass equals amount x molar mass, so 0.20 x 100 gives 20 g.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "The Mole Concept",
+   "learningOutcome": "Use molar mass to calculate mass of a compound.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "A learner dilutes 25.0 cm3 of 2.0 mol dm-3 sodium hydroxide to 250 cm3. What is the new concentration?",
+   "options": [
+    "0.20 mol dm-3",
+    "0.50 mol dm-3",
+    "1.0 mol dm-3",
+    "20 mol dm-3"
+   ],
+   "correctAnswer": "0.20 mol dm-3",
+   "explanation": "Diluting from 25.0 cm3 to 250 cm3 makes the volume ten times larger, so concentration becomes one tenth.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Solutions and Concentration",
+   "learningOutcome": "Calculate concentration after dilution.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "25.0 cm3 of 0.100 mol dm-3 NaOH is neutralised by 20.0 cm3 of HCl. What is the concentration of the acid?",
+   "options": [
+    "0.125 mol dm-3",
+    "0.080 mol dm-3",
+    "0.100 mol dm-3",
+    "0.250 mol dm-3"
+   ],
+   "correctAnswer": "0.125 mol dm-3",
+   "explanation": "The reaction is 1:1, so moles of HCl equal 0.100 x 25.0/1000, giving 0.00250 mol in 20.0 cm3.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Volumetric Analysis",
+   "learningOutcome": "Use titration data to calculate acid concentration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "What mass of magnesium oxide forms when 4.8 g of magnesium burns completely? Mg = 24, MgO = 40.",
+   "options": [
+    "8.0 g",
+    "4.0 g",
+    "12.0 g",
+    "2.4 g"
+   ],
+   "correctAnswer": "8.0 g",
+   "explanation": "4.8 g of magnesium is 0.20 mol, which forms 0.20 mol of MgO with mass 0.20 x 40 = 8.0 g.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Stoichiometry",
+   "learningOutcome": "Calculate product mass from a balanced equation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "What volume of CO2 at room temperature and pressure forms when 10.0 g of CaCO3 reacts completely with dilute acid? CaCO3 = 100.",
+   "options": [
+    "2.4 dm3",
+    "1.2 dm3",
+    "24.0 dm3",
+    "0.24 dm3"
+   ],
+   "correctAnswer": "2.4 dm3",
+   "explanation": "10.0 g CaCO3 is 0.100 mol and produces 0.100 mol CO2, which occupies 2.4 dm3 at room temperature and pressure.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Gas Stoichiometry",
+   "learningOutcome": "Calculate gas volume from mass of reactant.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "An oxide of iron contains 70% iron and 30% oxygen by mass. What is its empirical formula? Fe = 56, O = 16.",
+   "options": [
+    "Fe2O3",
+    "FeO",
+    "Fe3O4",
+    "FeO2"
+   ],
+   "correctAnswer": "Fe2O3",
+   "explanation": "Mole ratio is 70/56 to 30/16, which is 1.25 to 1.875 or 2 to 3 after simplification.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Empirical Formulae",
+   "learningOutcome": "Determine empirical formula from percentage composition.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "What is the oxidation number of sulphur in SO4^2-?",
+   "options": [
+    "+6",
+    "+4",
+    "-2",
+    "+2"
+   ],
+   "correctAnswer": "+6",
+   "explanation": "Four oxygen atoms contribute -8 in total, so sulphur must be +6 to give the overall -2 charge.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Calculate oxidation numbers in ions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "In the reaction CuO + H2 -> Cu + H2O, which substance is the oxidising agent?",
+   "options": [
+    "CuO",
+    "H2",
+    "Cu",
+    "H2O"
+   ],
+   "correctAnswer": "CuO",
+   "explanation": "Copper(II) oxide oxidises hydrogen to water while it is reduced to copper.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Identify oxidising and reducing agents in equations.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "In a zinc-copper electrochemical cell, in which direction do electrons flow through the external circuit?",
+   "options": [
+    "From zinc to copper",
+    "From copper to zinc",
+    "From the salt bridge to zinc",
+    "From the solution to the voltmeter only"
+   ],
+   "correctAnswer": "From zinc to copper",
+   "explanation": "Zinc is more reactive and is oxidised, releasing electrons that flow to the copper electrode.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrochemical Cells",
+   "learningOutcome": "Describe electron flow in a simple electrochemical cell.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Why does galvanising help protect iron roofing sheets from rusting?",
+   "options": [
+    "Zinc acts as a protective coating and sacrificial metal",
+    "Zinc turns iron into stainless steel instantly",
+    "Zinc removes all oxygen from the air",
+    "Zinc makes iron dissolve in rainwater"
+   ],
+   "correctAnswer": "Zinc acts as a protective coating and sacrificial metal",
+   "explanation": "Zinc blocks contact with air and water and oxidises more readily than iron if the coating is scratched.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Metals and Corrosion",
+   "learningOutcome": "Explain sacrificial protection of iron.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "What are the products when molten lead(II) bromide is electrolysed using inert electrodes?",
+   "options": [
+    "Lead and bromine",
+    "Lead oxide and hydrogen",
+    "Hydrogen and oxygen",
+    "Lead chloride and sodium"
+   ],
+   "correctAnswer": "Lead and bromine",
+   "explanation": "Pb2+ ions gain electrons to form lead at the cathode, while Br- ions lose electrons to form bromine at the anode.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Predict products of electrolysis of molten ionic compounds.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "What quantity of charge passes when a current of 2.0 A flows for 10 minutes?",
+   "options": [
+    "1200 C",
+    "20 C",
+    "200 C",
+    "12 C"
+   ],
+   "correctAnswer": "1200 C",
+   "explanation": "Charge equals current x time, so 2.0 A x 600 s gives 1200 C.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Calculate electric charge from current and time.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "On an energy profile diagram for an exothermic reaction, where are the products compared with the reactants?",
+   "options": [
+    "At a lower energy level",
+    "At a higher energy level",
+    "At exactly the activation energy peak",
+    "Outside the energy profile"
+   ],
+   "correctAnswer": "At a lower energy level",
+   "explanation": "Exothermic reactions release energy, so the products have lower stored chemical energy than the reactants.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Energetics",
+   "learningOutcome": "Interpret energy profile diagrams for exothermic reactions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "Why is a reaction exothermic in terms of bond energies?",
+   "options": [
+    "Bond formation releases more energy than bond breaking absorbs",
+    "Bond breaking releases more energy than bond formation absorbs",
+    "No bonds are broken or formed",
+    "All reactant particles lose their nuclei"
+   ],
+   "correctAnswer": "Bond formation releases more energy than bond breaking absorbs",
+   "explanation": "The net release of energy occurs when forming product bonds gives out more energy than is needed to break reactant bonds.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Energetics",
+   "learningOutcome": "Explain reaction enthalpy using bond breaking and bond formation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "In a reaction rate graph, why does the curve usually become less steep as time passes?",
+   "options": [
+    "Reactant concentration decreases, so successful collisions become less frequent",
+    "Products change back into elements only",
+    "The stopwatch slows down during the experiment",
+    "The reaction vessel gains mass from air"
+   ],
+   "correctAnswer": "Reactant concentration decreases, so successful collisions become less frequent",
+   "explanation": "As reactants are used up, there are fewer particles available for effective collisions each second.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Interpret changes in gradient on rate graphs.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "How does a catalyst increase reaction rate according to collision theory?",
+   "options": [
+    "It provides a pathway with lower activation energy",
+    "It increases the mass of every particle",
+    "It prevents particles from colliding",
+    "It changes products back into reactants permanently"
+   ],
+   "correctAnswer": "It provides a pathway with lower activation energy",
+   "explanation": "With lower activation energy, a larger fraction of collisions can lead to product formation.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Explain catalytic action using activation energy.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "For a reversible reaction at equilibrium, what is the effect of adding more reactant at constant temperature?",
+   "options": [
+    "The equilibrium shifts towards products",
+    "The equilibrium stops completely",
+    "The reverse reaction disappears forever",
+    "The catalyst is consumed"
+   ],
+   "correctAnswer": "The equilibrium shifts towards products",
+   "explanation": "Adding reactant disturbs equilibrium, so the system shifts to consume some of the added reactant.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Apply Le Chatelier's principle to concentration changes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "For N2O4(g) <-> 2NO2(g), the forward reaction is endothermic and NO2 is brown. What happens when the mixture is heated?",
+   "options": [
+    "The brown colour becomes more intense",
+    "The mixture becomes permanently colourless",
+    "Only solid nitrogen forms",
+    "The pressure becomes zero"
+   ],
+   "correctAnswer": "The brown colour becomes more intense",
+   "explanation": "Heating favours the endothermic forward reaction, producing more brown nitrogen dioxide.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Predict temperature effects on reversible reactions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "Which factor helps explain whether an ionic solid dissolves readily in water?",
+   "options": [
+    "The balance between lattice energy and hydration energy",
+    "The colour of the solid only",
+    "The number of glass rods used",
+    "The shape of the beaker"
+   ],
+   "correctAnswer": "The balance between lattice energy and hydration energy",
+   "explanation": "Dissolving is favoured when hydration of ions can compensate for the energy needed to separate the ionic lattice.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Solutions and Solubility",
+   "learningOutcome": "Relate dissolving of ionic compounds to energy changes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "Why is aqueous ammonia described as a weak base?",
+   "options": [
+    "It partially ionises in water",
+    "It has no nitrogen atoms",
+    "It cannot react with acids",
+    "It always has pH 7"
+   ],
+   "correctAnswer": "It partially ionises in water",
+   "explanation": "A weak base produces hydroxide ions only partially in aqueous solution.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Acids and Bases",
+   "learningOutcome": "Compare strong and weak bases using ionisation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "Which oxide is amphoteric and reacts with both acids and alkalis?",
+   "options": [
+    "Zinc oxide",
+    "Sodium oxide",
+    "Sulphur dioxide",
+    "Carbon monoxide"
+   ],
+   "correctAnswer": "Zinc oxide",
+   "explanation": "Zinc oxide is amphoteric because it reacts with acids as well as strong alkalis.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Acids, Bases and Oxides",
+   "learningOutcome": "Identify amphoteric oxides and their reactions.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which method is most suitable for preparing a pure dry sample of potassium sulphate from potassium hydroxide and sulphuric(VI) acid?",
+   "options": [
+    "Titration followed by evaporation and crystallisation",
+    "Precipitation followed by decanting only",
+    "Direct heating of potassium metal in air",
+    "Filtration of two insoluble solids"
+   ],
+   "correctAnswer": "Titration followed by evaporation and crystallisation",
+   "explanation": "Both reactants are soluble, so titration gives a neutral solution that can be concentrated to crystallise the salt.",
+   "difficulty": 3,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Salts",
+   "learningOutcome": "Select appropriate methods for preparing soluble salts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "Which observation shows that a solid contains carbonate ions when dilute acid is added?",
+   "options": [
+    "Effervescence and limewater turns milky",
+    "A blue solution forms without gas",
+    "A glowing splint relights",
+    "A white solid dissolves with no gas"
+   ],
+   "correctAnswer": "Effervescence and limewater turns milky",
+   "explanation": "Carbonates react with acids to produce carbon dioxide, which turns limewater milky.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Test for carbonate ions using dilute acid and limewater.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "Which test result identifies ammonia gas?",
+   "options": [
+    "Damp red litmus paper turns blue",
+    "A glowing splint relights",
+    "Limewater turns milky",
+    "Damp blue litmus paper is bleached"
+   ],
+   "correctAnswer": "Damp red litmus paper turns blue",
+   "explanation": "Ammonia is alkaline and turns damp red litmus paper blue.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Identify ammonia gas using litmus paper.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "A solution gives a green precipitate with sodium hydroxide, which turns brown on standing. Which ion is likely present?",
+   "options": [
+    "Fe2+",
+    "Cu2+",
+    "Al3+",
+    "Ca2+"
+   ],
+   "correctAnswer": "Fe2+",
+   "explanation": "Iron(II) ions form a green hydroxide precipitate that oxidises in air to a brown iron(III) compound.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Use sodium hydroxide tests to identify metal ions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which flame colour is produced by sodium ions?",
+   "options": [
+    "Yellow",
+    "Lilac",
+    "Brick red",
+    "Blue-green"
+   ],
+   "correctAnswer": "Yellow",
+   "explanation": "Sodium ions give an intense yellow flame in a flame test.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Identify selected metal ions using flame tests.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Across Period 3 from sodium oxide to sulphur trioxide, what trend is shown by the oxides?",
+   "options": [
+    "They change from basic to acidic",
+    "They change from acidic to basic",
+    "They all become neutral salts",
+    "They all become metallic conductors"
+   ],
+   "correctAnswer": "They change from basic to acidic",
+   "explanation": "Metal oxides on the left are basic, while non-metal oxides towards the right are acidic.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Periodicity",
+   "learningOutcome": "Describe acid-base trends in Period 3 oxides.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Why can chlorine displace iodine from potassium iodide solution?",
+   "options": [
+    "Chlorine is a stronger oxidising agent than iodine",
+    "Iodine has a lower relative atomic mass than chlorine",
+    "Potassium reacts explosively with iodine",
+    "Chlorine is a noble gas"
+   ],
+   "correctAnswer": "Chlorine is a stronger oxidising agent than iodine",
+   "explanation": "A more reactive halogen oxidises the halide ions of a less reactive halogen.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Halogens",
+   "learningOutcome": "Explain displacement reactions of halogens.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "Why is aluminium extracted by electrolysis rather than by reduction with carbon?",
+   "options": [
+    "Aluminium is more reactive than carbon",
+    "Aluminium ore is always a liquid",
+    "Carbon cannot react with oxygen",
+    "Aluminium has no ions in its compounds"
+   ],
+   "correctAnswer": "Aluminium is more reactive than carbon",
+   "explanation": "Carbon cannot reduce oxides of metals above it in the reactivity series, so aluminium oxide is electrolysed.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Extraction of Metals",
+   "learningOutcome": "Relate extraction methods to metal reactivity.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "What is the main reducing agent in the blast furnace extraction of iron?",
+   "options": [
+    "Carbon monoxide",
+    "Oxygen",
+    "Calcium carbonate",
+    "Nitrogen"
+   ],
+   "correctAnswer": "Carbon monoxide",
+   "explanation": "Carbon monoxide reduces iron(III) oxide to iron by removing oxygen from the ore.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Extraction of Metals",
+   "learningOutcome": "Describe the role of carbon monoxide in iron extraction.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "What is the purpose of limestone in the blast furnace?",
+   "options": [
+    "It forms calcium oxide that removes silica as slag",
+    "It provides the main iron ore",
+    "It cools the furnace gases",
+    "It forms pure oxygen gas"
+   ],
+   "correctAnswer": "It forms calcium oxide that removes silica as slag",
+   "explanation": "Limestone decomposes to calcium oxide, which reacts with acidic silica impurities to form calcium silicate slag.",
+   "difficulty": 3,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Extraction of Metals",
+   "learningOutcome": "Explain the function of limestone in iron extraction.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "Which property allows fractional distillation to separate crude oil into useful fractions?",
+   "options": [
+    "Different boiling point ranges",
+    "Different flame colours only",
+    "Different magnetic strengths",
+    "Different pH values only"
+   ],
+   "correctAnswer": "Different boiling point ranges",
+   "explanation": "Crude oil fractions vaporise and condense at different temperature ranges because their molecules differ in size.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Petroleum and Fuels",
+   "learningOutcome": "Explain separation of crude oil by fractional distillation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "Why are shorter-chain hydrocarbons generally more useful as petrol than very long-chain hydrocarbons?",
+   "options": [
+    "They are more volatile and ignite more easily",
+    "They are always solids at room temperature",
+    "They never burn in oxygen",
+    "They contain no carbon atoms"
+   ],
+   "correctAnswer": "They are more volatile and ignite more easily",
+   "explanation": "Shorter-chain hydrocarbons usually have lower boiling points and burn more readily in engines.",
+   "difficulty": 3,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Petroleum and Fuels",
+   "learningOutcome": "Relate hydrocarbon chain length to fuel properties.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "In 2H2 + O2 -> 2H2O, 5 mol of H2 reacts with 2 mol of O2. Which statement is true?",
+   "options": [
+    "O2 is limiting and 4 mol of H2O can form",
+    "H2 is limiting and 5 mol of H2O can form",
+    "O2 is in excess and 2 mol of H2O can form",
+    "Both reactants form 7 mol of H2O"
+   ],
+   "correctAnswer": "O2 is limiting and 4 mol of H2O can form",
+   "explanation": "Two moles of oxygen need four moles of hydrogen and form four moles of water, leaving one mole of hydrogen unused.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Stoichiometry",
+   "learningOutcome": "Use mole ratios to identify limiting reagents and product amounts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "A reaction has a theoretical yield of 10.0 g but gives 7.5 g of product. What is the percentage yield?",
+   "options": [
+    "75%",
+    "25%",
+    "50%",
+    "133%"
+   ],
+   "correctAnswer": "75%",
+   "explanation": "Percentage yield equals actual yield divided by theoretical yield times 100, so 7.5/10.0 x 100 = 75%.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Stoichiometry",
+   "learningOutcome": "Calculate percentage yield from experimental data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A reaction needs 2640 kJ mol-1 to break bonds and releases 3460 kJ mol-1 when new bonds form. What is the enthalpy change?",
+   "options": [
+    "-820 kJ mol-1",
+    "+820 kJ mol-1",
+    "-6100 kJ mol-1",
+    "+6100 kJ mol-1"
+   ],
+   "correctAnswer": "-820 kJ mol-1",
+   "explanation": "Enthalpy change is energy absorbed minus energy released, so 2640 - 3460 = -820 kJ mol-1.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Energetics",
+   "learningOutcome": "Calculate enthalpy change using bond energy data.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "What is the equilibrium expression for 2SO2(g) + O2(g) <-> 2SO3(g)?",
+   "options": [
+    "Kc = [SO3]^2 / ([SO2]^2[O2])",
+    "Kc = [SO2]^2[O2] / [SO3]^2",
+    "Kc = [SO3] / [SO2][O2]",
+    "Kc = [SO2][O2] / [SO3]"
+   ],
+   "correctAnswer": "Kc = [SO3]^2 / ([SO2]^2[O2])",
+   "explanation": "Products appear in the numerator and reactants in the denominator, each raised to its balancing coefficient.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Write equilibrium constant expressions for homogeneous reactions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "In the Haber process, the forward reaction is exothermic. Why is a moderate temperature used instead of the lowest possible temperature?",
+   "options": [
+    "A low temperature gives a higher equilibrium yield but an impractically slow rate",
+    "A low temperature destroys nitrogen molecules completely",
+    "A high temperature is needed to make ammonia stable forever",
+    "Temperature has no effect on yield or rate"
+   ],
+   "correctAnswer": "A low temperature gives a higher equilibrium yield but an impractically slow rate",
+   "explanation": "Industrial conditions balance equilibrium yield with a reaction rate that is economically useful.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Evaluate industrial compromise conditions using equilibrium and rate ideas.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A student repeats the acid-carbonate reaction using twice the acid concentration. Why is the initial rate expected to increase?",
+   "options": [
+    "There are more acid particles per unit volume colliding with carbonate",
+    "The carbonate changes into a catalyst before reacting",
+    "The reaction becomes endothermic automatically",
+    "The gas produced has a larger molar volume"
+   ],
+   "correctAnswer": "There are more acid particles per unit volume colliding with carbonate",
+   "explanation": "Increasing concentration raises collision frequency at the reacting surface, increasing initial rate.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Reaction Rates",
+   "learningOutcome": "Explain rate changes using concentration and collision frequency.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Which statement correctly compares acid strength and acid concentration?",
+   "options": [
+    "Strength describes degree of ionisation, while concentration describes amount per unit volume",
+    "Strength and concentration always mean the same thing",
+    "A dilute acid cannot be strong",
+    "A concentrated acid must always be weak"
+   ],
+   "correctAnswer": "Strength describes degree of ionisation, while concentration describes amount per unit volume",
+   "explanation": "A strong acid may be dilute, and a weak acid may be concentrated because the terms describe different ideas.",
+   "difficulty": 4,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Acids and Bases",
+   "learningOutcome": "Distinguish acid strength from acid concentration.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Which half-equation represents oxidation of iron(II) ions to iron(III) ions?",
+   "options": [
+    "Fe2+ -> Fe3+ + e-",
+    "Fe3+ + e- -> Fe2+",
+    "Fe2+ + 2e- -> Fe",
+    "Fe -> Fe2+ + 2e-"
+   ],
+   "correctAnswer": "Fe2+ -> Fe3+ + e-",
+   "explanation": "Iron(II) loses one electron to become iron(III), so the electron appears on the product side.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Write ionic half-equations for oxidation processes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "In chlorine reacting with cold dilute sodium hydroxide, chlorine is converted to both chloride and chlorate(I) ions. What type of redox change is this?",
+   "options": [
+    "Disproportionation",
+    "Neutralisation only",
+    "Precipitation only",
+    "Hydration"
+   ],
+   "correctAnswer": "Disproportionation",
+   "explanation": "Disproportionation occurs when the same element is both oxidised and reduced in one reaction.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Reactions",
+   "learningOutcome": "Recognise disproportionation in halogen reactions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "What products form at inert electrodes during electrolysis of aqueous copper(II) sulphate solution?",
+   "options": [
+    "Copper at the cathode and oxygen at the anode",
+    "Hydrogen at the cathode and copper at the anode",
+    "Copper at both electrodes",
+    "Sulphur at the cathode and hydrogen at the anode"
+   ],
+   "correctAnswer": "Copper at the cathode and oxygen at the anode",
+   "explanation": "Copper(II) ions are preferentially discharged at the cathode, while water is oxidised to oxygen at the anode.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Predict products in electrolysis of aqueous salts using inert electrodes.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "How much copper is deposited when 19300 C passes through CuSO4 solution? Cu2+ + 2e- -> Cu, F = 96500 C mol-1, Cu = 64.",
+   "options": [
+    "6.4 g",
+    "3.2 g",
+    "12.8 g",
+    "1.6 g"
+   ],
+   "correctAnswer": "6.4 g",
+   "explanation": "The charge is 0.200 mol of electrons, which deposits 0.100 mol of copper with mass 0.100 x 64 = 6.4 g.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrolysis",
+   "learningOutcome": "Use Faraday's law to calculate mass deposited during electrolysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "Why can graphite be used as a lubricant while diamond cannot?",
+   "options": [
+    "Graphite has layers that can slide over each other",
+    "Graphite contains sodium ions between layers",
+    "Diamond has weak bonds between all atoms",
+    "Diamond melts at room temperature"
+   ],
+   "correctAnswer": "Graphite has layers that can slide over each other",
+   "explanation": "Graphite has strong covalent layers with weak forces between layers, allowing sliding.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Structure and Bonding",
+   "learningOutcome": "Relate giant covalent structures to physical properties and uses.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "Why is the first ionisation energy of magnesium higher than that of sodium?",
+   "options": [
+    "Magnesium has a greater nuclear charge and similar shielding",
+    "Magnesium has fewer protons than sodium",
+    "Sodium has a full outer shell",
+    "Magnesium atoms are larger and easier to ionise"
+   ],
+   "correctAnswer": "Magnesium has a greater nuclear charge and similar shielding",
+   "explanation": "Across the period, increased nuclear charge attracts outer electrons more strongly when shielding changes little.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Periodicity",
+   "learningOutcome": "Explain trends in first ionisation energy across a period.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Which reagent can confirm the presence of barium ions by forming a white precipitate of barium sulphate?",
+   "options": [
+    "Sodium sulphate solution",
+    "Sodium nitrate solution",
+    "Dilute sodium hydroxide only",
+    "Universal indicator"
+   ],
+   "correctAnswer": "Sodium sulphate solution",
+   "explanation": "Barium ions react with sulphate ions to form insoluble white barium sulphate.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Use precipitation reactions to identify selected ions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "A solution forms a white precipitate with NaOH that dissolves in excess NaOH but not in excess ammonia. Which cation is most likely present?",
+   "options": [
+    "Al3+",
+    "Cu2+",
+    "Fe2+",
+    "Ca2+"
+   ],
+   "correctAnswer": "Al3+",
+   "explanation": "Aluminium hydroxide is amphoteric and dissolves in excess sodium hydroxide but not in excess ammonia.",
+   "difficulty": 4,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Differentiate cations using excess sodium hydroxide and ammonia tests.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "How many structural isomers does butane, C4H10, have?",
+   "options": [
+    "Two",
+    "One",
+    "Three",
+    "Four"
+   ],
+   "correctAnswer": "Two",
+   "explanation": "Butane can exist as straight-chain butane or branched methylpropane.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Isomerism",
+   "learningOutcome": "Identify structural isomerism in simple alkanes.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Which reagent can distinguish ethanoic acid from ethanol?",
+   "options": [
+    "Sodium carbonate solution",
+    "Bromine water",
+    "Acidified potassium manganate(VII) only",
+    "Universal solvent"
+   ],
+   "correctAnswer": "Sodium carbonate solution",
+   "explanation": "Ethanoic acid reacts with carbonates to release carbon dioxide, while ethanol does not.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Carboxylic Acids and Alcohols",
+   "learningOutcome": "Select chemical tests to distinguish organic functional groups.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Which products form when ethanol reacts with ethanoic acid in the presence of concentrated sulphuric(VI) acid?",
+   "options": [
+    "Ethyl ethanoate and water",
+    "Ethene and hydrogen",
+    "Methane and carbon dioxide",
+    "Sodium ethanoate and hydrogen"
+   ],
+   "correctAnswer": "Ethyl ethanoate and water",
+   "explanation": "Alcohols react with carboxylic acids to form esters and water in esterification.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Esters",
+   "learningOutcome": "Describe esterification reactions and products.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Which equation represents a possible cracking reaction?",
+   "options": [
+    "C10H22 -> C8H18 + C2H4",
+    "CH4 + 2O2 -> CO2 + 2H2O",
+    "C2H5OH -> CH3COOH + H2",
+    "NaOH + HCl -> NaCl + H2O"
+   ],
+   "correctAnswer": "C10H22 -> C8H18 + C2H4",
+   "explanation": "Cracking breaks a long-chain alkane into a shorter alkane and an alkene while conserving atoms.",
+   "difficulty": 4,
+   "strandTitle": "Organic Chemistry",
+   "subStrandTitle": "Petroleum and Fuels",
+   "learningOutcome": "Represent cracking of hydrocarbons using balanced equations.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "Why can excess nitrate fertiliser washed into Lake Victoria or a farm pond reduce fish populations?",
+   "options": [
+    "It encourages algal blooms that later lower dissolved oxygen",
+    "It instantly changes all water into petrol",
+    "It removes all minerals from fish bones directly",
+    "It prevents any plant from growing in water"
+   ],
+   "correctAnswer": "It encourages algal blooms that later lower dissolved oxygen",
+   "explanation": "Nutrient enrichment can cause eutrophication; decomposition of algae uses oxygen needed by aquatic animals.",
+   "difficulty": 4,
+   "strandTitle": "Environmental Chemistry",
+   "subStrandTitle": "Water Pollution",
+   "learningOutcome": "Explain chemical causes and effects of eutrophication.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "Which titration plan gives the most reliable value for acid concentration?",
+   "options": [
+    "Rinse apparatus properly, add indicator, titrate to endpoint, and repeat until concordant titres are obtained",
+    "Use one rough titre only and record it as final",
+    "Fill the burette with water after adding acid",
+    "Stop the titration as soon as any colour appears at the start"
+   ],
+   "correctAnswer": "Rinse apparatus properly, add indicator, titrate to endpoint, and repeat until concordant titres are obtained",
+   "explanation": "Reliable titration needs clean apparatus, controlled endpoint detection and repeated close readings.",
+   "difficulty": 5,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Volumetric Analysis",
+   "learningOutcome": "Design reliable procedures for acid-base titration.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which set of Haber process conditions best balances yield, rate and cost?",
+   "options": [
+    "High pressure, moderate temperature, iron catalyst and recycling unreacted gases",
+    "Very low pressure, room temperature and no catalyst",
+    "Atmospheric pressure, no catalyst and single-pass gases only",
+    "Extremely high temperature with ammonia removed before forming"
+   ],
+   "correctAnswer": "High pressure, moderate temperature, iron catalyst and recycling unreacted gases",
+   "explanation": "Industrial ammonia production uses compromise conditions that give acceptable yield and fast enough rate with manageable costs.",
+   "difficulty": 5,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Equilibrium",
+   "learningOutcome": "Evaluate industrial conditions for ammonia manufacture.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "An unknown solid gives effervescence with dilute hydrochloric acid, turns limewater milky, and gives a brick-red flame. Which compound is most likely?",
+   "options": [
+    "Calcium carbonate",
+    "Sodium chloride",
+    "Copper(II) sulphate",
+    "Potassium nitrate"
+   ],
+   "correctAnswer": "Calcium carbonate",
+   "explanation": "The acid test shows carbonate ions, and the brick-red flame points to calcium ions.",
+   "difficulty": 5,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Qualitative Analysis",
+   "learningOutcome": "Combine anion and cation tests to identify an unknown salt.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "A compound contains 40.0% C, 6.7% H and 53.3% O by mass. Its relative molecular mass is 60. What is its molecular formula?",
+   "options": [
+    "C2H4O2",
+    "CH2O",
+    "C3H6O",
+    "C2H6O"
+   ],
+   "correctAnswer": "C2H4O2",
+   "explanation": "The empirical formula is CH2O with formula mass 30; molecular mass 60 is twice this, giving C2H4O2.",
+   "difficulty": 5,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Empirical and Molecular Formulae",
+   "learningOutcome": "Determine molecular formula from percentage composition and molar mass.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "In acid solution, 20.0 cm3 of 0.0200 mol dm-3 MnO4- reacts with 25.0 cm3 of Fe2+ solution. If 1 mol MnO4- reacts with 5 mol Fe2+, what is the Fe2+ concentration?",
+   "options": [
+    "0.0800 mol dm-3",
+    "0.0160 mol dm-3",
+    "0.0200 mol dm-3",
+    "0.400 mol dm-3"
+   ],
+   "correctAnswer": "0.0800 mol dm-3",
+   "explanation": "Moles of MnO4- are 0.000400, so moles of Fe2+ are 0.00200; dividing by 0.0250 dm3 gives 0.0800 mol dm-3.",
+   "difficulty": 5,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Redox Titration",
+   "learningOutcome": "Use redox titration stoichiometry to calculate concentration.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "Given E values Cu2+/Cu = +0.34 V and Zn2+/Zn = -0.76 V, what is the cell voltage for a zinc-copper cell?",
+   "options": [
+    "1.10 V",
+    "0.42 V",
+    "-1.10 V",
+    "0.76 V"
+   ],
+   "correctAnswer": "1.10 V",
+   "explanation": "Cell voltage is cathode potential minus anode potential, so 0.34 - (-0.76) = 1.10 V.",
+   "difficulty": 5,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Electrochemical Cells",
+   "learningOutcome": "Calculate cell voltage from electrode potentials.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "Use these enthalpy changes: C + O2 -> CO2 is -394 kJ mol-1, H2 + 1/2O2 -> H2O is -286 kJ mol-1, and CH4 + 2O2 -> CO2 + 2H2O is -890 kJ mol-1. What is the enthalpy of formation of CH4?",
+   "options": [
+    "-76 kJ mol-1",
+    "+76 kJ mol-1",
+    "-966 kJ mol-1",
+    "+890 kJ mol-1"
+   ],
+   "correctAnswer": "-76 kJ mol-1",
+   "explanation": "Products from elements to CO2 and water total -966 kJ mol-1; subtracting the combustion route gives formation of CH4 as -76 kJ mol-1.",
+   "difficulty": 5,
+   "strandTitle": "Physical Chemistry",
+   "subStrandTitle": "Chemical Energetics",
+   "learningOutcome": "Apply Hess's law to calculate enthalpy of formation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which extraction plan matches the reactivity series best?",
+   "options": [
+    "Extract aluminium by electrolysis and iron by reduction with carbon monoxide",
+    "Extract aluminium by heating with carbon and iron by electrolysis only",
+    "Extract all metals by washing ores with water",
+    "Extract sodium by reducing sodium chloride with iron"
+   ],
+   "correctAnswer": "Extract aluminium by electrolysis and iron by reduction with carbon monoxide",
+   "explanation": "Very reactive metals need electrolysis, while metals below carbon such as iron can be extracted by chemical reduction.",
+   "difficulty": 5,
+   "strandTitle": "Inorganic Chemistry",
+   "subStrandTitle": "Extraction of Metals",
+   "learningOutcome": "Select extraction methods based on metal reactivity.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "Which sequence best describes treatment of muddy river water before safe supply to a town?",
+   "options": [
+    "Coagulation and sedimentation, filtration, then chlorination",
+    "Chlorination, petrol addition, then open storage",
+    "Electrolysis only, followed by direct bottling",
+    "Heating with limestone, then adding fertiliser"
+   ],
+   "correctAnswer": "Coagulation and sedimentation, filtration, then chlorination",
+   "explanation": "Suspended solids are removed before disinfection, so clearer water is filtered and then treated to kill pathogens.",
+   "difficulty": 5,
+   "strandTitle": "Environmental Chemistry",
+   "subStrandTitle": "Water Treatment",
+   "learningOutcome": "Design a chemical treatment sequence for water purification.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which approach best reduces environmental harm from plastic waste in a school chemistry project?",
+   "options": [
+    "Reduce use, sort clean plastics for recycling, reuse suitable containers and avoid open burning",
+    "Burn all plastics behind the laboratory after lessons",
+    "Bury mixed plastics beside a water source",
+    "Mix plastics with food waste and leave them in drains"
+   ],
+   "correctAnswer": "Reduce use, sort clean plastics for recycling, reuse suitable containers and avoid open burning",
+   "explanation": "Waste management should reduce demand, support recycling and avoid toxic emissions from uncontrolled burning.",
+   "difficulty": 5,
+   "strandTitle": "Environmental Chemistry",
+   "subStrandTitle": "Polymers and Sustainability",
+   "learningOutcome": "Evaluate safer ways to manage polymer waste.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

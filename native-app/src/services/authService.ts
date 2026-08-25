@@ -261,4 +261,27 @@ export async function completeAccountOnboarding(input: {
   return nextSession;
 }
 
+export async function updateMySchool(schoolDirectoryId: string): Promise<AuthSession> {
+  const session = await loadStoredAuthSession();
+  if (!session?.accessToken) {
+    throw new Error('Authentication required');
+  }
+
+  const payload = await apiJsonRequest<{
+    accessToken: string;
+    user: AuthSession['user'];
+  }>('/me/school', {
+    method: 'PATCH',
+    body: JSON.stringify({ schoolDirectoryId }),
+  });
+
+  const nextSession: AuthSession = {
+    accessToken: payload.accessToken,
+    refreshToken: session.refreshToken,
+    user: payload.user,
+  };
+  await persistAuthSession(nextSession);
+  return nextSession;
+}
+
 export const completeStudentOnboarding = completeAccountOnboarding;

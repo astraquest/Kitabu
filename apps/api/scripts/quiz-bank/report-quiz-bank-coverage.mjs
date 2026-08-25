@@ -17,17 +17,15 @@ function gradeCode(gradeLevel) {
 
 const manifest = readJson(manifestPath);
 const manifestDir = path.dirname(manifestPath);
-const expectedCount = manifest.questionCountPerSubject;
 const byGrade = new Map();
 let totalCells = 0;
-let completeCells = 0;
-let partialCells = 0;
+let emptyCells = 0;
 let missingCells = 0;
 let totalQuestions = 0;
 
 for (const band of manifest.gradeBands ?? []) {
   for (const gradeLevel of band.grades ?? []) {
-    const summary = byGrade.get(gradeLevel) ?? { total: 0, complete: 0, partial: 0, missing: 0, questions: 0 };
+    const summary = byGrade.get(gradeLevel) ?? { total: 0, populated: 0, missing: 0, questions: 0 };
     for (const subject of band.subjects ?? []) {
       totalCells += 1;
       summary.total += 1;
@@ -41,20 +39,18 @@ for (const band of manifest.gradeBands ?? []) {
       const count = Array.isArray(payload.questions) ? payload.questions.length : 0;
       totalQuestions += count;
       summary.questions += count;
-      if (count === expectedCount) {
-        completeCells += 1;
-        summary.complete += 1;
+      if (count > 0) {
+        summary.populated += 1;
       } else {
-        partialCells += 1;
-        summary.partial += 1;
+        emptyCells += 1;
       }
     }
     byGrade.set(gradeLevel, summary);
   }
 }
 
-console.log(`QuizBank coverage: ${completeCells}/${totalCells} cells complete, ${totalQuestions}/${totalCells * expectedCount} questions present.`);
-console.log(`Missing cells: ${missingCells}; partial cells: ${partialCells}.`);
+console.log(`QuizBank coverage: ${totalQuestions} questions across ${totalCells} grade-subject cells (no per-subject cap).`);
+console.log(`Missing cells: ${missingCells}; empty cells: ${emptyCells}.`);
 for (const [gradeLevel, summary] of byGrade.entries()) {
-  console.log(`${gradeLevel}: ${summary.complete}/${summary.total} complete, ${summary.questions}/${summary.total * expectedCount} questions`);
+  console.log(`${gradeLevel}: ${summary.populated}/${summary.total} cells populated, ${summary.questions} questions`);
 }

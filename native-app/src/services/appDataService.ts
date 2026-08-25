@@ -2,6 +2,7 @@ import {
   AdminAiAnalytics,
   AdminBillingAnalytics,
   AdminPortalUser,
+  AdminStudentAnalytics,
   AdminSubjectEngagementAnalytics,
   BannerAnnouncement,
   BillingPlan,
@@ -182,6 +183,13 @@ export async function getAdminUsers() {
     method: 'GET',
   });
   return payload.users;
+}
+
+export async function getAdminStudentAnalytics(studentId: string) {
+  const payload = await apiRequest<{ analytics: AdminStudentAnalytics }>(`/admin/users/${encodeURIComponent(studentId)}/analytics`, {
+    method: 'GET',
+  });
+  return payload.analytics;
 }
 
 export async function getAdminAiAnalytics() {

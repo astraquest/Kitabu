@@ -29,7 +29,7 @@ function nodeText(value: unknown): string {
   return typeof value === 'string' || typeof value === 'number' ? String(value) : '';
 }
 
-test('homework AI explanation uses the assignment grade in its prompt and context', async () => {
+test('homework AI explanation waits for authoritative post-submit grading', async () => {
   (askHomeworkHelper as jest.Mock).mockResolvedValue('A short explanation.');
   const assignment: Assignment = {
     id: 'assignment-grade-10',
@@ -46,7 +46,6 @@ test('homework AI explanation uses the assignment grade in its prompt and contex
         type: 'MCQ',
         text: 'What is x if x + 2 = 5?',
         options: ['1', '2', '3', '4'],
-        correctAnswer: '3',
         userAnswer: '3',
         explanation: 'Subtract 2 from both sides.',
       },
@@ -65,16 +64,8 @@ test('homework AI explanation uses the assignment grade in its prompt and contex
       node.props.onPress &&
       node.findAll(child => nodeText(child.props.children) === 'Ask AI').length > 0,
   )[0];
-  await act(async () => {
-    await askAi.props.onPress();
-  });
-
-  expect(askHomeworkHelper).toHaveBeenCalledTimes(1);
-  const [prompt, , mode, , context] = (askHomeworkHelper as jest.Mock).mock.calls[0];
-  expect(prompt).toContain('for a Grade 10 student');
-  expect(prompt).not.toContain('for a Grade 6 student');
-  expect(mode).toBe('explanation');
-  expect(context).toEqual({ grade: 'Grade 10', subjectName: 'Mathematics' });
+  expect(askAi).toBeUndefined();
+  expect(askHomeworkHelper).not.toHaveBeenCalled();
 
   act(() => renderer!.unmount());
 });

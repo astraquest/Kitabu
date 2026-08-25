@@ -1,1409 +1,2609 @@
 {
-  "countryCode": "KEN",
-  "curriculumCode": "CBC",
-  "gradeLevel": "Grade 12",
-  "subjectId": "sports_science",
-  "subjectName": "Sports Science",
-  "questions": [
-    {
-      "questionNumber": 1,
-      "type": "MCQ",
-      "prompt": "Which connective tissue attaches a skeletal muscle to a bone?",
-      "options": ["Tendon", "Ligament", "Cartilage", "Fascia"],
-      "correctAnswer": "Tendon",
-      "explanation": "Tendons transmit the pull of muscles to bones so that joints can move.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Musculoskeletal System",
-      "learningOutcome": "Identify major tissues that support movement in sport.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 2,
-      "type": "MCQ",
-      "prompt": "Which joint action occurs when a learner bends the elbow during a biceps curl?",
-      "options": ["Flexion", "Extension", "Abduction", "Rotation"],
-      "correctAnswer": "Flexion",
-      "explanation": "Flexion decreases the angle at a joint, such as when the forearm moves toward the upper arm.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Joint Actions",
-      "learningOutcome": "Name common joint actions used in sport skills.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 3,
-      "type": "MCQ",
-      "prompt": "Which muscle group mainly straightens the knee during kicking or jumping?",
-      "options": ["Quadriceps", "Hamstrings", "Abdominals", "Deltoids"],
-      "correctAnswer": "Quadriceps",
-      "explanation": "The quadriceps on the front of the thigh extend the knee for actions such as jumping, running, and kicking.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Major Muscle Groups",
-      "learningOutcome": "Relate major muscle groups to common sports movements.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 4,
-      "type": "MCQ",
-      "prompt": "In exercise physiology, what does aerobic energy production require?",
-      "options": ["Oxygen", "No blood flow", "A locked joint", "Only stored minerals"],
-      "correctAnswer": "Oxygen",
-      "explanation": "Aerobic metabolism uses oxygen to release energy for longer-duration physical activity.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Energy Systems",
-      "learningOutcome": "State the basic requirement for aerobic energy production.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 5,
-      "type": "MCQ",
-      "prompt": "Which molecule is the immediate energy source used by muscle fibres for contraction?",
-      "options": ["ATP", "Haemoglobin", "Collagen", "Calcium carbonate"],
-      "correctAnswer": "ATP",
-      "explanation": "Muscle cells use ATP directly to power cross-bridge cycling during contraction.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Contraction",
-      "learningOutcome": "Recognise ATP as the direct energy source for muscle action.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 6,
-      "type": "MCQ",
-      "prompt": "What does heart rate measure during physical activity?",
-      "options": ["Number of heart beats per minute", "Volume of air in one breath", "Length of a stride in metres", "Amount of sweat on the skin"],
-      "correctAnswer": "Number of heart beats per minute",
-      "explanation": "Heart rate is counted as beats per minute and normally rises as exercise intensity increases.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Cardiovascular Responses",
-      "learningOutcome": "Define basic cardiovascular measurements used in sport.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 7,
-      "type": "MCQ",
-      "prompt": "What is stroke volume?",
-      "options": ["Amount of blood pumped by the heart in one beat", "Number of steps taken in one lap", "Maximum air breathed out after exercise", "Time taken for one muscle twitch"],
-      "correctAnswer": "Amount of blood pumped by the heart in one beat",
-      "explanation": "Stroke volume describes the blood ejected by the heart with each contraction.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Cardiovascular Function",
-      "learningOutcome": "Define stroke volume and its role in exercise performance.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 8,
-      "type": "MCQ",
-      "prompt": "VO2 max is most closely linked to which fitness component?",
-      "options": ["Aerobic endurance", "Static balance", "Reaction time", "Joint flexibility"],
-      "correctAnswer": "Aerobic endurance",
-      "explanation": "VO2 max estimates the body's maximum ability to take in and use oxygen during intense exercise.",
-      "difficulty": 1,
-      "strandTitle": "Fitness Testing and Evaluation",
-      "subStrandTitle": "Aerobic Capacity",
-      "learningOutcome": "Link common fitness measures to the components they assess.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 9,
-      "type": "MCQ",
-      "prompt": "What is the main role of haemoglobin in sports performance?",
-      "options": ["Transport oxygen in the blood", "Store calcium in bones", "Lubricate synovial joints", "Digest protein in the stomach"],
-      "correctAnswer": "Transport oxygen in the blood",
-      "explanation": "Haemoglobin in red blood cells carries oxygen to working muscles.",
-      "difficulty": 1,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Blood and Oxygen Transport",
-      "learningOutcome": "Identify blood components that support exercise.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 10,
-      "type": "MCQ",
-      "prompt": "What does DOMS usually refer to after unfamiliar or hard exercise?",
-      "options": ["Delayed onset muscle soreness", "Daily oxygen measurement score", "Dynamic overhead movement speed", "Direct organ monitoring system"],
-      "correctAnswer": "Delayed onset muscle soreness",
-      "explanation": "DOMS is muscle soreness that commonly appears hours after hard or unfamiliar activity.",
-      "difficulty": 1,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Exercise Responses",
-      "learningOutcome": "Recognise common short-term responses to exercise.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 11,
-      "type": "MCQ",
-      "prompt": "In biomechanics, what is a lever?",
-      "options": ["A rigid structure that rotates around a fulcrum", "A chemical that stores glucose", "A rule used only in athletics officiating", "A type of breathing pattern"],
-      "correctAnswer": "A rigid structure that rotates around a fulcrum",
-      "explanation": "Bones often act as levers, joints act as fulcrums, and muscles provide effort.",
-      "difficulty": 1,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Levers in Movement",
-      "learningOutcome": "Define a lever and relate it to human movement.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 12,
-      "type": "MCQ",
-      "prompt": "What is the centre of mass of the body?",
-      "options": ["The point where body mass is balanced", "The fastest point of a sprint", "The place where oxygen enters the lungs", "The strongest ligament in a joint"],
-      "correctAnswer": "The point where body mass is balanced",
-      "explanation": "The centre of mass is the average location of body mass and affects balance and stability.",
-      "difficulty": 1,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Balance and Stability",
-      "learningOutcome": "Define centre of mass in relation to sports movement.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 13,
-      "type": "MCQ",
-      "prompt": "Which nutrient is the main fuel for many high-intensity sports activities?",
-      "options": ["Carbohydrate", "Water", "Vitamin C", "Dietary fibre only"],
-      "correctAnswer": "Carbohydrate",
-      "explanation": "Carbohydrate can be broken down quickly and is stored as glycogen in muscles and the liver.",
-      "difficulty": 1,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Energy Nutrients",
-      "learningOutcome": "Identify nutrients that provide energy for sport.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 14,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of a warm-up before vigorous school sport?",
-      "options": ["Prepare the body and mind for activity", "Make learners tired before the main session", "Replace the need for skill practice", "Guarantee that injury cannot occur"],
-      "correctAnswer": "Prepare the body and mind for activity",
-      "explanation": "A warm-up gradually raises readiness for movement, but it cannot remove all risk.",
-      "difficulty": 1,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Warm-up and Preparation",
-      "learningOutcome": "State the role of warm-up activities before sport.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 15,
-      "type": "MCQ",
-      "prompt": "Which behaviour best represents fair play in competitive school sport?",
-      "options": ["Respecting opponents, officials, team-mates, and rules", "Hiding rule violations if the team is winning", "Blaming officials after every mistake", "Deliberately distracting an injured opponent"],
-      "correctAnswer": "Respecting opponents, officials, team-mates, and rules",
-      "explanation": "Fair play combines respect, honesty, self-control, and responsible competition.",
-      "difficulty": 1,
-      "strandTitle": "Ethics and Values in Sport",
-      "subStrandTitle": "Fair Play",
-      "learningOutcome": "Recognise ethical behaviour in school sport settings.",
-      "cognitiveLevel": "recall",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 16,
-      "type": "MCQ",
-      "prompt": "Which description best matches a concentric muscle contraction?",
-      "options": ["A muscle shortens while producing force", "A muscle lengthens while controlling force", "A joint stays completely still without force", "A tendon turns into cartilage"],
-      "correctAnswer": "A muscle shortens while producing force",
-      "explanation": "In a concentric contraction, the muscle creates force while shortening, such as the lifting phase of a curl.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Actions",
-      "learningOutcome": "Distinguish common types of muscle contraction.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 17,
-      "type": "MCQ",
-      "prompt": "When a learner slowly lowers from a pull-up, which muscle action controls the movement?",
-      "options": ["Eccentric contraction", "Static stretching only", "Passive diffusion", "Ballistic rebound"],
-      "correctAnswer": "Eccentric contraction",
-      "explanation": "An eccentric contraction produces force while the muscle lengthens, helping control the lowering phase.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Actions",
-      "learningOutcome": "Apply muscle contraction terms to sporting movements.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 18,
-      "type": "MCQ",
-      "prompt": "What is the main role of an antagonist muscle during a controlled sport movement?",
-      "options": ["Oppose or control the action of the agonist", "Supply oxygen to red blood cells", "Store food in the stomach", "Act as the hard surface of the court"],
-      "correctAnswer": "Oppose or control the action of the agonist",
-      "explanation": "Antagonist muscles can slow, stabilise, or reverse the action produced by agonist muscles.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Pairs",
-      "learningOutcome": "Explain how muscle pairs coordinate movement.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 19,
-      "type": "MCQ",
-      "prompt": "Which feature is most typical of slow-twitch muscle fibres?",
-      "options": ["High resistance to fatigue", "Very low oxygen use", "Only used for one-second efforts", "No capillary supply"],
-      "correctAnswer": "High resistance to fatigue",
-      "explanation": "Slow-twitch fibres are suited to endurance work because they use oxygen efficiently and resist fatigue.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Fibre Types",
-      "learningOutcome": "Compare muscle fibre characteristics used in different sports.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 20,
-      "type": "MCQ",
-      "prompt": "Fast-twitch muscle fibres are especially useful in which activity?",
-      "options": ["Explosive sprint start", "Slow walking for many hours", "Quiet standing in assembly", "Reading a tactics board"],
-      "correctAnswer": "Explosive sprint start",
-      "explanation": "Fast-twitch fibres can produce high force quickly, which supports explosive speed and power.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Muscle Fibre Types",
-      "learningOutcome": "Relate muscle fibre types to sport demands.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 21,
-      "type": "MCQ",
-      "prompt": "What does lactate threshold broadly describe?",
-      "options": ["The exercise intensity where lactate begins to accumulate faster", "The moment a bone reaches full length", "The number of passes completed in a match", "The maximum distance a ball can bounce"],
-      "correctAnswer": "The exercise intensity where lactate begins to accumulate faster",
-      "explanation": "Lactate threshold helps explain when high-intensity work becomes harder to sustain.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Exercise Intensity",
-      "learningOutcome": "Describe lactate threshold as an indicator of endurance performance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 22,
-      "type": "MCQ",
-      "prompt": "Which statement best explains progressive overload?",
-      "options": ["Training demand is increased gradually as fitness improves", "Every session must be harder than the last without rest", "Only competition can improve performance", "Fitness improves when practice is stopped completely"],
-      "correctAnswer": "Training demand is increased gradually as fitness improves",
-      "explanation": "Progressive overload challenges the body in manageable steps so adaptation can occur.",
-      "difficulty": 2,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Overload and Adaptation",
-      "learningOutcome": "Explain how progressive overload supports fitness development.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 23,
-      "type": "MCQ",
-      "prompt": "Which training principle means practice should match the energy system and movement pattern of the sport?",
-      "options": ["Specificity", "Reversibility", "Randomisation only", "Sponsorship"],
-      "correctAnswer": "Specificity",
-      "explanation": "Specificity means training adaptations are closely linked to the demands that are practised.",
-      "difficulty": 2,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Specificity",
-      "learningOutcome": "Describe the principle of specificity in sport preparation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 24,
-      "type": "MCQ",
-      "prompt": "Why are planned rest days included in a training programme?",
-      "options": ["They allow recovery and adaptation after training stress", "They remove the need to learn technique", "They guarantee instant peak performance", "They make warm-ups unnecessary"],
-      "correctAnswer": "They allow recovery and adaptation after training stress",
-      "explanation": "Training creates stress, while rest helps tissues and body systems adapt safely.",
-      "difficulty": 2,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Recovery",
-      "learningOutcome": "Explain the importance of recovery in training plans.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 25,
-      "type": "MCQ",
-      "prompt": "What is periodisation in sports training?",
-      "options": ["Planning training in phases across a season", "Doing the same session every day all year", "Only training when there is no competition", "Changing sports equipment after every drill"],
-      "correctAnswer": "Planning training in phases across a season",
-      "explanation": "Periodisation organises workload, recovery, and competition preparation over time.",
-      "difficulty": 2,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Season Planning",
-      "learningOutcome": "Describe periodisation as structured training planning.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 26,
-      "type": "MCQ",
-      "prompt": "Which training method mixes faster and slower running without fixed intervals?",
-      "options": ["Fartlek training", "Isometric testing", "Static rest only", "Circuit officiating"],
-      "correctAnswer": "Fartlek training",
-      "explanation": "Fartlek training uses varied pace changes, often in a continuous running session.",
-      "difficulty": 2,
-      "strandTitle": "Training Methods",
-      "subStrandTitle": "Endurance Training",
-      "learningOutcome": "Identify training methods used to develop endurance.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 27,
-      "type": "MCQ",
-      "prompt": "Why should learners begin training sessions already well hydrated?",
-      "options": ["Fluid supports temperature control and circulation", "Water replaces all food needed for sport", "Hydration prevents every possible injury", "Drinking water removes the need for rest"],
-      "correctAnswer": "Fluid supports temperature control and circulation",
-      "explanation": "Adequate fluid helps blood flow and sweating, both of which support safe exercise.",
-      "difficulty": 2,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Hydration",
-      "learningOutcome": "Explain why hydration matters before and during physical activity.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 28,
-      "type": "MCQ",
-      "prompt": "Which post-training snack best supports general recovery after a school practice?",
-      "options": ["A balanced snack with carbohydrate, protein, and fluid", "Only sweets with no drink", "A skipped meal to stay light", "A random supplement instead of food"],
-      "correctAnswer": "A balanced snack with carbohydrate, protein, and fluid",
-      "explanation": "Carbohydrate helps restore fuel, protein supports repair, and fluid replaces sweat losses.",
-      "difficulty": 2,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Recovery Nutrition",
-      "learningOutcome": "Select safe general nutrition choices that support recovery.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 29,
-      "type": "MCQ",
-      "prompt": "What are electrolytes in the context of exercise hydration?",
-      "options": ["Minerals such as sodium and potassium in body fluids", "Only proteins found in muscle fibres", "Air spaces inside the lungs", "Bones that move at a joint"],
-      "correctAnswer": "Minerals such as sodium and potassium in body fluids",
-      "explanation": "Electrolytes help fluid balance, nerve signals, and muscle function during exercise.",
-      "difficulty": 2,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Electrolytes",
-      "learningOutcome": "Describe the role of electrolytes in exercise.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 30,
-      "type": "MCQ",
-      "prompt": "Where is glycogen stored for later use during physical activity?",
-      "options": ["Muscles and liver", "Hair and nails", "Teeth and ligaments only", "Skin surface only"],
-      "correctAnswer": "Muscles and liver",
-      "explanation": "Glycogen is a stored form of carbohydrate found mainly in skeletal muscle and the liver.",
-      "difficulty": 2,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Fuel Storage",
-      "learningOutcome": "Explain how carbohydrate is stored for exercise.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 31,
-      "type": "MCQ",
-      "prompt": "How does sweating help an athlete during exercise in hot conditions?",
-      "options": ["Evaporation of sweat removes heat from the body", "Sweat turns directly into muscle fuel", "Sweating stops the heart from beating faster", "Sweat makes joints stronger immediately"],
-      "correctAnswer": "Evaporation of sweat removes heat from the body",
-      "explanation": "As sweat evaporates, it carries heat away and helps control body temperature.",
-      "difficulty": 2,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Thermoregulation",
-      "learningOutcome": "Explain how sweating contributes to temperature regulation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 32,
-      "type": "MCQ",
-      "prompt": "What is a useful purpose of a cool-down after intense exercise?",
-      "options": ["Gradually return breathing and heart rate toward resting levels", "Immediately build maximum strength", "Replace all sleep needed for recovery", "Make the next warm-up unnecessary"],
-      "correctAnswer": "Gradually return breathing and heart rate toward resting levels",
-      "explanation": "A cool-down helps the body transition from intense activity toward recovery.",
-      "difficulty": 2,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Cool-down",
-      "learningOutcome": "Explain why cool-down activities are used after exercise.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 33,
-      "type": "MCQ",
-      "prompt": "Why can poorly fitting shoes increase injury risk in running games?",
-      "options": ["They can reduce support, comfort, and safe foot mechanics", "They always make players faster", "They strengthen every ankle ligament instantly", "They remove all need for skill training"],
-      "correctAnswer": "They can reduce support, comfort, and safe foot mechanics",
-      "explanation": "Footwear should suit the activity, surface, and learner so movement is stable and comfortable.",
-      "difficulty": 2,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Equipment Safety",
-      "learningOutcome": "Explain how suitable equipment supports safer participation.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 34,
-      "type": "MCQ",
-      "prompt": "What does the rating of perceived exertion help a learner judge?",
-      "options": ["How hard the exercise feels", "The exact length of every muscle", "The official score of a match", "The colour of an opponent's kit"],
-      "correctAnswer": "How hard the exercise feels",
-      "explanation": "Perceived exertion is a simple way to monitor training intensity using how effort feels.",
-      "difficulty": 2,
-      "strandTitle": "Training Monitoring",
-      "subStrandTitle": "Intensity Control",
-      "learningOutcome": "Use perceived exertion as a basic training-monitoring tool.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 35,
-      "type": "MCQ",
-      "prompt": "Which sign may suggest that a learner is not recovering well from training?",
-      "options": ["Unusual tiredness and declining performance over several sessions", "Improved concentration after adequate sleep", "Steady progress after planned rest", "Normal thirst after a hot session"],
-      "correctAnswer": "Unusual tiredness and declining performance over several sessions",
-      "explanation": "Persistent tiredness and falling performance can indicate excessive training stress or poor recovery.",
-      "difficulty": 2,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Overtraining Awareness",
-      "learningOutcome": "Recognise warning signs of poor recovery in school training.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 36,
-      "type": "MCQ",
-      "prompt": "Why is spotting used during some gymnastics or resistance exercises at school?",
-      "options": ["To help supervise technique and reduce avoidable risk", "To let learners attempt unsafe loads alone", "To replace teacher supervision completely", "To make rules unnecessary"],
-      "correctAnswer": "To help supervise technique and reduce avoidable risk",
-      "explanation": "Spotting is a safety support used with clear instruction, appropriate tasks, and supervision.",
-      "difficulty": 2,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Supervised Practice",
-      "learningOutcome": "Explain safe support practices during school sport activities.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 37,
-      "type": "MCQ",
-      "prompt": "Which goal is written in a SMART style for a school athlete?",
-      "options": ["Improve 1500 m time by 10 seconds within eight weeks", "Become better at everything soon", "Train hard with no plan", "Win every future race easily"],
-      "correctAnswer": "Improve 1500 m time by 10 seconds within eight weeks",
-      "explanation": "SMART goals are specific, measurable, achievable, relevant, and time-bound.",
-      "difficulty": 2,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Goal Setting",
-      "learningOutcome": "Identify goal statements that support motivation and planning.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 38,
-      "type": "MCQ",
-      "prompt": "Which strategy can help a learner manage pre-match anxiety safely?",
-      "options": ["Controlled breathing and positive self-talk", "Ignoring all safety instructions", "Skipping warm-up to save energy", "Arguing with officials before play"],
-      "correctAnswer": "Controlled breathing and positive self-talk",
-      "explanation": "Breathing control and constructive self-talk can reduce tension and support focus.",
-      "difficulty": 2,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Anxiety Management",
-      "learningOutcome": "Select basic psychological strategies for competition readiness.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 39,
-      "type": "MCQ",
-      "prompt": "Which example shows intrinsic motivation in sport?",
-      "options": ["Practising because the learner enjoys improving the skill", "Training only to receive a prize", "Playing only to avoid punishment", "Running only because a crowd is watching"],
-      "correctAnswer": "Practising because the learner enjoys improving the skill",
-      "explanation": "Intrinsic motivation comes from internal interest, enjoyment, or personal satisfaction.",
-      "difficulty": 2,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Motivation",
-      "learningOutcome": "Differentiate intrinsic and extrinsic motivation in sport.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 40,
-      "type": "MCQ",
-      "prompt": "Why might too much arousal reduce performance in a precise skill such as archery?",
-      "options": ["It can increase tension and disrupt fine control", "It always improves accuracy without practice", "It changes the target distance automatically", "It removes the need for concentration"],
-      "correctAnswer": "It can increase tension and disrupt fine control",
-      "explanation": "Fine skills often need calm focus; excessive arousal can interfere with timing and precision.",
-      "difficulty": 2,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Arousal and Performance",
-      "learningOutcome": "Explain how arousal level can affect different sport skills.",
-      "cognitiveLevel": "understand",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 41,
-      "type": "MCQ",
-      "prompt": "A learner has a maximum heart rate of 200 beats per minute and a resting heart rate of 60. Using 60 percent heart-rate reserve, what target heart rate is calculated?",
-      "options": ["144 beats per minute", "120 beats per minute", "156 beats per minute", "180 beats per minute"],
-      "correctAnswer": "144 beats per minute",
-      "explanation": "Heart-rate reserve is 200 minus 60, which is 140; 60 percent of 140 is 84, and 84 plus 60 gives 144.",
-      "difficulty": 3,
-      "strandTitle": "Training Monitoring",
-      "subStrandTitle": "Heart Rate Calculations",
-      "learningOutcome": "Apply heart-rate reserve calculations to training intensity.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 42,
-      "type": "MCQ",
-      "prompt": "If a learner applies an average force of 300 N to move a sled 2 m, how much mechanical work is done?",
-      "options": ["600 J", "150 J", "302 J", "900 J"],
-      "correctAnswer": "600 J",
-      "explanation": "Work equals force multiplied by distance, so 300 N multiplied by 2 m equals 600 J.",
-      "difficulty": 3,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Work and Energy",
-      "learningOutcome": "Calculate mechanical work in simple sport contexts.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 43,
-      "type": "MCQ",
-      "prompt": "Why does bending the knees on landing from a jump reduce peak impact force?",
-      "options": ["It increases the time over which momentum changes", "It removes gravity from the landing", "It makes body mass disappear", "It stops all movement at the hip"],
-      "correctAnswer": "It increases the time over which momentum changes",
-      "explanation": "Increasing the stopping time lowers peak force for the same change in momentum.",
-      "difficulty": 3,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Impulse and Landing",
-      "learningOutcome": "Apply impulse principles to safer landing mechanics.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 44,
-      "type": "MCQ",
-      "prompt": "Ignoring air resistance and height differences, which release angle usually gives the greatest projectile range?",
-      "options": ["45 degrees", "10 degrees", "75 degrees", "90 degrees"],
-      "correctAnswer": "45 degrees",
-      "explanation": "In the simplified model, 45 degrees balances vertical and horizontal velocity components for maximum range.",
-      "difficulty": 3,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Projectile Motion",
-      "learningOutcome": "Apply basic projectile concepts to sport skills.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 45,
-      "type": "MCQ",
-      "prompt": "During a calf raise, the ball of the foot acts as the fulcrum, body weight is the load, and calf muscles provide effort. Which class of lever is this?",
-      "options": ["Second-class lever", "First-class lever", "Third-class lever", "No lever is present"],
-      "correctAnswer": "Second-class lever",
-      "explanation": "In a second-class lever, the load lies between the fulcrum and the effort.",
-      "difficulty": 3,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Lever Systems",
-      "learningOutcome": "Classify lever systems in human movement examples.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 46,
-      "type": "MCQ",
-      "prompt": "A 50 N force acts at right angles 0.4 m from a joint. What moment of force is produced?",
-      "options": ["20 Nm", "125 Nm", "50.4 Nm", "0.8 Nm"],
-      "correctAnswer": "20 Nm",
-      "explanation": "Moment equals force multiplied by perpendicular distance, so 50 N times 0.4 m equals 20 Nm.",
-      "difficulty": 3,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Moments and Torque",
-      "learningOutcome": "Calculate simple moments of force in movement analysis.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 47,
-      "type": "MCQ",
-      "prompt": "Which energy system is most dominant in the first few seconds of a maximal sprint start?",
-      "options": ["ATP-PC system", "Aerobic system", "Oxidation of fat only", "Slow digestion of fibre"],
-      "correctAnswer": "ATP-PC system",
-      "explanation": "The ATP-PC system supplies immediate energy for very short, explosive efforts.",
-      "difficulty": 3,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Short-Term Energy Supply",
-      "learningOutcome": "Apply energy-system knowledge to explosive sport actions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 48,
-      "type": "MCQ",
-      "prompt": "A football midfielder repeatedly runs, changes direction, and recovers during a match. Which fitness combination is most relevant?",
-      "options": ["Aerobic endurance, agility, speed endurance, and skill", "Maximum flexibility only", "Handgrip strength only", "Static balance without movement"],
-      "correctAnswer": "Aerobic endurance, agility, speed endurance, and skill",
-      "explanation": "Midfield play combines repeated running, quick direction changes, recovery, and technical decisions.",
-      "difficulty": 3,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Needs Analysis",
-      "learningOutcome": "Match sport roles to relevant fitness demands.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 49,
-      "type": "MCQ",
-      "prompt": "Which session plan best suits a school 400 m runner developing speed endurance?",
-      "options": ["Warm-up, repeated fast runs with planned rest, technique focus, and cool-down", "Only one all-out run with no warm-up", "Heavy lifting to failure every day", "Long sitting periods with no running"],
-      "correctAnswer": "Warm-up, repeated fast runs with planned rest, technique focus, and cool-down",
-      "explanation": "Speed-endurance work should include preparation, repeated efforts, recovery, technique, and cool-down.",
-      "difficulty": 3,
-      "strandTitle": "Training Methods",
-      "subStrandTitle": "Speed Endurance",
-      "learningOutcome": "Select safe training structures for specific performance goals.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 50,
-      "type": "MCQ",
-      "prompt": "After a very hard interval session, what is the most appropriate next-day training choice for many school athletes?",
-      "options": ["Low-intensity recovery or rest depending on the plan", "Another harder interval session without review", "Maximum jumps until exhaustion", "No sleep because fitness has improved"],
-      "correctAnswer": "Low-intensity recovery or rest depending on the plan",
-      "explanation": "Recovery sessions or rest help adaptation and reduce the risk of accumulating excessive fatigue.",
-      "difficulty": 3,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Load Management",
-      "learningOutcome": "Apply recovery principles when sequencing training sessions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 51,
-      "type": "MCQ",
-      "prompt": "During a hot afternoon tournament, which hydration plan is most suitable for school participants?",
-      "options": ["Use regular drink breaks, shade when possible, and monitor how learners feel", "Ban all fluid until the final whistle", "Drink only after dizziness begins", "Use thirst to ignore heat safety rules"],
-      "correctAnswer": "Use regular drink breaks, shade when possible, and monitor how learners feel",
-      "explanation": "Planned fluid access, shade, and monitoring reduce heat strain during school sport.",
-      "difficulty": 3,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Hydration Planning",
-      "learningOutcome": "Apply hydration principles to school competition settings.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 52,
-      "type": "MCQ",
-      "prompt": "The day before a long-distance school race, which meal pattern best supports fuel availability?",
-      "options": ["Balanced meals with enough carbohydrate, fluids, and familiar foods", "Trying unknown foods and skipping breakfast", "Eating no carbohydrate at all", "Replacing all meals with energy drinks"],
-      "correctAnswer": "Balanced meals with enough carbohydrate, fluids, and familiar foods",
-      "explanation": "Familiar balanced meals with adequate carbohydrate help fill glycogen stores without unnecessary risk.",
-      "difficulty": 3,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Pre-Event Eating",
-      "learningOutcome": "Apply general nutrition concepts to endurance event preparation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 53,
-      "type": "MCQ",
-      "prompt": "Why is regularly skipping meals risky for an adolescent athlete?",
-      "options": ["It can reduce energy availability, concentration, recovery, and growth support", "It guarantees faster sprinting", "It improves hydration automatically", "It permanently prevents fatigue"],
-      "correctAnswer": "It can reduce energy availability, concentration, recovery, and growth support",
-      "explanation": "Young athletes need enough energy and nutrients for school, growth, training, and recovery.",
-      "difficulty": 3,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Energy Availability",
-      "learningOutcome": "Explain why regular balanced eating supports adolescent athletes.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 54,
-      "type": "MCQ",
-      "prompt": "Why might a large strength imbalance between hamstrings and quadriceps increase knee injury risk?",
-      "options": ["The muscles may not control knee forces evenly during running and landing", "The knee stops needing ligaments", "The ankle becomes the only moving joint", "All movement becomes aerobic"],
-      "correctAnswer": "The muscles may not control knee forces evenly during running and landing",
-      "explanation": "Balanced strength and control around the knee help stabilise movement during demanding skills.",
-      "difficulty": 3,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Muscle Balance",
-      "learningOutcome": "Apply musculoskeletal knowledge to injury-prevention decisions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 55,
-      "type": "MCQ",
-      "prompt": "Which landing cue best supports safer knee alignment after a jump?",
-      "options": ["Land softly with knees tracking in line with toes", "Land with locked knees and feet crossed", "Twist sharply while looking away", "Keep all body weight on the heels only"],
-      "correctAnswer": "Land softly with knees tracking in line with toes",
-      "explanation": "Soft landings with controlled knee alignment reduce excessive joint stress.",
-      "difficulty": 3,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Movement Technique",
-      "learningOutcome": "Apply safe technique cues to jumping and landing tasks.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 56,
-      "type": "MCQ",
-      "prompt": "A learner collides during football and shows confusion after the impact. What is the safest school-level response?",
-      "options": ["Remove the learner from play and refer to a qualified adult or health professional", "Let the learner continue if the team needs them", "Ask the learner to sprint to prove fitness", "Ignore symptoms until the match ends"],
-      "correctAnswer": "Remove the learner from play and refer to a qualified adult or health professional",
-      "explanation": "Suspected concussion requires stopping participation and getting appropriate assessment and support.",
-      "difficulty": 3,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Head Injury Awareness",
-      "learningOutcome": "Apply safe response principles for suspected sport injuries.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 57,
-      "type": "MCQ",
-      "prompt": "A player feels dizzy and unusually hot during training. Which action is most appropriate?",
-      "options": ["Stop activity, move to shade, cool down, and inform the teacher or coach", "Increase the pace immediately", "Put on extra clothing and continue", "Hide the symptom from team-mates"],
-      "correctAnswer": "Stop activity, move to shade, cool down, and inform the teacher or coach",
-      "explanation": "Heat-related warning signs should be treated seriously with rest, cooling, supervision, and support.",
-      "difficulty": 3,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Heat Safety",
-      "learningOutcome": "Apply heat-safety procedures during school sport.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 58,
-      "type": "MCQ",
-      "prompt": "To compare a learner's sprint speed fairly across two terms, which testing condition should stay consistent?",
-      "options": ["Distance, timing method, surface, and warm-up procedure", "Only the colour of the stopwatch", "Different distances every test day", "Unknown start commands for each attempt"],
-      "correctAnswer": "Distance, timing method, surface, and warm-up procedure",
-      "explanation": "Consistent protocols improve validity and reliability when comparing test results.",
-      "difficulty": 3,
-      "strandTitle": "Fitness Testing and Evaluation",
-      "subStrandTitle": "Test Reliability",
-      "learningOutcome": "Apply fair testing procedures to performance monitoring.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 59,
-      "type": "MCQ",
-      "prompt": "Which fitness component is most directly estimated by a 12-minute Cooper run test?",
-      "options": ["Aerobic endurance", "Grip strength", "Static flexibility", "Single-limb balance"],
-      "correctAnswer": "Aerobic endurance",
-      "explanation": "The Cooper test uses distance covered in 12 minutes to estimate aerobic fitness.",
-      "difficulty": 3,
-      "strandTitle": "Fitness Testing and Evaluation",
-      "subStrandTitle": "Field Tests",
-      "learningOutcome": "Match field tests to the fitness components they assess.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 60,
-      "type": "MCQ",
-      "prompt": "A vertical jump test is mainly used to assess which performance quality?",
-      "options": ["Lower-body power", "Shoulder flexibility", "Long-term memory", "Respiratory rate at rest"],
-      "correctAnswer": "Lower-body power",
-      "explanation": "Jump height reflects the ability of the legs to produce force quickly.",
-      "difficulty": 3,
-      "strandTitle": "Fitness Testing and Evaluation",
-      "subStrandTitle": "Power Assessment",
-      "learningOutcome": "Identify suitable tests for power in sport.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 61,
-      "type": "MCQ",
-      "prompt": "When using video to analyse a javelin throw, why should the camera position be kept consistent between attempts?",
-      "options": ["It makes movement comparisons more valid", "It changes the athlete's muscle fibre type", "It removes the need to record distance", "It guarantees every throw is legal"],
-      "correctAnswer": "It makes movement comparisons more valid",
-      "explanation": "A consistent camera angle reduces measurement error when comparing technique across trials.",
-      "difficulty": 3,
-      "strandTitle": "Performance Analysis",
-      "subStrandTitle": "Video Observation",
-      "learningOutcome": "Apply basic video-analysis controls to sport skills.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 62,
-      "type": "MCQ",
-      "prompt": "Which performance indicator best measures ball retention in a netball or football team?",
-      "options": ["Pass completion percentage", "Number of spectators", "Length of the team bus", "Colour of the bibs"],
-      "correctAnswer": "Pass completion percentage",
-      "explanation": "Pass completion percentage directly reflects how often attempted passes reach team-mates.",
-      "difficulty": 3,
-      "strandTitle": "Performance Analysis",
-      "subStrandTitle": "Match Indicators",
-      "learningOutcome": "Select objective indicators for team performance analysis.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 63,
-      "type": "MCQ",
-      "prompt": "Which feedback is most useful after a learner misses several basketball free throws?",
-      "options": ["Specific feedback on controllable technique points", "A vague statement that the learner is bad", "Silence with no chance to adjust", "A punishment unrelated to shooting"],
-      "correctAnswer": "Specific feedback on controllable technique points",
-      "explanation": "Useful feedback focuses on actions the learner can understand, practise, and improve.",
-      "difficulty": 3,
-      "strandTitle": "Coaching and Pedagogy",
-      "subStrandTitle": "Feedback",
-      "learningOutcome": "Apply effective feedback principles in skill learning.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 64,
-      "type": "MCQ",
-      "prompt": "Which action is most likely to improve team cohesion before a school tournament?",
-      "options": ["Clarifying roles, shared goals, and respectful communication", "Changing captains every minute without reason", "Encouraging blame after each error", "Keeping tactics secret from players"],
-      "correctAnswer": "Clarifying roles, shared goals, and respectful communication",
-      "explanation": "Teams often work better when members understand expectations and communicate constructively.",
-      "difficulty": 3,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Team Cohesion",
-      "learningOutcome": "Apply group-dynamics principles to team preparation.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 65,
-      "type": "MCQ",
-      "prompt": "Why is doping considered unethical in sport?",
-      "options": ["It can endanger health and create an unfair advantage", "It makes rules clearer for everyone", "It proves training is unnecessary", "It improves respect for opponents"],
-      "correctAnswer": "It can endanger health and create an unfair advantage",
-      "explanation": "Anti-doping rules protect athlete welfare, fairness, and trust in competition.",
-      "difficulty": 3,
-      "strandTitle": "Ethics and Values in Sport",
-      "subStrandTitle": "Anti-Doping",
-      "learningOutcome": "Explain ethical reasons for anti-doping rules.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 66,
-      "type": "MCQ",
-      "prompt": "A learner with a physical disability joins a PE lesson. Which coaching response best supports inclusion?",
-      "options": ["Adapt rules or equipment while preserving meaningful participation", "Exclude the learner from all team tasks", "Ignore safety and use the same task for everyone", "Ask classmates to decide whether the learner may join"],
-      "correctAnswer": "Adapt rules or equipment while preserving meaningful participation",
-      "explanation": "Inclusive coaching adjusts tasks so learners can participate safely and purposefully.",
-      "difficulty": 3,
-      "strandTitle": "Coaching and Pedagogy",
-      "subStrandTitle": "Inclusive Practice",
-      "learningOutcome": "Apply inclusive strategies in school sport settings.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 67,
-      "type": "MCQ",
-      "prompt": "Which coaching-session sequence is most suitable for teaching a new volleyball skill?",
-      "options": ["Warm-up, demonstration, progressive practice, game application, cool-down", "Full match first, no instruction, then dismissal", "Only theory notes with no movement", "Maximum intensity test before any preparation"],
-      "correctAnswer": "Warm-up, demonstration, progressive practice, game application, cool-down",
-      "explanation": "A structured session prepares learners, builds skill gradually, applies learning, and supports recovery.",
-      "difficulty": 3,
-      "strandTitle": "Coaching and Pedagogy",
-      "subStrandTitle": "Session Structure",
-      "learningOutcome": "Organise safe and logical coaching sessions.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 68,
-      "type": "MCQ",
-      "prompt": "Which safeguarding practice is appropriate when recording learners for technique analysis?",
-      "options": ["Use school-approved consent, purpose, storage, and access rules", "Share all clips publicly without permission", "Record secretly so learners act naturally", "Keep videos forever with no review"],
-      "correctAnswer": "Use school-approved consent, purpose, storage, and access rules",
-      "explanation": "Performance recording must respect privacy, consent, and school safeguarding procedures.",
-      "difficulty": 3,
-      "strandTitle": "Ethics and Values in Sport",
-      "subStrandTitle": "Safeguarding and Privacy",
-      "learningOutcome": "Apply ethical data and safeguarding practices in sport analysis.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 69,
-      "type": "MCQ",
-      "prompt": "A player has an open cut during a match. Which school-level response is most appropriate?",
-      "options": ["Stop play for the player and follow supervised first-aid and hygiene procedures", "Let the player continue while bleeding", "Ask another learner to touch the wound without protection", "Cover it with mud and resume play"],
-      "correctAnswer": "Stop play for the player and follow supervised first-aid and hygiene procedures",
-      "explanation": "Bleeding injuries require supervised care, hygiene precautions, and safe return decisions.",
-      "difficulty": 3,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Basic First-Aid Procedures",
-      "learningOutcome": "Apply safe school procedures for visible injuries.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 70,
-      "type": "MCQ",
-      "prompt": "How can a class improve the reliability of a standing long jump test?",
-      "options": ["Use repeated trials under the same conditions and record the best valid result", "Change the take-off line for every learner", "Measure only by guessing from a distance", "Allow different surfaces for each attempt"],
-      "correctAnswer": "Use repeated trials under the same conditions and record the best valid result",
-      "explanation": "Repeats and standardised conditions reduce random error and make results more trustworthy.",
-      "difficulty": 3,
-      "strandTitle": "Fitness Testing and Evaluation",
-      "subStrandTitle": "Data Reliability",
-      "learningOutcome": "Apply reliability principles to school fitness testing.",
-      "cognitiveLevel": "apply",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 71,
-      "type": "MCQ",
-      "prompt": "Why might high-intensity interval training and continuous training both appear in an endurance athlete's season plan?",
-      "options": ["They stress different aspects of aerobic performance and can complement each other", "They are identical methods with different names", "Only interval training develops any endurance", "Continuous training prevents all need for recovery"],
-      "correctAnswer": "They stress different aspects of aerobic performance and can complement each other",
-      "explanation": "Different methods can target endurance capacity, pace tolerance, and recovery when planned carefully.",
-      "difficulty": 4,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Training Method Selection",
-      "learningOutcome": "Analyse how different training methods support performance goals.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 72,
-      "type": "MCQ",
-      "prompt": "What is the main purpose of tapering before an important competition?",
-      "options": ["Reduce fatigue while maintaining key performance adaptations", "Stop all movement for months", "Add the heaviest training load immediately before competing", "Replace skill practice with random exercises"],
-      "correctAnswer": "Reduce fatigue while maintaining key performance adaptations",
-      "explanation": "A taper lowers training load so the athlete can recover and express fitness at competition.",
-      "difficulty": 4,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Competition Preparation",
-      "learningOutcome": "Analyse load changes used to prepare for competition.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 73,
-      "type": "MCQ",
-      "prompt": "A team adds many long endurance runs during a phase intended to increase maximal power. What is the main programming concern?",
-      "options": ["The added endurance load may interfere with power adaptation if not balanced", "Endurance running always increases maximal power fastest", "Power training no longer needs technique", "All athletes respond in exactly the same way"],
-      "correctAnswer": "The added endurance load may interfere with power adaptation if not balanced",
-      "explanation": "Training goals can compete when workload, recovery, and exercise selection are poorly aligned.",
-      "difficulty": 4,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Concurrent Training",
-      "learningOutcome": "Analyse compatibility between training goals and workloads.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 74,
-      "type": "MCQ",
-      "prompt": "Why can living or training at altitude affect endurance preparation?",
-      "options": ["Lower oxygen availability can stimulate adaptations linked to oxygen transport", "Altitude removes the need for training consistency", "Air pressure directly strengthens every tendon", "Altitude makes hydration unnecessary"],
-      "correctAnswer": "Lower oxygen availability can stimulate adaptations linked to oxygen transport",
-      "explanation": "Reduced oxygen pressure can challenge the body and influence red blood cell and oxygen-use adaptations.",
-      "difficulty": 4,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Environmental Physiology",
-      "learningOutcome": "Analyse how environmental conditions influence endurance training.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 75,
-      "type": "MCQ",
-      "prompt": "In repeated short sprints with little rest, why does speed often drop across repetitions?",
-      "options": ["Energy stores and neuromuscular function become stressed before full recovery occurs", "The athlete forgets the rules after each sprint", "The track becomes longer after every repetition", "Oxygen stops existing in the air"],
-      "correctAnswer": "Energy stores and neuromuscular function become stressed before full recovery occurs",
-      "explanation": "Repeated maximal efforts can reduce phosphocreatine availability and increase fatigue before recovery catches up.",
-      "difficulty": 4,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Fatigue",
-      "learningOutcome": "Analyse physiological reasons for fatigue in repeated high-intensity exercise.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 76,
-      "type": "MCQ",
-      "prompt": "A video shows a learner's knees collapsing inward during repeated jump landings. Which coaching focus is most relevant?",
-      "options": ["Improve hip and knee control so knees track more safely", "Increase landing height immediately", "Ignore alignment because pain is absent", "Tell the learner to land with locked knees"],
-      "correctAnswer": "Improve hip and knee control so knees track more safely",
-      "explanation": "Excessive inward knee movement can increase joint stress, so control and technique should be coached.",
-      "difficulty": 4,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Movement Screening",
-      "learningOutcome": "Analyse movement patterns linked to injury-prevention coaching.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 77,
-      "type": "MCQ",
-      "prompt": "Why does a gymnast rotate faster when pulling the limbs closer to the body during a spin?",
-      "options": ["Moment of inertia decreases, so angular velocity increases", "Body mass disappears during rotation", "Gravity stops acting on the gymnast", "Friction with the air becomes the only force"],
-      "correctAnswer": "Moment of inertia decreases, so angular velocity increases",
-      "explanation": "Bringing mass closer to the axis reduces moment of inertia and increases rotation speed.",
-      "difficulty": 4,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Angular Motion",
-      "learningOutcome": "Analyse angular motion principles in sport skills.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 78,
-      "type": "MCQ",
-      "prompt": "Why does a cyclist use a lower body position when riding fast into the wind?",
-      "options": ["It reduces frontal area and aerodynamic drag", "It increases air resistance deliberately", "It turns rolling friction into food energy", "It removes the need to pedal"],
-      "correctAnswer": "It reduces frontal area and aerodynamic drag",
-      "explanation": "A lower streamlined position can reduce drag, allowing more speed for the same effort.",
-      "difficulty": 4,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Fluid Resistance",
-      "learningOutcome": "Analyse how drag affects sport performance.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 79,
-      "type": "MCQ",
-      "prompt": "During sprint acceleration, why is pushing forcefully backward and downward against the ground important?",
-      "options": ["The ground reaction force helps propel the sprinter forward", "The ground stores the runner's oxygen permanently", "The runner moves forward without external forces", "The shoes create energy from nothing"],
-      "correctAnswer": "The ground reaction force helps propel the sprinter forward",
-      "explanation": "By Newton's third law, the ground pushes back on the athlete and contributes to forward acceleration.",
-      "difficulty": 4,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Ground Reaction Forces",
-      "learningOutcome": "Analyse force application in sprint acceleration.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 80,
-      "type": "MCQ",
-      "prompt": "What does the force-velocity relationship suggest about very heavy resistance movements?",
-      "options": ["They are usually performed more slowly than lighter explosive movements", "They always move faster than unloaded jumps", "They require no force production", "They are unrelated to muscle function"],
-      "correctAnswer": "They are usually performed more slowly than lighter explosive movements",
-      "explanation": "As external load rises, movement velocity typically falls even though force demand is high.",
-      "difficulty": 4,
-      "strandTitle": "Biomechanics",
-      "subStrandTitle": "Force-Velocity Relationship",
-      "learningOutcome": "Analyse how load affects movement speed in training.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 81,
-      "type": "MCQ",
-      "prompt": "After endurance training, a runner can maintain a faster pace before heavy breathing and leg burning appear. Which adaptation is most likely reflected?",
-      "options": ["Improved lactate threshold", "Loss of all aerobic capacity", "Reduced blood oxygen transport", "Permanent dehydration"],
-      "correctAnswer": "Improved lactate threshold",
-      "explanation": "A higher lactate threshold means harder work can be sustained before fatigue signs rise sharply.",
-      "difficulty": 4,
-      "strandTitle": "Anatomy and Exercise Physiology",
-      "subStrandTitle": "Endurance Adaptations",
-      "learningOutcome": "Analyse indicators of endurance adaptation.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 82,
-      "type": "MCQ",
-      "prompt": "A mesocycle focuses first on general conditioning, then sport-specific intensity, then reduced load before finals. What planning idea does this show?",
-      "options": ["Periodised progression toward peak performance", "Random training with no sequence", "Only recovery with no overload", "Competition without preparation"],
-      "correctAnswer": "Periodised progression toward peak performance",
-      "explanation": "The phases organise training stress and recovery so performance can build toward a target event.",
-      "difficulty": 4,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Periodised Planning",
-      "learningOutcome": "Analyse phase sequencing in sport training plans.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 83,
-      "type": "MCQ",
-      "prompt": "During a planned easy run, a learner's heart rate and perceived exertion are both much higher than usual. What is the best coaching interpretation?",
-      "options": ["The learner may need load adjustment, hydration, rest, or further checking", "The session must become harder immediately", "The data prove the learner is fully recovered", "Monitoring information should be ignored"],
-      "correctAnswer": "The learner may need load adjustment, hydration, rest, or further checking",
-      "explanation": "Unexpectedly high internal load can signal fatigue, heat strain, illness, or other factors requiring caution.",
-      "difficulty": 4,
-      "strandTitle": "Training Monitoring",
-      "subStrandTitle": "Internal Load",
-      "learningOutcome": "Analyse monitoring data to make safe training decisions.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 84,
-      "type": "MCQ",
-      "prompt": "Why is a one-size-fits-all hydration rule weak for every athlete in every condition?",
-      "options": ["Sweat rate, heat, duration, intensity, and individual needs vary", "All athletes sweat exactly the same amount", "Only elite athletes need water", "Hydration is unrelated to temperature"],
-      "correctAnswer": "Sweat rate, heat, duration, intensity, and individual needs vary",
-      "explanation": "Hydration planning should consider environment, activity, and individual response rather than a single fixed rule.",
-      "difficulty": 4,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Individual Hydration Needs",
-      "learningOutcome": "Analyse factors that influence hydration strategies.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 85,
-      "type": "MCQ",
-      "prompt": "Why should a school athlete be cautious about using unverified performance supplements?",
-      "options": ["They may carry health, contamination, cost, and rule-compliance risks", "They are always safer than food", "They replace training and sleep completely", "They are required in all school sports"],
-      "correctAnswer": "They may carry health, contamination, cost, and rule-compliance risks",
-      "explanation": "Food-first choices and qualified guidance are safer than relying on unverified products.",
-      "difficulty": 4,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Supplement Safety",
-      "learningOutcome": "Analyse ethical and safety issues linked to sport supplements.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 86,
-      "type": "MCQ",
-      "prompt": "Why can low energy availability be a serious concern for active adolescents?",
-      "options": ["It can affect health, growth, recovery, mood, and performance", "It guarantees faster adaptation", "It only affects professional athletes", "It means hydration is perfect"],
-      "correctAnswer": "It can affect health, growth, recovery, mood, and performance",
-      "explanation": "When energy intake is too low for training and normal body needs, several body systems can be affected.",
-      "difficulty": 4,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Adolescent Athlete Health",
-      "learningOutcome": "Analyse the importance of energy availability in youth sport.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 87,
-      "type": "MCQ",
-      "prompt": "Why does poor sleep often reduce training quality and skill learning?",
-      "options": ["Sleep supports recovery, attention, memory, and hormonal regulation", "Sleep only affects people who do not train", "Less sleep always increases reaction speed", "Sleep replaces all practice sessions"],
-      "correctAnswer": "Sleep supports recovery, attention, memory, and hormonal regulation",
-      "explanation": "Adequate sleep helps the body recover and the brain consolidate learning.",
-      "difficulty": 4,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Sleep and Recovery",
-      "learningOutcome": "Analyse how sleep influences sport performance and learning.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 88,
-      "type": "MCQ",
-      "prompt": "Two athletes face the same final. One sees it as a challenge, the other as a threat. Which psychology idea best explains different responses?",
-      "options": ["Cognitive appraisal influences emotional and performance response", "Both athletes must have identical anxiety levels", "Only physical fitness affects emotions", "Rules determine all feelings before sport"],
-      "correctAnswer": "Cognitive appraisal influences emotional and performance response",
-      "explanation": "How an athlete interprets a situation can shape stress, confidence, focus, and behaviour.",
-      "difficulty": 4,
-      "strandTitle": "Sports Psychology",
-      "subStrandTitle": "Stress Appraisal",
-      "learningOutcome": "Analyse how interpretation affects sport performance under pressure.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 89,
-      "type": "MCQ",
-      "prompt": "Why might a coach use a more directive leadership style during an immediate safety issue but a more democratic style during season planning?",
-      "options": ["Different situations require different decision speed, expertise, and athlete input", "One leadership style is always best for every context", "Athletes should never understand decisions", "Safety issues are solved by voting slowly"],
-      "correctAnswer": "Different situations require different decision speed, expertise, and athlete input",
-      "explanation": "Effective leadership adapts to the task, risk level, time available, and learners' needs.",
-      "difficulty": 4,
-      "strandTitle": "Coaching and Pedagogy",
-      "subStrandTitle": "Leadership Styles",
-      "learningOutcome": "Analyse leadership choices in varied sport contexts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 90,
-      "type": "MCQ",
-      "prompt": "A team loses despite taking more shots than the opponent. Which analysis question is most useful?",
-      "options": ["Were the shots high quality and converted efficiently?", "Did the team have brighter jerseys?", "Was the scoreboard placed too high?", "Did more shots automatically mean better tactics?"],
-      "correctAnswer": "Were the shots high quality and converted efficiently?",
-      "explanation": "Performance analysis should examine quality, context, and efficiency rather than only raw totals.",
-      "difficulty": 4,
-      "strandTitle": "Performance Analysis",
-      "subStrandTitle": "Data Interpretation",
-      "learningOutcome": "Analyse performance indicators beyond simple counts.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 91,
-      "type": "MCQ",
-      "prompt": "A Grade 12 learner is designing an eight-week plan for an 800 m race. Which plan design is strongest?",
-      "options": ["Blend aerobic work, speed endurance, technique, recovery, and gradual load progression", "Sprint maximally every day with no rest", "Only do upper-body strength and ignore running", "Change activities randomly without recording progress"],
-      "correctAnswer": "Blend aerobic work, speed endurance, technique, recovery, and gradual load progression",
-      "explanation": "The 800 m event requires planned development of endurance, speed endurance, skill, and recovery.",
-      "difficulty": 5,
-      "strandTitle": "Training Principles",
-      "subStrandTitle": "Training Plan Design",
-      "learningOutcome": "Create integrated training plans for specific sport demands.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 92,
-      "type": "MCQ",
-      "prompt": "Which warm-up design best supports injury prevention for a school netball team?",
-      "options": ["Dynamic mobility, activation, landing mechanics, cutting drills, and gradual intensity", "Static sitting, no movement, then immediate full-speed play", "Only arm circles for all positions", "Random maximal jumps until players are tired"],
-      "correctAnswer": "Dynamic mobility, activation, landing mechanics, cutting drills, and gradual intensity",
-      "explanation": "A sport-specific warm-up should prepare the movements, muscles, and control needed for the game.",
-      "difficulty": 5,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Preventive Warm-up Design",
-      "learningOutcome": "Create sport-specific warm-up routines that reduce avoidable risk.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 93,
-      "type": "MCQ",
-      "prompt": "A school wants to use wearable trackers for training. Which policy choice is most ethical?",
-      "options": ["Collect only useful data, explain consent, protect privacy, and limit access", "Publish every learner's data online", "Collect data secretly to avoid questions", "Use data to shame slower learners"],
-      "correctAnswer": "Collect only useful data, explain consent, protect privacy, and limit access",
-      "explanation": "Responsible technology use balances performance benefits with privacy, consent, and learner welfare.",
-      "difficulty": 5,
-      "strandTitle": "Ethics and Values in Sport",
-      "subStrandTitle": "Technology and Data Ethics",
-      "learningOutcome": "Evaluate ethical safeguards for performance-tracking technology.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 94,
-      "type": "MCQ",
-      "prompt": "Which research design would best test whether a six-week plyometric programme improves vertical jump height?",
-      "options": ["Pre-test and post-test with a comparable control group and standardised jump protocol", "Ask one learner if jumping feels better after one session", "Change training, shoes, surface, and test method all at once", "Measure only the loudness of landings"],
-      "correctAnswer": "Pre-test and post-test with a comparable control group and standardised jump protocol",
-      "explanation": "A controlled, standardised design gives stronger evidence about the effect of the programme.",
-      "difficulty": 5,
-      "strandTitle": "Research and Data in Sport",
-      "subStrandTitle": "Intervention Design",
-      "learningOutcome": "Create valid school-level investigations into training effects.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 95,
-      "type": "MCQ",
-      "prompt": "A school team has three matches in one day. Which nutrition approach is most appropriate for general planning?",
-      "options": ["Use familiar balanced meals, portable carbohydrate snacks, fluids, and recovery breaks", "Try unknown supplements between every match", "Avoid all food and drink until evening", "Eat only very high-fat meals immediately before play"],
-      "correctAnswer": "Use familiar balanced meals, portable carbohydrate snacks, fluids, and recovery breaks",
-      "explanation": "Tournament planning should support fuel, hydration, digestion comfort, and recovery without risky new products.",
-      "difficulty": 5,
-      "strandTitle": "Sports Nutrition",
-      "subStrandTitle": "Tournament Planning",
-      "learningOutcome": "Create safe general nutrition plans for repeated school competitions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 96,
-      "type": "MCQ",
-      "prompt": "A football coach wants to evaluate a high-pressing style. Which analysis plan is strongest?",
-      "options": ["Track pressures, turnovers won, location of recoveries, chances created, and fatigue indicators", "Count only the number of throw-ins", "Ignore match context and use one random statistic", "Judge success only by crowd noise"],
-      "correctAnswer": "Track pressures, turnovers won, location of recoveries, chances created, and fatigue indicators",
-      "explanation": "Good analysis selects indicators that match the tactical aim and its physical consequences.",
-      "difficulty": 5,
-      "strandTitle": "Performance Analysis",
-      "subStrandTitle": "Tactical Indicators",
-      "learningOutcome": "Create performance indicators aligned to a team's tactical model.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 97,
-      "type": "MCQ",
-      "prompt": "A talented player wants to continue after an injury because scouts are watching. Which decision is most ethical for the coach?",
-      "options": ["Prioritise the learner's welfare and follow medical or school return-to-play procedures", "Let the player decide alone under pressure", "Hide the injury from officials", "Keep the player on because winning matters most"],
-      "correctAnswer": "Prioritise the learner's welfare and follow medical or school return-to-play procedures",
-      "explanation": "Duty of care requires athlete welfare to come before selection pressure or short-term results.",
-      "difficulty": 5,
-      "strandTitle": "Ethics and Values in Sport",
-      "subStrandTitle": "Duty of Care",
-      "learningOutcome": "Evaluate ethical decisions involving injury, pressure, and athlete welfare.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 98,
-      "type": "MCQ",
-      "prompt": "Which talent-identification approach is fairest for a school sports programme?",
-      "options": ["Use multiple assessments over time, consider maturation, and give feedback and access to development", "Select only the tallest learner on one day", "Exclude late developers permanently", "Choose players based on popularity only"],
-      "correctAnswer": "Use multiple assessments over time, consider maturation, and give feedback and access to development",
-      "explanation": "Fair talent development recognises growth differences, repeated evidence, and opportunities to improve.",
-      "difficulty": 5,
-      "strandTitle": "Coaching and Pedagogy",
-      "subStrandTitle": "Talent Development",
-      "learningOutcome": "Evaluate fair and developmental selection practices in school sport.",
-      "cognitiveLevel": "analyze",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 99,
-      "type": "MCQ",
-      "prompt": "A team from a cool region will compete in a hot, humid county. Which preparation plan is best?",
-      "options": ["Gradual heat exposure, adjusted intensity, hydration access, shade, and monitoring", "Arrive late and train hardest at midday immediately", "Wear extra layers during the match", "Ignore weather because skill is the only factor"],
-      "correctAnswer": "Gradual heat exposure, adjusted intensity, hydration access, shade, and monitoring",
-      "explanation": "Heat preparation should be gradual and supervised, with load and safety adjusted to the environment.",
-      "difficulty": 5,
-      "strandTitle": "Sports Safety and Recovery",
-      "subStrandTitle": "Environmental Preparation",
-      "learningOutcome": "Create safe preparation plans for challenging environmental conditions.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    },
-    {
-      "questionNumber": 100,
-      "type": "MCQ",
-      "prompt": "Which school return-to-play policy is most appropriate after a significant sport injury?",
-      "options": ["Use qualified clearance, staged progression, symptom monitoring, and communication with guardians or staff", "Return immediately once the learner feels pressure to play", "Avoid recording the injury or recovery steps", "Let team-mates vote on readiness"],
-      "correctAnswer": "Use qualified clearance, staged progression, symptom monitoring, and communication with guardians or staff",
-      "explanation": "A staged, supervised return protects welfare and supports safe participation after injury.",
-      "difficulty": 5,
-      "strandTitle": "Injury Prevention",
-      "subStrandTitle": "Return-to-Play Planning",
-      "learningOutcome": "Create safe school-level return-to-play procedures after injury.",
-      "cognitiveLevel": "create",
-      "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"]
-    }
-  ]
+ "countryCode": "KEN",
+ "curriculumCode": "CBC",
+ "gradeLevel": "Grade 12",
+ "subjectId": "sports_science",
+ "subjectName": "Sports Science",
+ "questions": [
+  {
+   "questionNumber": 1,
+   "type": "MCQ",
+   "prompt": "Which connective tissue attaches a skeletal muscle to a bone?",
+   "options": [
+    "Tendon",
+    "Ligament",
+    "Cartilage",
+    "Fascia"
+   ],
+   "correctAnswer": "Tendon",
+   "explanation": "Tendons transmit the pull of muscles to bones so that joints can move.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Musculoskeletal System",
+   "learningOutcome": "Identify major tissues that support movement in sport.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 2,
+   "type": "MCQ",
+   "prompt": "Which joint action occurs when a learner bends the elbow during a biceps curl?",
+   "options": [
+    "Flexion",
+    "Extension",
+    "Abduction",
+    "Rotation"
+   ],
+   "correctAnswer": "Flexion",
+   "explanation": "Flexion decreases the angle at a joint, such as when the forearm moves toward the upper arm.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Joint Actions",
+   "learningOutcome": "Name common joint actions used in sport skills.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 3,
+   "type": "MCQ",
+   "prompt": "Which muscle group mainly straightens the knee during kicking or jumping?",
+   "options": [
+    "Quadriceps",
+    "Hamstrings",
+    "Abdominals",
+    "Deltoids"
+   ],
+   "correctAnswer": "Quadriceps",
+   "explanation": "The quadriceps on the front of the thigh extend the knee for actions such as jumping, running, and kicking.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Major Muscle Groups",
+   "learningOutcome": "Relate major muscle groups to common sports movements.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 4,
+   "type": "MCQ",
+   "prompt": "In exercise physiology, what does aerobic energy production require?",
+   "options": [
+    "Oxygen",
+    "No blood flow",
+    "A locked joint",
+    "Only stored minerals"
+   ],
+   "correctAnswer": "Oxygen",
+   "explanation": "Aerobic metabolism uses oxygen to release energy for longer-duration physical activity.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Energy Systems",
+   "learningOutcome": "State the basic requirement for aerobic energy production.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 5,
+   "type": "MCQ",
+   "prompt": "Which molecule is the immediate energy source used by muscle fibres for contraction?",
+   "options": [
+    "ATP",
+    "Haemoglobin",
+    "Collagen",
+    "Calcium carbonate"
+   ],
+   "correctAnswer": "ATP",
+   "explanation": "Muscle cells use ATP directly to power cross-bridge cycling during contraction.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Contraction",
+   "learningOutcome": "Recognise ATP as the direct energy source for muscle action.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 6,
+   "type": "MCQ",
+   "prompt": "What does heart rate measure during physical activity?",
+   "options": [
+    "Number of heart beats per minute",
+    "Volume of air in one breath",
+    "Length of a stride in metres",
+    "Amount of sweat on the skin"
+   ],
+   "correctAnswer": "Number of heart beats per minute",
+   "explanation": "Heart rate is counted as beats per minute and normally rises as exercise intensity increases.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Cardiovascular Responses",
+   "learningOutcome": "Define basic cardiovascular measurements used in sport.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 7,
+   "type": "MCQ",
+   "prompt": "What is stroke volume?",
+   "options": [
+    "Amount of blood pumped by the heart in one beat",
+    "Number of steps taken in one lap",
+    "Maximum air breathed out after exercise",
+    "Time taken for one muscle twitch"
+   ],
+   "correctAnswer": "Amount of blood pumped by the heart in one beat",
+   "explanation": "Stroke volume describes the blood ejected by the heart with each contraction.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Cardiovascular Function",
+   "learningOutcome": "Define stroke volume and its role in exercise performance.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 8,
+   "type": "MCQ",
+   "prompt": "VO2 max is most closely linked to which fitness component?",
+   "options": [
+    "Aerobic endurance",
+    "Static balance",
+    "Reaction time",
+    "Joint flexibility"
+   ],
+   "correctAnswer": "Aerobic endurance",
+   "explanation": "VO2 max estimates the body's maximum ability to take in and use oxygen during intense exercise.",
+   "difficulty": 1,
+   "strandTitle": "Fitness Testing and Evaluation",
+   "subStrandTitle": "Aerobic Capacity",
+   "learningOutcome": "Link common fitness measures to the components they assess.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 9,
+   "type": "MCQ",
+   "prompt": "What is the main role of haemoglobin in sports performance?",
+   "options": [
+    "Transport oxygen in the blood",
+    "Store calcium in bones",
+    "Lubricate synovial joints",
+    "Digest protein in the stomach"
+   ],
+   "correctAnswer": "Transport oxygen in the blood",
+   "explanation": "Haemoglobin in red blood cells carries oxygen to working muscles.",
+   "difficulty": 1,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Blood and Oxygen Transport",
+   "learningOutcome": "Identify blood components that support exercise.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 10,
+   "type": "MCQ",
+   "prompt": "What does DOMS usually refer to after unfamiliar or hard exercise?",
+   "options": [
+    "Delayed onset muscle soreness",
+    "Daily oxygen measurement score",
+    "Dynamic overhead movement speed",
+    "Direct organ monitoring system"
+   ],
+   "correctAnswer": "Delayed onset muscle soreness",
+   "explanation": "DOMS is muscle soreness that commonly appears hours after hard or unfamiliar activity.",
+   "difficulty": 1,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Exercise Responses",
+   "learningOutcome": "Recognise common short-term responses to exercise.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 11,
+   "type": "MCQ",
+   "prompt": "In biomechanics, what is a lever?",
+   "options": [
+    "A rigid structure that rotates around a fulcrum",
+    "A chemical that stores glucose",
+    "A rule used only in athletics officiating",
+    "A type of breathing pattern"
+   ],
+   "correctAnswer": "A rigid structure that rotates around a fulcrum",
+   "explanation": "Bones often act as levers, joints act as fulcrums, and muscles provide effort.",
+   "difficulty": 1,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Levers in Movement",
+   "learningOutcome": "Define a lever and relate it to human movement.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 12,
+   "type": "MCQ",
+   "prompt": "What is the centre of mass of the body?",
+   "options": [
+    "The point where body mass is balanced",
+    "The fastest point of a sprint",
+    "The place where oxygen enters the lungs",
+    "The strongest ligament in a joint"
+   ],
+   "correctAnswer": "The point where body mass is balanced",
+   "explanation": "The centre of mass is the average location of body mass and affects balance and stability.",
+   "difficulty": 1,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Balance and Stability",
+   "learningOutcome": "Define centre of mass in relation to sports movement.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 13,
+   "type": "MCQ",
+   "prompt": "Which nutrient is the main fuel for many high-intensity sports activities?",
+   "options": [
+    "Carbohydrate",
+    "Water",
+    "Vitamin C",
+    "Dietary fibre only"
+   ],
+   "correctAnswer": "Carbohydrate",
+   "explanation": "Carbohydrate can be broken down quickly and is stored as glycogen in muscles and the liver.",
+   "difficulty": 1,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Energy Nutrients",
+   "learningOutcome": "Identify nutrients that provide energy for sport.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 14,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of a warm-up before vigorous school sport?",
+   "options": [
+    "Prepare the body and mind for activity",
+    "Make learners tired before the main session",
+    "Replace the need for skill practice",
+    "Guarantee that injury cannot occur"
+   ],
+   "correctAnswer": "Prepare the body and mind for activity",
+   "explanation": "A warm-up gradually raises readiness for movement, but it cannot remove all risk.",
+   "difficulty": 1,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Warm-up and Preparation",
+   "learningOutcome": "State the role of warm-up activities before sport.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 15,
+   "type": "MCQ",
+   "prompt": "Which behaviour best represents fair play in competitive school sport?",
+   "options": [
+    "Respecting opponents, officials, team-mates, and rules",
+    "Hiding rule violations if the team is winning",
+    "Blaming officials after every mistake",
+    "Deliberately distracting an injured opponent"
+   ],
+   "correctAnswer": "Respecting opponents, officials, team-mates, and rules",
+   "explanation": "Fair play combines respect, honesty, self-control, and responsible competition.",
+   "difficulty": 1,
+   "strandTitle": "Ethics and Values in Sport",
+   "subStrandTitle": "Fair Play",
+   "learningOutcome": "Recognise ethical behaviour in school sport settings.",
+   "cognitiveLevel": "recall",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 16,
+   "type": "MCQ",
+   "prompt": "Which description best matches a concentric muscle contraction?",
+   "options": [
+    "A muscle shortens while producing force",
+    "A muscle lengthens while controlling force",
+    "A joint stays completely still without force",
+    "A tendon turns into cartilage"
+   ],
+   "correctAnswer": "A muscle shortens while producing force",
+   "explanation": "In a concentric contraction, the muscle creates force while shortening, such as the lifting phase of a curl.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Actions",
+   "learningOutcome": "Distinguish common types of muscle contraction.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 17,
+   "type": "MCQ",
+   "prompt": "When a learner slowly lowers from a pull-up, which muscle action controls the movement?",
+   "options": [
+    "Eccentric contraction",
+    "Static stretching only",
+    "Passive diffusion",
+    "Ballistic rebound"
+   ],
+   "correctAnswer": "Eccentric contraction",
+   "explanation": "An eccentric contraction produces force while the muscle lengthens, helping control the lowering phase.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Actions",
+   "learningOutcome": "Apply muscle contraction terms to sporting movements.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 18,
+   "type": "MCQ",
+   "prompt": "What is the main role of an antagonist muscle during a controlled sport movement?",
+   "options": [
+    "Oppose or control the action of the agonist",
+    "Supply oxygen to red blood cells",
+    "Store food in the stomach",
+    "Act as the hard surface of the court"
+   ],
+   "correctAnswer": "Oppose or control the action of the agonist",
+   "explanation": "Antagonist muscles can slow, stabilise, or reverse the action produced by agonist muscles.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Pairs",
+   "learningOutcome": "Explain how muscle pairs coordinate movement.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 19,
+   "type": "MCQ",
+   "prompt": "Which feature is most typical of slow-twitch muscle fibres?",
+   "options": [
+    "High resistance to fatigue",
+    "Very low oxygen use",
+    "Only used for one-second efforts",
+    "No capillary supply"
+   ],
+   "correctAnswer": "High resistance to fatigue",
+   "explanation": "Slow-twitch fibres are suited to endurance work because they use oxygen efficiently and resist fatigue.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Fibre Types",
+   "learningOutcome": "Compare muscle fibre characteristics used in different sports.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 20,
+   "type": "MCQ",
+   "prompt": "Fast-twitch muscle fibres are especially useful in which activity?",
+   "options": [
+    "Explosive sprint start",
+    "Slow walking for many hours",
+    "Quiet standing in assembly",
+    "Reading a tactics board"
+   ],
+   "correctAnswer": "Explosive sprint start",
+   "explanation": "Fast-twitch fibres can produce high force quickly, which supports explosive speed and power.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Muscle Fibre Types",
+   "learningOutcome": "Relate muscle fibre types to sport demands.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 21,
+   "type": "MCQ",
+   "prompt": "What does lactate threshold broadly describe?",
+   "options": [
+    "The exercise intensity where lactate begins to accumulate faster",
+    "The moment a bone reaches full length",
+    "The number of passes completed in a match",
+    "The maximum distance a ball can bounce"
+   ],
+   "correctAnswer": "The exercise intensity where lactate begins to accumulate faster",
+   "explanation": "Lactate threshold helps explain when high-intensity work becomes harder to sustain.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Exercise Intensity",
+   "learningOutcome": "Describe lactate threshold as an indicator of endurance performance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 22,
+   "type": "MCQ",
+   "prompt": "Which statement best explains progressive overload?",
+   "options": [
+    "Training demand is increased gradually as fitness improves",
+    "Every session must be harder than the last without rest",
+    "Only competition can improve performance",
+    "Fitness improves when practice is stopped completely"
+   ],
+   "correctAnswer": "Training demand is increased gradually as fitness improves",
+   "explanation": "Progressive overload challenges the body in manageable steps so adaptation can occur.",
+   "difficulty": 2,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Overload and Adaptation",
+   "learningOutcome": "Explain how progressive overload supports fitness development.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 23,
+   "type": "MCQ",
+   "prompt": "Which training principle means practice should match the energy system and movement pattern of the sport?",
+   "options": [
+    "Specificity",
+    "Reversibility",
+    "Randomisation only",
+    "Sponsorship"
+   ],
+   "correctAnswer": "Specificity",
+   "explanation": "Specificity means training adaptations are closely linked to the demands that are practised.",
+   "difficulty": 2,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Specificity",
+   "learningOutcome": "Describe the principle of specificity in sport preparation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 24,
+   "type": "MCQ",
+   "prompt": "Why are planned rest days included in a training programme?",
+   "options": [
+    "They allow recovery and adaptation after training stress",
+    "They remove the need to learn technique",
+    "They guarantee instant peak performance",
+    "They make warm-ups unnecessary"
+   ],
+   "correctAnswer": "They allow recovery and adaptation after training stress",
+   "explanation": "Training creates stress, while rest helps tissues and body systems adapt safely.",
+   "difficulty": 2,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Recovery",
+   "learningOutcome": "Explain the importance of recovery in training plans.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 25,
+   "type": "MCQ",
+   "prompt": "What is periodisation in sports training?",
+   "options": [
+    "Planning training in phases across a season",
+    "Doing the same session every day all year",
+    "Only training when there is no competition",
+    "Changing sports equipment after every drill"
+   ],
+   "correctAnswer": "Planning training in phases across a season",
+   "explanation": "Periodisation organises workload, recovery, and competition preparation over time.",
+   "difficulty": 2,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Season Planning",
+   "learningOutcome": "Describe periodisation as structured training planning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 26,
+   "type": "MCQ",
+   "prompt": "Which training method mixes faster and slower running without fixed intervals?",
+   "options": [
+    "Fartlek training",
+    "Isometric testing",
+    "Static rest only",
+    "Circuit officiating"
+   ],
+   "correctAnswer": "Fartlek training",
+   "explanation": "Fartlek training uses varied pace changes, often in a continuous running session.",
+   "difficulty": 2,
+   "strandTitle": "Training Methods",
+   "subStrandTitle": "Endurance Training",
+   "learningOutcome": "Identify training methods used to develop endurance.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 27,
+   "type": "MCQ",
+   "prompt": "Why should learners begin training sessions already well hydrated?",
+   "options": [
+    "Fluid supports temperature control and circulation",
+    "Water replaces all food needed for sport",
+    "Hydration prevents every possible injury",
+    "Drinking water removes the need for rest"
+   ],
+   "correctAnswer": "Fluid supports temperature control and circulation",
+   "explanation": "Adequate fluid helps blood flow and sweating, both of which support safe exercise.",
+   "difficulty": 2,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Hydration",
+   "learningOutcome": "Explain why hydration matters before and during physical activity.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 28,
+   "type": "MCQ",
+   "prompt": "Which post-training snack best supports general recovery after a school practice?",
+   "options": [
+    "A balanced snack with carbohydrate, protein, and fluid",
+    "Only sweets with no drink",
+    "A skipped meal to stay light",
+    "A random supplement instead of food"
+   ],
+   "correctAnswer": "A balanced snack with carbohydrate, protein, and fluid",
+   "explanation": "Carbohydrate helps restore fuel, protein supports repair, and fluid replaces sweat losses.",
+   "difficulty": 2,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Recovery Nutrition",
+   "learningOutcome": "Select safe general nutrition choices that support recovery.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 29,
+   "type": "MCQ",
+   "prompt": "What are electrolytes in the context of exercise hydration?",
+   "options": [
+    "Minerals such as sodium and potassium in body fluids",
+    "Only proteins found in muscle fibres",
+    "Air spaces inside the lungs",
+    "Bones that move at a joint"
+   ],
+   "correctAnswer": "Minerals such as sodium and potassium in body fluids",
+   "explanation": "Electrolytes help fluid balance, nerve signals, and muscle function during exercise.",
+   "difficulty": 2,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Electrolytes",
+   "learningOutcome": "Describe the role of electrolytes in exercise.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 30,
+   "type": "MCQ",
+   "prompt": "Where is glycogen stored for later use during physical activity?",
+   "options": [
+    "Muscles and liver",
+    "Hair and nails",
+    "Teeth and ligaments only",
+    "Skin surface only"
+   ],
+   "correctAnswer": "Muscles and liver",
+   "explanation": "Glycogen is a stored form of carbohydrate found mainly in skeletal muscle and the liver.",
+   "difficulty": 2,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Fuel Storage",
+   "learningOutcome": "Explain how carbohydrate is stored for exercise.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 31,
+   "type": "MCQ",
+   "prompt": "How does sweating help an athlete during exercise in hot conditions?",
+   "options": [
+    "Evaporation of sweat removes heat from the body",
+    "Sweat turns directly into muscle fuel",
+    "Sweating stops the heart from beating faster",
+    "Sweat makes joints stronger immediately"
+   ],
+   "correctAnswer": "Evaporation of sweat removes heat from the body",
+   "explanation": "As sweat evaporates, it carries heat away and helps control body temperature.",
+   "difficulty": 2,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Thermoregulation",
+   "learningOutcome": "Explain how sweating contributes to temperature regulation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 32,
+   "type": "MCQ",
+   "prompt": "What is a useful purpose of a cool-down after intense exercise?",
+   "options": [
+    "Gradually return breathing and heart rate toward resting levels",
+    "Immediately build maximum strength",
+    "Replace all sleep needed for recovery",
+    "Make the next warm-up unnecessary"
+   ],
+   "correctAnswer": "Gradually return breathing and heart rate toward resting levels",
+   "explanation": "A cool-down helps the body transition from intense activity toward recovery.",
+   "difficulty": 2,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Cool-down",
+   "learningOutcome": "Explain why cool-down activities are used after exercise.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 33,
+   "type": "MCQ",
+   "prompt": "Why can poorly fitting shoes increase injury risk in running games?",
+   "options": [
+    "They can reduce support, comfort, and safe foot mechanics",
+    "They always make players faster",
+    "They strengthen every ankle ligament instantly",
+    "They remove all need for skill training"
+   ],
+   "correctAnswer": "They can reduce support, comfort, and safe foot mechanics",
+   "explanation": "Footwear should suit the activity, surface, and learner so movement is stable and comfortable.",
+   "difficulty": 2,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Equipment Safety",
+   "learningOutcome": "Explain how suitable equipment supports safer participation.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 34,
+   "type": "MCQ",
+   "prompt": "What does the rating of perceived exertion help a learner judge?",
+   "options": [
+    "How hard the exercise feels",
+    "The exact length of every muscle",
+    "The official score of a match",
+    "The colour of an opponent's kit"
+   ],
+   "correctAnswer": "How hard the exercise feels",
+   "explanation": "Perceived exertion is a simple way to monitor training intensity using how effort feels.",
+   "difficulty": 2,
+   "strandTitle": "Training Monitoring",
+   "subStrandTitle": "Intensity Control",
+   "learningOutcome": "Use perceived exertion as a basic training-monitoring tool.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 35,
+   "type": "MCQ",
+   "prompt": "Which sign may suggest that a learner is not recovering well from training?",
+   "options": [
+    "Unusual tiredness and declining performance over several sessions",
+    "Improved concentration after adequate sleep",
+    "Steady progress after planned rest",
+    "Normal thirst after a hot session"
+   ],
+   "correctAnswer": "Unusual tiredness and declining performance over several sessions",
+   "explanation": "Persistent tiredness and falling performance can indicate excessive training stress or poor recovery.",
+   "difficulty": 2,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Overtraining Awareness",
+   "learningOutcome": "Recognise warning signs of poor recovery in school training.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 36,
+   "type": "MCQ",
+   "prompt": "Why is spotting used during some gymnastics or resistance exercises at school?",
+   "options": [
+    "To help supervise technique and reduce avoidable risk",
+    "To let learners attempt unsafe loads alone",
+    "To replace teacher supervision completely",
+    "To make rules unnecessary"
+   ],
+   "correctAnswer": "To help supervise technique and reduce avoidable risk",
+   "explanation": "Spotting is a safety support used with clear instruction, appropriate tasks, and supervision.",
+   "difficulty": 2,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Supervised Practice",
+   "learningOutcome": "Explain safe support practices during school sport activities.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 37,
+   "type": "MCQ",
+   "prompt": "Which goal is written in a SMART style for a school athlete?",
+   "options": [
+    "Improve 1500 m time by 10 seconds within eight weeks",
+    "Become better at everything soon",
+    "Train hard with no plan",
+    "Win every future race easily"
+   ],
+   "correctAnswer": "Improve 1500 m time by 10 seconds within eight weeks",
+   "explanation": "SMART goals are specific, measurable, achievable, relevant, and time-bound.",
+   "difficulty": 2,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Goal Setting",
+   "learningOutcome": "Identify goal statements that support motivation and planning.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 38,
+   "type": "MCQ",
+   "prompt": "Which strategy can help a learner manage pre-match anxiety safely?",
+   "options": [
+    "Controlled breathing and positive self-talk",
+    "Ignoring all safety instructions",
+    "Skipping warm-up to save energy",
+    "Arguing with officials before play"
+   ],
+   "correctAnswer": "Controlled breathing and positive self-talk",
+   "explanation": "Breathing control and constructive self-talk can reduce tension and support focus.",
+   "difficulty": 2,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Anxiety Management",
+   "learningOutcome": "Select basic psychological strategies for competition readiness.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 39,
+   "type": "MCQ",
+   "prompt": "Which example shows intrinsic motivation in sport?",
+   "options": [
+    "Practising because the learner enjoys improving the skill",
+    "Training only to receive a prize",
+    "Playing only to avoid punishment",
+    "Running only because a crowd is watching"
+   ],
+   "correctAnswer": "Practising because the learner enjoys improving the skill",
+   "explanation": "Intrinsic motivation comes from internal interest, enjoyment, or personal satisfaction.",
+   "difficulty": 2,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Motivation",
+   "learningOutcome": "Differentiate intrinsic and extrinsic motivation in sport.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 40,
+   "type": "MCQ",
+   "prompt": "Why might too much arousal reduce performance in a precise skill such as archery?",
+   "options": [
+    "It can increase tension and disrupt fine control",
+    "It always improves accuracy without practice",
+    "It changes the target distance automatically",
+    "It removes the need for concentration"
+   ],
+   "correctAnswer": "It can increase tension and disrupt fine control",
+   "explanation": "Fine skills often need calm focus; excessive arousal can interfere with timing and precision.",
+   "difficulty": 2,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Arousal and Performance",
+   "learningOutcome": "Explain how arousal level can affect different sport skills.",
+   "cognitiveLevel": "understand",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 41,
+   "type": "MCQ",
+   "prompt": "A learner has a maximum heart rate of 200 beats per minute and a resting heart rate of 60. Using 60 percent heart-rate reserve, what target heart rate is calculated?",
+   "options": [
+    "144 beats per minute",
+    "120 beats per minute",
+    "156 beats per minute",
+    "180 beats per minute"
+   ],
+   "correctAnswer": "144 beats per minute",
+   "explanation": "Heart-rate reserve is 200 minus 60, which is 140; 60 percent of 140 is 84, and 84 plus 60 gives 144.",
+   "difficulty": 3,
+   "strandTitle": "Training Monitoring",
+   "subStrandTitle": "Heart Rate Calculations",
+   "learningOutcome": "Apply heart-rate reserve calculations to training intensity.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 42,
+   "type": "MCQ",
+   "prompt": "If a learner applies an average force of 300 N to move a sled 2 m, how much mechanical work is done?",
+   "options": [
+    "600 J",
+    "150 J",
+    "302 J",
+    "900 J"
+   ],
+   "correctAnswer": "600 J",
+   "explanation": "Work equals force multiplied by distance, so 300 N multiplied by 2 m equals 600 J.",
+   "difficulty": 3,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Work and Energy",
+   "learningOutcome": "Calculate mechanical work in simple sport contexts.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 43,
+   "type": "MCQ",
+   "prompt": "Why does bending the knees on landing from a jump reduce peak impact force?",
+   "options": [
+    "It increases the time over which momentum changes",
+    "It removes gravity from the landing",
+    "It makes body mass disappear",
+    "It stops all movement at the hip"
+   ],
+   "correctAnswer": "It increases the time over which momentum changes",
+   "explanation": "Increasing the stopping time lowers peak force for the same change in momentum.",
+   "difficulty": 3,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Impulse and Landing",
+   "learningOutcome": "Apply impulse principles to safer landing mechanics.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 44,
+   "type": "MCQ",
+   "prompt": "Ignoring air resistance and height differences, which release angle usually gives the greatest projectile range?",
+   "options": [
+    "45 degrees",
+    "10 degrees",
+    "75 degrees",
+    "90 degrees"
+   ],
+   "correctAnswer": "45 degrees",
+   "explanation": "In the simplified model, 45 degrees balances vertical and horizontal velocity components for maximum range.",
+   "difficulty": 3,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Projectile Motion",
+   "learningOutcome": "Apply basic projectile concepts to sport skills.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 45,
+   "type": "MCQ",
+   "prompt": "During a calf raise, the ball of the foot acts as the fulcrum, body weight is the load, and calf muscles provide effort. Which class of lever is this?",
+   "options": [
+    "Second-class lever",
+    "First-class lever",
+    "Third-class lever",
+    "No lever is present"
+   ],
+   "correctAnswer": "Second-class lever",
+   "explanation": "In a second-class lever, the load lies between the fulcrum and the effort.",
+   "difficulty": 3,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Lever Systems",
+   "learningOutcome": "Classify lever systems in human movement examples.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 46,
+   "type": "MCQ",
+   "prompt": "A 50 N force acts at right angles 0.4 m from a joint. What moment of force is produced?",
+   "options": [
+    "20 Nm",
+    "125 Nm",
+    "50.4 Nm",
+    "0.8 Nm"
+   ],
+   "correctAnswer": "20 Nm",
+   "explanation": "Moment equals force multiplied by perpendicular distance, so 50 N times 0.4 m equals 20 Nm.",
+   "difficulty": 3,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Moments and Torque",
+   "learningOutcome": "Calculate simple moments of force in movement analysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 47,
+   "type": "MCQ",
+   "prompt": "Which energy system is most dominant in the first few seconds of a maximal sprint start?",
+   "options": [
+    "ATP-PC system",
+    "Aerobic system",
+    "Oxidation of fat only",
+    "Slow digestion of fibre"
+   ],
+   "correctAnswer": "ATP-PC system",
+   "explanation": "The ATP-PC system supplies immediate energy for very short, explosive efforts.",
+   "difficulty": 3,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Short-Term Energy Supply",
+   "learningOutcome": "Apply energy-system knowledge to explosive sport actions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 48,
+   "type": "MCQ",
+   "prompt": "A football midfielder repeatedly runs, changes direction, and recovers during a match. Which fitness combination is most relevant?",
+   "options": [
+    "Aerobic endurance, agility, speed endurance, and skill",
+    "Maximum flexibility only",
+    "Handgrip strength only",
+    "Static balance without movement"
+   ],
+   "correctAnswer": "Aerobic endurance, agility, speed endurance, and skill",
+   "explanation": "Midfield play combines repeated running, quick direction changes, recovery, and technical decisions.",
+   "difficulty": 3,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Needs Analysis",
+   "learningOutcome": "Match sport roles to relevant fitness demands.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 49,
+   "type": "MCQ",
+   "prompt": "Which session plan best suits a school 400 m runner developing speed endurance?",
+   "options": [
+    "Warm-up, repeated fast runs with planned rest, technique focus, and cool-down",
+    "Only one all-out run with no warm-up",
+    "Heavy lifting to failure every day",
+    "Long sitting periods with no running"
+   ],
+   "correctAnswer": "Warm-up, repeated fast runs with planned rest, technique focus, and cool-down",
+   "explanation": "Speed-endurance work should include preparation, repeated efforts, recovery, technique, and cool-down.",
+   "difficulty": 3,
+   "strandTitle": "Training Methods",
+   "subStrandTitle": "Speed Endurance",
+   "learningOutcome": "Select safe training structures for specific performance goals.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 50,
+   "type": "MCQ",
+   "prompt": "After a very hard interval session, what is the most appropriate next-day training choice for many school athletes?",
+   "options": [
+    "Low-intensity recovery or rest depending on the plan",
+    "Another harder interval session without review",
+    "Maximum jumps until exhaustion",
+    "No sleep because fitness has improved"
+   ],
+   "correctAnswer": "Low-intensity recovery or rest depending on the plan",
+   "explanation": "Recovery sessions or rest help adaptation and reduce the risk of accumulating excessive fatigue.",
+   "difficulty": 3,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Load Management",
+   "learningOutcome": "Apply recovery principles when sequencing training sessions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 51,
+   "type": "MCQ",
+   "prompt": "During a hot afternoon tournament, which hydration plan is most suitable for school participants?",
+   "options": [
+    "Use regular drink breaks, shade when possible, and monitor how learners feel",
+    "Ban all fluid until the final whistle",
+    "Drink only after dizziness begins",
+    "Use thirst to ignore heat safety rules"
+   ],
+   "correctAnswer": "Use regular drink breaks, shade when possible, and monitor how learners feel",
+   "explanation": "Planned fluid access, shade, and monitoring reduce heat strain during school sport.",
+   "difficulty": 3,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Hydration Planning",
+   "learningOutcome": "Apply hydration principles to school competition settings.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 52,
+   "type": "MCQ",
+   "prompt": "The day before a long-distance school race, which meal pattern best supports fuel availability?",
+   "options": [
+    "Balanced meals with enough carbohydrate, fluids, and familiar foods",
+    "Trying unknown foods and skipping breakfast",
+    "Eating no carbohydrate at all",
+    "Replacing all meals with energy drinks"
+   ],
+   "correctAnswer": "Balanced meals with enough carbohydrate, fluids, and familiar foods",
+   "explanation": "Familiar balanced meals with adequate carbohydrate help fill glycogen stores without unnecessary risk.",
+   "difficulty": 3,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Pre-Event Eating",
+   "learningOutcome": "Apply general nutrition concepts to endurance event preparation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 53,
+   "type": "MCQ",
+   "prompt": "Why is regularly skipping meals risky for an adolescent athlete?",
+   "options": [
+    "It can reduce energy availability, concentration, recovery, and growth support",
+    "It guarantees faster sprinting",
+    "It improves hydration automatically",
+    "It permanently prevents fatigue"
+   ],
+   "correctAnswer": "It can reduce energy availability, concentration, recovery, and growth support",
+   "explanation": "Young athletes need enough energy and nutrients for school, growth, training, and recovery.",
+   "difficulty": 3,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Energy Availability",
+   "learningOutcome": "Explain why regular balanced eating supports adolescent athletes.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 54,
+   "type": "MCQ",
+   "prompt": "Why might a large strength imbalance between hamstrings and quadriceps increase knee injury risk?",
+   "options": [
+    "The muscles may not control knee forces evenly during running and landing",
+    "The knee stops needing ligaments",
+    "The ankle becomes the only moving joint",
+    "All movement becomes aerobic"
+   ],
+   "correctAnswer": "The muscles may not control knee forces evenly during running and landing",
+   "explanation": "Balanced strength and control around the knee help stabilise movement during demanding skills.",
+   "difficulty": 3,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Muscle Balance",
+   "learningOutcome": "Apply musculoskeletal knowledge to injury-prevention decisions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 55,
+   "type": "MCQ",
+   "prompt": "Which landing cue best supports safer knee alignment after a jump?",
+   "options": [
+    "Land softly with knees tracking in line with toes",
+    "Land with locked knees and feet crossed",
+    "Twist sharply while looking away",
+    "Keep all body weight on the heels only"
+   ],
+   "correctAnswer": "Land softly with knees tracking in line with toes",
+   "explanation": "Soft landings with controlled knee alignment reduce excessive joint stress.",
+   "difficulty": 3,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Movement Technique",
+   "learningOutcome": "Apply safe technique cues to jumping and landing tasks.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 56,
+   "type": "MCQ",
+   "prompt": "A learner collides during football and shows confusion after the impact. What is the safest school-level response?",
+   "options": [
+    "Remove the learner from play and refer to a qualified adult or health professional",
+    "Let the learner continue if the team needs them",
+    "Ask the learner to sprint to prove fitness",
+    "Ignore symptoms until the match ends"
+   ],
+   "correctAnswer": "Remove the learner from play and refer to a qualified adult or health professional",
+   "explanation": "Suspected concussion requires stopping participation and getting appropriate assessment and support.",
+   "difficulty": 3,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Head Injury Awareness",
+   "learningOutcome": "Apply safe response principles for suspected sport injuries.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 57,
+   "type": "MCQ",
+   "prompt": "A player feels dizzy and unusually hot during training. Which action is most appropriate?",
+   "options": [
+    "Stop activity, move to shade, cool down, and inform the teacher or coach",
+    "Increase the pace immediately",
+    "Put on extra clothing and continue",
+    "Hide the symptom from team-mates"
+   ],
+   "correctAnswer": "Stop activity, move to shade, cool down, and inform the teacher or coach",
+   "explanation": "Heat-related warning signs should be treated seriously with rest, cooling, supervision, and support.",
+   "difficulty": 3,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Heat Safety",
+   "learningOutcome": "Apply heat-safety procedures during school sport.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 58,
+   "type": "MCQ",
+   "prompt": "To compare a learner's sprint speed fairly across two terms, which testing condition should stay consistent?",
+   "options": [
+    "Distance, timing method, surface, and warm-up procedure",
+    "Only the colour of the stopwatch",
+    "Different distances every test day",
+    "Unknown start commands for each attempt"
+   ],
+   "correctAnswer": "Distance, timing method, surface, and warm-up procedure",
+   "explanation": "Consistent protocols improve validity and reliability when comparing test results.",
+   "difficulty": 3,
+   "strandTitle": "Fitness Testing and Evaluation",
+   "subStrandTitle": "Test Reliability",
+   "learningOutcome": "Apply fair testing procedures to performance monitoring.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 59,
+   "type": "MCQ",
+   "prompt": "Which fitness component is most directly estimated by a 12-minute Cooper run test?",
+   "options": [
+    "Aerobic endurance",
+    "Grip strength",
+    "Static flexibility",
+    "Single-limb balance"
+   ],
+   "correctAnswer": "Aerobic endurance",
+   "explanation": "The Cooper test uses distance covered in 12 minutes to estimate aerobic fitness.",
+   "difficulty": 3,
+   "strandTitle": "Fitness Testing and Evaluation",
+   "subStrandTitle": "Field Tests",
+   "learningOutcome": "Match field tests to the fitness components they assess.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 60,
+   "type": "MCQ",
+   "prompt": "A vertical jump test is mainly used to assess which performance quality?",
+   "options": [
+    "Lower-body power",
+    "Shoulder flexibility",
+    "Long-term memory",
+    "Respiratory rate at rest"
+   ],
+   "correctAnswer": "Lower-body power",
+   "explanation": "Jump height reflects the ability of the legs to produce force quickly.",
+   "difficulty": 3,
+   "strandTitle": "Fitness Testing and Evaluation",
+   "subStrandTitle": "Power Assessment",
+   "learningOutcome": "Identify suitable tests for power in sport.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 61,
+   "type": "MCQ",
+   "prompt": "When using video to analyse a javelin throw, why should the camera position be kept consistent between attempts?",
+   "options": [
+    "It makes movement comparisons more valid",
+    "It changes the athlete's muscle fibre type",
+    "It removes the need to record distance",
+    "It guarantees every throw is legal"
+   ],
+   "correctAnswer": "It makes movement comparisons more valid",
+   "explanation": "A consistent camera angle reduces measurement error when comparing technique across trials.",
+   "difficulty": 3,
+   "strandTitle": "Performance Analysis",
+   "subStrandTitle": "Video Observation",
+   "learningOutcome": "Apply basic video-analysis controls to sport skills.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 62,
+   "type": "MCQ",
+   "prompt": "Which performance indicator best measures ball retention in a netball or football team?",
+   "options": [
+    "Pass completion percentage",
+    "Number of spectators",
+    "Length of the team bus",
+    "Colour of the bibs"
+   ],
+   "correctAnswer": "Pass completion percentage",
+   "explanation": "Pass completion percentage directly reflects how often attempted passes reach team-mates.",
+   "difficulty": 3,
+   "strandTitle": "Performance Analysis",
+   "subStrandTitle": "Match Indicators",
+   "learningOutcome": "Select objective indicators for team performance analysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 63,
+   "type": "MCQ",
+   "prompt": "Which feedback is most useful after a learner misses several basketball free throws?",
+   "options": [
+    "Specific feedback on controllable technique points",
+    "A vague statement that the learner is bad",
+    "Silence with no chance to adjust",
+    "A punishment unrelated to shooting"
+   ],
+   "correctAnswer": "Specific feedback on controllable technique points",
+   "explanation": "Useful feedback focuses on actions the learner can understand, practise, and improve.",
+   "difficulty": 3,
+   "strandTitle": "Coaching and Pedagogy",
+   "subStrandTitle": "Feedback",
+   "learningOutcome": "Apply effective feedback principles in skill learning.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 64,
+   "type": "MCQ",
+   "prompt": "Which action is most likely to improve team cohesion before a school tournament?",
+   "options": [
+    "Clarifying roles, shared goals, and respectful communication",
+    "Changing captains every minute without reason",
+    "Encouraging blame after each error",
+    "Keeping tactics secret from players"
+   ],
+   "correctAnswer": "Clarifying roles, shared goals, and respectful communication",
+   "explanation": "Teams often work better when members understand expectations and communicate constructively.",
+   "difficulty": 3,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Team Cohesion",
+   "learningOutcome": "Apply group-dynamics principles to team preparation.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 65,
+   "type": "MCQ",
+   "prompt": "Why is doping considered unethical in sport?",
+   "options": [
+    "It can endanger health and create an unfair advantage",
+    "It makes rules clearer for everyone",
+    "It proves training is unnecessary",
+    "It improves respect for opponents"
+   ],
+   "correctAnswer": "It can endanger health and create an unfair advantage",
+   "explanation": "Anti-doping rules protect athlete welfare, fairness, and trust in competition.",
+   "difficulty": 3,
+   "strandTitle": "Ethics and Values in Sport",
+   "subStrandTitle": "Anti-Doping",
+   "learningOutcome": "Explain ethical reasons for anti-doping rules.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 66,
+   "type": "MCQ",
+   "prompt": "A learner with a physical disability joins a PE lesson. Which coaching response best supports inclusion?",
+   "options": [
+    "Adapt rules or equipment while preserving meaningful participation",
+    "Exclude the learner from all team tasks",
+    "Ignore safety and use the same task for everyone",
+    "Ask classmates to decide whether the learner may join"
+   ],
+   "correctAnswer": "Adapt rules or equipment while preserving meaningful participation",
+   "explanation": "Inclusive coaching adjusts tasks so learners can participate safely and purposefully.",
+   "difficulty": 3,
+   "strandTitle": "Coaching and Pedagogy",
+   "subStrandTitle": "Inclusive Practice",
+   "learningOutcome": "Apply inclusive strategies in school sport settings.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 67,
+   "type": "MCQ",
+   "prompt": "Which coaching-session sequence is most suitable for teaching a new volleyball skill?",
+   "options": [
+    "Warm-up, demonstration, progressive practice, game application, cool-down",
+    "Full match first, no instruction, then dismissal",
+    "Only theory notes with no movement",
+    "Maximum intensity test before any preparation"
+   ],
+   "correctAnswer": "Warm-up, demonstration, progressive practice, game application, cool-down",
+   "explanation": "A structured session prepares learners, builds skill gradually, applies learning, and supports recovery.",
+   "difficulty": 3,
+   "strandTitle": "Coaching and Pedagogy",
+   "subStrandTitle": "Session Structure",
+   "learningOutcome": "Organise safe and logical coaching sessions.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 68,
+   "type": "MCQ",
+   "prompt": "Which safeguarding practice is appropriate when recording learners for technique analysis?",
+   "options": [
+    "Use school-approved consent, purpose, storage, and access rules",
+    "Share all clips publicly without permission",
+    "Record secretly so learners act naturally",
+    "Keep videos forever with no review"
+   ],
+   "correctAnswer": "Use school-approved consent, purpose, storage, and access rules",
+   "explanation": "Performance recording must respect privacy, consent, and school safeguarding procedures.",
+   "difficulty": 3,
+   "strandTitle": "Ethics and Values in Sport",
+   "subStrandTitle": "Safeguarding and Privacy",
+   "learningOutcome": "Apply ethical data and safeguarding practices in sport analysis.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 69,
+   "type": "MCQ",
+   "prompt": "A player has an open cut during a match. Which school-level response is most appropriate?",
+   "options": [
+    "Stop play for the player and follow supervised first-aid and hygiene procedures",
+    "Let the player continue while bleeding",
+    "Ask another learner to touch the wound without protection",
+    "Cover it with mud and resume play"
+   ],
+   "correctAnswer": "Stop play for the player and follow supervised first-aid and hygiene procedures",
+   "explanation": "Bleeding injuries require supervised care, hygiene precautions, and safe return decisions.",
+   "difficulty": 3,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Basic First-Aid Procedures",
+   "learningOutcome": "Apply safe school procedures for visible injuries.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 70,
+   "type": "MCQ",
+   "prompt": "How can a class improve the reliability of a standing long jump test?",
+   "options": [
+    "Use repeated trials under the same conditions and record the best valid result",
+    "Change the take-off line for every learner",
+    "Measure only by guessing from a distance",
+    "Allow different surfaces for each attempt"
+   ],
+   "correctAnswer": "Use repeated trials under the same conditions and record the best valid result",
+   "explanation": "Repeats and standardised conditions reduce random error and make results more trustworthy.",
+   "difficulty": 3,
+   "strandTitle": "Fitness Testing and Evaluation",
+   "subStrandTitle": "Data Reliability",
+   "learningOutcome": "Apply reliability principles to school fitness testing.",
+   "cognitiveLevel": "apply",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 71,
+   "type": "MCQ",
+   "prompt": "Why might high-intensity interval training and continuous training both appear in an endurance athlete's season plan?",
+   "options": [
+    "They stress different aspects of aerobic performance and can complement each other",
+    "They are identical methods with different names",
+    "Only interval training develops any endurance",
+    "Continuous training prevents all need for recovery"
+   ],
+   "correctAnswer": "They stress different aspects of aerobic performance and can complement each other",
+   "explanation": "Different methods can target endurance capacity, pace tolerance, and recovery when planned carefully.",
+   "difficulty": 4,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Training Method Selection",
+   "learningOutcome": "Analyse how different training methods support performance goals.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 72,
+   "type": "MCQ",
+   "prompt": "What is the main purpose of tapering before an important competition?",
+   "options": [
+    "Reduce fatigue while maintaining key performance adaptations",
+    "Stop all movement for months",
+    "Add the heaviest training load immediately before competing",
+    "Replace skill practice with random exercises"
+   ],
+   "correctAnswer": "Reduce fatigue while maintaining key performance adaptations",
+   "explanation": "A taper lowers training load so the athlete can recover and express fitness at competition.",
+   "difficulty": 4,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Competition Preparation",
+   "learningOutcome": "Analyse load changes used to prepare for competition.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 73,
+   "type": "MCQ",
+   "prompt": "A team adds many long endurance runs during a phase intended to increase maximal power. What is the main programming concern?",
+   "options": [
+    "The added endurance load may interfere with power adaptation if not balanced",
+    "Endurance running always increases maximal power fastest",
+    "Power training no longer needs technique",
+    "All athletes respond in exactly the same way"
+   ],
+   "correctAnswer": "The added endurance load may interfere with power adaptation if not balanced",
+   "explanation": "Training goals can compete when workload, recovery, and exercise selection are poorly aligned.",
+   "difficulty": 4,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Concurrent Training",
+   "learningOutcome": "Analyse compatibility between training goals and workloads.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 74,
+   "type": "MCQ",
+   "prompt": "Why can living or training at altitude affect endurance preparation?",
+   "options": [
+    "Lower oxygen availability can stimulate adaptations linked to oxygen transport",
+    "Altitude removes the need for training consistency",
+    "Air pressure directly strengthens every tendon",
+    "Altitude makes hydration unnecessary"
+   ],
+   "correctAnswer": "Lower oxygen availability can stimulate adaptations linked to oxygen transport",
+   "explanation": "Reduced oxygen pressure can challenge the body and influence red blood cell and oxygen-use adaptations.",
+   "difficulty": 4,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Environmental Physiology",
+   "learningOutcome": "Analyse how environmental conditions influence endurance training.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 75,
+   "type": "MCQ",
+   "prompt": "In repeated short sprints with little rest, why does speed often drop across repetitions?",
+   "options": [
+    "Energy stores and neuromuscular function become stressed before full recovery occurs",
+    "The athlete forgets the rules after each sprint",
+    "The track becomes longer after every repetition",
+    "Oxygen stops existing in the air"
+   ],
+   "correctAnswer": "Energy stores and neuromuscular function become stressed before full recovery occurs",
+   "explanation": "Repeated maximal efforts can reduce phosphocreatine availability and increase fatigue before recovery catches up.",
+   "difficulty": 4,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Fatigue",
+   "learningOutcome": "Analyse physiological reasons for fatigue in repeated high-intensity exercise.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 76,
+   "type": "MCQ",
+   "prompt": "A video shows a learner's knees collapsing inward during repeated jump landings. Which coaching focus is most relevant?",
+   "options": [
+    "Improve hip and knee control so knees track more safely",
+    "Increase landing height immediately",
+    "Ignore alignment because pain is absent",
+    "Tell the learner to land with locked knees"
+   ],
+   "correctAnswer": "Improve hip and knee control so knees track more safely",
+   "explanation": "Excessive inward knee movement can increase joint stress, so control and technique should be coached.",
+   "difficulty": 4,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Movement Screening",
+   "learningOutcome": "Analyse movement patterns linked to injury-prevention coaching.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 77,
+   "type": "MCQ",
+   "prompt": "Why does a gymnast rotate faster when pulling the limbs closer to the body during a spin?",
+   "options": [
+    "Moment of inertia decreases, so angular velocity increases",
+    "Body mass disappears during rotation",
+    "Gravity stops acting on the gymnast",
+    "Friction with the air becomes the only force"
+   ],
+   "correctAnswer": "Moment of inertia decreases, so angular velocity increases",
+   "explanation": "Bringing mass closer to the axis reduces moment of inertia and increases rotation speed.",
+   "difficulty": 4,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Angular Motion",
+   "learningOutcome": "Analyse angular motion principles in sport skills.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 78,
+   "type": "MCQ",
+   "prompt": "Why does a cyclist use a lower body position when riding fast into the wind?",
+   "options": [
+    "It reduces frontal area and aerodynamic drag",
+    "It increases air resistance deliberately",
+    "It turns rolling friction into food energy",
+    "It removes the need to pedal"
+   ],
+   "correctAnswer": "It reduces frontal area and aerodynamic drag",
+   "explanation": "A lower streamlined position can reduce drag, allowing more speed for the same effort.",
+   "difficulty": 4,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Fluid Resistance",
+   "learningOutcome": "Analyse how drag affects sport performance.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 79,
+   "type": "MCQ",
+   "prompt": "During sprint acceleration, why is pushing forcefully backward and downward against the ground important?",
+   "options": [
+    "The ground reaction force helps propel the sprinter forward",
+    "The ground stores the runner's oxygen permanently",
+    "The runner moves forward without external forces",
+    "The shoes create energy from nothing"
+   ],
+   "correctAnswer": "The ground reaction force helps propel the sprinter forward",
+   "explanation": "By Newton's third law, the ground pushes back on the athlete and contributes to forward acceleration.",
+   "difficulty": 4,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Ground Reaction Forces",
+   "learningOutcome": "Analyse force application in sprint acceleration.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 80,
+   "type": "MCQ",
+   "prompt": "What does the force-velocity relationship suggest about very heavy resistance movements?",
+   "options": [
+    "They are usually performed more slowly than lighter explosive movements",
+    "They always move faster than unloaded jumps",
+    "They require no force production",
+    "They are unrelated to muscle function"
+   ],
+   "correctAnswer": "They are usually performed more slowly than lighter explosive movements",
+   "explanation": "As external load rises, movement velocity typically falls even though force demand is high.",
+   "difficulty": 4,
+   "strandTitle": "Biomechanics",
+   "subStrandTitle": "Force-Velocity Relationship",
+   "learningOutcome": "Analyse how load affects movement speed in training.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 81,
+   "type": "MCQ",
+   "prompt": "After endurance training, a runner can maintain a faster pace before heavy breathing and leg burning appear. Which adaptation is most likely reflected?",
+   "options": [
+    "Improved lactate threshold",
+    "Loss of all aerobic capacity",
+    "Reduced blood oxygen transport",
+    "Permanent dehydration"
+   ],
+   "correctAnswer": "Improved lactate threshold",
+   "explanation": "A higher lactate threshold means harder work can be sustained before fatigue signs rise sharply.",
+   "difficulty": 4,
+   "strandTitle": "Anatomy and Exercise Physiology",
+   "subStrandTitle": "Endurance Adaptations",
+   "learningOutcome": "Analyse indicators of endurance adaptation.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 82,
+   "type": "MCQ",
+   "prompt": "A mesocycle focuses first on general conditioning, then sport-specific intensity, then reduced load before finals. What planning idea does this show?",
+   "options": [
+    "Periodised progression toward peak performance",
+    "Random training with no sequence",
+    "Only recovery with no overload",
+    "Competition without preparation"
+   ],
+   "correctAnswer": "Periodised progression toward peak performance",
+   "explanation": "The phases organise training stress and recovery so performance can build toward a target event.",
+   "difficulty": 4,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Periodised Planning",
+   "learningOutcome": "Analyse phase sequencing in sport training plans.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 83,
+   "type": "MCQ",
+   "prompt": "During a planned easy run, a learner's heart rate and perceived exertion are both much higher than usual. What is the best coaching interpretation?",
+   "options": [
+    "The learner may need load adjustment, hydration, rest, or further checking",
+    "The session must become harder immediately",
+    "The data prove the learner is fully recovered",
+    "Monitoring information should be ignored"
+   ],
+   "correctAnswer": "The learner may need load adjustment, hydration, rest, or further checking",
+   "explanation": "Unexpectedly high internal load can signal fatigue, heat strain, illness, or other factors requiring caution.",
+   "difficulty": 4,
+   "strandTitle": "Training Monitoring",
+   "subStrandTitle": "Internal Load",
+   "learningOutcome": "Analyse monitoring data to make safe training decisions.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 84,
+   "type": "MCQ",
+   "prompt": "Why is a one-size-fits-all hydration rule weak for every athlete in every condition?",
+   "options": [
+    "Sweat rate, heat, duration, intensity, and individual needs vary",
+    "All athletes sweat exactly the same amount",
+    "Only elite athletes need water",
+    "Hydration is unrelated to temperature"
+   ],
+   "correctAnswer": "Sweat rate, heat, duration, intensity, and individual needs vary",
+   "explanation": "Hydration planning should consider environment, activity, and individual response rather than a single fixed rule.",
+   "difficulty": 4,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Individual Hydration Needs",
+   "learningOutcome": "Analyse factors that influence hydration strategies.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 85,
+   "type": "MCQ",
+   "prompt": "Why should a school athlete be cautious about using unverified performance supplements?",
+   "options": [
+    "They may carry health, contamination, cost, and rule-compliance risks",
+    "They are always safer than food",
+    "They replace training and sleep completely",
+    "They are required in all school sports"
+   ],
+   "correctAnswer": "They may carry health, contamination, cost, and rule-compliance risks",
+   "explanation": "Food-first choices and qualified guidance are safer than relying on unverified products.",
+   "difficulty": 4,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Supplement Safety",
+   "learningOutcome": "Analyse ethical and safety issues linked to sport supplements.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 86,
+   "type": "MCQ",
+   "prompt": "Why can low energy availability be a serious concern for active adolescents?",
+   "options": [
+    "It can affect health, growth, recovery, mood, and performance",
+    "It guarantees faster adaptation",
+    "It only affects professional athletes",
+    "It means hydration is perfect"
+   ],
+   "correctAnswer": "It can affect health, growth, recovery, mood, and performance",
+   "explanation": "When energy intake is too low for training and normal body needs, several body systems can be affected.",
+   "difficulty": 4,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Adolescent Athlete Health",
+   "learningOutcome": "Analyse the importance of energy availability in youth sport.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 87,
+   "type": "MCQ",
+   "prompt": "Why does poor sleep often reduce training quality and skill learning?",
+   "options": [
+    "Sleep supports recovery, attention, memory, and hormonal regulation",
+    "Sleep only affects people who do not train",
+    "Less sleep always increases reaction speed",
+    "Sleep replaces all practice sessions"
+   ],
+   "correctAnswer": "Sleep supports recovery, attention, memory, and hormonal regulation",
+   "explanation": "Adequate sleep helps the body recover and the brain consolidate learning.",
+   "difficulty": 4,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Sleep and Recovery",
+   "learningOutcome": "Analyse how sleep influences sport performance and learning.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 88,
+   "type": "MCQ",
+   "prompt": "Two athletes face the same final. One sees it as a challenge, the other as a threat. Which psychology idea best explains different responses?",
+   "options": [
+    "Cognitive appraisal influences emotional and performance response",
+    "Both athletes must have identical anxiety levels",
+    "Only physical fitness affects emotions",
+    "Rules determine all feelings before sport"
+   ],
+   "correctAnswer": "Cognitive appraisal influences emotional and performance response",
+   "explanation": "How an athlete interprets a situation can shape stress, confidence, focus, and behaviour.",
+   "difficulty": 4,
+   "strandTitle": "Sports Psychology",
+   "subStrandTitle": "Stress Appraisal",
+   "learningOutcome": "Analyse how interpretation affects sport performance under pressure.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 89,
+   "type": "MCQ",
+   "prompt": "Why might a coach use a more directive leadership style during an immediate safety issue but a more democratic style during season planning?",
+   "options": [
+    "Different situations require different decision speed, expertise, and athlete input",
+    "One leadership style is always best for every context",
+    "Athletes should never understand decisions",
+    "Safety issues are solved by voting slowly"
+   ],
+   "correctAnswer": "Different situations require different decision speed, expertise, and athlete input",
+   "explanation": "Effective leadership adapts to the task, risk level, time available, and learners' needs.",
+   "difficulty": 4,
+   "strandTitle": "Coaching and Pedagogy",
+   "subStrandTitle": "Leadership Styles",
+   "learningOutcome": "Analyse leadership choices in varied sport contexts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 90,
+   "type": "MCQ",
+   "prompt": "A team loses despite taking more shots than the opponent. Which analysis question is most useful?",
+   "options": [
+    "Were the shots high quality and converted efficiently?",
+    "Did the team have brighter jerseys?",
+    "Was the scoreboard placed too high?",
+    "Did more shots automatically mean better tactics?"
+   ],
+   "correctAnswer": "Were the shots high quality and converted efficiently?",
+   "explanation": "Performance analysis should examine quality, context, and efficiency rather than only raw totals.",
+   "difficulty": 4,
+   "strandTitle": "Performance Analysis",
+   "subStrandTitle": "Data Interpretation",
+   "learningOutcome": "Analyse performance indicators beyond simple counts.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 91,
+   "type": "MCQ",
+   "prompt": "A Grade 12 learner is designing an eight-week plan for an 800 m race. Which plan design is strongest?",
+   "options": [
+    "Blend aerobic work, speed endurance, technique, recovery, and gradual load progression",
+    "Sprint maximally every day with no rest",
+    "Only do upper-body strength and ignore running",
+    "Change activities randomly without recording progress"
+   ],
+   "correctAnswer": "Blend aerobic work, speed endurance, technique, recovery, and gradual load progression",
+   "explanation": "The 800 m event requires planned development of endurance, speed endurance, skill, and recovery.",
+   "difficulty": 5,
+   "strandTitle": "Training Principles",
+   "subStrandTitle": "Training Plan Design",
+   "learningOutcome": "Create integrated training plans for specific sport demands.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 92,
+   "type": "MCQ",
+   "prompt": "Which warm-up design best supports injury prevention for a school netball team?",
+   "options": [
+    "Dynamic mobility, activation, landing mechanics, cutting drills, and gradual intensity",
+    "Static sitting, no movement, then immediate full-speed play",
+    "Only arm circles for all positions",
+    "Random maximal jumps until players are tired"
+   ],
+   "correctAnswer": "Dynamic mobility, activation, landing mechanics, cutting drills, and gradual intensity",
+   "explanation": "A sport-specific warm-up should prepare the movements, muscles, and control needed for the game.",
+   "difficulty": 5,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Preventive Warm-up Design",
+   "learningOutcome": "Create sport-specific warm-up routines that reduce avoidable risk.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 93,
+   "type": "MCQ",
+   "prompt": "A school wants to use wearable trackers for training. Which policy choice is most ethical?",
+   "options": [
+    "Collect only useful data, explain consent, protect privacy, and limit access",
+    "Publish every learner's data online",
+    "Collect data secretly to avoid questions",
+    "Use data to shame slower learners"
+   ],
+   "correctAnswer": "Collect only useful data, explain consent, protect privacy, and limit access",
+   "explanation": "Responsible technology use balances performance benefits with privacy, consent, and learner welfare.",
+   "difficulty": 5,
+   "strandTitle": "Ethics and Values in Sport",
+   "subStrandTitle": "Technology and Data Ethics",
+   "learningOutcome": "Evaluate ethical safeguards for performance-tracking technology.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 94,
+   "type": "MCQ",
+   "prompt": "Which research design would best test whether a six-week plyometric programme improves vertical jump height?",
+   "options": [
+    "Pre-test and post-test with a comparable control group and standardised jump protocol",
+    "Ask one learner if jumping feels better after one session",
+    "Change training, shoes, surface, and test method all at once",
+    "Measure only the loudness of landings"
+   ],
+   "correctAnswer": "Pre-test and post-test with a comparable control group and standardised jump protocol",
+   "explanation": "A controlled, standardised design gives stronger evidence about the effect of the programme.",
+   "difficulty": 5,
+   "strandTitle": "Research and Data in Sport",
+   "subStrandTitle": "Intervention Design",
+   "learningOutcome": "Create valid school-level investigations into training effects.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 95,
+   "type": "MCQ",
+   "prompt": "A school team has three matches in one day. Which nutrition approach is most appropriate for general planning?",
+   "options": [
+    "Use familiar balanced meals, portable carbohydrate snacks, fluids, and recovery breaks",
+    "Try unknown supplements between every match",
+    "Avoid all food and drink until evening",
+    "Eat only very high-fat meals immediately before play"
+   ],
+   "correctAnswer": "Use familiar balanced meals, portable carbohydrate snacks, fluids, and recovery breaks",
+   "explanation": "Tournament planning should support fuel, hydration, digestion comfort, and recovery without risky new products.",
+   "difficulty": 5,
+   "strandTitle": "Sports Nutrition",
+   "subStrandTitle": "Tournament Planning",
+   "learningOutcome": "Create safe general nutrition plans for repeated school competitions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 96,
+   "type": "MCQ",
+   "prompt": "A football coach wants to evaluate a high-pressing style. Which analysis plan is strongest?",
+   "options": [
+    "Track pressures, turnovers won, location of recoveries, chances created, and fatigue indicators",
+    "Count only the number of throw-ins",
+    "Ignore match context and use one random statistic",
+    "Judge success only by crowd noise"
+   ],
+   "correctAnswer": "Track pressures, turnovers won, location of recoveries, chances created, and fatigue indicators",
+   "explanation": "Good analysis selects indicators that match the tactical aim and its physical consequences.",
+   "difficulty": 5,
+   "strandTitle": "Performance Analysis",
+   "subStrandTitle": "Tactical Indicators",
+   "learningOutcome": "Create performance indicators aligned to a team's tactical model.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 97,
+   "type": "MCQ",
+   "prompt": "A talented player wants to continue after an injury because scouts are watching. Which decision is most ethical for the coach?",
+   "options": [
+    "Prioritise the learner's welfare and follow medical or school return-to-play procedures",
+    "Let the player decide alone under pressure",
+    "Hide the injury from officials",
+    "Keep the player on because winning matters most"
+   ],
+   "correctAnswer": "Prioritise the learner's welfare and follow medical or school return-to-play procedures",
+   "explanation": "Duty of care requires athlete welfare to come before selection pressure or short-term results.",
+   "difficulty": 5,
+   "strandTitle": "Ethics and Values in Sport",
+   "subStrandTitle": "Duty of Care",
+   "learningOutcome": "Evaluate ethical decisions involving injury, pressure, and athlete welfare.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 98,
+   "type": "MCQ",
+   "prompt": "Which talent-identification approach is fairest for a school sports programme?",
+   "options": [
+    "Use multiple assessments over time, consider maturation, and give feedback and access to development",
+    "Select only the tallest learner on one day",
+    "Exclude late developers permanently",
+    "Choose players based on popularity only"
+   ],
+   "correctAnswer": "Use multiple assessments over time, consider maturation, and give feedback and access to development",
+   "explanation": "Fair talent development recognises growth differences, repeated evidence, and opportunities to improve.",
+   "difficulty": 5,
+   "strandTitle": "Coaching and Pedagogy",
+   "subStrandTitle": "Talent Development",
+   "learningOutcome": "Evaluate fair and developmental selection practices in school sport.",
+   "cognitiveLevel": "analyze",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 99,
+   "type": "MCQ",
+   "prompt": "A team from a cool region will compete in a hot, humid county. Which preparation plan is best?",
+   "options": [
+    "Gradual heat exposure, adjusted intensity, hydration access, shade, and monitoring",
+    "Arrive late and train hardest at midday immediately",
+    "Wear extra layers during the match",
+    "Ignore weather because skill is the only factor"
+   ],
+   "correctAnswer": "Gradual heat exposure, adjusted intensity, hydration access, shade, and monitoring",
+   "explanation": "Heat preparation should be gradual and supervised, with load and safety adjusted to the environment.",
+   "difficulty": 5,
+   "strandTitle": "Sports Safety and Recovery",
+   "subStrandTitle": "Environmental Preparation",
+   "learningOutcome": "Create safe preparation plans for challenging environmental conditions.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  },
+  {
+   "questionNumber": 100,
+   "type": "MCQ",
+   "prompt": "Which school return-to-play policy is most appropriate after a significant sport injury?",
+   "options": [
+    "Use qualified clearance, staged progression, symptom monitoring, and communication with guardians or staff",
+    "Return immediately once the learner feels pressure to play",
+    "Avoid recording the injury or recovery steps",
+    "Let team-mates vote on readiness"
+   ],
+   "correctAnswer": "Use qualified clearance, staged progression, symptom monitoring, and communication with guardians or staff",
+   "explanation": "A staged, supervised return protects welfare and supports safe participation after injury.",
+   "difficulty": 5,
+   "strandTitle": "Injury Prevention",
+   "subStrandTitle": "Return-to-Play Planning",
+   "learningOutcome": "Create safe school-level return-to-play procedures after injury.",
+   "cognitiveLevel": "create",
+   "featureTags": [
+    "quiz_me",
+    "take_quiz",
+    "quiz_battle",
+    "homework",
+    "flashcards",
+    "games"
+   ]
+  }
+ ]
 }

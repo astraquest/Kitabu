@@ -6,7 +6,10 @@ import { spawnSync } from 'node:child_process';
 const WEB = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(WEB, 'dist');
 const GENERATOR = join(WEB, 'build', 'build-pages.mjs');
-const EXCLUDED_TOP_LEVEL = new Set(['.gitignore', 'build', 'dist', 'functions', 'README.md', 'package.json']);
+const EXCLUDED_TOP_LEVEL = new Set([
+  '.gitignore', '.npmrc', '.nvmrc', 'build', 'dist', 'functions', 'npm-shrinkwrap.json',
+  'package-lock.json', 'package.json', 'pnpm-lock.yaml', 'README.md', 'yarn.lock'
+]);
 const DEPLOYABLE_EXTENSIONS = new Set([
   '.css', '.html', '.ico', '.jpg', '.jpeg', '.js', '.json', '.png', '.svg',
   '.txt', '.woff2', '.webmanifest', '.webp', '.xml'

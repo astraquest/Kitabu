@@ -22,7 +22,10 @@ for (const relativePath of requiredFiles) {
   }
 }
 
-const excludedArtifacts = ['.gitignore', 'build', 'dist', 'functions', 'README.md', 'package.json'];
+const excludedArtifacts = [
+  '.gitignore', '.npmrc', '.nvmrc', 'build', 'dist', 'functions', 'npm-shrinkwrap.json',
+  'package-lock.json', 'package.json', 'pnpm-lock.yaml', 'README.md', 'yarn.lock'
+];
 for (const relativePath of excludedArtifacts) {
   if (existsSync(join(DIST, relativePath))) {
     throw new Error(`Pages dist contains source-only artifact: ${relativePath}`);

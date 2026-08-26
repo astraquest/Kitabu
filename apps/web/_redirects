@@ -1,0 +1,21 @@
+# Apex legal redirects preserved from infra/Caddyfile. Reset-password and
+# verify-email are handled by their narrowly scoped Pages Functions so the
+# complete incoming query string is copied into the Location header.
+/privacy https://app.kitabu.ai/privacy 308
+/privacy/ https://app.kitabu.ai/privacy 308
+/Privacy https://app.kitabu.ai/privacy 308
+/Privacy/ https://app.kitabu.ai/privacy 308
+/policy https://app.kitabu.ai/policy 308
+/policy/ https://app.kitabu.ai/policy 308
+/Policy https://app.kitabu.ai/policy 308
+/Policy/ https://app.kitabu.ai/policy 308
+/terms https://app.kitabu.ai/terms 308
+/terms/ https://app.kitabu.ai/terms 308
+/Terms https://app.kitabu.ai/terms 308
+/Terms/ https://app.kitabu.ai/terms 308
+/TERMS https://app.kitabu.ai/terms 308
+/TERMS/ https://app.kitabu.ai/terms 308
+/deletion https://app.kitabu.ai/deletion 308
+/deletion/ https://app.kitabu.ai/deletion 308
+/Deletion https://app.kitabu.ai/deletion 308
+/Deletion/ https://app.kitabu.ai/deletion 308

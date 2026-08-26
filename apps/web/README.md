@@ -15,6 +15,8 @@ for caching/security). No framework, no build dependencies beyond Node.
 | `site-20260704.js` | All behaviour: scroll reveals, split-text, counters, FAQ accordion, sticky header/bar, analytics events, school onboarding form. Same date-stamp rule (`ASSET_JS`) |
 | `assets/fonts/*.woff2` | Self-hosted variable fonts (Bricolage Grotesque, Plus Jakarta Sans), latin subset, preloaded |
 | `legal.css` | Shared, script-free design system for `/terms`, `/policy`, `/privacy`, and `/deletion`. The API image copies this file plus its allowlisted logo, favicon, and fonts so the Play-facing `app.kitabu.ai` routes render without depending on the marketing host |
+| `functions/reset-password.js`, `functions/verify-email.js` | Narrow Pages Functions that issue 308 redirects to `app.kitabu.ai` while copying the complete incoming query string, including auth tokens |
+| `_routes.json` | Limits Function invocation to the reset-password and verify-email paths so static pages continue using the existing Pages asset/header path |
 | `styles.css` | Unreferenced legacy stylesheet from the previous legal-page design |
 | `styles-20260619*.css`, `main.js` | Unreferenced legacy files from the previous site — safe to delete |
 
@@ -77,3 +79,19 @@ Two delivery channels on submit:
 ## Local preview
 
 Any static server with clean-URL support, e.g. `npx serve apps/web`.
+
+## Cloudflare Pages
+
+The Git-integrated Pages project should use these settings:
+
+- Production branch: `main`
+- Root directory: `apps/web`
+- Build command: `npm run build`
+- Build output directory: `.`
+
+Run `npm run check` from this directory to verify that the clean release contains
+the legal pages, referenced homepage assets, security headers, apex redirects,
+and query-preserving reset/verification Functions. The Pages Functions own those
+two auth redirects; do not add them to `_redirects`.
+The existing zone-level `www.kitabu.ai` to `kitabu.ai` redirect remains outside
+Pages; do not attach `app.kitabu.ai` or `admin.kitabu.ai` to this project.

@@ -1,5 +1,9 @@
 # AGENTS.md - Kitabu AI
 
+## Codex Delegation Policy
+
+Sol runs as the high-reasoning orchestrator. Luna runs as the only implementation agent at high reasoning; there are no fallback implementation agents. Sol plans, decomposes, delegates, and performs read-only acceptance review. When explicitly assigned, Luna owns repository, configuration, dependency, migration, Git, release, and deployment mutations, and returns the changed files, a diff summary, and verification evidence. Luna must not spawn or delegate to other agents.
+
 ## Builder
 Implements features end to end using the existing repo architecture.
 

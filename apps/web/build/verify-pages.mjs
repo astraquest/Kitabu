@@ -22,7 +22,7 @@ for (const relativePath of requiredFiles) {
   }
 }
 
-const excludedArtifacts = ['build', 'dist', 'functions', 'README.md', 'package.json'];
+const excludedArtifacts = ['.gitignore', 'build', 'dist', 'functions', 'README.md', 'package.json'];
 for (const relativePath of excludedArtifacts) {
   if (existsSync(join(DIST, relativePath))) {
     throw new Error(`Pages dist contains source-only artifact: ${relativePath}`);

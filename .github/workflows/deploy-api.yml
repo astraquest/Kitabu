@@ -97,7 +97,7 @@ jobs:
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
             ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/tmp/kitabu-release-${{ github.sha }}/"
-      - name: Deploy on Hetzner
+      - name: Activate release on DigitalOcean
         run: |
           set -euo pipefail
           ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" \
@@ -235,7 +235,7 @@ jobs:
           assert_url_contains 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' 'Verification failed' --silent --show-error
           assert_url_contains 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' 'Verification failed' --silent --show-error --location
           assetlinks="$(curl --fail --silent https://app.kitabu.ai/.well-known/assetlinks.json)"
-          grep -Fq '"package_name":"ai.kitabu2.twa"' <<<"$assetlinks"
+          grep -Fq '"package_name":"ai.kitabu.app"' <<<"$assetlinks"
           grep -Fq 'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26' <<<"$assetlinks"
           grep -Fq 'delegate_permission/common.get_login_creds' <<<"$assetlinks"
           assert_redirect() {

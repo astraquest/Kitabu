@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: Immutable release name (for example ai.kitabu2.twa@1.2.6+126)
+        description: Immutable release name (for example ai.kitabu.app@1.2.6+126)
         required: true
 
 jobs:

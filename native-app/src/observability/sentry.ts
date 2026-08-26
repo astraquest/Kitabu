@@ -38,7 +38,7 @@ export function getSentryConfig() {
   return {
     dsn: getExtraValue('sentryDsn') || process.env.EXPO_PUBLIC_SENTRY_DSN || DEFAULT_SENTRY_DSN,
     environment: runtimeEnvironment,
-    release: `ai.kitabu2.twa@${version}+${buildVersion}`,
+    release: `ai.kitabu.app@${version}+${buildVersion}`,
     dist: buildVersion,
   };
 }

@@ -216,7 +216,7 @@ export function buildEmailVerificationEmail(args: {
   };
 }
 
-const KITABU_ANDROID_APP_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa';
+const KITABU_ANDROID_APP_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu.app';
 
 export function buildWelcomeEmail(args: { recipientEmail: string }) {
   const subject = "You're in! 🥳";

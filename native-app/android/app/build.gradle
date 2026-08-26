@@ -304,7 +304,7 @@ android {
 
     namespace "com.kitabunativeapp"
     defaultConfig {
-        applicationId "ai.kitabu2.twa"
+        applicationId "ai.kitabu.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // Play has already used 127; the next explicitly gated release defaults to 128.

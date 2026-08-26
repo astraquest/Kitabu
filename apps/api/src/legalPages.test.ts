@@ -125,7 +125,7 @@ test('Digital Asset Links verifies the Play-signed Android app', async () => {
   const statements = response.json();
   const playStatement = statements.find(
     (statement: { target?: { package_name?: string } }) =>
-      statement.target?.package_name === 'ai.kitabu2.twa'
+      statement.target?.package_name === 'ai.kitabu.app'
   );
 
   assert.ok(playStatement);

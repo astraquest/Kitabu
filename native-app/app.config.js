@@ -4,7 +4,7 @@ const path = require('node:path');
 const DEFAULT_GOOGLE_WEB_CLIENT_ID =
   '623941719538-7ptv4ia5injcvu2cktg26toelp3esukm.apps.googleusercontent.com';
 const DEFAULT_GOOGLE_ANDROID_CLIENT_ID =
-  '623941719538-3eh00pk50n22lk91e1ocbevkkiqal3sd.apps.googleusercontent.com';
+  '623941719538-b3hadlm1im311unrbdbod90vpgi5rnb0.apps.googleusercontent.com';
 const DEFAULT_GOOGLE_IOS_CLIENT_ID =
   '623941719538-d37q0vrph76pciungh1mapq9ug5f4gbq.apps.googleusercontent.com';
 const DEFAULT_SENTRY_DSN =
@@ -91,7 +91,7 @@ module.exports = {
       ],
     ],
     android: {
-      package: 'ai.kitabu2.twa',
+      package: 'ai.kitabu.app',
       softwareKeyboardLayoutMode: 'resize',
       blockedPermissions: [
         'android.permission.READ_EXTERNAL_STORAGE',

@@ -25,7 +25,7 @@ const ASSET_CONFIG = '/analytics-config.js';
 const ASSET_JS = '/site-20260818.js';
 const ASSET_LEGACY_JS = '/site-20260704.js';
 const WA = (tag) => `https://wa.me/254716175485?text=I%27m%20interested%20in%20Kitabu%20AI%20%5B${tag}%5D`;
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa&amp;pcampaignid=web_share';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu.app&amp;pcampaignid=web_share';
 const BRAND_ICON_URL = '/assets/kitabu-icon-bold-192.png?v=20260710';
 const ASTRA_QUEST_ASSET_PATH = '/assets/astra-quest';
 const astraQuestAsset = (filename) => `${ASTRA_QUEST_ASSET_PATH}/${filename}`;

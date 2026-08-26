@@ -7,7 +7,7 @@ const mockedSentry = Sentry as jest.Mocked<typeof Sentry>;
 test('initializes Sentry with an immutable native release identity', () => {
   const config = getSentryConfig();
 
-  expect(config.release).toMatch(/^ai\.kitabu2\.twa@/);
+  expect(config.release).toMatch(/^ai\.kitabu\.app@/);
   expect(config.dsn).toMatch(/^https:\/\//);
   expect(mockedSentry.init).toHaveBeenCalledWith(expect.objectContaining({ release: config.release, dsn: config.dsn }));
 });

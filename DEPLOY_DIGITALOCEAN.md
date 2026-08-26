@@ -28,7 +28,7 @@ newgrp docker
 ```bash
 sudo mkdir -p /opt/kitabu-ai
 sudo chown $USER:$USER /opt/kitabu-ai
-git clone https://github.com/samorakibagendi254/Kitabu.git /opt/kitabu-ai
+git clone https://github.com/astraquest/Kitabu.git /opt/kitabu-ai
 cd /opt/kitabu-ai
 cp apps/api/.env.example apps/api/.env
 chmod 600 apps/api/.env
@@ -57,14 +57,13 @@ In `docker-compose.yml`, set `POSTGRES_PASSWORD` to the same database password.
 
 ## 3. DNS
 
-Point these records to the Droplet IPv4:
+Public names stay on Cloudflare and do not change during migration:
 
-- `A kitabu.ai`
-- `A www.kitabu.ai`
-- `A app.kitabu.ai`
-- `A admin.kitabu.ai`
-
-If Cloudflare is in front, start with DNS-only until Caddy has issued certificates, then enable proxying.
+- `kitabu.ai`, `www.kitabu.ai`, `app.kitabu.ai`, and `admin.kitabu.ai` keep their existing records.
+- Route traffic to the Droplet through the existing remotely managed Cloudflare Tunnel; do not
+  perform a public A-record cutover and do not remove email DNS records.
+- Assign a DigitalOcean Reserved IP to the Droplet for stable SSH/origin access only; Postgres,
+  Redis, and the API must never be exposed publicly.
 
 ## 4. Build and start
 
@@ -75,7 +74,8 @@ docker compose logs api --tail=100
 docker compose logs caddy --tail=100
 ```
 
-For a new empty Postgres volume, SQL files in `apps/api/sql` are applied on database initialization. For an existing database, run migrations before starting the new API:
+Apply repository migrations before starting the API against a new or existing database (SQL
+initialization is not automatic):
 
 ```bash
 docker compose run --rm api node scripts/apply-migrations.mjs

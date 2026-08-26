@@ -379,7 +379,7 @@ import {
 import { parseQuizMeGeneratedQuestions, quizMeQuestionKey, type QuizMeGeneratedQuestion } from './quizMe.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 
-const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu2.twa';
+const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu.app';
 const KITABU_PLAY_SHA256_CERT_FINGERPRINT =
   'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26';
 

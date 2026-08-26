@@ -74,8 +74,8 @@ test('welcome email preserves the early-access message and Android app link', ()
   assert.equal(message.subject, "You're in! 🥳");
   assert.match(message.text, /one of the first kids in the country/);
   assert.match(message.text, /If you’re using an Apple device, we are coming soon\./);
-  assert.match(message.text, /https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu2\.twa/);
-  assert.match(message.html, /href="https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu2\.twa"/);
+  assert.match(message.text, /https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu\.app/);
+  assert.match(message.html, /href="https:\/\/play\.google\.com\/store\/apps\/details\?id=ai\.kitabu\.app"/);
   assert.match(message.html, /Get Kitabu on Android/);
   assert.doesNotMatch(`${message.text}\n${message.html}`, /unsubscribe/i);
 });

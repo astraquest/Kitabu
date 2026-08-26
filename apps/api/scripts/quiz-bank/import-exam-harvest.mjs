@@ -58,34 +58,61 @@ const SUBJECT_TITLE_ROUTES = [
   { test: /INTEGRATED[\s-]*SCIENCE/i, subject: 'integrated_science' },
   { test: /PRE-?TECHNICAL/i, subject: 'pre_technical_studies' },
   { test: /CREATIVE[\s-]*ARTS|PERFORMING[\s-]*ARTS/i, subject: 'creative_arts_sports' },
-  { test: /\bBUSINESS\b|BUSINESS[\s-]*STUD/i, subject: 'business_studies' },
+  { test: /\bBIOLOGY\b/i, subject: 'biology' },
+  { test: /\bCHEMISTRY\b/i, subject: 'chemistry' },
+  { test: /\bPHYSICS\b/i, subject: 'physics' },
+  { test: /\bCOMPUTER\b/i, subject: 'computer_studies_senior_or_junior' },
+  { test: /\bHISTORY\b/i, subject: 'history_citizenship' },
+  { test: /\bGEOGRAPHY\b/i, subject: 'geography' },
+  { test: /HOME[\s-]*SCIENCE/i, subject: 'home_science_by_grade' },
+  { test: /DRAWING[\s-]*(?:&|AND)?[\s-]*DESIGN|BUILDING[\s-]*CONSTRUCTION|POWER[\s-]*MECHANICS|ELECTRICITY|AVIATION/i, subject: 'drawing_design' },
+  { test: /C\s*\.\s*R\s*\.\s*E\b|\bCRE\b|CHRISTIAN[\s-]*RELIGIOUS|\bIRE\b|\bHRE\b|RELIGIOUS[\s-]*EDUCA/i, subject: 'religious_education_by_grade' },
+  { test: /\bFRENCH\b/i, subject: 'french' },
+  { test: /\bGERMAN\b/i, subject: 'german' },
+  { test: /\bARABIC\b/i, subject: 'arabic' },
+  { test: /\bMANDARIN\b|CHINESE\b/i, subject: 'mandarin' },
+  { test: /\bMUSIC\b/i, subject: 'music' },
+  { test: /\bSPORTS?\b|PHYSICAL[\s-]*EDUCATION/i, subject: 'sports_science' },
   { test: /AGRICULTURE|NUTRITION/i, subject: 'agriculture_nutrition_lower_or_junior' },
-  { test: /\bCRE\b|CHRISTIAN[\s-]*RELIGIOUS|\bIRE\b|\bHRE\b|RELIGIOUS[\s-]*EDUCA/i, subject: 'religious_education' },
+  { test: /\bBUSINESS\b|BUSINESS[\s-]*STUD/i, subject: 'business_by_grade' },
   { test: /\bENGLISH\b|LITERACY|LANGUAGE[\s-]*ACTIVITIES\b/i, subject: 'english' },
   { test: /MATHEMATICS|MATHS?\b/i, subject: 'mathematics' },
   { test: /SOCIAL[\s-]*STUDIES|SOCIAL[\s-]*ENVIRONMENT/i, subject: 'social_studies_lower_or_upper' },
-  { test: /HOME[\s-]*SCIENCE|HYGIENE/i, subject: 'home_science_lower' },
+  { test: /HYGIENE/i, subject: 'home_science_lower' },
   { test: /\bSCIENCE\b|EMVIRONMENTAL|ENVIRONMENTAL|ENVIRONMENT\b/i, subject: 'science_by_grade' }
 ];
+
+function resolveRouteSubject(routeSubject, gradeLevel) {
+  const senior = ['Grade 10', 'Grade 11', 'Grade 12'].includes(gradeLevel);
+  switch (routeSubject) {
+    case 'agriculture_nutrition_lower_or_junior':
+      return ['Grade 4', 'Grade 5', 'Grade 6'].includes(gradeLevel) ? 'agriculture_nutrition' : 'agriculture';
+    case 'social_studies_lower_or_upper':
+      return ['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel) ? 'environmental' : 'social_studies';
+    case 'home_science_lower':
+      return ['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel) ? 'environmental' : null;
+    case 'computer_studies_senior_or_junior':
+      return senior ? 'computer_studies' : null;
+    case 'religious_education_by_grade':
+      return senior ? 'cre_ire_hre' : 'religious_education';
+    case 'business_by_grade':
+      return senior ? 'business_education' : 'business_studies';
+    case 'home_science_by_grade':
+      return senior ? 'home_science' : null;
+    case 'science_by_grade':
+      if (['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel)) return 'environmental';
+      if (['Grade 4', 'Grade 5', 'Grade 6'].includes(gradeLevel)) return 'science_technology';
+      if (['Grade 7', 'Grade 8', 'Grade 9'].includes(gradeLevel)) return 'integrated_science';
+      return 'general_science';
+    default:
+      return routeSubject;
+  }
+}
 
 function routeSubject(title, gradeLevel) {
   for (const route of SUBJECT_TITLE_ROUTES) {
     if (route.test.test(title)) {
-      switch (route.subject) {
-        case 'agriculture_nutrition_lower_or_junior':
-          return ['Grade 4', 'Grade 5', 'Grade 6'].includes(gradeLevel) ? 'agriculture_nutrition' : 'agriculture';
-        case 'social_studies_lower_or_upper':
-          return ['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel) ? 'environmental' : 'social_studies';
-        case 'home_science_lower':
-          return ['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel) ? 'environmental' : null;
-        case 'science_by_grade':
-          if (['Grade 1', 'Grade 2', 'Grade 3'].includes(gradeLevel)) return 'environmental';
-          if (['Grade 4', 'Grade 5', 'Grade 6'].includes(gradeLevel)) return 'science_technology';
-          if (['Grade 7', 'Grade 8', 'Grade 9'].includes(gradeLevel)) return 'integrated_science';
-          return 'general_science';
-        default:
-          return route.subject;
-      }
+      return resolveRouteSubject(route.subject, gradeLevel);
     }
   }
   return null;
@@ -108,16 +135,20 @@ function routeFile(relativePath) {
   } else if (/^KJSEA/i.test(base)) {
     gradeLevel = 'Grade 9';
     title = base.replace(/^KJSEA(?:-\d{4})?(?:-(?:Sample|ASSESSMENT(?:-ESSENTIAL-STATISTICS)?))?/i, '');
-  } else if (/^KCSE/i.test(base) || /^KCSE_/i.test(dir)) {
-    return { skip: 'kcse-out-of-scope' };
+  } else if (/^KCSE/i.test(base) || /^KCSE_/i.test(dir) || /^F\d-/i.test(base)) {
+    gradeLevel = 'Grade 12';
   }
 
   // Strip bucket labels and marking-scheme-only files.
   title = title.replace(/^[a-z_]+-(?:GF|MS-GF|Download-\d+|Sports-Download-\d+|Education-Download-\d+)-?/i, '');
   title = title.replace(/^[a-z_]+-CBC-/i, '');
+  title = title.replace(/^(?:KCSE-\d{4}-|KCSE-|F\d-)+/i, '');
   title = title.replace(/^[-\s]+/, '');
-  if (/(?:^|-)MS(?:-|$)|MARKING[\s-]*SCHEME/i.test(title)) {
+  if (/(?:^|[-_])MS(?:[-_]|$)|MARKING[\s_-]*SCHEME/i.test(title)) {
     return { skip: 'marking-scheme-only-file' };
+  }
+  if (/TOPICAL|REVISION[-_ ]?(?:BOOKLET|MODEL)|CONFIDENTIAL|SYLLABUS|\bNOTES\b|ESSENTIAL[-_]STATISTICS/i.test(title)) {
+    return { skip: 'non-exam-material' };
   }
 
   const subject = gradeLevel ? routeSubject(title.replaceAll('-', ' '), gradeLevel) : null;
@@ -171,9 +202,9 @@ function cleanStem(text) {
   let stem = text
     .split('\n')
     .map(cleanLine)
-    .filter(line => line && !/^_{3,}$/.test(line))
+    .filter(line => line && !/^[_….]{3,}$/.test(line))
     .join(' ');
-  stem = stem.replace(/_{3,}/g, '');
+  stem = stem.replace(/[_…]{3,}/g, '').replace(/\.{4,}/g, '');
   stem = stem.replace(/\((?:\d+(?:\.\d+)?\s*(?:mks?|marks?)|alama\s*\d+|\d+\s*alama)\)/gi, ' ');
   stem = stem.replace(/\b([a-dA-D])\.\s*\.(?=\s|$)/g, ' ');
   stem = stem.replace(/\s+/g, ' ').trim();
@@ -185,9 +216,10 @@ function cleanAnswerBody(text) {
   const body = text
     .split('\n')
     .map(cleanLine)
-    .filter(line => line && !/^_{3,}$/.test(line))
+    .filter(line => line && !/^[_….]{3,}$/.test(line))
     .join('\n')
-    .replace(/_{3,}/g, '')
+    .replace(/[_…]{3,}/g, '')
+    .replace(/\.{4,}/g, '')
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{2,}/g, '\n')
     .trim();
@@ -209,10 +241,11 @@ function extractNumberedBlocks(lines) {
     current = null;
   };
   for (const rawLine of lines) {
-    const match = rawLine.match(/^\s{0,6}(\d{1,3})\s*[.)]\s*(.*)$/);
+    const match = rawLine.match(/^\s{0,6}(\d{1,3})(?:\s*[.)]\s*|\s+)(.*)$/);
     const number = match ? Number(match[1]) : null;
+    if (!match || !number) continue;
     const restart = number === 1 && lastNumber >= 5;
-    if (number !== null && ((number > lastNumber && number <= lastNumber + 3) || restart || lastNumber === 0)) {
+    if ((number > lastNumber && number <= lastNumber + 3) || restart || lastNumber === 0) {
       flush();
       current = { number, body: match[2] ?? '' };
       lastNumber = number;
@@ -248,11 +281,11 @@ function deriveDifficultyAndCognition(rawBody) {
     rawBody.match(/alama\s*(\d+(?:\.\d+)?)/i) ??
     rawBody.match(/(\d+(?:\.\d+)?)\s*alama/i);
   const marks = marksMatch ? Number(marksMatch[1]) : null;
-  if (marks === null) return { difficulty: 2, cognitiveLevel: 'understand' };
-  if (marks >= 5) return { difficulty: 4, cognitiveLevel: 'apply' };
-  if (marks >= 3) return { difficulty: 3, cognitiveLevel: 'apply' };
-  if (marks <= 1) return { difficulty: 1, cognitiveLevel: 'recall' };
-  return { difficulty: 2, cognitiveLevel: 'understand' };
+  if (marks === null) return { difficulty: 2, cognitiveLevel: 'understand', marksFound: false };
+  if (marks >= 5) return { difficulty: 4, cognitiveLevel: 'apply', marksFound: true };
+  if (marks >= 3) return { difficulty: 3, cognitiveLevel: 'apply', marksFound: true };
+  if (marks <= 1) return { difficulty: 1, cognitiveLevel: 'recall', marksFound: true };
+  return { difficulty: 2, cognitiveLevel: 'understand', marksFound: true };
 }
 
 const VISUAL_DEPENDENT = /\b(map|picture|diagram|chart|graph|photograph|photo|illustration|crossword|wordsearch|figure)\b/i;
@@ -427,6 +460,25 @@ function walkTextFiles(dir) {
 }
 
 const textFiles = walkTextFiles(textDir);
+
+function pairKey(filePath) {
+  const base = path.basename(filePath).replace(/\.txt$/i, '').toLowerCase().replaceAll('_', '-');
+  return base
+    .replace(/-ms(?=-|$)/g, '')
+    .replace(/-{2,}/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const pairIndex = new Map();
+for (const filePath of textFiles) {
+  const key = pairKey(filePath);
+  const isScheme = /(?:^|[-_.])ms(?:[-_.]|$)|marking[\s_-]*scheme/i.test(path.basename(filePath, '.txt'));
+  const entry = pairIndex.get(key) ?? {};
+  if (isScheme) entry.ms = filePath;
+  else entry.paper = filePath;
+  pairIndex.set(key, entry);
+}
+
 const report = {
   filesScanned: textFiles.length,
   routed: 0,
@@ -456,6 +508,15 @@ for (const filePath of textFiles.sort()) {
     report.skipped['unreadable'] = (report.skipped['unreadable'] ?? 0) + 1;
     continue;
   }
+  const twin = pairIndex.get(pairKey(filePath));
+  if (twin?.ms && twin.ms !== filePath) {
+    try {
+      text += `\nMARKING SCHEME\n${fs.readFileSync(twin.ms, 'utf8')}`;
+      report.schemePairsUsed = (report.schemePairsUsed ?? 0) + 1;
+    } catch {
+      report.skipped['unreadable-scheme'] = (report.skipped['unreadable-scheme'] ?? 0) + 1;
+    }
+  }
 
   const parsed = parseDocument(text, relativePath, route.paperLabel);
   let added = 0;
@@ -468,6 +529,10 @@ for (const filePath of textFiles.sort()) {
     }
     existingPrompts.add(promptKey);
     added += 1;
+    let difficulty = parsedItem.difficulty ?? 2;
+    if (!parsedItem.marksFound && ['Grade 1', 'Grade 2', 'Grade 3'].includes(route.gradeLevel)) {
+      difficulty = added % 2 === 1 ? 1 : 2;
+    }
     cellPayload.questions.push({
       questionNumber: nextNumber + added,
       type: parsedItem.type,
@@ -475,8 +540,8 @@ for (const filePath of textFiles.sort()) {
       options: parsedItem.options ?? [],
       correctAnswer: parsedItem.correctAnswer,
       explanation: parsedItem.explanation,
-      difficulty: 2,
-      cognitiveLevel: 'understand',
+      difficulty,
+      cognitiveLevel: parsedItem.cognitiveLevel ?? 'understand',
       featureTags: [...manifest.featureTags],
       imageKey: null,
       strandTitle: 'Exam Practice',
@@ -503,7 +568,13 @@ if (debugFileFlag) {
   const route = routeFile(relativePath);
   console.log('ROUTE:', JSON.stringify(route));
   if (!route.skip) {
-    const parsed = parseDocument(fs.readFileSync(debugFileFlag, 'utf8'), relativePath, route.paperLabel);
+    let text = fs.readFileSync(debugFileFlag, 'utf8');
+    const twin = pairIndex.get(pairKey(debugFileFlag));
+    if (twin?.ms && twin.ms !== debugFileFlag) {
+      text += `\nMARKING SCHEME\n${fs.readFileSync(twin.ms, 'utf8')}`;
+      console.log('(paired with marking scheme)');
+    }
+    const parsed = parseDocument(text, relativePath, route.paperLabel);
     console.log('skips:', JSON.stringify(parsed.skips), 'skippedNoAnswers:', parsed.skippedNoAnswers);
     for (const item of parsed.items.slice(0, 12)) {
       console.log('-', JSON.stringify(item).slice(0, 400));
@@ -512,7 +583,7 @@ if (debugFileFlag) {
   process.exit(0);
 }
 
-console.log(`Exam harvest ${apply ? 'APPLY' : 'REPORT'}: scanned=${report.filesScanned} routed=${report.routed} candidateQuestions=${totalImported}`);
+console.log(`Exam harvest ${apply ? 'APPLY' : 'REPORT'}: scanned=${report.filesScanned} routed=${report.routed} candidateQuestions=${totalImported} schemePairsUsed=${report.schemePairsUsed ?? 0}`);
 console.log('Skip reasons:', JSON.stringify(report.skipped, null, 1));
 console.log('Per-cell additions:', JSON.stringify(report.perCell, null, 1));
 

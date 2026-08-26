@@ -1,6 +1,6 @@
-# Apex legal redirects preserved from infra/Caddyfile. Reset-password and
-# verify-email are handled by their narrowly scoped Pages Functions so the
-# complete incoming query string is copied into the Location header.
+# Apex legal redirects preserved from infra/Caddyfile. Auth redirects are
+# configured as narrowly scoped Cloudflare zone rules so the complete incoming
+# query string is copied into the Location header.
 /privacy https://app.kitabu.ai/privacy 308
 /privacy/ https://app.kitabu.ai/privacy 308
 /Privacy https://app.kitabu.ai/privacy 308

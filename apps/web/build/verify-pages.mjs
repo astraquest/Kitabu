@@ -11,8 +11,7 @@ const requiredFiles = [
   'privacy/index.html',
   'deletion/index.html',
   '_headers',
-  '_redirects',
-  '_routes.json'
+  '_redirects'
 ];
 
 for (const relativePath of requiredFiles) {
@@ -76,22 +75,6 @@ for (const marker of [
   '/deletion https://app.kitabu.ai/deletion 308'
 ]) {
   if (!redirects.includes(marker)) throw new Error(`Pages redirect missing: ${marker}`);
-}
-
-for (const path of ['/reset-password', '/verify-email']) {
-  if (redirects.split('\n').some((line) => line.trimStart().startsWith(path))) {
-    throw new Error(`Pages _redirects must not shadow the Function route: ${path}`);
-  }
-}
-
-const routes = JSON.parse(readFileSync(join(DIST, '_routes.json'), 'utf8'));
-if (routes.version !== 1 || JSON.stringify(routes.include) !== JSON.stringify([
-  '/reset-password',
-  '/reset-password/*',
-  '/verify-email',
-  '/verify-email/*'
-])) {
-  throw new Error('Pages _routes.json must invoke Functions only for auth redirects');
 }
 
 console.log(`Pages dist artifact check passed (${requiredFiles.length} required files; ${fileCount} files, ${totalBytes} bytes; no asset exceeds 25 MiB).`);

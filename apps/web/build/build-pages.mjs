@@ -6,6 +6,7 @@
 //
 //   Run:    node apps/web/build/build-pages.mjs
 //   Output: static HTML folders under apps/web/ + sitemap.xml
+//   Pages packaging: node apps/web/build/package-pages.mjs -> apps/web/dist/
 //
 // Conventions (see apps/web/README.md):
 // - Shared CSS/JS use date-stamped filenames (styles-YYYYMMDD.css,

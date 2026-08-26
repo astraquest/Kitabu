@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build/build-pages.mjs",
-    "check": "node build/verify-pages.mjs && node build/verify-redirect-functions.mjs"
+    "build": "node build/package-pages.mjs",
+    "check": "npm run build && node build/verify-pages.mjs && node build/verify-redirect-functions.mjs"
   }
 }

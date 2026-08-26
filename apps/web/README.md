@@ -87,9 +87,9 @@ The Git-integrated Pages project should use these settings:
 - Production branch: `main`
 - Root directory: `apps/web`
 - Build command: `npm run build`
-- Build output directory: `.`
+- Build output directory: `dist`
 
-Run `npm run check` from this directory to verify that the clean release contains
+The build runs the existing generator, then packages only deployable static pages, assets, and Pages configuration into `dist/`; source-only build scripts, Functions source, README, and package metadata are excluded. Pages Functions remain in `apps/web/functions/` for deployment. Run `npm run check` from this directory to verify that the clean release contains
 the legal pages, referenced homepage assets, security headers, apex redirects,
 and query-preserving reset/verification Functions. The Pages Functions own those
 two auth redirects; do not add them to `_redirects`.

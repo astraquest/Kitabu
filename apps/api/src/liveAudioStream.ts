@@ -131,7 +131,18 @@ function createOpenAiRealtimeSocket(userId: string, model: string) {
 export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
   app.register(websocket);
 
-  app.get('/live-audio/stream', { websocket: true }, async (socket, request) => {
+  app.get(
+    '/live-audio/stream',
+    {
+      websocket: true,
+      config: {
+        rateLimit: {
+          max: 30,
+          timeWindow: '1 minute'
+        }
+      }
+    },
+    async (socket, request) => {
     const user = await authenticateRealtimeRequest(request);
     if (!user) {
       sendClient(socket, { type: 'error', message: 'Authentication required.' });
